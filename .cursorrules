@@ -1,0 +1,243 @@
+# Saint 6 Studio - Cursor Rules
+
+## Code Style & Comments
+
+### Comments
+- **Minimum comments**: Only add comments when code is not self-explanatory
+- Avoid obvious comments that restate what the code does
+- Use comments for:
+  - Complex business logic explanations
+  - Non-obvious workarounds or hacks
+  - API contracts or external dependencies
+  - TODO/FIXME items with context
+- Prefer self-documenting code through:
+  - Descriptive variable and function names
+  - Clear component structure
+  - TypeScript types and interfaces
+
+### Code Organization
+- Keep functions small and focused (single responsibility)
+- Extract complex logic into separate functions or utilities
+- Group related functionality together
+- Use meaningful names that describe intent
+
+## TypeScript Rules
+
+### Strict Type Safety
+- Always use explicit types for function parameters and return types
+- Avoid `any` - use `unknown` if type is truly unknown, then narrow it
+- Use `as const` for literal types when appropriate
+- Prefer interfaces for object shapes, types for unions/intersections
+- Use type guards for runtime type checking
+
+### Type Definitions
+```typescript
+// ✅ Good
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+function getUser(id: string): Promise<User> {
+  // ...
+}
+
+// ❌ Bad
+function getUser(id: any): any {
+  // ...
+}
+```
+
+### Type Inference
+- Let TypeScript infer types when obvious (e.g., `const count = 0`)
+- Explicitly type function parameters and return values
+- Use type assertions sparingly and only when necessary
+
+### Import/Export
+- Use named exports for components and utilities
+- Use default exports only for pages and layouts (Next.js convention)
+- Group imports: external → internal → types
+- Use type-only imports when appropriate: `import type { User } from './types'`
+
+## React Best Practices
+
+### Component Structure
+- Use functional components only (no class components)
+- Keep components small and focused
+- Extract reusable logic into custom hooks
+- Use composition over inheritance
+
+### Hooks Rules
+- Follow Rules of Hooks (only call at top level)
+- Use `useCallback` for functions passed to child components
+- Use `useMemo` for expensive computations
+- Extract complex state logic into custom hooks
+
+### Component Patterns
+```typescript
+// ✅ Good - Functional component with proper typing
+interface ButtonProps {
+  label: string;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+}
+
+export function Button({ label, onClick, variant = 'primary' }: ButtonProps) {
+  return (
+    <button onClick={onClick} data-variant={variant}>
+      {label}
+    </button>
+  );
+}
+
+// ❌ Bad - Missing types, inline styles, unclear structure
+export function Button(props: any) {
+  return <button style={{color: 'red'}} onClick={props.onClick}>{props.label}</button>;
+}
+```
+
+### State Management
+- Use `useState` for local component state
+- Use `useReducer` for complex state logic
+- Consider Context API for shared state (avoid prop drilling)
+- Keep state as close to where it's used as possible
+
+### Performance
+- Use `React.memo` for components that re-render frequently
+- Avoid creating objects/functions in render (use `useMemo`/`useCallback`)
+- Lazy load heavy components with `React.lazy` and `Suspense`
+- Optimize images with Next.js `Image` component
+
+## Next.js Best Practices
+
+### File Structure
+- Follow Next.js App Router conventions
+- Use `page.tsx` for routes
+- Use `layout.tsx` for shared layouts
+- Use `loading.tsx` for loading states
+- Use `error.tsx` for error boundaries
+- Use `not-found.tsx` for 404 pages
+
+### Server vs Client Components
+- Default to Server Components (no 'use client' directive)
+- Use 'use client' only when needed:
+  - Interactive components (onClick, onChange, etc.)
+  - Browser APIs (localStorage, window, etc.)
+  - Hooks (useState, useEffect, etc.)
+  - Third-party libraries requiring client-side
+
+### Data Fetching
+- Use Server Components for data fetching when possible
+- Use `async/await` in Server Components
+- Use `fetch` with proper caching strategies
+- Use `generateStaticParams` for static routes
+- Use `generateMetadata` for SEO
+
+### Routing
+- Use file-based routing (App Router)
+- Use dynamic routes with `[slug]` or `[...slug]`
+- Use route groups `(group)` for organization without affecting URL
+- Use parallel routes `@folder` when needed
+
+### Styling
+- Use CSS Modules or Tailwind CSS (as configured)
+- Use CSS variables from `globals.css` for design tokens
+- Use utility classes for typography (`.heading-desktop`, `.body-regular`, etc.)
+- Keep styles co-located with components when using CSS Modules
+
+### Performance Optimization
+- Use `next/image` for all images
+- Implement proper loading states
+- Use `next/dynamic` for code splitting
+- Optimize fonts with `next/font`
+- Use `generateStaticParams` for static generation
+
+### API Routes
+- Use Route Handlers in `app/api/` directory
+- Return proper HTTP status codes
+- Handle errors gracefully
+- Validate request data
+- Use TypeScript for request/response types
+
+## Code Quality
+
+### Error Handling
+- Always handle errors explicitly
+- Use try-catch for async operations
+- Provide meaningful error messages
+- Use error boundaries for React components
+- Log errors appropriately (don't expose sensitive info)
+
+### Testing Considerations
+- Write testable code (pure functions when possible)
+- Keep business logic separate from UI
+- Use dependency injection for testability
+- Consider edge cases and error states
+
+### Accessibility
+- Use semantic HTML elements
+- Include proper ARIA labels when needed
+- Ensure keyboard navigation works
+- Maintain proper heading hierarchy
+- Test with screen readers
+
+### Security
+- Never expose API keys or secrets in client code
+- Validate and sanitize user input
+- Use environment variables for sensitive data
+- Implement proper authentication/authorization
+- Use HTTPS in production
+
+## Project-Specific Rules
+
+### Design System
+- Use CSS variables from `globals.css` for colors and typography
+- Follow the typography utility classes (`.heading-desktop`, `.body-regular`, etc.)
+- Maintain consistency with Figma design tokens
+- Use responsive typography classes (mobile/desktop variants)
+
+### Fonts
+- Use `Public Sans` for body text
+- Use `JetBrains Mono` for captions
+- PP Fragment font will be added via @font-face when available
+- Always use font variables: `var(--font-heading)`, `var(--font-body)`, `var(--font-mono)`
+
+### Colors
+- Use CSS variables for all colors: `var(--color-primary)`, `var(--color-text-primary)`, etc.
+- Never hardcode color values
+- Maintain color consistency across the application
+
+## General Guidelines
+
+### Code Formatting
+- Use Biome for formatting (already configured)
+- Run `pnpm format` before committing
+- Use 2 spaces for indentation
+- Use single quotes for strings (if configured)
+- Add trailing commas in multi-line objects/arrays
+
+### Git Practices
+- Write clear, descriptive commit messages
+- Keep commits focused (one logical change per commit)
+- Use conventional commit format when possible
+
+### Documentation
+- Keep README.md updated
+- Document complex algorithms or business logic
+- Update type definitions when APIs change
+- Comment public APIs and exported functions
+
+## Anti-Patterns to Avoid
+
+- ❌ Don't use `any` type
+- ❌ Don't create components with inline styles (use CSS/Tailwind)
+- ❌ Don't fetch data in client components when Server Components can do it
+- ❌ Don't ignore TypeScript errors
+- ❌ Don't commit console.log statements
+- ❌ Don't use `var` (use `const` or `let`)
+- ❌ Don't mutate props or state directly
+- ❌ Don't create unnecessary wrapper components
+- ❌ Don't ignore accessibility requirements
+- ❌ Don't hardcode values that should be configurable
+

@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saint 6 Studio
+
+An exclusive destination for elevated productions, private events, and visionary experiences tailored to your every need.
+
+## Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org) with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4 + CSS Modules
+- **Fonts:** 
+  - Spectral (headings) - Google Fonts
+  - Public Sans (body) - Google Fonts
+  - JetBrains Mono (captions) - Google Fonts
+- **Linting/Formatting:** Biome
+- **Package Manager:** pnpm
+- **React Compiler:** Enabled
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+ 
+- pnpm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Start development server
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-## Learn More
+### Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Build for production
+pnpm build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start production server
+pnpm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Code Quality
 
-## Deploy on Vercel
+```bash
+# Run linter
+pnpm lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Format code
+pnpm format
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+saint6/
+├── app/
+│   ├── globals.css          # Global styles and CSS variables
+│   ├── layout.tsx           # Root layout with font configuration
+│   ├── page.tsx             # Homepage component
+│   └── page.module.css      # Homepage styles
+├── public/
+│   ├── assets/              # Static assets (logos, SVGs)
+│   └── images/              # Image assets
+│       ├── hero/            # Hero section images
+│       ├── gallery/          # Gallery images
+│       ├── project/          # Project section images
+│       ├── brands/           # Brand logos
+│       └── key-project/     # Key project section assets
+├── .cursorrules             # Cursor IDE rules and conventions
+└── biome.json               # Biome configuration
+```
+
+## Design System
+
+### Colors
+
+- Primary: `#880300`
+- Text Primary: `#231D1D`
+- Text Tertiary: `#080707`
+- Background Container: `#F5F4F4`
+- Text Invert (100/80/40): White with varying opacity
+
+### Typography
+
+- **Desktop Heading:** Spectral, 40px, weight 400
+- **Desktop Main Text:** Spectral, 36px, weight 300
+- **Desktop Title:** Spectral, 28px, weight 300
+- **Mobile Heading:** Spectral, 32px, weight 400
+- **Mobile Main Text:** Spectral, 28px, weight 300
+- **Mobile Title:** Spectral, 26px, weight 300
+- **Body Regular:** Public Sans, 16px, weight 400
+- **Body Bold:** Public Sans, 16px, weight 500
+- **Caption:** JetBrains Mono, 12px, weight 700, uppercase
+
+### CSS Variables
+
+All design tokens are defined as CSS variables in `app/globals.css` and exposed to Tailwind via `@theme inline`.
+
+## Features
+
+- Responsive design (desktop and mobile)
+- Hero section with background image and overlay
+- Gallery grid with 18 images
+- Key Project sticky section
+- Project showcase with detailed metadata
+- Testimonial section
+- Brand logos showcase
+
+## Development Guidelines
+
+See `.cursorrules` for detailed coding standards, including:
+
+- TypeScript best practices
+- React component patterns
+- Next.js conventions
+- Code style and comments
+- Accessibility requirements
+
+## License
+
+Private project - All rights reserved.

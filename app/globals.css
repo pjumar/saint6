@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
 :root {
+  --color-primary: #880300;
+  --color-text-primary: #231D1D;
+  --color-text-tertiary: #080707;
+  --color-bg-container: #F5F4F4;
+  --color-text-invert-100: #FFFFFF;
+  --color-text-invert-80: rgba(255, 255, 255, 0.8);
+  --color-text-invert-40: rgba(255, 255, 255, 0.4);
+  
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--color-text-primary);
+  
+  --font-heading: var(--font-spectral);
+  --font-body: var(--font-public-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "Courier New", monospace;
+  
+  --font-size-desktop-heading: 40px;
+  --font-size-desktop-main-text: 36px;
+  --font-size-desktop-title: 28px;
+  --line-height-desktop-heading: 1.2;
+  --line-height-desktop-main-text: 1.2;
+  --line-height-desktop-title: 1.5;
+  --letter-spacing-desktop: -2px;
+  
+  --font-size-mobile-heading: 32px;
+  --font-size-mobile-main-text: 28px;
+  --font-size-mobile-title: 26px;
+  --line-height-mobile-heading: 1.2;
+  --line-height-mobile-main-text: 1.2;
+  --line-height-mobile-title: 1.1;
+  --letter-spacing-mobile: -2px;
+  
+  --font-size-body: 16px;
+  --line-height-body: 1.5;
+  --letter-spacing-body: -2px;
+  
+  --font-size-caption: 12px;
+  --line-height-caption: 1.1;
+  --letter-spacing-caption: 2px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--color-primary);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-tertiary: var(--color-text-tertiary);
+  --color-bg-container: var(--color-bg-container);
+  --color-text-invert-100: var(--color-text-invert-100);
+  --color-text-invert-80: var(--color-text-invert-80);
+  --color-text-invert-40: var(--color-text-invert-40);
+  
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.heading-desktop {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-desktop-heading);
+  line-height: var(--line-height-desktop-heading);
+  letter-spacing: var(--letter-spacing-desktop);
+  font-weight: 400;
+}
+
+.heading-mobile {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-mobile-heading);
+  line-height: var(--line-height-mobile-heading);
+  letter-spacing: var(--letter-spacing-mobile);
+  font-weight: 400;
+}
+
+.main-text-desktop {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-desktop-main-text);
+  line-height: var(--line-height-desktop-main-text);
+  letter-spacing: var(--letter-spacing-desktop);
+  font-weight: 300;
+}
+
+.main-text-mobile {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-mobile-main-text);
+  line-height: var(--line-height-mobile-main-text);
+  letter-spacing: var(--letter-spacing-mobile);
+  font-weight: 300;
+}
+
+.title-desktop {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-desktop-title);
+  line-height: var(--line-height-desktop-title);
+  letter-spacing: var(--letter-spacing-desktop);
+  font-weight: 300;
+}
+
+.title-mobile {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-mobile-title);
+  line-height: var(--line-height-mobile-title);
+  letter-spacing: var(--letter-spacing-mobile);
+  font-weight: 300;
+}
+
+.body-regular {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  font-weight: 400;
+}
+
+.body-bold {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  font-weight: 500;
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  letter-spacing: var(--letter-spacing-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .heading-desktop {
+    font-size: var(--font-size-mobile-heading);
+    line-height: var(--line-height-mobile-heading);
+  }
+  
+  .main-text-desktop {
+    font-size: var(--font-size-mobile-main-text);
+    line-height: var(--line-height-mobile-main-text);
+  }
+  
+  .title-desktop {
+    font-size: var(--font-size-mobile-title);
+    line-height: var(--line-height-mobile-title);
+  }
 }
