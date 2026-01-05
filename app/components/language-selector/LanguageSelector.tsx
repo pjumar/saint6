@@ -35,20 +35,23 @@ export function LanguageSelector({
 
   return (
     <div
-      className={`${containerClass} ${className || ""}`}
+      className={`${styles.hoverContainer} ${className || ""}`}
       onMouseEnter={() => variant === "default" && setIsOpen(true)}
       onMouseLeave={() => variant === "default" && setIsOpen(false)}
-      onClick={handleClick}
-      style={{ cursor: variant === "menu" ? "pointer" : undefined }}
     >
-      <span className="caption">{language}</span>
-      <div className={caretClass} />
+      <div
+        className={containerClass}
+        onClick={handleClick}
+        style={{ cursor: variant === "menu" ? "pointer" : undefined }}
+      >
+        <span className="caption">{language}</span>
+        <div className={caretClass} />
+      </div>
+      {isOpen && variant === "default" && (
+        <div className={styles.dropdownBridge} />
+      )}
       {isOpen && (
-        <div
-          className={styles.languageDropdown}
-          onMouseEnter={() => variant === "default" && setIsOpen(true)}
-          onMouseLeave={() => variant === "default" && setIsOpen(false)}
-        >
+        <div className={styles.languageDropdown}>
           <Link
             href={switchLocale(pathname || `/${locale}`, "en")}
             className={styles.languageOption}

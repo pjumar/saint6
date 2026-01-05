@@ -1,3 +1,7 @@
+.hoverContainer {
+  position: relative;
+}
+
 .languageSelector {
   display: flex;
   gap: 0.25rem;
@@ -14,11 +18,11 @@
   transition: background 0.3s ease;
 }
 
-.languageSelector:hover .caretIcon {
+.hoverContainer:hover .caretIcon {
   background: var(--color-text-invert-100);
 }
 
-.languageSelector:hover .caption {
+.hoverContainer:hover .caption {
   color: var(--color-text-invert-100);
 }
 
@@ -34,6 +38,15 @@
   min-width: 4rem;
   z-index: 100;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.dropdownBridge {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  background: transparent;
 }
 
 .languageOption {
