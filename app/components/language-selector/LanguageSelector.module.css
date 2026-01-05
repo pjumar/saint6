@@ -1,0 +1,72 @@
+.languageSelector {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.caretIcon {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+  transition: background 0.3s ease;
+}
+
+.languageSelector:hover .caretIcon {
+  background: var(--color-text-invert-100);
+}
+
+.languageSelector:hover .caption {
+  color: var(--color-text-invert-100);
+}
+
+.languageDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  background: var(--color-bg-container);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 4rem;
+  z-index: 100;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.languageOption {
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.languageOption:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-text-primary);
+}
+
+.menuLanguageSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.menuCaretIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--color-text-invert-80);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 9L1 4h10z'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
+}
+

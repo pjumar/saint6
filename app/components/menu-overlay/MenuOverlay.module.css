@@ -1,0 +1,173 @@
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--color-primary);
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: menuFadeIn 0.2s ease 0.15s forwards;
+  will-change: opacity;
+}
+
+.menuOverlay.menuOverlayClosing {
+  animation: menuFadeOut 0.2s ease 0.15s forwards;
+  opacity: 1;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.menuBackground {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top right,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menuDecoration {
+  position: absolute;
+  bottom: 37.5rem;
+  right: -15.75rem;
+  width: 37.5rem;
+  height: 37.5rem;
+  transform: rotate(270deg);
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  --fill-0: #620a08;
+}
+
+.menuDecorationImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menuDecorationOverlay {
+  position: absolute;
+  top: 16.33%;
+  left: 4.34%;
+  right: 0;
+  bottom: 0;
+}
+
+.menuDecorationOverlayImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menuHeader {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.menuHeader .hamburgerMenu {
+  position: relative;
+  z-index: 11;
+}
+
+.menuLogo {
+  position: relative;
+  width: 10.6875rem;
+  height: 2.25rem;
+  z-index: 11;
+}
+
+.menuNav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 0 1.5rem;
+  z-index: 1;
+  align-items: center;
+}
+
+.menuNavItem {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  line-height: 1.5;
+  letter-spacing: -0.035rem;
+  font-weight: 300;
+  color: var(--color-text-invert-100);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  text-align: center;
+}
+
+.menuNavItem:hover {
+  color: var(--color-text-invert-100);
+}
+
+.menuFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5.4rem 2rem;
+  z-index: 1;
+}
+
+.menuFooterLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.menuFooterRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 48.0625rem) {
+  .menuOverlay {
+    display: none !important;
+  }
+}
+

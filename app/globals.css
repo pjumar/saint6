@@ -1,42 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #880300;
+  --color-primary: #880f00;
   --color-text-primary: #231D1D;
   --color-text-tertiary: #080707;
   --color-bg-container: #F5F4F4;
   --color-text-invert-100: #FFFFFF;
-  --color-text-invert-80: rgba(255, 255, 255, 0.8);
-  --color-text-invert-40: rgba(255, 255, 255, 0.4);
+  --color-text-invert-80: #F5F5F5;
+  --color-text-invert-40: #CCCCCC;
+  --color-overlay-dark: rgba(0, 0, 0, 0.2);
+  --color-decoration-fill: #620A08;
   
   --background: #ffffff;
   --foreground: var(--color-text-primary);
   
-  --font-heading: var(--font-spectral);
-  --font-body: var(--font-public-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), "Courier New", monospace;
-  
-  --font-size-desktop-heading: 40px;
-  --font-size-desktop-main-text: 36px;
-  --font-size-desktop-title: 28px;
+  --font-size-desktop-heading: 2.5rem;
+  --font-size-desktop-main-text: 2.25rem;
+  --font-size-desktop-title: 1.75rem;
   --line-height-desktop-heading: 1.2;
   --line-height-desktop-main-text: 1.2;
   --line-height-desktop-title: 1.5;
   --letter-spacing-desktop: -2px;
   
-  --font-size-mobile-heading: 32px;
-  --font-size-mobile-main-text: 28px;
-  --font-size-mobile-title: 26px;
+  --font-size-mobile-heading: 2rem;
+  --font-size-mobile-main-text: 1.75rem;
+  --font-size-mobile-title: 1.625rem;
   --line-height-mobile-heading: 1.2;
   --line-height-mobile-main-text: 1.2;
   --line-height-mobile-title: 1.1;
   --letter-spacing-mobile: -2px;
   
-  --font-size-body: 16px;
+  --font-size-body: 1rem;
   --line-height-body: 1.5;
   --letter-spacing-body: -2px;
   
-  --font-size-caption: 12px;
+  --font-size-caption: 0.75rem;
   --line-height-caption: 1.1;
   --letter-spacing-caption: 2px;
 }
@@ -51,13 +49,13 @@
   --color-text-invert-100: var(--color-text-invert-100);
   --color-text-invert-80: var(--color-text-invert-80);
   --color-text-invert-40: var(--color-text-invert-40);
-  
-  --font-heading: var(--font-heading);
-  --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
 }
 
 body {
+  --font-heading: var(--font-spectral);
+  --font-body: var(--font-public-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "Courier New", monospace;
+  
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -66,6 +64,8 @@ body {
   letter-spacing: var(--letter-spacing-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .heading-desktop {
@@ -80,7 +80,7 @@ body {
   font-family: var(--font-heading);
   font-size: var(--font-size-mobile-heading);
   line-height: var(--line-height-mobile-heading);
-  letter-spacing: var(--letter-spacing-mobile);
+  letter-spacing: -0.64px;
   font-weight: 400;
 }
 
@@ -139,9 +139,23 @@ body {
   letter-spacing: var(--letter-spacing-caption);
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--color-text-invert-80);
 }
 
-@media (max-width: 768px) {
+.container {
+  width: 100%;
+  max-width: 90rem; /* 1440px */
+  margin: 0 auto;
+  padding: 0 1.5rem; /* 24px */
+}
+
+@media (min-width: 48.0625rem) {
+  .container {
+    padding: 0 1.5rem; /* 24px */
+  }
+}
+
+@media (max-width: 48rem) {
   .heading-desktop {
     font-size: var(--font-size-mobile-heading);
     line-height: var(--line-height-mobile-heading);

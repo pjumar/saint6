@@ -1,0 +1,105 @@
+.hamburgerMenu {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 0;
+  overflow: visible;
+}
+
+.hamburgerLinePair {
+  position: absolute;
+  width: 3rem;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburgerLinePair:first-child {
+  transform: translateY(-0.5rem) rotate(0deg);
+}
+
+.hamburgerLinePair:last-child {
+  transform: translateY(0.5rem) rotate(0deg);
+}
+
+.hamburgerLineThin {
+  width: 3rem;
+  height: 2px;
+  background: var(--color-text-invert-100);
+  position: relative;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburgerLineThick {
+  height: 0.25rem;
+  background: var(--color-text-invert-100);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
+}
+
+.hamburgerLinePair:first-child .hamburgerLineThick {
+  width: 2.5rem;
+  right: 0;
+  left: auto;
+}
+
+.hamburgerLinePair:last-child .hamburgerLineThick {
+  width: 1.5rem;
+  right: 0;
+  left: auto;
+}
+
+.hamburgerMenuOpen {
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+.hamburgerMenuOpen .hamburgerLinePair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.hamburgerMenuOpen .hamburgerLinePair:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hamburgerMenuOpen .hamburgerLinePair:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.hamburgerMenuOpen .hamburgerLinePair:first-child .hamburgerLineThick {
+  width: 2rem;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+}
+
+.hamburgerMenuOpen .hamburgerLinePair:last-child .hamburgerLineThick {
+  width: 2rem;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 48.0625rem) {
+  .hamburgerMenu {
+    display: none;
+  }
+}
+

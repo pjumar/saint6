@@ -133,6 +133,12 @@ export function Button(props: any) {
 - Use `fetch` with proper caching strategies
 - Use `generateStaticParams` for static routes
 - Use `generateMetadata` for SEO
+- **Prefer Incremental Static Regeneration (ISG) over Server-Side Rendering**
+  - Use `revalidate` option in fetch: `fetch(url, { next: { revalidate: 3600 } })`
+  - Export `revalidate` constant from page: `export const revalidate = 3600`
+  - Use ISG for pages that can tolerate slightly stale data
+  - Only use dynamic rendering (`export const dynamic = 'force-dynamic'`) when absolutely necessary
+  - Default to static generation with ISG for better performance and SEO
 
 ### Routing
 - Use file-based routing (App Router)
@@ -145,6 +151,9 @@ export function Button(props: any) {
 - Use CSS variables from `globals.css` for design tokens
 - Use utility classes for typography (`.heading-desktop`, `.body-regular`, etc.)
 - Keep styles co-located with components when using CSS Modules
+- **ALWAYS use `rem` units instead of `px`** for all sizing (width, height, padding, margin, font-size, etc.)
+- Base font size is 16px (1rem = 16px), so divide px values by 16 to get rem
+- Exception: Use `px` only for border-width (1px, 2px) and very small values where rem would be impractical
 
 ### Performance Optimization
 - Use `next/image` for all images
@@ -152,6 +161,11 @@ export function Button(props: any) {
 - Use `next/dynamic` for code splitting
 - Optimize fonts with `next/font`
 - Use `generateStaticParams` for static generation
+- **Prefer Incremental Static Regeneration (ISG) over Server-Side Rendering (SSR)**
+  - Use `revalidate` option in `fetch` or `generateStaticParams` for ISG
+  - Default to static generation with `revalidate` for pages that don't need real-time data
+  - Only use Server Components for data fetching when ISG is not suitable
+  - Use ISG pattern: `export const revalidate = 3600` (revalidate every hour) or use `revalidate` in fetch options
 
 ### API Routes
 - Use Route Handlers in `app/api/` directory
@@ -204,9 +218,11 @@ export function Button(props: any) {
 - Always use font variables: `var(--font-heading)`, `var(--font-body)`, `var(--font-mono)`
 
 ### Colors
-- Use CSS variables for all colors: `var(--color-primary)`, `var(--color-text-primary)`, etc.
-- Never hardcode color values
+- **ALWAYS use CSS variables for colors**: `var(--color-primary)`, `var(--color-text-primary)`, `var(--color-text-invert-100)`, etc.
+- **NEVER hardcode color values** like `#FFFFFF`, `rgba(255, 255, 255, 0.8)`, or any hex/rgb/hsl values directly in CSS
+- All colors must reference variables defined in `globals.css`
 - Maintain color consistency across the application
+- If a color variable doesn't exist, add it to `globals.css` first, then use it
 
 ## General Guidelines
 
@@ -228,6 +244,67 @@ export function Button(props: any) {
 - Update type definitions when APIs change
 - Comment public APIs and exported functions
 
+### Testing & Browser Automation
+- **Playwright MCP**: Playwright MCP is already installed for Cursor
+- Use Playwright MCP tools to compare implementations with Figma designs
+- Use browser automation tools to verify visual consistency
+- Take screenshots and compare with design mockups when needed
+
+### Design Implementation
+- **ALWAYS use Figma MCP to check actual design colors, spacing, and styles** - Never guess colors or design values
+- Use `mcp_Figma_get_design_context` to get exact color values, font sizes, spacing, and other design tokens from Figma
+- Extract exact rgba/hex color values from Figma design context before implementing
+- Verify all design values match Figma specifications exactly
+- If design values are unclear, use Figma MCP to inspect specific nodes rather than guessing
+
+### Component Refactoring & Organization
+- **Always separate components into reusable, focused modules**
+- Extract components into `app/components/` directory with clear naming
+- Each component should have its own directory: `ComponentName/ComponentName.tsx` and `ComponentName/ComponentName.module.css`
+- Keep components small and focused on a single responsibility
+- Extract reusable UI elements (buttons, inputs, etc.) into separate components
+- Extract complex sections (hero, gallery, etc.) into their own components
+- Use TypeScript interfaces for all component props
+- Keep page components (`page.tsx`) clean - they should only compose sections/components
+- Group related components in subdirectories (e.g., `components/hero-section/`, `components/gallery-section/`)
+- Extract shared logic into custom hooks when needed
+- Use CSS Modules for component-specific styles
+- Keep global styles minimal - prefer component-scoped styles
+
+### SEO Best Practices
+- **Always implement proper SEO metadata**
+  - Use `generateMetadata` function in page components for dynamic metadata
+  - Export `metadata` object from layout.tsx and page.tsx for static metadata
+  - Include title, description, and Open Graph tags for all pages
+  - Use descriptive, keyword-rich titles (under 60 characters)
+  - Write compelling meta descriptions (150-160 characters)
+  - Include Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
+  - Add Twitter Card metadata when applicable
+  - Set proper `lang` attribute on `<html>` tag
+- **Semantic HTML Structure**
+  - Use proper heading hierarchy (h1 → h2 → h3)
+  - Use semantic HTML elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+  - Include alt text for all images
+  - Use descriptive link text (avoid "click here")
+- **Performance & SEO**
+  - Use Next.js Image component with proper `alt` attributes
+  - Implement proper loading states to improve Core Web Vitals
+  - Use `next/font` for font optimization
+  - Minimize JavaScript bundle size
+  - Use `generateStaticParams` for dynamic routes to enable static generation
+  - Prefer ISG (Incremental Static Regeneration) for better SEO and performance
+- **Structured Data**
+  - Consider adding JSON-LD structured data for rich snippets when applicable
+  - Use schema.org markup for business information, articles, etc.
+- **URL Structure**
+  - Use clean, descriptive URLs
+  - Implement proper canonical URLs
+  - Use proper 301 redirects for moved content
+- **Accessibility & SEO**
+  - Ensure proper ARIA labels for interactive elements
+  - Maintain proper heading hierarchy for screen readers
+  - Use semantic HTML which benefits both accessibility and SEO
+
 ## Anti-Patterns to Avoid
 
 - ❌ Don't use `any` type
@@ -240,4 +317,5 @@ export function Button(props: any) {
 - ❌ Don't create unnecessary wrapper components
 - ❌ Don't ignore accessibility requirements
 - ❌ Don't hardcode values that should be configurable
+- ❌ **Don't hardcode color values** - Always use CSS variables (e.g., `var(--color-text-invert-100)` instead of `#FFFFFF`)
 

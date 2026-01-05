@@ -1,0 +1,24 @@
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.menuSocialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.socialLinks a,
+.menuSocialLinks a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialLinks a:hover,
+.menuSocialLinks a:hover {
+  color: var(--color-text-invert-100);
+}
+
