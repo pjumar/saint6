@@ -8,6 +8,7 @@ import styles from "./Header.module.css";
 
 interface HeaderProps {
   isMenuOpen: boolean;
+  isClosing?: boolean;
   onMenuToggle: () => void;
   selectedLanguage?: string;
   onLanguageChange?: (language: string) => void;
@@ -15,6 +16,7 @@ interface HeaderProps {
 
 export function Header({
   isMenuOpen,
+  isClosing = false,
   onMenuToggle,
   selectedLanguage,
   onLanguageChange,

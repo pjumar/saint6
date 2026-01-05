@@ -27,11 +27,11 @@ export function HeroSection() {
 
   const handleMenuToggle = () => {
     if (isMenuOpen) {
+      setIsMenuOpen(false);
       setIsClosing(true);
       setTimeout(() => {
-        setIsMenuOpen(false);
         setIsClosing(false);
-      }, 350);
+      }, 300);
     } else {
       setIsMenuOpen(true);
     }
@@ -53,6 +53,7 @@ export function HeroSection() {
 
         <Header
           isMenuOpen={isMenuOpen}
+          isClosing={isClosing}
           onMenuToggle={handleMenuToggle}
           selectedLanguage={selectedLanguage}
           onLanguageChange={setSelectedLanguage}
@@ -104,7 +105,7 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-      {isMenuOpen && <MenuOverlay onClose={handleMenuToggle} isClosing={isClosing} />}
+      {(isMenuOpen || isClosing) && <MenuOverlay onClose={handleMenuToggle} isClosing={isClosing} />}
     </>
   );
 }

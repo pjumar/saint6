@@ -2,10 +2,11 @@
   position: relative;
   height: 59.75rem;
   width: 100%;
-  max-width: 90rem;
+  max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 1.5rem;
+  border-radius: 0;
+  padding: 0;
 }
 
 .heroBackground {
@@ -23,6 +24,9 @@
 .heroBackgroundImage {
   object-fit: cover;
   object-position: center top;
+  width: 325.91%;
+  left: -163.91%;
+  height: 100%;
 }
 
 .heroOverlay {
@@ -38,6 +42,7 @@
   height: 1px;
   z-index: 1;
   transform: rotate(180deg);
+  display: block;
 }
 
 .decorativeLineImage {
@@ -56,23 +61,38 @@
   align-items: center;
   gap: 1rem;
   z-index: 2;
+  padding: 0 1.5rem;
 }
 
 .heroContent {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: auto;
+  bottom: 3rem;
+  transform: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 0 1.5rem;
+  width: calc(100% - 3rem);
+  max-width: calc(100% - 3rem);
+  padding: 1.5rem 0;
   gap: 5.5rem;
+  box-sizing: border-box;
 }
 
 .heroHeading {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.64px;
+  font-family: var(--font-heading);
+  font-weight: 400;
   color: var(--color-text-invert-100);
   text-align: center;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  width: 100%;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -129,6 +149,7 @@
     border-radius: 0;
     position: relative;
     overflow: visible;
+    padding: 0;
   }
 
   .heroBackground {
@@ -141,6 +162,11 @@
     top: 0;
     bottom: 0;
     position: absolute;
+  }
+
+  .heroBackgroundImage {
+    width: 100%;
+    left: 0;
   }
 
   .heroContentWrapper {
@@ -158,6 +184,7 @@
   }
 
   .heroContent {
+    position: static;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -166,6 +193,12 @@
     width: auto;
     max-width: 34.0625rem;
     text-align: right;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    box-sizing: border-box;
   }
 
   .heroHeading {
@@ -179,6 +212,7 @@
     white-space: pre-wrap;
     margin-left: auto;
     max-width: 34.0625rem;
+    width: auto;
   }
 
   .heroMiddleSection {
@@ -201,69 +235,3 @@
     margin-left: -80rem;
   }
 }
-
-@media (max-width: 48rem) {
-  .hero {
-    height: 59.75rem;
-    padding: 0;
-    max-width: 100%;
-    overflow: hidden;
-    border-radius: 0;
-  }
-
-  .heroBackgroundImage {
-    width: 325.91%;
-    left: -163.91%;
-    height: 100%;
-  }
-
-  .heroContentWrapper {
-    left: 0;
-    right: 0;
-    padding: 0 1.5rem;
-  }
-
-  .heroContent {
-    position: absolute;
-    left: 1.5rem;
-    right: 1.5rem;
-    top: auto;
-    bottom: 3rem;
-    transform: none;
-    padding: 1.5rem 0;
-    gap: 5.5rem;
-    width: calc(100% - 3rem);
-    max-width: calc(100% - 3rem);
-    box-sizing: border-box;
-  }
-
-  .heroHeading {
-    font-size: 2rem;
-    line-height: 1.2;
-    letter-spacing: -0.64px;
-    font-family: var(--font-heading);
-    font-weight: 400;
-    color: var(--color-text-invert-100);
-    width: 100%;
-    max-width: 100%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    box-sizing: border-box;
-  }
-
-  .heroMiddleSection {
-    position: absolute;
-    left: 1.5rem;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc(100% - 3rem);
-    gap: 1.5rem;
-  }
-
-  .decorativeLine {
-    display: block;
-    width: 100%;
-  }
-}
-

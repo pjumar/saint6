@@ -175,15 +175,3 @@
     padding: 0 1.5rem;
   }
 }
-
-@media (max-width: 48rem) {
-  .header {
-    padding: 0 1.5rem;
-  }
-
-  .logo {
-    width: 10.6875rem;
-    height: 2.25rem;
-  }
-}
-

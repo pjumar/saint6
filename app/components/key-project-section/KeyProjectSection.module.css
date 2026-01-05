@@ -1,5 +1,5 @@
 .keyProjectSection {
-  height: 31.25rem;
+  height: 21.875rem;
   background: var(--color-primary);
   border-radius: 0 0 0 0;
   overflow: hidden;
@@ -29,13 +29,13 @@
 
 .keyProjectHeading {
   font-family: var(--font-heading);
-  font-size: 8rem;
+  font-size: 3rem;
   line-height: 1.2;
   color: var(--color-text-invert-100);
-  letter-spacing: -0.16rem;
+  letter-spacing: -0.96px;
   position: absolute;
-  top: 14.25rem;
-  left: calc(50% - 19.625rem);
+  top: calc(50% + 1.8125rem);
+  transform: translateY(-100%);
   font-weight: 400;
   margin: 0;
 }
@@ -43,10 +43,11 @@
 .keyProjectDecoration {
   position: absolute;
   left: 50%;
-  top: calc(50% + 12.25rem);
-  transform: translate(-50%, -50%);
-  width: 44.375rem;
-  height: 44.375rem;
+  bottom: -15.625rem;
+  top: auto;
+  transform: translateX(-50%);
+  width: 31.25rem;
+  height: 31.25rem;
 }
 
 .keyProjectBg,
@@ -62,24 +63,25 @@
   left: 4.34%;
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 48.0625rem) {
   .keyProjectSection {
-    height: 21.875rem;
+    height: 31.25rem;
   }
 
   .keyProjectHeading {
-    font-size: 3rem;
-    letter-spacing: -0.96px;
-    top: calc(50% + 1.8125rem);
-    transform: translateY(-100%);
+    font-size: 8rem;
+    letter-spacing: -0.16rem;
+    top: 14.25rem;
+    left: calc(50% - 19.625rem);
+    transform: none;
   }
 
   .keyProjectDecoration {
-    width: 31.25rem;
-    height: 31.25rem;
-    bottom: -15.625rem;
-    top: auto;
-    transform: translateX(-50%);
+    left: 50%;
+    top: calc(50% + 12.25rem);
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 44.375rem;
+    height: 44.375rem;
   }
 }
-

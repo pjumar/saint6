@@ -1,0 +1,148 @@
+.footer {
+  position: relative;
+  background: var(--color-primary);
+  min-height: 47.625rem;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerDecoration {
+  position: absolute;
+  top: -16.4375rem;
+  right: -16.25rem;
+  width: 37.5rem;
+  height: 37.5rem;
+  transform: rotate(270deg);
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.footerDecorationBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footerDecorationOverlay {
+  position: absolute;
+  top: 16.33%;
+  left: 4.34%;
+  right: 0;
+  bottom: 0;
+}
+
+.footerDecorationGroup {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.contactLabel {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  letter-spacing: var(--letter-spacing-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-invert-100);
+  opacity: 0.4;
+  margin-bottom: 1.5rem;
+}
+
+.logoWrapper {
+  position: relative;
+  z-index: 1;
+  width: 18.5625rem;
+  height: 3.9375rem;
+  margin-top: 6.8125rem;
+  margin-bottom: 0;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.contactInfo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: auto;
+  margin-bottom: 9.125rem;
+}
+
+.contactText {
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  line-height: 1.1;
+  letter-spacing: -0.0325rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.81);
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.footerLine {
+  position: absolute;
+  bottom: 2.3125rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+  width: calc(100% - 3rem);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.socialLinks {
+  position: absolute;
+  bottom: 3.8125rem;
+  left: 1.5rem;
+  z-index: 1;
+  display: flex;
+  gap: 1.0625rem;
+  align-items: center;
+}
+
+.socialLink {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  letter-spacing: var(--letter-spacing-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: var(--color-text-invert-100);
+}
+
+@media (min-width: 48.0625rem) {
+  .footer {
+    padding: 1.5rem;
+    min-height: 47.625rem;
+  }
+
+  .footerDecoration {
+    top: -16.4375rem;
+    right: -16.25rem;
+  }
+}

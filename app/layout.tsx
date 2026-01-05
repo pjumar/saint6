@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Public_Sans, JetBrains_Mono, Spectral } from "next/font/google";
 import "./globals.css";
+import { Footer } from "./components/footer/Footer";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -82,6 +83,7 @@ export default function RootLayout({
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${spectral.variable} antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );

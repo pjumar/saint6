@@ -149,25 +149,34 @@ body {
   padding: 0 1.5rem; /* 24px */
 }
 
-@media (min-width: 48.0625rem) {
-  .container {
-    padding: 0 1.5rem; /* 24px */
-  }
+.heading-desktop {
+  font-size: var(--font-size-mobile-heading);
+  line-height: var(--line-height-mobile-heading);
 }
 
-@media (max-width: 48rem) {
+.main-text-desktop {
+  font-size: var(--font-size-mobile-main-text);
+  line-height: var(--line-height-mobile-main-text);
+}
+
+.title-desktop {
+  font-size: var(--font-size-mobile-title);
+  line-height: var(--line-height-mobile-title);
+}
+
+@media (min-width: 48.0625rem) {
   .heading-desktop {
-    font-size: var(--font-size-mobile-heading);
-    line-height: var(--line-height-mobile-heading);
+    font-size: var(--font-size-desktop-heading);
+    line-height: var(--line-height-desktop-heading);
   }
   
   .main-text-desktop {
-    font-size: var(--font-size-mobile-main-text);
-    line-height: var(--line-height-mobile-main-text);
+    font-size: var(--font-size-desktop-main-text);
+    line-height: var(--line-height-desktop-main-text);
   }
   
   .title-desktop {
-    font-size: var(--font-size-mobile-title);
-    line-height: var(--line-height-mobile-title);
+    font-size: var(--font-size-desktop-title);
+    line-height: var(--line-height-desktop-title);
   }
 }

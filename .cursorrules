@@ -154,6 +154,11 @@ export function Button(props: any) {
 - **ALWAYS use `rem` units instead of `px`** for all sizing (width, height, padding, margin, font-size, etc.)
 - Base font size is 16px (1rem = 16px), so divide px values by 16 to get rem
 - Exception: Use `px` only for border-width (1px, 2px) and very small values where rem would be impractical
+- **ALWAYS use mobile-first CSS approach**
+  - Base styles (outside media queries) should be for mobile/small screens
+  - Use `@media (min-width: ...)` queries to progressively enhance for larger screens
+  - Never use `@media (max-width: ...)` queries - convert them to base styles instead
+  - Breakpoint for desktop: `48.0625rem` (769px)
 
 ### Performance Optimization
 - Use `next/image` for all images

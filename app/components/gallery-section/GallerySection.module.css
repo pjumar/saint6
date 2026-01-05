@@ -1,12 +1,12 @@
 .gallery {
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   background: var(--color-bg-container);
 }
 
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
   max-width: 87rem;
   margin: 0 auto;
 }
@@ -23,14 +23,13 @@
   object-fit: cover;
 }
 
-@media (max-width: 48rem) {
+@media (min-width: 48.0625rem) {
   .gallery {
-    padding: 1.5rem 0;
+    padding: 1.5rem;
   }
 
   .galleryGrid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
   }
 }
-
