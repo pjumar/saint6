@@ -29,10 +29,11 @@ const spectral = Spectral({
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isVi = locale === "vi";
+  const typedLocale = locale as Locale;
+  const isVi = typedLocale === "vi";
 
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://saint6studio.com"),
@@ -60,7 +61,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: isVi ? "vi_VN" : "en_US",
-      url: `/${locale}`,
+      url: `/${typedLocale}`,
       siteName: "Saint 6 Studio",
       title: isVi
         ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
@@ -93,24 +94,28 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "vi" }];
+  return [
+    { locale: "en" },
+    { locale: "vi" },
+  ] as Array<{ locale: Locale }>;
 }
 
 export default async function LocaleLayout({
   children,
   params,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
+  const typedLocale = locale as Locale;
 
   return (
-    <html lang={locale}>
+    <html lang={typedLocale}>
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${spectral.variable} antialiased`}
       >
-        <TranslationProvider locale={locale}>
+        <TranslationProvider locale={typedLocale}>
           {children}
           <Footer />
         </TranslationProvider>

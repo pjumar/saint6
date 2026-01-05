@@ -10,10 +10,11 @@ import type { Locale } from "../types";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isVi = locale === "vi";
+  const typedLocale = locale as Locale;
+  const isVi = typedLocale === "vi";
 
   return {
     title: isVi
