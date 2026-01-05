@@ -4,23 +4,21 @@ import Image from "next/image";
 import { LanguageSelector } from "../language-selector/LanguageSelector";
 import { SocialLinks } from "../social-links/SocialLinks";
 import { HamburgerMenu } from "../hamburger-menu/HamburgerMenu";
+import { useTranslation } from "../../contexts/TranslationContext";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
   isMenuOpen: boolean;
   isClosing?: boolean;
   onMenuToggle: () => void;
-  selectedLanguage?: string;
-  onLanguageChange?: (language: string) => void;
 }
 
 export function Header({
   isMenuOpen,
   isClosing = false,
   onMenuToggle,
-  selectedLanguage,
-  onLanguageChange,
 }: HeaderProps) {
+  const { t } = useTranslation();
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -36,22 +34,22 @@ export function Header({
       <div className={styles.desktopNavWrapper}>
         <nav className={styles.desktopNav}>
           <a href="#studio-rental" className={styles.desktopNavItem}>
-            STUDIO RENTAL
+            {t.NAVIGATION.STUDIO_RENTAL}
           </a>
           <a href="#set-design" className={styles.desktopNavItem}>
-            SET DESIGN
+            {t.NAVIGATION.SET_DESIGN}
           </a>
           <a href="#production" className={styles.desktopNavItem}>
-            PRODUCTION
+            {t.NAVIGATION.PRODUCTION}
           </a>
           <a href="#event-planning" className={styles.desktopNavItem}>
-            EVENT PLANNING
+            {t.NAVIGATION.EVENT_PLANNING}
           </a>
           <a href="#decor" className={styles.desktopNavItem}>
-            DECOR
+            {t.NAVIGATION.DECOR}
           </a>
           <a href="#creative" className={styles.desktopNavItem}>
-            CREATIVE
+            {t.NAVIGATION.CREATIVE}
           </a>
         </nav>
         <div className={styles.desktopNavLine} />
@@ -61,15 +59,12 @@ export function Header({
           </div>
           <div className={styles.heroLinksRight}>
             <a href="#contact" className="caption">
-              CONTACT
+              {t.NAVIGATION.CONTACT}
             </a>
             <a href="#about" className="caption">
-              ABOUT US
+              {t.NAVIGATION.ABOUT_US}
             </a>
-            <LanguageSelector
-              selectedLanguage={selectedLanguage}
-              onLanguageChange={onLanguageChange}
-            />
+            <LanguageSelector />
           </div>
         </div>
       </div>

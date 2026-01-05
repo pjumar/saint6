@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslation } from "../../contexts/TranslationContext";
 import styles from "./Footer.module.css";
 
 export function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
       <div className={styles.footerDecoration}>
@@ -23,7 +27,7 @@ export function Footer() {
         </div>
       </div>
 
-      <p className={styles.contactLabel}>CONTACT US</p>
+      <p className={styles.contactLabel}>{t.FOOTER.CONTACT_US}</p>
 
       <div className={styles.logoWrapper}>
         <Image
@@ -36,22 +40,22 @@ export function Footer() {
       </div>
 
       <div className={styles.contactInfo}>
-        <p className={styles.contactText}>6 Be Van Cam, Tan Kieng, District 7, HCMC</p>
-        <p className={styles.contactText}>Saint6studios@gmail.com</p>
-        <p className={styles.contactText}>0919 403 784 - 0918 756 573</p>
+        <p className={styles.contactText}>{t.FOOTER.ADDRESS}</p>
+        <p className={styles.contactText}>{t.FOOTER.EMAIL}</p>
+        <p className={styles.contactText}>{t.FOOTER.PHONE}</p>
       </div>
 
       <div className={styles.footerLine} />
 
       <div className={styles.socialLinks}>
         <a href="#" className={styles.socialLink}>
-          INSTAGRAM
+          {t.FOOTER.INSTAGRAM}
         </a>
         <a href="#" className={styles.socialLink}>
-          FACEBOOK
+          {t.FOOTER.FACEBOOK}
         </a>
         <a href="#" className={styles.socialLink}>
-          TIKTOK
+          {t.FOOTER.TIKTOK}
         </a>
       </div>
     </footer>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { HamburgerMenu } from "../hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "../language-selector/LanguageSelector";
 import { SocialLinks } from "../social-links/SocialLinks";
+import { useTranslation } from "../../contexts/TranslationContext";
 import styles from "./MenuOverlay.module.css";
 
 interface MenuOverlayProps {
@@ -12,13 +13,14 @@ interface MenuOverlayProps {
 }
 
 export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
+  const { t } = useTranslation();
   const menuItems = [
-    "STUDIO RENTAL",
-    "SET DESIGN",
-    "PRODUCTION",
-    "EVENT PLANNING",
-    "DECOR",
-    "CREATIVE",
+    t.NAVIGATION.STUDIO_RENTAL,
+    t.NAVIGATION.SET_DESIGN,
+    t.NAVIGATION.PRODUCTION,
+    t.NAVIGATION.EVENT_PLANNING,
+    t.NAVIGATION.DECOR,
+    t.NAVIGATION.CREATIVE,
   ];
 
   return (
@@ -69,10 +71,10 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
       <div className={styles.menuFooter}>
         <div className={styles.menuFooterLeft}>
           <a href="#contact" className="caption">
-            CONTACT
+            {t.NAVIGATION.CONTACT}
           </a>
           <a href="#about" className="caption">
-            ABOUT US
+            {t.NAVIGATION.ABOUT_US}
           </a>
           <LanguageSelector variant="menu" />
         </div>

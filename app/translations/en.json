@@ -1,0 +1,42 @@
+{
+  "HERO": {
+    "HEADING": "The place where all your concepts and artistic ideas can come true",
+    "SCROLL_DOWN": "scroll down to explore"
+  },
+  "NAVIGATION": {
+    "STUDIO_RENTAL": "STUDIO RENTAL",
+    "SET_DESIGN": "SET DESIGN",
+    "PRODUCTION": "PRODUCTION",
+    "EVENT_PLANNING": "EVENT PLANNING",
+    "DECOR": "DECOR",
+    "CREATIVE": "CREATIVE",
+    "CONTACT": "CONTACT",
+    "ABOUT_US": "ABOUT US"
+  },
+  "FOOTER": {
+    "CONTACT_US": "CONTACT US",
+    "ADDRESS": "6 Be Van Cam, Tan Kieng, District 7, HCMC",
+    "EMAIL": "Saint6studios@gmail.com",
+    "PHONE": "0919 403 784 - 0918 756 573",
+    "INSTAGRAM": "INSTAGRAM",
+    "FACEBOOK": "FACEBOOK",
+    "TIKTOK": "TIKTOK"
+  },
+  "KEY_PROJECT": {
+    "CAPTION": "Highlights from the journeys that shaped our craft.",
+    "HEADING": "Key Project"
+  },
+  "PROJECT": {
+    "CLIENTS": "CLIENTS",
+    "TITLE": "Casting call for Shaghai Fashion Week 2025"
+  },
+  "TRUSTED_BY": {
+    "CAPTION": "TRUSTED BY TOP BRANDS AND ARTISTS",
+    "HEADING": "An exclusive destination for elevated productions, private events, and visionary experiences tailored to your every need"
+  },
+  "METADATA": {
+    "TITLE": "Saint 6 Studio | Exclusive Production & Event Destination",
+    "DESCRIPTION": "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs."
+  }
+}
+

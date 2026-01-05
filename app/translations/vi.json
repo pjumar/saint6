@@ -1,0 +1,42 @@
+{
+  "HERO": {
+    "HEADING": "Nơi mọi ý tưởng và khái niệm nghệ thuật của bạn có thể trở thành hiện thực",
+    "SCROLL_DOWN": "cuộn xuống để khám phá"
+  },
+  "NAVIGATION": {
+    "STUDIO_RENTAL": "THUÊ STUDIO",
+    "SET_DESIGN": "THIẾT KẾ SET",
+    "PRODUCTION": "SẢN XUẤT",
+    "EVENT_PLANNING": "LẬP KẾ HOẠCH SỰ KIỆN",
+    "DECOR": "TRANG TRÍ",
+    "CREATIVE": "SÁNG TẠO",
+    "CONTACT": "LIÊN HỆ",
+    "ABOUT_US": "Giới thiệu"
+  },
+  "FOOTER": {
+    "CONTACT_US": "LIÊN HỆ VỚI CHÚNG TÔI",
+    "ADDRESS": "6 Be Van Cam, Tan Kieng, Quận 7, TP.HCM",
+    "EMAIL": "Saint6studios@gmail.com",
+    "PHONE": "0919 403 784 - 0918 756 573",
+    "INSTAGRAM": "INSTAGRAM",
+    "FACEBOOK": "FACEBOOK",
+    "TIKTOK": "TIKTOK"
+  },
+  "KEY_PROJECT": {
+    "CAPTION": "Những điểm nổi bật từ những hành trình đã định hình nghề thủ công của chúng tôi.",
+    "HEADING": "Dự Án Chính"
+  },
+  "PROJECT": {
+    "CLIENTS": "KHÁCH HÀNG",
+    "TITLE": "Tuyển chọn casting cho Tuần lễ Thời trang Shanghai 2025"
+  },
+  "TRUSTED_BY": {
+    "CAPTION": "ĐƯỢC TIN TƯỞNG BỞI CÁC THƯƠNG HIỆU VÀ NGHỆ SĨ HÀNG ĐẦU",
+    "HEADING": "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn được điều chỉnh theo mọi nhu cầu của bạn"
+  },
+  "METADATA": {
+    "TITLE": "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền",
+    "DESCRIPTION": "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn. Thuê studio, thiết kế set, dịch vụ sản xuất và giải pháp sáng tạo được điều chỉnh theo nhu cầu của bạn."
+  }
+}
+

@@ -3,9 +3,11 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { useTranslation } from "../../contexts/TranslationContext";
 import styles from "./TrustedBySection.module.css";
 
 export function TrustedBySection() {
+  const { t } = useTranslation();
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -108,12 +110,9 @@ export function TrustedBySection() {
     <section className={styles.trustedBy}>
       <div className={styles.trustedByContent}>
         <p className="caption" style={{ color: "var(--color-primary)" }}>
-          TRUSTED BY TOP BRANDS AND ARTISTS
+          {t.TRUSTED_BY.CAPTION}
         </p>
-        <h2 className="heading-desktop">
-          An exclusive destination for elevated productions, private events, and visionary
-          experiences tailored to your every need
-        </h2>
+        <h2 className="heading-desktop">{t.TRUSTED_BY.HEADING}</h2>
       </div>
       <div className={styles.brandLogos} ref={logosRef}>
         {brandLogos.map((logo, index) => (

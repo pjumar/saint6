@@ -6,12 +6,13 @@ import { Header } from "../header/Header";
 import { MenuOverlay } from "../menu-overlay/MenuOverlay";
 import { SocialLinks } from "../social-links/SocialLinks";
 import { LanguageSelector } from "../language-selector/LanguageSelector";
+import { useTranslation } from "../../contexts/TranslationContext";
 import styles from "./HeroSection.module.css";
 
 export function HeroSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("EN");
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -55,8 +56,6 @@ export function HeroSection() {
           isMenuOpen={isMenuOpen}
           isClosing={isClosing}
           onMenuToggle={handleMenuToggle}
-          selectedLanguage={selectedLanguage}
-          onLanguageChange={setSelectedLanguage}
         />
 
         <div className={styles.heroContentWrapper}>
@@ -68,11 +67,11 @@ export function HeroSection() {
               height={16}
               className={styles.scrollIcon}
             />
-            <p className="caption">scroll down to explore</p>
+            <p className="caption">{t.HERO.SCROLL_DOWN}</p>
           </div>
           <div className={styles.heroContent}>
             <h1 className={`heading-mobile heading-desktop ${styles.heroHeading}`}>
-              The place where all your concepts and artistic ideas can come true
+              {t.HERO.HEADING}
             </h1>
           </div>
         </div>
@@ -92,15 +91,12 @@ export function HeroSection() {
             </div>
             <div className={styles.heroLinksRight}>
               <a href="#contact" className="caption">
-                CONTACT
+                {t.NAVIGATION.CONTACT}
               </a>
               <a href="#about" className="caption">
-                ABOUT US
+                {t.NAVIGATION.ABOUT_US}
               </a>
-              <LanguageSelector
-                selectedLanguage={selectedLanguage}
-                onLanguageChange={setSelectedLanguage}
-              />
+              <LanguageSelector />
             </div>
           </div>
         </div>

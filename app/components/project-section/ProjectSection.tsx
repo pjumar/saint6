@@ -1,13 +1,17 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslation } from "../../contexts/TranslationContext";
 import styles from "./ProjectSection.module.css";
 
 export function ProjectSection() {
+  const { t } = useTranslation();
   return (
     <section className={styles.projectSection}>
       <div className={styles.projectHeader}>
         <div className={styles.projectHeaderContent}>
-          <p className="caption">CLIENTS</p>
-          <h2 className="heading-desktop">Casting call for Shaghai Fashion Week 2025</h2>
+          <p className="caption">{t.PROJECT.CLIENTS}</p>
+          <h2 className="heading-desktop">{t.PROJECT.TITLE}</h2>
         </div>
 
         <div className={styles.projectMeta}>
