@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Public_Sans, JetBrains_Mono, Spectral } from "next/font/google";
-import "../globals.css";
-import { Footer } from "../components/footer/Footer";
-import { TranslationProvider } from "../contexts/TranslationContext";
-import type { Locale } from "../types";
+import "@/app/globals.css";
+import { Footer } from "@/app/components/footer/Footer";
+import { TranslationProvider } from "@/app/contexts/TranslationContext";
+import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",

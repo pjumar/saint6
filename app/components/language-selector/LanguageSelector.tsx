@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTranslation } from "../../contexts/TranslationContext";
-import { switchLocale } from "../../lib/navigation";
+import { useTranslation } from "@/app/contexts/TranslationContext";
+import { switchLocale } from "@/app/lib/navigation";
 import styles from "./LanguageSelector.module.css";
 
 interface LanguageSelectorProps {

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
-import { useTranslation } from "../../contexts/TranslationContext";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./TrustedBySection.module.css";
 
 export function TrustedBySection() {

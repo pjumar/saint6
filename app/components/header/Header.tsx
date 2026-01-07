@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { LanguageSelector } from "../language-selector/LanguageSelector";
-import { SocialLinks } from "../social-links/SocialLinks";
-import { HamburgerMenu } from "../hamburger-menu/HamburgerMenu";
-import { useTranslation } from "../../contexts/TranslationContext";
+import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
+import { SocialLinks } from "@/app/components/social-links/SocialLinks";
+import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Header.module.css";
 
 interface HeaderProps {

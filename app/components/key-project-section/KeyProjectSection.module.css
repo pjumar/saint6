@@ -1,87 +1,299 @@
 .keyProjectSection {
-  height: 21.875rem;
-  background: var(--color-primary);
-  border-radius: 0 0 0 0;
-  overflow: hidden;
-  margin-top: 1.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.keyProjectContent {
-  position: relative;
-  height: 100%;
+  background: var(--color-bg-container);
+  border-radius: 1rem 1rem 0 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
+  width: 100%;
 }
 
-.keyProjectContent .caption {
-  position: absolute;
-  top: 2.125rem;
-  left: 30.75rem;
-  color: var(--color-text-invert-100);
+.projectHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 17.1875rem;
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.projectNumber {
+  display: flex;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  gap: 3.875rem;
+  justify-content: space-between;
+  line-height: 1.1;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.projectNoLabel,
+.projectNoValue {
+  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
   opacity: 0.4;
 }
 
-.keyProjectHeading {
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.projectTitle {
+  color: var(--color-text-primary);
   font-family: var(--font-heading);
-  font-size: 3rem;
-  line-height: 1.2;
-  color: var(--color-text-invert-100);
-  letter-spacing: -0.96px;
-  position: absolute;
-  top: calc(50% + 1.8125rem);
-  transform: translateY(-100%);
+  font-size: 2.5rem;
   font-weight: 400;
+  letter-spacing: -0.05rem;
+  line-height: 1.2;
   margin: 0;
 }
 
-.keyProjectDecoration {
-  position: absolute;
-  left: 50%;
-  bottom: -15.625rem;
-  top: auto;
-  transform: translateX(-50%);
-  width: 31.25rem;
-  height: 31.25rem;
+.projectDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 
-.keyProjectBg,
-.keyProjectGroup {
-  position: absolute;
-  inset: 0;
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+}
+
+.ekipSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
   width: 100%;
-  height: 100%;
 }
 
-.keyProjectGroup {
-  top: 16.33%;
-  left: 4.34%;
+.sectionLabel {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+  line-height: 1.1;
+  opacity: 0.4;
+  text-transform: uppercase;
+}
+
+.infoText {
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+}
+
+.ekipList {
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  gap: 0.75rem;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+}
+
+.ekipList p {
+  margin: 0;
+}
+
+.expertiseClientRow {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.expertiseSection,
+.clientSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.expertiseList {
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  gap: 0.75rem;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+}
+
+.expertiseList p {
+  margin: 0;
+}
+
+.clientName {
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.projectImages {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 8rem 1.5rem;
+}
+
+.mainImageContainer {
+  height: 18.5625rem;
+  position: relative;
+  width: 100%;
+}
+
+.mainImage {
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 100%;
+}
+
+.testimonialGallerySection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.testimonialContent {
+  background: var(--color-bg-container);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.testimonialQuote {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  gap: 0.75rem;
+  line-height: 1.2;
+}
+
+.quoteMark {
+  color: var(--color-text-primary);
+  font-size: 6rem;
+  font-weight: 300;
+  height: 2.375rem;
+  letter-spacing: -0.3rem;
+  line-height: normal;
+  margin: 0;
+}
+
+.quoteText {
+  color: var(--color-text-primary);
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: -0.035rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 14.875rem;
+}
+
+.authorLine {
+  display: flex;
+  gap: 0.875rem;
+  align-items: center;
+}
+
+.authorLineImage {
+  height: 0;
+  width: 2.4375rem;
+}
+
+.authorName {
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+  margin: 0;
+  width: 11.5625rem;
+}
+
+.authorRole {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.4;
+  text-align: right;
+}
+
+.galleryGrid {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.galleryImageLarge {
+  height: 17.9375rem;
+  position: relative;
+  width: 10.0625rem;
+}
+
+.galleryImagesSmall {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 13.6875rem;
+}
+
+.galleryImageSmall {
+  position: relative;
+}
+
+.galleryImageSmall:first-child {
+  height: 8.625rem;
+  width: 100%;
+}
+
+.galleryImageSmall:last-child {
+  height: 8.5625rem;
+  width: 100%;
+}
+
+.galleryImage {
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 100%;
 }
 
 @media (min-width: 48.0625rem) {
-  .keyProjectSection {
-    height: 31.25rem;
+  .projectHeader {
+    gap: 17.1875rem;
+    padding: 2rem 1.5rem 1.5rem;
   }
 
-  .keyProjectHeading {
-    font-size: 8rem;
-    letter-spacing: -0.16rem;
-    top: 14.25rem;
-    left: calc(50% - 19.625rem);
-    transform: none;
-  }
-
-  .keyProjectDecoration {
-    left: 50%;
-    top: calc(50% + 12.25rem);
-    bottom: auto;
-    transform: translate(-50%, -50%);
-    width: 44.375rem;
-    height: 44.375rem;
+  .projectTitle {
+    font-size: 2.5rem;
   }
 }

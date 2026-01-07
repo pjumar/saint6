@@ -24,7 +24,12 @@
   },
   "KEY_PROJECT": {
     "CAPTION": "Những điểm nổi bật từ những hành trình đã định hình nghề thủ công của chúng tôi.",
-    "HEADING": "Dự Án Chính"
+    "HEADING": "Dự Án Chính",
+    "PROJECT_NO": "DỰ ÁN SỐ",
+    "INFO": "THÔNG TIN",
+    "EKIP": "ĐỘI NGŨ",
+    "EXPERTISE": "CHUYÊN MÔN",
+    "CLIENT": "KHÁCH HÀNG"
   },
   "PROJECT": {
     "CLIENTS": "KHÁCH HÀNG",

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslation } from "../../contexts/TranslationContext";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Footer.module.css";
 
 export function Footer() {

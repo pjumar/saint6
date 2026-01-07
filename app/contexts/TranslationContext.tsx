@@ -2,9 +2,9 @@
 
 import { createContext, useContext, type ReactNode } from "react";
 import { useParams, usePathname } from "next/navigation";
-import enTranslations from "../translations/en.json";
-import viTranslations from "../translations/vi.json";
-import type { Locale } from "../types";
+import enTranslations from "@/app/translations/en.json";
+import viTranslations from "@/app/translations/vi.json";
+import type { Locale } from "@/app/types";
 
 type Language = "EN" | "VI";
 

@@ -1,4 +1,4 @@
-import type { Locale } from "../types";
+import type { Locale } from "@/app/types";
 
 export function getLocalizedPath(path: string, locale: Locale): string {
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;

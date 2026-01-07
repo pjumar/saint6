@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/app/components/ui/button";
+import { cn } from "@/app/lib/utils";
 import styles from "./HamburgerMenu.module.css";
 
 interface HamburgerMenuProps {
@@ -10,8 +12,10 @@ interface HamburgerMenuProps {
 
 export function HamburgerMenu({ isOpen, onClick, ariaLabel = "Menu" }: HamburgerMenuProps) {
   return (
-    <button
-      className={`${styles.hamburgerMenu} ${isOpen ? styles.hamburgerMenuOpen : ""}`}
+    <Button
+      variant="ghost"
+      size="icon"
+      className={cn(styles.hamburgerMenu, isOpen && styles.hamburgerMenuOpen)}
       aria-label={ariaLabel}
       onClick={onClick}
     >
@@ -23,7 +27,7 @@ export function HamburgerMenu({ isOpen, onClick, ariaLabel = "Menu" }: Hamburger
         <div className={styles.hamburgerLineThin} />
         <div className={styles.hamburgerLineThick} />
       </div>
-    </button>
+    </Button>
   );
 }
 

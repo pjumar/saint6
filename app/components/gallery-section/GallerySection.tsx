@@ -24,9 +24,6 @@ export function GallerySection() {
     { id: 13, src: "/images/gallery/gallery-13.jpg", alt: "Gallery image 13" },
     { id: 14, src: "/images/gallery/gallery-14.jpg", alt: "Gallery image 14" },
     { id: 15, src: "/images/gallery/gallery-15.jpg", alt: "Gallery image 15" },
-    { id: 16, src: "/images/gallery/gallery-01.jpg", alt: "Gallery image 16" },
-    { id: 17, src: "/images/gallery/gallery-02.jpg", alt: "Gallery image 17" },
-    { id: 18, src: "/images/gallery/gallery-03.jpg", alt: "Gallery image 18" },
   ];
 
   return (

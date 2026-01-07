@@ -14,6 +14,26 @@
   --background: #ffffff;
   --foreground: var(--color-text-primary);
   
+  /* shadcn/ui CSS variables */
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-text-invert-100);
+  --secondary: var(--color-bg-container);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--color-bg-container);
+  --muted-foreground: var(--color-text-tertiary);
+  --accent: var(--color-bg-container);
+  --accent-foreground: var(--foreground);
+  --destructive: #ef4444;
+  --destructive-foreground: var(--color-text-invert-100);
+  --border: var(--color-text-tertiary);
+  --input: var(--color-text-tertiary);
+  --ring: var(--color-primary);
+  --radius: 0.5rem;
+  
   --font-size-desktop-heading: 2.5rem;
   --font-size-desktop-main-text: 2.25rem;
   --font-size-desktop-title: 1.75rem;

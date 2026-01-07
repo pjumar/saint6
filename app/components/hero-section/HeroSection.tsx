@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Header } from "../header/Header";
-import { MenuOverlay } from "../menu-overlay/MenuOverlay";
-import { SocialLinks } from "../social-links/SocialLinks";
-import { LanguageSelector } from "../language-selector/LanguageSelector";
-import { useTranslation } from "../../contexts/TranslationContext";
+import { Header } from "@/app/components/header/Header";
+import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
+import { SocialLinks } from "@/app/components/social-links/SocialLinks";
+import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./HeroSection.module.css";
 
 export function HeroSection() {

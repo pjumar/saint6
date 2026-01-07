@@ -58,7 +58,14 @@ function getUser(id: any): any {
 - Use named exports for components and utilities
 - Use default exports only for pages and layouts (Next.js convention)
 - Group imports: external → internal → types
-- Use type-only imports when appropriate: `import type { User } from './types'`
+- Use type-only imports when appropriate: `import type { User } from '@/app/types'`
+- **ALWAYS use absolute imports with `@/` prefix instead of relative imports**
+  - ✅ Good: `import { Button } from "@/app/components/ui/button"`
+  - ✅ Good: `import { useTranslation } from "@/app/contexts/TranslationContext"`
+  - ✅ Good: `import type { Locale } from "@/app/types"`
+  - ❌ Bad: `import { Button } from "../ui/button"`
+  - ❌ Bad: `import { useTranslation } from "../../contexts/TranslationContext"`
+  - Exception: CSS Modules can use relative imports: `import styles from "./Component.module.css"`
 
 ## React Best Practices
 
