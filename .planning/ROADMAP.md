@@ -29,8 +29,8 @@ None
 **Plans**: 2-3 plans
 
 Plans:
-- [ ] 01-01: Review Figma design, identify gaps from current implementation
-- [ ] 01-02: Update hero section, header, and layout to match design
+- [x] 01-01: Review Figma design, identify gaps from current implementation
+- [x] 01-02: Update hero section, header, and layout to match design
 - [ ] 01-03: Verify responsive behavior and GSAP animations
 
 ### Phase 2: Studio Rental Page
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Homepage Polish | 0/3 | Not started | - |
+| 1. Homepage Polish | 2/3 | In progress | - |
 | 2. Studio Rental | 0/3 | Not started | - |
 | 3. Set Design & Production | 0/2 | Not started | - |
 | 4. Event Planning & Decoration | 0/2 | Not started | - |
