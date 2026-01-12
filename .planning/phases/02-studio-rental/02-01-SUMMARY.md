@@ -81,16 +81,28 @@ Successfully created the foundational page layout and route structure for the St
 
 ## Additional Refactoring
 
-After initial implementation, extracted reusable hero component pattern:
+After initial implementation, refactored hero section approach to reuse the homepage HeroSection:
 
-**New reusable component created:**
-- `app/components/service-hero/ServiceHero.tsx` - Reusable hero component for all service pages
-- `app/components/service-hero/ServiceHero.module.css` - Shared hero styles
+**Homepage HeroSection made reusable:**
+- `app/components/hero-section/HeroSection.tsx` - Extended with props interface:
+  - `heading: string` - Customizable hero heading text
+  - `backgroundImage: string` - Path to background image
+  - `backgroundAlt?: string` - Optional alt text for background (default: "Hero background")
+  - `showScrollIndicator?: boolean` - Toggle scroll indicator (default: false)
+  - `showDecorativeLine?: boolean` - Toggle decorative line (default: false)
 
-**Refactored:**
-- `app/components/studio-hero-section/StudioHeroSection.tsx` - Now uses ServiceHero component (reduced from 88 to 16 lines)
+**Updated files:**
+- `app/[locale]/page.tsx` - Changed to client component, passes props to HeroSection (scroll indicator and decorative line enabled)
+- `app/components/studio-hero-section/StudioHeroSection.tsx` - Uses HeroSection instead of creating new component (16 lines total)
 
-This refactoring provides a template for Phases 3-5, making future service pages faster to implement.
+**Removed obsolete files:**
+- `app/components/service-hero/ServiceHero.tsx` - No longer needed
+- `app/components/service-hero/ServiceHero.module.css` - No longer needed
+
+**Approach benefits:**
+- Single source of truth for hero sections with all animations and polish from homepage
+- Service pages can customize heading and background while disabling homepage-specific elements
+- Provides a template for Phases 3-5, making future service pages faster to implement
 
 ## Testing Results
 
