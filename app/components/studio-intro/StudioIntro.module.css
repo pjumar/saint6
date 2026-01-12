@@ -3,43 +3,48 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 50rem;
+  max-width: 57.375rem; /* 919px from Figma */
   margin: 0 auto;
   padding: 2rem 0;
+  gap: 1.5rem; /* 24px gap from Figma */
 }
 
 .title {
-  font-size: 1.5rem;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem; /* 12px Caption/Regular from Figma */
   font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem; /* 2px tracking from Figma */
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #000;
-  margin: 0 0 1.5rem;
+  color: var(--color-primary, #880300); /* Primary red from Figma */
+  margin: 0;
 }
 
 .description {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #333;
-  margin: 0 0 2rem;
+  font-family: var(--font-title, "PP Fragment", serif);
+  font-size: 2.5rem; /* 40px Desktop/Heading from Figma */
+  font-weight: 400; /* Glare Regular from Figma */
+  line-height: 1.2;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
 }
 
 .ctaButton {
+  /* Button styling from Figma: bg #880300, white text, 53px height, 16px font */
   min-width: 12rem;
+  height: 3.3125rem; /* 53px from Figma */
+  background: var(--color-primary, #880300) !important;
+  color: #ffffff !important;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Bold from Figma */
+  font-weight: 500; /* Medium from Figma */
+  letter-spacing: -0.02em; /* -2% tracking */
+  padding: 0.75rem 2rem; /* 12px 32px from Figma */
 }
 
-@media (min-width: 48.0625rem) {
-  .introContainer {
-    padding: 3rem 0;
-  }
-
-  .title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
+@media (max-width: 48rem) {
   .description {
-    font-size: 1.125rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.75rem; /* Smaller on mobile */
   }
 }
