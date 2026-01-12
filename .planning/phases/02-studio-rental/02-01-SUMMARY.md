@@ -101,7 +101,8 @@ After initial implementation, refactored hero section approach to reuse the home
 
 **Approach benefits:**
 - Single source of truth for hero sections with all animations and polish from homepage
-- Service pages can customize heading and background while disabling homepage-specific elements
+- All pages (homepage and service pages) use identical hero layout: scroll indicator on left, heading on right
+- Service pages only customize heading text and background image (all visual elements remain the same)
 - Provides a template for Phases 3-5, making future service pages faster to implement
 
 ## Testing Results
