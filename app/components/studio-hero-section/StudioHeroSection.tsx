@@ -11,8 +11,8 @@ export function StudioHeroSection() {
       heading={t.STUDIO_RENTAL.HERO.TAGLINE}
       backgroundImage="/images/studio-rental/hero-background.jpg"
       backgroundAlt="Studio Rental"
-      showScrollIndicator={false}
-      showDecorativeLine={false}
+      showScrollIndicator={true}
+      showDecorativeLine={true}
     />
   );
 }
