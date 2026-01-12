@@ -13,14 +13,14 @@ interface MenuOverlayProps {
 }
 
 export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const menuItems = [
-    t.NAVIGATION.STUDIO_RENTAL,
-    t.NAVIGATION.SET_DESIGN,
-    t.NAVIGATION.PRODUCTION,
-    t.NAVIGATION.EVENT_PLANNING,
-    t.NAVIGATION.DECOR,
-    t.NAVIGATION.CREATIVE,
+    { label: t.NAVIGATION.STUDIO_RENTAL, href: `/${locale}/studio-rental` },
+    { label: t.NAVIGATION.SET_DESIGN, href: "#set-design" },
+    { label: t.NAVIGATION.PRODUCTION, href: "#production" },
+    { label: t.NAVIGATION.EVENT_PLANNING, href: "#event-planning" },
+    { label: t.NAVIGATION.DECOR, href: "#decor" },
+    { label: t.NAVIGATION.CREATIVE, href: "#creative" },
   ];
 
   return (
@@ -59,12 +59,12 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
       <nav className={styles.menuNav}>
         {menuItems.map((item) => (
           <a
-            key={item}
-            href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+            key={item.label}
+            href={item.href}
             className={styles.menuNavItem}
             onClick={onClose}
           >
-            {item}
+            {item.label}
           </a>
         ))}
       </nav>

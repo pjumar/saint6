@@ -18,7 +18,7 @@ export function Header({
   isClosing = false,
   onMenuToggle,
 }: HeaderProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -33,7 +33,7 @@ export function Header({
 
       <div className={styles.desktopNavWrapper}>
         <nav className={styles.desktopNav}>
-          <a href="#studio-rental" className={styles.desktopNavItem}>
+          <a href={`/${locale}/studio-rental`} className={styles.desktopNavItem}>
             {t.NAVIGATION.STUDIO_RENTAL}
           </a>
           <a href="#set-design" className={styles.desktopNavItem}>
