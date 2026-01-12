@@ -3,13 +3,21 @@
   background: var(--color-primary);
   min-height: 47.625rem;
   width: 100%;
-  max-width: 90rem;
-  margin: 0 auto;
   border-radius: 1rem 1rem 0 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerContent {
+  position: relative;
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .footerDecoration {
@@ -137,8 +145,11 @@
 
 @media (min-width: 48.0625rem) {
   .footer {
-    padding: 1.5rem;
     min-height: 47.625rem;
+  }
+
+  .footerContent {
+    padding: 1.5rem;
   }
 
   .footerDecoration {

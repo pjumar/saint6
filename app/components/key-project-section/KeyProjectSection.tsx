@@ -38,10 +38,18 @@ interface KeyProjectSectionProps {
 
 export function KeyProjectSection({ project }: KeyProjectSectionProps) {
   const { t } = useTranslation();
-  
+
   return (
-    <section className={styles.keyProjectSection}>
-      <div className={styles.projectHeader}>
+    <>
+      <div className={styles.sectionHeader}>
+        <h2 className={styles.heading}>{t.KEY_PROJECT.HEADING}</h2>
+        <p className={styles.caption}>
+          {t.KEY_PROJECT.CAPTION}
+        </p>
+      </div>
+
+      <section className={styles.keyProjectSection}>
+        <div className={styles.projectHeader}>
         <div className={styles.projectNumber}>
           <p className={styles.projectNoLabel}>{t.KEY_PROJECT.PROJECT_NO}</p>
           <p className={styles.projectNoValue}>{project.projectNumber}</p>
@@ -150,6 +158,7 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
           )}
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

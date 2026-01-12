@@ -6,6 +6,60 @@
   width: 100%;
 }
 
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 1.5rem 1.5rem 1.8125rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: url('/images/spiral_decoration.svg');
+  background-position: center calc(100% + 15.625rem);
+  background-repeat: no-repeat;
+  background-size: 31.25rem 31.25rem;
+  position: relative;
+  background-color: #880300;
+  border-radius: 1.5rem 1.5rem 0 0;
+  overflow: hidden;
+  min-height: 17.5rem;
+  margin-top: -2rem;
+}
+
+.sectionHeader .caption {
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin: 0;
+  width: calc(100% - 3rem);
+  padding: 0;
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: pre-wrap;
+  z-index: 2;
+}
+
+.sectionHeader .heading {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.06rem;
+  line-height: 1.2;
+  margin: 0;
+  max-width: 20.125rem;
+  position: relative;
+  z-index: 1;
+}
+
 .projectHeader {
   display: flex;
   flex-direction: column;
@@ -288,6 +342,30 @@
 }
 
 @media (min-width: 48.0625rem) {
+  .sectionHeader {
+    width: 100vw;
+    max-width: 90rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem 2rem 1.8125rem;
+    min-height: 17.5rem;
+    background-position: center calc(100% + 15.625rem);
+    background-size: 31.25rem 31.25rem;
+    margin-top: -2rem;
+  }
+
+  .sectionHeader .caption {
+    font-size: 0.75rem;
+    width: 22rem;
+    top: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .sectionHeader .heading {
+    font-size: 3rem;
+    max-width: 20.125rem;
+  }
+
   .projectHeader {
     flex-direction: column;
     gap: 4rem;

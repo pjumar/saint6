@@ -8,55 +8,57 @@ export function Footer() {
   const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerDecoration}>
-        <Image
-          src="/images/decoration-bg.svg"
-          alt=""
-          width={600}
-          height={600}
-          className={styles.footerDecorationBg}
-        />
-        <div className={styles.footerDecorationOverlay}>
+      <div className={styles.footerContent}>
+        <div className={styles.footerDecoration}>
           <Image
-            src="/images/decoration-group.svg"
+            src="/images/decoration-bg.svg"
             alt=""
             width={600}
             height={600}
-            className={styles.footerDecorationGroup}
+            className={styles.footerDecorationBg}
+          />
+          <div className={styles.footerDecorationOverlay}>
+            <Image
+              src="/images/decoration-group.svg"
+              alt=""
+              width={600}
+              height={600}
+              className={styles.footerDecorationGroup}
+            />
+          </div>
+        </div>
+
+        <p className={styles.contactLabel}>{t.FOOTER.CONTACT_US}</p>
+
+        <div className={styles.logoWrapper}>
+          <Image
+            src="/assets/saint6-logo.svg"
+            alt="Saint 6 Studio"
+            width={297}
+            height={63}
+            className={styles.logo}
           />
         </div>
-      </div>
 
-      <p className={styles.contactLabel}>{t.FOOTER.CONTACT_US}</p>
+        <div className={styles.contactInfo}>
+          <p className={styles.contactText}>{t.FOOTER.ADDRESS}</p>
+          <p className={styles.contactText}>{t.FOOTER.EMAIL}</p>
+          <p className={styles.contactText}>{t.FOOTER.PHONE}</p>
+        </div>
 
-      <div className={styles.logoWrapper}>
-        <Image
-          src="/assets/saint6-logo.svg"
-          alt="Saint 6 Studio"
-          width={297}
-          height={63}
-          className={styles.logo}
-        />
-      </div>
+        <div className={styles.footerLine} />
 
-      <div className={styles.contactInfo}>
-        <p className={styles.contactText}>{t.FOOTER.ADDRESS}</p>
-        <p className={styles.contactText}>{t.FOOTER.EMAIL}</p>
-        <p className={styles.contactText}>{t.FOOTER.PHONE}</p>
-      </div>
-
-      <div className={styles.footerLine} />
-
-      <div className={styles.socialLinks}>
-        <a href="#" className={styles.socialLink}>
-          {t.FOOTER.INSTAGRAM}
-        </a>
-        <a href="#" className={styles.socialLink}>
-          {t.FOOTER.FACEBOOK}
-        </a>
-        <a href="#" className={styles.socialLink}>
-          {t.FOOTER.TIKTOK}
-        </a>
+        <div className={styles.socialLinks}>
+          <a href="#" className={styles.socialLink}>
+            {t.FOOTER.INSTAGRAM}
+          </a>
+          <a href="#" className={styles.socialLink}>
+            {t.FOOTER.FACEBOOK}
+          </a>
+          <a href="#" className={styles.socialLink}>
+            {t.FOOTER.TIKTOK}
+          </a>
+        </div>
       </div>
     </footer>
   );
