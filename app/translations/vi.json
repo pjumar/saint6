@@ -42,6 +42,15 @@
   "METADATA": {
     "TITLE": "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền",
     "DESCRIPTION": "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn. Thuê studio, thiết kế set, dịch vụ sản xuất và giải pháp sáng tạo được điều chỉnh theo nhu cầu của bạn."
+  },
+  "STUDIO_RENTAL": {
+    "HERO": {
+      "TAGLINE": "Sân chơi sáng tạo của bạn"
+    },
+    "META": {
+      "TITLE": "Thuê Studio | Saint 6 Studio",
+      "DESCRIPTION": "Thuê không gian studio chuyên nghiệp của chúng tôi cho các dự án sáng tạo của bạn. The Loft, The Studio, The Arena và các phòng concept theo mùa có sẵn cho chụp ảnh, sản xuất và sự kiện."
+    }
   }
 }
 

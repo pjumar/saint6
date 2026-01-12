@@ -1,0 +1,53 @@
+.studioRentalPage {
+  min-height: 100vh;
+  background: var(--color-bg-container);
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section {
+  width: 100%;
+  padding: 3rem 1.5rem;
+}
+
+.sectionPlaceholder {
+  width: 100%;
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--color-border-subtle, #e0e0e0);
+  border-radius: 0.5rem;
+  background: var(--color-bg-subtle, #f8f8f8);
+}
+
+.placeholderText {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-subtle, #888);
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 48.0625rem) {
+  .contentContainer {
+    max-width: 90rem;
+    padding: 0 1.5rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .sectionPlaceholder {
+    min-height: 12rem;
+  }
+}

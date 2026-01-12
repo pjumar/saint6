@@ -42,6 +42,15 @@
   "METADATA": {
     "TITLE": "Saint 6 Studio | Exclusive Production & Event Destination",
     "DESCRIPTION": "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs."
+  },
+  "STUDIO_RENTAL": {
+    "HERO": {
+      "TAGLINE": "Your creative playground"
+    },
+    "META": {
+      "TITLE": "Studio Rental | Saint 6 Studio",
+      "DESCRIPTION": "Rent our professional studio spaces for your creative projects. The Loft, The Studio, The Arena, and seasonal concept rooms available for photoshoots, productions, and events."
+    }
   }
 }
 
