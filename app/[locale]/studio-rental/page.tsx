@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { Locale } from "@/app/types";
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
 import { RoomCard } from "@/app/components/room-card/RoomCard";
+import { StudioStats } from "@/app/components/studio-stats/StudioStats";
+import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import styles from "./StudioRental.module.css";
 
 export async function generateMetadata({
@@ -132,18 +134,22 @@ export default function StudioRentalPage() {
       <div className={styles.contentContainer}>
         {/* Stats Section */}
         <section className={styles.section} id="stats">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement stats section with total rooms, ceiling height, total space, blank rooms, concept rooms */}
-            <p className={styles.placeholderText}>Stats Section</p>
-          </div>
+          <StudioStats
+            totalRooms={6}
+            ceilingHeight="4.5m"
+            totalSpace="900m²"
+            blankRooms={3}
+            conceptRooms={3}
+          />
         </section>
 
         {/* How It Work Intro Section */}
         <section className={styles.section} id="how-it-work">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement how it works description and CTA button */}
-            <p className={styles.placeholderText}>How It Work Section</p>
-          </div>
+          <StudioIntro
+            title="How IT Work"
+            description="Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you."
+            ctaText="Get in touch"
+          />
         </section>
 
         {/* Studio Overview Section */}
