@@ -1,0 +1,219 @@
+.conceptCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 28.0625rem; /* 449px from Figma */
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 28.0625rem; /* 449px square from Figma */
+  border: 8px solid var(--color-bg-container, #f5f4f4); /* 8px white border from Figma */
+  border-radius: 2000px 2000px 0 0; /* Arch shape from Figma */
+  overflow: hidden;
+}
+
+.roomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.enterButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10rem; /* 160px from Figma */
+  height: 10rem;
+  border-radius: 50%;
+  background: var(--color-primary, #880300); /* Red circle from Figma */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show on hover for desktop */
+@media (min-width: 769px) {
+  .imageContainer:hover .enterButton {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .enterButton:hover {
+    background: #6d0200; /* Darker red on hover */
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Show on focus/active for mobile */
+@media (max-width: 768px) {
+  .enterButton {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .enterButton:active {
+    background: #6d0200; /* Darker red on active */
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.enterButtonText {
+  color: #ffffff; /* White text from Figma */
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Bold from Figma */
+  font-weight: 500; /* Medium from Figma */
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  text-align: center;
+}
+
+.contentBox {
+  background: var(--color-bg-container, #f5f4f4); /* bgContainer from Figma */
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem; /* 10px from Figma */
+  padding: 1rem 0;
+  line-height: 1.5;
+}
+
+.title {
+  flex: 1;
+  font-family: var(--font-title, "Spectral", serif);
+  font-size: 1.75rem; /* 28px Desktop/Tittle from Figma */
+  font-weight: 300; /* Glare Light from Figma */
+  line-height: 1.5;
+  letter-spacing: -0.035em; /* -0.56px = -2% tracking from Figma */
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.price {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Bold from Figma */
+  font-weight: 500; /* Medium from Figma */
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  color: var(--color-primary, #880300);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.specs {
+  display: flex;
+  gap: 0.5rem; /* 8px from Figma */
+  padding: 1rem 0;
+  border-top: 1px solid rgba(8, 7, 7, 0.1); /* Border 10% from Figma */
+  border-bottom: 1px solid rgba(8, 7, 7, 0.1);
+  text-transform: uppercase;
+}
+
+.specItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* 8px from Figma */
+}
+
+.specLabel {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem; /* 12px Caption/Regular from Figma */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem; /* 2px tracking from Figma */
+  color: rgba(8, 7, 7, 0.4); /* Text/TextTertiary 40% from Figma */
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.specValue {
+  font-family: var(--font-title, "Spectral", serif);
+  font-size: 1.25rem; /* 20px Desktop/Tittle 3 from Figma */
+  font-weight: 300; /* Glare Light from Figma */
+  line-height: 1.5;
+  letter-spacing: -0.025em; /* -0.4px = -2% tracking from Figma */
+  color: var(--color-text-primary, #231d1d);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px from Figma */
+  padding: 1.5rem 0;
+}
+
+.description {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Regular from Figma */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem; /* 8px from Figma */
+}
+
+.actions button {
+  flex: 1;
+  height: 3.3125rem; /* 53px from Figma */
+  padding: 0.75rem 2rem; /* 12px 32px from Figma */
+}
+
+.bookingButton {
+  background: var(--color-primary, #880300) !important;
+  color: #ffffff !important;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Bold from Figma */
+  font-weight: 500; /* Medium from Figma */
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+}
+
+.galleryButton {
+  border: 1px solid var(--color-text-primary, #231d1d) !important;
+  background: transparent !important;
+  color: var(--color-text-primary, #231d1d) !important;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Bold from Figma */
+  font-weight: 500; /* Medium from Figma */
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .conceptCard {
+    max-width: 100%;
+  }
+
+  .imageContainer {
+    height: 20rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

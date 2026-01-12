@@ -6,6 +6,7 @@ import { StudioStats } from "@/app/components/studio-stats/StudioStats";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
 import { InquiryForm } from "@/app/components/inquiry-form/InquiryForm";
+import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
 import styles from "./StudioRental.module.css";
 
 // Hardcoded room data (CMS integration in Phase 8)
@@ -21,6 +22,7 @@ const studioRooms = [
     description:
       "Perfect for editorial shoots, interviews, and minimalist campaigns.",
     imageUrl: "/images/rooms/loft.jpg",
+    showEnterButton: true,
   },
   {
     id: "studio",
@@ -46,6 +48,7 @@ const studioRooms = [
     description:
       "Perfect for editorial shoots, interviews, and minimalist campaigns.",
     imageUrl: "/images/rooms/arena.jpg",
+    showEnterButton: true,
   },
 ];
 
@@ -118,6 +121,15 @@ export default function StudioRentalPage() {
       <StudioHeroSection />
 
       <div className={styles.contentContainer}>
+        {/* How It Works Intro Section */}
+        <section className={styles.section} id="how-it-works">
+          <StudioIntro
+            title="How It Works"
+            description="Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you."
+            ctaText="Get in touch"
+          />
+        </section>
+
         {/* Stats Section */}
         <section className={styles.section} id="stats">
           <StudioStats
@@ -126,15 +138,6 @@ export default function StudioRentalPage() {
             totalSpace="900m²"
             blankRooms={3}
             conceptRooms={3}
-          />
-        </section>
-
-        {/* How It Work Intro Section */}
-        <section className={styles.section} id="how-it-work">
-          <StudioIntro
-            title="How IT Work"
-            description="Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you."
-            ctaText="Get in touch"
           />
         </section>
 
@@ -147,19 +150,8 @@ export default function StudioRentalPage() {
           </div>
         </section>
 
-        {/* Seasonal Concept Rooms Section */}
-        <section className={styles.section} id="concept-rooms">
-          <h2 className={styles.sectionHeading}>Seasonal Concept Rooms</h2>
-          <p className={styles.sectionDescription}>
-            Explore our rotating themed spaces designed for unique creative
-            visions.
-          </p>
-          <div className={styles.roomGrid}>
-            {conceptRooms.map((room) => (
-              <RoomCard key={room.id} {...room} />
-            ))}
-          </div>
-        </section>
+        {/* Seasonal Concept Rooms Showcase */}
+        <ConceptRoomsShowcase rooms={conceptRooms} />
 
         {/* Full Studio Rental Section */}
         <section className={styles.section} id="full-studio">

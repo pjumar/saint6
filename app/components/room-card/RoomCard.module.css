@@ -3,17 +3,13 @@
   flex-direction: column;
   width: 100%;
   max-width: 28rem; /* 448px from Figma */
-  background: var(--color-bg-container, #f5f4f4); /* bgContainer from Figma */
-  border-radius: 0;
-  overflow: hidden;
-  box-shadow: none;
+  gap: 4rem; /* 64px gap between image and content from Figma */
 }
 
 .imageContainer {
   position: relative;
   width: 100%;
   aspect-ratio: 449 / 596;
-  background: #f5f5f5;
   overflow: hidden;
 }
 
@@ -28,119 +24,98 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 10rem;
+  width: 10rem; /* 160px from Figma */
   height: 10rem;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid #fff;
+  background: var(--color-primary, #880300); /* Red circle from Figma */
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.enterButton:hover {
-  background: rgba(0, 0, 0, 0.85);
-  transform: translate(-50%, -50%) scale(1.05);
+/* Show on hover for desktop */
+@media (min-width: 769px) {
+  .imageContainer:hover .enterButton {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .enterButton:hover {
+    background: #6d0200; /* Darker red on hover */
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Show on focus/active for mobile */
+@media (max-width: 768px) {
+  .enterButton {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .enterButton:active {
+    background: #6d0200; /* Darker red on active */
+    transform: translate(-50%, -50%) scale(1.05);
+  }
 }
 
 .enterButtonText {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
+  color: #ffffff; /* White text from Figma */
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Bold from Figma */
+  font-weight: 500; /* Medium from Figma */
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .content {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem; /* 24px gap from Figma */
+  max-width: 21rem; /* 336px from Figma */
 }
 
-.titleRow {
+.counter {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem; /* 12px Caption/Bold from Figma */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem; /* 2px tracking from Figma */
+  text-transform: uppercase;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.details {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.25rem; /* 4px gap from Figma */
 }
 
 .title {
-  font-family: var(--font-title, "PP Fragment", serif);
+  font-family: var(--font-title, "Spectral", serif);
   font-size: 1.5rem; /* 24px Desktop/Tittle 2 from Figma */
-  font-weight: 300; /* Glare Light weight */
+  font-weight: 300; /* Glare Light from Figma */
   line-height: 1.5;
-  letter-spacing: -0.02em; /* -2% tracking from Figma */
-  margin: 0;
+  letter-spacing: -0.03em; /* -0.48px = -2% tracking from Figma */
   color: var(--color-text-primary, #231d1d);
-}
-
-.price {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
+  margin: 0;
 }
 
 .priceAmount {
   font-family: var(--font-body, "Public Sans", sans-serif);
   font-size: 1rem; /* 16px Body/Bold from Figma */
-  font-weight: 500; /* Medium weight from Figma */
+  font-weight: 500; /* Medium from Figma */
   line-height: 1.5;
-  letter-spacing: -0.02em; /* -2% tracking from Figma */
-  color: var(--color-primary, #880300); /* Primary color from Figma */
-}
-
-.priceUnit {
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.counter {
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.75rem; /* 12px Caption/Regular from Figma */
-  font-weight: 700;
-  color: var(--color-text-primary, #231d1d);
-  text-transform: uppercase;
-  letter-spacing: 0.125rem; /* 2px tracking from Figma */
-  line-height: 1.1;
-}
-
-.specs {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(8, 7, 7, 0.1); /* Border 10% from Figma */
-  border-bottom: 1px solid rgba(8, 7, 7, 0.1);
-}
-
-.specItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.specLabel {
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.75rem; /* 12px Caption/Regular from Figma */
-  font-weight: 700;
-  color: rgba(8, 7, 7, 0.4); /* Text/TextTertiary 40% from Figma */
-  text-transform: uppercase;
-  letter-spacing: 0.125rem; /* 2px tracking */
-  line-height: 1.1;
-}
-
-.specValue {
-  font-family: var(--font-title, "PP Fragment", serif);
-  font-size: 1.25rem; /* 20px Desktop/Tittle 3 from Figma */
-  font-weight: 300; /* Glare Light */
-  line-height: 1.5;
-  letter-spacing: -0.02em; /* -2% tracking */
-  color: var(--color-text-primary, #231d1d);
+  letter-spacing: -0.02em; /* -0.32px = -2% tracking from Figma */
+  color: var(--color-primary, #880300); /* Primary red from Figma */
+  margin: 0;
 }
 
 .description {
@@ -148,44 +123,24 @@
   font-size: 1rem; /* 16px Body/Regular from Figma */
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: -0.02em; /* -2% tracking */
+  letter-spacing: -0.02em; /* -0.32px = -2% tracking from Figma */
   color: var(--color-text-primary, #231d1d);
   margin: 0;
-}
-
-.actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.actions button {
-  flex: 1;
+  height: 5.6875rem; /* 91px fixed height from Figma to maintain alignment */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .roomCard {
     max-width: 100%;
-  }
-
-  .content {
-    padding: 1.25rem;
+    gap: 2rem;
   }
 
   .title {
     font-size: 1.25rem;
   }
 
-  .priceAmount {
-    font-size: 1.125rem;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-
-  .actions button {
-    width: 100%;
+  .description {
+    height: auto; /* Allow flexible height on mobile */
   }
 }

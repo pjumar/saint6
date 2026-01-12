@@ -33,7 +33,7 @@ export function RoomCard({
           src={imageUrl}
           alt={title}
           width={449}
-          height={449}
+          height={596}
           className={styles.roomImage}
         />
         {showEnterButton && (
@@ -45,45 +45,14 @@ export function RoomCard({
 
       {/* Room Content */}
       <div className={styles.content}>
-        {/* Title and Price Row */}
-        <div className={styles.titleRow}>
-          <h3 className={styles.title}>{title}</h3>
-          <div className={styles.price}>
-            <span className={styles.priceAmount}>{pricePerHour}</span>
-            <span className={styles.priceUnit}>/hour</span>
-          </div>
-        </div>
-
         {/* Room Counter */}
-        <div className={styles.counter}>{counter}</div>
+        <p className={styles.counter}>{counter}</p>
 
-        {/* Room Specs */}
-        <div className={styles.specs}>
-          <div className={styles.specItem}>
-            <span className={styles.specLabel}>Space</span>
-            <span className={styles.specValue}>{space}</span>
-          </div>
-          <div className={styles.specItem}>
-            <span className={styles.specLabel}>Width</span>
-            <span className={styles.specValue}>{width}</span>
-          </div>
-          <div className={styles.specItem}>
-            <span className={styles.specLabel}>Ceiling height</span>
-            <span className={styles.specValue}>{ceilingHeight}</span>
-          </div>
-        </div>
-
-        {/* Description */}
-        <p className={styles.description}>{description}</p>
-
-        {/* Action Buttons */}
-        <div className={styles.actions}>
-          <Button variant="default" size="lg">
-            Make a Booking
-          </Button>
-          <Button variant="outline" size="lg">
-            Gallery
-          </Button>
+        {/* Title, Price, Description */}
+        <div className={styles.details}>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.priceAmount}>{pricePerHour}/hour</p>
+          <p className={styles.description}>{description}</p>
         </div>
       </div>
     </div>

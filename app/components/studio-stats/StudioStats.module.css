@@ -1,49 +1,65 @@
 .statsContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 60rem;
   margin: 0 auto;
-  padding: 2rem 0;
+  border: 1px solid rgba(8, 7, 7, 0.1); /* Border around container from Figma */
 }
 
 .statItem {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid rgba(8, 7, 7, 0.1); /* Border between items */
+}
+
+.statItem:last-child {
+  border-bottom: none; /* Remove border from last item */
 }
 
 .statLabel {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem; /* 12px Caption/Bold from Figma */
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #666;
+  letter-spacing: 0.125rem; /* 2px tracking from Figma */
+  line-height: 1.1;
+  color: rgba(8, 7, 7, 0.65); /* Text 65% opacity from Figma */
   margin: 0;
 }
 
 .statValue {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000;
+  font-family: var(--font-title, "Spectral", serif);
+  font-size: 1.75rem; /* 28px Desktop/Tittle 1 from Figma */
+  font-weight: 300; /* Glare Light from Figma */
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  color: var(--color-text-primary, #231d1d);
   margin: 0;
-  line-height: 1;
 }
 
 @media (min-width: 48.0625rem) {
   .statsContainer {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 3rem;
+    flex-direction: row;
   }
 
-  .statLabel {
-    font-size: 0.875rem;
+  .statItem {
+    flex: 1;
+    padding: 3rem 1.5rem;
+    border-bottom: none;
+    border-right: 1px solid rgba(8, 7, 7, 0.1); /* Border between columns */
+  }
+
+  .statItem:last-child {
+    border-right: none; /* Remove border from last item */
   }
 
   .statValue {
-    font-size: 3rem;
+    font-size: 1.75rem; /* 28px from Figma */
   }
 }

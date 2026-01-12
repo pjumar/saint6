@@ -62,11 +62,19 @@
 }
 
 .roomGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  justify-items: center;
-  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 1.5rem;
+  margin: 0 -1.5rem;
+  width: calc(100% + 3rem);
+}
+
+.roomGrid > * {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
 }
 
 @media (min-width: 48.0625rem) {
@@ -93,7 +101,18 @@
   }
 
   .roomGrid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .roomGrid > * {
+    flex: unset;
+    scroll-snap-align: unset;
   }
 }

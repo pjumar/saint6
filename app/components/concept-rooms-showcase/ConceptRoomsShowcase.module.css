@@ -1,0 +1,133 @@
+.showcaseSection {
+  position: relative;
+  width: 100%;
+  background: var(--color-primary, #880300); /* Red background from Figma */
+  border-radius: 1.5rem 1.5rem 0 0; /* 24px rounded top corners from Figma */
+  overflow: hidden;
+  padding: 8rem 1.5rem 0; /* Top padding for header, side padding */
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 44.375rem; /* 710px from Figma */
+  height: 30.0625rem; /* 481px from Figma */
+  pointer-events: none;
+  background-image: url('/images/spiral_decoration.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+  transform: scaleY(-1); /* Flip vertically from Figma */
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; /* Space between header and cards */
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem; /* 24px from Figma */
+  max-width: 42.5rem; /* 680px from Figma */
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem; /* 12px Caption/Regular from Figma */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem; /* 2px tracking from Figma */
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4); /* Text/TextInvertAlpha40 from Figma */
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-title, "Spectral", serif);
+  font-size: 2.5rem; /* 40px Desktop/Heading from Figma */
+  font-weight: 400; /* Glare Regular from Figma */
+  line-height: 1.2;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  color: #ffffff; /* Text/TextinvertAlpha100 from Figma */
+  margin: 0;
+}
+
+.description {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px Body/Regular from Figma */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
+  color: rgba(255, 255, 255, 0.8); /* Text/TextInvertAlpha80 from Figma */
+  margin: 0;
+}
+
+.roomsGrid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 1.5rem 4rem;
+  margin: 0 -1.5rem;
+  width: calc(100% + 3rem);
+}
+
+.roomsGrid > * {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+}
+
+@media (min-width: 48.0625rem) {
+  .showcaseSection {
+    padding: 8rem 3rem 0;
+  }
+
+  .roomsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4375rem;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding: 0 0 4rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  .roomsGrid > * {
+    flex: unset;
+    scroll-snap-align: unset;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .showcaseSection {
+    padding: 4rem 1rem 0;
+  }
+
+  .content {
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+}

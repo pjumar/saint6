@@ -21,7 +21,7 @@
 }
 
 .description {
-  font-family: var(--font-title, "PP Fragment", serif);
+  font-family: var(--font-title, "Spectral", serif);
   font-size: 2.5rem; /* 40px Desktop/Heading from Figma */
   font-weight: 400; /* Glare Regular from Figma */
   line-height: 1.2;
