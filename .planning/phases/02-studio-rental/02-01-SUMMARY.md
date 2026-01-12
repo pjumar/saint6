@@ -76,6 +76,21 @@ Successfully created the foundational page layout and route structure for the St
 
 1. `/app/translations/en.json` - Added STUDIO_RENTAL.HERO.TAGLINE and STUDIO_RENTAL.META keys
 2. `/app/translations/vi.json` - Added Vietnamese translations
+3. `/app/components/header/Header.tsx` - Updated Studio Rental link to use route instead of hash anchor
+4. `/app/components/menu-overlay/MenuOverlay.tsx` - Updated menu items to include proper Studio Rental route
+
+## Additional Refactoring
+
+After initial implementation, extracted reusable hero component pattern:
+
+**New reusable component created:**
+- `app/components/service-hero/ServiceHero.tsx` - Reusable hero component for all service pages
+- `app/components/service-hero/ServiceHero.module.css` - Shared hero styles
+
+**Refactored:**
+- `app/components/studio-hero-section/StudioHeroSection.tsx` - Now uses ServiceHero component (reduced from 88 to 16 lines)
+
+This refactoring provides a template for Phases 3-5, making future service pages faster to implement.
 
 ## Testing Results
 
