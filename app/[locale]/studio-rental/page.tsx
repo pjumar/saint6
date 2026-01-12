@@ -1,50 +1,12 @@
-import type { Metadata } from "next";
-import type { Locale } from "@/app/types";
+"use client";
+
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
 import { RoomCard } from "@/app/components/room-card/RoomCard";
 import { StudioStats } from "@/app/components/studio-stats/StudioStats";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
+import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
+import { InquiryForm } from "@/app/components/inquiry-form/InquiryForm";
 import styles from "./StudioRental.module.css";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const typedLocale = locale as Locale;
-  const isVi = typedLocale === "vi";
-
-  return {
-    title: isVi
-      ? "Thuê Studio | Saint 6 Studio"
-      : "Studio Rental | Saint 6 Studio",
-    description: isVi
-      ? "Thuê không gian studio chuyên nghiệp của chúng tôi cho các dự án sáng tạo của bạn. The Loft, The Studio, The Arena và các phòng concept theo mùa có sẵn cho chụp ảnh, sản xuất và sự kiện."
-      : "Rent our professional studio spaces for your creative projects. The Loft, The Studio, The Arena, and seasonal concept rooms available for photoshoots, productions, and events.",
-    openGraph: {
-      title: isVi
-        ? "Thuê Studio | Saint 6 Studio"
-        : "Studio Rental | Saint 6 Studio",
-      description: isVi
-        ? "Thuê không gian studio chuyên nghiệp của chúng tôi cho các dự án sáng tạo của bạn."
-        : "Rent our professional studio spaces for your creative projects.",
-      type: "website",
-      locale: isVi ? "vi_VN" : "en_US",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: isVi
-        ? "Thuê Studio | Saint 6 Studio"
-        : "Studio Rental | Saint 6 Studio",
-      description: isVi
-        ? "Thuê không gian studio chuyên nghiệp của chúng tôi cho các dự án sáng tạo của bạn."
-        : "Rent our professional studio spaces for your creative projects.",
-    },
-  };
-}
-
-export const revalidate = 3600;
 
 // Hardcoded room data (CMS integration in Phase 8)
 const studioRooms = [
@@ -126,6 +88,30 @@ const conceptRooms = [
   },
 ];
 
+// FAQ data (CMS integration in Phase 8)
+const faqItems = [
+  {
+    question: "How do I book?",
+    answer:
+      "You can book by filling out the inquiry form below or contacting us directly. We'll respond within 24 hours to confirm availability and details.",
+  },
+  {
+    question: "What's the cancellation policy?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cancellations made 48 hours in advance receive a full refund. Cancellations within 48 hours are subject to a 50% fee.",
+  },
+  {
+    question: "Can I visit before booking?",
+    answer:
+      "Yes, we offer studio tours by appointment. Contact us to schedule a walkthrough of our spaces.",
+  },
+  {
+    question: "What's included in the rental?",
+    answer:
+      "Studio rental includes access to the space, basic lighting equipment, makeup facilities, and on-site support. Additional equipment and services are available upon request.",
+  },
+];
+
 export default function StudioRentalPage() {
   return (
     <div className={styles.studioRentalPage}>
@@ -201,18 +187,18 @@ export default function StudioRentalPage() {
 
         {/* FAQs Section */}
         <section className={styles.section} id="faqs">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement collapsible Q&A */}
-            <p className={styles.placeholderText}>FAQs</p>
-          </div>
+          <h2 className={styles.sectionHeading}>Frequently Asked Questions</h2>
+          <FAQAccordion items={faqItems} defaultExpandedIndex={1} />
         </section>
 
         {/* Contact Form Section */}
         <section className={styles.section} id="contact-form">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement inquiry form */}
-            <p className={styles.placeholderText}>Contact Form</p>
-          </div>
+          <h2 className={styles.sectionHeading}>Send an Inquiry</h2>
+          <p className={styles.sectionDescription}>
+            Have questions or ready to book? Fill out the form below and we'll
+            get back to you shortly.
+          </p>
+          <InquiryForm />
         </section>
       </div>
     </div>
