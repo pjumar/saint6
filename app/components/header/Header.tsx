@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
@@ -21,7 +22,7 @@ export function Header({
   const { t, locale } = useTranslation();
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
+      <Link href={`/${locale}`} className={styles.logo}>
         <Image
           src="/assets/saint6-logo.svg"
           alt="Saint 6 Studio"
@@ -29,7 +30,7 @@ export function Header({
           height={36}
           priority
         />
-      </div>
+      </Link>
 
       <div className={styles.desktopNavWrapper}>
         <nav className={styles.desktopNav}>
