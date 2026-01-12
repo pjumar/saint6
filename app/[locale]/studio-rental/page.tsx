@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/app/types";
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
+import { RoomCard } from "@/app/components/room-card/RoomCard";
 import styles from "./StudioRental.module.css";
 
 export async function generateMetadata({
@@ -43,6 +44,86 @@ export async function generateMetadata({
 
 export const revalidate = 3600;
 
+// Hardcoded room data (CMS integration in Phase 8)
+const studioRooms = [
+  {
+    id: "loft",
+    title: "The Loft",
+    pricePerHour: "450,000",
+    counter: "01/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description:
+      "Perfect for editorial shoots, interviews, and minimalist campaigns.",
+    imageUrl: "/images/rooms/loft.jpg",
+  },
+  {
+    id: "studio",
+    title: "The Studio",
+    pricePerHour: "800,000",
+    counter: "02/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description:
+      "Perfect for editorial shoots, interviews, and minimalist campaigns.",
+    imageUrl: "/images/rooms/studio.jpg",
+    showEnterButton: true,
+  },
+  {
+    id: "arena",
+    title: "The Arena",
+    pricePerHour: "850,000",
+    counter: "03/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description:
+      "Perfect for editorial shoots, interviews, and minimalist campaigns.",
+    imageUrl: "/images/rooms/arena.jpg",
+  },
+];
+
+const conceptRooms = [
+  {
+    id: "concept1",
+    title: "Concept room 1",
+    pricePerHour: "450,000",
+    counter: "04/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description: "Seasonal themed room for unique creative concepts.",
+    imageUrl: "/images/rooms/concept1.jpg",
+    showEnterButton: true,
+  },
+  {
+    id: "concept2",
+    title: "Concept room 2",
+    pricePerHour: "450,000",
+    counter: "05/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description: "Seasonal themed room for unique creative concepts.",
+    imageUrl: "/images/rooms/concept2.jpg",
+    showEnterButton: true,
+  },
+  {
+    id: "concept3",
+    title: "Concept room 3",
+    pricePerHour: "450,000",
+    counter: "06/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description: "Seasonal themed room for unique creative concepts.",
+    imageUrl: "/images/rooms/concept3.jpg",
+    showEnterButton: true,
+  },
+];
+
 export default function StudioRentalPage() {
   return (
     <div className={styles.studioRentalPage}>
@@ -65,19 +146,26 @@ export default function StudioRentalPage() {
           </div>
         </section>
 
-        {/* Studio Overview Carousel */}
+        {/* Studio Overview Section */}
         <section className={styles.section} id="studio-overview">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement carousel with 3 room previews (The Loft, The Studio, The Arena) */}
-            <p className={styles.placeholderText}>Studio Overview Carousel</p>
+          <div className={styles.roomGrid}>
+            {studioRooms.map((room) => (
+              <RoomCard key={room.id} {...room} />
+            ))}
           </div>
         </section>
 
         {/* Seasonal Concept Rooms Section */}
         <section className={styles.section} id="concept-rooms">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement header, description, and 3 concept room cards */}
-            <p className={styles.placeholderText}>Seasonal Concept Rooms</p>
+          <h2 className={styles.sectionHeading}>Seasonal Concept Rooms</h2>
+          <p className={styles.sectionDescription}>
+            Explore our rotating themed spaces designed for unique creative
+            visions.
+          </p>
+          <div className={styles.roomGrid}>
+            {conceptRooms.map((room) => (
+              <RoomCard key={room.id} {...room} />
+            ))}
           </div>
         </section>
 

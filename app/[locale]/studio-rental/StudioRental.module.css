@@ -37,6 +37,33 @@
   margin: 0;
 }
 
+.sectionHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 1rem;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sectionDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 auto 3rem;
+  max-width: 40rem;
+  color: #333;
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+}
+
 @media (min-width: 48.0625rem) {
   .contentContainer {
     max-width: 90rem;
@@ -49,5 +76,19 @@
 
   .sectionPlaceholder {
     min-height: 12rem;
+  }
+
+  .sectionHeading {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sectionDescription {
+    font-size: 1.125rem;
+  }
+
+  .roomGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
   }
 }
