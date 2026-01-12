@@ -9,7 +9,36 @@ import { LanguageSelector } from "@/app/components/language-selector/LanguageSel
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./HeroSection.module.css";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  /**
+   * Main heading text for the hero section
+   */
+  heading: string;
+  /**
+   * Path to the background image
+   */
+  backgroundImage: string;
+  /**
+   * Alt text for the background image
+   */
+  backgroundAlt?: string;
+  /**
+   * Whether to show the scroll indicator (default: false)
+   */
+  showScrollIndicator?: boolean;
+  /**
+   * Whether to show the decorative line (default: false)
+   */
+  showDecorativeLine?: boolean;
+}
+
+export function HeroSection({
+  heading,
+  backgroundImage,
+  backgroundAlt = "Hero background",
+  showScrollIndicator = false,
+  showDecorativeLine = false,
+}: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const { t } = useTranslation();
@@ -43,8 +72,8 @@ export function HeroSection() {
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
           <Image
-            src="/images/hero/hero-background.jpg"
-            alt="Hero background"
+            src={backgroundImage}
+            alt={backgroundAlt}
             fill
             className={styles.heroBackgroundImage}
             priority
@@ -59,32 +88,36 @@ export function HeroSection() {
         />
 
         <div className={styles.heroContentWrapper}>
-          <div className={styles.scrollIndicator}>
-            <Image
-              src="/images/hero/scroll-icon.svg"
-              alt=""
-              width={16}
-              height={16}
-              className={styles.scrollIcon}
-            />
-            <p className="caption">{t.HERO.SCROLL_DOWN}</p>
-          </div>
+          {showScrollIndicator && (
+            <div className={styles.scrollIndicator}>
+              <Image
+                src="/images/hero/scroll-icon.svg"
+                alt=""
+                width={16}
+                height={16}
+                className={styles.scrollIcon}
+              />
+              <p className="caption">{t.HERO.SCROLL_DOWN}</p>
+            </div>
+          )}
           <div className={styles.heroContent}>
             <h1 className={`heading-mobile heading-desktop ${styles.heroHeading}`}>
-              {t.HERO.HEADING}
+              {heading}
             </h1>
           </div>
         </div>
 
         <div className={styles.heroMiddleSection}>
-          <div className={styles.decorativeLine}>
-            <Image
-              src="/images/hero/decorative-line.svg"
-              alt=""
-              fill
-              className={styles.decorativeLineImage}
-            />
-          </div>
+          {showDecorativeLine && (
+            <div className={styles.decorativeLine}>
+              <Image
+                src="/images/hero/decorative-line.svg"
+                alt=""
+                fill
+                className={styles.decorativeLineImage}
+              />
+            </div>
+          )}
           <div className={styles.heroLinks}>
             <div className={styles.heroLinksLeft}>
               <SocialLinks />
@@ -101,8 +134,9 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-      {(isMenuOpen || isClosing) && <MenuOverlay onClose={handleMenuToggle} isClosing={isClosing} />}
+      {(isMenuOpen || isClosing) && (
+        <MenuOverlay onClose={handleMenuToggle} isClosing={isClosing} />
+      )}
     </>
   );
 }
-

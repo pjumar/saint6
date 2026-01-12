@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { TrustedBySection } from "@/app/components/trusted-by-section/TrustedBySection";
 import { GallerySection } from "@/app/components/gallery-section/GallerySection";
@@ -6,48 +7,8 @@ import {
   KeyProjectSection,
   type KeyProjectData,
 } from "@/app/components/key-project-section/KeyProjectSection";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "@/app/page.module.css";
-import type { Locale } from "@/app/types";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const typedLocale = locale as Locale;
-  const isVi = typedLocale === "vi";
-
-  return {
-    title: isVi
-      ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
-      : "Saint 6 Studio | Exclusive Production & Event Destination",
-    description: isVi
-      ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn. Thuê studio, thiết kế set, dịch vụ sản xuất và giải pháp sáng tạo được điều chỉnh theo nhu cầu của bạn."
-      : "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs.",
-    openGraph: {
-      title: isVi
-        ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
-        : "Saint 6 Studio | Exclusive Production & Event Destination",
-      description: isVi
-        ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn."
-        : "An exclusive destination for elevated productions, private events, and visionary experiences.",
-      type: "website",
-      locale: isVi ? "vi_VN" : "en_US",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: isVi
-        ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
-        : "Saint 6 Studio | Exclusive Production & Event Destination",
-      description: isVi
-        ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn."
-        : "An exclusive destination for elevated productions, private events, and visionary experiences.",
-    },
-  };
-}
-
-export const revalidate = 3600;
 
 // TODO: Replace with actual CMS data fetching
 // Example project data structure - replace this with your CMS data
@@ -98,9 +59,17 @@ const exampleProjectData: KeyProjectData = {
 };
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.homepage}>
-      <HeroSection />
+      <HeroSection
+        heading={t.HERO.HEADING}
+        backgroundImage="/images/hero/hero-background.jpg"
+        backgroundAlt="Hero background"
+        showScrollIndicator={true}
+        showDecorativeLine={true}
+      />
       <div className={styles.contentContainer}>
         <TrustedBySection />
         <GallerySection />
