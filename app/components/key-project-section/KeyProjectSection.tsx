@@ -40,7 +40,7 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
   const { t } = useTranslation();
 
   return (
-    <>
+    <div className={styles.keyProjectWrapper}>
       <div className={styles.sectionHeader}>
         <h2 className={styles.heading}>{t.KEY_PROJECT.HEADING}</h2>
         <p className={styles.caption}>
@@ -94,7 +94,7 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
         </div>
       </div>
       
-      <div className={styles.projectImages}>
+      <div className={styles.contentGrid}>
         <div className={styles.mainImageContainer}>
           <Image
             src={project.mainImage.src}
@@ -104,61 +104,45 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
             className={styles.mainImage}
           />
         </div>
-        
-        <div className={styles.testimonialGallerySection}>
-          {project.testimonial && (
-            <div className={styles.testimonialContent}>
-              <div className={styles.testimonialQuote}>
-                <p className={styles.quoteMark}>"</p>
-                <p className={styles.quoteText}>{project.testimonial.quote}</p>
-              </div>
-              <div className={styles.testimonialAuthor}>
-                <div className={styles.authorLine}>
-                  <Image
-                    src="/images/project/testimonial-line.svg"
-                    alt=""
-                    width={39}
-                    height={1}
-                    className={styles.authorLineImage}
-                  />
-                  <p className={styles.authorName}>{project.testimonial.author}</p>
-                </div>
-                <p className={styles.authorRole}>{project.testimonial.role}</p>
-              </div>
+
+        <div className={styles.infoTextSection}>
+          <div className={styles.infoLabel}>{t.KEY_PROJECT.INFO}</div>
+          <p className={styles.infoText}>{project.infoText}</p>
+        </div>
+
+        {project.testimonial && (
+          <div className={styles.testimonialContent}>
+            <div className={styles.testimonialQuote}>
+              <p className={styles.quoteMark}>"</p>
+              <p className={styles.quoteText}>{project.testimonial.quote}</p>
             </div>
-          )}
-          
-          {project.galleryImages.length > 0 && (
-            <div className={styles.galleryGrid}>
-              <div className={styles.galleryImageLarge}>
+            <div className={styles.testimonialAuthor}>
+              <div className={styles.authorLine}>
+                <div className={styles.authorLineDecoration} />
+                <p className={styles.authorName}>{project.testimonial.author}</p>
+              </div>
+              <p className={styles.authorRole}>{project.testimonial.role}</p>
+            </div>
+          </div>
+        )}
+
+        {project.galleryImages.length > 0 && (
+          <div className={styles.galleryGrid}>
+            {project.galleryImages.slice(0, 3).map((image, index) => (
+              <div key={index} className={styles[`galleryImage${index + 1}`]}>
                 <Image
-                  src={project.galleryImages[0].src}
-                  alt={project.galleryImages[0].alt}
-                  width={project.galleryImages[0].width}
-                  height={project.galleryImages[0].height}
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
                   className={styles.galleryImage}
                 />
               </div>
-              {project.galleryImages.length > 1 && (
-                <div className={styles.galleryImagesSmall}>
-                  {project.galleryImages.slice(1, 3).map((image, index) => (
-                    <div key={index} className={styles.galleryImageSmall}>
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        width={image.width}
-                        height={image.height}
-                        className={styles.galleryImage}
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
       </section>
-    </>
+    </div>
   );
 }
