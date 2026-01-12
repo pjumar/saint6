@@ -38,22 +38,27 @@
 }
 
 .sectionHeading {
-  font-size: 2rem;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem; /* 12px from Figma */
   font-weight: 700;
   text-align: center;
-  margin: 0 0 1rem;
-  color: #000;
+  margin: 0 0 2rem;
+  color: var(--color-text-primary, #231d1d);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.125rem; /* 2px tracking from Figma */
+  line-height: 1.1;
 }
 
 .sectionDescription {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem; /* 16px from Figma Body/Regular */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em; /* -2% tracking from Figma */
   text-align: center;
   margin: 0 auto 3rem;
   max-width: 40rem;
-  color: #333;
+  color: var(--color-text-primary, #231d1d);
 }
 
 .roomGrid {
