@@ -98,6 +98,24 @@
       "MESSAGE": "Message",
       "SUBMIT": "Send Inquiry",
       "SENDING": "Sending..."
+    },
+    "FULL_RENTAL": {
+      "TITLE": "Full Studio Rental",
+      "DESCRIPTION": "Get exclusive access to our entire 900m² facility including all 6 rooms, equipment, and dedicated support staff for your large-scale productions.",
+      "FEATURE_1": "All 6 studio rooms included",
+      "FEATURE_2": "Full equipment access",
+      "FEATURE_3": "Dedicated support team"
+    },
+    "FACILITIES": {
+      "TITLE": "Facilities & Amenities",
+      "MAKEUP_ROOM": "Makeup Room",
+      "MAKEUP_DESCRIPTION": "Professional makeup stations with excellent lighting and mirrors for talent preparation.",
+      "DINING_LOUNGE": "Dining Lounge",
+      "DINING_DESCRIPTION": "Comfortable dining area for crew meals and client refreshments during long shoots."
+    },
+    "EQUIPMENT": {
+      "TITLE": "Lighting Equipment",
+      "DESCRIPTION": "Professional-grade lighting equipment available for rent with your studio booking."
     }
   }
 }

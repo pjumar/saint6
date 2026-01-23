@@ -1,0 +1,98 @@
+.equipmentSection {
+  width: 100%;
+}
+
+.sectionTitle {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: var(--color-text-primary, #231d1d);
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+.sectionDescription {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.equipmentCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-subtle, #f8f8f8);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  background: #e0e0e0;
+}
+
+.equipmentImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.equipmentName {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.equipmentDescription {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-subtle, #666);
+  margin: 0;
+}
+
+@media (min-width: 48.0625rem) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .content {
+    padding: 1.25rem;
+  }
+
+  .equipmentName {
+    font-size: 1rem;
+  }
+
+  .equipmentDescription {
+    font-size: 0.875rem;
+  }
+}

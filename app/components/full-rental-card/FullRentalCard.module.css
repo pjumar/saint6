@@ -1,0 +1,100 @@
+.card {
+  width: 100%;
+  background: var(--color-bg-subtle, #f8f8f8);
+  border-radius: 0.5rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.title {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.price {
+  font-family: var(--font-title, "Spectral", serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #880300);
+  margin: 0;
+}
+
+.perHour {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-primary, #880300);
+}
+
+.description {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-primary, #231d1d);
+}
+
+.checkmark {
+  color: var(--color-primary, #880300);
+  font-weight: 700;
+}
+
+.bookButton {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 48.0625rem) {
+  .card {
+    padding: 4rem;
+  }
+
+  .price {
+    font-size: 3.5rem;
+  }
+
+  .features {
+    flex-direction: row;
+    gap: 2rem;
+    max-width: none;
+    justify-content: center;
+  }
+}

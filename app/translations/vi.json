@@ -98,6 +98,24 @@
       "MESSAGE": "Tin nhắn",
       "SUBMIT": "Gửi yêu cầu",
       "SENDING": "Đang gửi..."
+    },
+    "FULL_RENTAL": {
+      "TITLE": "Thuê toàn bộ Studio",
+      "DESCRIPTION": "Truy cập độc quyền toàn bộ cơ sở 900m² bao gồm tất cả 6 phòng, thiết bị và đội ngũ hỗ trợ chuyên nghiệp cho các sản xuất quy mô lớn.",
+      "FEATURE_1": "Bao gồm tất cả 6 phòng studio",
+      "FEATURE_2": "Truy cập đầy đủ thiết bị",
+      "FEATURE_3": "Đội ngũ hỗ trợ chuyên nghiệp"
+    },
+    "FACILITIES": {
+      "TITLE": "Tiện ích & Dịch vụ",
+      "MAKEUP_ROOM": "Phòng trang điểm",
+      "MAKEUP_DESCRIPTION": "Bàn trang điểm chuyên nghiệp với ánh sáng và gương tuyệt vời cho việc chuẩn bị nghệ sĩ.",
+      "DINING_LOUNGE": "Phòng ăn",
+      "DINING_DESCRIPTION": "Khu vực ăn uống thoải mái cho đoàn phim và khách hàng trong các buổi quay dài."
+    },
+    "EQUIPMENT": {
+      "TITLE": "Thiết bị chiếu sáng",
+      "DESCRIPTION": "Thiết bị chiếu sáng chuyên nghiệp có sẵn để thuê cùng với đặt phòng studio."
     }
   }
 }

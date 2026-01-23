@@ -7,6 +7,9 @@ import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
 import { InquiryForm } from "@/app/components/inquiry-form/InquiryForm";
 import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
+import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard";
+import { FacilitiesShowcase } from "@/app/components/facilities-showcase/FacilitiesShowcase";
+import { EquipmentGrid } from "@/app/components/equipment-grid/EquipmentGrid";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./StudioRental.module.css";
 
@@ -103,6 +106,60 @@ export default function StudioRentalPage() {
     { question: t.STUDIO_RENTAL.FAQ.Q4, answer: t.STUDIO_RENTAL.FAQ.A4 },
   ];
 
+  // Facilities data (CMS integration in Phase 8)
+  const facilities = [
+    {
+      id: "makeup",
+      title: t.STUDIO_RENTAL.FACILITIES.MAKEUP_ROOM,
+      description: t.STUDIO_RENTAL.FACILITIES.MAKEUP_DESCRIPTION,
+      imageUrl: "/images/rooms/loft.jpg",
+      features: [
+        "Professional lighting stations",
+        "Full-length mirrors",
+        "Hair styling equipment",
+      ],
+    },
+    {
+      id: "dining",
+      title: t.STUDIO_RENTAL.FACILITIES.DINING_LOUNGE,
+      description: t.STUDIO_RENTAL.FACILITIES.DINING_DESCRIPTION,
+      imageUrl: "/images/rooms/studio.jpg",
+      features: [
+        "Seating for 20 people",
+        "Catering-ready kitchen",
+        "Refreshment station",
+      ],
+    },
+  ];
+
+  // Equipment data (CMS integration in Phase 8)
+  const equipmentItems = [
+    {
+      id: "softbox",
+      name: "Softbox Lights",
+      description: "Professional soft lighting for portraits",
+      imageUrl: "/images/rooms/arena.jpg",
+    },
+    {
+      id: "ringlight",
+      name: "Ring Lights",
+      description: "Perfect for beauty and product shots",
+      imageUrl: "/images/rooms/loft.jpg",
+    },
+    {
+      id: "strobe",
+      name: "Strobe Flashes",
+      description: "High-powered studio strobes",
+      imageUrl: "/images/rooms/studio.jpg",
+    },
+    {
+      id: "continuous",
+      name: "LED Panels",
+      description: "Continuous lighting for video",
+      imageUrl: "/images/rooms/arena.jpg",
+    },
+  ];
+
   return (
     <div className={styles.studioRentalPage}>
       <StudioHeroSection />
@@ -142,26 +199,20 @@ export default function StudioRentalPage() {
 
         {/* Full Studio Rental Section */}
         <section className={styles.section} id="full-studio">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement exclusive use description and pricing */}
-            <p className={styles.placeholderText}>Full Studio Rental</p>
-          </div>
+          <FullRentalCard
+            price="2,500,000"
+            description={t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}
+          />
         </section>
 
         {/* Makeup & Dining Sections */}
         <section className={styles.section} id="facilities">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement makeup and dining support facilities */}
-            <p className={styles.placeholderText}>Makeup & Dining</p>
-          </div>
+          <FacilitiesShowcase facilities={facilities} />
         </section>
 
         {/* Lighting Equipment Section */}
         <section className={styles.section} id="lighting">
-          <div className={styles.sectionPlaceholder}>
-            {/* TODO [Plan 02-02]: Implement lighting equipment showcase */}
-            <p className={styles.placeholderText}>Lighting Equipment</p>
-          </div>
+          <EquipmentGrid items={equipmentItems} />
         </section>
 
         {/* FAQs Section */}
