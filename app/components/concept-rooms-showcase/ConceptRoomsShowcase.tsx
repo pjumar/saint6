@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomCard";
 import styles from "./ConceptRoomsShowcase.module.css";
 
@@ -18,6 +21,11 @@ export interface ConceptRoomsShowcaseProps {
 }
 
 export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
+  const { t } = useTranslation();
+
+  // Split the title into two lines for formatting
+  const titleLines = t.STUDIO_RENTAL.CONCEPT.TITLE.split("\n");
+
   return (
     <section className={styles.showcaseSection}>
       {/* Background decorative pattern - placeholder for SVG pattern */}
@@ -27,16 +35,18 @@ export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
       <div className={styles.content}>
         {/* Header */}
         <div className={styles.header}>
-          <p className={styles.subtitle}>Seasonal Concept Rooms</p>
+          <p className={styles.subtitle}>{t.STUDIO_RENTAL.CONCEPT.SUBTITLE}</p>
           <h2 className={styles.title}>
-            Seasonal Concept Rooms
-            <br />
-            Crafted for Limitless Creativity
+            {titleLines[0]}
+            {titleLines[1] && (
+              <>
+                <br />
+                {titleLines[1]}
+              </>
+            )}
           </h2>
           <p className={styles.description}>
-            Updated every six months, our Concept Rooms feature one-of-a-kind
-            themes that elevate photoshoots, filming, livestreams, and
-            workshops.
+            {t.STUDIO_RENTAL.CONCEPT.DESCRIPTION}
           </p>
         </div>
 

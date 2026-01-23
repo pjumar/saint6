@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./RoomCard.module.css";
-import { Button } from "@/app/components/ui/button";
 
 export interface RoomCardProps {
   imageUrl: string;
@@ -25,6 +27,8 @@ export function RoomCard({
   description,
   showEnterButton = false,
 }: RoomCardProps) {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.roomCard}>
       {/* Room Image */}
@@ -38,7 +42,7 @@ export function RoomCard({
         />
         {showEnterButton && (
           <button type="button" className={styles.enterButton}>
-            <span className={styles.enterButtonText}>Enter the Room</span>
+            <span className={styles.enterButtonText}>{t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}</span>
           </button>
         )}
       </div>
@@ -51,7 +55,7 @@ export function RoomCard({
         {/* Title, Price, Description */}
         <div className={styles.details}>
           <h3 className={styles.title}>{title}</h3>
-          <p className={styles.priceAmount}>{pricePerHour}/hour</p>
+          <p className={styles.priceAmount}>{pricePerHour}{t.STUDIO_RENTAL.ROOMS.PER_HOUR}</p>
           <p className={styles.description}>{description}</p>
         </div>
       </div>

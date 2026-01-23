@@ -7,6 +7,7 @@ import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
 import { InquiryForm } from "@/app/components/inquiry-form/InquiryForm";
 import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./StudioRental.module.css";
 
 // Hardcoded room data (CMS integration in Phase 8)
@@ -91,31 +92,17 @@ const conceptRooms = [
   },
 ];
 
-// FAQ data (CMS integration in Phase 8)
-const faqItems = [
-  {
-    question: "How do I book?",
-    answer:
-      "You can book by filling out the inquiry form below or contacting us directly. We'll respond within 24 hours to confirm availability and details.",
-  },
-  {
-    question: "What's the cancellation policy?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cancellations made 48 hours in advance receive a full refund. Cancellations within 48 hours are subject to a 50% fee.",
-  },
-  {
-    question: "Can I visit before booking?",
-    answer:
-      "Yes, we offer studio tours by appointment. Contact us to schedule a walkthrough of our spaces.",
-  },
-  {
-    question: "What's included in the rental?",
-    answer:
-      "Studio rental includes access to the space, basic lighting equipment, makeup facilities, and on-site support. Additional equipment and services are available upon request.",
-  },
-];
-
 export default function StudioRentalPage() {
+  const { t } = useTranslation();
+
+  // FAQ data using translations (CMS integration in Phase 8)
+  const faqItems = [
+    { question: t.STUDIO_RENTAL.FAQ.Q1, answer: t.STUDIO_RENTAL.FAQ.A1 },
+    { question: t.STUDIO_RENTAL.FAQ.Q2, answer: t.STUDIO_RENTAL.FAQ.A2 },
+    { question: t.STUDIO_RENTAL.FAQ.Q3, answer: t.STUDIO_RENTAL.FAQ.A3 },
+    { question: t.STUDIO_RENTAL.FAQ.Q4, answer: t.STUDIO_RENTAL.FAQ.A4 },
+  ];
+
   return (
     <div className={styles.studioRentalPage}>
       <StudioHeroSection />
@@ -124,9 +111,9 @@ export default function StudioRentalPage() {
         {/* How It Works Intro Section */}
         <section className={styles.section} id="how-it-works">
           <StudioIntro
-            title="How It Works"
-            description="Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you."
-            ctaText="Get in touch"
+            title={t.STUDIO_RENTAL.INTRO.TITLE}
+            description={t.STUDIO_RENTAL.INTRO.DESCRIPTION}
+            ctaText={t.STUDIO_RENTAL.INTRO.CTA}
           />
         </section>
 
@@ -179,16 +166,15 @@ export default function StudioRentalPage() {
 
         {/* FAQs Section */}
         <section className={styles.section} id="faqs">
-          <h2 className={styles.sectionHeading}>Frequently Asked Questions</h2>
+          <h2 className={styles.sectionHeading}>{t.STUDIO_RENTAL.FAQ.TITLE}</h2>
           <FAQAccordion items={faqItems} defaultExpandedIndex={1} />
         </section>
 
         {/* Contact Form Section */}
         <section className={styles.section} id="contact-form">
-          <h2 className={styles.sectionHeading}>Send an Inquiry</h2>
+          <h2 className={styles.sectionHeading}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
           <p className={styles.sectionDescription}>
-            Have questions or ready to book? Fill out the form below and we'll
-            get back to you shortly.
+            {t.STUDIO_RENTAL.FORM.DESCRIPTION}
           </p>
           <InquiryForm />
         </section>

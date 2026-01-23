@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomCard.module.css";
 import { Button } from "@/app/components/ui/button";
 
@@ -23,6 +26,8 @@ export function ConceptRoomCard({
   description,
   showEnterButton = false,
 }: ConceptRoomCardProps) {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.conceptCard}>
       {/* Arch-shaped Image Container */}
@@ -36,7 +41,7 @@ export function ConceptRoomCard({
         />
         {showEnterButton && (
           <button type="button" className={styles.enterButton}>
-            <span className={styles.enterButtonText}>Enter the Room</span>
+            <span className={styles.enterButtonText}>{t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}</span>
           </button>
         )}
       </div>
@@ -46,21 +51,21 @@ export function ConceptRoomCard({
         {/* Title and Price Header */}
         <div className={styles.header}>
           <h3 className={styles.title}>{title}</h3>
-          <p className={styles.price}>{pricePerHour}/hour</p>
+          <p className={styles.price}>{pricePerHour}{t.STUDIO_RENTAL.ROOMS.PER_HOUR}</p>
         </div>
 
         {/* Specs Section */}
         <div className={styles.specs}>
           <div className={styles.specItem}>
-            <span className={styles.specLabel}>Space</span>
+            <span className={styles.specLabel}>{t.STUDIO_RENTAL.ROOMS.SPACE}</span>
             <span className={styles.specValue}>{space}</span>
           </div>
           <div className={styles.specItem}>
-            <span className={styles.specLabel}>Width</span>
+            <span className={styles.specLabel}>{t.STUDIO_RENTAL.ROOMS.WIDTH}</span>
             <span className={styles.specValue}>{width}</span>
           </div>
           <div className={styles.specItem}>
-            <span className={styles.specLabel}>Ceiling height</span>
+            <span className={styles.specLabel}>{t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}</span>
             <span className={styles.specValue}>{ceilingHeight}</span>
           </div>
         </div>
@@ -70,10 +75,10 @@ export function ConceptRoomCard({
           <p className={styles.description}>{description}</p>
           <div className={styles.actions}>
             <Button variant="default" size="lg" className={styles.bookingButton}>
-              Make a Booking
+              {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
             </Button>
             <Button variant="outline" size="lg" className={styles.galleryButton}>
-              Gallery
+              {t.STUDIO_RENTAL.ROOMS.GALLERY}
             </Button>
           </div>
         </div>

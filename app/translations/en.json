@@ -50,6 +50,54 @@
     "META": {
       "TITLE": "Studio Rental | Saint 6 Studio",
       "DESCRIPTION": "Rent our professional studio spaces for your creative projects. The Loft, The Studio, The Arena, and seasonal concept rooms available for photoshoots, productions, and events."
+    },
+    "INTRO": {
+      "TITLE": "How It Works",
+      "DESCRIPTION": "Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you.",
+      "CTA": "Get in touch"
+    },
+    "STATS": {
+      "TOTAL_ROOMS": "Total Rooms",
+      "CEILING_HEIGHT": "Ceiling Height",
+      "TOTAL_SPACE": "Total Space",
+      "BLANK_ROOMS": "Blank Rooms",
+      "CONCEPT_ROOMS": "Concept Rooms"
+    },
+    "ROOMS": {
+      "MAKE_BOOKING": "Make a Booking",
+      "GALLERY": "Gallery",
+      "ENTER_ROOM": "Enter the Room",
+      "SPACE": "Space",
+      "WIDTH": "Width",
+      "CEILING_HEIGHT": "Ceiling height",
+      "PER_HOUR": "/hour"
+    },
+    "CONCEPT": {
+      "SUBTITLE": "Seasonal Concept Rooms",
+      "TITLE": "Seasonal Concept Rooms\nCrafted for Limitless Creativity",
+      "DESCRIPTION": "Updated every six months, our Concept Rooms feature one-of-a-kind themes that elevate photoshoots, filming, livestreams, and workshops."
+    },
+    "FAQ": {
+      "TITLE": "Frequently Asked Questions",
+      "Q1": "How do I book?",
+      "A1": "You can book by filling out the inquiry form below or contacting us directly. We'll respond within 24 hours to confirm availability and details.",
+      "Q2": "What's the cancellation policy?",
+      "A2": "Cancellations made 48 hours in advance receive a full refund. Cancellations within 48 hours are subject to a 50% fee.",
+      "Q3": "Can I visit before booking?",
+      "A3": "Yes, we offer studio tours by appointment. Contact us to schedule a walkthrough of our spaces.",
+      "Q4": "What's included in the rental?",
+      "A4": "Studio rental includes access to the space, basic lighting equipment, makeup facilities, and on-site support. Additional equipment and services are available upon request."
+    },
+    "FORM": {
+      "TITLE": "Send an Inquiry",
+      "DESCRIPTION": "Have questions or ready to book? Fill out the form below and we'll get back to you shortly.",
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "PREFERRED_DATE": "Preferred Date",
+      "MESSAGE": "Message",
+      "SUBMIT": "Send Inquiry",
+      "SENDING": "Sending..."
     }
   }
 }

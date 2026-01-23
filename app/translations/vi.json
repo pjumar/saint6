@@ -50,6 +50,54 @@
     "META": {
       "TITLE": "Thuê Studio | Saint 6 Studio",
       "DESCRIPTION": "Thuê không gian studio chuyên nghiệp của chúng tôi cho các dự án sáng tạo của bạn. The Loft, The Studio, The Arena và các phòng concept theo mùa có sẵn cho chụp ảnh, sản xuất và sự kiện."
+    },
+    "INTRO": {
+      "TITLE": "Cách thức hoạt động",
+      "DESCRIPTION": "Vì tầm nhìn của bạn xứng đáng hơn một không gian— Nó cần một sân khấu, một câu chuyện, và một studio đồng hành cùng bạn.",
+      "CTA": "Liên hệ ngay"
+    },
+    "STATS": {
+      "TOTAL_ROOMS": "Tổng số phòng",
+      "CEILING_HEIGHT": "Độ cao trần",
+      "TOTAL_SPACE": "Tổng diện tích",
+      "BLANK_ROOMS": "Phòng trống",
+      "CONCEPT_ROOMS": "Phòng concept"
+    },
+    "ROOMS": {
+      "MAKE_BOOKING": "Đặt phòng",
+      "GALLERY": "Thư viện ảnh",
+      "ENTER_ROOM": "Vào phòng",
+      "SPACE": "Diện tích",
+      "WIDTH": "Chiều rộng",
+      "CEILING_HEIGHT": "Độ cao trần",
+      "PER_HOUR": "/giờ"
+    },
+    "CONCEPT": {
+      "SUBTITLE": "Phòng concept theo mùa",
+      "TITLE": "Phòng concept theo mùa\nĐược tạo ra cho sự sáng tạo vô hạn",
+      "DESCRIPTION": "Cập nhật mỗi sáu tháng, các Phòng Concept của chúng tôi có những chủ đề độc đáo nâng tầm chụp ảnh, quay phim, livestream và hội thảo."
+    },
+    "FAQ": {
+      "TITLE": "Câu hỏi thường gặp",
+      "Q1": "Làm thế nào để đặt phòng?",
+      "A1": "Bạn có thể đặt phòng bằng cách điền vào mẫu yêu cầu bên dưới hoặc liên hệ trực tiếp với chúng tôi. Chúng tôi sẽ phản hồi trong vòng 24 giờ để xác nhận tình trạng phòng và chi tiết.",
+      "Q2": "Chính sách hủy như thế nào?",
+      "A2": "Hủy trước 48 giờ sẽ được hoàn tiền đầy đủ. Hủy trong vòng 48 giờ sẽ phải chịu phí 50%.",
+      "Q3": "Tôi có thể tham quan trước khi đặt không?",
+      "A3": "Có, chúng tôi cung cấp các tour tham quan studio theo lịch hẹn. Liên hệ với chúng tôi để sắp xếp tham quan các không gian của chúng tôi.",
+      "Q4": "Thuê phòng bao gồm những gì?",
+      "A4": "Thuê studio bao gồm quyền sử dụng không gian, thiết bị chiếu sáng cơ bản, cơ sở vật chất trang điểm và hỗ trợ tại chỗ. Thiết bị và dịch vụ bổ sung có sẵn theo yêu cầu."
+    },
+    "FORM": {
+      "TITLE": "Gửi yêu cầu",
+      "DESCRIPTION": "Có câu hỏi hoặc sẵn sàng đặt phòng? Điền vào mẫu bên dưới và chúng tôi sẽ liên hệ lại sớm.",
+      "NAME": "Họ tên",
+      "EMAIL": "Email",
+      "PHONE": "Số điện thoại",
+      "PREFERRED_DATE": "Ngày mong muốn",
+      "MESSAGE": "Tin nhắn",
+      "SUBMIT": "Gửi yêu cầu",
+      "SENDING": "Đang gửi..."
     }
   }
 }

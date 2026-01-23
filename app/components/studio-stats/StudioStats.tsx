@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./StudioStats.module.css";
 
 export interface StudioStatsProps {
@@ -15,12 +18,14 @@ export function StudioStats({
   blankRooms,
   conceptRooms,
 }: StudioStatsProps) {
+  const { t } = useTranslation();
+
   const stats = [
-    { label: "Total Rooms", value: totalRooms.toString() },
-    { label: "Ceiling Height", value: ceilingHeight },
-    { label: "Total Space", value: totalSpace },
-    { label: "Blank Rooms", value: blankRooms.toString() },
-    { label: "Concept Rooms", value: conceptRooms.toString() },
+    { label: t.STUDIO_RENTAL.STATS.TOTAL_ROOMS, value: totalRooms.toString() },
+    { label: t.STUDIO_RENTAL.STATS.CEILING_HEIGHT, value: ceilingHeight },
+    { label: t.STUDIO_RENTAL.STATS.TOTAL_SPACE, value: totalSpace },
+    { label: t.STUDIO_RENTAL.STATS.BLANK_ROOMS, value: blankRooms.toString() },
+    { label: t.STUDIO_RENTAL.STATS.CONCEPT_ROOMS, value: conceptRooms.toString() },
   ];
 
   return (

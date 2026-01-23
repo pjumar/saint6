@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import { Button } from "@/app/components/ui/button";
 import styles from "./InquiryForm.module.css";
 
@@ -17,6 +18,7 @@ export interface InquiryFormData {
 }
 
 export function InquiryForm({ onSubmit }: InquiryFormProps) {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<InquiryFormData>({
     name: "",
@@ -77,7 +79,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
       <div className={styles.formRow}>
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.label}>
-            Name *
+            {t.STUDIO_RENTAL.FORM.NAME} *
           </label>
           <input
             type="text"
@@ -93,7 +95,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
 
         <div className={styles.formGroup}>
           <label htmlFor="email" className={styles.label}>
-            Email *
+            {t.STUDIO_RENTAL.FORM.EMAIL} *
           </label>
           <input
             type="email"
@@ -111,7 +113,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
       <div className={styles.formRow}>
         <div className={styles.formGroup}>
           <label htmlFor="phone" className={styles.label}>
-            Phone
+            {t.STUDIO_RENTAL.FORM.PHONE}
           </label>
           <input
             type="tel"
@@ -125,7 +127,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
 
         <div className={styles.formGroup}>
           <label htmlFor="preferredDate" className={styles.label}>
-            Preferred Date
+            {t.STUDIO_RENTAL.FORM.PREFERRED_DATE}
           </label>
           <input
             type="date"
@@ -140,7 +142,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
 
       <div className={styles.formGroup}>
         <label htmlFor="message" className={styles.label}>
-          Message *
+          {t.STUDIO_RENTAL.FORM.MESSAGE} *
         </label>
         <textarea
           id="message"
@@ -156,7 +158,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
 
       <div className={styles.submitContainer}>
         <Button type="submit" variant="default" size="lg" disabled={isLoading}>
-          {isLoading ? "Sending..." : "Send Inquiry"}
+          {isLoading ? t.STUDIO_RENTAL.FORM.SENDING : t.STUDIO_RENTAL.FORM.SUBMIT}
         </Button>
       </div>
     </form>
