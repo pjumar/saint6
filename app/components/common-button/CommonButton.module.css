@@ -1,0 +1,84 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background: var(--color-primary, #880300);
+  color: #ffffff;
+}
+
+.primary:hover:not(:disabled) {
+  background: #6d0200;
+}
+
+.primary:active:not(:disabled) {
+  background: #5a0100;
+}
+
+.outline {
+  background: transparent;
+  color: var(--color-text-primary, #231d1d);
+  border: 1px solid var(--color-text-primary, #231d1d);
+}
+
+.outline:hover:not(:disabled) {
+  background: var(--color-text-primary, #231d1d);
+  color: #ffffff;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-primary, #231d1d);
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Sizes */
+.sm {
+  height: 2.25rem; /* 36px */
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.md {
+  height: 2.75rem; /* 44px */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.lg {
+  height: 3.3125rem; /* 53px from Figma */
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  min-width: 12rem;
+}
+
+/* Full width modifier */
+.fullWidth {
+  width: 100%;
+}
+
+/* Focus styles */
+.button:focus-visible {
+  outline: 2px solid var(--color-primary, #880300);
+  outline-offset: 2px;
+}

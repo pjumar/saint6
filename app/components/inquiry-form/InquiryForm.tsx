@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { Button } from "@/app/components/ui/button";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
 import styles from "./InquiryForm.module.css";
 
 export interface InquiryFormProps {
@@ -157,9 +157,9 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
       </div>
 
       <div className={styles.submitContainer}>
-        <Button type="submit" variant="default" size="lg" disabled={isLoading}>
+        <CommonButton type="submit" variant="primary" size="lg" disabled={isLoading}>
           {isLoading ? t.STUDIO_RENTAL.FORM.SENDING : t.STUDIO_RENTAL.FORM.SUBMIT}
-        </Button>
+        </CommonButton>
       </div>
     </form>
   );

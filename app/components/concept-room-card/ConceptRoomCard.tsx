@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomCard.module.css";
-import { Button } from "@/app/components/ui/button";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
 
 export interface ConceptRoomCardProps {
   imageUrl: string;
@@ -74,12 +74,12 @@ export function ConceptRoomCard({
         <div className={styles.footer}>
           <p className={styles.description}>{description}</p>
           <div className={styles.actions}>
-            <Button variant="default" size="lg" className={styles.bookingButton}>
+            <CommonButton variant="primary" size="lg">
               {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
-            </Button>
-            <Button variant="outline" size="lg" className={styles.galleryButton}>
+            </CommonButton>
+            <CommonButton variant="outline" size="lg">
               {t.STUDIO_RENTAL.ROOMS.GALLERY}
-            </Button>
+            </CommonButton>
           </div>
         </div>
       </div>

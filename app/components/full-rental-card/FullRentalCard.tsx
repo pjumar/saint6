@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { Button } from "@/app/components/ui/button";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
 import styles from "./FullRentalCard.module.css";
 
 export interface FullRentalCardProps {
@@ -35,9 +35,9 @@ export function FullRentalCard({ price, description }: FullRentalCardProps) {
             <span>{t.STUDIO_RENTAL.FULL_RENTAL.FEATURE_3}</span>
           </div>
         </div>
-        <Button variant="default" size="lg" className={styles.bookButton}>
+        <CommonButton variant="primary" size="lg">
           {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
-        </Button>
+        </CommonButton>
       </div>
     </div>
   );

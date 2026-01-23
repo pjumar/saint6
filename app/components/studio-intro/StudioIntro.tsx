@@ -1,4 +1,4 @@
-import { Button } from "@/app/components/ui/button";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
 import styles from "./StudioIntro.module.css";
 
 export interface StudioIntroProps {
@@ -18,14 +18,9 @@ export function StudioIntro({
     <div className={styles.introContainer}>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
-      <Button
-        variant="default"
-        size="lg"
-        onClick={onCtaClick}
-        className={styles.ctaButton}
-      >
+      <CommonButton variant="primary" size="lg" onClick={onCtaClick}>
         {ctaText}
-      </Button>
+      </CommonButton>
     </div>
   );
 }
