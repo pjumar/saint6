@@ -23,8 +23,8 @@ export function ServiceCard({
         <Image
           src={imageUrl}
           alt={title}
-          width={391}
-          height={523}
+          fill
+          sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 384px"
           className={styles.serviceImage}
         />
       </div>
