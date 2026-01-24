@@ -6,7 +6,7 @@ import styles from "./PortfolioSection.module.css";
 
 export interface PortfolioItem extends Omit<PortfolioCardProps, "imageHeight"> {
   id: string;
-  size: "large" | "short" | "tall";
+  size?: "large" | "short" | "tall"; // Optional, not used with Pinterest-style
 }
 
 export interface PortfolioSectionProps {
@@ -15,21 +15,18 @@ export interface PortfolioSectionProps {
   items: PortfolioItem[];
 }
 
+// Desktop masonry pattern (3 columns, CSS columns flow down each column):
+// Column 1: short, tall | Column 2: tall, short | Column 3: tall, short
+const DESKTOP_ASPECT_RATIOS = ["3/2", "3/4", "3/4", "3/2", "3/4", "3/2"];
+
 export function PortfolioSection({
   label,
   statement,
   items,
 }: PortfolioSectionProps) {
-  // Split items into rows for masonry layout
-  // First 2 items are large (top row)
-  // Remaining items are distributed in 3 columns
+  // First 2 items go in top row, rest in masonry grid
   const topRow = items.slice(0, 2);
-  const bottomItems = items.slice(2);
-
-  // Distribute bottom items into 3 columns alternating tall/short
-  const column1 = bottomItems.filter((_, i) => i % 3 === 0);
-  const column2 = bottomItems.filter((_, i) => i % 3 === 1);
-  const column3 = bottomItems.filter((_, i) => i % 3 === 2);
+  const masonryItems = items.slice(2);
 
   return (
     <div className={styles.portfolioWrapper}>
@@ -44,56 +41,36 @@ export function PortfolioSection({
       {/* Portfolio Grid Section */}
       <section className={styles.gridSection}>
         <div className={styles.gridContainer}>
-          {/* Top Row - Two large cards */}
-          <div className={styles.topRow}>
-            {topRow.map((item) => (
-              <div key={item.id} className={styles.topRowItem}>
-                <PortfolioCard
-                  imageUrl={item.imageUrl}
-                  category={item.category}
-                  title={item.title}
-                  imageHeight="large"
-                />
-              </div>
-            ))}
-          </div>
+          {/* Top Row - Side by side on desktop, stacked on mobile */}
+          {topRow.length > 0 && (
+            <div className={styles.topRow}>
+              {topRow.map((item) => (
+                <div key={item.id} className={styles.topRowItem}>
+                  <PortfolioCard
+                    imageUrl={item.imageUrl}
+                    category={item.category}
+                    title={item.title}
+                    aspectRatio="3/2"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
 
-          {/* Bottom Grid - Masonry 3-column layout */}
-          <div className={styles.masonryGrid}>
-            <div className={styles.column}>
-              {column1.map((item, idx) => (
+          {/* Masonry Grid - Random on mobile, fixed pattern on desktop */}
+          {masonryItems.length > 0 && (
+            <div className={styles.masonryGrid}>
+              {masonryItems.map((item, index) => (
                 <PortfolioCard
                   key={item.id}
                   imageUrl={item.imageUrl}
                   category={item.category}
                   title={item.title}
-                  imageHeight={idx % 2 === 0 ? "short" : "tall"}
+                  desktopAspectRatio={DESKTOP_ASPECT_RATIOS[index % DESKTOP_ASPECT_RATIOS.length]}
                 />
               ))}
             </div>
-            <div className={styles.column}>
-              {column2.map((item, idx) => (
-                <PortfolioCard
-                  key={item.id}
-                  imageUrl={item.imageUrl}
-                  category={item.category}
-                  title={item.title}
-                  imageHeight={idx % 2 === 0 ? "tall" : "short"}
-                />
-              ))}
-            </div>
-            <div className={styles.column}>
-              {column3.map((item, idx) => (
-                <PortfolioCard
-                  key={item.id}
-                  imageUrl={item.imageUrl}
-                  category={item.category}
-                  title={item.title}
-                  imageHeight={idx % 2 === 0 ? "tall" : "short"}
-                />
-              ))}
-            </div>
-          </div>
+          )}
         </div>
       </section>
     </div>

@@ -117,7 +117,7 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.5rem;
   padding: 0 1.5rem;
   z-index: 1;
   align-items: center;
@@ -125,15 +125,16 @@
 
 .menuNavItem {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.375rem;
   line-height: 1.5;
-  letter-spacing: -0.035rem;
+  letter-spacing: -0.025rem;
   font-weight: 300;
   color: var(--color-text-invert-100);
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s;
   text-align: center;
+  white-space: nowrap;
 }
 
 .menuNavItem:hover {
