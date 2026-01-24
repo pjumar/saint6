@@ -3,11 +3,56 @@
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
+import { ServiceCard } from "@/app/components/service-card/ServiceCard";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./SetDesign.module.css";
 
+// Service capability data (CMS integration in Phase 8)
+const serviceCapabilities = [
+  {
+    id: "creative-direction",
+    imageUrl: "/images/set-design/service-creative-direction.jpg",
+    counter: "01.",
+  },
+  {
+    id: "3d-layout",
+    imageUrl: "/images/set-design/service-3d-layout.jpg",
+    counter: "02.",
+  },
+  {
+    id: "prototype",
+    imageUrl: "/images/set-design/service-prototype.jpg",
+    counter: "03.",
+  },
+  {
+    id: "construction",
+    imageUrl: "/images/set-design/service-construction.jpg",
+    counter: "04.",
+  },
+  {
+    id: "finishing",
+    imageUrl: "/images/set-design/service-finishing.jpg",
+    counter: "05.",
+  },
+  {
+    id: "production-support",
+    imageUrl: "/images/set-design/service-production-support.jpg",
+    counter: "06.",
+  },
+];
+
 export default function SetDesignPage() {
   const { t } = useTranslation();
+
+  // Get service translations
+  const serviceTranslations = [
+    t.SET_DESIGN?.SERVICES?.CARD_1,
+    t.SET_DESIGN?.SERVICES?.CARD_2,
+    t.SET_DESIGN?.SERVICES?.CARD_3,
+    t.SET_DESIGN?.SERVICES?.CARD_4,
+    t.SET_DESIGN?.SERVICES?.CARD_5,
+    t.SET_DESIGN?.SERVICES?.CARD_6,
+  ];
 
   return (
     <div className={styles.setDesignPage}>
@@ -32,11 +77,19 @@ export default function SetDesignPage() {
           </div>
         </section>
 
-        {/* Service Capability Cards - Placeholder */}
+        {/* Service Capability Cards */}
         <section className={styles.section} id="services">
           <div className={styles.sectionInner}>
-            <div className={styles.serviceCardsPlaceholder}>
-              <p>Service capability cards will be added in Task 2</p>
+            <div className={styles.serviceCardsContainer}>
+              {serviceCapabilities.map((service, index) => (
+                <ServiceCard
+                  key={service.id}
+                  imageUrl={service.imageUrl}
+                  counter={service.counter}
+                  title={serviceTranslations[index]?.TITLE || `Service ${index + 1}`}
+                  description={serviceTranslations[index]?.DESCRIPTION || "Service description"}
+                />
+              ))}
             </div>
           </div>
         </section>
