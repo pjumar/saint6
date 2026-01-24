@@ -169,6 +169,17 @@ body {
   padding: 0 1.5rem; /* 24px */
 }
 
+/* Global section padding - 8rem top/bottom for all page sections */
+.section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+/* Sections overlap with the section above by 1.25rem */
+.section:not(:first-child) {
+  margin-top: -1.25rem;
+}
+
 .heading-desktop {
   font-size: var(--font-size-mobile-heading);
   line-height: var(--line-height-mobile-heading);

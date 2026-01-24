@@ -1,5 +1,5 @@
 .trustedBy {
-  padding: 3.5rem 1rem;
+  padding: 8rem 1rem 0;
   background: var(--color-bg-container);
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@
 
 @media (min-width: 48.0625rem) {
   .trustedBy {
-    padding: 3.5rem 1rem;
+    padding: 8rem 1rem 0;
     max-width: 90rem;
   }
 
