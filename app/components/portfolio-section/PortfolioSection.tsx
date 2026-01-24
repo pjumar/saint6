@@ -1,6 +1,7 @@
 "use client";
 
 import { PortfolioCard, PortfolioCardProps } from "@/app/components/portfolio-card/PortfolioCard";
+import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import styles from "./PortfolioSection.module.css";
 
 export interface PortfolioItem extends Omit<PortfolioCardProps, "imageHeight"> {
@@ -33,56 +34,12 @@ export function PortfolioSection({
   return (
     <div className={styles.portfolioWrapper}>
       {/* Statement Section - Red Background */}
-      <section className={styles.statementSection}>
-        <p className={styles.label}>{label}</p>
-        <p className={styles.statement}>{statement}</p>
-        {/* Decorative spiral graphic */}
-        <div className={styles.decorativeGraphic}>
-          <svg
-            viewBox="0 0 710 710"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={styles.spiral}
-          >
-            <circle
-              cx="355"
-              cy="355"
-              r="340"
-              stroke="white"
-              strokeWidth="1"
-              strokeOpacity="0.3"
-              fill="none"
-            />
-            <circle
-              cx="355"
-              cy="355"
-              r="280"
-              stroke="white"
-              strokeWidth="1"
-              strokeOpacity="0.25"
-              fill="none"
-            />
-            <circle
-              cx="355"
-              cy="355"
-              r="220"
-              stroke="white"
-              strokeWidth="1"
-              strokeOpacity="0.2"
-              fill="none"
-            />
-            <circle
-              cx="355"
-              cy="355"
-              r="160"
-              stroke="white"
-              strokeWidth="1"
-              strokeOpacity="0.15"
-              fill="none"
-            />
-          </svg>
-        </div>
-      </section>
+      <SectionHeader
+        label={label}
+        title={statement}
+        textAlign="left"
+        spiralPosition="right"
+      />
 
       {/* Portfolio Grid Section */}
       <section className={styles.gridSection}>

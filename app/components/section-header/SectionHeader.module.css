@@ -1,0 +1,117 @@
+.sectionHeader {
+  position: relative;
+  background: var(--color-primary, #880300);
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 1.5rem 1.5rem 5rem;
+  overflow: hidden;
+  min-height: 35rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 90rem;
+  width: 100%;
+  flex: 1;
+  margin: 0 auto;
+}
+
+/* Text alignment variants */
+.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.title {
+  font-family: "PP Fragment", serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: -0.045rem;
+  color: var(--Text-TextinvertAlpha100, #FFF);
+  margin: 0;
+  max-width: 42rem;
+}
+
+.decorativeSpiral {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Spiral position: center (default) - centered at bottom */
+.spiralCenter {
+  left: 50%;
+  bottom: -50%;
+  transform: translateX(-50%);
+  width: 30rem;
+  height: 30rem;
+}
+
+/* Spiral position: right - right side vertically centered */
+.spiralRight {
+  right: -14rem;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 28rem;
+  height: 28rem;
+}
+
+.spiralImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 48.0625rem) {
+  .sectionHeader {
+    padding: 1.5rem 1.5rem 5rem;
+    min-height: 25rem;
+  }
+
+
+  .title {
+    font-size: 2.25rem;
+    letter-spacing: -0.045rem;
+  }
+
+  .spiralCenter {
+    width: 44rem;
+    height: 44rem;
+    bottom: -60%;
+  }
+
+  .spiralRight {
+    right: -12rem;
+    top: 90%;
+    width: 44rem;
+    height: 44rem;
+  }
+}
