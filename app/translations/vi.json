@@ -139,28 +139,28 @@
     },
     "SERVICES": {
       "CARD_1": {
-        "TITLE": "Khởi Đầu & Bản Vẽ Concept",
-        "DESCRIPTION": "Chúng tôi làm việc từ brief của bạn và cùng brainstorm để định hình hướng sáng tạo ban đầu."
+        "TITLE": "Brief & Thống Nhất Concept",
+        "DESCRIPTION": "Chúng tôi bắt đầu bằng việc hiểu định hướng sáng tạo, ngôn ngữ thương hiệu và nhu cầu không gian của bạn."
       },
       "CARD_2": {
-        "TITLE": "Bố Cục 3D & Render 3D",
-        "DESCRIPTION": "Hình ảnh hóa 3D mang concept set của bạn vào cuộc sống trước khi xây dựng."
+        "TITLE": "Bố Cục 2D & Render 3D",
+        "DESCRIPTION": "Chúng tôi tạo bản vẽ kỹ thuật và hình ảnh 3D đưa thiết kế set vào cuộc sống — trước khi bất cứ thứ gì được xây dựng."
       },
       "CARD_3": {
-        "TITLE": "Mô Hình & Thiết Lập Xây Dựng",
-        "DESCRIPTION": "Mô hình thu nhỏ và xác nhận thiết lập tại chỗ đảm bảo mọi chi tiết hoàn hảo."
+        "TITLE": "Trình Bày & Phản Hồi",
+        "DESCRIPTION": "Chúng tôi trình bày thiết kế và phối hợp chặt chẽ với đội ngũ của bạn để hoàn thiện cho đến khi được duyệt."
       },
       "CARD_4": {
-        "TITLE": "Xây Dựng Set",
-        "DESCRIPTION": "Xây dựng hoàn chỉnh với vật liệu chất lượng và tay nghề chuyên gia."
+        "TITLE": "Xây Dựng Set & Tìm Nguồn",
+        "DESCRIPTION": "Chúng tôi xây dựng set và tìm nguồn tất cả phông nền, yếu tố cấu trúc, đạo cụ và kết cấu phù hợp với concept đã duyệt."
       },
       "CARD_5": {
-        "TITLE": "Hoàn Thiện & Tạo Phong Cách",
-        "DESCRIPTION": "Chi tiết cuối cùng, đạo cụ và tinh chỉnh art direction kết hợp tầm nhìn."
+        "TITLE": "Lắp Đặt & Hỗ Trợ Quay",
+        "DESCRIPTION": "Chúng tôi xử lý việc lắp đặt set, có mặt trong suốt buổi quay để điều chỉnh theo thời gian thực và đảm bảo mọi thứ hoạt động trên camera."
       },
       "CARD_6": {
-        "TITLE": "Hỗ Trợ Sản Xuất",
-        "DESCRIPTION": "Hỗ trợ tại set trong suốt buổi quay để đảm bảo mọi thứ diễn ra suôn sẻ."
+        "TITLE": "Bảo Trì Set & Tháo Dỡ",
+        "DESCRIPTION": "Khi buổi quay kết thúc, chúng tôi xử lý việc dọn dẹp và tháo dỡ set một cách hiệu quả và chuyên nghiệp."
       }
     },
     "PORTFOLIO": {

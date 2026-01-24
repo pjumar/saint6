@@ -139,28 +139,28 @@
     },
     "SERVICES": {
       "CARD_1": {
-        "TITLE": "Start & Concept Blueprint",
-        "DESCRIPTION": "We work from your brief and brainstorm together to shape the initial creative direction."
+        "TITLE": "Brief & Concept Alignment",
+        "DESCRIPTION": "We start by understanding your creative direction, brand language, and spatial needs."
       },
       "CARD_2": {
-        "TITLE": "3D Layout & 3D Render",
-        "DESCRIPTION": "3D visualization brings your set concept to life before construction begins."
+        "TITLE": "2D Layout & 3D Render",
+        "DESCRIPTION": "We create technical layouts and 3D visuals that bring the proposed set design to life — before anything is built."
       },
       "CARD_3": {
-        "TITLE": "Prototype & Building Setup",
-        "DESCRIPTION": "Scale models and on-site setup validation ensure every detail is perfect."
+        "TITLE": "Presentation & Feedback Loop",
+        "DESCRIPTION": "We present the design and collaborate closely with your team to refine it until it's approved."
       },
       "CARD_4": {
-        "TITLE": "Set Construction",
-        "DESCRIPTION": "Full build-out with quality materials and expert craftsmanship."
+        "TITLE": "Set Construction & Sourcing",
+        "DESCRIPTION": "We build the set and source all backdrops, structural elements, props, and textures to match the approved concept."
       },
       "CARD_5": {
-        "TITLE": "Finishing & Styling",
-        "DESCRIPTION": "Final details, props, and art direction refinement bring the vision together."
+        "TITLE": "Setup & Shoot Support",
+        "DESCRIPTION": "We handle set assembly, stay present during the shoot to make real-time adjustments, and ensure everything works on camera."
       },
       "CARD_6": {
-        "TITLE": "Production Support",
-        "DESCRIPTION": "On-set support during your shoot to ensure everything runs smoothly."
+        "TITLE": "Set Maintenance & Tear-Down",
+        "DESCRIPTION": "Once the shoot wraps, we handle cleanup and dismantle the set efficiently and professionally."
       }
     },
     "PORTFOLIO": {

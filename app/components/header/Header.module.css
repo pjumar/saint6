@@ -44,6 +44,7 @@
 }
 
 .desktopNavItem {
+  display: block;
   font-family: var(--font-heading);
   font-size: 1.75rem;
   line-height: 1.5;
@@ -69,6 +70,7 @@
   background: var(--color-text-invert-100);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .desktopNavItem::after {
@@ -82,14 +84,18 @@
   background: var(--color-text-invert-100);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-.desktopNavItem:hover {
+.desktopNavItem:hover,
+.desktopNavItemActive {
   color: var(--color-text-invert-100);
 }
 
 .desktopNavItem:hover::before,
-.desktopNavItem:hover::after {
+.desktopNavItem:hover::after,
+.desktopNavItemActive::before,
+.desktopNavItemActive::after {
   opacity: 1;
 }
 

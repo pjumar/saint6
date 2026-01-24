@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
@@ -15,6 +16,7 @@ interface MenuOverlayProps {
 
 export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
   const { t, locale } = useTranslation();
+  const pathname = usePathname();
   const menuItems = [
     { label: t.NAVIGATION.STUDIO_RENTAL, href: `/${locale}/studio-rental` },
     { label: t.NAVIGATION.SET_DESIGN, href: `/${locale}/set-design` },
@@ -62,7 +64,7 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
           <Link
             key={item.label}
             href={item.href}
-            className={styles.menuNavItem}
+            className={`${styles.menuNavItem} ${pathname === item.href ? styles.menuNavItemActive : ""}`}
             onClick={onClose}
           >
             {item.label}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import styles from "./KeyProjectSection.module.css";
 
 export interface ProjectTeamMember {
@@ -41,12 +42,12 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
 
   return (
     <div className={styles.keyProjectWrapper}>
-      <div className={styles.sectionHeader}>
-        <h2 className={styles.heading}>{t.KEY_PROJECT.HEADING}</h2>
-        <p className={styles.caption}>
-          {t.KEY_PROJECT.CAPTION}
-        </p>
-      </div>
+      <SectionHeader
+        label={t.KEY_PROJECT.CAPTION}
+        title={t.KEY_PROJECT.HEADING}
+        textAlign="center"
+        spiralPosition="center"
+      />
 
       <section className={styles.keyProjectSection}>
         <div className={styles.projectHeader}>

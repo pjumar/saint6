@@ -140,6 +140,11 @@
   color: var(--color-text-invert-100);
 }
 
+.menuNavItemActive {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
 .menuFooter {
   position: absolute;
   bottom: 0;

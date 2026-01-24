@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
@@ -20,6 +21,17 @@ export function Header({
   onMenuToggle,
 }: HeaderProps) {
   const { t, locale } = useTranslation();
+  const pathname = usePathname();
+
+  const navItems = [
+    { label: t.NAVIGATION.STUDIO_RENTAL, href: `/${locale}/studio-rental` },
+    { label: t.NAVIGATION.SET_DESIGN, href: `/${locale}/set-design` },
+    { label: t.NAVIGATION.PRODUCTION, href: `/${locale}/production` },
+    { label: t.NAVIGATION.EVENT_PLANNING, href: `/${locale}/event-planning` },
+    { label: t.NAVIGATION.DECOR, href: `/${locale}/decor` },
+    { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
+  ];
+
   return (
     <header className={styles.header}>
       <Link href={`/${locale}`} className={styles.logo}>
@@ -34,24 +46,15 @@ export function Header({
 
       <div className={styles.desktopNavWrapper}>
         <nav className={styles.desktopNav}>
-          <Link href={`/${locale}/studio-rental`} className={styles.desktopNavItem}>
-            {t.NAVIGATION.STUDIO_RENTAL}
-          </Link>
-          <Link href={`/${locale}/set-design`} className={styles.desktopNavItem}>
-            {t.NAVIGATION.SET_DESIGN}
-          </Link>
-          <Link href={`/${locale}/production`} className={styles.desktopNavItem}>
-            {t.NAVIGATION.PRODUCTION}
-          </Link>
-          <Link href={`/${locale}/event-planning`} className={styles.desktopNavItem}>
-            {t.NAVIGATION.EVENT_PLANNING}
-          </Link>
-          <Link href={`/${locale}/decor`} className={styles.desktopNavItem}>
-            {t.NAVIGATION.DECOR}
-          </Link>
-          <Link href={`/${locale}/creative`} className={styles.desktopNavItem}>
-            {t.NAVIGATION.CREATIVE}
-          </Link>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${styles.desktopNavItem} ${pathname === item.href ? styles.desktopNavItemActive : ""}`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <div className={styles.desktopNavLine} />
         <div className={styles.heroLinks}>
