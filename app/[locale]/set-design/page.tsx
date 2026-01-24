@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
@@ -13,14 +14,14 @@ import styles from "./SetDesign.module.css";
 const portfolioItems: PortfolioItem[] = [
   {
     id: "fressi-kv",
-    imageUrl: "/images/set-design/portfolio-fressi-kv.jpg",
+    imageUrl: "/images/set-design/campaign-fressi.jpg",
     category: "Campaign",
     title: "FRESSI KV",
     size: "large",
   },
   {
     id: "mirinda",
-    imageUrl: "/images/set-design/portfolio-mirinda.jpg",
+    imageUrl: "/images/set-design/campaign-mirinda.jpg",
     category: "Campaign",
     title: "Mirinda",
     size: "large",
@@ -124,39 +125,57 @@ const testimonialItems: TestimonialItem[] = [
 // Service capability data (CMS integration in Phase 8)
 const serviceCapabilities = [
   {
-    id: "creative-direction",
-    imageUrl: "/images/set-design/service-creative-direction.jpg",
+    id: "brief-concept",
+    imageUrl: "/images/set-design/set-brief-concept.jpg",
     counter: "01.",
   },
   {
-    id: "3d-layout",
-    imageUrl: "/images/set-design/service-3d-layout.jpg",
+    id: "layout-render",
+    imageUrl: "/images/set-design/set-layout-render.jpg",
     counter: "02.",
   },
   {
-    id: "prototype",
-    imageUrl: "/images/set-design/service-prototype.jpg",
+    id: "feedback-loop",
+    imageUrl: "/images/set-design/set-feedback-loop.jpg",
     counter: "03.",
   },
   {
     id: "construction",
-    imageUrl: "/images/set-design/service-construction.jpg",
+    imageUrl: "/images/set-design/set-construction.jpg",
     counter: "04.",
   },
   {
-    id: "finishing",
-    imageUrl: "/images/set-design/service-finishing.jpg",
+    id: "shoot-support",
+    imageUrl: "/images/set-design/set-shoot-support.jpg",
     counter: "05.",
   },
   {
-    id: "production-support",
-    imageUrl: "/images/set-design/service-production-support.jpg",
+    id: "maintenance",
+    imageUrl: "/images/set-design/set-maintenance.jpg",
     counter: "06.",
   },
 ];
 
 export default function SetDesignPage() {
   const { t } = useTranslation();
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Enable mouse wheel horizontal scroll
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only handle if there's vertical scroll (deltaY)
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        carousel.scrollLeft += e.deltaY;
+      }
+    };
+
+    carousel.addEventListener("wheel", handleWheel, { passive: false });
+    return () => carousel.removeEventListener("wheel", handleWheel);
+  }, []);
 
   // Get service translations
   const serviceTranslations = [
@@ -180,7 +199,7 @@ export default function SetDesignPage() {
       />
 
       <div className={styles.contentContainer}>
-        {/* How It Works Intro Section */}
+        {/* How It Works Section with Service Cards */}
         <section className={styles.section} id="how-it-works">
           <div className={styles.sectionInner}>
             <StudioIntro
@@ -188,13 +207,11 @@ export default function SetDesignPage() {
               description={t.SET_DESIGN?.INTRO?.DESCRIPTION || "We design, construct, and manage physical sets that transform creative direction into production-ready environments."}
               ctaText={t.SET_DESIGN?.INTRO?.CTA || "Get in touch"}
             />
-          </div>
-        </section>
-
-        {/* Service Capability Cards */}
-        <section className={styles.section} id="services">
-          <div className={styles.sectionInner}>
-            <div className={styles.serviceCardsContainer}>
+            <div
+              ref={carouselRef}
+              className={styles.serviceCardsContainer}
+              id="services"
+            >
               {serviceCapabilities.map((service, index) => (
                 <ServiceCard
                   key={service.id}
