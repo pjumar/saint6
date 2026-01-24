@@ -34,24 +34,24 @@ export function Header({
 
       <div className={styles.desktopNavWrapper}>
         <nav className={styles.desktopNav}>
-          <a href={`/${locale}/studio-rental`} className={styles.desktopNavItem}>
+          <Link href={`/${locale}/studio-rental`} className={styles.desktopNavItem}>
             {t.NAVIGATION.STUDIO_RENTAL}
-          </a>
-          <a href="#set-design" className={styles.desktopNavItem}>
+          </Link>
+          <Link href={`/${locale}/set-design`} className={styles.desktopNavItem}>
             {t.NAVIGATION.SET_DESIGN}
-          </a>
-          <a href="#production" className={styles.desktopNavItem}>
+          </Link>
+          <Link href={`/${locale}/production`} className={styles.desktopNavItem}>
             {t.NAVIGATION.PRODUCTION}
-          </a>
-          <a href="#event-planning" className={styles.desktopNavItem}>
+          </Link>
+          <Link href={`/${locale}/event-planning`} className={styles.desktopNavItem}>
             {t.NAVIGATION.EVENT_PLANNING}
-          </a>
-          <a href="#decor" className={styles.desktopNavItem}>
+          </Link>
+          <Link href={`/${locale}/decor`} className={styles.desktopNavItem}>
             {t.NAVIGATION.DECOR}
-          </a>
-          <a href="#creative" className={styles.desktopNavItem}>
+          </Link>
+          <Link href={`/${locale}/creative`} className={styles.desktopNavItem}>
             {t.NAVIGATION.CREATIVE}
-          </a>
+          </Link>
         </nav>
         <div className={styles.desktopNavLine} />
         <div className={styles.heroLinks}>
@@ -59,12 +59,12 @@ export function Header({
             <SocialLinks />
           </div>
           <div className={styles.heroLinksRight}>
-            <a href="#contact" className="caption">
+            <Link href={`/${locale}/contact`} className="caption">
               {t.NAVIGATION.CONTACT}
-            </a>
-            <a href="#about" className="caption">
+            </Link>
+            <Link href={`/${locale}/about`} className="caption">
               {t.NAVIGATION.ABOUT_US}
-            </a>
+            </Link>
             <LanguageSelector />
           </div>
         </div>

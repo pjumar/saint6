@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
@@ -16,11 +17,11 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
   const { t, locale } = useTranslation();
   const menuItems = [
     { label: t.NAVIGATION.STUDIO_RENTAL, href: `/${locale}/studio-rental` },
-    { label: t.NAVIGATION.SET_DESIGN, href: "#set-design" },
-    { label: t.NAVIGATION.PRODUCTION, href: "#production" },
-    { label: t.NAVIGATION.EVENT_PLANNING, href: "#event-planning" },
-    { label: t.NAVIGATION.DECOR, href: "#decor" },
-    { label: t.NAVIGATION.CREATIVE, href: "#creative" },
+    { label: t.NAVIGATION.SET_DESIGN, href: `/${locale}/set-design` },
+    { label: t.NAVIGATION.PRODUCTION, href: `/${locale}/production` },
+    { label: t.NAVIGATION.EVENT_PLANNING, href: `/${locale}/event-planning` },
+    { label: t.NAVIGATION.DECOR, href: `/${locale}/decor` },
+    { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
   ];
 
   return (
@@ -58,24 +59,24 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
       </div>
       <nav className={styles.menuNav}>
         {menuItems.map((item) => (
-          <a
+          <Link
             key={item.label}
             href={item.href}
             className={styles.menuNavItem}
             onClick={onClose}
           >
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
       <div className={styles.menuFooter}>
         <div className={styles.menuFooterLeft}>
-          <a href="#contact" className="caption">
+          <Link href={`/${locale}/contact`} className="caption" onClick={onClose}>
             {t.NAVIGATION.CONTACT}
-          </a>
-          <a href="#about" className="caption">
+          </Link>
+          <Link href={`/${locale}/about`} className="caption" onClick={onClose}>
             {t.NAVIGATION.ABOUT_US}
-          </a>
+          </Link>
           <LanguageSelector variant="menu" />
         </div>
         <div className={styles.menuFooterRight}>
