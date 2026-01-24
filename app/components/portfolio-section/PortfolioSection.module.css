@@ -32,15 +32,13 @@
 
 /* Masonry Grid - Single column on mobile */
 .masonryGrid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  display: contents;
 }
 
 /* Tablet and Desktop */
@@ -57,11 +55,15 @@
 
   /* Masonry Grid - Three columns */
   .masonryGrid {
+    display: flex;
     flex-direction: row;
     gap: 1.5rem;
   }
 
   .column {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    gap: 3rem;
   }
 }
