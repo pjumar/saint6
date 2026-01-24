@@ -1,0 +1,95 @@
+.eventPlanningPage {
+  min-height: 100vh;
+  background: var(--color-bg-container);
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section {
+  width: 100%;
+  padding: 8rem 1.5rem;
+  border-radius: 1.25rem 1.25rem 0 0;
+  position: relative;
+}
+
+.section:not(:first-child) {
+  margin-top: -1.25rem;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section:nth-child(odd) {
+  background: #ffffff;
+}
+
+.section:nth-child(even) {
+  background: var(--color-bg-container, #F5F4F4);
+}
+
+/* Gallery Section - Full Width with Blurred Sides */
+.gallerySection {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallerySectionInner {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  width: 100%;
+  background: var(--color-bg-container, #F5F4F4);
+  border-radius: 1.25rem 1.25rem 0 0;
+  position: relative;
+  margin-top: -1.25rem;
+}
+
+/* Contact Section - Full Width */
+.contactSectionWrapper {
+  width: 100%;
+  border-radius: 1.25rem 1.25rem 0 0;
+  overflow: hidden;
+  margin-top: -1.25rem;
+  position: relative;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 48.0625rem) {
+  .section {
+    padding: 8rem 1.5rem;
+  }
+
+  .section:first-child {
+    padding-top: 0;
+  }
+
+  .sectionInner {
+    gap: 8rem;
+  }
+}

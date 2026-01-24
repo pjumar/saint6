@@ -171,6 +171,126 @@
       "LABEL": "VOICES BEHIND THE LENS",
       "TITLE": "Stories from Brands Who Trusted Us to Build Their Vision"
     }
+  },
+  "PRODUCTION": {
+    "HERO": {
+      "TAGLINE": "Full-Scale Production, Seamless Execution."
+    },
+    "META": {
+      "TITLE": "Production | Saint 6 Studio",
+      "DESCRIPTION": "Full-scale production services from concept to final delivery. Campaign production, photography, film production, equipment rental, and post-production coordination."
+    },
+    "INTRO": {
+      "LABEL": "Our Service",
+      "DESCRIPTION": "From concept to final delivery, we bring your campaign to life through precision planning, creative direction, and technical mastery.",
+      "CTA": "Plan Your Production"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Campaign & Editorial Production",
+        "DESCRIPTION": "We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure."
+      },
+      "CARD_2": {
+        "TITLE": "Photography & Film Production",
+        "DESCRIPTION": "From concept to final cut, we deliver high-impact visuals through expert direction, seamless coordination, and creative storytelling."
+      },
+      "CARD_3": {
+        "TITLE": "Lighting & Equipment Rental",
+        "DESCRIPTION": "Premium lighting and state-of-the-art equipment designed to elevate every production with precision, balance, and creative control."
+      },
+      "CARD_4": {
+        "TITLE": "Make-up & Hair Stylist",
+        "DESCRIPTION": "Professional beauty services that transform talent and enhance visual storytelling with meticulous attention to detail."
+      },
+      "CARD_5": {
+        "TITLE": "Location Scouting & Permits",
+        "DESCRIPTION": "We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap."
+      },
+      "CARD_6": {
+        "TITLE": "Post-production Coordination",
+        "DESCRIPTION": "End-to-end post-production management, from editing and color grading to final delivery across all formats."
+      }
+    },
+    "KEY_PROJECT": {
+      "SUBTITLE": "Highlights from the journeys that shaped our craft.",
+      "TITLE": "Key Project",
+      "WAY_TITLE": "The Saint 6 Way of Creation",
+      "WAY_DESCRIPTION": "We believe in structured creativity — a process that respects your vision while bringing our expertise to every detail."
+    },
+    "WORKFLOW": {
+      "STEP_1": {
+        "TITLE": "Pre-Production",
+        "DESCRIPTION": "Concept, scheduling, and creative"
+      },
+      "STEP_2": {
+        "TITLE": "Set-Up",
+        "DESCRIPTION": "Lighting, camera, art direction"
+      },
+      "STEP_3": {
+        "TITLE": "Shoot Day",
+        "DESCRIPTION": "Execution and real-time adjustments"
+      },
+      "STEP_4": {
+        "TITLE": "Wrap & Delivery",
+        "DESCRIPTION": "Editing, review, and delivery"
+      }
+    },
+    "GALLERY": {
+      "TITLE": "Project Gallery",
+      "VIEW_ALL": "View All Projects"
+    }
+  },
+  "EVENT_PLANNING": {
+    "HERO": {
+      "TAGLINE": "Curated Experiences, Designed to Inspire."
+    },
+    "META": {
+      "TITLE": "Event Planning | Saint 6 Studio",
+      "DESCRIPTION": "Full-service event planning from concept to execution. Product launches, fashion shows, private dinners, and corporate celebrations designed to inspire."
+    },
+    "INTRO": {
+      "LABEL": "Every Moment, An Emotion",
+      "DESCRIPTION": "Saint 6 approaches every event as a living brand story. Our in-house creative team designs atmospheres where concept, design, and guest experience blend seamlessly.",
+      "CTA": "Plan Your Event"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Product & Brand Launches",
+        "DESCRIPTION": "We craft launch experiences that captivate audiences and elevate your brand story with precision and flair."
+      },
+      "CARD_2": {
+        "TITLE": "Fashion Shows",
+        "DESCRIPTION": "From runway to backstage, we design and execute fashion events that celebrate artistry and style."
+      },
+      "CARD_3": {
+        "TITLE": "Private Dinners",
+        "DESCRIPTION": "Intimate gatherings curated with exquisite detail, creating memorable moments for your guests."
+      },
+      "CARD_4": {
+        "TITLE": "Art & Lifestyle Pop-Ups",
+        "DESCRIPTION": "Immersive pop-up experiences that blend art, culture, and lifestyle into unforgettable activations."
+      },
+      "CARD_5": {
+        "TITLE": "Press & Influencer Events",
+        "DESCRIPTION": "Strategic media events designed to generate buzz and build lasting connections with key voices."
+      },
+      "CARD_6": {
+        "TITLE": "Corporate Celebrations",
+        "DESCRIPTION": "Professional yet refined corporate events that reflect your company's values and vision."
+      }
+    },
+    "PROCESS": {
+      "TITLE": "Every Moment, An Emotion",
+      "DESCRIPTION": "Beyond venue and décor, Saint 6 delivers artistry in motion — a rare harmony of creative vision, flawless execution, and atmosphere designed to leave a lasting impression."
+    },
+    "PORTFOLIO": {
+      "LABEL": "PORTFOLIO",
+      "STATEMENT": "We create experiences that resonate — moments designed to captivate, connect, and inspire."
+    },
+    "TESTIMONIALS": {
+      "LABEL": "VOICES BEHIND THE LENS",
+      "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
+    }
   }
 }
 

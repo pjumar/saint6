@@ -171,6 +171,126 @@
       "LABEL": "TIẾNG NÓI PHÍA SAU ỐNG KÍNH",
       "TITLE": "Câu Chuyện Từ Các Thương Hiệu Đã Tin Tưởng Chúng Tôi Xây Dựng Tầm Nhìn Của Họ"
     }
+  },
+  "PRODUCTION": {
+    "HERO": {
+      "TAGLINE": "Sản Xuất Toàn Diện, Thực Hiện Liền Mạch."
+    },
+    "META": {
+      "TITLE": "Sản Xuất | Saint 6 Studio",
+      "DESCRIPTION": "Dịch vụ sản xuất toàn diện từ ý tưởng đến sản phẩm cuối cùng. Sản xuất chiến dịch, chụp ảnh, sản xuất phim, cho thuê thiết bị và phối hợp hậu kỳ."
+    },
+    "INTRO": {
+      "LABEL": "Dịch Vụ",
+      "DESCRIPTION": "Từ ý tưởng đến sản phẩm cuối cùng, chúng tôi mang chiến dịch của bạn vào cuộc sống thông qua lập kế hoạch chính xác, chỉ đạo sáng tạo và kỹ thuật điêu luyện.",
+      "CTA": "Lên Kế Hoạch Sản Xuất"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Sản Xuất Chiến Dịch & Editorial",
+        "DESCRIPTION": "Chúng tôi tạo ra các chiến dịch và editorial độc đáo kết hợp nghệ thuật, câu chuyện và sự tinh tế vượt thời gian — mang câu chuyện thương hiệu vào cuộc sống với sức hút điện ảnh."
+      },
+      "CARD_2": {
+        "TITLE": "Sản Xuất Chụp Ảnh & Phim",
+        "DESCRIPTION": "Từ ý tưởng đến bản cắt cuối cùng, chúng tôi mang đến hình ảnh có tác động mạnh thông qua chỉ đạo chuyên nghiệp, phối hợp liền mạch và kể chuyện sáng tạo."
+      },
+      "CARD_3": {
+        "TITLE": "Cho Thuê Ánh Sáng & Thiết Bị",
+        "DESCRIPTION": "Ánh sáng cao cấp và thiết bị hiện đại được thiết kế để nâng tầm mọi sản xuất với độ chính xác, cân bằng và kiểm soát sáng tạo."
+      },
+      "CARD_4": {
+        "TITLE": "Chuyên Viên Trang Điểm & Làm Tóc",
+        "DESCRIPTION": "Dịch vụ làm đẹp chuyên nghiệp biến đổi diện mạo và nâng cao câu chuyện hình ảnh với sự chú ý tỉ mỉ đến từng chi tiết."
+      },
+      "CARD_5": {
+        "TITLE": "Tìm Địa Điểm & Xin Phép",
+        "DESCRIPTION": "Chúng tôi tìm kiếm địa điểm hoàn hảo và xử lý tất cả thủ tục giấy phép, đảm bảo hoạt động suôn sẻ từ tiền kỳ đến kết thúc."
+      },
+      "CARD_6": {
+        "TITLE": "Phối Hợp Hậu Kỳ",
+        "DESCRIPTION": "Quản lý hậu kỳ toàn diện, từ dựng phim và chỉnh màu đến sản phẩm cuối cùng trên mọi định dạng."
+      }
+    },
+    "KEY_PROJECT": {
+      "SUBTITLE": "Những điểm nổi bật từ những hành trình đã định hình nghề thủ công của chúng tôi.",
+      "TITLE": "Dự Án Chính",
+      "WAY_TITLE": "Phong Cách Sáng Tạo Saint 6",
+      "WAY_DESCRIPTION": "Chúng tôi tin vào sự sáng tạo có cấu trúc — một quy trình tôn trọng tầm nhìn của bạn đồng thời mang chuyên môn của chúng tôi vào từng chi tiết."
+    },
+    "WORKFLOW": {
+      "STEP_1": {
+        "TITLE": "Tiền Sản Xuất",
+        "DESCRIPTION": "Ý tưởng, lên lịch và sáng tạo"
+      },
+      "STEP_2": {
+        "TITLE": "Chuẩn Bị",
+        "DESCRIPTION": "Ánh sáng, máy quay, chỉ đạo nghệ thuật"
+      },
+      "STEP_3": {
+        "TITLE": "Ngày Quay",
+        "DESCRIPTION": "Thực hiện và điều chỉnh theo thời gian thực"
+      },
+      "STEP_4": {
+        "TITLE": "Hoàn Thành & Giao Hàng",
+        "DESCRIPTION": "Dựng phim, duyệt và giao hàng"
+      }
+    },
+    "GALLERY": {
+      "TITLE": "Thư Viện Dự Án",
+      "VIEW_ALL": "Xem Tất Cả Dự Án"
+    }
+  },
+  "EVENT_PLANNING": {
+    "HERO": {
+      "TAGLINE": "Trải Nghiệm Được Chọn Lọc, Thiết Kế Để Truyền Cảm Hứng."
+    },
+    "META": {
+      "TITLE": "Lập Kế Hoạch Sự Kiện | Saint 6 Studio",
+      "DESCRIPTION": "Dịch vụ lập kế hoạch sự kiện toàn diện từ ý tưởng đến thực hiện. Ra mắt sản phẩm, trình diễn thời trang, bữa tối riêng tư và lễ kỷ niệm doanh nghiệp được thiết kế để truyền cảm hứng."
+    },
+    "INTRO": {
+      "LABEL": "Mỗi Khoảnh Khắc, Một Cảm Xúc",
+      "DESCRIPTION": "Saint 6 tiếp cận mỗi sự kiện như một câu chuyện thương hiệu sống động. Đội ngũ sáng tạo nội bộ của chúng tôi thiết kế không gian nơi ý tưởng, thiết kế và trải nghiệm khách mời hòa quyện hoàn hảo.",
+      "CTA": "Lên Kế Hoạch Sự Kiện"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Ra Mắt Sản Phẩm & Thương Hiệu",
+        "DESCRIPTION": "Chúng tôi tạo ra những trải nghiệm ra mắt thu hút khán giả và nâng tầm câu chuyện thương hiệu với sự chính xác và phong cách."
+      },
+      "CARD_2": {
+        "TITLE": "Trình Diễn Thời Trang",
+        "DESCRIPTION": "Từ sàn runway đến hậu trường, chúng tôi thiết kế và thực hiện các sự kiện thời trang tôn vinh nghệ thuật và phong cách."
+      },
+      "CARD_3": {
+        "TITLE": "Bữa Tối Riêng Tư",
+        "DESCRIPTION": "Các buổi họp mặt thân mật được chọn lọc với chi tiết tinh tế, tạo nên những khoảnh khắc đáng nhớ cho khách mời."
+      },
+      "CARD_4": {
+        "TITLE": "Pop-Up Nghệ Thuật & Phong Cách Sống",
+        "DESCRIPTION": "Trải nghiệm pop-up sống động kết hợp nghệ thuật, văn hóa và phong cách sống thành những hoạt động khó quên."
+      },
+      "CARD_5": {
+        "TITLE": "Sự Kiện Báo Chí & Influencer",
+        "DESCRIPTION": "Các sự kiện truyền thông chiến lược được thiết kế để tạo tiếng vang và xây dựng kết nối lâu dài với những tiếng nói quan trọng."
+      },
+      "CARD_6": {
+        "TITLE": "Lễ Kỷ Niệm Doanh Nghiệp",
+        "DESCRIPTION": "Các sự kiện doanh nghiệp chuyên nghiệp nhưng tinh tế phản ánh giá trị và tầm nhìn của công ty bạn."
+      }
+    },
+    "PROCESS": {
+      "TITLE": "Mỗi Khoảnh Khắc, Một Cảm Xúc",
+      "DESCRIPTION": "Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài."
+    },
+    "PORTFOLIO": {
+      "LABEL": "PORTFOLIO",
+      "STATEMENT": "Chúng tôi tạo ra những trải nghiệm cộng hưởng — những khoảnh khắc được thiết kế để thu hút, kết nối và truyền cảm hứng."
+    },
+    "TESTIMONIALS": {
+      "LABEL": "TIẾNG NÓI PHÍA SAU ỐNG KÍNH",
+      "TITLE": "Những trải nghiệm thực từ các chuyên gia sáng tạo đã hiện thực hóa tầm nhìn của họ tại Saint 6 Studio."
+    }
   }
 }
 
