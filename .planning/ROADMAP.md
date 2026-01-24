@@ -51,7 +51,7 @@ Plans:
 
 Plans:
 - [x] 04-01: Build Event Planning page — completed 2026-01-24
-- [ ] 04-02: Build Decoration page
+- [x] 04-02: Build Decor page — completed 2026-01-24
 
 #### Phase 5: Creative Page
 **Goal**: Final service page, complete all service offerings
@@ -118,7 +118,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 1. Homepage Polish             | v0.2      | 3/3            | Complete    | 2026-01-12 |
 | 2. Studio Rental               | v0.2      | 3/3            | Complete    | 2026-01-23 |
 | 3. Set Design & Production     | v1.0      | 2/2            | Complete    | 2026-01-24 |
-| 4. Event Planning & Decoration | v1.0      | 1/2            | In progress | -          |
+| 4. Event Planning & Decoration | v1.0      | 2/2            | Complete    | 2026-01-24 |
 | 5. Creative                    | v1.0      | 0/1            | Not started | -          |
 | 6. About Us & Contact          | v1.0      | 0/2            | Not started | -          |
 | 7. Error Handling & Stability  | v1.1      | 0/3            | Not started | -          |
