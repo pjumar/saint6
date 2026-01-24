@@ -4,8 +4,69 @@ import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ServiceCard } from "@/app/components/service-card/ServiceCard";
+import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./SetDesign.module.css";
+
+// Portfolio items data (CMS integration in Phase 8)
+const portfolioItems: PortfolioItem[] = [
+  {
+    id: "fressi-kv",
+    imageUrl: "/images/set-design/portfolio-fressi-kv.jpg",
+    category: "Campaign",
+    title: "FRESSI KV",
+    size: "large",
+  },
+  {
+    id: "mirinda",
+    imageUrl: "/images/set-design/portfolio-mirinda.jpg",
+    category: "Campaign",
+    title: "Mirinda",
+    size: "large",
+  },
+  {
+    id: "den-vau-1",
+    imageUrl: "/images/set-design/portfolio-den-vau-1.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "short",
+  },
+  {
+    id: "den-vau-2",
+    imageUrl: "/images/set-design/portfolio-den-vau-2.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "tall",
+  },
+  {
+    id: "den-vau-3",
+    imageUrl: "/images/set-design/portfolio-den-vau-3.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "tall",
+  },
+  {
+    id: "den-vau-4",
+    imageUrl: "/images/set-design/portfolio-den-vau-4.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "tall",
+  },
+  {
+    id: "den-vau-5",
+    imageUrl: "/images/set-design/portfolio-den-vau-5.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "short",
+  },
+  {
+    id: "yamaha",
+    imageUrl: "/images/set-design/portfolio-yamaha.jpg",
+    category: "Campaign",
+    title: "YAMAHA SOCIAL LAYOUT",
+    size: "short",
+  },
+];
 
 // Service capability data (CMS integration in Phase 8)
 const serviceCapabilities = [
@@ -94,14 +155,14 @@ export default function SetDesignPage() {
           </div>
         </section>
 
-        {/* Portfolio Section - Placeholder */}
-        <section className={styles.section} id="portfolio">
-          <div className={styles.sectionInner}>
-            <div className={styles.portfolioPlaceholder}>
-              <p>Portfolio section will be added in Task 3</p>
-            </div>
-          </div>
-        </section>
+        {/* Portfolio Section */}
+        <div className={styles.portfolioWrapper} id="portfolio">
+          <PortfolioSection
+            label={t.SET_DESIGN?.PORTFOLIO?.LABEL || "PORTFOLIO"}
+            statement={t.SET_DESIGN?.PORTFOLIO?.STATEMENT || "We shape physical spaces that reflect your creative intent — environments that become part of your story"}
+            items={portfolioItems}
+          />
+        </div>
 
         {/* Testimonials Section - Placeholder */}
         <section className={styles.section} id="testimonials">

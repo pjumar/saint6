@@ -154,6 +154,13 @@
   gap: 1.5rem;
 }
 
+/* Portfolio Wrapper */
+.portfolioWrapper {
+  width: 100%;
+  margin-top: -1.25rem;
+  position: relative;
+}
+
 /* Contact Section - Full Width */
 .contactSectionWrapper {
   width: 100%;
