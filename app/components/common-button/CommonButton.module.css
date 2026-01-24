@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 0.5rem;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 0;
   font-family: var(--font-body, "Public Sans", sans-serif);
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -67,9 +67,15 @@
 
 .lg {
   height: 3.3125rem; /* 53px from Figma */
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
-  min-width: 12rem;
+}
+
+@media (min-width: 48.0625rem) {
+  .lg {
+    padding: 0.75rem 2rem;
+    min-width: 11.5625rem; /* 185px from Figma */
+  }
 }
 
 /* Full width modifier */

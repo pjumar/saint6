@@ -7,41 +7,69 @@ import styles from "./EquipmentGrid.module.css";
 export interface EquipmentItem {
   id: string;
   name: string;
-  description: string;
+  spec: string;
   imageUrl: string;
+  isWide?: boolean;
 }
 
 export interface EquipmentGridProps {
   items: EquipmentItem[];
+  backgroundColorsImage?: string;
 }
 
-export function EquipmentGrid({ items }: EquipmentGridProps) {
+export function EquipmentGrid({ items, backgroundColorsImage }: EquipmentGridProps) {
   const { t } = useTranslation();
 
   return (
     <div className={styles.equipmentSection}>
-      <h3 className={styles.sectionTitle}>{t.STUDIO_RENTAL.EQUIPMENT.TITLE}</h3>
-      <p className={styles.sectionDescription}>
-        {t.STUDIO_RENTAL.EQUIPMENT.DESCRIPTION}
-      </p>
-      <div className={styles.grid}>
-        {items.map((item) => (
-          <div key={item.id} className={styles.equipmentCard}>
-            <div className={styles.imageContainer}>
+      {/* Left side - Heading and Background Colors */}
+      <div className={styles.headingColumn}>
+        <div className={styles.headingContent}>
+          <span className={styles.sectionLabel}>{t.STUDIO_RENTAL.EQUIPMENT.TITLE}</span>
+          <h3 className={styles.sectionTitle}>
+            {t.STUDIO_RENTAL.EQUIPMENT.HEADING}
+          </h3>
+        </div>
+
+        {backgroundColorsImage && (
+          <div className={styles.backgroundColorsCard}>
+            <div className={styles.backgroundColorsImageContainer}>
               <Image
-                src={item.imageUrl}
-                alt={item.name}
-                width={200}
-                height={200}
-                className={styles.equipmentImage}
+                src={backgroundColorsImage}
+                alt="Background Colors"
+                fill
+                className={styles.backgroundColorsImage}
               />
             </div>
-            <div className={styles.content}>
-              <h4 className={styles.equipmentName}>{item.name}</h4>
-              <p className={styles.equipmentDescription}>{item.description}</p>
+            <div className={styles.itemInfo}>
+              <p className={styles.equipmentName}>{t.STUDIO_RENTAL.EQUIPMENT.BACKGROUND_COLORS}</p>
+              <p className={styles.equipmentSpec}>60CM</p>
             </div>
           </div>
-        ))}
+        )}
+      </div>
+
+      {/* Right side - Equipment Grid */}
+      <div className={styles.gridColumn}>
+        <div className={styles.grid}>
+          {items.map((item) => (
+            <div key={item.id} className={styles.equipmentCard}>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={item.imageUrl}
+                  alt={item.name}
+                  width={200}
+                  height={200}
+                  className={styles.equipmentImage}
+                />
+              </div>
+              <div className={styles.itemInfo}>
+                <p className={styles.equipmentName}>{item.name}</p>
+                <p className={styles.equipmentSpec}>{item.spec}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

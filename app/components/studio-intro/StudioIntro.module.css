@@ -48,3 +48,9 @@
     font-size: 1.75rem; /* Smaller on mobile */
   }
 }
+
+@media (min-width: 48.0625rem) {
+  .introContainer {
+    padding: 8rem 0 0;
+  }
+}

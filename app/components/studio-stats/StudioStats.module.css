@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 60rem;
+  max-width: 75rem;
   margin: 0 auto;
   border: 1px solid rgba(8, 7, 7, 0.1); /* Border around container from Figma */
 }
@@ -46,11 +46,12 @@
 @media (min-width: 48.0625rem) {
   .statsContainer {
     flex-direction: row;
+    height: 8rem;
   }
 
   .statItem {
     flex: 1;
-    padding: 3rem 1.5rem;
+    padding: 0 1.5rem;
     border-bottom: none;
     border-right: 1px solid rgba(8, 7, 7, 0.1); /* Border between columns */
   }

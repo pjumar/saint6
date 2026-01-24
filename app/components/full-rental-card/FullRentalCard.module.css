@@ -1,37 +1,86 @@
-.card {
+.section {
   width: 100%;
-  background: var(--color-bg-subtle, #f8f8f8);
-  border-radius: 0.5rem;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  border-radius: 1.5rem 1.5rem 0 0;
+  overflow: clip;
+  margin-top: -1.25rem;
 }
 
-.content {
-  max-width: 32rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+.backgroundContainer {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
 }
 
-.title {
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.125rem;
+.backgroundImage {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.contentRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1.5rem;
+  margin-top: -6rem;
+}
+
+.introTextContainer {
+  display: block;
+  margin-top: 2rem;
+  order: 2;
+}
+
+.introText {
+  font-family: var(--font-title, "PP Fragment", serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: -0.04rem;
   color: var(--color-text-primary, #231d1d);
   margin: 0;
 }
 
-.price {
+.contentCard {
+  order: 1;
+  background: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
   font-family: var(--font-title, "Spectral", serif);
-  font-size: 2.5rem;
-  font-weight: 300;
+  font-size: 2rem;
+  font-weight: 400;
   line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 0;
+}
+
+.price {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: var(--color-primary, #880300);
   margin: 0;
@@ -40,7 +89,7 @@
 .perHour {
   font-family: var(--font-body, "Public Sans", sans-serif);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-primary, #880300);
 }
 
@@ -48,53 +97,90 @@
   font-family: var(--font-body, "Public Sans", sans-serif);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: var(--color-text-primary, #231d1d);
   margin: 0;
 }
 
-.features {
+.actions {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 20rem;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
-.feature {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-body, "Public Sans", sans-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--color-text-primary, #231d1d);
-}
-
-.checkmark {
-  color: var(--color-primary, #880300);
-  font-weight: 700;
-}
-
-.bookButton {
-  margin-top: 0.5rem;
+.actions > * {
+  flex: 1;
 }
 
 @media (min-width: 48.0625rem) {
-  .card {
-    padding: 4rem;
+  .backgroundContainer {
+    height: 500px;
+  }
+
+  .contentRow {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 1.5rem 0 3rem;
+    gap: 2rem;
+    margin-top: -6rem;
+  }
+
+  .introTextContainer {
+    display: block;
+    flex: 0 0 calc(50% - 1rem);
+    max-width: 33.375rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+    margin-top: 0;
+    order: 1;
+  }
+
+  .introText {
+    font-family: var(--font-title, "Spectral", serif);
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.05rem;
+    color: var(--Text-TextPrimary, #231d1d);
+  }
+
+  .contentCard {
+    flex: 0 0 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+    padding: 3rem;
+    gap: 2rem;
+    order: 2;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .details {
+    padding-left: 6rem;
+    gap: 2rem;
   }
 
   .price {
-    font-size: 3.5rem;
+    font-size: 1rem;
   }
 
-  .features {
-    flex-direction: row;
-    gap: 2rem;
-    max-width: none;
-    justify-content: center;
+  .perHour {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .actions > * {
+    flex: 0 0 auto;
   }
 }

@@ -1,0 +1,211 @@
+.contactSection {
+  width: 100%;
+  position: relative;
+  min-height: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3rem 1.5rem;
+}
+
+.backgroundContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.backgroundImage {
+  object-fit: cover;
+}
+
+.cardWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 24rem;
+}
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+}
+
+/* Red Header */
+.cardHeader {
+  background: var(--color-primary, #880300);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.spiralDecoration {
+  position: absolute;
+  top: 50%;
+  right: -10rem;
+  width: 20rem;
+  height: 20rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.spiralImage {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-title, "PP Fragment", serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+}
+
+.cardSubtitle {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* White Form Area */
+.formContainer {
+  background: #ffffff;
+  padding: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  width: 100%;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-primary, #231d1d);
+  background: #f5f4f4;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(35, 29, 29, 0.5);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-primary, #880300);
+  background: #ffffff;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.submitContainer {
+  margin-top: 0.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--color-primary, #880300);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.submitButton:hover {
+  background: #6b0200;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mobile styles */
+@media (max-width: 48rem) {
+  .contactSection {
+    min-height: auto;
+    padding: 2rem 1rem;
+    justify-content: center;
+  }
+
+  .cardWrapper {
+    max-width: 100%;
+  }
+
+  .cardHeader {
+    padding: 2rem 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.5rem;
+  }
+
+  .formContainer {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 48.0625rem) {
+  .contactSection {
+    padding: 5rem 4rem;
+    min-height: 56.25rem;
+  }
+
+  .cardWrapper {
+    margin-right: 4rem;
+  }
+
+  .cardHeader {
+    padding: 3rem 2.5rem;
+  }
+
+  .cardTitle {
+    font-size: 2.5rem;
+  }
+
+  .formContainer {
+    padding: 2.5rem;
+  }
+
+  .form {
+    gap: 1.25rem;
+  }
+}

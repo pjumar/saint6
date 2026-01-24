@@ -5,7 +5,7 @@ import { RoomCard } from "@/app/components/room-card/RoomCard";
 import { StudioStats } from "@/app/components/studio-stats/StudioStats";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
-import { InquiryForm } from "@/app/components/inquiry-form/InquiryForm";
+import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
 import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard";
 import { FacilitiesShowcase } from "@/app/components/facilities-showcase/FacilitiesShowcase";
@@ -106,57 +106,56 @@ export default function StudioRentalPage() {
     { question: t.STUDIO_RENTAL.FAQ.Q4, answer: t.STUDIO_RENTAL.FAQ.A4 },
   ];
 
-  // Facilities data (CMS integration in Phase 8)
-  const facilities = [
-    {
-      id: "makeup",
-      title: t.STUDIO_RENTAL.FACILITIES.MAKEUP_ROOM,
-      description: t.STUDIO_RENTAL.FACILITIES.MAKEUP_DESCRIPTION,
-      imageUrl: "/images/rooms/loft.jpg",
-      features: [
-        "Professional lighting stations",
-        "Full-length mirrors",
-        "Hair styling equipment",
-      ],
-    },
-    {
-      id: "dining",
-      title: t.STUDIO_RENTAL.FACILITIES.DINING_LOUNGE,
-      description: t.STUDIO_RENTAL.FACILITIES.DINING_DESCRIPTION,
-      imageUrl: "/images/rooms/studio.jpg",
-      features: [
-        "Seating for 20 people",
-        "Catering-ready kitchen",
-        "Refreshment station",
-      ],
-    },
-  ];
 
   // Equipment data (CMS integration in Phase 8)
   const equipmentItems = [
     {
-      id: "softbox",
-      name: "Softbox Lights",
-      description: "Professional soft lighting for portraits",
-      imageUrl: "/images/rooms/arena.jpg",
+      id: "godox",
+      name: "Godox Light",
+      spec: "QS 800 | QS 1200",
+      imageUrl: "/images/equipment/godox-light.jpg",
     },
     {
-      id: "ringlight",
-      name: "Ring Lights",
-      description: "Perfect for beauty and product shots",
-      imageUrl: "/images/rooms/loft.jpg",
+      id: "softbox-80x120",
+      name: "2x Softbox",
+      spec: "80X120CM",
+      imageUrl: "/images/equipment/softbox-1.jpg",
     },
     {
-      id: "strobe",
-      name: "Strobe Flashes",
-      description: "High-powered studio strobes",
-      imageUrl: "/images/rooms/studio.jpg",
+      id: "softbox-30x160",
+      name: "2x Softbox",
+      spec: "30X160CM",
+      imageUrl: "/images/equipment/softbox-2.jpg",
     },
     {
-      id: "continuous",
-      name: "LED Panels",
-      description: "Continuous lighting for video",
-      imageUrl: "/images/rooms/arena.jpg",
+      id: "parabolic",
+      name: "1x Parabolic",
+      spec: "120CM",
+      imageUrl: "/images/equipment/parabolic.jpg",
+    },
+    {
+      id: "softbox-octa",
+      name: "1x Softbox OCTA",
+      spec: "110CM",
+      imageUrl: "/images/equipment/softbox-octa.jpg",
+    },
+    {
+      id: "softbox-110",
+      name: "1x Softbox",
+      spec: "110CM",
+      imageUrl: "/images/equipment/softbox-3.jpg",
+    },
+    {
+      id: "beauty-dish",
+      name: "1x Beauty Dish",
+      spec: "60CM",
+      imageUrl: "/images/equipment/beauty-dish.jpg",
+    },
+    {
+      id: "gobo",
+      name: "1x Gobo",
+      spec: "EF-ZF3",
+      imageUrl: "/images/equipment/gobo.jpg",
     },
   ];
 
@@ -165,32 +164,26 @@ export default function StudioRentalPage() {
       <StudioHeroSection />
 
       <div className={styles.contentContainer}>
-        {/* How It Works Intro Section */}
+        {/* How It Works Intro + Stats + Studio Overview Section */}
         <section className={styles.section} id="how-it-works">
-          <StudioIntro
-            title={t.STUDIO_RENTAL.INTRO.TITLE}
-            description={t.STUDIO_RENTAL.INTRO.DESCRIPTION}
-            ctaText={t.STUDIO_RENTAL.INTRO.CTA}
-          />
-        </section>
-
-        {/* Stats Section */}
-        <section className={styles.section} id="stats">
-          <StudioStats
-            totalRooms={6}
-            ceilingHeight="4.5m"
-            totalSpace="900m²"
-            blankRooms={3}
-            conceptRooms={3}
-          />
-        </section>
-
-        {/* Studio Overview Section */}
-        <section className={styles.section} id="studio-overview">
-          <div className={styles.roomGrid}>
-            {studioRooms.map((room) => (
-              <RoomCard key={room.id} {...room} />
-            ))}
+          <div className={styles.sectionInner}>
+            <StudioIntro
+              title={t.STUDIO_RENTAL.INTRO.TITLE}
+              description={t.STUDIO_RENTAL.INTRO.DESCRIPTION}
+              ctaText={t.STUDIO_RENTAL.INTRO.CTA}
+            />
+            <StudioStats
+              totalRooms={6}
+              ceilingHeight="4.5m"
+              totalSpace="900m²"
+              blankRooms={3}
+              conceptRooms={3}
+            />
+            <div className={styles.roomGrid}>
+              {studioRooms.map((room) => (
+                <RoomCard key={room.id} {...room} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -198,37 +191,52 @@ export default function StudioRentalPage() {
         <ConceptRoomsShowcase rooms={conceptRooms} />
 
         {/* Full Studio Rental Section */}
-        <section className={styles.section} id="full-studio">
+        <section className={styles.fullWidthSection} id="full-studio">
           <FullRentalCard
             price="2,500,000"
-            description={t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}
+            backgroundImageUrl="/images/full-studio-bg.jpg"
           />
         </section>
 
         {/* Makeup & Dining Sections */}
         <section className={styles.section} id="facilities">
-          <FacilitiesShowcase facilities={facilities} />
+          <div className={styles.sectionInner}>
+            <FacilitiesShowcase
+              makeupImageUrl="/images/facilities/makeup-room.jpg"
+              loungeImageUrl="/images/facilities/dining-lounge.jpg"
+            />
+          </div>
         </section>
 
         {/* Lighting Equipment Section */}
         <section className={styles.section} id="lighting">
-          <EquipmentGrid items={equipmentItems} />
+          <div className={styles.sectionInner}>
+            <EquipmentGrid
+              items={equipmentItems}
+              backgroundColorsImage="/images/equipment/background-color.jpg"
+            />
+          </div>
         </section>
 
         {/* FAQs Section */}
         <section className={styles.section} id="faqs">
-          <h2 className={styles.sectionHeading}>{t.STUDIO_RENTAL.FAQ.TITLE}</h2>
-          <FAQAccordion items={faqItems} defaultExpandedIndex={1} />
+          <div className={styles.sectionInner}>
+            <div className={styles.faqSection}>
+              <div className={styles.faqHeadingColumn}>
+                <p className={styles.faqLabel}>{t.STUDIO_RENTAL.FAQ.LABEL}</p>
+                <h2 className={styles.faqTitle}>{t.STUDIO_RENTAL.FAQ.TITLE}</h2>
+              </div>
+              <div className={styles.faqAccordionColumn}>
+                <FAQAccordion items={faqItems} defaultExpandedIndex={0} />
+              </div>
+            </div>
+          </div>
         </section>
 
-        {/* Contact Form Section */}
-        <section className={styles.section} id="contact-form">
-          <h2 className={styles.sectionHeading}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
-          <p className={styles.sectionDescription}>
-            {t.STUDIO_RENTAL.FORM.DESCRIPTION}
-          </p>
-          <InquiryForm />
-        </section>
+        {/* Contact Section */}
+        <div className={styles.contactSectionWrapper} id="contact-form">
+          <ContactSection backgroundImageUrl="/images/get-in-touch-bg.jpg" />
+        </div>
       </div>
     </div>
   );

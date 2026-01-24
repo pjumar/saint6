@@ -78,7 +78,8 @@
       "DESCRIPTION": "Updated every six months, our Concept Rooms feature one-of-a-kind themes that elevate photoshoots, filming, livestreams, and workshops."
     },
     "FAQ": {
-      "TITLE": "Frequently Asked Questions",
+      "LABEL": "FAQs",
+      "TITLE": "Helpful Information to Make Your SAINT 6 Experience Seamless",
       "Q1": "How do I book?",
       "A1": "You can book by filling out the inquiry form below or contacting us directly. We'll respond within 24 hours to confirm availability and details.",
       "Q2": "What's the cancellation policy?",
@@ -89,33 +90,38 @@
       "A4": "Studio rental includes access to the space, basic lighting equipment, makeup facilities, and on-site support. Additional equipment and services are available upon request."
     },
     "FORM": {
-      "TITLE": "Send an Inquiry",
+      "TITLE": "Get in touch",
+      "SUBTITLE": "Let's Build Something Beautiful",
       "DESCRIPTION": "Have questions or ready to book? Fill out the form below and we'll get back to you shortly.",
       "NAME": "Name",
       "EMAIL": "Email",
-      "PHONE": "Phone",
-      "PREFERRED_DATE": "Preferred Date",
+      "COMPANY": "Company",
       "MESSAGE": "Message",
-      "SUBMIT": "Send Inquiry",
+      "SUBMIT": "Submit",
       "SENDING": "Sending..."
     },
     "FULL_RENTAL": {
-      "TITLE": "Full Studio Rental",
-      "DESCRIPTION": "Get exclusive access to our entire 900m² facility including all 6 rooms, equipment, and dedicated support staff for your large-scale productions.",
-      "FEATURE_1": "All 6 studio rooms included",
-      "FEATURE_2": "Full equipment access",
-      "FEATURE_3": "Dedicated support team"
+      "TITLE": "You can also rent the entire Studio - 900m² for exclusive use.",
+      "DESCRIPTION": "Enjoy ultimate privacy for celebrities, confidential shoots, and all-day productions with full access to all rooms, seasonal concept spaces, the makeup area, dining lounge, and private storage. With no overlapping bookings, you have the freedom to create multiple shooting zones within one secure, exclusive location."
     },
     "FACILITIES": {
       "TITLE": "Facilities & Amenities",
-      "MAKEUP_ROOM": "Makeup Room",
-      "MAKEUP_DESCRIPTION": "Professional makeup stations with excellent lighting and mirrors for talent preparation.",
+      "INTRO_TEXT": "Every studio rental includes access to a thoughtfully designed makeup and preparation room",
+      "DINING_LABEL": "Dining/crew lounge",
       "DINING_LOUNGE": "Dining Lounge",
-      "DINING_DESCRIPTION": "Comfortable dining area for crew meals and client refreshments during long shoots."
+      "MAKEUP_LABEL": "MAke up room",
+      "MAKEUP_ROOM": "Makeup Room",
+      "FREE_BADGE": "It's all FREE",
+      "FEATURE_1": "Professional makeup table & chair",
+      "FEATURE_2": "Private changing room",
+      "FEATURE_3": "Steam iron for quick touch-ups",
+      "FEATURE_4": "Hanging pole & clothing hangers",
+      "FEATURE_5": "Sofa & tea table for relaxation and waiting"
     },
     "EQUIPMENT": {
-      "TITLE": "Lighting Equipment",
-      "DESCRIPTION": "Professional-grade lighting equipment available for rent with your studio booking."
+      "TITLE": "LIGHTING EQUIPMENT",
+      "HEADING": "Advanced Lighting and Rigging Setups to Perfect Every Detail of Your Production",
+      "BACKGROUND_COLORS": "13x Background Color"
     }
   }
 }

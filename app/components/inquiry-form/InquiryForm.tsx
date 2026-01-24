@@ -12,8 +12,7 @@ export interface InquiryFormProps {
 export interface InquiryFormData {
   name: string;
   email: string;
-  phone: string;
-  preferredDate: string;
+  company: string;
   message: string;
 }
 
@@ -23,8 +22,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
   const [formData, setFormData] = useState<InquiryFormData>({
     name: "",
     email: "",
-    phone: "",
-    preferredDate: "",
+    company: "",
     message: "",
   });
 
@@ -59,8 +57,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
       setFormData({
         name: "",
         email: "",
-        phone: "",
-        preferredDate: "",
+        company: "",
         message: "",
       });
       setIsLoading(false);
@@ -112,28 +109,14 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
 
       <div className={styles.formRow}>
         <div className={styles.formGroup}>
-          <label htmlFor="phone" className={styles.label}>
-            {t.STUDIO_RENTAL.FORM.PHONE}
+          <label htmlFor="company" className={styles.label}>
+            {t.STUDIO_RENTAL.FORM.COMPANY}
           </label>
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className={styles.input}
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="preferredDate" className={styles.label}>
-            {t.STUDIO_RENTAL.FORM.PREFERRED_DATE}
-          </label>
-          <input
-            type="date"
-            id="preferredDate"
-            name="preferredDate"
-            value={formData.preferredDate}
+            type="text"
+            id="company"
+            name="company"
+            value={formData.company}
             onChange={handleChange}
             className={styles.input}
           />

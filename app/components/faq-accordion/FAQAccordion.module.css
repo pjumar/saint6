@@ -1,15 +1,13 @@
 .accordionContainer {
   width: 100%;
-  max-width: 50rem;
-  margin: 0 auto;
 }
 
 .accordionItem {
-  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid rgba(8, 7, 7, 0.15);
 }
 
-.accordionItem:first-child {
-  border-top: 1px solid #e5e5e5;
+.accordionItem:last-child {
+  border-bottom: 1px solid rgba(8, 7, 7, 0.15);
 }
 
 .accordionButton {
@@ -31,16 +29,24 @@
 }
 
 .question {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
+  font-family: var(--font-title, "PP Fragment", serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
   flex: 1;
+  transition: color 0.2s ease;
+}
+
+.questionExpanded {
+  color: var(--color-primary, #880300);
 }
 
 .icon {
   font-size: 1.5rem;
   font-weight: 300;
-  color: #000;
+  color: var(--color-text-primary, #231d1d);
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
@@ -65,22 +71,25 @@
 
 .answer {
   padding: 0 0 1.5rem;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: #333;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
 }
 
 @media (min-width: 48.0625rem) {
   .accordionButton {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
 
   .question {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 
   .answer {
     font-size: 1rem;
-    padding: 0 0 2rem;
+    padding: 0 0 1.5rem;
   }
 }

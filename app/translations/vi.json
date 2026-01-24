@@ -78,7 +78,8 @@
       "DESCRIPTION": "Cập nhật mỗi sáu tháng, các Phòng Concept của chúng tôi có những chủ đề độc đáo nâng tầm chụp ảnh, quay phim, livestream và hội thảo."
     },
     "FAQ": {
-      "TITLE": "Câu hỏi thường gặp",
+      "LABEL": "FAQs",
+      "TITLE": "Thông Tin Hữu Ích Để Trải Nghiệm SAINT 6 Của Bạn Trở Nên Hoàn Hảo",
       "Q1": "Làm thế nào để đặt phòng?",
       "A1": "Bạn có thể đặt phòng bằng cách điền vào mẫu yêu cầu bên dưới hoặc liên hệ trực tiếp với chúng tôi. Chúng tôi sẽ phản hồi trong vòng 24 giờ để xác nhận tình trạng phòng và chi tiết.",
       "Q2": "Chính sách hủy như thế nào?",
@@ -89,33 +90,38 @@
       "A4": "Thuê studio bao gồm quyền sử dụng không gian, thiết bị chiếu sáng cơ bản, cơ sở vật chất trang điểm và hỗ trợ tại chỗ. Thiết bị và dịch vụ bổ sung có sẵn theo yêu cầu."
     },
     "FORM": {
-      "TITLE": "Gửi yêu cầu",
+      "TITLE": "Liên hệ",
+      "SUBTITLE": "Cùng Xây Dựng Điều Tuyệt Vời",
       "DESCRIPTION": "Có câu hỏi hoặc sẵn sàng đặt phòng? Điền vào mẫu bên dưới và chúng tôi sẽ liên hệ lại sớm.",
       "NAME": "Họ tên",
       "EMAIL": "Email",
-      "PHONE": "Số điện thoại",
-      "PREFERRED_DATE": "Ngày mong muốn",
+      "COMPANY": "Công ty",
       "MESSAGE": "Tin nhắn",
-      "SUBMIT": "Gửi yêu cầu",
+      "SUBMIT": "Gửi",
       "SENDING": "Đang gửi..."
     },
     "FULL_RENTAL": {
-      "TITLE": "Thuê toàn bộ Studio",
-      "DESCRIPTION": "Truy cập độc quyền toàn bộ cơ sở 900m² bao gồm tất cả 6 phòng, thiết bị và đội ngũ hỗ trợ chuyên nghiệp cho các sản xuất quy mô lớn.",
-      "FEATURE_1": "Bao gồm tất cả 6 phòng studio",
-      "FEATURE_2": "Truy cập đầy đủ thiết bị",
-      "FEATURE_3": "Đội ngũ hỗ trợ chuyên nghiệp"
+      "TITLE": "Bạn cũng có thể thuê toàn bộ Studio - 900m² để sử dụng độc quyền.",
+      "DESCRIPTION": "Tận hưởng sự riêng tư tuyệt đối cho người nổi tiếng, buổi chụp bảo mật và sản xuất cả ngày với quyền truy cập đầy đủ vào tất cả các phòng, không gian concept theo mùa, khu vực trang điểm, phòng ăn và kho lưu trữ riêng. Không có đặt phòng chồng chéo, bạn có thể tự do tạo nhiều khu vực chụp trong một địa điểm an toàn, độc quyền."
     },
     "FACILITIES": {
       "TITLE": "Tiện ích & Dịch vụ",
-      "MAKEUP_ROOM": "Phòng trang điểm",
-      "MAKEUP_DESCRIPTION": "Bàn trang điểm chuyên nghiệp với ánh sáng và gương tuyệt vời cho việc chuẩn bị nghệ sĩ.",
+      "INTRO_TEXT": "Mọi thuê studio đều bao gồm quyền truy cập vào phòng trang điểm và chuẩn bị được thiết kế chu đáo",
+      "DINING_LABEL": "Phòng ăn/đoàn phim",
       "DINING_LOUNGE": "Phòng ăn",
-      "DINING_DESCRIPTION": "Khu vực ăn uống thoải mái cho đoàn phim và khách hàng trong các buổi quay dài."
+      "MAKEUP_LABEL": "Phòng trang điểm",
+      "MAKEUP_ROOM": "Phòng trang điểm",
+      "FREE_BADGE": "Tất cả đều MIỄN PHÍ",
+      "FEATURE_1": "Bàn & ghế trang điểm chuyên nghiệp",
+      "FEATURE_2": "Phòng thay đồ riêng",
+      "FEATURE_3": "Bàn ủi hơi nước",
+      "FEATURE_4": "Giá treo & móc quần áo",
+      "FEATURE_5": "Sofa & bàn trà để thư giãn và chờ đợi"
     },
     "EQUIPMENT": {
-      "TITLE": "Thiết bị chiếu sáng",
-      "DESCRIPTION": "Thiết bị chiếu sáng chuyên nghiệp có sẵn để thuê cùng với đặt phòng studio."
+      "TITLE": "THIẾT BỊ CHIẾU SÁNG",
+      "HEADING": "Thiết Lập Chiếu Sáng và Rigging Tiên Tiến để Hoàn Thiện Mọi Chi Tiết trong Sản Xuất của Bạn",
+      "BACKGROUND_COLORS": "13x Màu Nền"
     }
   }
 }

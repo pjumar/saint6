@@ -4,50 +4,97 @@ import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./FacilitiesShowcase.module.css";
 
-export interface Facility {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  features: string[];
-}
-
 export interface FacilitiesShowcaseProps {
-  facilities: Facility[];
+  makeupImageUrl: string;
+  loungeImageUrl: string;
 }
 
-export function FacilitiesShowcase({ facilities }: FacilitiesShowcaseProps) {
+export function FacilitiesShowcase({ makeupImageUrl, loungeImageUrl }: FacilitiesShowcaseProps) {
   const { t } = useTranslation();
 
   return (
     <div className={styles.showcase}>
-      <h3 className={styles.sectionTitle}>{t.STUDIO_RENTAL.FACILITIES.TITLE}</h3>
-      <div className={styles.facilitiesGrid}>
-        {facilities.map((facility) => (
-          <div key={facility.id} className={styles.facilityCard}>
-            <div className={styles.imageContainer}>
-              <Image
-                src={facility.imageUrl}
-                alt={facility.title}
-                width={400}
-                height={300}
-                className={styles.facilityImage}
-              />
-            </div>
-            <div className={styles.content}>
-              <h4 className={styles.facilityTitle}>{facility.title}</h4>
-              <p className={styles.facilityDescription}>{facility.description}</p>
-              <ul className={styles.featuresList}>
-                {facility.features.map((feature, index) => (
-                  <li key={index} className={styles.featureItem}>
-                    <span className={styles.checkmark}>&#10003;</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Left Column - Dining Lounge */}
+      <div className={styles.leftColumn}>
+        <div className={styles.loungeCard}>
+          <p className={styles.cardLabel}>{t.STUDIO_RENTAL.FACILITIES.DINING_LABEL}</p>
+          <div className={styles.loungeImageContainer}>
+            <Image
+              src={loungeImageUrl}
+              alt={t.STUDIO_RENTAL.FACILITIES.DINING_LOUNGE}
+              fill
+              className={styles.loungeImage}
+            />
           </div>
-        ))}
+        </div>
+      </div>
+
+      {/* Right Column - Makeup Room */}
+      <div className={styles.rightColumn}>
+        <p className={styles.cardLabel}>{t.STUDIO_RENTAL.FACILITIES.MAKEUP_LABEL}</p>
+        <div className={styles.makeupImageContainer}>
+          <Image
+            src={makeupImageUrl}
+            alt={t.STUDIO_RENTAL.FACILITIES.MAKEUP_ROOM}
+            fill
+            className={styles.makeupImage}
+          />
+        </div>
+        <div className={styles.freeBadge}>
+          {t.STUDIO_RENTAL.FACILITIES.FREE_BADGE}
+        </div>
+        <ul className={styles.featuresList}>
+          <li className={styles.featureItem}>
+            <Image
+              src="/images/icons/makeup-table.svg"
+              alt=""
+              width={24}
+              height={24}
+              className={styles.featureIcon}
+            />
+            <span>{t.STUDIO_RENTAL.FACILITIES.FEATURE_1}</span>
+          </li>
+          <li className={styles.featureItem}>
+            <Image
+              src="/images/icons/changing-room.svg"
+              alt=""
+              width={24}
+              height={24}
+              className={styles.featureIcon}
+            />
+            <span>{t.STUDIO_RENTAL.FACILITIES.FEATURE_2}</span>
+          </li>
+          <li className={styles.featureItem}>
+            <Image
+              src="/images/icons/steam-iron.svg"
+              alt=""
+              width={24}
+              height={24}
+              className={styles.featureIcon}
+            />
+            <span>{t.STUDIO_RENTAL.FACILITIES.FEATURE_3}</span>
+          </li>
+          <li className={styles.featureItem}>
+            <Image
+              src="/images/icons/hanging-pole.svg"
+              alt=""
+              width={24}
+              height={24}
+              className={styles.featureIcon}
+            />
+            <span>{t.STUDIO_RENTAL.FACILITIES.FEATURE_4}</span>
+          </li>
+          <li className={styles.featureItem}>
+            <Image
+              src="/images/icons/sofa-table.svg"
+              alt=""
+              width={24}
+              height={24}
+              className={styles.featureIcon}
+            />
+            <span>{t.STUDIO_RENTAL.FACILITIES.FEATURE_5}</span>
+          </li>
+        </ul>
       </div>
     </div>
   );

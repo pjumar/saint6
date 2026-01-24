@@ -1,71 +1,79 @@
 .showcase {
   width: 100%;
-}
-
-.sectionTitle {
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.125rem;
-  color: var(--color-text-primary, #231d1d);
-  text-align: center;
-  margin: 0 0 2.5rem;
-}
-
-.facilitiesGrid {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.facilityCard {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  background: var(--color-bg-subtle, #f8f8f8);
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.imageContainer {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  position: relative;
-  overflow: hidden;
-}
-
-.facilityImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.content {
-  padding: 1.5rem;
+.leftColumn {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.facilityTitle {
-  font-family: var(--font-title, "Spectral", serif);
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+.loungeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.cardLabel {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
   color: var(--color-text-primary, #231d1d);
   margin: 0;
 }
 
-.facilityDescription {
+.loungeImageContainer {
+  width: 100%;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.loungeImage {
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: grayscale(100%);
+}
+
+.rightColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.makeupImageContainer {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+}
+
+.makeupImage {
+  object-fit: cover;
+  border: none;
+  box-shadow: none;
+  transform: scale(1.02);
+  filter: grayscale(100%);
+}
+
+.freeBadge {
   font-family: var(--font-body, "Public Sans", sans-serif);
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary, #231d1d);
-  margin: 0;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.02rem;
+  color: var(--color-primary, #880300);
+  margin-top: 0.5rem;
 }
 
 .featuresList {
@@ -74,41 +82,38 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
 .featureItem {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1.1875rem;
   font-family: var(--font-body, "Public Sans", sans-serif);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
   color: var(--color-text-primary, #231d1d);
 }
 
-.checkmark {
-  color: var(--color-primary, #880300);
-  font-weight: 700;
-  font-size: 0.75rem;
+.featureIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
 }
 
 @media (min-width: 48.0625rem) {
-  .facilitiesGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+  .showcase {
+    flex-direction: row;
+    gap: 3rem;
   }
 
-  .facilityCard {
-    flex-direction: column;
+  .leftColumn {
+    flex: 1;
   }
 
-  .content {
-    padding: 2rem;
-  }
-
-  .facilityTitle {
-    font-size: 1.75rem;
+  .rightColumn {
+    flex: 1;
   }
 }

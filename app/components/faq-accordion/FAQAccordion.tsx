@@ -33,7 +33,7 @@ export function FAQAccordion({
             onClick={() => toggleItem(index)}
             aria-expanded={expandedIndex === index}
           >
-            <span className={styles.question}>{item.question}</span>
+            <span className={`${styles.question} ${expandedIndex === index ? styles.questionExpanded : ""}`}>{item.question}</span>
             <span
               className={`${styles.icon} ${expandedIndex === index ? styles.iconExpanded : ""}`}
             >

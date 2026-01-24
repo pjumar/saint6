@@ -52,7 +52,7 @@
   
   --font-size-body: 1rem;
   --line-height-body: 1.5;
-  --letter-spacing-body: -2px;
+  --letter-spacing-body: -0.02em;
   
   --font-size-caption: 0.75rem;
   --line-height-caption: 1.1;

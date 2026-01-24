@@ -15,7 +15,35 @@
 
 .section {
   width: 100%;
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.5rem 8rem;
+  border-radius: 1.25rem 1.25rem 0 0;
+  position: relative;
+}
+
+.section:not(:first-child) {
+  margin-top: -1.25rem;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section:nth-child(odd) {
+  background: #ffffff;
+}
+
+.section:nth-child(even) {
+  background: var(--color-bg-container, #F5F4F4);
+}
+
+.fullWidthSection {
+  width: 100%;
+  padding: 0;
 }
 
 .sectionPlaceholder {
@@ -77,14 +105,68 @@
   scroll-snap-align: center;
 }
 
+/* FAQ Section Two-Column Layout */
+.faqSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.faqHeadingColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faqLabel {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: rgba(8, 7, 7, 0.4);
+  margin: 0;
+}
+
+.faqTitle {
+  font-family: var(--font-title, "PP Fragment", serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.faqAccordionColumn {
+  flex: 1;
+}
+
+/* Contact Section - Full Width */
+.contactSectionWrapper {
+  width: 100%;
+  border-radius: 1.25rem 1.25rem 0 0;
+  overflow: hidden;
+  margin-top: -1.25rem;
+  position: relative;
+}
+
 @media (min-width: 48.0625rem) {
   .contentContainer {
-    max-width: 90rem;
-    padding: 0 1.5rem;
+    max-width: 100%;
+    padding: 0;
   }
 
   .section {
-    padding: 4rem 0;
+    padding: 8rem 1.5rem;
+  }
+
+  .section:first-child {
+    padding-top: 0;
+  }
+
+  .sectionInner {
+    gap: 8rem;
   }
 
   .sectionPlaceholder {
@@ -114,5 +196,38 @@
   .roomGrid > * {
     flex: unset;
     scroll-snap-align: unset;
+  }
+
+  /* FAQ Two-Column Layout Desktop */
+  .faqSection {
+    flex-direction: row;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .faqHeadingColumn {
+    flex: 0 0 50%;
+    width: 50%;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .faqLabel {
+    max-width: 28rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  .faqTitle {
+    font-size: 2.5rem;
+    max-width: 28rem;
+    text-align: left;
+  }
+
+  .faqAccordionColumn {
+    flex: 0 0 50%;
+    width: 50%;
   }
 }
