@@ -8,35 +8,47 @@ A modern portfolio website for Saint 6 Studio, a creative agency. It showcases d
 
 Seamless, animated portfolio experience that dynamically displays project work from a content management system.
 
+## Current State (v0.2)
+
+**Shipped:** Homepage + Studio Rental page complete with responsive design and Vietnamese translations.
+
+**Codebase:**
+- ~6,378 lines TypeScript/CSS
+- 14+ components organized by feature
+- 8 reusable service page components established
+- Service page template documented for Phase 3-5 reuse
+
+**What Works:**
+- Homepage with GSAP animations and responsive layout
+- Studio Rental page with all sections (hero, rooms, FAQ, contact form)
+- Vietnamese translations for Studio Rental content
+- FAQ accordion with smooth expand/collapse
+- Contact form with client-side validation
+
 ## Requirements
 
 ### Validated
 
-- ✓ Bilingual website (English/Vietnamese) — existing i18n implementation
-- ✓ Responsive design (mobile-first) — existing Tailwind CSS setup
-- ✓ Component library with Shadcn/ui — 4 UI primitives in place
-- ✓ Header, footer, and navigation sections — implemented
-- ✓ Gallery grid for images — implemented
-- ✓ Smooth animations with GSAP — implemented in TrustedBySection
-- ✓ SEO metadata per locale — existing Next.js metadata setup
+- ✓ Bilingual website (English/Vietnamese) — v0.2
+- ✓ Responsive design (mobile-first) — v0.2
+- ✓ Component library with Shadcn/ui — v0.2
+- ✓ Header, footer, and navigation sections — v0.2
+- ✓ Gallery grid for images — v0.2
+- ✓ Smooth animations with GSAP — v0.2
+- ✓ SEO metadata per locale — v0.2
+- ✓ Studio Rental service page — v0.2
+- ✓ FAQ accordion component — v0.2
+- ✓ Contact inquiry form with validation — v0.2
 
 ### Active
 
+- [ ] Remaining service pages (Set Design, Production, Event Planning, Decoration, Creative)
+- [ ] About Us page
+- [ ] Contact Us page
 - [ ] CMS backend integration (replacing hardcoded project data)
-  - Currently: Example data hardcoded in `app/[locale]/page.tsx`
-  - Target: Fetch projects, team, testimonials from CMS at build time
 - [ ] Error boundaries for crash prevention
-  - Impact: Missing error boundary causes white screen on component errors
-  - Location: Root layout or app wrapper
 - [ ] Social media links functionality
-  - Currently: Placeholder `href="#"` in footer/social links
-  - Target: Connect to actual social profiles
 - [ ] Image error handling
-  - Currently: Next.js Image components have no fallbacks
-  - Target: Add `onError` handlers with fallback images
-- [ ] Clean up unused imports
-  - `usePathname` in LanguageSelector.tsx
-  - `usePathname()` in TranslationContext.tsx
 
 ### Out of Scope
 
@@ -48,21 +60,6 @@ Seamless, animated portfolio experience that dynamically displays project work f
 - Test coverage in v1 — Will add testing framework after CMS integration
 
 ## Context
-
-**Codebase State:**
-- Modern Next.js 16 + React 19 stack with TypeScript strict mode
-- Component-based architecture with clean separation of concerns
-- Custom i18n implementation (no external library)
-- Biome linter/formatter configured
-- React Compiler enabled for automatic memoization
-- GSAP animations for visual polish
-- 14+ components organized by feature
-
-**Current Limitations:**
-- No backend API calls (all data hardcoded)
-- No test coverage (linting only via Biome)
-- No error boundaries (app crashes on component errors)
-- Social links are non-functional (placeholders)
 
 **Team Context:**
 - Solo developer (implied by usage of Claude Code)
@@ -88,11 +85,14 @@ Seamless, animated portfolio experience that dynamically displays project work f
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Next.js App Router + React 19 | Modern, performant, built-in optimizations | ✓ Good - enables React Compiler |
-| Custom i18n vs external library | Lightweight, full control, simple data | — Pending - works well for 2 locales |
+| Custom i18n vs external library | Lightweight, full control, simple data | ✓ Good - works well for 2 locales |
 | Hardcoded data in MVP | Faster initial development | ⚠️ Revisit - needs CMS integration |
 | No testing framework yet | Speed up MVP, add after CMS | — Pending - no test coverage |
 | CSS Modules + Tailwind hybrid | Component scoping + utility classes | ✓ Good - best of both worlds |
+| Hero Height Strategy (01-02) | Viewport-based sizing (100vh) with min/max | ✓ Good - responsive control |
+| Phase Sign-off Approach (01-03) | User approves based on visual inspection | ✓ Good - faster iteration |
+| Shared HeroSection (02-01) | Reuse homepage hero for service pages | ✓ Good - consistent UX |
 
 ---
 
-*Last updated: 2026-01-12 after codebase mapping*
+*Last updated: 2026-01-24 after v0.2 milestone*

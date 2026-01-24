@@ -2,41 +2,46 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-01-12)
+See: .planning/PROJECT.md (updated 2026-01-24)
 
 **Core value:** Seamless, animated portfolio experience that dynamically displays project work from a content management system
-**Current focus:** Phase 1 — Homepage Polish
+**Current focus:** v1.0 — All Pages Complete (Phases 3-6)
 
 ## Current Position
 
 Phase: 3 of 9 (Set Design & Production Pages)
 Plan: 0 of 2 in current phase
 Status: Ready to start
-Last activity: 2026-01-23 — Completed 02-03-PLAN.md (Responsive & i18n)
+Last activity: 2026-01-24 — v0.2 milestone complete
 
-Progress: ████████░░ 36% (6 of ~22 plans complete)
+Progress: ██████████░░░░░░░░░░ 27% (6 of ~22 plans complete)
+
+## Milestones
+
+| Milestone | Phases | Status | Date |
+|-----------|--------|--------|------|
+| v0.2 Homepage + First Service | 1-2 | SHIPPED | 2026-01-24 |
+| v1.0 All Pages Complete | 3-6 | In Progress | - |
+| v1.1 Production Ready | 7-9 | Planned | - |
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans created: 3
-- Plans executed: 3
-- Plans remaining: 0 (in Phase 1)
-- Average duration: 3 min per plan
-- Total execution time: 3 plans
+- Total plans executed: 6
+- Plans remaining: ~16
+- Average duration: ~15 min per plan (varies by complexity)
 
 **By Phase:**
 
 | Phase | Plans | Complete | Status |
 |-------|-------|----------|--------|
-| 1. Homepage Polish | 3 | 3/3 | Complete |
-| 2. Studio Rental | 3 | 3/3 | Complete |
-| 3-9 | ~16 | 0/16 | Not yet planned |
-
-**Recent Trend:**
-
-- Last 2 plans: 4 min average
-- Trend: Fast execution on focused UI tasks
+| 1. Homepage Polish | 3 | 3/3 | Complete (v0.2) |
+| 2. Studio Rental | 3 | 3/3 | Complete (v0.2) |
+| 3. Set Design & Production | 2 | 0/2 | Not started |
+| 4. Event Planning & Decoration | 2 | 0/2 | Not started |
+| 5. Creative | 1 | 0/1 | Not started |
+| 6. About Us & Contact | 2 | 0/2 | Not started |
+| 7-9. Backend & Launch | 9 | 0/9 | Not started |
 
 ## Accumulated Context
 
@@ -47,9 +52,9 @@ Recent decisions affecting current work:
 
 - **Scope**: Full 9-page site (homepage + 8 pages) from Figma design
 - **Build Order**: All UI pages first (Phases 1-6), then stability/backend (Phases 7-9)
-- **Hero Height Strategy** (01-02): Viewport-based sizing (100vh) with min/max constraints for responsive control
-- **Background Image Scaling** (01-02): Standard 100% width with object-fit: cover instead of extreme scaling
-- **Phase Sign-off Approach** (01-03): User can approve phases based on visual inspection without detailed testing execution
+- **Hero Height Strategy** (01-02): Viewport-based sizing (100vh) with min/max constraints
+- **Phase Sign-off Approach** (01-03): User can approve phases based on visual inspection
+- **Shared HeroSection** (02-01): Reuse homepage hero for all service pages
 
 ### Deferred Issues
 
@@ -61,43 +66,22 @@ From CONCERNS.md:
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ## Session Continuity
 
-Last session: 2026-01-23
-Stopped at: Completed 02-03-PLAN.md (Phase 2 complete)
+Last session: 2026-01-24
+Stopped at: v0.2 milestone complete
 Resume file: None
 
-Phase 1 execution: COMPLETE ✅
-- ✅ Plan 01-01: Design audit and gap analysis COMPLETE
-- ✅ Plan 01-02: Hero section, header, and layout implementation COMPLETE
-  - Fixed critical mobile viewport issue (hero height: 59.75rem → 100vh)
-  - Improved content positioning and spacing
-  - Enhanced KeyProjectSection desktop layout
-- ✅ Plan 01-03: Responsive verification and GSAP animation testing COMPLETE
-  - User approved Phase 1 without detailed verification execution
+**v0.2 Milestone Complete:**
+- Phase 1 (Homepage Polish): 3/3 plans ✅
+- Phase 2 (Studio Rental): 3/3 plans ✅
 
-Phase 2 execution: COMPLETE ✅
-- ✅ Plan 02-01: Studio Rental page layout & structure COMPLETE
-  - Created /studio-rental route with i18n support
-  - Implemented ServiceHero reusable component
-  - Built 9 section placeholders with proper spacing
-  - Updated navigation links to point to new route
-- ✅ Plan 02-02: Build Studio Rental service components COMPLETE
-  - Created 6 reusable components (RoomCard, StudioStats, StudioIntro, FAQAccordion, InquiryForm)
-  - Implemented interactive FAQ accordion with smooth toggle animations
-  - Built validated inquiry form with client-side validation
-  - Downloaded 8 key images from Figma (6 room images + makeup room + dining lounge)
-  - Established component patterns for future service pages
-- ✅ Plan 02-03: Responsive verification & i18n implementation COMPLETE
-  - Verified responsive behavior at all breakpoints (375px, 768px, 1440px)
-  - Added Vietnamese translations for all Studio Rental content
-  - Updated 6 components to use useTranslation hook
-  - Created SERVICE-PAGE-TEMPLATE.md for Phases 3-5
-
-Next steps: Execute Phase 3 (Set Design & Production pages)
+**Next Steps:**
+- Execute Phase 3 (Set Design & Production pages)
+- Use SERVICE-PAGE-TEMPLATE.md for efficient replication
 
 ---
 
-*Last updated: 2026-01-23 after Plan 02-03 completion (Phase 2 complete)*
+*Last updated: 2026-01-24 after v0.2 milestone completion*
