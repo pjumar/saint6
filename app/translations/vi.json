@@ -291,6 +291,46 @@
       "LABEL": "TIẾNG NÓI PHÍA SAU ỐNG KÍNH",
       "TITLE": "Những trải nghiệm thực từ các chuyên gia sáng tạo đã hiện thực hóa tầm nhìn của họ tại Saint 6 Studio."
     }
+  },
+  "DECORATION": {
+    "HERO": {
+      "TAGLINE": "Từ cửa hàng flagship đến biệt thự riêng — chúng tôi thiết kế và trang trí không gian kể câu chuyện."
+    },
+    "META": {
+      "TITLE": "Trang Trí | Saint 6 Studio",
+      "DESCRIPTION": "Dịch vụ trang trí chuyên nghiệp cho cửa hàng thời trang, nhà hàng và biệt thự. Chúng tôi thiết kế và trang trí không gian kể câu chuyện."
+    },
+    "INTRO": {
+      "LABEL": "Cách Chúng Tôi Làm Việc",
+      "DESCRIPTION": "Tên gọi \"Decor\" mang cảm giác tinh tế và linh hoạt, đại diện cho công việc sáng tạo của Saint 6 qua các cửa hàng thời trang, nhà hàng và biệt thự cá nhân.",
+      "CTA": "Lên Kế Hoạch Trang Trí"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Tổng Quan Brief",
+        "DESCRIPTION": "Chúng tôi nghiên cứu brief và phát triển nhiều hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn."
+      },
+      "CARD_2": {
+        "TITLE": "Ý Tưởng 2D",
+        "DESCRIPTION": "Đội ngũ thiết kế của chúng tôi tạo mood board chi tiết và bố cục ý tưởng để hình dung sự chuyển đổi không gian."
+      },
+      "CARD_3": {
+        "TITLE": "Render 3D",
+        "DESCRIPTION": "Chúng tôi tạo render 3D chân thực để bạn có thể trải nghiệm không gian trước khi xây dựng bắt đầu."
+      },
+      "CARD_4": {
+        "TITLE": "Tiền Sản Xuất",
+        "DESCRIPTION": "Chúng tôi phối hợp vật liệu, nhà cung cấp và tiến độ để đảm bảo thực hiện dự án suôn sẻ."
+      },
+      "CARD_5": {
+        "TITLE": "Lắp Đặt Cuối Cùng",
+        "DESCRIPTION": "Đội ngũ của chúng tôi quản lý toàn bộ quá trình lắp đặt, đưa từng chi tiết vào cuộc sống với sự chính xác."
+      }
+    },
+    "PORTFOLIO": {
+      "LABEL": "mỗi khoảnh khắc, một cảm xúc",
+      "QUOTE": "Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một."
+    }
   }
 }
 

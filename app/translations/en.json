@@ -291,6 +291,46 @@
       "LABEL": "VOICES BEHIND THE LENS",
       "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
     }
+  },
+  "DECORATION": {
+    "HERO": {
+      "TAGLINE": "From flagship stores to private villas — we design and decorate spaces that tell a story."
+    },
+    "META": {
+      "TITLE": "Decoration | Saint 6 Studio",
+      "DESCRIPTION": "Professional decoration services for fashion stores, restaurants, and private villas. We design and decorate spaces that tell a story."
+    },
+    "INTRO": {
+      "LABEL": "How We Work",
+      "DESCRIPTION": "The name \"Decor\" feels refined and adaptable, representing Saint 6's creative work across fashion stores, restaurants, and personal villas.",
+      "CTA": "Plan Your Decoration"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Brief Overview",
+        "DESCRIPTION": "We study the brief and develop multiple creative directions based on your brand, audience, and goals."
+      },
+      "CARD_2": {
+        "TITLE": "2D Ideation",
+        "DESCRIPTION": "Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation."
+      },
+      "CARD_3": {
+        "TITLE": "3D Render",
+        "DESCRIPTION": "We produce photorealistic 3D renders so you can experience the space before construction begins."
+      },
+      "CARD_4": {
+        "TITLE": "Pre-Production",
+        "DESCRIPTION": "We coordinate materials, vendors, and timelines to ensure smooth execution of your project."
+      },
+      "CARD_5": {
+        "TITLE": "Final Installation",
+        "DESCRIPTION": "Our team manages the complete installation, bringing every detail to life with precision."
+      }
+    },
+    "PORTFOLIO": {
+      "LABEL": "every moment, an emotion",
+      "QUOTE": "Every project begins with a vision. We bring it to life — detail by detail."
+    }
   }
 }
 
