@@ -123,6 +123,54 @@
       "HEADING": "Thiết Lập Chiếu Sáng và Rigging Tiên Tiến để Hoàn Thiện Mọi Chi Tiết trong Sản Xuất của Bạn",
       "BACKGROUND_COLORS": "13x Màu Nền"
     }
+  },
+  "SET_DESIGN": {
+    "HERO": {
+      "TAGLINE": "Từ Bản Vẽ Ý Tưởng đến Hoàn Thiện — Thiết Kế Set Hoàn Chỉnh cho Câu Chuyện Hình Ảnh"
+    },
+    "META": {
+      "TITLE": "Thiết Kế Set | Saint 6 Studio",
+      "DESCRIPTION": "Dịch vụ thiết kế set chuyên nghiệp từ ý tưởng đến xây dựng. Chúng tôi biến đổi định hướng sáng tạo thành môi trường sẵn sàng sản xuất cho chiến dịch, MV và kể chuyện bằng hình ảnh."
+    },
+    "INTRO": {
+      "TITLE": "Cách Chúng Tôi Làm Việc",
+      "DESCRIPTION": "Chúng tôi thiết kế, xây dựng và quản lý các set vật lý để biến đổi định hướng sáng tạo thành môi trường sẵn sàng sản xuất.",
+      "CTA": "Liên hệ ngay"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Khởi Đầu & Bản Vẽ Concept",
+        "DESCRIPTION": "Chúng tôi làm việc từ brief của bạn và cùng brainstorm để định hình hướng sáng tạo ban đầu."
+      },
+      "CARD_2": {
+        "TITLE": "Bố Cục 3D & Render 3D",
+        "DESCRIPTION": "Hình ảnh hóa 3D mang concept set của bạn vào cuộc sống trước khi xây dựng."
+      },
+      "CARD_3": {
+        "TITLE": "Mô Hình & Thiết Lập Xây Dựng",
+        "DESCRIPTION": "Mô hình thu nhỏ và xác nhận thiết lập tại chỗ đảm bảo mọi chi tiết hoàn hảo."
+      },
+      "CARD_4": {
+        "TITLE": "Xây Dựng Set",
+        "DESCRIPTION": "Xây dựng hoàn chỉnh với vật liệu chất lượng và tay nghề chuyên gia."
+      },
+      "CARD_5": {
+        "TITLE": "Hoàn Thiện & Tạo Phong Cách",
+        "DESCRIPTION": "Chi tiết cuối cùng, đạo cụ và tinh chỉnh art direction kết hợp tầm nhìn."
+      },
+      "CARD_6": {
+        "TITLE": "Hỗ Trợ Sản Xuất",
+        "DESCRIPTION": "Hỗ trợ tại set trong suốt buổi quay để đảm bảo mọi thứ diễn ra suôn sẻ."
+      }
+    },
+    "PORTFOLIO": {
+      "LABEL": "PORTFOLIO",
+      "STATEMENT": "Chúng tôi tạo hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn"
+    },
+    "TESTIMONIALS": {
+      "TITLE": "Tiếng Nói Phía Sau Ống Kính",
+      "SUBTITLE": "Những trải nghiệm thực tế từ các chuyên gia sáng tạo đã mang tầm nhìn của họ vào cuộc sống tại Saint 6 Studio."
+    }
   }
 }
 

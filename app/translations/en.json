@@ -123,6 +123,54 @@
       "HEADING": "Advanced Lighting and Rigging Setups to Perfect Every Detail of Your Production",
       "BACKGROUND_COLORS": "13x Background Color"
     }
+  },
+  "SET_DESIGN": {
+    "HERO": {
+      "TAGLINE": "From Moodboard to Build — Complete Set Design for Visual Storytelling"
+    },
+    "META": {
+      "TITLE": "Set Design | Saint 6 Studio",
+      "DESCRIPTION": "Professional set design services from concept to construction. We transform creative direction into production-ready environments for campaigns, music videos, and visual storytelling."
+    },
+    "INTRO": {
+      "TITLE": "How We Work",
+      "DESCRIPTION": "We design, construct, and manage physical sets that transform creative direction into production-ready environments.",
+      "CTA": "Get in touch"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Start & Concept Blueprint",
+        "DESCRIPTION": "We work from your brief and brainstorm together to shape the initial creative direction."
+      },
+      "CARD_2": {
+        "TITLE": "3D Layout & 3D Render",
+        "DESCRIPTION": "3D visualization brings your set concept to life before construction begins."
+      },
+      "CARD_3": {
+        "TITLE": "Prototype & Building Setup",
+        "DESCRIPTION": "Scale models and on-site setup validation ensure every detail is perfect."
+      },
+      "CARD_4": {
+        "TITLE": "Set Construction",
+        "DESCRIPTION": "Full build-out with quality materials and expert craftsmanship."
+      },
+      "CARD_5": {
+        "TITLE": "Finishing & Styling",
+        "DESCRIPTION": "Final details, props, and art direction refinement bring the vision together."
+      },
+      "CARD_6": {
+        "TITLE": "Production Support",
+        "DESCRIPTION": "On-set support during your shoot to ensure everything runs smoothly."
+      }
+    },
+    "PORTFOLIO": {
+      "LABEL": "PORTFOLIO",
+      "STATEMENT": "We shape physical spaces that reflect your creative intent — environments that become part of your story"
+    },
+    "TESTIMONIALS": {
+      "TITLE": "Voices Behind the Lens",
+      "SUBTITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
+    }
   }
 }
 
