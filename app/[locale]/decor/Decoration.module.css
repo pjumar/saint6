@@ -44,30 +44,9 @@
   padding: 0 1.5rem;
 }
 
-/* Quote Section */
-.quoteSection {
+/* Portfolio Section Wrapper */
+.portfolioWrapper {
   width: 100%;
-  padding: 6.25rem 0;
-  background: #ffffff;
-}
-
-.quoteSectionInner {
-  max-width: 90rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* Portfolio Section */
-.portfolioSection {
-  width: 100%;
-  padding: 6.25rem 0;
-  background: #ffffff;
-}
-
-.portfolioSectionInner {
-  max-width: 90rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
 /* Contact Section */
@@ -86,15 +65,11 @@
     gap: 3rem;
   }
 
-  .workflowSection,
-  .quoteSection,
-  .portfolioSection {
+  .workflowSection {
     padding: 4rem 0;
   }
 
-  .workflowSectionInner,
-  .quoteSectionInner,
-  .portfolioSectionInner {
+  .workflowSectionInner {
     padding: 0 1rem;
   }
 }

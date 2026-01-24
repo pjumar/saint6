@@ -2,90 +2,70 @@
 
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-workflow/ProductionWorkflow";
-import { DecorPortfolio, DecorProject } from "@/app/components/decor-portfolio/DecorPortfolio";
+import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Decoration.module.css";
 
-// Portfolio projects - Top Row (2 equal columns)
-const topRowProjects: DecorProject[] = [
+// Portfolio items data - same structure as Set Design (CMS integration in Phase 8)
+const portfolioItems: PortfolioItem[] = [
   {
     id: "fressi-kv",
     imageUrl: "/images/decoration/portfolio-fressi.jpg",
-    imageAlt: "FRESSI KV Fashion Store",
     category: "Fashion Stores",
     title: "FRESSI KV",
+    size: "large",
   },
   {
     id: "mirinda",
     imageUrl: "/images/decoration/portfolio-mirinda.jpg",
-    imageAlt: "Mirinda Campaign",
     category: "Campaign",
     title: "MIRINDA",
+    size: "large",
   },
-];
-
-// Portfolio projects - Masonry Grid (3 columns with mixed heights)
-const masonryProjects: DecorProject[][] = [
-  // Column 1: small, large
-  [
-    {
-      id: "den-vau-1",
-      imageUrl: "/images/decoration/portfolio-denvau-1.jpg",
-      imageAlt: "MV Diễn Viên Tồi - Đen Vâu",
-      category: "Campaign",
-      title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-      size: "small",
-    },
-    {
-      id: "den-vau-2",
-      imageUrl: "/images/decoration/portfolio-denvau-2.jpg",
-      imageAlt: "MV Diễn Viên Tồi - Đen Vâu",
-      category: "Campaign",
-      title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-      size: "large",
-    },
-  ],
-  // Column 2: large, small
-  [
-    {
-      id: "den-vau-3",
-      imageUrl: "/images/decoration/portfolio-denvau-3.jpg",
-      imageAlt: "MV Diễn Viên Tồi - Đen Vâu",
-      category: "Campaign",
-      title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-      size: "large",
-    },
-    {
-      id: "den-vau-4",
-      imageUrl: "/images/decoration/portfolio-denvau-4.jpg",
-      imageAlt: "MV Diễn Viên Tồi - Đen Vâu",
-      category: "Campaign",
-      title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-      size: "small",
-    },
-  ],
-  // Column 3: large, small
-  [
-    {
-      id: "den-vau-5",
-      imageUrl: "/images/decoration/portfolio-denvau-5.jpg",
-      imageAlt: "MV Diễn Viên Tồi - Đen Vâu",
-      category: "Campaign",
-      title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-      size: "large",
-    },
-    {
-      id: "yamaha",
-      imageUrl: "/images/decoration/portfolio-yamaha.jpg",
-      imageAlt: "Yamaha Social Layout",
-      category: "Campaign",
-      title: "YAMAHA SOCIAL LAYOUT",
-      size: "small",
-    },
-  ],
+  {
+    id: "den-vau-1",
+    imageUrl: "/images/decoration/portfolio-denvau-1.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "short",
+  },
+  {
+    id: "den-vau-2",
+    imageUrl: "/images/decoration/portfolio-denvau-2.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-3",
+    imageUrl: "/images/decoration/portfolio-denvau-3.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-4",
+    imageUrl: "/images/decoration/portfolio-denvau-4.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-5",
+    imageUrl: "/images/decoration/portfolio-denvau-5.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "short",
+  },
+  {
+    id: "yamaha",
+    imageUrl: "/images/decoration/portfolio-yamaha.jpg",
+    category: "Campaign",
+    title: "YAMAHA SOCIAL LAYOUT",
+    size: "short",
+  },
 ];
 
 // Decoration workflow steps data (CMS integration in Phase 8)
@@ -175,25 +155,14 @@ export default function DecorationPage() {
           </div>
         </section>
 
-        {/* Quote Section */}
-        <section className={styles.quoteSection} id="portfolio-intro">
-          <div className={styles.quoteSectionInner}>
-            <QuoteIntro
-              label={t.DECORATION?.PORTFOLIO?.LABEL ?? "every moment, an emotion"}
-              quote={t.DECORATION?.PORTFOLIO?.QUOTE ?? "Every project begins with a vision. We bring it to life — detail by detail."}
-            />
-          </div>
-        </section>
-
-        {/* Portfolio Section */}
-        <section className={styles.portfolioSection} id="portfolio">
-          <div className={styles.portfolioSectionInner}>
-            <DecorPortfolio
-              topRowProjects={topRowProjects}
-              masonryProjects={masonryProjects}
-            />
-          </div>
-        </section>
+        {/* Portfolio Section - Reuses PortfolioSection component from Set Design */}
+        <div className={styles.portfolioWrapper} id="portfolio">
+          <PortfolioSection
+            label={t.DECORATION?.PORTFOLIO?.LABEL ?? "every moment, an emotion"}
+            statement={t.DECORATION?.PORTFOLIO?.QUOTE ?? "Every project begins with a vision. We bring it to life — detail by detail."}
+            items={portfolioItems}
+          />
+        </div>
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">
