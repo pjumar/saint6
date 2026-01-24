@@ -124,6 +124,7 @@ export default async function LocaleLayout({
     <html lang={typedLocale}>
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${spectral.variable} antialiased`}
+        suppressHydrationWarning
       >
         <TranslationProvider locale={typedLocale}>
           {children}

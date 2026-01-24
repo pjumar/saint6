@@ -104,9 +104,9 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
           </div>
 
           {/* White Form Area */}
-          <div className={styles.formContainer}>
+          <div className={styles.formContainer} suppressHydrationWarning>
             <form className={styles.form} onSubmit={handleSubmit}>
-              <div className={styles.formGroup}>
+              <div className={styles.formGroup} suppressHydrationWarning>
                 <input
                   type="text"
                   id="name"
@@ -120,7 +120,7 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
                 />
               </div>
 
-              <div className={styles.formGroup}>
+              <div className={styles.formGroup} suppressHydrationWarning>
                 <input
                   type="email"
                   id="email"
@@ -134,7 +134,7 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
                 />
               </div>
 
-              <div className={styles.formGroup}>
+              <div className={styles.formGroup} suppressHydrationWarning>
                 <input
                   type="text"
                   id="company"
@@ -146,7 +146,7 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
                 />
               </div>
 
-              <div className={styles.formGroup}>
+              <div className={styles.formGroup} suppressHydrationWarning>
                 <textarea
                   id="message"
                   name="message"

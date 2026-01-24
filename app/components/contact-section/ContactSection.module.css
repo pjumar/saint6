@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: flex-end;
   padding: 3rem 1.5rem;
+  border-radius: 1.25rem 1.25rem 0 0;
+  overflow: hidden;
 }
 
 .backgroundContainer {
