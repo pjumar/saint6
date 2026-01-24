@@ -1,0 +1,119 @@
+.productionPage {
+  min-height: 100vh;
+  background: var(--color-bg-container);
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section {
+  width: 100%;
+  padding: 8rem 1.5rem;
+  border-radius: 1.25rem 1.25rem 0 0;
+  position: relative;
+}
+
+.section:not(:first-child) {
+  margin-top: -1.25rem;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section:nth-child(odd) {
+  background: #ffffff;
+}
+
+.section:nth-child(even) {
+  background: var(--color-bg-container, #F5F4F4);
+}
+
+/* Service Grid Section */
+.serviceGridSection {
+  width: 100%;
+  padding: 0 1.5rem 8rem;
+}
+
+.serviceGridInner {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+/* Workflow Section */
+.workflowSection {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 1.25rem 1.25rem 0 0;
+  position: relative;
+  margin-top: -1.25rem;
+  padding: 8rem 1.5rem;
+}
+
+.workflowInner {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Key Project Section Wrapper */
+.keyProjectWrapper {
+  width: 100%;
+  margin-top: -1.25rem;
+  position: relative;
+}
+
+/* Portfolio Wrapper */
+.portfolioWrapper {
+  width: 100%;
+  margin-top: -1.25rem;
+  position: relative;
+}
+
+/* Contact Section - Full Width */
+.contactSectionWrapper {
+  width: 100%;
+  border-radius: 1.25rem 1.25rem 0 0;
+  overflow: hidden;
+  margin-top: -1.25rem;
+  position: relative;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 48.0625rem) {
+  .section {
+    padding: 8rem 1.5rem;
+  }
+
+  .section:first-child {
+    padding-top: 0;
+  }
+
+  .sectionInner {
+    gap: 8rem;
+  }
+
+  .serviceGridSection {
+    padding: 0 1.5rem 8rem;
+  }
+
+  .workflowInner {
+    gap: 8rem;
+  }
+}

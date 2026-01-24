@@ -1,0 +1,41 @@
+.quoteContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 57.375rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+  gap: 1.5rem;
+}
+
+.label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: var(--color-primary, #880300);
+  margin: 0;
+}
+
+.quote {
+  font-family: var(--font-heading, "PP Fragment", serif);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+@media (min-width: 48.0625rem) {
+  .quoteContainer {
+    padding: 4rem 0;
+  }
+
+  .quote {
+    font-size: 2.5rem;
+  }
+}

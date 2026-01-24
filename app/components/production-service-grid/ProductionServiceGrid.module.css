@@ -1,0 +1,215 @@
+.productionServiceGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* Mobile Carousel Container */
+.carouselContainer {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 1.5rem;
+  margin-right: -1.5rem;
+  width: calc(100% + 1.5rem);
+  min-width: 0;
+  max-width: calc(100% + 1.5rem);
+}
+
+.carouselContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Large Cards Row - hidden on mobile, shown on desktop */
+.largeCardsRow {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.largeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 0 0 85%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 280 / 350;
+  overflow: hidden;
+  background: var(--color-bg-subtle, #f0f0f0);
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.cardContent {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  color: var(--color-text-primary, #231d1d);
+}
+
+.cardCounter {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  line-height: 2.4;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  width: 2rem;
+}
+
+.cardTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-heading, "PP Fragment", serif);
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cardDescription {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Small Cards Row - 4 cards (hidden on mobile, shown in carousel) */
+.smallCardsRow {
+  display: none;
+}
+
+.smallCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 0 0 85%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.smallCardImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 280 / 350;
+  overflow: hidden;
+  background: var(--color-bg-subtle, #f0f0f0);
+}
+
+/* Tablet */
+@media (min-width: 36rem) {
+  .carouselContainer {
+    gap: 1.5rem;
+  }
+
+  .largeCard,
+  .smallCard {
+    flex: 0 0 45%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 48.0625rem) {
+  .productionServiceGrid {
+    gap: 8rem;
+  }
+
+  /* Hide carousel on desktop */
+  .carouselContainer {
+    display: none;
+  }
+
+  .largeCardsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .largeCard {
+    flex: none;
+    gap: 4rem;
+  }
+
+  .firstLarge {
+    width: 63.89%;
+  }
+
+  .secondLarge {
+    width: 31.11%;
+  }
+
+  .cardImageContainer {
+    aspect-ratio: 920 / 690;
+  }
+
+  .secondLarge .cardImageContainer {
+    aspect-ratio: 448 / 690;
+  }
+
+  .cardContent {
+    gap: 1.5rem;
+  }
+
+  .cardCounter {
+    font-size: 0.75rem;
+    letter-spacing: 0.125rem;
+    line-height: 2.8;
+    width: 3rem;
+  }
+
+  .cardTextContent {
+    gap: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .cardDescription {
+    font-size: 1rem;
+  }
+
+  .smallCardsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .smallCard {
+    flex: none;
+    gap: 3rem;
+  }
+
+  .smallCardImageContainer {
+    aspect-ratio: 330 / 376;
+  }
+
+  .smallCard .cardContent {
+    gap: 0.5rem;
+  }
+}
