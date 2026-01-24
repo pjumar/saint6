@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-01-24)
 
 ## Current Position
 
-Phase: 3 of 9 (Set Design & Production Pages)
+Phase: 4 of 9 (Event Planning & Decoration Pages)
 Plan: 1 of 2 in current phase
 Status: In progress
-Last activity: 2026-01-24 — Completed 03-01-PLAN.md
+Last activity: 2026-01-24 — Completed 04-01 (Event Planning page)
 
-Progress: ███████████░░░░░░░░░ 32% (7 of ~22 plans complete)
+Progress: █████████████████░░░ 41% (9 of ~22 plans complete)
 
 ## Milestones
 
@@ -27,8 +27,8 @@ Progress: ███████████░░░░░░░░░ 32% (7 of
 ## Performance Metrics
 
 **Velocity:**
-- Total plans executed: 7
-- Plans remaining: ~15
+- Total plans executed: 9
+- Plans remaining: ~13
 - Average duration: ~15 min per plan (varies by complexity)
 
 **By Phase:**
@@ -37,8 +37,8 @@ Progress: ███████████░░░░░░░░░ 32% (7 of
 |-------|-------|----------|--------|
 | 1. Homepage Polish | 3 | 3/3 | Complete (v0.2) |
 | 2. Studio Rental | 3 | 3/3 | Complete (v0.2) |
-| 3. Set Design & Production | 2 | 1/2 | In progress |
-| 4. Event Planning & Decoration | 2 | 0/2 | Not started |
+| 3. Set Design & Production | 2 | 2/2 | Complete ✅ |
+| 4. Event Planning & Decoration | 2 | 1/2 | In progress |
 | 5. Creative | 1 | 0/1 | Not started |
 | 6. About Us & Contact | 2 | 0/2 | Not started |
 | 7-9. Backend & Launch | 9 | 0/9 | Not started |
@@ -55,6 +55,7 @@ Recent decisions affecting current work:
 - **Hero Height Strategy** (01-02): Viewport-based sizing (100vh) with min/max constraints
 - **Phase Sign-off Approach** (01-03): User can approve phases based on visual inspection
 - **Shared HeroSection** (02-01): Reuse homepage hero for all service pages
+- **Mobile Carousel Pattern** (03-02): Horizontal scroll with scroll-snap for service/workflow sections
 
 ### Deferred Issues
 
@@ -71,17 +72,16 @@ None.
 ## Session Continuity
 
 Last session: 2026-01-24
-Stopped at: Completed 03-01-PLAN.md (Set Design page)
+Stopped at: Completed 04-01 (Event Planning page)
 Resume file: None
 
-**Phase 3 Progress:**
-- 03-01 Set Design page: Complete ✅
-- 03-02 Production page: Not started
+**Phase 4 Progress:**
+- 04-01 Event Planning page: Complete ✅
+- 04-02 Decoration page: Not started
 
 **Next Steps:**
-- Execute 03-02-PLAN.md (Production page)
-- Similar structure to Set Design, will reuse new components
+- Execute 04-02 (Decoration page)
 
 ---
 
-*Last updated: 2026-01-24 after 03-01 plan completion*
+*Last updated: 2026-01-24 after 04-01 completion*
