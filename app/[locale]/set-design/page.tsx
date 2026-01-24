@@ -5,6 +5,7 @@ import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ServiceCard } from "@/app/components/service-card/ServiceCard";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
+import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./SetDesign.module.css";
 
@@ -65,6 +66,58 @@ const portfolioItems: PortfolioItem[] = [
     category: "Campaign",
     title: "YAMAHA SOCIAL LAYOUT",
     size: "short",
+  },
+];
+
+// Testimonial items data (CMS integration in Phase 8)
+const testimonialItems: TestimonialItem[] = [
+  {
+    id: "vinfast",
+    logoUrl: "/images/set-design/logo-vinfast.png",
+    logoAlt: "VinFast",
+    quote: "Saint Six Studio helped us create an authentic Vietnamese atmosphere for our commercial shoot. Their attention to detail and understanding of our vision was exceptional.",
+    authorName: "Nguyễn Văn A",
+    authorTitle: "Creative Director, VinFast",
+  },
+  {
+    id: "pepsi",
+    logoUrl: "/images/set-design/logo-pepsi.png",
+    logoAlt: "Pepsi",
+    quote: "The set design team delivered beyond our expectations. They transformed our concept into a stunning reality that perfectly captured the energy of our brand.",
+    authorName: "Trần Thị B",
+    authorTitle: "Marketing Manager, PepsiCo Vietnam",
+  },
+  {
+    id: "samsung",
+    logoUrl: "/images/set-design/logo-samsung.png",
+    logoAlt: "Samsung",
+    quote: "Working with Saint Six was seamless. From initial concept to final build, they maintained the highest standards of quality and professionalism.",
+    authorName: "Lê Văn C",
+    authorTitle: "Brand Director, Samsung Vietnam",
+  },
+  {
+    id: "honda",
+    logoUrl: "/images/set-design/logo-honda.png",
+    logoAlt: "Honda",
+    quote: "Their creative approach and technical expertise made our product launch a visual success. The team understood exactly what we needed.",
+    authorName: "Phạm Thị D",
+    authorTitle: "Event Manager, Honda Vietnam",
+  },
+  {
+    id: "unilever",
+    logoUrl: "/images/set-design/logo-unilever.png",
+    logoAlt: "Unilever",
+    quote: "Saint Six Studio consistently delivers exceptional set designs that elevate our campaigns. They're our go-to partner for all production needs.",
+    authorName: "Hoàng Văn E",
+    authorTitle: "Production Head, Unilever Vietnam",
+  },
+  {
+    id: "grab",
+    logoUrl: "/images/set-design/logo-grab.png",
+    logoAlt: "Grab",
+    quote: "The team's ability to bring our digital brand into physical spaces was remarkable. They created an immersive experience that resonated with our audience.",
+    authorName: "Đỗ Thị F",
+    authorTitle: "Creative Lead, Grab Vietnam",
   },
 ];
 
@@ -164,14 +217,14 @@ export default function SetDesignPage() {
           />
         </div>
 
-        {/* Testimonials Section - Placeholder */}
-        <section className={styles.section} id="testimonials">
-          <div className={styles.sectionInner}>
-            <div className={styles.testimonialsPlaceholder}>
-              <p>Testimonials section will be added in Task 4</p>
-            </div>
-          </div>
-        </section>
+        {/* Testimonials Section */}
+        <div id="testimonials">
+          <TestimonialsSection
+            label={t.SET_DESIGN?.TESTIMONIALS?.LABEL || "VOICES BEHIND THE LENS"}
+            title={t.SET_DESIGN?.TESTIMONIALS?.TITLE || "Stories from Brands Who Trusted Us to Build Their Vision"}
+            items={testimonialItems}
+          />
+        </div>
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">
