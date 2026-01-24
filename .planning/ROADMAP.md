@@ -40,7 +40,7 @@ See full details: [milestones/v0.2-ROADMAP.md](milestones/v0.2-ROADMAP.md)
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Build Set Design page
+- [x] 03-01: Build Set Design page — completed 2026-01-24
 - [ ] 03-02: Build Production page
 
 #### Phase 4: Event Planning & Decoration Pages
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 |--------------------------------|-----------|----------------|-------------|------------|
 | 1. Homepage Polish             | v0.2      | 3/3            | Complete    | 2026-01-12 |
 | 2. Studio Rental               | v0.2      | 3/3            | Complete    | 2026-01-23 |
-| 3. Set Design & Production     | v1.0      | 0/2            | Not started | -          |
+| 3. Set Design & Production     | v1.0      | 1/2            | In progress | -          |
 | 4. Event Planning & Decoration | v1.0      | 0/2            | Not started | -          |
 | 5. Creative                    | v1.0      | 0/1            | Not started | -          |
 | 6. About Us & Contact          | v1.0      | 0/2            | Not started | -          |
