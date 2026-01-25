@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { SOCIAL_LINKS } from "@/app/constants/social-links";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -49,15 +50,17 @@ export function Footer() {
         <div className={styles.footerLine} />
 
         <div className={styles.socialLinks}>
-          <a href="#" className={styles.socialLink}>
-            {t.FOOTER.INSTAGRAM}
-          </a>
-          <a href="#" className={styles.socialLink}>
-            {t.FOOTER.FACEBOOK}
-          </a>
-          <a href="#" className={styles.socialLink}>
-            {t.FOOTER.TIKTOK}
-          </a>
+          {SOCIAL_LINKS.map((link) => (
+            <a
+              key={link.platform}
+              href={link.url}
+              className={styles.socialLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </footer>

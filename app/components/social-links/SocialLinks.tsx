@@ -1,3 +1,4 @@
+import { SOCIAL_LINKS } from "@/app/constants/social-links";
 import styles from "./SocialLinks.module.css";
 
 interface SocialLinksProps {
@@ -9,15 +10,17 @@ export function SocialLinks({ variant = "default" }: SocialLinksProps) {
 
   return (
     <div className={containerClass}>
-      <a href="#" className="caption">
-        FB
-      </a>
-      <a href="#" className="caption">
-        INST
-      </a>
-      <a href="#" className="caption">
-        TIKTOK
-      </a>
+      {SOCIAL_LINKS.map((link) => (
+        <a
+          key={link.platform}
+          href={link.url}
+          className="caption"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {link.shortLabel}
+        </a>
+      ))}
     </div>
   );
 }

@@ -1,30 +1,12 @@
 "use client";
 
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import { ContactInfo, SocialLink } from "@/app/components/contact-info";
+import { ContactInfo } from "@/app/components/contact-info";
 import { MapImage } from "@/app/components/map-image";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
+import { SOCIAL_LINKS } from "@/app/constants/social-links";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Contact.module.css";
-
-// Social links data (CMS integration in Phase 8)
-const socialLinksData: SocialLink[] = [
-  {
-    platform: "Facebook",
-    url: "https://facebook.com/saint6studio",
-    label: "FACEBOOK",
-  },
-  {
-    platform: "Instagram",
-    url: "https://instagram.com/saint6studio",
-    label: "INSTAGRAM",
-  },
-  {
-    platform: "TikTok",
-    url: "https://tiktok.com/@saint6studio",
-    label: "TIKTOK",
-  },
-];
 
 export default function ContactPage() {
   const { t } = useTranslation();
@@ -52,7 +34,7 @@ export default function ContactPage() {
           address={`${infoTranslations.ADDRESS_LINE1 ?? "6 Be Van Cam, Tan Kieng"}, ${infoTranslations.ADDRESS_LINE2 ?? "District 7, HCMC"}`}
           email={infoTranslations.EMAIL ?? "Saint6studios@gmail.com"}
           phone={infoTranslations.PHONE ?? "0919 403 784 - 0918 756 573"}
-          socialLinks={socialLinksData}
+          socialLinks={SOCIAL_LINKS}
         />
       </section>
 
