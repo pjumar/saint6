@@ -20,7 +20,7 @@ export default function ContactPage() {
       {/* 1. Hero Section - Studio exterior with main heading */}
       <HeroSection
         heading={infoTranslations.HEADING ?? "Let's Create Something Exceptional Together"}
-        backgroundImage="/images/hero/hero-background.jpg"
+        backgroundImage="/images/contact/hero-background.jpg"
         backgroundAlt="Saint 6 Studio exterior"
         showScrollIndicator={true}
         showDecorativeLine={true}
