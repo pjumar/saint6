@@ -4,7 +4,7 @@ import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { CreativeServicesGrid, CreativeServiceItem } from "@/app/components/creative-services-grid/CreativeServicesGrid";
-import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-workflow/ProductionWorkflow";
+import { ServiceCardsGrid, ServiceCard } from "@/app/components/service-cards-grid/ServiceCardsGrid";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { SelectedClientsSection } from "@/app/components/selected-clients-section/SelectedClientsSection";
@@ -28,7 +28,7 @@ const creativeServices: CreativeServiceItem[] = [
 ];
 
 // Workflow steps data (CMS integration in Phase 8)
-const workflowSteps: WorkflowStep[] = [
+const workflowSteps: ServiceCard[] = [
   {
     id: "creative-direction",
     imageUrl: "/images/creative/workflow-direction.jpg",
@@ -237,7 +237,7 @@ export default function CreativePage() {
         {/* Workflow Section */}
         <section className={styles.workflowSection} id="workflow">
           <div className={styles.workflowSectionInner}>
-            <ProductionWorkflow steps={translatedWorkflowSteps} />
+            <ServiceCardsGrid cards={translatedWorkflowSteps} />
           </div>
         </section>
 

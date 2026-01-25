@@ -5,7 +5,7 @@ import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ProductionServiceGrid, ProductionServiceItem } from "@/app/components/production-service-grid/ProductionServiceGrid";
-import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-workflow/ProductionWorkflow";
+import { ServiceCardsGrid, ServiceCard } from "@/app/components/service-cards-grid/ServiceCardsGrid";
 import { EventProjectGallery, EventProject } from "@/app/components/event-project-gallery/EventProjectGallery";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
@@ -52,7 +52,7 @@ const eventServices: ProductionServiceItem[] = [
 ];
 
 // Workflow steps data (CMS integration in Phase 8)
-const workflowSteps: WorkflowStep[] = [
+const workflowSteps: ServiceCard[] = [
   {
     id: "creative-direction",
     imageUrl: "/images/event-planning/workflow-discovery.jpg",
@@ -220,7 +220,7 @@ export default function EventPlanningPage() {
                 label={t.EVENT_PLANNING?.PROCESS?.TITLE ?? "[PROCESS.TITLE]"}
                 quote={t.EVENT_PLANNING?.PROCESS?.DESCRIPTION ?? "[PROCESS.DESCRIPTION]"}
               />
-              <ProductionWorkflow steps={workflowSteps} />
+              <ServiceCardsGrid cards={workflowSteps} />
             </div>
           </div>
         </section>
