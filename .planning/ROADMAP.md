@@ -60,7 +60,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 05-01: Build Creative page
+- [x] 05-01: Build Creative page — completed 2026-01-25
 
 #### Phase 6: About Us & Contact Pages
 **Goal**: Info pages complete, all main navigation pages done
@@ -119,7 +119,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 2. Studio Rental               | v0.2      | 3/3            | Complete    | 2026-01-23 |
 | 3. Set Design & Production     | v1.0      | 2/2            | Complete    | 2026-01-24 |
 | 4. Event Planning & Decoration | v1.0      | 2/2            | Complete    | 2026-01-24 |
-| 5. Creative                    | v1.0      | 0/1            | Not started | -          |
+| 5. Creative                    | v1.0      | 1/1            | Complete    | 2026-01-25 |
 | 6. About Us & Contact          | v1.0      | 0/2            | Not started | -          |
 | 7. Error Handling & Stability  | v1.1      | 0/3            | Not started | -          |
 | 8. CMS Integration             | v1.1      | 0/4            | Not started | -          |
