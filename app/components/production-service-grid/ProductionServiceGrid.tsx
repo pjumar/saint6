@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { WorkflowStepCard } from "@/app/components/workflow-step-card/WorkflowStepCard";
 import styles from "./ProductionServiceGrid.module.css";
 
 export interface ProductionServiceItem {
@@ -26,27 +26,21 @@ export function ProductionServiceGrid({ items }: ProductionServiceGridProps) {
   return (
     <div className={styles.productionServiceGrid}>
       {/* Mobile Carousel - All 6 cards in horizontal scroll */}
-      <div className={styles.carouselContainer}>
-        {items.map((item, index) => (
-          <div key={item.id} className={styles.largeCard}>
-            <div className={styles.cardImageContainer}>
-              <Image
-                src={item.imageUrl}
-                alt={item.title}
-                fill
-                sizes="85vw"
-                className={styles.cardImage}
+      <div className={styles.carouselWrapper}>
+        <div className={styles.carouselContainer}>
+          {items.map((item, index) => (
+            <div key={item.id} className={styles.carouselCard}>
+              <WorkflowStepCard
+                imageUrl={item.imageUrl}
+                counter={formatCounter(index)}
+                title={item.title}
+                description={item.description}
+                layout="horizontal"
+                imageSizes="85vw"
               />
             </div>
-            <div className={styles.cardContent}>
-              <span className={styles.cardCounter}>{formatCounter(index)}</span>
-              <div className={styles.cardTextContent}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDescription}>{item.description}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Desktop: Large Cards Row */}
@@ -56,22 +50,14 @@ export function ProductionServiceGrid({ items }: ProductionServiceGridProps) {
             key={item.id}
             className={`${styles.largeCard} ${index === 0 ? styles.firstLarge : styles.secondLarge}`}
           >
-            <div className={styles.cardImageContainer}>
-              <Image
-                src={item.imageUrl}
-                alt={item.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className={styles.cardImage}
-              />
-            </div>
-            <div className={styles.cardContent}>
-              <span className={styles.cardCounter}>{formatCounter(index)}</span>
-              <div className={styles.cardTextContent}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDescription}>{item.description}</p>
-              </div>
-            </div>
+            <WorkflowStepCard
+              imageUrl={item.imageUrl}
+              counter={formatCounter(index)}
+              title={item.title}
+              description={item.description}
+              layout="horizontal"
+              imageSizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         ))}
       </div>
@@ -80,22 +66,14 @@ export function ProductionServiceGrid({ items }: ProductionServiceGridProps) {
       <div className={styles.smallCardsRow}>
         {smallItems.map((item, index) => (
           <div key={item.id} className={styles.smallCard}>
-            <div className={styles.smallCardImageContainer}>
-              <Image
-                src={item.imageUrl}
-                alt={item.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className={styles.cardImage}
-              />
-            </div>
-            <div className={styles.cardContent}>
-              <span className={styles.cardCounter}>{formatCounter(index + 2)}</span>
-              <div className={styles.cardTextContent}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDescription}>{item.description}</p>
-              </div>
-            </div>
+            <WorkflowStepCard
+              imageUrl={item.imageUrl}
+              counter={formatCounter(index + 2)}
+              title={item.title}
+              description={item.description}
+              layout="horizontal"
+              imageSizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            />
           </div>
         ))}
       </div>

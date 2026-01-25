@@ -3,7 +3,7 @@
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
-import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-workflow/ProductionWorkflow";
+import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Decoration.module.css";
@@ -69,7 +69,7 @@ const portfolioItems: PortfolioItem[] = [
 ];
 
 // Decoration workflow steps data (CMS integration in Phase 8)
-const decorWorkflowSteps: WorkflowStep[] = [
+const decorWorkflowSteps: ServiceCard[] = [
   {
     id: "brief-overview",
     imageUrl: "/images/decoration/workflow-brief.jpg",
@@ -151,7 +151,7 @@ export default function DecorationPage() {
         {/* Workflow Section - Service Cards */}
         <section className={styles.workflowSection} id="services">
           <div className={styles.workflowSectionInner}>
-            <ProductionWorkflow steps={translatedWorkflowSteps} />
+            <ServiceCardsCarousel cards={translatedWorkflowSteps} />
           </div>
         </section>
 

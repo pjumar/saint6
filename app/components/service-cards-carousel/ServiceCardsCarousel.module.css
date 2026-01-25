@@ -1,0 +1,88 @@
+/* Container and Carousel layout styles */
+/* Card styles are handled by WorkflowStepCard component */
+
+.container {
+  width: calc(100% + 1rem);
+  margin-right: -1rem;
+}
+
+/* Carousel - horizontal scroll on all screens */
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  width: 100%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  /* Mobile: 85% width, shows ~1.15 cards */
+  flex: 0 0 85%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.card:last-child {
+  margin-right: 1rem;
+}
+
+/* Tablet - show ~2.5 cards */
+@media (min-width: 36rem) {
+  .carousel {
+    gap: 1.5rem;
+  }
+
+  .card {
+    flex: 0 0 40%;
+  }
+}
+
+/* Desktop - show ~3.5 cards */
+@media (min-width: 48.0625rem) {
+  .container {
+    width: calc(100% + 1.5rem);
+    margin-right: -1.5rem;
+  }
+
+  .carousel {
+    gap: 1.5rem;
+  }
+
+  .card {
+    /* ~26% width = shows ~3.5 cards with gaps */
+    flex: 0 0 26%;
+    min-width: 20rem;
+  }
+
+  .card:last-child {
+    margin-right: 1.5rem;
+  }
+
+  /* Grid variant - show all cards on desktop (no scroll) */
+  .containerGrid {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .carouselGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    overflow-x: visible;
+  }
+
+  .cardGrid {
+    flex: none;
+    min-width: 0;
+  }
+
+  .cardGrid:last-child {
+    margin-right: 0;
+  }
+}

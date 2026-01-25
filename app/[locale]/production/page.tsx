@@ -6,7 +6,7 @@ import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ProductionServiceGrid, ProductionServiceItem } from "@/app/components/production-service-grid/ProductionServiceGrid";
 import { KeyProjectSection, KeyProjectData } from "@/app/components/key-project-section/KeyProjectSection";
-import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-workflow/ProductionWorkflow";
+import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Production.module.css";
 
@@ -50,36 +50,12 @@ const productionServices: ProductionServiceItem[] = [
   },
 ];
 
-// Workflow steps data (CMS integration in Phase 8)
-const workflowSteps: WorkflowStep[] = [
-  {
-    id: "pre-production",
-    imageUrl: "/images/production/workflow-pre-production.jpg",
-    counter: "01.",
-    title: "Pre-Production",
-    description: "Concept, scheduling, and creative",
-  },
-  {
-    id: "set-up",
-    imageUrl: "/images/production/workflow-setup.jpg",
-    counter: "02.",
-    title: "Set-Up",
-    description: "Lighting, camera, art direction",
-  },
-  {
-    id: "shoot-day",
-    imageUrl: "/images/production/workflow-shoot.jpg",
-    counter: "03.",
-    title: "Shoot Day",
-    description: "Execution and real-time adjustments",
-  },
-  {
-    id: "wrap-delivery",
-    imageUrl: "/images/production/workflow-delivery.jpg",
-    counter: "04.",
-    title: "Wrap & Delivery",
-    description: "Editing, review, and delivery",
-  },
+// Workflow steps base data (translations applied in component)
+const workflowStepsBase = [
+  { id: "pre-production", imageUrl: "/images/production/workflow-pre-production.jpg", counter: "01." },
+  { id: "set-up", imageUrl: "/images/production/workflow-setup.jpg", counter: "02." },
+  { id: "shoot-day", imageUrl: "/images/production/workflow-shoot.jpg", counter: "03." },
+  { id: "wrap-delivery", imageUrl: "/images/production/workflow-delivery.jpg", counter: "04." },
 ];
 
 // Key project data (CMS integration in Phase 8)
@@ -145,6 +121,17 @@ export default function ProductionPage() {
     ...getServiceTranslation(index),
   }));
 
+  // Build workflow steps with translations
+  const translatedWorkflowSteps: ServiceCard[] = workflowStepsBase.map((step, index) => {
+    const stepKey = `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
+    const translation = t.PRODUCTION?.WORKFLOW?.[stepKey];
+    return {
+      ...step,
+      title: translation?.TITLE ?? `[WORKFLOW.STEP_${index + 1}.TITLE]`,
+      description: translation?.DESCRIPTION ?? `[WORKFLOW.STEP_${index + 1}.DESCRIPTION]`,
+    };
+  });
+
   return (
     <div className={styles.productionPage}>
       {/* Hero Section */}
@@ -173,7 +160,7 @@ export default function ProductionPage() {
                 label={t.PRODUCTION?.KEY_PROJECT?.WAY_TITLE || "The Saint 6 Way of Creation"}
                 quote={t.PRODUCTION?.KEY_PROJECT?.WAY_DESCRIPTION || "We bring structure to creativity — blending strategic direction, artistic vision, and refined execution to produce visuals that speak luxury, authenticity, and emotion."}
               />
-              <ProductionWorkflow steps={workflowSteps} />
+              <ServiceCardsCarousel cards={translatedWorkflowSteps} showAllOnDesktop />
             </div>
           </div>
         </section>

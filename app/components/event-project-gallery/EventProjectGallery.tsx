@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./EventProjectGallery.module.css";
 
@@ -14,14 +14,32 @@ export interface EventProject {
 
 interface EventProjectGalleryProps {
   projects: EventProject[];
+  autoScrollInterval?: number;
 }
 
 function formatCounter(index: number): string {
   return `${String(index + 1).padStart(2, "0")}.`;
 }
 
-export function EventProjectGallery({ projects }: EventProjectGalleryProps) {
+export function EventProjectGallery({ projects, autoScrollInterval = 5000 }: EventProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isPaused || projects.length <= 1) return;
+
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    }, autoScrollInterval);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPaused, projects.length, autoScrollInterval]);
 
   const handlePrevious = () => {
     setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
@@ -34,7 +52,11 @@ export function EventProjectGallery({ projects }: EventProjectGalleryProps) {
   const activeProject = projects[activeIndex];
 
   return (
-    <section className={styles.gallerySection}>
+    <section
+      className={styles.gallerySection}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Main Image */}
       <div className={styles.imageContainer}>
         <Image

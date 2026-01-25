@@ -1,10 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
-import { ServiceCard } from "@/app/components/service-card/ServiceCard";
+import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
@@ -122,70 +121,29 @@ const testimonialItems: TestimonialItem[] = [
   },
 ];
 
-// Service capability data (CMS integration in Phase 8)
-const serviceCapabilities = [
-  {
-    id: "brief-concept",
-    imageUrl: "/images/set-design/set-brief-concept.jpg",
-    counter: "01.",
-  },
-  {
-    id: "layout-render",
-    imageUrl: "/images/set-design/set-layout-render.jpg",
-    counter: "02.",
-  },
-  {
-    id: "feedback-loop",
-    imageUrl: "/images/set-design/set-feedback-loop.jpg",
-    counter: "03.",
-  },
-  {
-    id: "construction",
-    imageUrl: "/images/set-design/set-construction.jpg",
-    counter: "04.",
-  },
-  {
-    id: "shoot-support",
-    imageUrl: "/images/set-design/set-shoot-support.jpg",
-    counter: "05.",
-  },
-  {
-    id: "maintenance",
-    imageUrl: "/images/set-design/set-maintenance.jpg",
-    counter: "06.",
-  },
+// Service capability base data (CMS integration in Phase 8)
+const serviceCapabilitiesBase = [
+  { id: "brief-concept", imageUrl: "/images/set-design/set-brief-concept.jpg", counter: "01." },
+  { id: "layout-render", imageUrl: "/images/set-design/set-layout-render.jpg", counter: "02." },
+  { id: "feedback-loop", imageUrl: "/images/set-design/set-feedback-loop.jpg", counter: "03." },
+  { id: "construction", imageUrl: "/images/set-design/set-construction.jpg", counter: "04." },
+  { id: "shoot-support", imageUrl: "/images/set-design/set-shoot-support.jpg", counter: "05." },
+  { id: "maintenance", imageUrl: "/images/set-design/set-maintenance.jpg", counter: "06." },
 ];
 
 export default function SetDesignPage() {
   const { t } = useTranslation();
-  const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Enable mouse wheel horizontal scroll
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      // Only handle if there's vertical scroll (deltaY)
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        carousel.scrollLeft += e.deltaY;
-      }
+  // Build service cards with translations
+  const serviceCards: ServiceCard[] = serviceCapabilitiesBase.map((service, index) => {
+    const cardKey = `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
+    const translation = t.SET_DESIGN?.SERVICES?.[cardKey];
+    return {
+      ...service,
+      title: translation?.TITLE ?? `Service ${index + 1}`,
+      description: translation?.DESCRIPTION ?? "Service description",
     };
-
-    carousel.addEventListener("wheel", handleWheel, { passive: false });
-    return () => carousel.removeEventListener("wheel", handleWheel);
-  }, []);
-
-  // Get service translations
-  const serviceTranslations = [
-    t.SET_DESIGN?.SERVICES?.CARD_1,
-    t.SET_DESIGN?.SERVICES?.CARD_2,
-    t.SET_DESIGN?.SERVICES?.CARD_3,
-    t.SET_DESIGN?.SERVICES?.CARD_4,
-    t.SET_DESIGN?.SERVICES?.CARD_5,
-    t.SET_DESIGN?.SERVICES?.CARD_6,
-  ];
+  });
 
   return (
     <div className={styles.setDesignPage}>
@@ -207,20 +165,8 @@ export default function SetDesignPage() {
               description={t.SET_DESIGN?.INTRO?.DESCRIPTION || "We design, construct, and manage physical sets that transform creative direction into production-ready environments."}
               ctaText={t.SET_DESIGN?.INTRO?.CTA || "Get in touch"}
             />
-            <div
-              ref={carouselRef}
-              className={styles.serviceCardsContainer}
-              id="services"
-            >
-              {serviceCapabilities.map((service, index) => (
-                <ServiceCard
-                  key={service.id}
-                  imageUrl={service.imageUrl}
-                  counter={service.counter}
-                  title={serviceTranslations[index]?.TITLE || `Service ${index + 1}`}
-                  description={serviceTranslations[index]?.DESCRIPTION || "Service description"}
-                />
-              ))}
+            <div id="services">
+              <ServiceCardsCarousel cards={serviceCards} />
             </div>
           </div>
         </section>

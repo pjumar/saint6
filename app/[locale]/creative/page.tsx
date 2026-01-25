@@ -4,7 +4,7 @@ import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { CreativeServicesGrid, CreativeServiceItem } from "@/app/components/creative-services-grid/CreativeServicesGrid";
-import { ServiceCardsGrid, ServiceCard } from "@/app/components/service-cards-grid/ServiceCardsGrid";
+import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { SelectedClientsSection } from "@/app/components/selected-clients-section/SelectedClientsSection";
@@ -237,7 +237,7 @@ export default function CreativePage() {
         {/* Workflow Section */}
         <section className={styles.workflowSection} id="workflow">
           <div className={styles.workflowSectionInner}>
-            <ServiceCardsGrid cards={translatedWorkflowSteps} />
+            <ServiceCardsCarousel cards={translatedWorkflowSteps} />
           </div>
         </section>
 

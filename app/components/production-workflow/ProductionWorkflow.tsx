@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { WorkflowStepCard } from "@/app/components/workflow-step-card/WorkflowStepCard";
 import styles from "./ProductionWorkflow.module.css";
 
 export interface WorkflowStep {
@@ -31,20 +31,13 @@ export function ProductionWorkflow({ title, description, steps }: ProductionWork
       <div className={styles.mobileCarousel}>
         {steps.map((step) => (
           <div key={step.id} className={styles.stepCard}>
-            <div className={styles.imageContainer}>
-              <Image
-                src={step.imageUrl}
-                alt={step.title}
-                fill
-                sizes="85vw"
-                className={styles.stepImage}
-              />
-            </div>
-            <div className={styles.stepContent}>
-              <span className={styles.counter}>{step.counter}</span>
-              <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepDescription}>{step.description}</p>
-            </div>
+            <WorkflowStepCard
+              imageUrl={step.imageUrl}
+              counter={step.counter}
+              title={step.title}
+              description={step.description}
+              imageSizes="85vw"
+            />
           </div>
         ))}
       </div>
@@ -53,20 +46,13 @@ export function ProductionWorkflow({ title, description, steps }: ProductionWork
       <div className={styles.desktopGrid}>
         {steps.map((step) => (
           <div key={step.id} className={styles.stepCard}>
-            <div className={styles.imageContainer}>
-              <Image
-                src={step.imageUrl}
-                alt={step.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 16vw"
-                className={styles.stepImage}
-              />
-            </div>
-            <div className={styles.stepContent}>
-              <span className={styles.counter}>{step.counter}</span>
-              <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepDescription}>{step.description}</p>
-            </div>
+            <WorkflowStepCard
+              imageUrl={step.imageUrl}
+              counter={step.counter}
+              title={step.title}
+              description={step.description}
+              imageSizes="(max-width: 768px) 100vw, 16vw"
+            />
           </div>
         ))}
       </div>

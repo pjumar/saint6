@@ -5,7 +5,7 @@ import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ProductionServiceGrid, ProductionServiceItem } from "@/app/components/production-service-grid/ProductionServiceGrid";
-import { ServiceCardsGrid, ServiceCard } from "@/app/components/service-cards-grid/ServiceCardsGrid";
+import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { EventProjectGallery, EventProject } from "@/app/components/event-project-gallery/EventProjectGallery";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
@@ -201,7 +201,7 @@ export default function EventPlanningPage() {
                 label={t.EVENT_PLANNING?.PROCESS?.TITLE ?? "[PROCESS.TITLE]"}
                 quote={t.EVENT_PLANNING?.PROCESS?.DESCRIPTION ?? "[PROCESS.DESCRIPTION]"}
               />
-              <ServiceCardsGrid cards={workflowSteps} />
+              <ServiceCardsCarousel cards={workflowSteps} />
             </div>
           </div>
         </section>
