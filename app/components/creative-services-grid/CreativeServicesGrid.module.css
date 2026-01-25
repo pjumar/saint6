@@ -1,9 +1,13 @@
 .grid {
+  width: 100%;
+  padding: 5rem 1.5rem;
+}
+
+/* Mobile View */
+.mobileView {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  width: 100%;
-  padding: 5rem 1.5rem;
 }
 
 .card {
@@ -42,7 +46,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1.2;
+  height: 20rem;
   overflow: hidden;
   background: var(--color-bg-subtle, #f0f0f0);
 }
@@ -51,16 +55,37 @@
   object-fit: cover;
 }
 
+/* Desktop View - hidden on mobile */
+.desktopView {
+  display: none;
+}
+
+.textRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.imageRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
 /* Desktop */
 @media (min-width: 48.0625rem) {
   .grid {
-    flex-direction: row;
-    gap: 1.5rem;
     padding: 10rem 1.5rem;
   }
 
-  .card {
-    flex: 1;
+  /* Hide mobile view, show desktop view */
+  .mobileView {
+    display: none;
+  }
+
+  .desktopView {
+    display: flex;
+    flex-direction: column;
     gap: 4rem;
   }
 
@@ -79,6 +104,6 @@
   }
 
   .imageContainer {
-    aspect-ratio: 1 / 1.15;
+    height: 32rem;
   }
 }

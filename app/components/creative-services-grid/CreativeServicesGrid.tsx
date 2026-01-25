@@ -17,23 +17,51 @@ interface CreativeServicesGridProps {
 export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
   return (
     <div className={styles.grid}>
-      {items.map((item) => (
-        <div key={item.id} className={styles.card}>
-          <div className={styles.textContent}>
-            <h3 className={styles.title}>{item.title}</h3>
-            <p className={styles.description}>{item.description}</p>
+      {/* Mobile: stacked cards */}
+      <div className={styles.mobileView}>
+        {items.map((item) => (
+          <div key={item.id} className={styles.card}>
+            <div className={styles.textContent}>
+              <h3 className={styles.title}>{item.title}</h3>
+              <p className={styles.description}>{item.description}</p>
+            </div>
+            <div className={styles.imageContainer}>
+              <Image
+                src={item.imageUrl}
+                alt={item.title}
+                fill
+                sizes="100vw"
+                className={styles.image}
+              />
+            </div>
           </div>
-          <div className={styles.imageContainer}>
-            <Image
-              src={item.imageUrl}
-              alt={item.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className={styles.image}
-            />
-          </div>
+        ))}
+      </div>
+
+      {/* Desktop: aligned rows */}
+      <div className={styles.desktopView}>
+        <div className={styles.textRow}>
+          {items.map((item) => (
+            <div key={item.id} className={styles.textContent}>
+              <h3 className={styles.title}>{item.title}</h3>
+              <p className={styles.description}>{item.description}</p>
+            </div>
+          ))}
         </div>
-      ))}
+        <div className={styles.imageRow}>
+          {items.map((item) => (
+            <div key={item.id} className={styles.imageContainer}>
+              <Image
+                src={item.imageUrl}
+                alt={item.title}
+                fill
+                sizes="50vw"
+                className={styles.image}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
