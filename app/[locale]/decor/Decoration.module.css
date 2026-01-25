@@ -11,7 +11,7 @@
 
 .section {
   width: 100%;
-  padding: 6.25rem 0;
+  padding-bottom: 8rem;
 }
 
 .sectionInner {
@@ -34,7 +34,6 @@
 /* Workflow Section */
 .workflowSection {
   width: 100%;
-  padding: 6.25rem 0;
   background: #ffffff;
 }
 
@@ -57,7 +56,7 @@
 /* Mobile Responsive */
 @media (max-width: 48rem) {
   .section {
-    padding: 4rem 0;
+    padding: 0;
   }
 
   .sectionInner {
