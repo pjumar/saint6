@@ -69,7 +69,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: Build About Us page
+- [x] 06-01: Build About Us page — completed 2026-01-25
 - [ ] 06-02: Build Contact Us page (form structure, no backend yet)
 
 ## Future Milestone: v1.1 Production Ready
@@ -120,7 +120,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. Set Design & Production     | v1.0      | 2/2            | Complete    | 2026-01-24 |
 | 4. Event Planning & Decoration | v1.0      | 2/2            | Complete    | 2026-01-24 |
 | 5. Creative                    | v1.0      | 1/1            | Complete    | 2026-01-25 |
-| 6. About Us & Contact          | v1.0      | 0/2            | In progress | -          |
+| 6. About Us & Contact          | v1.0      | 1/2            | In progress | -          |
 | 7. Error Handling & Stability  | v1.1      | 0/3            | Not started | -          |
 | 8. CMS Integration             | v1.1      | 0/4            | Not started | -          |
 | 9. Polish & Launch             | v1.1      | 0/2            | Not started | -          |
