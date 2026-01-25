@@ -23,6 +23,10 @@ const clientLogos: ClientLogo[] = [
   { src: "/images/brands/brand-03.png", alt: "Vinamilk", width: 98, height: 32 },
   { src: "/images/brands/brand-04.png", alt: "SONY", width: 114, height: 20 },
   { src: "/images/brands/brand-05.png", alt: "VinFast", width: 128, height: 32 },
+  { src: "/images/brands/brand-06.png", alt: "Miss Cosmo", width: 93, height: 46 },
+  { src: "/images/brands/brand-07.png", alt: "Bazaar", width: 89, height: 50 },
+  { src: "/images/brands/brand-08.png", alt: "Highland Coffee", width: 48, height: 36 },
+  { src: "/images/brands/brand-09.png", alt: "Maybelline", width: 254, height: 24 },
 ];
 
 export function SelectedClientsSection({ label = "Selected Clients", description }: SelectedClientsSectionProps) {
@@ -123,13 +127,13 @@ export function SelectedClientsSection({ label = "Selected Clients", description
         {/* Content area with text and decorative graphic */}
         <div className={styles.contentArea}>
           <p className={styles.description}>{description}</p>
-          <div className={styles.decorativeGraphic}>
+          <div className={styles.spiralDecoration}>
             <Image
-              src="/images/creative/sunburst-decoration.svg"
+              src="/images/spiral_decoration.svg"
               alt=""
-              width={614}
-              height={478}
-              className={styles.sunburst}
+              width={710}
+              height={710}
+              className={styles.spiralImage}
             />
           </div>
         </div>
