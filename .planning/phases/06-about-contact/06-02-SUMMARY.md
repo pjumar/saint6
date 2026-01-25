@@ -51,6 +51,7 @@ patterns-established:
   - "Social links constants with platform, url, label, shortLabel properties"
   - "Text-based social links for contact sections"
   - "MapImage with optional spiral and pin decorations"
+  - "Section + 90rem container pattern for consistent content width"
 
 issues-created: []
 
@@ -96,6 +97,12 @@ Each task was committed atomically:
    - `e898b4e` - Fix Contact page layout to match Figma design
    - `12943c0` - Add social links constants with real URLs
    - `fe2dc5c` - Add spiral grayscale filter and scroll indicator
+   - `7a983d1` - Add spiral decoration to ContactInfo section
+   - `0d133a4` - Adjust padding and remove map spiral
+   - `cf1d8e1` - Revert spiral position, keep spacing padding
+   - `f16ae0a` - Hide spiral overflow above the fold
+   - `02f04f8` - Wrap ContactInfo in section with 90rem container
+   - `2547f20` - Wrap MapImage in section with 90rem container
 
 ## Files Created/Modified
 
