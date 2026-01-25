@@ -18,6 +18,7 @@
 
 .fullWidthImageImg {
   object-fit: cover;
+  filter: grayscale(100%);
 }
 
 /* Services carousel section */
@@ -27,9 +28,22 @@
   background: var(--color-bg-container, #F5F4F4);
 }
 
+.servicesSectionInner {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 /* Contact Section */
 .contactSectionWrapper {
   width: 100%;
+}
+
+/* Mobile styles */
+@media (max-width: 48rem) {
+  .servicesSectionInner {
+    padding: 0 1rem;
+  }
 }
 
 /* Desktop styles */

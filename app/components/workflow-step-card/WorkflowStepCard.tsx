@@ -35,7 +35,7 @@ export function WorkflowStepCard({
       <div className={styles.imageContainer}>
         <Image
           src={imageUrl}
-          alt={title}
+          alt={title || counter}
           fill
           sizes={imageSizes}
           className={styles.image}
@@ -44,7 +44,7 @@ export function WorkflowStepCard({
       <div className={styles.content}>
         <span className={styles.counter}>{counter}</span>
         <div className={styles.textContent}>
-          <h3 className={styles.title}>{title}</h3>
+          {title && <h3 className={styles.title}>{title}</h3>}
           <p className={styles.description}>{description}</p>
         </div>
       </div>

@@ -441,33 +441,33 @@
     "VALUES": {
       "TITLE": "Giá Trị Của Chúng Tôi",
       "ITEM_1": {
-        "TITLE": "Sự Đơn Giản",
+        "TITLE": "Simplicity",
         "DESCRIPTION": "Sự rõ ràng bộc lộ cảm xúc."
       },
       "ITEM_2": {
-        "TITLE": "Chân Thật",
+        "TITLE": "Authenticity",
         "DESCRIPTION": "Cảm xúc phải thật, không được tạo dựng."
       },
       "ITEM_3": {
-        "TITLE": "Chủ Đích",
+        "TITLE": "Intention",
         "DESCRIPTION": "Mọi lựa chọn đều phục vụ cảm xúc."
       },
       "ITEM_4": {
-        "TITLE": "Câu Chuyện",
+        "TITLE": "Narrative",
         "DESCRIPTION": "Mọi thứ đều là một phần của câu chuyện."
       },
       "ITEM_5": {
-        "TITLE": "Tin Tưởng",
+        "TITLE": "Trust",
         "DESCRIPTION": "Nghệ thuật cần sự đáng tin cậy để phát triển."
       },
       "ITEM_6": {
-        "TITLE": "Giác Quan Thứ Sáu",
-        "DESCRIPTION": "Chúng tôi thiết kế cho cảm xúc ẩn sau brief."
+        "TITLE": "Sixth Sense",
+        "DESCRIPTION": "Chúng tôi thiết kế cho cảm xúc ẩn dấu."
       }
     },
     "OUR_STORY": {
       "LABEL": "Câu Chuyện Của Chúng Tôi",
-      "PARAGRAPH_1": "Trước Saint 6, đã có Haus of Trang - nơi Trang học được rằng styling không chỉ là về việc mọi thứ trông như thế nào, mà còn là cách chúng khiến người ta cảm thấy.",
+      "PARAGRAPH_1": "Trước Saint 6, đã có Haus of Trang - nơi Trang học được rằng styling không chỉ là về việc mọi thứ trông như thế nào, mà còn là cách chúng khiến người ta cảm nhận.",
       "PARAGRAPH_2": "Nhận thức đó đã trở thành nền tảng của Saint 6"
     },
     "SERVICES": {
@@ -497,7 +497,7 @@
       }
     },
     "FOUNDER": {
-      "QUOTE": "Sáng tạo là công việc của cảm xúc. Chúng tôi xây dựng không gian để mọi người cảm nhận điều gì đó thật sự.",
+      "QUOTE": "Sáng tạo là công việc của cảm xúc. Chúng tôi xây dựng không gian để mọi người cảm nhận điều gì đó chân thật.",
       "NAME": "Trang",
       "TITLE": "Nhà Sáng Lập & Giám Đốc Sáng Tạo"
     }

@@ -1,5 +1,4 @@
 .section {
-  padding: 0 1.5rem;
   background-color: var(--color-bg-container);
 }
 
@@ -78,18 +77,17 @@
 
 .image {
   object-fit: cover;
-  transform: scaleY(-1);
 }
 
 /* Desktop styles */
 @media (min-width: 48.0625rem) {
   .section {
-    padding: 0 1.5rem;
+    padding: 0 8rem 8rem;
   }
 
   .container {
     flex-direction: row;
-    padding-left: 8.33%;
+    max-width: none;
   }
 
   .imageWrapper {

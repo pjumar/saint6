@@ -29,8 +29,9 @@ export function AboutIntro({
         </div>
 
         <div className={styles.contentWrapper}>
-          <div className={styles.textContent}>
-            <h2 className={styles.headline}>{headline}</h2>
+          <h2 className={styles.headline}>{headline}</h2>
+
+          <div className={styles.bodyRow}>
             <div className={styles.bodyContent}>
               {bodyText.map((paragraph, index) => (
                 <p key={index} className={styles.bodyText}>
@@ -38,16 +39,16 @@ export function AboutIntro({
                 </p>
               ))}
             </div>
-          </div>
 
-          <div className={styles.imageWrapper}>
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              fill
-              className={styles.image}
-              sizes="(max-width: 768px) 100vw, 330px"
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                src={imageUrl}
+                alt={imageAlt}
+                fill
+                className={styles.image}
+                sizes="(max-width: 768px) 100vw, 330px"
+              />
+            </div>
           </div>
         </div>
       </div>
