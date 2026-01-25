@@ -351,11 +351,11 @@
     },
     "SERVICES": {
       "CARD_1": {
-        "TITLE": "Brand & Advertising Campaigns",
+        "TITLE": "Brand &\nAdvertising Campaigns",
         "DESCRIPTION": "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy."
       },
       "CARD_2": {
-        "TITLE": "Product & Packaging Shoots",
+        "TITLE": "Product &\nPackaging Shoots",
         "DESCRIPTION": "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores."
       }
     },

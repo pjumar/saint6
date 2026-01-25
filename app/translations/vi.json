@@ -351,11 +351,11 @@
     },
     "SERVICES": {
       "CARD_1": {
-        "TITLE": "Chiến Dịch Thương Hiệu & Quảng Cáo",
+        "TITLE": "Chiến Dịch Thương Hiệu &\nQuảng Cáo",
         "DESCRIPTION": "Chúng tôi sản xuất các chiến dịch thời trang, phong cách sống, editorial, mạng xã hội và influencer mang thương hiệu vào cuộc sống với năng lượng sáng tạo mới mẻ."
       },
       "CARD_2": {
-        "TITLE": "Chụp Sản Phẩm & Bao Bì",
+        "TITLE": "Chụp Sản Phẩm &\nBao Bì",
         "DESCRIPTION": "Từ nhãn sản phẩm và hình ảnh thương mại điện tử đến packshot và still life, chúng tôi tạo ra hình ảnh tinh tế nâng tầm bao bì, catalog và cửa hàng trực tuyến."
       }
     },

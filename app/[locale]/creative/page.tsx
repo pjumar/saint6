@@ -3,9 +3,8 @@
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
-import { ProductionServiceGrid, ProductionServiceItem } from "@/app/components/production-service-grid/ProductionServiceGrid";
+import { CreativeServicesGrid, CreativeServiceItem } from "@/app/components/creative-services-grid/CreativeServicesGrid";
 import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-workflow/ProductionWorkflow";
-import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 import { SelectedClientsSection } from "@/app/components/selected-clients-section/SelectedClientsSection";
@@ -13,17 +12,17 @@ import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Creative.module.css";
 
 // Creative services data (CMS integration in Phase 8)
-const creativeServices: ProductionServiceItem[] = [
+const creativeServices: CreativeServiceItem[] = [
   {
     id: "brand-advertising",
-    imageUrl: "/images/creative/service-advertising.jpg",
-    title: "Brand & Advertising Campaigns",
+    imageUrl: "/images/creative/service-advertising.png",
+    title: "Brand &\nAdvertising Campaigns",
     description: "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.",
   },
   {
     id: "product-packaging",
-    imageUrl: "/images/creative/service-packaging.jpg",
-    title: "Product & Packaging Shoots",
+    imageUrl: "/images/creative/service-packaging.png",
+    title: "Product &\nPackaging Shoots",
     description: "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.",
   },
 ];
@@ -222,11 +221,7 @@ export default function CreativePage() {
         />
 
         {/* Services Section */}
-        <section className={styles.section} id="services">
-          <div className={styles.sectionInner}>
-            <ProductionServiceGrid items={translatedServices} />
-          </div>
-        </section>
+        <CreativeServicesGrid items={translatedServices} />
 
         {/* How We Work Section */}
         <section className={styles.section} id="how-we-work">

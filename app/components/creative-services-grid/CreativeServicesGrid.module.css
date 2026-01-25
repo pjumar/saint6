@@ -1,0 +1,84 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+  padding: 5rem 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 28rem;
+  color: var(--color-text-primary, #231d1d);
+}
+
+.title {
+  font-family: var(--font-heading, "PP Fragment", serif);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.035rem;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.description {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.0175rem;
+  margin: 0;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.2;
+  overflow: hidden;
+  background: var(--color-bg-subtle, #f0f0f0);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Desktop */
+@media (min-width: 48.0625rem) {
+  .grid {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 10rem 1.5rem;
+  }
+
+  .card {
+    flex: 1;
+    gap: 4rem;
+  }
+
+  .textContent {
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    letter-spacing: -0.045rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    letter-spacing: -0.02rem;
+  }
+
+  .imageContainer {
+    aspect-ratio: 1 / 1.15;
+  }
+}
