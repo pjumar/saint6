@@ -45,6 +45,8 @@ export function HeroSection({
   const [isClosing, setIsClosing] = useState(false);
   const { t, locale } = useTranslation();
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+  const decorativeLineRef = useRef<HTMLDivElement>(null);
+  const thickLineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -73,6 +75,38 @@ export function HeroSection({
       animation.kill();
     };
   }, [showScrollIndicator]);
+
+  useEffect(() => {
+    if (!showDecorativeLine || !decorativeLineRef.current || !thickLineRef.current)
+      return;
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    // Lines appear, thick line slides from left to right
+    tl.fromTo(
+      decorativeLineRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.5, ease: "power1.out" }
+    )
+      .fromTo(
+        thickLineRef.current,
+        { left: "-4rem" },
+        { left: "100%", duration: 2, ease: "power2.in" },
+        "<"
+      )
+      // Pause at end
+      .to({}, { duration: 0.3 })
+      // Reverse: thick line slides back from right to left
+      .to(thickLineRef.current, { left: "-4rem", duration: 2, ease: "power2.out" })
+      // Fade out
+      .to(decorativeLineRef.current, { opacity: 0, duration: 0.5, ease: "power1.in" })
+      // Pause before restart
+      .to({}, { duration: 0.5 });
+
+    return () => {
+      tl.kill();
+    };
+  }, [showDecorativeLine]);
 
   const handleMenuToggle = () => {
     if (isMenuOpen) {
@@ -128,13 +162,11 @@ export function HeroSection({
 
         <div className={styles.heroMiddleSection}>
           {showDecorativeLine && (
-            <div className={styles.decorativeLine}>
-              <Image
-                src="/images/hero/decorative-line.svg"
-                alt=""
-                fill
-                className={styles.decorativeLineImage}
-              />
+            <div ref={decorativeLineRef} className={styles.decorativeLine}>
+              <div className={styles.thinLine} />
+              <div className={styles.thickLineTrack}>
+                <div ref={thickLineRef} className={styles.thickLine} />
+              </div>
             </div>
           )}
           <div className={styles.heroLinks}>
