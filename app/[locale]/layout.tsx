@@ -81,7 +81,7 @@ export async function generateMetadata({
         : "An exclusive destination for elevated productions, private events, and visionary experiences.",
       images: [
         {
-          url: "/opengraph-image.jpg",
+          url: `/${typedLocale}/opengraph-image.jpg`,
           width: 1200,
           height: 630,
           alt: "Saint 6 Studio",
@@ -96,7 +96,7 @@ export async function generateMetadata({
       description: isVi
         ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn."
         : "An exclusive destination for elevated productions, private events, and visionary experiences.",
-      images: ["/twitter-image.jpg"],
+      images: [`/${typedLocale}/twitter-image.jpg`],
     },
     robots: {
       index: true,
