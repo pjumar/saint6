@@ -1,29 +1,30 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./ContactInfo.module.css";
 
 export interface SocialLink {
   platform: string;
   url: string;
-  icon: string;
+  label: string;
 }
 
 export interface ContactInfoProps {
-  label?: string;
   heading: string;
-  address: {
-    line1: string;
-    line2?: string;
-  };
+  subheading: string;
+  address: string;
   email: string;
   phone: string;
   socialLinks?: SocialLink[];
 }
 
+/**
+ * ContactInfo component - Two-column layout
+ * Left: Heading + subheading
+ * Right: Contact details + text social links
+ */
 export function ContactInfo({
-  label = "CONTACT US",
   heading,
+  subheading,
   address,
   email,
   phone,
@@ -31,63 +32,39 @@ export function ContactInfo({
 }: ContactInfoProps) {
   return (
     <div className={styles.contactInfo}>
-      {/* Label */}
-      <span className={styles.label}>{label}</span>
+      {/* Left Column: Heading + Subheading */}
+      <div className={styles.leftColumn}>
+        <h2 className={styles.heading}>{heading}</h2>
+        <p className={styles.subheading}>{subheading}</p>
+      </div>
 
-      {/* Heading */}
-      <h2 className={styles.heading}>{heading}</h2>
-
-      {/* Contact Details */}
-      <div className={styles.details}>
-        <div className={styles.detailItem}>
-          <span className={styles.detailLabel}>Address</span>
-          <p className={styles.detailText}>
-            {address.line1}
-            {address.line2 && (
-              <>
-                <br />
-                {address.line2}
-              </>
-            )}
-          </p>
-        </div>
-
-        <div className={styles.detailItem}>
-          <span className={styles.detailLabel}>Email</span>
+      {/* Right Column: Contact Details */}
+      <div className={styles.rightColumn}>
+        <div className={styles.details}>
+          <p className={styles.detailText}>{address}</p>
           <a href={`mailto:${email}`} className={styles.detailLink}>
             {email}
           </a>
-        </div>
-
-        <div className={styles.detailItem}>
-          <span className={styles.detailLabel}>Phone</span>
           <p className={styles.detailText}>{phone}</p>
         </div>
-      </div>
 
-      {/* Social Links */}
-      {socialLinks && socialLinks.length > 0 && (
-        <div className={styles.socialLinks}>
-          {socialLinks.map((link) => (
-            <a
-              key={link.platform}
-              href={link.url}
-              className={styles.socialLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.platform}
-            >
-              <Image
-                src={link.icon}
-                alt={link.platform}
-                width={24}
-                height={24}
-                className={styles.socialIcon}
-              />
-            </a>
-          ))}
-        </div>
-      )}
+        {/* Social Links as Text */}
+        {socialLinks && socialLinks.length > 0 && (
+          <div className={styles.socialLinks}>
+            {socialLinks.map((link) => (
+              <a
+                key={link.platform}
+                href={link.url}
+                className={styles.socialTextLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

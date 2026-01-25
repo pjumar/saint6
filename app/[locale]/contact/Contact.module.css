@@ -3,54 +3,13 @@
   min-height: 100vh;
 }
 
-.contentContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Contact Info + Map Section */
+/* Contact Info Section */
 .contactInfoSection {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   background: #ffffff;
 }
 
-.contactInfoWrapper {
+/* Map Section - Full width */
+.mapSection {
   width: 100%;
-}
-
-.mapWrapper {
-  width: 100%;
-}
-
-/* Desktop styles */
-@media (min-width: 48.0625rem) {
-  .contactInfoSection {
-    flex-direction: row;
-    padding: 4rem;
-    gap: 4rem;
-    max-width: 90rem;
-    margin: 0 auto;
-  }
-
-  .contactInfoWrapper {
-    flex: 1;
-    max-width: 50%;
-  }
-
-  .mapWrapper {
-    flex: 1;
-    max-width: 50%;
-    min-height: 28rem;
-  }
-}
-
-/* Large desktop */
-@media (min-width: 90rem) {
-  .contactInfoSection {
-    padding: 6rem 8rem;
-    gap: 6rem;
-  }
 }
