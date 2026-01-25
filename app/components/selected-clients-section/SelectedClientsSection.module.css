@@ -24,6 +24,8 @@
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.1;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .contentArea {
@@ -33,6 +35,7 @@
   justify-content: space-between;
   padding: 2rem 0 3rem;
   position: relative;
+  z-index: 1;
 }
 
 .description {
@@ -44,6 +47,8 @@
   color: #ffffff;
   max-width: 50rem;
   margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .spiralDecoration {
@@ -54,6 +59,7 @@
   height: 40rem;
   overflow: visible;
   pointer-events: none;
+  z-index: 0;
 }
 
 .spiralImage {
@@ -68,6 +74,8 @@
   gap: 2.5rem;
   overflow: hidden;
   padding-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {

@@ -283,6 +283,28 @@
       "TITLE": "Every Moment, An Emotion",
       "DESCRIPTION": "Beyond venue and décor, Saint 6 delivers artistry in motion — a rare harmony of creative vision, flawless execution, and atmosphere designed to leave a lasting impression."
     },
+    "WORKFLOW": {
+      "STEP_1": {
+        "TITLE": "Full Creative & Design Direction",
+        "DESCRIPTION": "From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand's vision."
+      },
+      "STEP_2": {
+        "TITLE": "Guest Experience & Flow Planning",
+        "DESCRIPTION": "Every moment is designed with intention — seamless, elegant, and unforgettable."
+      },
+      "STEP_3": {
+        "TITLE": "On-site Management & Run-of-Show Execution",
+        "DESCRIPTION": "Flawless coordination ensures your event unfolds with effortless precision."
+      },
+      "STEP_4": {
+        "TITLE": "Venue Styling & Set Design",
+        "DESCRIPTION": "We craft immersive environments that capture emotion, detail, and distinctive character."
+      },
+      "STEP_5": {
+        "TITLE": "Catering & Entertainment Coordination",
+        "DESCRIPTION": "We curate dining and performances that enrich the mood and elevate the experience."
+      }
+    },
     "PORTFOLIO": {
       "LABEL": "PORTFOLIO",
       "STATEMENT": "We create experiences that resonate — moments designed to captivate, connect, and inspire."

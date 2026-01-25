@@ -51,43 +51,13 @@ const eventServices: ProductionServiceItem[] = [
   },
 ];
 
-// Workflow steps data (CMS integration in Phase 8)
-const workflowSteps: ServiceCard[] = [
-  {
-    id: "creative-direction",
-    imageUrl: "/images/event-planning/workflow-discovery.jpg",
-    counter: "01.",
-    title: "Full Creative & Design Direction",
-    description: "From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand's vision.",
-  },
-  {
-    id: "guest-experience",
-    imageUrl: "/images/event-planning/workflow-concept.jpg",
-    counter: "02.",
-    title: "Guest Experience & Flow Planning",
-    description: "Every moment is designed with intention — seamless, elegant, and unforgettable.",
-  },
-  {
-    id: "onsite-management",
-    imageUrl: "/images/event-planning/workflow-planning.jpg",
-    counter: "03.",
-    title: "On-site Management & Run-of-Show Execution",
-    description: "Flawless coordination ensures your event unfolds with effortless precision.",
-  },
-  {
-    id: "venue-styling",
-    imageUrl: "/images/event-planning/workflow-execution.jpg",
-    counter: "04.",
-    title: "Venue Styling & Set Design",
-    description: "We craft immersive environments that capture emotion, detail, and distinctive character.",
-  },
-  {
-    id: "catering-entertainment",
-    imageUrl: "/images/event-planning/workflow-followup.jpg",
-    counter: "05.",
-    title: "Catering & Entertainment Coordination",
-    description: "We curate dining and performances that enrich the mood and elevate the experience.",
-  },
+// Workflow steps base data (CMS integration in Phase 8)
+const workflowStepsBase = [
+  { id: "creative-direction", imageUrl: "/images/event-planning/workflow-discovery.jpg", counter: "01." },
+  { id: "guest-experience", imageUrl: "/images/event-planning/workflow-concept.jpg", counter: "02." },
+  { id: "onsite-management", imageUrl: "/images/event-planning/workflow-planning.jpg", counter: "03." },
+  { id: "venue-styling", imageUrl: "/images/event-planning/workflow-execution.jpg", counter: "04." },
+  { id: "catering-entertainment", imageUrl: "/images/event-planning/workflow-followup.jpg", counter: "05." },
 ];
 
 // Project gallery items (CMS integration in Phase 8)
@@ -191,6 +161,17 @@ export default function EventPlanningPage() {
     ...service,
     ...getServiceTranslation(index),
   }));
+
+  // Build workflow steps with translations
+  const workflowSteps: ServiceCard[] = workflowStepsBase.map((step, index) => {
+    const stepKey = `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
+    const translation = t.EVENT_PLANNING?.WORKFLOW?.[stepKey];
+    return {
+      ...step,
+      title: translation?.TITLE ?? `[WORKFLOW.STEP_${index + 1}.TITLE]`,
+      description: translation?.DESCRIPTION ?? `[WORKFLOW.STEP_${index + 1}.DESCRIPTION]`,
+    };
+  });
 
   return (
     <div className={styles.eventPlanningPage}>

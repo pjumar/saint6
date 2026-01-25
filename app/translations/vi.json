@@ -283,6 +283,28 @@
       "TITLE": "Mỗi Khoảnh Khắc, Một Cảm Xúc",
       "DESCRIPTION": "Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài."
     },
+    "WORKFLOW": {
+      "STEP_1": {
+        "TITLE": "Chỉ Đạo Sáng Tạo & Thiết Kế Toàn Diện",
+        "DESCRIPTION": "Từ ý tưởng đến sáng tạo, Saint 6 định hình câu chuyện hình ảnh mạch lạc thể hiện tầm nhìn thương hiệu của bạn."
+      },
+      "STEP_2": {
+        "TITLE": "Lập Kế Hoạch Trải Nghiệm & Quy Trình Khách Mời",
+        "DESCRIPTION": "Mỗi khoảnh khắc được thiết kế với chủ đích — liền mạch, tinh tế và khó quên."
+      },
+      "STEP_3": {
+        "TITLE": "Quản Lý Tại Chỗ & Thực Hiện Kịch Bản",
+        "DESCRIPTION": "Phối hợp hoàn hảo đảm bảo sự kiện của bạn diễn ra với sự chính xác nhẹ nhàng."
+      },
+      "STEP_4": {
+        "TITLE": "Thiết Kế Địa Điểm & Set",
+        "DESCRIPTION": "Chúng tôi tạo ra môi trường sống động nắm bắt cảm xúc, chi tiết và đặc trưng riêng biệt."
+      },
+      "STEP_5": {
+        "TITLE": "Phối Hợp Ẩm Thực & Giải Trí",
+        "DESCRIPTION": "Chúng tôi chọn lọc ẩm thực và biểu diễn làm phong phú không khí và nâng tầm trải nghiệm."
+      }
+    },
     "PORTFOLIO": {
       "LABEL": "PORTFOLIO",
       "STATEMENT": "Chúng tôi tạo ra những trải nghiệm cộng hưởng — những khoảnh khắc được thiết kế để thu hút, kết nối và truyền cảm hứng."
