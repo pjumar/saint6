@@ -117,8 +117,9 @@ export default function AboutPage() {
 
   // Get translated timeline (using fallback to default data)
   const getTimelineTranslation = (index: number) => {
-    const itemKey = `ITEM_${index + 1}` as keyof typeof t.ABOUT_US.TIMELINE;
-    const translation = (t as { ABOUT_US?: { TIMELINE?: Record<string, { DESCRIPTION?: string }> } }).ABOUT_US?.TIMELINE?.[itemKey];
+    const itemKey = `ITEM_${index + 1}`;
+    const aboutUsData = t as { ABOUT_US?: { TIMELINE?: Record<string, { DESCRIPTION?: string }> } };
+    const translation = aboutUsData.ABOUT_US?.TIMELINE?.[itemKey];
     return {
       description: translation?.DESCRIPTION ?? timelineData[index].description,
     };
