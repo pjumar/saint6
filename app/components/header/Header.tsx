@@ -24,7 +24,7 @@ export function Header({
 }: HeaderProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
-  const thickLineRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const thickLineRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
   const animationsRef = useRef<Map<string, gsap.core.Timeline>>(new Map());
 
   const navItems = [
