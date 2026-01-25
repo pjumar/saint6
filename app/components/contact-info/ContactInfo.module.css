@@ -5,6 +5,7 @@
   gap: 2.5rem;
   padding: 18rem 1.5rem 4rem;
   width: 100%;
+  overflow: hidden;
 }
 
 /* Spiral Decoration - Top Center */
