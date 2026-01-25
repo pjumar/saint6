@@ -1,0 +1,124 @@
+.section {
+  padding: 0 1.5rem;
+  background-color: var(--color-bg-container);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.quoteCard {
+  background-color: var(--color-text-invert-100);
+  padding: 3rem;
+  order: 1;
+}
+
+.quoteContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 16rem;
+}
+
+.quote {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.035rem;
+  color: var(--color-text-primary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.openQuote {
+  font-family: var(--font-heading);
+  font-weight: 300;
+}
+
+.attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: 2rem;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.025rem;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.founderTitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: rgba(8, 7, 7, 0.4);
+  margin: 0;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 392 / 579;
+  order: 2;
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transform: scaleY(-1);
+}
+
+/* Desktop styles */
+@media (min-width: 48.0625rem) {
+  .section {
+    padding: 0 1.5rem;
+  }
+
+  .container {
+    flex-direction: row;
+    padding-left: 8.33%;
+  }
+
+  .imageWrapper {
+    width: 50%;
+    aspect-ratio: 578 / 579;
+    order: 1;
+    border-radius: 0;
+  }
+
+  .quoteCard {
+    width: 50%;
+    padding: 8rem 4rem;
+    order: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  .quoteContent {
+    min-height: 20rem;
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  .quote {
+    font-size: 2.25rem;
+    letter-spacing: -0.045rem;
+  }
+
+  .attribution {
+    margin-top: auto;
+  }
+}
