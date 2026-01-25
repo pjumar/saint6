@@ -415,6 +415,92 @@
       "LABEL": "Voices Behind the Lens",
       "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
     }
+  },
+  "ABOUT_US": {
+    "META": {
+      "TITLE": "About Us | Saint 6 Studio",
+      "DESCRIPTION": "We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers. We turn ideas into places, feelings, and memories."
+    },
+    "HERO": {
+      "TAGLINE": "We Imagine. We Design. We Create."
+    },
+    "INTRO": {
+      "LABEL": "ABOUT US",
+      "HEADLINE": "We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers.\nWe turn ideas into places, feelings, and memories.",
+      "BODY_1": "Saint 6 Studios, founded by Trang Nhe Nhang, is a multi-disciplinary creative studio crafting sets, spaces, environments, and experiences.",
+      "BODY_2": "We create work that feels alive, work that holds emotion, atmosphere, and story. For us, it's never \"just decor.\" It's the feeling someone carries home."
+    },
+    "VISION": {
+      "LABEL": "VISION",
+      "STATEMENT": "To create work that is remembered through the feelings it evokes."
+    },
+    "MISSION": {
+      "LABEL": "MISSION",
+      "STATEMENT": "We transform ideas, identities, and stories into visual experiences that move people."
+    },
+    "VALUES": {
+      "TITLE": "Our Values",
+      "ITEM_1": {
+        "TITLE": "Simplicity",
+        "DESCRIPTION": "Clarity reveals emotion."
+      },
+      "ITEM_2": {
+        "TITLE": "Authenticity",
+        "DESCRIPTION": "Emotion must be real, not manufactured."
+      },
+      "ITEM_3": {
+        "TITLE": "Intention",
+        "DESCRIPTION": "Every choice serves the feeling."
+      },
+      "ITEM_4": {
+        "TITLE": "Narrative",
+        "DESCRIPTION": "Everything is part of the story."
+      },
+      "ITEM_5": {
+        "TITLE": "Trust",
+        "DESCRIPTION": "Art needs reliability to thrive."
+      },
+      "ITEM_6": {
+        "TITLE": "Sixth Sense",
+        "DESCRIPTION": "We design for the feeling beneath the brief."
+      }
+    },
+    "OUR_STORY": {
+      "LABEL": "Our Story",
+      "PARAGRAPH_1": "Before Saint 6, there was Haus of Trang - where Trang learned that styling is not only about how things look, but how they make people feel.",
+      "PARAGRAPH_2": "That realization became the foundation of Saint 6"
+    },
+    "SERVICES": {
+      "ITEM_1": {
+        "TITLE": "Studio Rental",
+        "DESCRIPTION": "Professional spaces designed for creative excellence, from intimate shoots to large-scale productions."
+      },
+      "ITEM_2": {
+        "TITLE": "Set Design",
+        "DESCRIPTION": "Custom environments built to tell your story, from concept through construction."
+      },
+      "ITEM_3": {
+        "TITLE": "Production",
+        "DESCRIPTION": "Full-service production from pre to post, ensuring every detail serves your vision."
+      },
+      "ITEM_4": {
+        "TITLE": "Event Planning",
+        "DESCRIPTION": "Curated experiences designed to create lasting emotional connections."
+      },
+      "ITEM_5": {
+        "TITLE": "Decor",
+        "DESCRIPTION": "Interior styling for spaces that need to feel as good as they look."
+      },
+      "ITEM_6": {
+        "TITLE": "Creative",
+        "DESCRIPTION": "Brand campaigns and visual content that resonate with your audience."
+      }
+    },
+    "FOUNDER": {
+      "QUOTE": "Creation is emotional work. We build spaces for people to feel something real.",
+      "NAME": "Trang",
+      "TITLE": "Founder & Creative Director"
+    }
   }
 }
 

@@ -415,6 +415,92 @@
       "LABEL": "Tiếng Nói Phía Sau Ống Kính",
       "TITLE": "Những trải nghiệm thực từ các chuyên gia sáng tạo đã hiện thực hóa tầm nhìn của họ tại Saint 6 Studio."
     }
+  },
+  "ABOUT_US": {
+    "META": {
+      "TITLE": "Giới Thiệu | Saint 6 Studio",
+      "DESCRIPTION": "Chúng tôi là một studio của các nghệ sĩ, thợ xây, stylist, người mơ mộng, người giải quyết vấn đề và người kể chuyện. Chúng tôi biến ý tưởng thành không gian, cảm xúc và ký ức."
+    },
+    "HERO": {
+      "TAGLINE": "Chúng Tôi Tưởng Tượng. Chúng Tôi Thiết Kế. Chúng Tôi Sáng Tạo."
+    },
+    "INTRO": {
+      "LABEL": "GIỚI THIỆU",
+      "HEADLINE": "Chúng tôi là một studio của các nghệ sĩ, thợ xây, stylist, người mơ mộng, người giải quyết vấn đề và người kể chuyện.\nChúng tôi biến ý tưởng thành không gian, cảm xúc và ký ức.",
+      "BODY_1": "Saint 6 Studios, được sáng lập bởi Trang Nhẹ Nhàng, là một studio sáng tạo đa ngành chuyên tạo ra các set, không gian, môi trường và trải nghiệm.",
+      "BODY_2": "Chúng tôi tạo ra những tác phẩm có hồn, những tác phẩm chứa đựng cảm xúc, bầu không khí và câu chuyện. Với chúng tôi, đó không bao giờ chỉ là \"trang trí.\" Đó là cảm xúc mà ai đó mang về nhà."
+    },
+    "VISION": {
+      "LABEL": "TẦM NHÌN",
+      "STATEMENT": "Tạo ra những tác phẩm được ghi nhớ qua những cảm xúc mà chúng gợi lên."
+    },
+    "MISSION": {
+      "LABEL": "SỨ MỆNH",
+      "STATEMENT": "Chúng tôi biến ý tưởng, bản sắc và câu chuyện thành những trải nghiệm hình ảnh chạm đến trái tim con người."
+    },
+    "VALUES": {
+      "TITLE": "Giá Trị Của Chúng Tôi",
+      "ITEM_1": {
+        "TITLE": "Sự Đơn Giản",
+        "DESCRIPTION": "Sự rõ ràng bộc lộ cảm xúc."
+      },
+      "ITEM_2": {
+        "TITLE": "Chân Thật",
+        "DESCRIPTION": "Cảm xúc phải thật, không được tạo dựng."
+      },
+      "ITEM_3": {
+        "TITLE": "Chủ Đích",
+        "DESCRIPTION": "Mọi lựa chọn đều phục vụ cảm xúc."
+      },
+      "ITEM_4": {
+        "TITLE": "Câu Chuyện",
+        "DESCRIPTION": "Mọi thứ đều là một phần của câu chuyện."
+      },
+      "ITEM_5": {
+        "TITLE": "Tin Tưởng",
+        "DESCRIPTION": "Nghệ thuật cần sự đáng tin cậy để phát triển."
+      },
+      "ITEM_6": {
+        "TITLE": "Giác Quan Thứ Sáu",
+        "DESCRIPTION": "Chúng tôi thiết kế cho cảm xúc ẩn sau brief."
+      }
+    },
+    "OUR_STORY": {
+      "LABEL": "Câu Chuyện Của Chúng Tôi",
+      "PARAGRAPH_1": "Trước Saint 6, đã có Haus of Trang - nơi Trang học được rằng styling không chỉ là về việc mọi thứ trông như thế nào, mà còn là cách chúng khiến người ta cảm thấy.",
+      "PARAGRAPH_2": "Nhận thức đó đã trở thành nền tảng của Saint 6"
+    },
+    "SERVICES": {
+      "ITEM_1": {
+        "TITLE": "Thuê Studio",
+        "DESCRIPTION": "Không gian chuyên nghiệp được thiết kế cho sự xuất sắc sáng tạo, từ những buổi chụp nhỏ đến sản xuất quy mô lớn."
+      },
+      "ITEM_2": {
+        "TITLE": "Thiết Kế Set",
+        "DESCRIPTION": "Môi trường tùy chỉnh được xây dựng để kể câu chuyện của bạn, từ ý tưởng đến xây dựng."
+      },
+      "ITEM_3": {
+        "TITLE": "Sản Xuất",
+        "DESCRIPTION": "Sản xuất toàn diện từ tiền kỳ đến hậu kỳ, đảm bảo mọi chi tiết phục vụ tầm nhìn của bạn."
+      },
+      "ITEM_4": {
+        "TITLE": "Lập Kế Hoạch Sự Kiện",
+        "DESCRIPTION": "Trải nghiệm được chọn lọc để tạo ra những kết nối cảm xúc lâu dài."
+      },
+      "ITEM_5": {
+        "TITLE": "Trang Trí",
+        "DESCRIPTION": "Styling nội thất cho những không gian cần cảm giác tốt như vẻ ngoài của chúng."
+      },
+      "ITEM_6": {
+        "TITLE": "Sáng Tạo",
+        "DESCRIPTION": "Chiến dịch thương hiệu và nội dung hình ảnh cộng hưởng với khán giả của bạn."
+      }
+    },
+    "FOUNDER": {
+      "QUOTE": "Sáng tạo là công việc của cảm xúc. Chúng tôi xây dựng không gian để mọi người cảm nhận điều gì đó thật sự.",
+      "NAME": "Trang",
+      "TITLE": "Nhà Sáng Lập & Giám Đốc Sáng Tạo"
+    }
   }
 }
 
