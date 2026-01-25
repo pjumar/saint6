@@ -340,6 +340,10 @@
       "TITLE": "Creative | Saint 6 Studio",
       "DESCRIPTION": "Full-service creative production for brands, campaigns, and products. From advertising campaigns to product shoots, we bring your vision to life."
     },
+    "CLIENTS": {
+      "LABEL": "Selected Clients",
+      "DESCRIPTION": "We're proud to collaborate with leading brands, agencies, and startups worldwide."
+    },
     "INTRO": {
       "LABEL": "How We Work",
       "DESCRIPTION": "We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery.",

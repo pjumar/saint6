@@ -8,7 +8,7 @@ import { ProductionWorkflow, WorkflowStep } from "@/app/components/production-wo
 import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
-import { TrustedBySection } from "@/app/components/trusted-by-section/TrustedBySection";
+import { SelectedClientsSection } from "@/app/components/selected-clients-section/SelectedClientsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Creative.module.css";
 
@@ -215,8 +215,11 @@ export default function CreativePage() {
       />
 
       <div className={styles.contentContainer}>
-        {/* Selected Clients Section - Reuses TrustedBySection */}
-        <TrustedBySection />
+        {/* Selected Clients Section */}
+        <SelectedClientsSection
+          label={t.CREATIVE?.CLIENTS?.LABEL ?? "Selected Clients"}
+          description={t.CREATIVE?.CLIENTS?.DESCRIPTION ?? "We're proud to collaborate with leading brands, agencies, and startups worldwide."}
+        />
 
         {/* Services Section */}
         <section className={styles.section} id="services">
