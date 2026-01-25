@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/app/components/header/Header";
@@ -43,6 +44,7 @@ export function HeroSection({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const { t, locale } = useTranslation();
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -55,6 +57,22 @@ export function HeroSection({
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!showScrollIndicator || !scrollIndicatorRef.current) return;
+
+    const animation = gsap.to(scrollIndicatorRef.current, {
+      y: -8,
+      duration: 0.8,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    });
+
+    return () => {
+      animation.kill();
+    };
+  }, [showScrollIndicator]);
 
   const handleMenuToggle = () => {
     if (isMenuOpen) {
@@ -90,7 +108,7 @@ export function HeroSection({
 
         <div className={styles.heroContentWrapper}>
           {showScrollIndicator && (
-            <div className={styles.scrollIndicator}>
+            <div ref={scrollIndicatorRef} className={styles.scrollIndicator}>
               <Image
                 src="/images/hero/scroll-icon.svg"
                 alt=""
