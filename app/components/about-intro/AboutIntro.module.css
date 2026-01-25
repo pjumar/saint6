@@ -1,0 +1,133 @@
+.section {
+  padding: 4rem 1.5rem 8rem;
+  background-color: var(--color-bg-container);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.labelWrapper {
+  display: flex;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.04rem;
+  color: var(--color-text-primary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.bodyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bodyText {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 392 / 602;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Desktop styles */
+@media (min-width: 48.0625rem) {
+  .section {
+    padding: 8rem 1.5rem;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .labelWrapper {
+    width: 8.33%;
+    flex-shrink: 0;
+    padding-top: 1.375rem;
+  }
+
+  .contentWrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-left: 25%;
+    width: 66.67%;
+    gap: 2rem;
+  }
+
+  .textContent {
+    flex: 1;
+    max-width: 50rem;
+    gap: 10rem;
+  }
+
+  .headline {
+    font-size: 2.5rem;
+    letter-spacing: -0.05rem;
+    max-width: 50rem;
+  }
+
+  .bodyContent {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .bodyText {
+    flex: 1;
+    max-width: 24rem;
+  }
+
+  .imageWrapper {
+    width: 20.625rem;
+    height: 31.6875rem;
+    flex-shrink: 0;
+    aspect-ratio: auto;
+  }
+}
