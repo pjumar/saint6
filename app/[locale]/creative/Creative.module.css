@@ -11,7 +11,6 @@
 
 .section {
   width: 100%;
-  padding: 6.25rem 0;
 }
 
 .sectionInner {
@@ -61,10 +60,6 @@
 
 /* Mobile Responsive */
 @media (max-width: 48rem) {
-  .section {
-    padding: 4rem 0;
-  }
-
   .sectionInner {
     padding: 0 1rem;
     gap: 3rem;

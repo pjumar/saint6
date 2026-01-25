@@ -1,6 +1,6 @@
 .grid {
   width: 100%;
-  padding: 5rem 1.5rem;
+  padding: 5rem 1.5rem 0;
 }
 
 /* Mobile View */
@@ -75,7 +75,7 @@
 /* Desktop */
 @media (min-width: 48.0625rem) {
   .grid {
-    padding: 10rem 1.5rem;
+    padding: 10rem 1.5rem 0;
   }
 
   /* Hide mobile view, show desktop view */
