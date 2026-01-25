@@ -7,10 +7,10 @@
   width: 100%;
 }
 
-/* Spiral Decoration - Top Center, fully visible */
+/* Spiral Decoration - Top Center */
 .spiralContainer {
   position: absolute;
-  top: -2rem;
+  top: -10rem;
   left: 50%;
   transform: translateX(-50%) rotate(180deg);
   width: 20rem;
@@ -126,9 +126,9 @@
   }
 
   .spiralContainer {
-    top: -4rem;
-    width: 28rem;
-    height: 28rem;
+    top: -16rem;
+    width: 32rem;
+    height: 32rem;
   }
 
   .leftColumn {
