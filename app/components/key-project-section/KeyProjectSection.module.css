@@ -293,9 +293,8 @@
 .galleryGrid {
   display: grid;
   grid-template-columns: 10rem 1fr;
-  grid-template-rows: 18rem 18rem;
+  grid-template-rows: auto auto;
   gap: 1rem;
-  height: 37rem;
 }
 
 .galleryImage1,
@@ -313,17 +312,19 @@
 .galleryImage2 {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+  aspect-ratio: 1.6;
 }
 
 .galleryImage3 {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  aspect-ratio: 1.6;
 }
 
 .galleryImage {
   height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: center top;
   width: 100%;
 }
 
@@ -416,9 +417,8 @@
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 1fr 1.6fr;
-    grid-template-rows: 18rem 18rem;
+    grid-template-rows: auto auto;
     gap: 1rem;
-    height: 37rem;
   }
 
   .galleryImage1 {

@@ -28,6 +28,7 @@
 .desktopNav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1.25rem;
 }
 
@@ -151,6 +152,7 @@
 
   .desktopNav {
     align-self: flex-end;
+    align-items: flex-start;
     width: 18.5rem;
   }
 
