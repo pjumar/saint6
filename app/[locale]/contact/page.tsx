@@ -38,12 +38,12 @@ export default function ContactPage() {
         />
       </section>
 
-      {/* 3. Map Section - Full width with spiral decoration */}
+      {/* 3. Map Section - Full width */}
       <section className={styles.mapSection}>
         <MapImage
           imageUrl="/images/contact/saint6-map.jpg"
           alt="Saint 6 Studio location map"
-          showSpiral={true}
+          showSpiral={false}
           showPin={true}
         />
       </section>
