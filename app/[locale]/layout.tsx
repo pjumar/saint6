@@ -36,7 +36,7 @@ export async function generateMetadata({
   const isVi = typedLocale === "vi";
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://saint6studio.com"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.vercel.app"),
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
