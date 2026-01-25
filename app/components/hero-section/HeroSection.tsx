@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Header } from "@/app/components/header/Header";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
@@ -41,7 +42,7 @@ export function HeroSection({
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -123,12 +124,12 @@ export function HeroSection({
               <SocialLinks />
             </div>
             <div className={styles.heroLinksRight}>
-              <a href="#contact" className="caption">
+              <Link href={`/${locale}/contact`} className="caption">
                 {t.NAVIGATION.CONTACT}
-              </a>
-              <a href="#about" className="caption">
+              </Link>
+              <Link href={`/${locale}/about`} className="caption">
                 {t.NAVIGATION.ABOUT_US}
-              </a>
+              </Link>
               <LanguageSelector />
             </div>
           </div>
