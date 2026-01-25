@@ -1,11 +1,20 @@
-.contactInfo {
+/* Section wrapper - full width with spiral */
+.section {
   position: relative;
+  width: 100%;
+  padding: 18rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+/* Container - max 90rem centered */
+.container {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  padding: 18rem 1.5rem 4rem;
-  width: 100%;
-  overflow: hidden;
+  max-width: 90rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* Spiral Decoration - Top Center */
@@ -29,8 +38,6 @@
 
 /* Left Column: Heading + Subheading */
 .leftColumn {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -57,8 +64,6 @@
 
 /* Right Column: Contact Details */
 .rightColumn {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -118,12 +123,15 @@
 
 /* Desktop: Two-column layout */
 @media (min-width: 48.0625rem) {
-  .contactInfo {
+  .section {
+    padding: 26rem 1.5rem 6rem;
+  }
+
+  .container {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     gap: 4rem;
-    padding: 26rem 9rem 6rem;
   }
 
   .spiralContainer {
@@ -149,10 +157,6 @@
 
 /* Large desktop */
 @media (min-width: 90rem) {
-  .contactInfo {
-    padding: 26rem 9rem 6rem;
-  }
-
   .heading {
     font-size: 2.5rem;
   }

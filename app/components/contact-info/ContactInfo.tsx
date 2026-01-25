@@ -32,7 +32,7 @@ export function ContactInfo({
   socialLinks,
 }: ContactInfoProps) {
   return (
-    <div className={styles.contactInfo}>
+    <section className={styles.section}>
       {/* Spiral Decoration - Top Center */}
       <div className={styles.spiralContainer}>
         <Image
@@ -44,39 +44,41 @@ export function ContactInfo({
         />
       </div>
 
-      {/* Left Column: Heading + Subheading */}
-      <div className={styles.leftColumn}>
-        <h2 className={styles.heading}>{heading}</h2>
-        <p className={styles.subheading}>{subheading}</p>
-      </div>
-
-      {/* Right Column: Contact Details */}
-      <div className={styles.rightColumn}>
-        <div className={styles.details}>
-          <p className={styles.detailText}>{address}</p>
-          <a href={`mailto:${email}`} className={styles.detailLink}>
-            {email}
-          </a>
-          <p className={styles.detailText}>{phone}</p>
+      <div className={styles.container}>
+        {/* Left Column: Heading + Subheading */}
+        <div className={styles.leftColumn}>
+          <h2 className={styles.heading}>{heading}</h2>
+          <p className={styles.subheading}>{subheading}</p>
         </div>
 
-        {/* Social Links as Text */}
-        {socialLinks && socialLinks.length > 0 && (
-          <div className={styles.socialLinks}>
-            {socialLinks.map((link) => (
-              <a
-                key={link.platform}
-                href={link.url}
-                className={styles.socialTextLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.label}
-              </a>
-            ))}
+        {/* Right Column: Contact Details */}
+        <div className={styles.rightColumn}>
+          <div className={styles.details}>
+            <p className={styles.detailText}>{address}</p>
+            <a href={`mailto:${email}`} className={styles.detailLink}>
+              {email}
+            </a>
+            <p className={styles.detailText}>{phone}</p>
           </div>
-        )}
+
+          {/* Social Links as Text */}
+          {socialLinks && socialLinks.length > 0 && (
+            <div className={styles.socialLinks}>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.platform}
+                  href={link.url}
+                  className={styles.socialTextLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
