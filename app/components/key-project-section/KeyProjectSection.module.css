@@ -313,12 +313,14 @@
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   aspect-ratio: 1.6;
+  max-width: 60%;
 }
 
 .galleryImage3 {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   aspect-ratio: 1.6;
+  max-width: 60%;
 }
 
 .galleryImage {
