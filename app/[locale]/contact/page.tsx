@@ -22,7 +22,7 @@ export default function ContactPage() {
         heading={infoTranslations.HEADING ?? "Let's Create Something Exceptional Together"}
         backgroundImage="/images/hero/hero-background.jpg"
         backgroundAlt="Saint 6 Studio exterior"
-        showScrollIndicator={false}
+        showScrollIndicator={true}
         showDecorativeLine={true}
       />
 

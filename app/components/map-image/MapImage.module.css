@@ -26,7 +26,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.15;
+  filter: grayscale(100%) opacity(0.3);
 }
 
 /* Location Pin Marker */
