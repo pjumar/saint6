@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./ContactInfo.module.css";
 
 export interface SocialLink {
@@ -32,6 +33,17 @@ export function ContactInfo({
 }: ContactInfoProps) {
   return (
     <div className={styles.contactInfo}>
+      {/* Spiral Decoration - Top Center */}
+      <div className={styles.spiralContainer}>
+        <Image
+          src="/images/spiral_decoration.svg"
+          alt=""
+          width={400}
+          height={400}
+          className={styles.spiralImage}
+        />
+      </div>
+
       {/* Left Column: Heading + Subheading */}
       <div className={styles.leftColumn}>
         <h2 className={styles.heading}>{heading}</h2>
