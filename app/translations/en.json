@@ -331,6 +331,64 @@
       "LABEL": "every moment, an emotion",
       "QUOTE": "Every project begins with a vision. We bring it to life — detail by detail."
     }
+  },
+  "CREATIVE": {
+    "HERO": {
+      "TAGLINE": "Creative production for brands, campaigns & products"
+    },
+    "META": {
+      "TITLE": "Creative | Saint 6 Studio",
+      "DESCRIPTION": "Full-service creative production for brands, campaigns, and products. From advertising campaigns to product shoots, we bring your vision to life."
+    },
+    "INTRO": {
+      "LABEL": "How We Work",
+      "DESCRIPTION": "We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery.",
+      "CTA": "Get in touch"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Brand & Advertising Campaigns",
+        "DESCRIPTION": "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy."
+      },
+      "CARD_2": {
+        "TITLE": "Product & Packaging Shoots",
+        "DESCRIPTION": "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores."
+      }
+    },
+    "WORKFLOW": {
+      "STEP_1": {
+        "TITLE": "Creative Direction",
+        "DESCRIPTION": "We study your brief and develop creative directions based on your brand, audience, and goals."
+      },
+      "STEP_2": {
+        "TITLE": "Storyboard Development",
+        "DESCRIPTION": "Our team creates detailed storyboards and shot lists to visualize the final output."
+      },
+      "STEP_3": {
+        "TITLE": "Pre-production & Sourcing",
+        "DESCRIPTION": "We coordinate talent, locations, props, and equipment to ensure smooth execution."
+      },
+      "STEP_4": {
+        "TITLE": "Shoot / Production",
+        "DESCRIPTION": "Our experienced crew captures your vision with precision and creative flair."
+      },
+      "STEP_5": {
+        "TITLE": "Post-production",
+        "DESCRIPTION": "Professional editing, color grading, and retouching bring the final deliverables to life."
+      },
+      "STEP_6": {
+        "TITLE": "Final Delivery",
+        "DESCRIPTION": "We deliver polished assets ready for print, digital, and social media deployment."
+      }
+    },
+    "PORTFOLIO": {
+      "LABEL": "Featured Work",
+      "STATEMENT": "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail."
+    },
+    "TESTIMONIALS": {
+      "LABEL": "Voices Behind the Lens",
+      "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
+    }
   }
 }
 

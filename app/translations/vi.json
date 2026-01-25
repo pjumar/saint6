@@ -331,6 +331,64 @@
       "LABEL": "mỗi khoảnh khắc, một cảm xúc",
       "QUOTE": "Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một."
     }
+  },
+  "CREATIVE": {
+    "HERO": {
+      "TAGLINE": "Sản xuất sáng tạo cho thương hiệu, chiến dịch & sản phẩm"
+    },
+    "META": {
+      "TITLE": "Sáng Tạo | Saint 6 Studio",
+      "DESCRIPTION": "Dịch vụ sản xuất sáng tạo toàn diện cho thương hiệu, chiến dịch và sản phẩm. Từ chiến dịch quảng cáo đến chụp sản phẩm, chúng tôi hiện thực hóa tầm nhìn của bạn."
+    },
+    "INTRO": {
+      "LABEL": "Cách Chúng Tôi Làm Việc",
+      "DESCRIPTION": "Chúng tôi có thể đảm nhận sản xuất toàn diện hoặc tham gia ở bất kỳ giai đoạn nào — từ phát triển moodboard và concept đến hậu kỳ và giao sản phẩm cuối cùng.",
+      "CTA": "Liên hệ ngay"
+    },
+    "SERVICES": {
+      "CARD_1": {
+        "TITLE": "Chiến Dịch Thương Hiệu & Quảng Cáo",
+        "DESCRIPTION": "Chúng tôi sản xuất các chiến dịch thời trang, phong cách sống, editorial, mạng xã hội và influencer mang thương hiệu vào cuộc sống với năng lượng sáng tạo mới mẻ."
+      },
+      "CARD_2": {
+        "TITLE": "Chụp Sản Phẩm & Bao Bì",
+        "DESCRIPTION": "Từ nhãn sản phẩm và hình ảnh thương mại điện tử đến packshot và still life, chúng tôi tạo ra hình ảnh tinh tế nâng tầm bao bì, catalog và cửa hàng trực tuyến."
+      }
+    },
+    "WORKFLOW": {
+      "STEP_1": {
+        "TITLE": "Chỉ Đạo Sáng Tạo",
+        "DESCRIPTION": "Chúng tôi nghiên cứu brief và phát triển hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn."
+      },
+      "STEP_2": {
+        "TITLE": "Phát Triển Storyboard",
+        "DESCRIPTION": "Đội ngũ của chúng tôi tạo storyboard chi tiết và danh sách shot để hình dung sản phẩm cuối cùng."
+      },
+      "STEP_3": {
+        "TITLE": "Tiền Kỳ & Tìm Nguồn",
+        "DESCRIPTION": "Chúng tôi phối hợp diễn viên, địa điểm, đạo cụ và thiết bị để đảm bảo thực hiện suôn sẻ."
+      },
+      "STEP_4": {
+        "TITLE": "Quay / Sản Xuất",
+        "DESCRIPTION": "Đội ngũ giàu kinh nghiệm của chúng tôi ghi lại tầm nhìn của bạn với sự chính xác và phong cách sáng tạo."
+      },
+      "STEP_5": {
+        "TITLE": "Hậu Kỳ",
+        "DESCRIPTION": "Dựng phim, chỉnh màu và retouch chuyên nghiệp đưa sản phẩm cuối cùng vào cuộc sống."
+      },
+      "STEP_6": {
+        "TITLE": "Giao Hàng Cuối Cùng",
+        "DESCRIPTION": "Chúng tôi giao sản phẩm hoàn chỉnh sẵn sàng cho in ấn, kỹ thuật số và triển khai trên mạng xã hội."
+      }
+    },
+    "PORTFOLIO": {
+      "LABEL": "Tác Phẩm Nổi Bật",
+      "STATEMENT": "Hình ảnh cao cấp phản ánh tham vọng thương hiệu của bạn — một triển lãm của nghệ thuật và sự chú ý đến chi tiết."
+    },
+    "TESTIMONIALS": {
+      "LABEL": "Tiếng Nói Phía Sau Ống Kính",
+      "TITLE": "Những trải nghiệm thực từ các chuyên gia sáng tạo đã hiện thực hóa tầm nhìn của họ tại Saint 6 Studio."
+    }
   }
 }
 

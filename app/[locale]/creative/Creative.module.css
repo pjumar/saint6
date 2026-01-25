@@ -1,0 +1,80 @@
+.creativePage {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.contentContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  width: 100%;
+  padding: 6.25rem 0;
+}
+
+.sectionInner {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.section:nth-child(odd) {
+  background: #ffffff;
+}
+
+.section:nth-child(even) {
+  background: var(--color-bg-container, #F5F4F4);
+}
+
+/* Workflow Section */
+.workflowSection {
+  width: 100%;
+  padding: 6.25rem 0;
+  background: #ffffff;
+}
+
+.workflowSectionInner {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Portfolio Section Wrapper */
+.portfolioWrapper {
+  width: 100%;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  width: 100%;
+}
+
+/* Contact Section */
+.contactSectionWrapper {
+  width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 48rem) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .sectionInner {
+    padding: 0 1rem;
+    gap: 3rem;
+  }
+
+  .workflowSection {
+    padding: 4rem 0;
+  }
+
+  .workflowSectionInner {
+    padding: 0 1rem;
+  }
+}
