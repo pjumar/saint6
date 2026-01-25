@@ -3,15 +3,14 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  padding: 12rem 1.5rem 4rem;
+  padding: 18rem 1.5rem 4rem;
   width: 100%;
-  overflow: hidden;
 }
 
-/* Spiral Decoration - Top Center */
+/* Spiral Decoration - Top Center, fully visible */
 .spiralContainer {
   position: absolute;
-  top: -10rem;
+  top: -2rem;
   left: 50%;
   transform: translateX(-50%) rotate(180deg);
   width: 20rem;
@@ -123,13 +122,13 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 4rem;
-    padding: 14rem 9rem 6rem;
+    padding: 26rem 9rem 6rem;
   }
 
   .spiralContainer {
-    top: -16rem;
-    width: 32rem;
-    height: 32rem;
+    top: -4rem;
+    width: 28rem;
+    height: 28rem;
   }
 
   .leftColumn {
@@ -150,7 +149,7 @@
 /* Large desktop */
 @media (min-width: 90rem) {
   .contactInfo {
-    padding: 6rem 9rem;
+    padding: 26rem 9rem 6rem;
   }
 
   .heading {
