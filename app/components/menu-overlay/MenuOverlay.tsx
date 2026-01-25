@@ -73,10 +73,18 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
       </nav>
       <div className={styles.menuFooter}>
         <div className={styles.menuFooterLeft}>
-          <Link href={`/${locale}/contact`} className="caption" onClick={onClose}>
+          <Link
+            href={`/${locale}/contact`}
+            className={`caption ${pathname === `/${locale}/contact` ? styles.footerLinkActive : ""}`}
+            onClick={onClose}
+          >
             {t.NAVIGATION.CONTACT}
           </Link>
-          <Link href={`/${locale}/about`} className="caption" onClick={onClose}>
+          <Link
+            href={`/${locale}/about`}
+            className={`caption ${pathname === `/${locale}/about` ? styles.footerLinkActive : ""}`}
+            onClick={onClose}
+          >
             {t.NAVIGATION.ABOUT_US}
           </Link>
           <LanguageSelector variant="menu" />

@@ -171,6 +171,11 @@
   align-items: flex-start;
 }
 
+.footerLinkActive {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
 @media (min-width: 48.0625rem) {
   .menuOverlay {
     display: none !important;
