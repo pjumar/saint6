@@ -501,6 +501,38 @@
       "NAME": "Trang",
       "TITLE": "Nhà Sáng Lập & Giám Đốc Sáng Tạo"
     }
+  },
+  "CONTACT_US": {
+    "META": {
+      "TITLE": "Liên Hệ | Saint 6 Studio",
+      "DESCRIPTION": "Liên hệ với Saint 6 Studio. Liên hệ để thuê studio, thiết kế set, dịch vụ sản xuất, tổ chức sự kiện và giải pháp sáng tạo."
+    },
+    "HERO": {
+      "TAGLINE": "Hãy Kết Nối"
+    },
+    "INFO": {
+      "LABEL": "LIÊN HỆ",
+      "HEADING": "Cùng Tạo Ra Điều Đặc Biệt",
+      "ADDRESS_LINE1": "6 Bế Văn Cấm, Tân Kiểng",
+      "ADDRESS_LINE2": "Quận 7, TP.HCM",
+      "EMAIL": "Saint6studios@gmail.com",
+      "PHONE": "0919 403 784 - 0918 756 573"
+    },
+    "SOCIAL": {
+      "FACEBOOK": "Facebook",
+      "INSTAGRAM": "Instagram",
+      "TIKTOK": "TikTok"
+    },
+    "FORM": {
+      "TITLE": "Liên hệ",
+      "SUBTITLE": "Cùng Xây Dựng Điều Tuyệt Vời",
+      "NAME": "Họ tên",
+      "EMAIL": "Email",
+      "COMPANY": "Công ty",
+      "MESSAGE": "Tin nhắn",
+      "SUBMIT": "Gửi",
+      "SENDING": "Đang gửi..."
+    }
   }
 }
 

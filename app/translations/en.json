@@ -501,6 +501,38 @@
       "NAME": "Trang",
       "TITLE": "Founder & Creative Director"
     }
+  },
+  "CONTACT_US": {
+    "META": {
+      "TITLE": "Contact | Saint 6 Studio",
+      "DESCRIPTION": "Get in touch with Saint 6 Studio. Contact us for studio rental, set design, production services, event planning, and creative solutions."
+    },
+    "HERO": {
+      "TAGLINE": "Let's Connect"
+    },
+    "INFO": {
+      "LABEL": "CONTACT US",
+      "HEADING": "Let's Create Something Exceptional Together",
+      "ADDRESS_LINE1": "6 Be Van Cam, Tan Kieng",
+      "ADDRESS_LINE2": "District 7, HCMC",
+      "EMAIL": "Saint6studios@gmail.com",
+      "PHONE": "0919 403 784 - 0918 756 573"
+    },
+    "SOCIAL": {
+      "FACEBOOK": "Facebook",
+      "INSTAGRAM": "Instagram",
+      "TIKTOK": "TikTok"
+    },
+    "FORM": {
+      "TITLE": "Get in touch",
+      "SUBTITLE": "Let's Build Something Beautiful",
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "COMPANY": "Company",
+      "MESSAGE": "Message",
+      "SUBMIT": "Submit",
+      "SENDING": "Sending..."
+    }
   }
 }
 
