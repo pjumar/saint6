@@ -1,3 +1,15 @@
+/* Section wrapper - full width */
+.section {
+  width: 100%;
+}
+
+/* Container - max 90rem centered */
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .mapImage {
   position: relative;
   width: 100%;
