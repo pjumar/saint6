@@ -34,7 +34,7 @@
 }
 
 .statValue {
-  font-family: var(--font-title, "Spectral", serif);
+  font-family: var(--font-title);
   font-size: 1.75rem; /* 28px Desktop/Tittle 1 from Figma */
   font-weight: 300; /* Glare Light from Figma */
   line-height: 1.5;

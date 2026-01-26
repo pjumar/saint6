@@ -93,7 +93,7 @@
 
 .title {
   flex: 1;
-  font-family: var(--font-title, "Spectral", serif);
+  font-family: var(--font-title);
   font-size: 1.75rem; /* 28px Desktop/Tittle from Figma */
   font-weight: 300; /* Glare Light from Figma */
   line-height: 1.5;
@@ -140,7 +140,7 @@
 }
 
 .specValue {
-  font-family: var(--font-title, "Spectral", serif);
+  font-family: var(--font-title);
   font-size: 1.25rem; /* 20px Desktop/Tittle 3 from Figma */
   font-weight: 300; /* Glare Light from Figma */
   line-height: 1.5;

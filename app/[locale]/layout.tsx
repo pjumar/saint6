@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Public_Sans, JetBrains_Mono, Spectral } from "next/font/google";
+import { Public_Sans, JetBrains_Mono, Saira_Condensed } from "next/font/google";
 import "@/app/globals.css";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
@@ -19,8 +19,8 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const spectral = Spectral({
-  variable: "--font-spectral",
+const sairaCondensed = Saira_Condensed({
+  variable: "--font-saira-condensed",
   subsets: ["latin"],
   weight: ["300", "400"],
   display: "swap",
@@ -132,7 +132,7 @@ export default async function LocaleLayout({
   return (
     <html lang={typedLocale}>
       <body
-        className={`${publicSans.variable} ${jetbrainsMono.variable} ${spectral.variable} antialiased`}
+        className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
       >
         <TranslationProvider locale={typedLocale}>

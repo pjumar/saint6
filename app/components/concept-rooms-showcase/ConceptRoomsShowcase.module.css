@@ -53,7 +53,7 @@
 }
 
 .title {
-  font-family: var(--font-title, "Spectral", serif);
+  font-family: var(--font-title);
   font-size: 2.5rem; /* 40px Desktop/Heading from Figma */
   font-weight: 400; /* Glare Regular from Figma */
   line-height: 1.2;

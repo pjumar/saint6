@@ -129,7 +129,7 @@
 }
 
 .faqTitle {
-  font-family: var(--font-title, "PP Fragment", serif);
+  font-family: var(--font-title);
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;

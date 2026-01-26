@@ -49,7 +49,7 @@
 }
 
 .title {
-  font-family: "PP Fragment", serif;
+  font-family: var(--font-title);
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 300;
