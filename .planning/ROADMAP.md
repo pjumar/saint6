@@ -93,10 +93,10 @@ Plans:
 **Plans**: 3-4 plans
 
 Plans:
-- [ ] 08-01: Evaluate and select CMS platform
-- [ ] 08-02: Set up CMS project and content schema
-- [ ] 08-03: Integrate CMS with Next.js build process
-- [ ] 08-04: Migrate hardcoded data to CMS
+- [x] 08-01: Homepage CMS Integration — completed 2026-02-03
+- [ ] 08-02: Studio Rental CMS Integration
+- [ ] 08-03: Remaining Service Pages CMS
+- [ ] 08-04: Info Pages CMS (About, Contact)
 
 ### Phase 9: Polish & Launch
 **Goal**: Final polish, social links, deployment ready
