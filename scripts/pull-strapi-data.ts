@@ -69,6 +69,7 @@ const COLLECTIONS = [
   'portfolio-items',
   'key-projects',
   'testimonial-items',
+  'service-items',
 ];
 
 // ============================================================================
