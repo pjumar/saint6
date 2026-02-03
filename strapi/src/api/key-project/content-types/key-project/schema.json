@@ -82,7 +82,7 @@
     "gallery_images": {
       "type": "component",
       "repeatable": true,
-      "component": "project.project-image"
+      "component": "shared.gallery-image"
     },
     "testimonial": {
       "type": "component",

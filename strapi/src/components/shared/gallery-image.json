@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_gallery_images",
+  "info": {
+    "displayName": "Gallery Image",
+    "description": "Image with optional title and description"
+  },
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

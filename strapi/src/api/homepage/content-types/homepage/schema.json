@@ -21,29 +21,19 @@
       "repeatable": false,
       "component": "shared.hero"
     },
-    "trusted_by": {
-      "type": "component",
-      "repeatable": false,
-      "component": "homepage.trusted-by"
-    },
     "brand_logos": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::brand-logo.brand-logo"
     },
     "gallery_images": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": ["images"],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.gallery-image"
     },
-    "featured_project": {
+    "featured_projects": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::key-project.key-project"
     },
     "space_section": {
