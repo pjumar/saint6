@@ -1,3 +1,12 @@
+// ============================================================================
+// Strapi CMS Configuration
+// ============================================================================
+// This module fetches data from Strapi CMS using Incremental Static Regeneration (ISR).
+// - Data is fetched at BUILD TIME and baked into static HTML
+// - Pages are revalidated every 60 seconds (configurable per endpoint)
+// - No runtime CMS dependency for serving pages
+// - Set revalidate: false for pure static generation (no automatic updates)
+
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
   "https://fantastic-attraction-7b2626fe03.strapiapp.com";
@@ -361,12 +370,22 @@ export interface StrapiContactPage {
 // Fetch Utility
 // ============================================================================
 
+/**
+ * Fetches data from Strapi CMS with Next.js ISR caching.
+ *
+ * Caching Strategy:
+ * - revalidate: 60 (default) - Pages revalidated every 60 seconds (ISR)
+ * - revalidate: false - Pure static, never revalidated automatically
+ * - revalidate: 0 - No caching, always fetch fresh (not recommended for production)
+ *
+ * @returns Data from Strapi or null if fetch fails
+ */
 async function fetchStrapi<T>(
   endpoint: string,
   options: {
     populate?: string | string[] | Record<string, unknown>;
     locale?: string;
-    revalidate?: number;
+    revalidate?: number | false;
   } = {},
 ): Promise<T | null> {
   const { populate = "*", locale = "en", revalidate = 60 } = options;
