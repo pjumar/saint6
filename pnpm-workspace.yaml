@@ -1,5 +1,6 @@
 packages:
   - .
+  - strapi
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
