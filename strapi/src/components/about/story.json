@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_stories",
+  "info": {
+    "displayName": "Our Story",
+    "description": "Our story section"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Our Story"
+    },
+    "paragraph_1": {
+      "type": "text"
+    },
+    "paragraph_2": {
+      "type": "text"
+    }
+  }
+}

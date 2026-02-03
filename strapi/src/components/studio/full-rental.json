@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_studio_full_rentals",
+  "info": {
+    "displayName": "Full Rental",
+    "description": "Full studio rental card"
+  },
+  "attributes": {
+    "price": {
+      "type": "string",
+      "required": true
+    },
+    "background_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

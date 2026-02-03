@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_homepage_crew_areas",
+  "info": {
+    "displayName": "Crew Area",
+    "description": "Crew area section with dining and makeup room images"
+  },
+  "attributes": {
+    "caption": {
+      "type": "string",
+      "default": "CREW AREA"
+    },
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "info_label": {
+      "type": "string",
+      "default": "INFO"
+    },
+    "info_text": {
+      "type": "text"
+    },
+    "main_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "secondary_image_1": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "secondary_image_2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_about_intros",
+  "info": {
+    "displayName": "About Intro",
+    "description": "About page intro section"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "ABOUT US"
+    },
+    "headline": {
+      "type": "text",
+      "required": true
+    },
+    "body_paragraph_1": {
+      "type": "text"
+    },
+    "body_paragraph_2": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

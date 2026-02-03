@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_intros",
+  "info": {
+    "displayName": "Intro",
+    "description": "Section intro with title, description and CTA"
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "cta_text": {
+      "type": "string"
+    },
+    "cta_link": {
+      "type": "string"
+    }
+  }
+}

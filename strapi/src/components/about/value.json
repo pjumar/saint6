@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_values",
+  "info": {
+    "displayName": "Value",
+    "description": "A core value with letter, title and description"
+  },
+  "attributes": {
+    "letter": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

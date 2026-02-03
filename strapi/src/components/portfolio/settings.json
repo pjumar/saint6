@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_portfolio_settings",
+  "info": {
+    "displayName": "Portfolio Settings",
+    "description": "Portfolio section header settings"
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "text"
+    }
+  }
+}

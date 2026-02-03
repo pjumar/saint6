@@ -1,0 +1,70 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": "About us page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "intro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about.intro"
+    },
+    "vision": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about.highlight-band"
+    },
+    "full_width_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "mission": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about.highlight-band"
+    },
+    "values": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.value"
+    },
+    "our_story": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about.story"
+    },
+    "timeline": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.timeline-item"
+    },
+    "founder": {
+      "type": "component",
+      "repeatable": false,
+      "component": "about.founder"
+    }
+  }
+}

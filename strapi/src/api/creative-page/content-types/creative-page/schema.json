@@ -1,0 +1,66 @@
+{
+  "kind": "singleType",
+  "collectionName": "creative_pages",
+  "info": {
+    "singularName": "creative-page",
+    "pluralName": "creative-pages",
+    "displayName": "Creative Page",
+    "description": "Creative services page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "clients_label": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "clients_description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service-item"
+    },
+    "how_we_work": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
+    },
+    "workflow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.workflow-step"
+    },
+    "portfolio_settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "portfolio.settings"
+    },
+    "portfolio_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio-item.portfolio-item"
+    }
+  }
+}

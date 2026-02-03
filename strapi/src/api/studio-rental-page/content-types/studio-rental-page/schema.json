@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "studio_rental_pages",
+  "info": {
+    "singularName": "studio-rental-page",
+    "pluralName": "studio-rental-pages",
+    "displayName": "Studio Rental Page",
+    "description": "Studio rental page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "intro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": false,
+      "component": "studio.stats"
+    },
+    "rooms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::studio-room.studio-room"
+    },
+    "full_rental": {
+      "type": "component",
+      "repeatable": false,
+      "component": "studio.full-rental"
+    },
+    "facilities": {
+      "type": "component",
+      "repeatable": false,
+      "component": "studio.facilities"
+    },
+    "equipment": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::equipment-item.equipment-item"
+    },
+    "faq_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq-item.faq-item"
+    }
+  }
+}

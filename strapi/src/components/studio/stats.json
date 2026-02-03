@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_studio_stats",
+  "info": {
+    "displayName": "Studio Stats",
+    "description": "Studio statistics overview"
+  },
+  "attributes": {
+    "total_rooms": {
+      "type": "integer",
+      "default": 6
+    },
+    "ceiling_height": {
+      "type": "string",
+      "default": "4.5m"
+    },
+    "total_space": {
+      "type": "string",
+      "default": "900m²"
+    },
+    "blank_rooms": {
+      "type": "integer",
+      "default": 3
+    },
+    "concept_rooms": {
+      "type": "integer",
+      "default": 3
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "decor_pages",
+  "info": {
+    "singularName": "decor-page",
+    "pluralName": "decor-pages",
+    "displayName": "Decor Page",
+    "description": "Decoration services page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "how_we_work": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
+    },
+    "workflow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.workflow-step"
+    },
+    "portfolio_settings": {
+      "type": "component",
+      "repeatable": false,
+      "component": "portfolio.settings"
+    },
+    "portfolio_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio-item.portfolio-item"
+    }
+  }
+}

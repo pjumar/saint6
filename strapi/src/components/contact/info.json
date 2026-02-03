@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_contact_infos",
+  "info": {
+    "displayName": "Contact Info",
+    "description": "Contact information section"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Contact Us"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "address_line_1": {
+      "type": "string"
+    },
+    "address_line_2": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_pages",
+  "info": {
+    "singularName": "production-page",
+    "pluralName": "production-pages",
+    "displayName": "Production Page",
+    "description": "Production services page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "intro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service-item"
+    },
+    "saint6_way_title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "saint6_way_description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "workflow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.workflow-step"
+    },
+    "featured_project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::key-project.key-project"
+    }
+  }
+}

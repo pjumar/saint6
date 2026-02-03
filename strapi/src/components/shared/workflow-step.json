@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_workflow_steps",
+  "info": {
+    "displayName": "Workflow Step",
+    "description": "A step in the workflow carousel"
+  },
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "counter": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_about_founders",
+  "info": {
+    "displayName": "Founder",
+    "description": "Founder quote section"
+  },
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

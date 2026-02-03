@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "event_planning_pages",
+  "info": {
+    "singularName": "event-planning-page",
+    "pluralName": "event-planning-pages",
+    "displayName": "Event Planning Page",
+    "description": "Event planning services page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "intro": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service-item"
+    },
+    "process_title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "process_description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "workflow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.workflow-step"
+    },
+    "event_projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event-project.event-project"
+    }
+  }
+}

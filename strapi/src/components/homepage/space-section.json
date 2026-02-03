@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_homepage_space_sections",
+  "info": {
+    "displayName": "Space Section",
+    "description": "Wide range of space section with stats and gallery"
+  },
+  "attributes": {
+    "caption": {
+      "type": "string",
+      "default": "WIDE RANGE OF SPACE"
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "cta_text": {
+      "type": "string",
+      "default": "VIEW STUDIO RENTAL"
+    },
+    "cta_link": {
+      "type": "string",
+      "default": "/studio-rental"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat"
+    },
+    "gallery_images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_about_timeline_items",
+  "info": {
+    "displayName": "Timeline Item",
+    "description": "A timeline entry with year, image and description"
+  },
+  "attributes": {
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

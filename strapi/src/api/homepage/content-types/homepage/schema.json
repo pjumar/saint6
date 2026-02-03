@@ -5,7 +5,7 @@
     "singularName": "homepage",
     "pluralName": "homepages",
     "displayName": "Homepage",
-    "description": "Homepage content and sections"
+    "description": "Homepage content"
   },
   "options": {
     "draftAndPublish": true
@@ -16,49 +16,15 @@
     }
   },
   "attributes": {
-    "hero_heading": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
     },
-    "hero_background_image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": ["images"],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "hero_background_alt": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "trusted_by_caption": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "trusted_by_heading": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "trusted_by": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.trusted-by"
     },
     "brand_logos": {
       "type": "relation",
@@ -66,14 +32,29 @@
       "target": "api::brand-logo.brand-logo"
     },
     "gallery_images": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::gallery-image.gallery-image"
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "featured_project": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::key-project.key-project"
+    },
+    "space_section": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.space-section"
+    },
+    "crew_area": {
+      "type": "component",
+      "repeatable": false,
+      "component": "homepage.crew-area"
     }
   }
 }

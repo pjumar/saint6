@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_studio_facilities",
+  "info": {
+    "displayName": "Facilities",
+    "description": "Makeup and dining facilities showcase"
+  },
+  "attributes": {
+    "makeup_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "lounge_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

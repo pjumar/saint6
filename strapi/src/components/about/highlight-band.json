@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_highlight_bands",
+  "info": {
+    "displayName": "Highlight Band",
+    "description": "Vision or mission highlight band"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "statement": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_service_items",
+  "info": {
+    "displayName": "Service Item",
+    "description": "A service card with image, title and description"
+  },
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
