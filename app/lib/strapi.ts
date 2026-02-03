@@ -430,8 +430,8 @@ async function fetchStrapi<T>(
   }
 }
 
-export function getStrapiImageUrl(image: StrapiImage | undefined): string {
-  if (!image?.url) return "";
+export function getStrapiImageUrl(image: StrapiImage | undefined): string | null {
+  if (!image?.url) return null;
 
   if (image.url.startsWith("http")) {
     return image.url;

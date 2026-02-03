@@ -48,13 +48,18 @@ function transformBrandLogos(logos: StrapiBrandLogo[] | undefined): BrandLogo[] 
 
   return logos
     .sort((a, b) => a.order - b.order)
-    .map((logo) => ({
-      id: String(logo.id),
-      src: getStrapiImageUrl(logo.logo),
-      alt: logo.name,
-      width: logo.logo?.width || 150,
-      height: logo.logo?.height || 40,
-    }));
+    .map((logo) => {
+      const src = getStrapiImageUrl(logo.logo);
+      if (!src) return null;
+      return {
+        id: String(logo.id),
+        src,
+        alt: logo.name,
+        width: logo.logo?.width || 150,
+        height: logo.logo?.height || 40,
+      };
+    })
+    .filter((logo): logo is BrandLogo => logo !== null);
 }
 
 function transformGalleryImages(
@@ -62,11 +67,17 @@ function transformGalleryImages(
 ): GalleryImage[] {
   if (!images || images.length === 0) return [];
 
-  return images.map((img, index) => ({
-    id: String(img.image?.id || index),
-    src: getStrapiImageUrl(img.image),
-    alt: img.alt || `Gallery image ${index + 1}`,
-  }));
+  return images
+    .map((img, index) => {
+      const src = getStrapiImageUrl(img.image);
+      if (!src) return null;
+      return {
+        id: String(img.image?.id || index),
+        src,
+        alt: img.alt || `Gallery image ${index + 1}`,
+      };
+    })
+    .filter((img): img is GalleryImage => img !== null);
 }
 
 function transformSpaceSection(
@@ -82,10 +93,16 @@ function transformSpaceSection(
       label: stat.label,
       value: stat.value,
     })) || [],
-    galleryImages: space.gallery_images?.map((img, index) => ({
-      src: getStrapiImageUrl(img),
-      alt: img.alternativeText || `Space image ${index + 1}`,
-    })) || [],
+    galleryImages: space.gallery_images
+      ?.map((img, index) => {
+        const src = getStrapiImageUrl(img);
+        if (!src) return null;
+        return {
+          src,
+          alt: img.alternativeText || `Space image ${index + 1}`,
+        };
+      })
+      .filter((img): img is { src: string; alt: string } => img !== null) || [],
   };
 }
 
@@ -94,25 +111,31 @@ function transformCrewArea(
 ): CrewAreaSectionProps | null {
   if (!crew) return null;
 
+  const mainImageSrc = getStrapiImageUrl(crew.main_image);
+  if (!mainImageSrc) return null; // Main image is required
+
+  const secondaryImage1Src = getStrapiImageUrl(crew.secondary_image_1);
+  const secondaryImage2Src = getStrapiImageUrl(crew.secondary_image_2);
+
   return {
     caption: crew.caption || "CREW AREA",
     heading: crew.heading,
     infoLabel: crew.info_label || "INFO",
     infoText: crew.info_text || "",
     mainImage: {
-      src: getStrapiImageUrl(crew.main_image),
+      src: mainImageSrc,
       alt: crew.main_image?.alternativeText || "Crew area main image",
     },
-    secondaryImage1: crew.secondary_image_1
+    secondaryImage1: secondaryImage1Src
       ? {
-          src: getStrapiImageUrl(crew.secondary_image_1),
-          alt: crew.secondary_image_1.alternativeText || "Crew area image 1",
+          src: secondaryImage1Src,
+          alt: crew.secondary_image_1?.alternativeText || "Crew area image 1",
         }
       : undefined,
-    secondaryImage2: crew.secondary_image_2
+    secondaryImage2: secondaryImage2Src
       ? {
-          src: getStrapiImageUrl(crew.secondary_image_2),
-          alt: crew.secondary_image_2.alternativeText || "Crew area image 2",
+          src: secondaryImage2Src,
+          alt: crew.secondary_image_2?.alternativeText || "Crew area image 2",
         }
       : undefined,
   };
@@ -127,6 +150,9 @@ function transformKeyProject(
   const project = projects.find((p) => p.is_featured) || projects[0];
   if (!project) return null;
 
+  const mainImageSrc = getStrapiImageUrl(project.main_image);
+  if (!mainImageSrc) return null; // Main image is required
+
   return {
     projectNumber: project.project_number || "01/01",
     title: project.title,
@@ -135,7 +161,7 @@ function transformKeyProject(
     expertise: project.expertise || [],
     client: project.client,
     mainImage: {
-      src: getStrapiImageUrl(project.main_image),
+      src: mainImageSrc,
       alt: project.main_image?.alternativeText || project.title,
       width: project.main_image?.width || 440,
       height: project.main_image?.height || 297,
@@ -148,12 +174,21 @@ function transformKeyProject(
         }
       : undefined,
     galleryImages:
-      project.gallery_images?.map((img, index) => ({
-        src: getStrapiImageUrl(img.image),
-        alt: img.alt || "",
-        width: img.image?.width || 200,
-        height: img.image?.height || 200,
-      })) || [],
+      project.gallery_images
+        ?.map((img) => {
+          const src = getStrapiImageUrl(img.image);
+          if (!src) return null;
+          return {
+            src,
+            alt: img.alt || "",
+            width: img.image?.width || 200,
+            height: img.image?.height || 200,
+          };
+        })
+        .filter(
+          (img): img is { src: string; alt: string; width: number; height: number } =>
+            img !== null
+        ) || [],
   };
 }
 
@@ -211,9 +246,10 @@ export default async function Home({ params }: PageProps) {
   // Get hero data from CMS or use translations/fallback
   const heroHeading =
     strapiData?.hero?.heading || (useFallback ? FALLBACK_HERO.heading : t.HERO.HEADING);
-  const heroBackground = strapiData?.hero?.background_image
+  const heroBackgroundFromCms = strapiData?.hero?.background_image
     ? getStrapiImageUrl(strapiData.hero.background_image)
-    : FALLBACK_HERO.backgroundImage;
+    : null;
+  const heroBackground = heroBackgroundFromCms || FALLBACK_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_HERO.backgroundAlt;
 
