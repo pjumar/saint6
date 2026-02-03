@@ -183,11 +183,6 @@ async function resetSingleType(contentType: string): Promise<boolean> {
           // Contact Page
           info: null,
           map_image: null,
-
-          // Legacy fields (for backward compatibility during migration)
-          trusted_by: null,
-          featured_project: null,
-          faq_items: [],
         },
       }),
     });
