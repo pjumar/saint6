@@ -1,0 +1,215 @@
+.spaceSection {
+  background-color: var(--color-primary, #880300);
+  border-radius: 1.5rem 1.5rem 0 0;
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.decorativeSpiral {
+  position: absolute;
+  right: -10rem;
+  top: 12rem;
+  width: 30rem;
+  height: 30rem;
+  pointer-events: none;
+}
+
+.spiralImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.caption {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 6rem 0;
+}
+
+.mainContent {
+  padding-left: 0;
+}
+
+.description {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  max-width: 57.5rem;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  margin-bottom: 3rem;
+}
+
+.ctaArrow {
+  display: inline-grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  align-items: start;
+  justify-items: start;
+}
+
+.arrowLine {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background-color: #ffffff;
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: 3px;
+}
+
+.arrowHead {
+  display: block;
+  width: 1rem;
+  height: 8px;
+  background-color: #ffffff;
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 2rem;
+  margin-top: 0;
+}
+
+.ctaText {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.statsGrid {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.statsGridSecond {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  flex: 1;
+  max-width: 7rem;
+}
+
+.statLabel {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  min-height: 1.65rem;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.galleryImage {
+  object-fit: cover;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 48.0625rem) {
+  .spaceSection {
+    padding: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .decorativeSpiral {
+    right: -5rem;
+    top: 16rem;
+    width: 44rem;
+    height: 44rem;
+  }
+
+  .caption {
+    margin-bottom: 6.5rem;
+  }
+
+  .mainContent {
+    padding-left: calc(25% + 1rem);
+  }
+
+  .description {
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .ctaLink {
+    margin-bottom: 4rem;
+  }
+
+  .statsGrid {
+    gap: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .statsGridSecond {
+    gap: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  .statItem {
+    max-width: 8rem;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .galleryItem {
+    aspect-ratio: 3/4;
+    height: 27.5rem;
+  }
+}

@@ -7,11 +7,60 @@ import {
   KeyProjectSection,
   type KeyProjectData,
 } from "@/app/components/key-project-section/KeyProjectSection";
+import {
+  SpaceSection,
+  type SpaceSectionProps,
+} from "@/app/components/space-section/SpaceSection";
+import {
+  CrewAreaSection,
+  type CrewAreaSectionProps,
+} from "@/app/components/crew-area-section/CrewAreaSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "@/app/page.module.css";
 
 // TODO: Replace with actual CMS data fetching
-// Example project data structure - replace this with your CMS data
+// Example data structures - replace these with your CMS data
+
+const exampleSpaceData: Omit<SpaceSectionProps, "ctaLink"> = {
+  caption: "WIDE RANGE OF SPACE",
+  description:
+    "900m² of modular creative space, designed to support everything from fashion editorials to livestreams and events. With a range of customizable sets and zones, SAINT 6 adapts to your imagination.",
+  ctaText: "VIEW STUDIO RENTAL",
+  stats: [
+    { label: "Total Rooms", value: "6" },
+    { label: "Blank Rooms", value: "3" },
+    { label: "Concept Room", value: "3" },
+    { label: "Ceiling Height", value: "4.5m" },
+    { label: "Total Space", value: "900m²" },
+  ],
+  galleryImages: [
+    { src: "/images/space/space-01.png", alt: "Studio space 1" },
+    { src: "/images/space/space-02.png", alt: "Studio space 2" },
+    { src: "/images/space/space-03.png", alt: "Studio space 3" },
+    { src: "/images/space/space-04.png", alt: "Studio space 4" },
+  ],
+};
+
+const exampleCrewAreaData: CrewAreaSectionProps = {
+  caption: "CREW AREA",
+  heading: "And a separate dining area and makeup room for the crew and customers",
+  infoLabel: "INFO",
+  infoText:
+    "Indulge in a dedicated dining space and a professional makeup room—curated for comfort, privacy, and effortless preparation throughout your production.",
+  mainImage: {
+    src: "/images/crew/crew-main.png",
+    alt: "Dining area with outdoor seating",
+  },
+  secondaryImage1: {
+    src: "/images/crew/crew-01.png",
+    alt: "Professional makeup room",
+  },
+  secondaryImage2: {
+    src: "/images/crew/crew-02.png",
+    alt: "Makeup station",
+  },
+};
+
 const exampleProjectData: KeyProjectData = {
   projectNumber: "01/03",
   title: "LSoul Casting call for Shaghai Fashion Week 2025",
@@ -74,6 +123,8 @@ export default function Home() {
         <TrustedBySection />
         <GallerySection />
         <KeyProjectSection project={exampleProjectData} />
+        <SpaceSection {...exampleSpaceData} ctaLink="/studio-rental" />
+        <CrewAreaSection {...exampleCrewAreaData} />
       </div>
     </div>
   );

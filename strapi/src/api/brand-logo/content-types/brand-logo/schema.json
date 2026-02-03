@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brand_logos",
+  "info": {
+    "singularName": "brand-logo",
+    "pluralName": "brand-logos",
+    "displayName": "Brand Logo",
+    "description": "Trusted brands/clients logos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

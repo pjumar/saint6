@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_project_team_members",
+  "info": {
+    "displayName": "Team Member",
+    "description": "Project team member with role and name"
+  },
+  "attributes": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
