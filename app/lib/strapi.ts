@@ -9,7 +9,7 @@
 
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://fantastic-attraction-7b2626fe03.strapiapp.com";
+  "https://attractive-confidence-baa5492cbd.strapiapp.com";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 interface StrapiResponse<T> {
