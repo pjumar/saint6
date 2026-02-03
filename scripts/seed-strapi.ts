@@ -7,7 +7,8 @@
  * Usage: npx tsx scripts/seed-strapi.ts
  */
 
-import 'dotenv/config';
+import { config } from 'dotenv';
+config({ path: '.env.local' });
 import * as fs from 'fs';
 import * as path from 'path';
 import { Blob } from 'buffer';

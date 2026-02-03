@@ -6,7 +6,8 @@
  * Usage: npx tsx scripts/reset-strapi.ts
  */
 
-import 'dotenv/config';
+import { config } from 'dotenv';
+config({ path: '.env.local' });
 
 // Configuration
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://fantastic-attraction-7b2626fe03.strapiapp.com';
@@ -78,8 +79,13 @@ async function getCollectionEntries(contentType: string): Promise<{ id: number; 
 
 async function deleteEntry(contentType: string, documentId: string): Promise<boolean> {
   try {
-    await apiRequest(`${contentType}/${documentId}`, { method: 'DELETE' });
-    return true;
+    const url = `${STRAPI_URL}/api/${contentType}/${documentId}`;
+    const response = await fetch(url, {
+      method: 'DELETE',
+      headers,
+    });
+    // DELETE returns 204 No Content on success
+    return response.ok;
   } catch (error) {
     console.log(`⚠️  Could not delete ${contentType}/${documentId}: ${error}`);
     return false;
