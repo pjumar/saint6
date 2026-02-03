@@ -25,6 +25,8 @@ const headers = {
 
 // Collections to clear (in order - clear dependent items first)
 const collectionsToReset = [
+  'service-items',
+  'testimonial-items',
   'brand-logos',
   'studio-rooms',
   'equipment-items',
@@ -129,29 +131,47 @@ async function resetSingleType(contentType: string): Promise<boolean> {
     }
 
     // Reset the single type with empty data
+    // Include ALL relation and component fields to ensure clean migration
     await apiRequest(contentType, {
       method: 'PUT',
       body: JSON.stringify({
         data: {
-          // Reset common fields to null
+          // Shared components
           hero: null,
           intro: null,
-          trusted_by: null,
+          intro_2: null,
+
+          // Homepage
           brand_logos: [],
           gallery_images: [],
-          featured_project: null,
+          key_projects: [],
           space_section: null,
           crew_area: null,
+
+          // Studio Rental Page
           stats: null,
           rooms: [],
+          concept_rooms: [],
           full_rental: null,
           facilities: null,
           equipment: [],
-          faq_items: [],
-          workflow: [],
+          faqs: [],
+
+          // Creative Page
+          clients: null,
+          client_logos: [],
           services: [],
+          workflow: [],
           portfolio_settings: null,
           portfolio_items: [],
+          testimonials: [],
+
+          // Production Page (key_projects already included above)
+
+          // Event Planning Page
+          event_projects: [],
+
+          // About Page
           vision: null,
           mission: null,
           values: [],
@@ -159,8 +179,15 @@ async function resetSingleType(contentType: string): Promise<boolean> {
           timeline: [],
           founder: null,
           full_width_image: null,
+
+          // Contact Page
           info: null,
           map_image: null,
+
+          // Legacy fields (for backward compatibility during migration)
+          trusted_by: null,
+          featured_project: null,
+          faq_items: [],
         },
       }),
     });
