@@ -349,7 +349,7 @@ export interface StrapiContactPage {
 async function fetchStrapi<T>(
   endpoint: string,
   options: {
-    populate?: string | Record<string, unknown>;
+    populate?: string | string[] | Record<string, unknown>;
     locale?: string;
     revalidate?: number;
   } = {}
@@ -360,6 +360,8 @@ async function fetchStrapi<T>(
 
   if (typeof populate === 'string') {
     params.append('populate', populate);
+  } else if (Array.isArray(populate)) {
+    populate.forEach(field => params.append('populate', field));
   } else {
     params.append('populate', JSON.stringify(populate));
   }
