@@ -174,60 +174,60 @@ const brandLogos = [
 ];
 
 const studioRooms = [
-  { title: 'The Loft', slug: 'the-loft', type: 'blank', price_per_hour: '450,000', counter: '01/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Perfect for editorial shoots, interviews, and minimalist campaigns.', image: '/images/rooms/loft.jpg', order: 1 },
-  { title: 'The Studio', slug: 'the-studio', type: 'blank', price_per_hour: '800,000', counter: '02/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Perfect for editorial shoots, interviews, and minimalist campaigns.', image: '/images/rooms/studio.jpg', order: 2 },
-  { title: 'The Arena', slug: 'the-arena', type: 'blank', price_per_hour: '850,000', counter: '03/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Perfect for editorial shoots, interviews, and minimalist campaigns.', image: '/images/rooms/arena.jpg', order: 3 },
-  { title: 'Concept Room 1', slug: 'concept-room-1', type: 'concept', price_per_hour: '450,000', counter: '04/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Seasonal themed room for unique creative concepts.', image: '/images/rooms/concept1.jpg', order: 4 },
-  { title: 'Concept Room 2', slug: 'concept-room-2', type: 'concept', price_per_hour: '450,000', counter: '05/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Seasonal themed room for unique creative concepts.', image: '/images/rooms/concept2.jpg', order: 5 },
-  { title: 'Concept Room 3', slug: 'concept-room-3', type: 'concept', price_per_hour: '450,000', counter: '06/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Seasonal themed room for unique creative concepts.', image: '/images/rooms/concept3.jpg', order: 6 },
+  { title: 'The Loft', title_vi: 'The Loft', slug: 'the-loft', type: 'blank', price_per_hour: '450,000', counter: '01/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Perfect for editorial shoots, interviews, and minimalist campaigns.', description_vi: 'Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.', image: '/images/rooms/loft.jpg', order: 1 },
+  { title: 'The Studio', title_vi: 'The Studio', slug: 'the-studio', type: 'blank', price_per_hour: '800,000', counter: '02/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Perfect for editorial shoots, interviews, and minimalist campaigns.', description_vi: 'Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.', image: '/images/rooms/studio.jpg', order: 2 },
+  { title: 'The Arena', title_vi: 'The Arena', slug: 'the-arena', type: 'blank', price_per_hour: '850,000', counter: '03/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Perfect for editorial shoots, interviews, and minimalist campaigns.', description_vi: 'Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.', image: '/images/rooms/arena.jpg', order: 3 },
+  { title: 'Concept Room 1', title_vi: 'Phòng Concept 1', slug: 'concept-room-1', type: 'concept', price_per_hour: '450,000', counter: '04/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Seasonal themed room for unique creative concepts.', description_vi: 'Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.', image: '/images/rooms/concept1.jpg', order: 4 },
+  { title: 'Concept Room 2', title_vi: 'Phòng Concept 2', slug: 'concept-room-2', type: 'concept', price_per_hour: '450,000', counter: '05/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Seasonal themed room for unique creative concepts.', description_vi: 'Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.', image: '/images/rooms/concept2.jpg', order: 5 },
+  { title: 'Concept Room 3', title_vi: 'Phòng Concept 3', slug: 'concept-room-3', type: 'concept', price_per_hour: '450,000', counter: '06/06', space: '125m²', width: '6m', ceiling_height: '4.5m', description: 'Seasonal themed room for unique creative concepts.', description_vi: 'Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.', image: '/images/rooms/concept3.jpg', order: 6 },
 ];
 
 const equipmentItems = [
-  { name: 'Godox Light', spec: 'QS 800 | QS 1200', image: '/images/equipment/godox-light.jpg', order: 1 },
-  { name: '2x Softbox', spec: '80X120CM', image: '/images/equipment/softbox-1.jpg', order: 2 },
-  { name: '2x Softbox', spec: '30X160CM', image: '/images/equipment/softbox-2.jpg', order: 3 },
-  { name: '1x Parabolic', spec: '120CM', image: '/images/equipment/parabolic.jpg', order: 4 },
-  { name: '1x Softbox OCTA', spec: '110CM', image: '/images/equipment/softbox-octa.jpg', order: 5 },
-  { name: '1x Softbox', spec: '110CM', image: '/images/equipment/softbox-3.jpg', order: 6 },
-  { name: '1x Beauty Dish', spec: '60CM', image: '/images/equipment/beauty-dish.jpg', order: 7 },
-  { name: '1x Gobo', spec: 'EF-ZF3', image: '/images/equipment/gobo.jpg', order: 8 },
+  { name: 'Godox Light', name_vi: 'Đèn Godox', spec: 'QS 800 | QS 1200', image: '/images/equipment/godox-light.jpg', order: 1 },
+  { name: '2x Softbox', name_vi: '2x Softbox', spec: '80X120CM', image: '/images/equipment/softbox-1.jpg', order: 2 },
+  { name: '2x Softbox', name_vi: '2x Softbox', spec: '30X160CM', image: '/images/equipment/softbox-2.jpg', order: 3 },
+  { name: '1x Parabolic', name_vi: '1x Parabolic', spec: '120CM', image: '/images/equipment/parabolic.jpg', order: 4 },
+  { name: '1x Softbox OCTA', name_vi: '1x Softbox OCTA', spec: '110CM', image: '/images/equipment/softbox-octa.jpg', order: 5 },
+  { name: '1x Softbox', name_vi: '1x Softbox', spec: '110CM', image: '/images/equipment/softbox-3.jpg', order: 6 },
+  { name: '1x Beauty Dish', name_vi: '1x Beauty Dish', spec: '60CM', image: '/images/equipment/beauty-dish.jpg', order: 7 },
+  { name: '1x Gobo', name_vi: '1x Gobo', spec: 'EF-ZF3', image: '/images/equipment/gobo.jpg', order: 8 },
 ];
 
 const faqItems = [
-  { question: 'What is the minimum rental time?', answer: 'The minimum rental time is 2 hours for any of our studio spaces.', category: 'studio-rental', order: 1 },
-  { question: 'Can I bring my own equipment?', answer: 'Yes, you are welcome to bring your own equipment. We also provide professional lighting and equipment for rent.', category: 'studio-rental', order: 2 },
-  { question: 'Is there parking available?', answer: 'Yes, we have free parking available for all clients during their rental period.', category: 'studio-rental', order: 3 },
-  { question: 'Can I extend my booking?', answer: 'Extensions are subject to availability. Please check with our team at least 30 minutes before your session ends.', category: 'studio-rental', order: 4 },
+  { question: 'What is the minimum rental time?', question_vi: 'Thời gian thuê tối thiểu là bao lâu?', answer: 'The minimum rental time is 2 hours for any of our studio spaces.', answer_vi: 'Thời gian thuê tối thiểu là 2 giờ cho bất kỳ không gian studio nào của chúng tôi.', category: 'studio-rental', order: 1 },
+  { question: 'Can I bring my own equipment?', question_vi: 'Tôi có thể mang thiết bị của mình không?', answer: 'Yes, you are welcome to bring your own equipment. We also provide professional lighting and equipment for rent.', answer_vi: 'Có, bạn được hoan nghênh mang thiết bị của riêng mình. Chúng tôi cũng cung cấp thiết bị chiếu sáng và thiết bị chuyên nghiệp cho thuê.', category: 'studio-rental', order: 2 },
+  { question: 'Is there parking available?', question_vi: 'Có chỗ đậu xe không?', answer: 'Yes, we have free parking available for all clients during their rental period.', answer_vi: 'Có, chúng tôi có chỗ đậu xe miễn phí cho tất cả khách hàng trong thời gian thuê.', category: 'studio-rental', order: 3 },
+  { question: 'Can I extend my booking?', question_vi: 'Tôi có thể gia hạn đặt chỗ không?', answer: 'Extensions are subject to availability. Please check with our team at least 30 minutes before your session ends.', answer_vi: 'Việc gia hạn tùy thuộc vào tình trạng còn trống. Vui lòng liên hệ với đội ngũ của chúng tôi ít nhất 30 phút trước khi phiên của bạn kết thúc.', category: 'studio-rental', order: 4 },
 ];
 
 const portfolioItems = [
   // Creative page (8 items)
-  { title: 'FRESSI KV', category: 'Campaign', image: '/images/creative/portfolio-fressi.jpg', size: 'large', page: 'creative', order: 1 },
-  { title: 'MIRINDA', category: 'Campaign', image: '/images/creative/portfolio-mirinda.jpg', size: 'large', page: 'creative', order: 2 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-1.jpg', size: 'short', page: 'creative', order: 3 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-2.jpg', size: 'tall', page: 'creative', order: 4 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-3.jpg', size: 'tall', page: 'creative', order: 5 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-4.jpg', size: 'tall', page: 'creative', order: 6 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-5.jpg', size: 'short', page: 'creative', order: 7 },
-  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/creative/portfolio-yamaha.jpg', size: 'short', page: 'creative', order: 8 },
+  { title: 'FRESSI KV', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-fressi.jpg', size: 'large', page: 'creative', order: 1 },
+  { title: 'MIRINDA', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-mirinda.jpg', size: 'large', page: 'creative', order: 2 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-denvau-1.jpg', size: 'short', page: 'creative', order: 3 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-denvau-2.jpg', size: 'tall', page: 'creative', order: 4 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-denvau-3.jpg', size: 'tall', page: 'creative', order: 5 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-denvau-4.jpg', size: 'tall', page: 'creative', order: 6 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-denvau-5.jpg', size: 'short', page: 'creative', order: 7 },
+  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/creative/portfolio-yamaha.jpg', size: 'short', page: 'creative', order: 8 },
   // Set Design page (8 items)
-  { title: 'FRESSI KV', category: 'Campaign', image: '/images/set-design/campaign-fressi.jpg', size: 'large', page: 'set-design', order: 1 },
-  { title: 'Mirinda', category: 'Campaign', image: '/images/set-design/campaign-mirinda.jpg', size: 'large', page: 'set-design', order: 2 },
-  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-1.jpg', size: 'short', page: 'set-design', order: 3 },
-  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-2.jpg', size: 'tall', page: 'set-design', order: 4 },
-  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-3.jpg', size: 'tall', page: 'set-design', order: 5 },
-  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-4.jpg', size: 'tall', page: 'set-design', order: 6 },
-  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-5.jpg', size: 'short', page: 'set-design', order: 7 },
-  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/set-design/portfolio-yamaha.jpg', size: 'short', page: 'set-design', order: 8 },
+  { title: 'FRESSI KV', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/campaign-fressi.jpg', size: 'large', page: 'set-design', order: 1 },
+  { title: 'Mirinda', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/campaign-mirinda.jpg', size: 'large', page: 'set-design', order: 2 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/portfolio-den-vau-1.jpg', size: 'short', page: 'set-design', order: 3 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/portfolio-den-vau-2.jpg', size: 'tall', page: 'set-design', order: 4 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/portfolio-den-vau-3.jpg', size: 'tall', page: 'set-design', order: 5 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/portfolio-den-vau-4.jpg', size: 'tall', page: 'set-design', order: 6 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/portfolio-den-vau-5.jpg', size: 'short', page: 'set-design', order: 7 },
+  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/set-design/portfolio-yamaha.jpg', size: 'short', page: 'set-design', order: 8 },
   // Decor page (8 items)
-  { title: 'FRESSI KV', category: 'Fashion Stores', image: '/images/decoration/portfolio-fressi.jpg', size: 'large', page: 'decor', order: 1 },
-  { title: 'MIRINDA', category: 'Campaign', image: '/images/decoration/portfolio-mirinda.jpg', size: 'large', page: 'decor', order: 2 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-1.jpg', size: 'short', page: 'decor', order: 3 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-2.jpg', size: 'tall', page: 'decor', order: 4 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-3.jpg', size: 'tall', page: 'decor', order: 5 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-4.jpg', size: 'tall', page: 'decor', order: 6 },
-  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-5.jpg', size: 'short', page: 'decor', order: 7 },
-  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/decoration/portfolio-yamaha.jpg', size: 'short', page: 'decor', order: 8 },
+  { title: 'FRESSI KV', category: 'Fashion Stores', category_vi: 'Cửa hàng Thời trang', image: '/images/decoration/portfolio-fressi.jpg', size: 'large', page: 'decor', order: 1 },
+  { title: 'MIRINDA', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-mirinda.jpg', size: 'large', page: 'decor', order: 2 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-denvau-1.jpg', size: 'short', page: 'decor', order: 3 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-denvau-2.jpg', size: 'tall', page: 'decor', order: 4 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-denvau-3.jpg', size: 'tall', page: 'decor', order: 5 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-denvau-4.jpg', size: 'tall', page: 'decor', order: 6 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-denvau-5.jpg', size: 'short', page: 'decor', order: 7 },
+  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', category_vi: 'Chiến dịch', image: '/images/decoration/portfolio-yamaha.jpg', size: 'short', page: 'decor', order: 8 },
 ];
 
 const testimonialItems = [
@@ -386,8 +386,17 @@ async function seedStudioRooms() {
   const createdIds: number[] = [];
   for (const room of studioRooms) {
     const imageId = await uploadImage(room.image);
-    const entry = await createEntry('studio-rooms', { ...room, image: imageId });
-    if (entry) createdIds.push(entry.id);
+    // Create English version (exclude _vi fields)
+    const { title_vi, description_vi, ...roomData } = room;
+    const entry = await createEntry('studio-rooms', { ...roomData, image: imageId });
+    if (entry) {
+      createdIds.push(entry.id);
+      // Create Vietnamese localization
+      await createLocalization('studio-rooms', entry.documentId, 'vi', {
+        title: title_vi,
+        description: description_vi,
+      });
+    }
   }
   return createdIds;
 }
@@ -397,8 +406,16 @@ async function seedEquipmentItems() {
   const createdIds: number[] = [];
   for (const item of equipmentItems) {
     const imageId = await uploadImage(item.image);
-    const entry = await createEntry('equipment-items', { ...item, image: imageId });
-    if (entry) createdIds.push(entry.id);
+    // Create English version (exclude _vi fields)
+    const { name_vi, ...itemData } = item;
+    const entry = await createEntry('equipment-items', { ...itemData, image: imageId });
+    if (entry) {
+      createdIds.push(entry.id);
+      // Create Vietnamese localization
+      await createLocalization('equipment-items', entry.documentId, 'vi', {
+        name: name_vi,
+      });
+    }
   }
   return createdIds;
 }
@@ -407,8 +424,17 @@ async function seedFaqItems() {
   console.log('\n📦 Seeding FAQ Items...');
   const createdIds: number[] = [];
   for (const item of faqItems) {
-    const entry = await createEntry('faq-items', item);
-    if (entry) createdIds.push(entry.id);
+    // Create English version (exclude _vi fields)
+    const { question_vi, answer_vi, ...itemData } = item;
+    const entry = await createEntry('faq-items', itemData);
+    if (entry) {
+      createdIds.push(entry.id);
+      // Create Vietnamese localization
+      await createLocalization('faq-items', entry.documentId, 'vi', {
+        question: question_vi,
+        answer: answer_vi,
+      });
+    }
   }
   return createdIds;
 }
@@ -418,8 +444,17 @@ async function seedPortfolioItems() {
   const createdIds: number[] = [];
   for (const item of portfolioItems) {
     const imageId = await uploadImage(item.image);
-    const entry = await createEntry('portfolio-items', { ...item, image: imageId });
-    if (entry) createdIds.push(entry.id);
+    // Create English version (exclude _vi fields)
+    const { category_vi, ...itemData } = item;
+    const entry = await createEntry('portfolio-items', { ...itemData, image: imageId });
+    if (entry) {
+      createdIds.push(entry.id);
+      // Create Vietnamese localization (title stays the same as it's brand names)
+      await createLocalization('portfolio-items', entry.documentId, 'vi', {
+        title: item.title,
+        category: category_vi,
+      });
+    }
   }
   return createdIds;
 }
