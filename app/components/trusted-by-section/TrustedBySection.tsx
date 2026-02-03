@@ -6,11 +6,32 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./TrustedBySection.module.css";
 
-export function TrustedBySection() {
+export interface BrandLogo {
+  id: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+interface TrustedBySectionProps {
+  logos?: BrandLogo[];
+}
+
+// Default fallback logos
+const DEFAULT_LOGOS: BrandLogo[] = [
+  { id: "1", src: "/images/brands/brand-01.png", alt: "L'OFFICIEL", width: 170, height: 35 },
+  { id: "2", src: "/images/brands/brand-02.png", alt: "Lenskart", width: 138, height: 40 },
+  { id: "3", src: "/images/brands/brand-03.png", alt: "Vinamilk", width: 98, height: 32 },
+  { id: "4", src: "/images/brands/brand-04.png", alt: "SONY", width: 114, height: 20 },
+  { id: "5", src: "/images/brands/brand-05.png", alt: "VinFast", width: 128, height: 32 },
+];
+
+export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProps) {
   const { t } = useTranslation();
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
-  const [hiddenLogos, setHiddenLogos] = useState<Set<number>>(new Set());
+  const [hiddenLogos, setHiddenLogos] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const logosContainer = logosRef.current;
@@ -103,36 +124,8 @@ export function TrustedBySection() {
     };
   }, []);
 
-  const brandLogos = [
-    {
-      src: "/images/brands/brand-01.png",
-      alt: "L'OFFICIEL",
-      width: 170,
-      height: 35,
-    },
-    {
-      src: "/images/brands/brand-02.png",
-      alt: "Lenskart",
-      width: 138,
-      height: 40,
-    },
-    {
-      src: "/images/brands/brand-03.png",
-      alt: "Vinamilk",
-      width: 98,
-      height: 32,
-    },
-    { src: "/images/brands/brand-04.png", alt: "SONY", width: 114, height: 20 },
-    {
-      src: "/images/brands/brand-05.png",
-      alt: "VinFast",
-      width: 128,
-      height: 32,
-    },
-  ];
-
-  const handleLogoError = (index: number) => {
-    setHiddenLogos((prev) => new Set(prev).add(index));
+  const handleLogoError = (logoId: string) => {
+    setHiddenLogos((prev) => new Set(prev).add(logoId));
   };
 
   return (
@@ -144,29 +137,29 @@ export function TrustedBySection() {
         <h2 className="heading-desktop">{t.TRUSTED_BY.HEADING}</h2>
       </div>
       <div className={styles.brandLogos} ref={logosRef}>
-        {brandLogos.map((logo, index) => (
+        {logos.map((logo) => (
           <Image
-            key={`logo-${index}`}
+            key={`logo-${logo.id}`}
             src={logo.src}
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
             className={styles.brandLogo}
-            style={hiddenLogos.has(index) ? { display: "none" } : undefined}
-            onError={() => handleLogoError(index)}
+            style={hiddenLogos.has(logo.id) ? { display: "none" } : undefined}
+            onError={() => handleLogoError(logo.id)}
           />
         ))}
         <div className={styles.brandLogosDuplicate}>
-          {brandLogos.map((logo, index) => (
+          {logos.map((logo) => (
             <Image
-              key={`logo-duplicate-${index}`}
+              key={`logo-duplicate-${logo.id}`}
               src={logo.src}
               alt={logo.alt}
               width={logo.width}
               height={logo.height}
               className={styles.brandLogo}
-              style={hiddenLogos.has(index) ? { display: "none" } : undefined}
-              onError={() => handleLogoError(index)}
+              style={hiddenLogos.has(logo.id) ? { display: "none" } : undefined}
+              onError={() => handleLogoError(logo.id)}
             />
           ))}
         </div>

@@ -1,10 +1,11 @@
-"use client";
-
 import {
   CrewAreaSection,
   type CrewAreaSectionProps,
 } from "@/app/components/crew-area-section/CrewAreaSection";
-import { GallerySection } from "@/app/components/gallery-section/GallerySection";
+import {
+  GallerySection,
+  type GalleryImage,
+} from "@/app/components/gallery-section/GallerySection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import {
   type KeyProjectData,
@@ -14,118 +15,188 @@ import {
   SpaceSection,
   type SpaceSectionProps,
 } from "@/app/components/space-section/SpaceSection";
-import { TrustedBySection } from "@/app/components/trusted-by-section/TrustedBySection";
-import { useTranslation } from "@/app/contexts/TranslationContext";
+import {
+  TrustedBySection,
+  type BrandLogo,
+} from "@/app/components/trusted-by-section/TrustedBySection";
+import {
+  getHomepage,
+  getStrapiImageUrl,
+  type StrapiHomepage,
+  type StrapiSpaceSection,
+  type StrapiCrewArea,
+  type StrapiKeyProject,
+  type StrapiBrandLogo,
+  type StrapiGalleryImage,
+} from "@/app/lib/strapi";
+import { getTranslations } from "@/app/lib/translations";
 import styles from "@/app/page.module.css";
 
-// TODO: Replace with actual CMS data fetching
-// Example data structures - replace these with your CMS data
+// ============================================================================
+// Transformer Functions - Convert Strapi data to component props
+// ============================================================================
 
-const exampleSpaceData: Omit<SpaceSectionProps, "ctaLink"> = {
-  caption: "WIDE RANGE OF SPACE",
-  description:
-    "900m² of modular creative space, designed to support everything from fashion editorials to livestreams and events. With a range of customizable sets and zones, SAINT 6 adapts to your imagination.",
-  ctaText: "VIEW STUDIO RENTAL",
-  stats: [
-    { label: "Total Rooms", value: "6" },
-    { label: "Blank Rooms", value: "3" },
-    { label: "Concept Room", value: "3" },
-    { label: "Ceiling Height", value: "4.5m" },
-    { label: "Total Space", value: "900m²" },
-  ],
-  galleryImages: [
-    { src: "/images/space/space-01.png", alt: "Studio space 1" },
-    { src: "/images/space/space-02.png", alt: "Studio space 2" },
-    { src: "/images/space/space-03.png", alt: "Studio space 3" },
-    { src: "/images/space/space-04.png", alt: "Studio space 4" },
-  ],
-};
+function transformBrandLogos(logos: StrapiBrandLogo[] | undefined): BrandLogo[] {
+  if (!logos || logos.length === 0) return [];
 
-const exampleCrewAreaData: CrewAreaSectionProps = {
-  caption: "CREW AREA",
-  heading:
-    "And a separate dining area and makeup room for the crew and customers",
-  infoLabel: "INFO",
-  infoText:
-    "Indulge in a dedicated dining space and a professional makeup room—curated for comfort, privacy, and effortless preparation throughout your production.",
-  mainImage: {
-    src: "/images/crew/crew-main.png",
-    alt: "Dining area with outdoor seating",
-  },
-  secondaryImage1: {
-    src: "/images/crew/crew-01.png",
-    alt: "Professional makeup room",
-  },
-  secondaryImage2: {
-    src: "/images/crew/crew-02.png",
-    alt: "Makeup station",
-  },
-};
+  return logos
+    .sort((a, b) => a.order - b.order)
+    .map((logo) => ({
+      id: String(logo.id),
+      src: getStrapiImageUrl(logo.logo),
+      alt: logo.name,
+      width: logo.logo?.width || 150,
+      height: logo.logo?.height || 40,
+    }));
+}
 
-const exampleProjectData: KeyProjectData = {
-  projectNumber: "01/03",
-  title: "LSoul Casting call for Shaghai Fashion Week 2025",
-  infoText:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  team: [
-    { role: "Photo", name: "Linh Phạm" },
-    { role: "Fashion Director", name: "Trần Đạt" },
-    { role: "Set design production", name: "SAINT6 Production" },
-  ],
-  expertise: ["Set Design", "Production", "Location"],
-  client: "LSoul",
-  mainImage: {
-    src: "/images/project/project-main.jpg",
-    alt: "LSoul Casting call for Shaghai Fashion Week 2025",
-    width: 440,
-    height: 297,
-  },
-  testimonial: {
-    quote:
-      "Spacious, modular, with the energy and tools that serious creatives need.",
-    author: "Crish Phan",
-    role: "Creative Director at LSoul",
-  },
-  galleryImages: [
-    {
-      src: "/images/project/project-01.jpg",
-      alt: "",
-      width: 161,
-      height: 287,
+function transformGalleryImages(
+  images: StrapiGalleryImage[] | undefined
+): GalleryImage[] {
+  if (!images || images.length === 0) return [];
+
+  return images.map((img, index) => ({
+    id: String(img.image?.id || index),
+    src: getStrapiImageUrl(img.image),
+    alt: img.alt || `Gallery image ${index + 1}`,
+  }));
+}
+
+function transformSpaceSection(
+  space: StrapiSpaceSection | undefined
+): Omit<SpaceSectionProps, "ctaLink"> | null {
+  if (!space) return null;
+
+  return {
+    caption: space.caption || "WIDE RANGE OF SPACE",
+    description: space.description,
+    ctaText: space.cta_text || "VIEW STUDIO RENTAL",
+    stats: space.stats?.map((stat) => ({
+      label: stat.label,
+      value: stat.value,
+    })) || [],
+    galleryImages: space.gallery_images?.map((img, index) => ({
+      src: getStrapiImageUrl(img),
+      alt: img.alternativeText || `Space image ${index + 1}`,
+    })) || [],
+  };
+}
+
+function transformCrewArea(
+  crew: StrapiCrewArea | undefined
+): CrewAreaSectionProps | null {
+  if (!crew) return null;
+
+  return {
+    caption: crew.caption || "CREW AREA",
+    heading: crew.heading,
+    infoLabel: crew.info_label || "INFO",
+    infoText: crew.info_text || "",
+    mainImage: {
+      src: getStrapiImageUrl(crew.main_image),
+      alt: crew.main_image?.alternativeText || "Crew area main image",
     },
-    {
-      src: "/images/project/project-02.jpg",
-      alt: "",
-      width: 219,
-      height: 138,
-    },
-    {
-      src: "/images/project/project-03.jpg",
-      alt: "",
-      width: 219,
-      height: 137,
-    },
-  ],
-};
+    secondaryImage1: crew.secondary_image_1
+      ? {
+          src: getStrapiImageUrl(crew.secondary_image_1),
+          alt: crew.secondary_image_1.alternativeText || "Crew area image 1",
+        }
+      : undefined,
+    secondaryImage2: crew.secondary_image_2
+      ? {
+          src: getStrapiImageUrl(crew.secondary_image_2),
+          alt: crew.secondary_image_2.alternativeText || "Crew area image 2",
+        }
+      : undefined,
+  };
+}
 
-export default function Home() {
-  const { t } = useTranslation();
+function transformKeyProject(
+  projects: StrapiKeyProject[] | undefined
+): KeyProjectData | null {
+  if (!projects || projects.length === 0) return null;
+
+  // Get the featured project or first project
+  const project = projects.find((p) => p.is_featured) || projects[0];
+  if (!project) return null;
+
+  return {
+    projectNumber: project.project_number || "01/01",
+    title: project.title,
+    infoText: project.info_text || "",
+    team: project.team || [],
+    expertise: project.expertise || [],
+    client: project.client,
+    mainImage: {
+      src: getStrapiImageUrl(project.main_image),
+      alt: project.main_image?.alternativeText || project.title,
+      width: project.main_image?.width || 440,
+      height: project.main_image?.height || 297,
+    },
+    testimonial: project.testimonial
+      ? {
+          quote: project.testimonial.quote,
+          author: project.testimonial.author,
+          role: project.testimonial.role,
+        }
+      : undefined,
+    galleryImages:
+      project.gallery_images?.map((img, index) => ({
+        src: getStrapiImageUrl(img.image),
+        alt: img.alt || "",
+        width: img.image?.width || 200,
+        height: img.image?.height || 200,
+      })) || [],
+  };
+}
+
+// ============================================================================
+// Page Component - Server Component with static generation
+// ============================================================================
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function Home({ params }: PageProps) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+
+  // Fetch CMS data at build time
+  const strapiData = await getHomepage(locale);
+
+  // Transform Strapi data to component props
+  const brandLogos = transformBrandLogos(strapiData?.brand_logos);
+  const galleryImages = transformGalleryImages(strapiData?.gallery_images);
+  const spaceData = transformSpaceSection(strapiData?.space_section);
+  const crewAreaData = transformCrewArea(strapiData?.crew_area);
+  const keyProjectData = transformKeyProject(strapiData?.key_projects);
+
+  // Get hero data from CMS or use translations fallback
+  const heroHeading = strapiData?.hero?.heading || t.HERO.HEADING;
+  const heroBackground = strapiData?.hero?.background_image
+    ? getStrapiImageUrl(strapiData.hero.background_image)
+    : "/images/hero/hero-background.jpg";
+  const heroBackgroundAlt =
+    strapiData?.hero?.background_alt || "Hero background";
 
   return (
     <div className={styles.homepage}>
       <HeroSection
-        heading={t.HERO.HEADING}
-        backgroundImage="/images/hero/hero-background.jpg"
-        backgroundAlt="Hero background"
+        heading={heroHeading}
+        backgroundImage={heroBackground}
+        backgroundAlt={heroBackgroundAlt}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />
       <div className={styles.contentContainer}>
-        <TrustedBySection />
-        <GallerySection />
-        <KeyProjectSection project={exampleProjectData} />
-        <SpaceSection {...exampleSpaceData} ctaLink="/studio-rental" />
-        <CrewAreaSection {...exampleCrewAreaData} />
+        <TrustedBySection logos={brandLogos.length > 0 ? brandLogos : undefined} />
+        <GallerySection images={galleryImages.length > 0 ? galleryImages : undefined} />
+        {keyProjectData && <KeyProjectSection project={keyProjectData} />}
+        {spaceData && (
+          <SpaceSection {...spaceData} ctaLink="/studio-rental" />
+        )}
+        {crewAreaData && <CrewAreaSection {...crewAreaData} />}
       </div>
     </div>
   );
