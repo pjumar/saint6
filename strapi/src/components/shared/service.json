@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_shared_workflow_steps",
+  "collectionName": "components_shared_services",
   "info": {
-    "displayName": "Workflow Step",
-    "description": "A step in the workflow carousel"
+    "displayName": "Service",
+    "description": "Unified service/workflow item with optional counter"
   },
   "attributes": {
     "image": {
@@ -12,8 +12,7 @@
       "allowedTypes": ["images"]
     },
     "counter": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "title": {
       "type": "string",

@@ -29,33 +29,22 @@
     "services": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.service-item"
+      "component": "shared.service"
     },
-    "process_title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "process_description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "intro_2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
     },
     "workflow": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.workflow-step"
+      "component": "shared.service"
     },
     "event_projects": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::event-project.event-project"
+      "target": "api::key-project.key-project"
     }
   }
 }

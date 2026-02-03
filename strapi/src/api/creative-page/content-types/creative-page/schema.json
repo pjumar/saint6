@@ -21,28 +21,22 @@
       "repeatable": false,
       "component": "shared.hero"
     },
-    "clients_label": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "clients": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.clients-section"
     },
-    "clients_description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "client_logos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand-logo.brand-logo"
     },
     "services": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.service-item"
+      "component": "shared.service"
     },
-    "how_we_work": {
+    "intro": {
       "type": "component",
       "repeatable": false,
       "component": "shared.intro"
@@ -50,7 +44,7 @@
     "workflow": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.workflow-step"
+      "component": "shared.service"
     },
     "portfolio_settings": {
       "type": "component",
@@ -61,6 +55,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::portfolio-item.portfolio-item"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial-item.testimonial-item"
     }
   }
 }

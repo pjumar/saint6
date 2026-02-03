@@ -214,6 +214,39 @@ const portfolioItems = [
   { title: 'MIRINDA', category: 'Campaign', image: '/images/decoration/portfolio-mirinda.jpg', size: 'large', page: 'decor', order: 2 },
 ];
 
+const testimonialItems = [
+  {
+    brand_name: 'LSoul',
+    brand_logo: '/images/brands/brand-01.png',
+    quote_en: 'Spacious, modular, with the energy and tools that serious creatives need. Saint 6 exceeded our expectations.',
+    quote_vi: 'Rộng rãi, linh hoạt, với năng lượng và công cụ mà những người sáng tạo nghiêm túc cần. Saint 6 đã vượt quá mong đợi của chúng tôi.',
+    author_name: 'Crish Phan',
+    author_title_en: 'Creative Director at LSoul',
+    author_title_vi: 'Giám đốc Sáng tạo tại LSoul',
+    order: 1,
+  },
+  {
+    brand_name: 'Vinamilk',
+    brand_logo: '/images/brands/brand-03.png',
+    quote_en: 'The attention to detail and creative direction from Saint 6 helped us achieve exactly the visual story we envisioned.',
+    quote_vi: 'Sự chú ý đến chi tiết và định hướng sáng tạo từ Saint 6 đã giúp chúng tôi đạt được chính xác câu chuyện hình ảnh mà chúng tôi hình dung.',
+    author_name: 'Nguyen Thi Mai',
+    author_title_en: 'Marketing Director at Vinamilk',
+    author_title_vi: 'Giám đốc Marketing tại Vinamilk',
+    order: 2,
+  },
+  {
+    brand_name: 'Sony',
+    brand_logo: '/images/brands/brand-04.png',
+    quote_en: 'Professional, creative, and incredibly efficient. Our product launch campaign was a huge success thanks to Saint 6.',
+    quote_vi: 'Chuyên nghiệp, sáng tạo và cực kỳ hiệu quả. Chiến dịch ra mắt sản phẩm của chúng tôi thành công vang dội nhờ Saint 6.',
+    author_name: 'David Chen',
+    author_title_en: 'Brand Manager at Sony Vietnam',
+    author_title_vi: 'Quản lý Thương hiệu tại Sony Việt Nam',
+    order: 3,
+  },
+];
+
 const keyProjects = [
   {
     title: 'LSoul Casting call for Shanghai Fashion Week 2025',
@@ -247,198 +280,7 @@ const galleryImages = Array.from({ length: 15 }, (_, i) => ({
   alt: `Gallery image ${i + 1}`,
 }));
 
-// ============================================================================
-// Vietnamese Translations
-// ============================================================================
-
-const viTranslations = {
-  homepage: {
-    hero: { heading: 'Nơi Trí Tưởng Tượng Thành Hình' },
-    space_section: {
-      caption: 'KHÔNG GIAN ĐA DẠNG',
-      description: '900m² không gian sáng tạo linh hoạt, được thiết kế để hỗ trợ mọi thứ từ chụp ảnh thời trang đến livestream và sự kiện.',
-      cta_text: 'XEM THUÊ STUDIO',
-      stats: [
-        { label: 'Tổng số phòng', value: '6' },
-        { label: 'Phòng trống', value: '3' },
-        { label: 'Phòng Concept', value: '3' },
-        { label: 'Chiều cao trần', value: '4.5m' },
-        { label: 'Tổng diện tích', value: '900m²' },
-      ],
-    },
-    crew_area: {
-      caption: 'KHU VỰC EKIP',
-      heading: 'Và khu vực ăn uống riêng biệt cùng phòng trang điểm cho ekip và khách hàng',
-      info_label: 'THÔNG TIN',
-      info_text: 'Tận hưởng không gian ăn uống riêng biệt và phòng trang điểm chuyên nghiệp—được thiết kế cho sự thoải mái, riêng tư và chuẩn bị dễ dàng.',
-    },
-  },
-  studioRental: {
-    hero: { heading: 'Không Gian Studio Được Thiết Kế Cho Sáng Tạo' },
-    intro: {
-      label: 'CÁCH THỨC HOẠT ĐỘNG',
-      description: 'Đặt không gian lý tưởng của bạn, mang theo tầm nhìn của bạn, và để SAINT 6 lo phần còn lại.',
-      cta_text: 'Đặt Ngay',
-    },
-  },
-  creative: {
-    hero: { heading: 'Sản xuất sáng tạo cho thương hiệu, chiến dịch & sản phẩm' },
-    clients_label: 'Khách Hàng Tiêu Biểu',
-    clients_description: 'Chúng tôi tự hào hợp tác với các thương hiệu, agency và startup hàng đầu trên toàn thế giới.',
-    services: [
-      { title: 'Chiến Dịch Thương Hiệu & Quảng Cáo', description: 'Chúng tôi sản xuất các chiến dịch thời trang, lifestyle, editorial, mạng xã hội và influencer để đưa thương hiệu vào cuộc sống.' },
-      { title: 'Chụp Sản Phẩm & Bao Bì', description: 'Từ nhãn sản phẩm và hình ảnh thương mại điện tử đến packshot và still life, chúng tôi tạo ra hình ảnh hoàn hảo.' },
-    ],
-    how_we_work: {
-      label: 'Cách Chúng Tôi Làm Việc',
-      description: 'Chúng tôi có thể đảm nhận toàn bộ quy trình sản xuất hoặc tham gia ở bất kỳ giai đoạn nào — từ moodboard và phát triển concept đến hậu kỳ và bàn giao cuối cùng.',
-      cta_text: 'Liên hệ ngay',
-    },
-    workflow: [
-      { title: 'Định Hướng Sáng Tạo', description: 'Chúng tôi nghiên cứu brief và phát triển các hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.' },
-      { title: 'Phát Triển Storyboard', description: 'Đội ngũ của chúng tôi tạo storyboard chi tiết và danh sách shot để hình dung kết quả cuối cùng.' },
-      { title: 'Tiền Sản Xuất & Tìm Nguồn', description: 'Chúng tôi phối hợp người mẫu, địa điểm, đạo cụ và thiết bị để đảm bảo thực hiện suôn sẻ.' },
-      { title: 'Quay / Sản Xuất', description: 'Ekip giàu kinh nghiệm của chúng tôi ghi lại tầm nhìn của bạn với độ chính xác và phong cách sáng tạo.' },
-      { title: 'Hậu Kỳ', description: 'Biên tập chuyên nghiệp, chỉnh màu và retouch để hoàn thiện sản phẩm cuối cùng.' },
-      { title: 'Bàn Giao Cuối Cùng', description: 'Chúng tôi bàn giao tài sản hoàn chỉnh sẵn sàng cho in ấn, digital và triển khai mạng xã hội.' },
-    ],
-    portfolio_settings: {
-      label: 'Dự Án Nổi Bật',
-      statement: 'Hình ảnh đẳng cấp phản ánh tham vọng thương hiệu của bạn — một showcase của nghệ thuật và sự chú ý đến chi tiết.',
-    },
-  },
-  production: {
-    hero: { heading: 'Sản Xuất Quy Mô Lớn, Thực Hiện Liền Mạch.' },
-    intro: {
-      label: 'Dịch Vụ Của Chúng Tôi',
-      description: 'Từ concept đến bàn giao cuối cùng, chúng tôi đưa chiến dịch của bạn vào cuộc sống thông qua lập kế hoạch chính xác, định hướng sáng tạo và làm chủ kỹ thuật.',
-      cta_text: 'Lên Kế Hoạch Sản Xuất',
-    },
-    services: [
-      { title: 'Sản Xuất Chiến Dịch & Editorial', description: 'Chúng tôi tuyển chọn các chiến dịch và editorial độc đáo kết hợp nghệ thuật, câu chuyện và sự tinh tế vượt thời gian.' },
-      { title: 'Sản Xuất Nhiếp Ảnh & Phim', description: 'Từ concept đến final cut, chúng tôi mang đến hình ảnh ấn tượng qua đạo diễn chuyên nghiệp và kể chuyện sáng tạo.' },
-      { title: 'Cho Thuê Ánh Sáng & Thiết Bị', description: 'Ánh sáng cao cấp và thiết bị hiện đại được thiết kế để nâng tầm mọi dự án sản xuất.' },
-      { title: 'Trang Điểm & Làm Tóc', description: 'Dịch vụ làm đẹp chuyên nghiệp biến đổi người mẫu và nâng cao kể chuyện thị giác.' },
-      { title: 'Tìm Địa Điểm & Giấy Phép', description: 'Chúng tôi tìm kiếm địa điểm hoàn hảo và xử lý tất cả thủ tục giấy phép.' },
-      { title: 'Phối Hợp Hậu Kỳ', description: 'Quản lý hậu kỳ toàn diện, từ biên tập và chỉnh màu đến bàn giao cuối cùng.' },
-    ],
-    saint6_way_title: 'Phương Thức Sáng Tạo Saint 6',
-    saint6_way_description: 'Chúng tôi mang cấu trúc vào sáng tạo — kết hợp định hướng chiến lược, tầm nhìn nghệ thuật và thực hiện tinh tế.',
-    workflow: [
-      { title: 'Tiền Sản Xuất', description: 'Lập kế hoạch, định hướng sáng tạo và phối hợp logistics.' },
-      { title: 'Chuẩn Bị', description: 'Cài đặt thiết bị, thiết kế ánh sáng và chuẩn bị không gian.' },
-      { title: 'Ngày Quay', description: 'Thực hiện chuyên nghiệp với ekip giàu kinh nghiệm.' },
-      { title: 'Kết Thúc & Bàn Giao', description: 'Hậu kỳ và bàn giao tài sản cuối cùng.' },
-    ],
-  },
-  setDesign: {
-    hero: { heading: 'Từ Moodboard Đến Xây Dựng — Thiết Kế Bối Cảnh Toàn Diện Cho Kể Chuyện Thị Giác' },
-    how_we_work: {
-      label: 'Cách Chúng Tôi Làm Việc',
-      description: 'Chúng tôi thiết kế, xây dựng và quản lý bối cảnh vật lý biến đổi định hướng sáng tạo thành môi trường sẵn sàng sản xuất.',
-      cta_text: 'Liên hệ ngay',
-    },
-    workflow: [
-      { title: 'Brief & Concept', description: 'Chúng tôi nghiên cứu brief và phát triển các hướng sáng tạo dựa trên tầm nhìn của bạn.' },
-      { title: 'Layout & Render', description: 'Đội ngũ thiết kế của chúng tôi tạo ra layout chi tiết và render 3D.' },
-      { title: 'Vòng Lặp Phản Hồi', description: 'Tinh chỉnh hợp tác để đảm bảo phù hợp hoàn hảo với mục tiêu của bạn.' },
-      { title: 'Xây Dựng', description: 'Xây dựng chuyên nghiệp với sự chú ý đến từng chi tiết.' },
-      { title: 'Hỗ Trợ Quay', description: 'Hỗ trợ tại chỗ trong quá trình sản xuất.' },
-      { title: 'Bảo Trì', description: 'Dọn dẹp sau quay và quản lý bối cảnh.' },
-    ],
-    portfolio_settings: {
-      label: 'PORTFOLIO',
-      statement: 'Chúng tôi định hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn.',
-    },
-  },
-  eventPlanning: {
-    hero: { heading: 'Sự Kiện Được Tuyển Chọn Để Lại Ấn Tượng Khó Quên' },
-    intro: {
-      label: 'Dịch Vụ Của Chúng Tôi',
-      description: 'Từ những buổi gặp gỡ thân mật đến những lễ kỷ niệm hoành tráng, chúng tôi thiết kế và thực hiện sự kiện cuốn hút và truyền cảm hứng.',
-      cta_text: 'Lên Kế Hoạch Sự Kiện',
-    },
-    services: [
-      { title: 'Ra Mắt Sản Phẩm & Thương Hiệu', description: 'Chúng tôi tạo ra trải nghiệm ra mắt cuốn hút khán giả và nâng tầm câu chuyện thương hiệu của bạn.' },
-      { title: 'Trình Diễn Thời Trang', description: 'Từ sàn runway đến hậu trường, chúng tôi thiết kế và thực hiện sự kiện thời trang tôn vinh nghệ thuật.' },
-      { title: 'Tiệc Riêng', description: 'Những buổi gặp gỡ thân mật được tuyển chọn với chi tiết tinh tế, tạo nên những khoảnh khắc đáng nhớ.' },
-      { title: 'Pop-Up Nghệ Thuật & Lifestyle', description: 'Trải nghiệm pop-up đắm chìm kết hợp nghệ thuật, văn hóa và lifestyle.' },
-      { title: 'Sự Kiện Báo Chí & Influencer', description: 'Sự kiện truyền thông chiến lược được thiết kế để tạo buzz và xây dựng kết nối.' },
-      { title: 'Lễ Kỷ Niệm Doanh Nghiệp', description: 'Sự kiện doanh nghiệp chuyên nghiệp nhưng tinh tế phản ánh giá trị của bạn.' },
-    ],
-    process_title: 'Quy Trình Của Chúng Tôi',
-    process_description: 'Mọi sự kiện bắt đầu bằng việc hiểu tầm nhìn của bạn. Sau đó chúng tôi biến nó thành hiện thực thông qua lập kế hoạch tỉ mỉ và thực hiện hoàn hảo.',
-    workflow: [
-      { title: 'Khám Phá', description: 'Hiểu tầm nhìn, mục tiêu và đối tượng của bạn.' },
-      { title: 'Phát Triển Concept', description: 'Tạo concept sự kiện độc đáo phù hợp với nhu cầu của bạn.' },
-      { title: 'Lập Kế Hoạch & Logistics', description: 'Lập kế hoạch chi tiết và phối hợp tất cả các yếu tố.' },
-      { title: 'Thực Hiện', description: 'Quản lý và phối hợp tại chỗ hoàn hảo.' },
-      { title: 'Theo Dõi', description: 'Báo cáo sau sự kiện và thu thập phản hồi.' },
-    ],
-  },
-  decor: {
-    hero: { heading: 'Từ cửa hàng flagship đến biệt thự riêng — chúng tôi thiết kế và trang trí không gian kể câu chuyện.' },
-    how_we_work: {
-      label: 'Cách Chúng Tôi Làm Việc',
-      description: 'Tên "Decor" đại diện cho công việc sáng tạo của Saint 6 trên các cửa hàng thời trang, nhà hàng và biệt thự cá nhân.',
-      cta_text: 'Lên Kế Hoạch Trang Trí',
-    },
-    workflow: [
-      { title: 'Tổng Quan Brief', description: 'Chúng tôi nghiên cứu brief và phát triển nhiều hướng sáng tạo.' },
-      { title: 'Ý Tưởng 2D', description: 'Đội ngũ thiết kế của chúng tôi tạo mood board chi tiết và layout concept.' },
-      { title: 'Render 3D', description: 'Chúng tôi tạo render 3D chân thực để bạn có thể trải nghiệm không gian.' },
-      { title: 'Tiền Sản Xuất', description: 'Chúng tôi phối hợp vật liệu, nhà cung cấp và timeline.' },
-      { title: 'Lắp Đặt Cuối Cùng', description: 'Đội ngũ của chúng tôi quản lý toàn bộ việc lắp đặt với độ chính xác cao.' },
-    ],
-    portfolio_settings: {
-      label: 'mỗi khoảnh khắc, một cảm xúc',
-      statement: 'Mỗi dự án bắt đầu với một tầm nhìn. Chúng tôi biến nó thành hiện thực — từng chi tiết một.',
-    },
-  },
-  about: {
-    hero: { heading: 'Chúng Tôi Tưởng Tượng. Chúng Tôi Thiết Kế. Chúng Tôi Sáng Tạo.' },
-    intro: {
-      label: 'VỀ CHÚNG TÔI',
-      headline: 'Chúng tôi là một studio của các nghệ sĩ, người xây dựng, stylist, người mơ mộng, người giải quyết vấn đề và người kể chuyện.',
-      body_paragraph_1: 'Saint 6 Studios, được sáng lập bởi Trang Nhẹ Nhàng, là một studio sáng tạo đa ngành.',
-      body_paragraph_2: 'Chúng tôi tạo ra tác phẩm có hồn, tác phẩm chứa đựng cảm xúc, bầu không khí và câu chuyện.',
-    },
-    vision: { label: 'TẦM NHÌN', statement: 'Tạo ra tác phẩm được ghi nhớ qua những cảm xúc mà nó gợi lên.' },
-    mission: { label: 'SỨ MỆNH', statement: 'Chúng tôi biến ý tưởng, bản sắc và câu chuyện thành trải nghiệm thị giác lay động con người.' },
-    values: [
-      { title: 'Đơn Giản', description: 'Sự rõ ràng bộc lộ cảm xúc.' },
-      { title: 'Chân Thực', description: 'Cảm xúc phải thật, không được tạo ra.' },
-      { title: 'Có Chủ Đích', description: 'Mọi lựa chọn phục vụ cảm xúc.' },
-      { title: 'Tự Sự', description: 'Mọi thứ đều là một phần của câu chuyện.' },
-      { title: 'Tin Tưởng', description: 'Nghệ thuật cần sự đáng tin cậy để phát triển.' },
-      { title: 'Giác Quan Thứ Sáu', description: 'Chúng tôi thiết kế cho cảm xúc ẩn sau brief.' },
-    ],
-    our_story: {
-      label: 'Câu Chuyện Của Chúng Tôi',
-      paragraph_1: 'Trước Saint 6, có Haus of Trang - nơi Trang học được rằng styling không chỉ là về cách mọi thứ trông như thế nào, mà còn về cách chúng khiến người ta cảm thấy.',
-      paragraph_2: 'Nhận thức đó đã trở thành nền tảng của Saint 6',
-    },
-    timeline: [
-      { description: 'Saint 6 được thành lập với niềm tin rằng cái đẹp là cảm xúc, không phải trang trí.' },
-      { description: 'Không gian studio Saint 6 đầu tiên được xây dựng.' },
-      { description: 'Chúng tôi mở rộng sang trang trí cửa hàng và môi trường thương hiệu không gian.' },
-      { description: 'Chúng tôi bắt đầu thiết kế sự kiện và đám cưới.' },
-      { description: 'Chúng tôi vượt qua 1.000 thiết kế bối cảnh được tạo ra kể từ khi thành lập.' },
-      { description: 'Chúng tôi đang mở địa điểm Saint 6 thứ hai.' },
-    ],
-    founder: {
-      quote: 'Sáng tạo là công việc cảm xúc. Chúng tôi xây dựng không gian cho mọi người cảm nhận điều gì đó thực sự.',
-      title: 'Nhà Sáng Lập & Giám Đốc Sáng Tạo',
-    },
-  },
-  contact: {
-    hero: { heading: 'Hãy Cùng Tạo Nên Điều Phi Thường' },
-    info: {
-      title: 'Liên Hệ',
-      subheading: 'Hãy Cùng Tạo Nên Điều Phi Thường',
-    },
-  },
-};
+// Vietnamese translations are now inline in each seed function
 
 // ============================================================================
 // Seed Functions - Collections
@@ -520,6 +362,32 @@ async function seedKeyProjects() {
   return createdIds;
 }
 
+async function seedTestimonialItems() {
+  console.log('\n📦 Seeding Testimonial Items...');
+  const createdIds: number[] = [];
+  for (const item of testimonialItems) {
+    const logoId = await uploadImage(item.brand_logo);
+    // Create English version
+    const entry = await createEntry('testimonial-items', {
+      brand_name: item.brand_name,
+      brand_logo: logoId,
+      quote: item.quote_en,
+      author_name: item.author_name,
+      author_title: item.author_title_en,
+      order: item.order,
+    });
+    if (entry) {
+      createdIds.push(entry.id);
+      // Create Vietnamese localization
+      await createLocalization('testimonial-items', entry.documentId, 'vi', {
+        quote: item.quote_vi,
+        author_title: item.author_title_vi,
+      });
+    }
+  }
+  return createdIds;
+}
+
 // ============================================================================
 // Seed Functions - Pages
 // ============================================================================
@@ -547,13 +415,13 @@ async function seedHomepage(brandLogoIds: number[], keyProjectIds: number[]) {
   // English
   await updateSingleType('homepage', {
     hero: {
-      heading: 'Where Imagination Takes Form',
+      heading: 'The place where all your concepts and artistic ideas can come true',
       background_image: heroImageId,
       background_alt: 'Saint 6 Studio',
     },
     brand_logos: brandLogoIds,
     gallery_images: galleryImageComponents,
-    featured_projects: keyProjectIds,
+    key_projects: keyProjectIds,
     space_section: {
       caption: 'WIDE RANGE OF SPACE',
       description: '900m² of modular creative space, designed to support everything from fashion editorials to livestreams and events.',
@@ -582,26 +450,32 @@ async function seedHomepage(brandLogoIds: number[], keyProjectIds: number[]) {
   // Vietnamese
   await updateSingleType('homepage', {
     hero: {
-      heading: viTranslations.homepage.hero.heading,
+      heading: 'Nơi mọi ý tưởng và khái niệm nghệ thuật của bạn có thể trở thành hiện thực',
       background_image: heroImageId,
       background_alt: 'Saint 6 Studio',
     },
     brand_logos: brandLogoIds,
     gallery_images: galleryImageComponents,
-    featured_projects: keyProjectIds,
+    key_projects: keyProjectIds,
     space_section: {
-      caption: viTranslations.homepage.space_section.caption,
-      description: viTranslations.homepage.space_section.description,
-      cta_text: viTranslations.homepage.space_section.cta_text,
+      caption: 'KHÔNG GIAN ĐA DẠNG',
+      description: '900m² không gian sáng tạo linh hoạt, được thiết kế để hỗ trợ mọi thứ từ chụp ảnh thời trang đến livestream và sự kiện.',
+      cta_text: 'XEM THUÊ STUDIO',
       cta_link: '/studio-rental',
-      stats: viTranslations.homepage.space_section.stats,
+      stats: [
+        { label: 'Tổng số phòng', value: '6' },
+        { label: 'Phòng trống', value: '3' },
+        { label: 'Phòng Concept', value: '3' },
+        { label: 'Chiều cao trần', value: '4.5m' },
+        { label: 'Tổng diện tích', value: '900m²' },
+      ],
       gallery_images: spaceImages.filter(Boolean),
     },
     crew_area: {
-      caption: viTranslations.homepage.crew_area.caption,
-      heading: viTranslations.homepage.crew_area.heading,
-      info_label: viTranslations.homepage.crew_area.info_label,
-      info_text: viTranslations.homepage.crew_area.info_text,
+      caption: 'KHU VỰC EKIP',
+      heading: 'Và khu vực ăn uống riêng biệt cùng phòng trang điểm cho ekip và khách hàng',
+      info_label: 'THÔNG TIN',
+      info_text: 'Tận hưởng không gian ăn uống riêng biệt và phòng trang điểm chuyên nghiệp—được thiết kế cho sự thoải mái, riêng tư và chuẩn bị dễ dàng.',
       main_image: crewMainImageId,
       secondary_image_1: crewImage1Id,
       secondary_image_2: crewImage2Id,
@@ -617,17 +491,21 @@ async function seedStudioRentalPage(roomIds: number[], equipmentIds: number[], f
   const makeupImageId = await uploadImage('/images/facilities/makeup-room.jpg');
   const loungeImageId = await uploadImage('/images/facilities/dining-lounge.jpg');
 
+  // Separate blank rooms and concept rooms
+  const blankRoomIds = roomIds.slice(0, 3);
+  const conceptRoomIds = roomIds.slice(3);
+
   // English
   await updateSingleType('studio-rental-page', {
     hero: {
-      heading: 'Studio Spaces Designed for Creation',
+      heading: 'Your creative playground',
       background_image: heroImageId,
       background_alt: 'Studio Rental',
     },
     intro: {
-      label: 'HOW IT WORKS',
-      description: 'Book your ideal space, bring your vision, and let SAINT 6 handle the rest.',
-      cta_text: 'Book Now',
+      title: 'How It Works',
+      description: 'Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you.',
+      cta_text: 'Get in touch',
       cta_link: '#contact-form',
     },
     stats: {
@@ -637,7 +515,8 @@ async function seedStudioRentalPage(roomIds: number[], equipmentIds: number[], f
       blank_rooms: 3,
       concept_rooms: 3,
     },
-    rooms: roomIds,
+    rooms: blankRoomIds,
+    concept_rooms: conceptRoomIds,
     full_rental: {
       price: '2,500,000',
       background_image: fullRentalBgId,
@@ -647,20 +526,20 @@ async function seedStudioRentalPage(roomIds: number[], equipmentIds: number[], f
       lounge_image: loungeImageId,
     },
     equipment: equipmentIds,
-    faq_items: faqIds,
+    faqs: faqIds,
   });
 
   // Vietnamese
   await updateSingleType('studio-rental-page', {
     hero: {
-      heading: viTranslations.studioRental.hero.heading,
+      heading: 'Sân chơi sáng tạo của bạn',
       background_image: heroImageId,
       background_alt: 'Studio Rental',
     },
     intro: {
-      label: viTranslations.studioRental.intro.label,
-      description: viTranslations.studioRental.intro.description,
-      cta_text: viTranslations.studioRental.intro.cta_text,
+      title: 'Cách thức hoạt động',
+      description: 'Vì tầm nhìn của bạn xứng đáng hơn một không gian— Nó cần một sân khấu, một câu chuyện, và một studio đồng hành cùng bạn.',
+      cta_text: 'Liên hệ ngay',
       cta_link: '#contact-form',
     },
     stats: {
@@ -670,7 +549,8 @@ async function seedStudioRentalPage(roomIds: number[], equipmentIds: number[], f
       blank_rooms: 3,
       concept_rooms: 3,
     },
-    rooms: roomIds,
+    rooms: blankRoomIds,
+    concept_rooms: conceptRoomIds,
     full_rental: {
       price: '2,500,000',
       background_image: fullRentalBgId,
@@ -680,11 +560,11 @@ async function seedStudioRentalPage(roomIds: number[], equipmentIds: number[], f
       lounge_image: loungeImageId,
     },
     equipment: equipmentIds,
-    faq_items: faqIds,
+    faqs: faqIds,
   }, 'vi');
 }
 
-async function seedCreativePage(portfolioIds: number[]) {
+async function seedCreativePage(portfolioIds: number[], brandLogoIds: number[], testimonialIds: number[]) {
   console.log('\n📄 Seeding Creative Page...');
 
   const heroImageId = await uploadImage('/images/creative/hero-background.jpg');
@@ -699,52 +579,73 @@ async function seedCreativePage(portfolioIds: number[]) {
       background_image: heroImageId,
       background_alt: 'Creative',
     },
-    clients_label: 'Selected Clients',
-    clients_description: "We're proud to collaborate with leading brands, agencies, and startups worldwide.",
+    clients: {
+      label: 'Selected Clients',
+      description: "We're proud to collaborate with leading brands, agencies, and startups worldwide.",
+    },
+    client_logos: brandLogoIds,
     services: [
-      { icon: 'camera', title: 'Brand & Advertising Campaigns', description: 'We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life.' },
-      { icon: 'box', title: 'Product & Packaging Shoots', description: 'From product labels and e-commerce images to packshots and still life, we create polished visuals.' },
+      { image: null, title: 'Brand & Advertising Campaigns', description: 'We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.' },
+      { image: null, title: 'Product & Packaging Shoots', description: 'From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.' },
     ],
-    how_we_work: {
-      label: 'How We Work',
+    intro: {
+      title: 'How We Work',
       description: 'We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery.',
       cta_text: 'Get in touch',
       cta_link: '#contact-form',
     },
     workflow: [
-      { step_number: '01', title: 'Creative Direction', description: 'We study your brief and develop creative directions based on your brand, audience, and goals.' },
-      { step_number: '02', title: 'Storyboard Development', description: 'Our team creates detailed storyboards and shot lists to visualize the final output.' },
-      { step_number: '03', title: 'Pre-production & Sourcing', description: 'We coordinate talent, locations, props, and equipment to ensure smooth execution.' },
-      { step_number: '04', title: 'Shoot / Production', description: 'Our experienced crew captures your vision with precision and creative flair.' },
-      { step_number: '05', title: 'Post-production', description: 'Professional editing, color grading, and retouching bring the final deliverables to life.' },
-      { step_number: '06', title: 'Final Delivery', description: 'We deliver polished assets ready for print, digital, and social media deployment.' },
+      { counter: '01', title: 'Creative Direction', description: 'We study your brief and develop creative directions based on your brand, audience, and goals.' },
+      { counter: '02', title: 'Storyboard Development', description: 'Our team creates detailed storyboards and shot lists to visualize the final output.' },
+      { counter: '03', title: 'Pre-production & Sourcing', description: 'We coordinate talent, locations, props, and equipment to ensure smooth execution.' },
+      { counter: '04', title: 'Shoot / Production', description: 'Our experienced crew captures your vision with precision and creative flair.' },
+      { counter: '05', title: 'Post-production', description: 'Professional editing, color grading, and retouching bring the final deliverables to life.' },
+      { counter: '06', title: 'Final Delivery', description: 'We deliver polished assets ready for print, digital, and social media deployment.' },
     ],
     portfolio_settings: {
       label: 'Featured Work',
       statement: "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail.",
     },
     portfolio_items: creativePortfolioIds,
+    testimonials: testimonialIds,
   });
 
   // Vietnamese
   await updateSingleType('creative-page', {
     hero: {
-      heading: viTranslations.creative.hero.heading,
+      heading: 'Sản xuất sáng tạo cho thương hiệu, chiến dịch & sản phẩm',
       background_image: heroImageId,
       background_alt: 'Creative',
     },
-    clients_label: viTranslations.creative.clients_label,
-    clients_description: viTranslations.creative.clients_description,
-    services: viTranslations.creative.services.map((s, i) => ({ icon: ['camera', 'box'][i], ...s })),
-    how_we_work: {
-      label: viTranslations.creative.how_we_work.label,
-      description: viTranslations.creative.how_we_work.description,
-      cta_text: viTranslations.creative.how_we_work.cta_text,
+    clients: {
+      label: 'Khách Hàng Tiêu Biểu',
+      description: 'Chúng tôi tự hào hợp tác với các thương hiệu, agency và startup hàng đầu trên toàn thế giới.',
+    },
+    client_logos: brandLogoIds,
+    services: [
+      { image: null, title: 'Chiến Dịch Thương Hiệu & Quảng Cáo', description: 'Chúng tôi sản xuất các chiến dịch thời trang, phong cách sống, editorial, mạng xã hội và influencer mang thương hiệu vào cuộc sống với năng lượng sáng tạo mới mẻ.' },
+      { image: null, title: 'Chụp Sản Phẩm & Bao Bì', description: 'Từ nhãn sản phẩm và hình ảnh thương mại điện tử đến packshot và still life, chúng tôi tạo ra hình ảnh tinh tế nâng tầm bao bì, catalog và cửa hàng trực tuyến.' },
+    ],
+    intro: {
+      title: 'Cách Chúng Tôi Làm Việc',
+      description: 'Chúng tôi có thể đảm nhận sản xuất toàn diện hoặc tham gia ở bất kỳ giai đoạn nào — từ phát triển moodboard và concept đến hậu kỳ và giao sản phẩm cuối cùng.',
+      cta_text: 'Liên hệ ngay',
       cta_link: '#contact-form',
     },
-    workflow: viTranslations.creative.workflow.map((w, i) => ({ step_number: `0${i + 1}`, ...w })),
-    portfolio_settings: viTranslations.creative.portfolio_settings,
+    workflow: [
+      { counter: '01', title: 'Chỉ Đạo Sáng Tạo', description: 'Chúng tôi nghiên cứu brief và phát triển hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.' },
+      { counter: '02', title: 'Phát Triển Storyboard', description: 'Đội ngũ của chúng tôi tạo storyboard chi tiết và danh sách shot để hình dung sản phẩm cuối cùng.' },
+      { counter: '03', title: 'Tiền Kỳ & Tìm Nguồn', description: 'Chúng tôi phối hợp diễn viên, địa điểm, đạo cụ và thiết bị để đảm bảo thực hiện suôn sẻ.' },
+      { counter: '04', title: 'Quay / Sản Xuất', description: 'Đội ngũ giàu kinh nghiệm của chúng tôi ghi lại tầm nhìn của bạn với sự chính xác và phong cách sáng tạo.' },
+      { counter: '05', title: 'Hậu Kỳ', description: 'Dựng phim, chỉnh màu và retouch chuyên nghiệp đưa sản phẩm cuối cùng vào cuộc sống.' },
+      { counter: '06', title: 'Giao Hàng Cuối Cùng', description: 'Chúng tôi giao sản phẩm hoàn chỉnh sẵn sàng cho in ấn, kỹ thuật số và triển khai trên mạng xã hội.' },
+    ],
+    portfolio_settings: {
+      label: 'Tác Phẩm Nổi Bật',
+      statement: 'Hình ảnh cao cấp phản ánh tham vọng thương hiệu của bạn — một triển lãm của nghệ thuật và sự chú ý đến chi tiết.',
+    },
     portfolio_items: creativePortfolioIds,
+    testimonials: testimonialIds,
   }, 'vi');
 }
 
@@ -752,7 +653,6 @@ async function seedProductionPage(keyProjectIds: number[]) {
   console.log('\n📄 Seeding Production Page...');
 
   const heroImageId = await uploadImage('/images/production/hero-background.jpg');
-  const serviceIcons = ['film', 'camera', 'lightbulb', 'palette', 'map', 'edit'];
 
   // English
   await updateSingleType('production-page', {
@@ -762,52 +662,68 @@ async function seedProductionPage(keyProjectIds: number[]) {
       background_alt: 'Production',
     },
     intro: {
-      label: 'Our Service',
+      title: 'Our Service',
       description: 'From concept to final delivery, we bring your campaign to life through precision planning, creative direction, and technical mastery.',
       cta_text: 'Plan Your Production',
       cta_link: '#contact-form',
     },
     services: [
-      { icon: 'film', title: 'Campaign & Editorial Production', description: 'We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication.' },
-      { icon: 'camera', title: 'Photography & Film Production', description: 'From concept to final cut, we deliver high-impact visuals through expert direction and creative storytelling.' },
-      { icon: 'lightbulb', title: 'Lighting & Equipment Rental', description: 'Premium lighting and state-of-the-art equipment designed to elevate every production.' },
-      { icon: 'palette', title: 'Make-up & Hair Stylist', description: 'Professional beauty services that transform talent and enhance visual storytelling.' },
-      { icon: 'map', title: 'Location Scouting & Permits', description: 'We source the perfect locations and handle all permit logistics.' },
-      { icon: 'edit', title: 'Post-production Coordination', description: 'End-to-end post-production management, from editing and color grading to final delivery.' },
+      { image: null, title: 'Campaign & Editorial Production', description: 'We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure.' },
+      { image: null, title: 'Photography & Film Production', description: 'From concept to final cut, we deliver high-impact visuals through expert direction, seamless coordination, and creative storytelling.' },
+      { image: null, title: 'Lighting & Equipment Rental', description: 'Premium lighting and state-of-the-art equipment designed to elevate every production with precision, balance, and creative control.' },
+      { image: null, title: 'Make-up & Hair Stylist', description: 'Professional beauty services that transform talent and enhance visual storytelling with meticulous attention to detail.' },
+      { image: null, title: 'Location Scouting & Permits', description: 'We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap.' },
+      { image: null, title: 'Post-production Coordination', description: 'End-to-end post-production management, from editing and color grading to final delivery across all formats.' },
     ],
-    saint6_way_title: 'The Saint 6 Way of Creation',
-    saint6_way_description: 'We bring structure to creativity — blending strategic direction, artistic vision, and refined execution.',
+    intro_2: {
+      title: 'The Saint 6 Way of Creation',
+      description: 'We believe in structured creativity — a process that respects your vision while bringing our expertise to every detail.',
+    },
     workflow: [
-      { step_number: '01', title: 'Pre-Production', description: 'Planning, creative direction, and logistics coordination.' },
-      { step_number: '02', title: 'Set Up', description: 'Equipment setup, lighting design, and space preparation.' },
-      { step_number: '03', title: 'Shoot Day', description: 'Professional execution with our experienced crew.' },
-      { step_number: '04', title: 'Wrap & Delivery', description: 'Post-production and final asset delivery.' },
+      { counter: '01', title: 'Pre-Production', description: 'Concept, scheduling, and creative' },
+      { counter: '02', title: 'Set-Up', description: 'Lighting, camera, art direction' },
+      { counter: '03', title: 'Shoot Day', description: 'Execution and real-time adjustments' },
+      { counter: '04', title: 'Wrap & Delivery', description: 'Editing, review, and delivery' },
     ],
-    featured_project: keyProjectIds[0],
+    key_projects: keyProjectIds,
   });
 
   // Vietnamese
   await updateSingleType('production-page', {
     hero: {
-      heading: viTranslations.production.hero.heading,
+      heading: 'Sản Xuất Toàn Diện, Thực Hiện Liền Mạch.',
       background_image: heroImageId,
       background_alt: 'Production',
     },
     intro: {
-      label: viTranslations.production.intro.label,
-      description: viTranslations.production.intro.description,
-      cta_text: viTranslations.production.intro.cta_text,
+      title: 'Dịch Vụ',
+      description: 'Từ ý tưởng đến sản phẩm cuối cùng, chúng tôi mang chiến dịch của bạn vào cuộc sống thông qua lập kế hoạch chính xác, chỉ đạo sáng tạo và kỹ thuật điêu luyện.',
+      cta_text: 'Lên Kế Hoạch Sản Xuất',
       cta_link: '#contact-form',
     },
-    services: viTranslations.production.services.map((s, i) => ({ icon: serviceIcons[i], ...s })),
-    saint6_way_title: viTranslations.production.saint6_way_title,
-    saint6_way_description: viTranslations.production.saint6_way_description,
-    workflow: viTranslations.production.workflow.map((w, i) => ({ step_number: `0${i + 1}`, ...w })),
-    featured_project: keyProjectIds[0],
+    services: [
+      { image: null, title: 'Sản Xuất Chiến Dịch & Editorial', description: 'Chúng tôi tạo ra các chiến dịch và editorial độc đáo kết hợp nghệ thuật, câu chuyện và sự tinh tế vượt thời gian — mang câu chuyện thương hiệu vào cuộc sống với sức hút điện ảnh.' },
+      { image: null, title: 'Sản Xuất Chụp Ảnh & Phim', description: 'Từ ý tưởng đến bản cắt cuối cùng, chúng tôi mang đến hình ảnh có tác động mạnh thông qua chỉ đạo chuyên nghiệp, phối hợp liền mạch và kể chuyện sáng tạo.' },
+      { image: null, title: 'Cho Thuê Ánh Sáng & Thiết Bị', description: 'Ánh sáng cao cấp và thiết bị hiện đại được thiết kế để nâng tầm mọi sản xuất với độ chính xác, cân bằng và kiểm soát sáng tạo.' },
+      { image: null, title: 'Chuyên Viên Trang Điểm & Làm Tóc', description: 'Dịch vụ làm đẹp chuyên nghiệp biến đổi diện mạo và nâng cao câu chuyện hình ảnh với sự chú ý tỉ mỉ đến từng chi tiết.' },
+      { image: null, title: 'Tìm Địa Điểm & Xin Phép', description: 'Chúng tôi tìm kiếm địa điểm hoàn hảo và xử lý tất cả thủ tục giấy phép, đảm bảo hoạt động suôn sẻ từ tiền kỳ đến kết thúc.' },
+      { image: null, title: 'Phối Hợp Hậu Kỳ', description: 'Quản lý hậu kỳ toàn diện, từ dựng phim và chỉnh màu đến sản phẩm cuối cùng trên mọi định dạng.' },
+    ],
+    intro_2: {
+      title: 'Phong Cách Sáng Tạo Saint 6',
+      description: 'Chúng tôi tin vào sự sáng tạo có cấu trúc — một quy trình tôn trọng tầm nhìn của bạn đồng thời mang chuyên môn của chúng tôi vào từng chi tiết.',
+    },
+    workflow: [
+      { counter: '01', title: 'Tiền Sản Xuất', description: 'Ý tưởng, lên lịch và sáng tạo' },
+      { counter: '02', title: 'Chuẩn Bị', description: 'Ánh sáng, máy quay, chỉ đạo nghệ thuật' },
+      { counter: '03', title: 'Ngày Quay', description: 'Thực hiện và điều chỉnh theo thời gian thực' },
+      { counter: '04', title: 'Hoàn Thành & Giao Hàng', description: 'Dựng phim, duyệt và giao hàng' },
+    ],
+    key_projects: keyProjectIds,
   }, 'vi');
 }
 
-async function seedSetDesignPage(portfolioIds: number[]) {
+async function seedSetDesignPage(portfolioIds: number[], testimonialIds: number[]) {
   console.log('\n📄 Seeding Set Design Page...');
 
   const heroImageId = await uploadImage('/images/set-design/hero-background.jpg');
@@ -822,103 +738,131 @@ async function seedSetDesignPage(portfolioIds: number[]) {
       background_image: heroImageId,
       background_alt: 'Set Design',
     },
-    how_we_work: {
-      label: 'How We Work',
+    intro: {
+      title: 'How We Work',
       description: 'We design, construct, and manage physical sets that transform creative direction into production-ready environments.',
       cta_text: 'Get in touch',
       cta_link: '#contact-form',
     },
     workflow: [
-      { step_number: '01', title: 'Brief & Concept', description: 'We study the brief and develop creative directions based on your vision.' },
-      { step_number: '02', title: 'Layout & Render', description: 'Our design team creates detailed layouts and 3D renders.' },
-      { step_number: '03', title: 'Feedback Loop', description: 'Collaborative refinement to ensure perfect alignment with your goals.' },
-      { step_number: '04', title: 'Construction', description: 'Professional build with attention to every detail.' },
-      { step_number: '05', title: 'Shoot Support', description: 'On-site support during production.' },
-      { step_number: '06', title: 'Maintenance', description: 'Post-shoot cleanup and set management.' },
+      { counter: '01', title: 'Brief & Concept Alignment', description: 'We start by understanding your creative direction, brand language, and spatial needs.' },
+      { counter: '02', title: '2D Layout & 3D Render', description: 'We create technical layouts and 3D visuals that bring the proposed set design to life — before anything is built.' },
+      { counter: '03', title: 'Presentation & Feedback Loop', description: 'We present the design and collaborate closely with your team to refine it until it\'s approved.' },
+      { counter: '04', title: 'Set Construction & Sourcing', description: 'We build the set and source all backdrops, structural elements, props, and textures to match the approved concept.' },
+      { counter: '05', title: 'Setup & Shoot Support', description: 'We handle set assembly, stay present during the shoot to make real-time adjustments, and ensure everything works on camera.' },
+      { counter: '06', title: 'Set Maintenance & Tear-Down', description: 'Once the shoot wraps, we handle cleanup and dismantle the set efficiently and professionally.' },
     ],
     portfolio_settings: {
       label: 'PORTFOLIO',
-      statement: 'We shape physical spaces that reflect your creative intent — environments that become part of your story.',
+      statement: 'We shape physical spaces that reflect your creative intent — environments that become part of your story',
     },
     portfolio_items: setDesignPortfolioIds,
+    testimonials: testimonialIds,
   });
 
   // Vietnamese
   await updateSingleType('set-design-page', {
     hero: {
-      heading: viTranslations.setDesign.hero.heading,
+      heading: 'Từ Bản Vẽ Ý Tưởng đến Hoàn Thiện — Thiết Kế Set Hoàn Chỉnh cho Câu Chuyện Hình Ảnh',
       background_image: heroImageId,
       background_alt: 'Set Design',
     },
-    how_we_work: {
-      label: viTranslations.setDesign.how_we_work.label,
-      description: viTranslations.setDesign.how_we_work.description,
-      cta_text: viTranslations.setDesign.how_we_work.cta_text,
+    intro: {
+      title: 'Cách Chúng Tôi Làm Việc',
+      description: 'Chúng tôi thiết kế, xây dựng và quản lý các set vật lý để biến đổi định hướng sáng tạo thành môi trường sẵn sàng sản xuất.',
+      cta_text: 'Liên hệ ngay',
       cta_link: '#contact-form',
     },
-    workflow: viTranslations.setDesign.workflow.map((w, i) => ({ step_number: `0${i + 1}`, ...w })),
-    portfolio_settings: viTranslations.setDesign.portfolio_settings,
+    workflow: [
+      { counter: '01', title: 'Brief & Thống Nhất Concept', description: 'Chúng tôi bắt đầu bằng việc hiểu định hướng sáng tạo, ngôn ngữ thương hiệu và nhu cầu không gian của bạn.' },
+      { counter: '02', title: 'Bố Cục 2D & Render 3D', description: 'Chúng tôi tạo bản vẽ kỹ thuật và hình ảnh 3D đưa thiết kế set vào cuộc sống — trước khi bất cứ thứ gì được xây dựng.' },
+      { counter: '03', title: 'Trình Bày & Phản Hồi', description: 'Chúng tôi trình bày thiết kế và phối hợp chặt chẽ với đội ngũ của bạn để hoàn thiện cho đến khi được duyệt.' },
+      { counter: '04', title: 'Xây Dựng Set & Tìm Nguồn', description: 'Chúng tôi xây dựng set và tìm nguồn tất cả phông nền, yếu tố cấu trúc, đạo cụ và kết cấu phù hợp với concept đã duyệt.' },
+      { counter: '05', title: 'Lắp Đặt & Hỗ Trợ Quay', description: 'Chúng tôi xử lý việc lắp đặt set, có mặt trong suốt buổi quay để điều chỉnh theo thời gian thực và đảm bảo mọi thứ hoạt động trên camera.' },
+      { counter: '06', title: 'Bảo Trì Set & Tháo Dỡ', description: 'Khi buổi quay kết thúc, chúng tôi xử lý việc dọn dẹp và tháo dỡ set một cách hiệu quả và chuyên nghiệp.' },
+    ],
+    portfolio_settings: {
+      label: 'PORTFOLIO',
+      statement: 'Chúng tôi tạo hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn',
+    },
     portfolio_items: setDesignPortfolioIds,
+    testimonials: testimonialIds,
   }, 'vi');
 }
 
-async function seedEventPlanningPage() {
+async function seedEventPlanningPage(keyProjectIds: number[]) {
   console.log('\n📄 Seeding Event Planning Page...');
 
   const heroImageId = await uploadImage('/images/event-planning/hero-background.jpg');
-  const serviceIcons = ['star', 'scissors', 'utensils', 'palette', 'mic', 'briefcase'];
 
   // English
   await updateSingleType('event-planning-page', {
     hero: {
-      heading: 'Curated Events That Leave Lasting Impressions',
+      heading: 'Curated Experiences, Designed to Inspire.',
       background_image: heroImageId,
       background_alt: 'Event Planning',
     },
     intro: {
-      label: 'Our Service',
-      description: 'From intimate gatherings to grand celebrations, we design and execute events that captivate and inspire.',
+      title: 'Every Moment, An Emotion',
+      description: 'Saint 6 approaches every event as a living brand story. Our in-house creative team designs atmospheres where concept, design, and guest experience blend seamlessly.',
       cta_text: 'Plan Your Event',
       cta_link: '#contact-form',
     },
     services: [
-      { icon: 'star', title: 'Product & Brand Launches', description: 'We craft launch experiences that captivate audiences and elevate your brand story.' },
-      { icon: 'scissors', title: 'Fashion Shows', description: 'From runway to backstage, we design and execute fashion events that celebrate artistry.' },
-      { icon: 'utensils', title: 'Private Dinners', description: 'Intimate gatherings curated with exquisite detail, creating memorable moments.' },
-      { icon: 'palette', title: 'Art & Lifestyle Pop-Ups', description: 'Immersive pop-up experiences that blend art, culture, and lifestyle.' },
-      { icon: 'mic', title: 'Press & Influencer Events', description: 'Strategic media events designed to generate buzz and build connections.' },
-      { icon: 'briefcase', title: 'Corporate Celebrations', description: 'Professional yet refined corporate events that reflect your values.' },
+      { image: null, title: 'Product & Brand Launches', description: 'We craft launch experiences that captivate audiences and elevate your brand story with precision and flair.' },
+      { image: null, title: 'Fashion Shows', description: 'From runway to backstage, we design and execute fashion events that celebrate artistry and style.' },
+      { image: null, title: 'Private Dinners', description: 'Intimate gatherings curated with exquisite detail, creating memorable moments for your guests.' },
+      { image: null, title: 'Art & Lifestyle Pop-Ups', description: 'Immersive pop-up experiences that blend art, culture, and lifestyle into unforgettable activations.' },
+      { image: null, title: 'Press & Influencer Events', description: 'Strategic media events designed to generate buzz and build lasting connections with key voices.' },
+      { image: null, title: 'Corporate Celebrations', description: 'Professional yet refined corporate events that reflect your company\'s values and vision.' },
     ],
-    process_title: 'Our Process',
-    process_description: 'Every event begins with understanding your vision. We then bring it to life through meticulous planning and flawless execution.',
+    intro_2: {
+      title: 'Every Moment, An Emotion',
+      description: 'Beyond venue and décor, Saint 6 delivers artistry in motion — a rare harmony of creative vision, flawless execution, and atmosphere designed to leave a lasting impression.',
+    },
     workflow: [
-      { step_number: '01', title: 'Discovery', description: 'Understanding your vision, goals, and audience.' },
-      { step_number: '02', title: 'Concept Development', description: 'Creating a unique event concept tailored to your needs.' },
-      { step_number: '03', title: 'Planning & Logistics', description: 'Detailed planning and coordination of all elements.' },
-      { step_number: '04', title: 'Execution', description: 'Flawless on-site management and coordination.' },
-      { step_number: '05', title: 'Follow-up', description: 'Post-event reporting and feedback collection.' },
+      { counter: '01', title: 'Full Creative & Design Direction', description: 'From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand\'s vision.' },
+      { counter: '02', title: 'Guest Experience & Flow Planning', description: 'Every moment is designed with intention — seamless, elegant, and unforgettable.' },
+      { counter: '03', title: 'On-site Management & Run-of-Show Execution', description: 'Flawless coordination ensures your event unfolds with effortless precision.' },
+      { counter: '04', title: 'Venue Styling & Set Design', description: 'We craft immersive environments that capture emotion, detail, and distinctive character.' },
+      { counter: '05', title: 'Catering & Entertainment Coordination', description: 'We curate dining and performances that enrich the mood and elevate the experience.' },
     ],
-    event_projects: [],
+    event_projects: keyProjectIds,
   });
 
   // Vietnamese
   await updateSingleType('event-planning-page', {
     hero: {
-      heading: viTranslations.eventPlanning.hero.heading,
+      heading: 'Trải Nghiệm Được Chọn Lọc, Thiết Kế Để Truyền Cảm Hứng.',
       background_image: heroImageId,
       background_alt: 'Event Planning',
     },
     intro: {
-      label: viTranslations.eventPlanning.intro.label,
-      description: viTranslations.eventPlanning.intro.description,
-      cta_text: viTranslations.eventPlanning.intro.cta_text,
+      title: 'Mỗi Khoảnh Khắc, Một Cảm Xúc',
+      description: 'Saint 6 tiếp cận mỗi sự kiện như một câu chuyện thương hiệu sống động. Đội ngũ sáng tạo nội bộ của chúng tôi thiết kế không gian nơi ý tưởng, thiết kế và trải nghiệm khách mời hòa quyện hoàn hảo.',
+      cta_text: 'Lên Kế Hoạch Sự Kiện',
       cta_link: '#contact-form',
     },
-    services: viTranslations.eventPlanning.services.map((s, i) => ({ icon: serviceIcons[i], ...s })),
-    process_title: viTranslations.eventPlanning.process_title,
-    process_description: viTranslations.eventPlanning.process_description,
-    workflow: viTranslations.eventPlanning.workflow.map((w, i) => ({ step_number: `0${i + 1}`, ...w })),
-    event_projects: [],
+    services: [
+      { image: null, title: 'Ra Mắt Sản Phẩm & Thương Hiệu', description: 'Chúng tôi tạo ra những trải nghiệm ra mắt thu hút khán giả và nâng tầm câu chuyện thương hiệu với sự chính xác và phong cách.' },
+      { image: null, title: 'Trình Diễn Thời Trang', description: 'Từ sàn runway đến hậu trường, chúng tôi thiết kế và thực hiện các sự kiện thời trang tôn vinh nghệ thuật và phong cách.' },
+      { image: null, title: 'Bữa Tối Riêng Tư', description: 'Các buổi họp mặt thân mật được chọn lọc với chi tiết tinh tế, tạo nên những khoảnh khắc đáng nhớ cho khách mời.' },
+      { image: null, title: 'Pop-Up Nghệ Thuật & Phong Cách Sống', description: 'Trải nghiệm pop-up sống động kết hợp nghệ thuật, văn hóa và phong cách sống thành những hoạt động khó quên.' },
+      { image: null, title: 'Sự Kiện Báo Chí & Influencer', description: 'Các sự kiện truyền thông chiến lược được thiết kế để tạo tiếng vang và xây dựng kết nối lâu dài với những tiếng nói quan trọng.' },
+      { image: null, title: 'Lễ Kỷ Niệm Doanh Nghiệp', description: 'Các sự kiện doanh nghiệp chuyên nghiệp nhưng tinh tế phản ánh giá trị và tầm nhìn của công ty bạn.' },
+    ],
+    intro_2: {
+      title: 'Mỗi Khoảnh Khắc, Một Cảm Xúc',
+      description: 'Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài.',
+    },
+    workflow: [
+      { counter: '01', title: 'Chỉ Đạo Sáng Tạo & Thiết Kế Toàn Diện', description: 'Từ ý tưởng đến sáng tạo, Saint 6 định hình câu chuyện hình ảnh mạch lạc thể hiện tầm nhìn thương hiệu của bạn.' },
+      { counter: '02', title: 'Lập Kế Hoạch Trải Nghiệm & Quy Trình Khách Mời', description: 'Mỗi khoảnh khắc được thiết kế với chủ đích — liền mạch, tinh tế và khó quên.' },
+      { counter: '03', title: 'Quản Lý Tại Chỗ & Thực Hiện Kịch Bản', description: 'Phối hợp hoàn hảo đảm bảo sự kiện của bạn diễn ra với sự chính xác nhẹ nhàng.' },
+      { counter: '04', title: 'Thiết Kế Địa Điểm & Set', description: 'Chúng tôi tạo ra môi trường sống động nắm bắt cảm xúc, chi tiết và đặc trưng riêng biệt.' },
+      { counter: '05', title: 'Phối Hợp Ẩm Thực & Giải Trí', description: 'Chúng tôi chọn lọc ẩm thực và biểu diễn làm phong phú không khí và nâng tầm trải nghiệm.' },
+    ],
+    event_projects: keyProjectIds,
   }, 'vi');
 }
 
@@ -937,19 +881,23 @@ async function seedDecorPage(portfolioIds: number[]) {
       background_image: heroImageId,
       background_alt: 'Decoration',
     },
-    how_we_work: {
-      label: 'How We Work',
-      description: 'The name "Decor" represents Saint 6\'s creative work across fashion stores, restaurants, and personal villas.',
+    intro: {
+      title: 'How We Work',
+      description: 'The name "Decor" feels refined and adaptable, representing Saint 6\'s creative work across fashion stores, restaurants, and personal villas.',
       cta_text: 'Plan Your Decoration',
       cta_link: '#contact-form',
     },
     workflow: [
-      { step_number: '01', title: 'Brief Overview', description: 'We study the brief and develop multiple creative directions.' },
-      { step_number: '02', title: '2D Ideation', description: 'Our design team creates detailed mood boards and conceptual layouts.' },
-      { step_number: '03', title: '3D Render', description: 'We produce photorealistic 3D renders so you can experience the space.' },
-      { step_number: '04', title: 'Pre-Production', description: 'We coordinate materials, vendors, and timelines.' },
-      { step_number: '05', title: 'Final Installation', description: 'Our team manages the complete installation with precision.' },
+      { counter: '01', title: 'Brief Overview', description: 'We study the brief and develop multiple creative directions based on your brand, audience, and goals.' },
+      { counter: '02', title: '2D Ideation', description: 'Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.' },
+      { counter: '03', title: '3D Render', description: 'We produce photorealistic 3D renders so you can experience the space before construction begins.' },
+      { counter: '04', title: 'Pre-Production', description: 'We coordinate materials, vendors, and timelines to ensure smooth execution of your project.' },
+      { counter: '05', title: 'Final Installation', description: 'Our team manages the complete installation, bringing every detail to life with precision.' },
     ],
+    intro_2: {
+      title: 'every moment, an emotion',
+      description: 'Every project begins with a vision. We bring it to life — detail by detail.',
+    },
     portfolio_settings: {
       label: 'every moment, an emotion',
       statement: 'Every project begins with a vision. We bring it to life — detail by detail.',
@@ -960,18 +908,31 @@ async function seedDecorPage(portfolioIds: number[]) {
   // Vietnamese
   await updateSingleType('decor-page', {
     hero: {
-      heading: viTranslations.decor.hero.heading,
+      heading: 'Từ cửa hàng flagship đến biệt thự riêng — chúng tôi thiết kế và trang trí không gian kể câu chuyện.',
       background_image: heroImageId,
       background_alt: 'Decoration',
     },
-    how_we_work: {
-      label: viTranslations.decor.how_we_work.label,
-      description: viTranslations.decor.how_we_work.description,
-      cta_text: viTranslations.decor.how_we_work.cta_text,
+    intro: {
+      title: 'Cách Chúng Tôi Làm Việc',
+      description: 'Tên gọi "Decor" mang cảm giác tinh tế và linh hoạt, đại diện cho công việc sáng tạo của Saint 6 qua các cửa hàng thời trang, nhà hàng và biệt thự cá nhân.',
+      cta_text: 'Lên Kế Hoạch Trang Trí',
       cta_link: '#contact-form',
     },
-    workflow: viTranslations.decor.workflow.map((w, i) => ({ step_number: `0${i + 1}`, ...w })),
-    portfolio_settings: viTranslations.decor.portfolio_settings,
+    workflow: [
+      { counter: '01', title: 'Tổng Quan Brief', description: 'Chúng tôi nghiên cứu brief và phát triển nhiều hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.' },
+      { counter: '02', title: 'Ý Tưởng 2D', description: 'Đội ngũ thiết kế của chúng tôi tạo mood board chi tiết và bố cục ý tưởng để hình dung sự chuyển đổi không gian.' },
+      { counter: '03', title: 'Render 3D', description: 'Chúng tôi tạo render 3D chân thực để bạn có thể trải nghiệm không gian trước khi xây dựng bắt đầu.' },
+      { counter: '04', title: 'Tiền Sản Xuất', description: 'Chúng tôi phối hợp vật liệu, nhà cung cấp và tiến độ để đảm bảo thực hiện dự án suôn sẻ.' },
+      { counter: '05', title: 'Lắp Đặt Cuối Cùng', description: 'Đội ngũ của chúng tôi quản lý toàn bộ quá trình lắp đặt, đưa từng chi tiết vào cuộc sống với sự chính xác.' },
+    ],
+    intro_2: {
+      title: 'mỗi khoảnh khắc, một cảm xúc',
+      description: 'Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một.',
+    },
+    portfolio_settings: {
+      label: 'mỗi khoảnh khắc, một cảm xúc',
+      statement: 'Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một.',
+    },
     portfolio_items: decorPortfolioIds,
   }, 'vi');
 }
@@ -993,9 +954,6 @@ async function seedAboutPage() {
     uploadImage('/images/about-us/timeline-2026.jpg'),
   ]);
 
-  const timelineYears = ['2021', '2022', '2023', '2024', '2025', '2026 (Next)'];
-  const valueLetters = ['S', 'A', 'I', 'N', 'T', '6'];
-
   // English
   await updateSingleType('about-page', {
     hero: {
@@ -1005,9 +963,9 @@ async function seedAboutPage() {
     },
     intro: {
       label: 'ABOUT US',
-      headline: 'We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers.',
-      body_paragraph_1: 'Saint 6 Studios, founded by Trang Nhe Nhang, is a multi-disciplinary creative studio.',
-      body_paragraph_2: 'We create work that feels alive, work that holds emotion, atmosphere, and story.',
+      headline: 'We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers.\nWe turn ideas into places, feelings, and memories.',
+      body_paragraph_1: 'Saint 6 Studios, founded by Trang Nhe Nhang, is a multi-disciplinary creative studio crafting sets, spaces, environments, and experiences.',
+      body_paragraph_2: 'We create work that feels alive, work that holds emotion, atmosphere, and story. For us, it\'s never "just decor." It\'s the feeling someone carries home.',
       image: introImageId,
     },
     vision: { label: 'VISION', statement: 'To create work that is remembered through the feelings it evokes.' },
@@ -1045,28 +1003,46 @@ async function seedAboutPage() {
   // Vietnamese
   await updateSingleType('about-page', {
     hero: {
-      heading: viTranslations.about.hero.heading,
+      heading: 'Chúng Tôi Tưởng Tượng. Chúng Tôi Thiết Kế. Chúng Tôi Sáng Tạo.',
       background_image: heroImageId,
       background_alt: 'About Saint 6 Studio',
     },
     intro: {
-      label: viTranslations.about.intro.label,
-      headline: viTranslations.about.intro.headline,
-      body_paragraph_1: viTranslations.about.intro.body_paragraph_1,
-      body_paragraph_2: viTranslations.about.intro.body_paragraph_2,
+      label: 'GIỚI THIỆU',
+      headline: 'Chúng tôi là một studio của các nghệ sĩ, thợ xây, stylist, người mơ mộng, người giải quyết vấn đề và người kể chuyện.\nChúng tôi biến ý tưởng thành không gian, cảm xúc và ký ức.',
+      body_paragraph_1: 'Saint 6 Studios, được sáng lập bởi Trang Nhẹ Nhàng, là một studio sáng tạo đa ngành chuyên tạo ra các set, không gian, môi trường và trải nghiệm.',
+      body_paragraph_2: 'Chúng tôi tạo ra những tác phẩm có hồn, những tác phẩm chứa đựng cảm xúc, bầu không khí và câu chuyện. Với chúng tôi, đó không bao giờ chỉ là "trang trí." Đó là cảm xúc mà ai đó mang về nhà.',
       image: introImageId,
     },
-    vision: viTranslations.about.vision,
+    vision: { label: 'TẦM NHÌN', statement: 'Tạo ra những tác phẩm được ghi nhớ qua những cảm xúc mà chúng gợi lên.' },
     full_width_image: fullWidthImageId,
-    mission: viTranslations.about.mission,
-    values: viTranslations.about.values.map((v, i) => ({ letter: valueLetters[i], ...v })),
-    our_story: viTranslations.about.our_story,
-    timeline: viTranslations.about.timeline.map((t, i) => ({ year: timelineYears[i], image: timelineImages[i], ...t })),
+    mission: { label: 'SỨ MỆNH', statement: 'Chúng tôi biến ý tưởng, bản sắc và câu chuyện thành những trải nghiệm hình ảnh chạm đến trái tim con người.' },
+    values: [
+      { letter: 'S', title: 'Simplicity', description: 'Sự rõ ràng bộc lộ cảm xúc.' },
+      { letter: 'A', title: 'Authenticity', description: 'Cảm xúc phải thật, không được tạo dựng.' },
+      { letter: 'I', title: 'Intention', description: 'Mọi lựa chọn đều phục vụ cảm xúc.' },
+      { letter: 'N', title: 'Narrative', description: 'Mọi thứ đều là một phần của câu chuyện.' },
+      { letter: 'T', title: 'Trust', description: 'Nghệ thuật cần sự đáng tin cậy để phát triển.' },
+      { letter: '6', title: 'Sixth Sense', description: 'Chúng tôi thiết kế cho cảm xúc ẩn dấu.' },
+    ],
+    our_story: {
+      label: 'Câu Chuyện Của Chúng Tôi',
+      paragraph_1: 'Trước Saint 6, đã có Haus of Trang - nơi Trang học được rằng styling không chỉ là về việc mọi thứ trông như thế nào, mà còn là cách chúng khiến người ta cảm nhận.',
+      paragraph_2: 'Nhận thức đó đã trở thành nền tảng của Saint 6',
+    },
+    timeline: [
+      { year: '2021', image: timelineImages[0], description: 'Saint 6 được thành lập với niềm tin rằng cái đẹp là cảm xúc, không phải trang trí.' },
+      { year: '2022', image: timelineImages[1], description: 'Không gian studio Saint 6 đầu tiên được xây dựng.' },
+      { year: '2023', image: timelineImages[2], description: 'Chúng tôi mở rộng sang trang trí cửa hàng và môi trường thương hiệu không gian.' },
+      { year: '2024', image: timelineImages[3], description: 'Chúng tôi bắt đầu thiết kế sự kiện và đám cưới.' },
+      { year: '2025', image: timelineImages[4], description: 'Chúng tôi vượt qua 1.000 thiết kế bối cảnh được tạo ra kể từ khi thành lập.' },
+      { year: '2026 (Tiếp theo)', image: timelineImages[5], description: 'Chúng tôi đang mở địa điểm Saint 6 thứ hai.' },
+    ],
     founder: {
       image: founderImageId,
-      quote: viTranslations.about.founder.quote,
+      quote: 'Sáng tạo là công việc của cảm xúc. Chúng tôi xây dựng không gian để mọi người cảm nhận điều gì đó chân thật.',
       name: 'Trang',
-      title: viTranslations.about.founder.title,
+      title: 'Nhà Sáng Lập & Giám Đốc Sáng Tạo',
     },
   }, 'vi');
 }
@@ -1080,7 +1056,7 @@ async function seedContactPage() {
   // English
   await updateSingleType('contact-page', {
     hero: {
-      heading: "Let's Create Something Exceptional Together",
+      heading: "Let's Connect",
       background_image: heroImageId,
       background_alt: 'Saint 6 Studio exterior',
     },
@@ -1098,14 +1074,14 @@ async function seedContactPage() {
   // Vietnamese
   await updateSingleType('contact-page', {
     hero: {
-      heading: viTranslations.contact.hero.heading,
+      heading: 'Hãy Kết Nối',
       background_image: heroImageId,
       background_alt: 'Saint 6 Studio exterior',
     },
     info: {
-      title: viTranslations.contact.info.title,
-      subheading: viTranslations.contact.info.subheading,
-      address_line_1: '6 Bê Văn Cấm, Tân Kiểng',
+      title: 'Liên Hệ',
+      subheading: 'Cùng Tạo Ra Điều Đặc Biệt',
+      address_line_1: '6 Bế Văn Cấm, Tân Kiểng',
       address_line_2: 'Quận 7, TP.HCM',
       email: 'Saint6studios@gmail.com',
       phone: '0919 403 784 - 0918 756 573',
@@ -1130,14 +1106,15 @@ async function main() {
     const faqIds = await seedFaqItems();
     const portfolioIds = await seedPortfolioItems();
     const keyProjectIds = await seedKeyProjects();
+    const testimonialIds = await seedTestimonialItems();
 
     // Seed all pages
     await seedHomepage(brandLogoIds, keyProjectIds);
     await seedStudioRentalPage(studioRoomIds, equipmentIds, faqIds);
-    await seedCreativePage(portfolioIds);
+    await seedCreativePage(portfolioIds, brandLogoIds, testimonialIds);
     await seedProductionPage(keyProjectIds);
-    await seedSetDesignPage(portfolioIds);
-    await seedEventPlanningPage();
+    await seedSetDesignPage(portfolioIds, testimonialIds);
+    await seedEventPlanningPage(keyProjectIds);
     await seedDecorPage(portfolioIds);
     await seedAboutPage();
     await seedContactPage();
@@ -1150,6 +1127,7 @@ async function main() {
     console.log(`   - FAQ Items: ${faqIds.length}`);
     console.log(`   - Portfolio Items: ${portfolioIds.length}`);
     console.log(`   - Key Projects: ${keyProjectIds.length}`);
+    console.log(`   - Testimonial Items: ${testimonialIds.length}`);
     console.log(`   - Gallery Images: ${galleryImages.length}`);
     console.log(`   - Images uploaded: ${Object.keys(imageCache).length}`);
     console.log(`   - Pages seeded: 9 (English + Vietnamese)`);

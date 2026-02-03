@@ -31,7 +31,7 @@
       "repeatable": true,
       "component": "shared.gallery-image"
     },
-    "featured_projects": {
+    "key_projects": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::key-project.key-project"

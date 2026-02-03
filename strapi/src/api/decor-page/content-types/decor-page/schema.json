@@ -21,7 +21,7 @@
       "repeatable": false,
       "component": "shared.hero"
     },
-    "how_we_work": {
+    "intro": {
       "type": "component",
       "repeatable": false,
       "component": "shared.intro"
@@ -29,7 +29,12 @@
     "workflow": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.workflow-step"
+      "component": "shared.service"
+    },
+    "intro_2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
     },
     "portfolio_settings": {
       "type": "component",

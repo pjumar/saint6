@@ -36,6 +36,11 @@
       "relation": "oneToMany",
       "target": "api::studio-room.studio-room"
     },
+    "concept_rooms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::studio-room.studio-room"
+    },
     "full_rental": {
       "type": "component",
       "repeatable": false,
@@ -51,7 +56,7 @@
       "relation": "oneToMany",
       "target": "api::equipment-item.equipment-item"
     },
-    "faq_items": {
+    "faqs": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::faq-item.faq-item"

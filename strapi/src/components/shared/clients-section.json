@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_clients_sections",
+  "info": {
+    "displayName": "Clients Section",
+    "description": "Section showing client logos with label and description"
+  },
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

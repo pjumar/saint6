@@ -29,32 +29,21 @@
     "services": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.service-item"
+      "component": "shared.service"
     },
-    "saint6_way_title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "saint6_way_description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "intro_2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.intro"
     },
     "workflow": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.workflow-step"
+      "component": "shared.service"
     },
-    "featured_project": {
+    "key_projects": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::key-project.key-project"
     }
   }

@@ -48,22 +48,26 @@ export interface StrapiIntro {
   cta_link?: string;
 }
 
-export interface StrapiWorkflowStep {
+export interface StrapiService {
   image: StrapiImage;
-  counter: string;
+  counter?: string;
   title: string;
   description: string;
 }
 
-export interface StrapiServiceItem {
-  image: StrapiImage;
-  title: string;
-  description: string;
+export interface StrapiClientsSection {
+  label?: string;
+  description?: string;
 }
 
 export interface StrapiStat {
   label: string;
   value: string;
+}
+
+export interface StrapiGalleryImage {
+  image: StrapiImage;
+  alt?: string;
 }
 
 // ============================================================================
@@ -137,22 +141,19 @@ export interface StrapiPortfolioItem {
   order: number;
 }
 
-export interface StrapiEventProject {
+export interface StrapiTestimonialItem {
   id: number;
-  title: string;
-  category?: string;
-  image: StrapiImage;
+  brand_name: string;
+  brand_logo: StrapiImage;
+  quote: string;
+  author_name: string;
+  author_title: string;
   order: number;
 }
 
 // ============================================================================
 // Page Components
 // ============================================================================
-
-export interface StrapiTrustedBy {
-  caption?: string;
-  heading?: string;
-}
 
 export interface StrapiSpaceSection {
   caption?: string;
@@ -250,10 +251,9 @@ export interface StrapiContactInfo {
 export interface StrapiHomepage {
   id: number;
   hero?: StrapiHero;
-  trusted_by?: StrapiTrustedBy;
   brand_logos?: StrapiBrandLogo[];
-  gallery_images?: StrapiImage[];
-  featured_project?: StrapiKeyProject;
+  gallery_images?: StrapiGalleryImage[];
+  key_projects?: StrapiKeyProject[];
   space_section?: StrapiSpaceSection;
   crew_area?: StrapiCrewArea;
 }
@@ -264,62 +264,64 @@ export interface StrapiStudioRentalPage {
   intro?: StrapiIntro;
   stats?: StrapiStudioStats;
   rooms?: StrapiStudioRoom[];
+  concept_rooms?: StrapiStudioRoom[];
   full_rental?: StrapiFullRental;
   facilities?: StrapiFacilities;
   equipment?: StrapiEquipmentItem[];
-  faq_items?: StrapiFaqItem[];
+  faqs?: StrapiFaqItem[];
 }
 
-export interface StrapiCreativePage {
+export interface StrapiSetDesignPage {
   id: number;
   hero?: StrapiHero;
-  clients_label?: string;
-  clients_description?: string;
-  services?: StrapiServiceItem[];
-  how_we_work?: StrapiIntro;
-  workflow?: StrapiWorkflowStep[];
+  intro?: StrapiIntro;
+  workflow?: StrapiService[];
   portfolio_settings?: StrapiPortfolioSettings;
   portfolio_items?: StrapiPortfolioItem[];
+  testimonials?: StrapiTestimonialItem[];
 }
 
 export interface StrapiProductionPage {
   id: number;
   hero?: StrapiHero;
   intro?: StrapiIntro;
-  services?: StrapiServiceItem[];
-  saint6_way_title?: string;
-  saint6_way_description?: string;
-  workflow?: StrapiWorkflowStep[];
-  featured_project?: StrapiKeyProject;
-}
-
-export interface StrapiSetDesignPage {
-  id: number;
-  hero?: StrapiHero;
-  how_we_work?: StrapiIntro;
-  workflow?: StrapiWorkflowStep[];
-  portfolio_settings?: StrapiPortfolioSettings;
-  portfolio_items?: StrapiPortfolioItem[];
+  services?: StrapiService[];
+  intro_2?: StrapiIntro;
+  workflow?: StrapiService[];
+  key_projects?: StrapiKeyProject[];
 }
 
 export interface StrapiEventPlanningPage {
   id: number;
   hero?: StrapiHero;
   intro?: StrapiIntro;
-  services?: StrapiServiceItem[];
-  process_title?: string;
-  process_description?: string;
-  workflow?: StrapiWorkflowStep[];
-  event_projects?: StrapiEventProject[];
+  services?: StrapiService[];
+  intro_2?: StrapiIntro;
+  workflow?: StrapiService[];
+  event_projects?: StrapiKeyProject[];
 }
 
 export interface StrapiDecorPage {
   id: number;
   hero?: StrapiHero;
-  how_we_work?: StrapiIntro;
-  workflow?: StrapiWorkflowStep[];
+  intro?: StrapiIntro;
+  workflow?: StrapiService[];
+  intro_2?: StrapiIntro;
   portfolio_settings?: StrapiPortfolioSettings;
   portfolio_items?: StrapiPortfolioItem[];
+}
+
+export interface StrapiCreativePage {
+  id: number;
+  hero?: StrapiHero;
+  clients?: StrapiClientsSection;
+  client_logos?: StrapiBrandLogo[];
+  services?: StrapiService[];
+  intro?: StrapiIntro;
+  workflow?: StrapiService[];
+  portfolio_settings?: StrapiPortfolioSettings;
+  portfolio_items?: StrapiPortfolioItem[];
+  testimonials?: StrapiTestimonialItem[];
 }
 
 export interface StrapiAboutPage {
@@ -546,9 +548,9 @@ export async function getPortfolioItems(page?: 'creative' | 'set-design' | 'deco
   return items;
 }
 
-export async function getEventProjects() {
-  return fetchStrapi<StrapiEventProject[]>('event-projects', {
-    populate: ['image'],
+export async function getTestimonialItems() {
+  return fetchStrapi<StrapiTestimonialItem[]>('testimonial-items', {
+    populate: ['brand_logo'],
     revalidate: 300,
   });
 }
