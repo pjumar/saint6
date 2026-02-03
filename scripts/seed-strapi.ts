@@ -200,50 +200,75 @@ const faqItems = [
 ];
 
 const portfolioItems = [
-  // Creative page
+  // Creative page (8 items)
   { title: 'FRESSI KV', category: 'Campaign', image: '/images/creative/portfolio-fressi.jpg', size: 'large', page: 'creative', order: 1 },
   { title: 'MIRINDA', category: 'Campaign', image: '/images/creative/portfolio-mirinda.jpg', size: 'large', page: 'creative', order: 2 },
   { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-1.jpg', size: 'short', page: 'creative', order: 3 },
   { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-2.jpg', size: 'tall', page: 'creative', order: 4 },
-  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/creative/portfolio-yamaha.jpg', size: 'short', page: 'creative', order: 5 },
-  // Set Design page
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-3.jpg', size: 'tall', page: 'creative', order: 5 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-4.jpg', size: 'tall', page: 'creative', order: 6 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/creative/portfolio-denvau-5.jpg', size: 'short', page: 'creative', order: 7 },
+  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/creative/portfolio-yamaha.jpg', size: 'short', page: 'creative', order: 8 },
+  // Set Design page (8 items)
   { title: 'FRESSI KV', category: 'Campaign', image: '/images/set-design/campaign-fressi.jpg', size: 'large', page: 'set-design', order: 1 },
   { title: 'Mirinda', category: 'Campaign', image: '/images/set-design/campaign-mirinda.jpg', size: 'large', page: 'set-design', order: 2 },
-  // Decor page
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-1.jpg', size: 'short', page: 'set-design', order: 3 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-2.jpg', size: 'tall', page: 'set-design', order: 4 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-3.jpg', size: 'tall', page: 'set-design', order: 5 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-4.jpg', size: 'tall', page: 'set-design', order: 6 },
+  { title: 'MV Diễn Viên Tồi - Đen Vâu', category: 'Campaign', image: '/images/set-design/portfolio-den-vau-5.jpg', size: 'short', page: 'set-design', order: 7 },
+  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/set-design/portfolio-yamaha.jpg', size: 'short', page: 'set-design', order: 8 },
+  // Decor page (8 items)
   { title: 'FRESSI KV', category: 'Fashion Stores', image: '/images/decoration/portfolio-fressi.jpg', size: 'large', page: 'decor', order: 1 },
   { title: 'MIRINDA', category: 'Campaign', image: '/images/decoration/portfolio-mirinda.jpg', size: 'large', page: 'decor', order: 2 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-1.jpg', size: 'short', page: 'decor', order: 3 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-2.jpg', size: 'tall', page: 'decor', order: 4 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-3.jpg', size: 'tall', page: 'decor', order: 5 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-4.jpg', size: 'tall', page: 'decor', order: 6 },
+  { title: 'MV DIỄN VIÊN TỒI - ĐEN VÂU', category: 'Campaign', image: '/images/decoration/portfolio-denvau-5.jpg', size: 'short', page: 'decor', order: 7 },
+  { title: 'YAMAHA SOCIAL LAYOUT', category: 'Campaign', image: '/images/decoration/portfolio-yamaha.jpg', size: 'short', page: 'decor', order: 8 },
 ];
 
 const testimonialItems = [
   {
-    brand_name: 'LSoul',
+    brand_name: "L'OFFICIEL",
     brand_logo: '/images/brands/brand-01.png',
-    quote_en: 'Spacious, modular, with the energy and tools that serious creatives need. Saint 6 exceeded our expectations.',
-    quote_vi: 'Rộng rãi, linh hoạt, với năng lượng và công cụ mà những người sáng tạo nghiêm túc cần. Saint 6 đã vượt quá mong đợi của chúng tôi.',
-    author_name: 'Crish Phan',
-    author_title_en: 'Creative Director at LSoul',
-    author_title_vi: 'Giám đốc Sáng tạo tại LSoul',
+    quote_en: "It's rare to find a studio where creative direction, production, and hospitality all come together. Saint 6 delivered on every front. Our client was blown away.",
+    quote_vi: 'Hiếm có studio nào mà chỉ đạo sáng tạo, sản xuất và dịch vụ đều hoàn hảo. Saint 6 đã làm được tất cả. Khách hàng của chúng tôi vô cùng ấn tượng.',
+    author_name: 'Aaron Tan',
+    author_title_en: 'Creative Director, Elle Vietnam',
+    author_title_vi: 'Giám đốc Sáng tạo, Elle Vietnam',
     order: 1,
+  },
+  {
+    brand_name: 'Fressi',
+    brand_logo: '/images/brands/brand-02.png',
+    quote_en: "Saint 6's attention to detail and creative vision transformed our campaign into something truly memorable. The team understood our brand from day one.",
+    quote_vi: 'Sự chú ý đến chi tiết và tầm nhìn sáng tạo của Saint 6 đã biến chiến dịch của chúng tôi thành điều thực sự đáng nhớ. Đội ngũ hiểu thương hiệu của chúng tôi ngay từ ngày đầu.',
+    author_name: 'Nguyen Thi Mai',
+    author_title_en: 'Marketing Director, Fressi Vietnam',
+    author_title_vi: 'Giám đốc Marketing, Fressi Vietnam',
+    order: 2,
   },
   {
     brand_name: 'Vinamilk',
     brand_logo: '/images/brands/brand-03.png',
-    quote_en: 'The attention to detail and creative direction from Saint 6 helped us achieve exactly the visual story we envisioned.',
-    quote_vi: 'Sự chú ý đến chi tiết và định hướng sáng tạo từ Saint 6 đã giúp chúng tôi đạt được chính xác câu chuyện hình ảnh mà chúng tôi hình dung.',
-    author_name: 'Nguyen Thi Mai',
-    author_title_en: 'Marketing Director at Vinamilk',
-    author_title_vi: 'Giám đốc Marketing tại Vinamilk',
-    order: 2,
+    quote_en: 'Working with Saint 6 was seamless. Their production quality and creative approach exceeded our expectations for the product launch.',
+    quote_vi: 'Làm việc với Saint 6 rất suôn sẻ. Chất lượng sản xuất và cách tiếp cận sáng tạo của họ vượt quá mong đợi của chúng tôi cho buổi ra mắt sản phẩm.',
+    author_name: 'Tran Van Duc',
+    author_title_en: 'Brand Manager, Vinamilk',
+    author_title_vi: 'Quản lý Thương hiệu, Vinamilk',
+    order: 3,
   },
   {
     brand_name: 'Sony',
     brand_logo: '/images/brands/brand-04.png',
-    quote_en: 'Professional, creative, and incredibly efficient. Our product launch campaign was a huge success thanks to Saint 6.',
-    quote_vi: 'Chuyên nghiệp, sáng tạo và cực kỳ hiệu quả. Chiến dịch ra mắt sản phẩm của chúng tôi thành công vang dội nhờ Saint 6.',
-    author_name: 'David Chen',
-    author_title_en: 'Brand Manager at Sony Vietnam',
-    author_title_vi: 'Quản lý Thương hiệu tại Sony Việt Nam',
-    order: 3,
+    quote_en: "The team's expertise in both creative direction and technical execution made our collaboration incredibly smooth and successful.",
+    quote_vi: 'Chuyên môn của đội ngũ trong cả chỉ đạo sáng tạo và thực hiện kỹ thuật đã giúp sự hợp tác của chúng tôi diễn ra suôn sẻ và thành công.',
+    author_name: 'Le Hoang Nam',
+    author_title_en: 'Creative Lead, Sony Vietnam',
+    author_title_vi: 'Trưởng nhóm Sáng tạo, Sony Vietnam',
+    order: 4,
   },
 ];
 
@@ -253,12 +278,12 @@ const serviceItems = [
   { title: 'Brand & Advertising Campaigns', description: 'We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.', page: 'creative', section: 'services', order: 1 },
   { title: 'Product & Packaging Shoots', description: 'From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.', page: 'creative', section: 'services', order: 2 },
   // Creative page - workflow
-  { title: 'Creative Direction', description: 'We study your brief and develop creative directions based on your brand, audience, and goals.', counter: '01', page: 'creative', section: 'workflow', order: 1 },
-  { title: 'Storyboard Development', description: 'Our team creates detailed storyboards and shot lists to visualize the final output.', counter: '02', page: 'creative', section: 'workflow', order: 2 },
-  { title: 'Pre-production & Sourcing', description: 'We coordinate talent, locations, props, and equipment to ensure smooth execution.', counter: '03', page: 'creative', section: 'workflow', order: 3 },
-  { title: 'Shoot / Production', description: 'Our experienced crew captures your vision with precision and creative flair.', counter: '04', page: 'creative', section: 'workflow', order: 4 },
-  { title: 'Post-production', description: 'Professional editing, color grading, and retouching bring the final deliverables to life.', counter: '05', page: 'creative', section: 'workflow', order: 5 },
-  { title: 'Final Delivery', description: 'We deliver polished assets ready for print, digital, and social media deployment.', counter: '06', page: 'creative', section: 'workflow', order: 6 },
+  { title: 'Creative Direction', description: 'We study your brief and develop creative directions based on your brand, audience, and goals.', counter: '01.', page: 'creative', section: 'workflow', order: 1 },
+  { title: 'Storyboard Development', description: 'Our team creates detailed storyboards and shot lists to visualize the final output.', counter: '02.', page: 'creative', section: 'workflow', order: 2 },
+  { title: 'Pre-production & Sourcing', description: 'We coordinate talent, locations, props, and equipment to ensure smooth execution.', counter: '03.', page: 'creative', section: 'workflow', order: 3 },
+  { title: 'Shoot / Production', description: 'Our experienced crew captures your vision with precision and creative flair.', counter: '04.', page: 'creative', section: 'workflow', order: 4 },
+  { title: 'Post-production', description: 'Professional editing, color grading, and retouching bring the final deliverables to life.', counter: '05.', page: 'creative', section: 'workflow', order: 5 },
+  { title: 'Final Delivery', description: 'We deliver polished assets ready for print, digital, and social media deployment.', counter: '06.', page: 'creative', section: 'workflow', order: 6 },
 
   // Production page - services
   { title: 'Campaign & Editorial Production', description: 'We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure.', page: 'production', section: 'services', order: 1 },
@@ -268,18 +293,18 @@ const serviceItems = [
   { title: 'Location Scouting & Permits', description: 'We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap.', page: 'production', section: 'services', order: 5 },
   { title: 'Post-production Coordination', description: 'End-to-end post-production management, from editing and color grading to final delivery across all formats.', page: 'production', section: 'services', order: 6 },
   // Production page - workflow
-  { title: 'Pre-Production', description: 'Concept, scheduling, and creative', counter: '01', page: 'production', section: 'workflow', order: 1 },
-  { title: 'Set-Up', description: 'Lighting, camera, art direction', counter: '02', page: 'production', section: 'workflow', order: 2 },
-  { title: 'Shoot Day', description: 'Execution and real-time adjustments', counter: '03', page: 'production', section: 'workflow', order: 3 },
-  { title: 'Wrap & Delivery', description: 'Editing, review, and delivery', counter: '04', page: 'production', section: 'workflow', order: 4 },
+  { title: 'Pre-Production', description: 'Concept, scheduling, and creative', counter: '01.', page: 'production', section: 'workflow', order: 1 },
+  { title: 'Set-Up', description: 'Lighting, camera, art direction', counter: '02.', page: 'production', section: 'workflow', order: 2 },
+  { title: 'Shoot Day', description: 'Execution and real-time adjustments', counter: '03.', page: 'production', section: 'workflow', order: 3 },
+  { title: 'Wrap & Delivery', description: 'Editing, review, and delivery', counter: '04.', page: 'production', section: 'workflow', order: 4 },
 
   // Set Design page - workflow
-  { title: 'Brief & Concept Alignment', description: 'We start by understanding your creative direction, brand language, and spatial needs.', counter: '01', page: 'set-design', section: 'workflow', order: 1 },
-  { title: '2D Layout & 3D Render', description: 'We create technical layouts and 3D visuals that bring the proposed set design to life — before anything is built.', counter: '02', page: 'set-design', section: 'workflow', order: 2 },
-  { title: 'Presentation & Feedback Loop', description: "We present the design and collaborate closely with your team to refine it until it's approved.", counter: '03', page: 'set-design', section: 'workflow', order: 3 },
-  { title: 'Set Construction & Sourcing', description: 'We build the set and source all backdrops, structural elements, props, and textures to match the approved concept.', counter: '04', page: 'set-design', section: 'workflow', order: 4 },
-  { title: 'Setup & Shoot Support', description: 'We handle set assembly, stay present during the shoot to make real-time adjustments, and ensure everything works on camera.', counter: '05', page: 'set-design', section: 'workflow', order: 5 },
-  { title: 'Set Maintenance & Tear-Down', description: 'Once the shoot wraps, we handle cleanup and dismantle the set efficiently and professionally.', counter: '06', page: 'set-design', section: 'workflow', order: 6 },
+  { title: 'Brief & Concept Alignment', description: 'We start by understanding your creative direction, brand language, and spatial needs.', counter: '01.', page: 'set-design', section: 'workflow', order: 1 },
+  { title: '2D Layout & 3D Render', description: 'We create technical layouts and 3D visuals that bring the proposed set design to life — before anything is built.', counter: '02.', page: 'set-design', section: 'workflow', order: 2 },
+  { title: 'Presentation & Feedback Loop', description: "We present the design and collaborate closely with your team to refine it until it's approved.", counter: '03.', page: 'set-design', section: 'workflow', order: 3 },
+  { title: 'Set Construction & Sourcing', description: 'We build the set and source all backdrops, structural elements, props, and textures to match the approved concept.', counter: '04.', page: 'set-design', section: 'workflow', order: 4 },
+  { title: 'Setup & Shoot Support', description: 'We handle set assembly, stay present during the shoot to make real-time adjustments, and ensure everything works on camera.', counter: '05.', page: 'set-design', section: 'workflow', order: 5 },
+  { title: 'Set Maintenance & Tear-Down', description: 'Once the shoot wraps, we handle cleanup and dismantle the set efficiently and professionally.', counter: '06.', page: 'set-design', section: 'workflow', order: 6 },
 
   // Event Planning page - services
   { title: 'Product & Brand Launches', description: 'We craft launch experiences that captivate audiences and elevate your brand story with precision and flair.', page: 'event-planning', section: 'services', order: 1 },
@@ -289,18 +314,18 @@ const serviceItems = [
   { title: 'Press & Influencer Events', description: 'Strategic media events designed to generate buzz and build lasting connections with key voices.', page: 'event-planning', section: 'services', order: 5 },
   { title: 'Corporate Celebrations', description: "Professional yet refined corporate events that reflect your company's values and vision.", page: 'event-planning', section: 'services', order: 6 },
   // Event Planning page - workflow
-  { title: 'Full Creative & Design Direction', description: "From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand's vision.", counter: '01', page: 'event-planning', section: 'workflow', order: 1 },
-  { title: 'Guest Experience & Flow Planning', description: 'Every moment is designed with intention — seamless, elegant, and unforgettable.', counter: '02', page: 'event-planning', section: 'workflow', order: 2 },
-  { title: 'On-site Management & Run-of-Show Execution', description: 'Flawless coordination ensures your event unfolds with effortless precision.', counter: '03', page: 'event-planning', section: 'workflow', order: 3 },
-  { title: 'Venue Styling & Set Design', description: 'We craft immersive environments that capture emotion, detail, and distinctive character.', counter: '04', page: 'event-planning', section: 'workflow', order: 4 },
-  { title: 'Catering & Entertainment Coordination', description: 'We curate dining and performances that enrich the mood and elevate the experience.', counter: '05', page: 'event-planning', section: 'workflow', order: 5 },
+  { title: 'Full Creative & Design Direction', description: "From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand's vision.", counter: '01.', page: 'event-planning', section: 'workflow', order: 1 },
+  { title: 'Guest Experience & Flow Planning', description: 'Every moment is designed with intention — seamless, elegant, and unforgettable.', counter: '02.', page: 'event-planning', section: 'workflow', order: 2 },
+  { title: 'On-site Management & Run-of-Show Execution', description: 'Flawless coordination ensures your event unfolds with effortless precision.', counter: '03.', page: 'event-planning', section: 'workflow', order: 3 },
+  { title: 'Venue Styling & Set Design', description: 'We craft immersive environments that capture emotion, detail, and distinctive character.', counter: '04.', page: 'event-planning', section: 'workflow', order: 4 },
+  { title: 'Catering & Entertainment Coordination', description: 'We curate dining and performances that enrich the mood and elevate the experience.', counter: '05.', page: 'event-planning', section: 'workflow', order: 5 },
 
   // Decor page - workflow
-  { title: 'Brief Overview', description: 'We study the brief and develop multiple creative directions based on your brand, audience, and goals.', counter: '01', page: 'decor', section: 'workflow', order: 1 },
-  { title: '2D Ideation', description: 'Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.', counter: '02', page: 'decor', section: 'workflow', order: 2 },
-  { title: '3D Render', description: 'We produce photorealistic 3D renders so you can experience the space before construction begins.', counter: '03', page: 'decor', section: 'workflow', order: 3 },
-  { title: 'Pre-Production', description: 'We coordinate materials, vendors, and timelines to ensure smooth execution of your project.', counter: '04', page: 'decor', section: 'workflow', order: 4 },
-  { title: 'Final Installation', description: 'Our team manages the complete installation, bringing every detail to life with precision.', counter: '05', page: 'decor', section: 'workflow', order: 5 },
+  { title: 'Brief Overview', description: 'We study the brief and develop multiple creative directions based on your brand, audience, and goals.', counter: '01.', page: 'decor', section: 'workflow', order: 1 },
+  { title: '2D Ideation', description: 'Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.', counter: '02.', page: 'decor', section: 'workflow', order: 2 },
+  { title: '3D Render', description: 'We produce photorealistic 3D renders so you can experience the space before construction begins.', counter: '03.', page: 'decor', section: 'workflow', order: 3 },
+  { title: 'Pre-Production', description: 'We coordinate materials, vendors, and timelines to ensure smooth execution of your project.', counter: '04.', page: 'decor', section: 'workflow', order: 4 },
+  { title: 'Final Installation', description: 'Our team manages the complete installation, bringing every detail to life with precision.', counter: '05.', page: 'decor', section: 'workflow', order: 5 },
 ];
 
 const keyProjects = [
@@ -661,7 +686,7 @@ async function seedCreativePage(
   const heroImageId = await uploadImage('/images/creative/hero-background.jpg');
 
   // Filter portfolio items for creative page
-  const creativePortfolioIds = portfolioIds.slice(0, 5); // First 5 are creative
+  const creativePortfolioIds = portfolioIds.slice(0, 8); // First 8 are creative
 
   // Get service item IDs for this page
   const servicesIds = getServiceIds(serviceEntries, 'creative', 'services');
@@ -791,7 +816,7 @@ async function seedSetDesignPage(
   const heroImageId = await uploadImage('/images/set-design/hero-background.jpg');
 
   // Filter portfolio items for set-design page
-  const setDesignPortfolioIds = portfolioIds.slice(5, 7); // Items 6-7 are set-design
+  const setDesignPortfolioIds = portfolioIds.slice(8, 16); // Items 9-16 are set-design
 
   // Get service item IDs for this page
   const workflowIds = getServiceIds(serviceEntries, 'set-design', 'workflow');
@@ -907,7 +932,7 @@ async function seedDecorPage(
   const heroImageId = await uploadImage('/images/decoration/hero-background.jpg');
 
   // Filter portfolio items for decor page
-  const decorPortfolioIds = portfolioIds.slice(7, 9); // Items 8-9 are decor
+  const decorPortfolioIds = portfolioIds.slice(16, 24); // Items 17-24 are decor
 
   // Get service item IDs for this page
   const workflowIds = getServiceIds(serviceEntries, 'decor', 'workflow');
