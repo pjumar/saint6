@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f0f0f0"/>
+  <g fill="#999999">
+    <!-- Image icon -->
+    <rect x="125" y="145" width="150" height="110" rx="8" fill="none" stroke="#999999" stroke-width="4"/>
+    <circle cx="160" cy="175" r="12"/>
+    <polygon points="135,245 185,195 215,225 245,185 265,215 265,245"/>
+  </g>
+  <text x="200" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#666666" text-anchor="middle">Image not available</text>
+</svg>
