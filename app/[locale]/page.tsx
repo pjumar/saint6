@@ -20,9 +20,16 @@ import {
   type BrandLogo,
 } from "@/app/components/trusted-by-section/TrustedBySection";
 import {
+  FALLBACK_BRAND_LOGOS,
+  FALLBACK_CREW_AREA_DATA,
+  FALLBACK_GALLERY_IMAGES,
+  FALLBACK_HERO,
+  FALLBACK_PROJECT_DATA,
+  FALLBACK_SPACE_DATA,
+} from "@/app/lib/fallback-data";
+import {
   getHomepage,
   getStrapiImageUrl,
-  type StrapiHomepage,
   type StrapiSpaceSection,
   type StrapiCrewArea,
   type StrapiKeyProject,
@@ -161,24 +168,54 @@ interface PageProps {
 export default async function Home({ params }: PageProps) {
   const { locale } = await params;
   const t = getTranslations(locale);
+  const isDev = process.env.NODE_ENV === "development";
 
   // Fetch CMS data at build time
   const strapiData = await getHomepage(locale);
 
-  // Transform Strapi data to component props
-  const brandLogos = transformBrandLogos(strapiData?.brand_logos);
-  const galleryImages = transformGalleryImages(strapiData?.gallery_images);
-  const spaceData = transformSpaceSection(strapiData?.space_section);
-  const crewAreaData = transformCrewArea(strapiData?.crew_area);
-  const keyProjectData = transformKeyProject(strapiData?.key_projects);
+  // Dev fallback - use hardcoded data when Strapi is unavailable during development
+  const useFallback = !strapiData && isDev;
+  if (useFallback) {
+    console.warn(
+      "[Homepage] Using fallback data - Strapi CMS not available in development"
+    );
+  }
 
-  // Get hero data from CMS or use translations fallback
-  const heroHeading = strapiData?.hero?.heading || t.HERO.HEADING;
+  // Transform Strapi data to component props (or use fallbacks)
+  const brandLogos = strapiData?.brand_logos
+    ? transformBrandLogos(strapiData.brand_logos)
+    : useFallback
+      ? FALLBACK_BRAND_LOGOS
+      : [];
+  const galleryImages = strapiData?.gallery_images
+    ? transformGalleryImages(strapiData.gallery_images)
+    : useFallback
+      ? FALLBACK_GALLERY_IMAGES
+      : [];
+  const spaceData = strapiData?.space_section
+    ? transformSpaceSection(strapiData.space_section)
+    : useFallback
+      ? FALLBACK_SPACE_DATA
+      : null;
+  const crewAreaData = strapiData?.crew_area
+    ? transformCrewArea(strapiData.crew_area)
+    : useFallback
+      ? FALLBACK_CREW_AREA_DATA
+      : null;
+  const keyProjectData = strapiData?.key_projects
+    ? transformKeyProject(strapiData.key_projects)
+    : useFallback
+      ? FALLBACK_PROJECT_DATA
+      : null;
+
+  // Get hero data from CMS or use translations/fallback
+  const heroHeading =
+    strapiData?.hero?.heading || (useFallback ? FALLBACK_HERO.heading : t.HERO.HEADING);
   const heroBackground = strapiData?.hero?.background_image
     ? getStrapiImageUrl(strapiData.hero.background_image)
-    : "/images/hero/hero-background.jpg";
+    : FALLBACK_HERO.backgroundImage;
   const heroBackgroundAlt =
-    strapiData?.hero?.background_alt || "Hero background";
+    strapiData?.hero?.background_alt || FALLBACK_HERO.backgroundAlt;
 
   return (
     <div className={styles.homepage}>
