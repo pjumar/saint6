@@ -247,6 +247,62 @@ const testimonialItems = [
   },
 ];
 
+// Service Items for all pages (services & workflow sections)
+const serviceItems = [
+  // Creative page - services
+  { title: 'Brand & Advertising Campaigns', description: 'We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.', page: 'creative', section: 'services', order: 1 },
+  { title: 'Product & Packaging Shoots', description: 'From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.', page: 'creative', section: 'services', order: 2 },
+  // Creative page - workflow
+  { title: 'Creative Direction', description: 'We study your brief and develop creative directions based on your brand, audience, and goals.', counter: '01', page: 'creative', section: 'workflow', order: 1 },
+  { title: 'Storyboard Development', description: 'Our team creates detailed storyboards and shot lists to visualize the final output.', counter: '02', page: 'creative', section: 'workflow', order: 2 },
+  { title: 'Pre-production & Sourcing', description: 'We coordinate talent, locations, props, and equipment to ensure smooth execution.', counter: '03', page: 'creative', section: 'workflow', order: 3 },
+  { title: 'Shoot / Production', description: 'Our experienced crew captures your vision with precision and creative flair.', counter: '04', page: 'creative', section: 'workflow', order: 4 },
+  { title: 'Post-production', description: 'Professional editing, color grading, and retouching bring the final deliverables to life.', counter: '05', page: 'creative', section: 'workflow', order: 5 },
+  { title: 'Final Delivery', description: 'We deliver polished assets ready for print, digital, and social media deployment.', counter: '06', page: 'creative', section: 'workflow', order: 6 },
+
+  // Production page - services
+  { title: 'Campaign & Editorial Production', description: 'We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure.', page: 'production', section: 'services', order: 1 },
+  { title: 'Photography & Film Production', description: 'From concept to final cut, we deliver high-impact visuals through expert direction, seamless coordination, and creative storytelling.', page: 'production', section: 'services', order: 2 },
+  { title: 'Lighting & Equipment Rental', description: 'Premium lighting and state-of-the-art equipment designed to elevate every production with precision, balance, and creative control.', page: 'production', section: 'services', order: 3 },
+  { title: 'Make-up & Hair Stylist', description: 'Professional beauty services that transform talent and enhance visual storytelling with meticulous attention to detail.', page: 'production', section: 'services', order: 4 },
+  { title: 'Location Scouting & Permits', description: 'We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap.', page: 'production', section: 'services', order: 5 },
+  { title: 'Post-production Coordination', description: 'End-to-end post-production management, from editing and color grading to final delivery across all formats.', page: 'production', section: 'services', order: 6 },
+  // Production page - workflow
+  { title: 'Pre-Production', description: 'Concept, scheduling, and creative', counter: '01', page: 'production', section: 'workflow', order: 1 },
+  { title: 'Set-Up', description: 'Lighting, camera, art direction', counter: '02', page: 'production', section: 'workflow', order: 2 },
+  { title: 'Shoot Day', description: 'Execution and real-time adjustments', counter: '03', page: 'production', section: 'workflow', order: 3 },
+  { title: 'Wrap & Delivery', description: 'Editing, review, and delivery', counter: '04', page: 'production', section: 'workflow', order: 4 },
+
+  // Set Design page - workflow
+  { title: 'Brief & Concept Alignment', description: 'We start by understanding your creative direction, brand language, and spatial needs.', counter: '01', page: 'set-design', section: 'workflow', order: 1 },
+  { title: '2D Layout & 3D Render', description: 'We create technical layouts and 3D visuals that bring the proposed set design to life — before anything is built.', counter: '02', page: 'set-design', section: 'workflow', order: 2 },
+  { title: 'Presentation & Feedback Loop', description: "We present the design and collaborate closely with your team to refine it until it's approved.", counter: '03', page: 'set-design', section: 'workflow', order: 3 },
+  { title: 'Set Construction & Sourcing', description: 'We build the set and source all backdrops, structural elements, props, and textures to match the approved concept.', counter: '04', page: 'set-design', section: 'workflow', order: 4 },
+  { title: 'Setup & Shoot Support', description: 'We handle set assembly, stay present during the shoot to make real-time adjustments, and ensure everything works on camera.', counter: '05', page: 'set-design', section: 'workflow', order: 5 },
+  { title: 'Set Maintenance & Tear-Down', description: 'Once the shoot wraps, we handle cleanup and dismantle the set efficiently and professionally.', counter: '06', page: 'set-design', section: 'workflow', order: 6 },
+
+  // Event Planning page - services
+  { title: 'Product & Brand Launches', description: 'We craft launch experiences that captivate audiences and elevate your brand story with precision and flair.', page: 'event-planning', section: 'services', order: 1 },
+  { title: 'Fashion Shows', description: 'From runway to backstage, we design and execute fashion events that celebrate artistry and style.', page: 'event-planning', section: 'services', order: 2 },
+  { title: 'Private Dinners', description: 'Intimate gatherings curated with exquisite detail, creating memorable moments for your guests.', page: 'event-planning', section: 'services', order: 3 },
+  { title: 'Art & Lifestyle Pop-Ups', description: 'Immersive pop-up experiences that blend art, culture, and lifestyle into unforgettable activations.', page: 'event-planning', section: 'services', order: 4 },
+  { title: 'Press & Influencer Events', description: 'Strategic media events designed to generate buzz and build lasting connections with key voices.', page: 'event-planning', section: 'services', order: 5 },
+  { title: 'Corporate Celebrations', description: "Professional yet refined corporate events that reflect your company's values and vision.", page: 'event-planning', section: 'services', order: 6 },
+  // Event Planning page - workflow
+  { title: 'Full Creative & Design Direction', description: "From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand's vision.", counter: '01', page: 'event-planning', section: 'workflow', order: 1 },
+  { title: 'Guest Experience & Flow Planning', description: 'Every moment is designed with intention — seamless, elegant, and unforgettable.', counter: '02', page: 'event-planning', section: 'workflow', order: 2 },
+  { title: 'On-site Management & Run-of-Show Execution', description: 'Flawless coordination ensures your event unfolds with effortless precision.', counter: '03', page: 'event-planning', section: 'workflow', order: 3 },
+  { title: 'Venue Styling & Set Design', description: 'We craft immersive environments that capture emotion, detail, and distinctive character.', counter: '04', page: 'event-planning', section: 'workflow', order: 4 },
+  { title: 'Catering & Entertainment Coordination', description: 'We curate dining and performances that enrich the mood and elevate the experience.', counter: '05', page: 'event-planning', section: 'workflow', order: 5 },
+
+  // Decor page - workflow
+  { title: 'Brief Overview', description: 'We study the brief and develop multiple creative directions based on your brand, audience, and goals.', counter: '01', page: 'decor', section: 'workflow', order: 1 },
+  { title: '2D Ideation', description: 'Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.', counter: '02', page: 'decor', section: 'workflow', order: 2 },
+  { title: '3D Render', description: 'We produce photorealistic 3D renders so you can experience the space before construction begins.', counter: '03', page: 'decor', section: 'workflow', order: 3 },
+  { title: 'Pre-Production', description: 'We coordinate materials, vendors, and timelines to ensure smooth execution of your project.', counter: '04', page: 'decor', section: 'workflow', order: 4 },
+  { title: 'Final Installation', description: 'Our team manages the complete installation, bringing every detail to life with precision.', counter: '05', page: 'decor', section: 'workflow', order: 5 },
+];
+
 const keyProjects = [
   {
     title: 'LSoul Casting call for Shanghai Fashion Week 2025',
@@ -386,6 +442,36 @@ async function seedTestimonialItems() {
     }
   }
   return createdIds;
+}
+
+async function seedServiceItems() {
+  console.log('\n📦 Seeding Service Items...');
+  const createdEntries: { id: number; page: string; section: string }[] = [];
+  for (const item of serviceItems) {
+    const entry = await createEntry('service-items', {
+      title: item.title,
+      description: item.description,
+      counter: item.counter,
+      page: item.page,
+      section: item.section,
+      order: item.order,
+    });
+    if (entry) {
+      createdEntries.push({ id: entry.id, page: item.page, section: item.section });
+    }
+  }
+  return createdEntries;
+}
+
+// Helper to get service item IDs by page and section
+function getServiceIds(
+  serviceEntries: { id: number; page: string; section: string }[],
+  page: string,
+  section: string
+): number[] {
+  return serviceEntries
+    .filter(e => e.page === page && e.section === section)
+    .map(e => e.id);
 }
 
 // ============================================================================
@@ -564,13 +650,22 @@ async function seedStudioRentalPage(roomIds: number[], equipmentIds: number[], f
   }, 'vi');
 }
 
-async function seedCreativePage(portfolioIds: number[], brandLogoIds: number[], testimonialIds: number[]) {
+async function seedCreativePage(
+  portfolioIds: number[],
+  brandLogoIds: number[],
+  testimonialIds: number[],
+  serviceEntries: { id: number; page: string; section: string }[]
+) {
   console.log('\n📄 Seeding Creative Page...');
 
   const heroImageId = await uploadImage('/images/creative/hero-background.jpg');
 
   // Filter portfolio items for creative page
   const creativePortfolioIds = portfolioIds.slice(0, 5); // First 5 are creative
+
+  // Get service item IDs for this page
+  const servicesIds = getServiceIds(serviceEntries, 'creative', 'services');
+  const workflowIds = getServiceIds(serviceEntries, 'creative', 'workflow');
 
   // English
   await updateSingleType('creative-page', {
@@ -584,24 +679,14 @@ async function seedCreativePage(portfolioIds: number[], brandLogoIds: number[], 
       description: "We're proud to collaborate with leading brands, agencies, and startups worldwide.",
     },
     client_logos: brandLogoIds,
-    services: [
-      { image: null, title: 'Brand & Advertising Campaigns', description: 'We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.' },
-      { image: null, title: 'Product & Packaging Shoots', description: 'From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.' },
-    ],
+    services: servicesIds,
     intro: {
       title: 'How We Work',
       description: 'We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery.',
       cta_text: 'Get in touch',
       cta_link: '#contact-form',
     },
-    workflow: [
-      { counter: '01', title: 'Creative Direction', description: 'We study your brief and develop creative directions based on your brand, audience, and goals.' },
-      { counter: '02', title: 'Storyboard Development', description: 'Our team creates detailed storyboards and shot lists to visualize the final output.' },
-      { counter: '03', title: 'Pre-production & Sourcing', description: 'We coordinate talent, locations, props, and equipment to ensure smooth execution.' },
-      { counter: '04', title: 'Shoot / Production', description: 'Our experienced crew captures your vision with precision and creative flair.' },
-      { counter: '05', title: 'Post-production', description: 'Professional editing, color grading, and retouching bring the final deliverables to life.' },
-      { counter: '06', title: 'Final Delivery', description: 'We deliver polished assets ready for print, digital, and social media deployment.' },
-    ],
+    workflow: workflowIds,
     portfolio_settings: {
       label: 'Featured Work',
       statement: "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail.",
@@ -622,24 +707,14 @@ async function seedCreativePage(portfolioIds: number[], brandLogoIds: number[], 
       description: 'Chúng tôi tự hào hợp tác với các thương hiệu, agency và startup hàng đầu trên toàn thế giới.',
     },
     client_logos: brandLogoIds,
-    services: [
-      { image: null, title: 'Chiến Dịch Thương Hiệu & Quảng Cáo', description: 'Chúng tôi sản xuất các chiến dịch thời trang, phong cách sống, editorial, mạng xã hội và influencer mang thương hiệu vào cuộc sống với năng lượng sáng tạo mới mẻ.' },
-      { image: null, title: 'Chụp Sản Phẩm & Bao Bì', description: 'Từ nhãn sản phẩm và hình ảnh thương mại điện tử đến packshot và still life, chúng tôi tạo ra hình ảnh tinh tế nâng tầm bao bì, catalog và cửa hàng trực tuyến.' },
-    ],
+    services: servicesIds,
     intro: {
       title: 'Cách Chúng Tôi Làm Việc',
       description: 'Chúng tôi có thể đảm nhận sản xuất toàn diện hoặc tham gia ở bất kỳ giai đoạn nào — từ phát triển moodboard và concept đến hậu kỳ và giao sản phẩm cuối cùng.',
       cta_text: 'Liên hệ ngay',
       cta_link: '#contact-form',
     },
-    workflow: [
-      { counter: '01', title: 'Chỉ Đạo Sáng Tạo', description: 'Chúng tôi nghiên cứu brief và phát triển hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.' },
-      { counter: '02', title: 'Phát Triển Storyboard', description: 'Đội ngũ của chúng tôi tạo storyboard chi tiết và danh sách shot để hình dung sản phẩm cuối cùng.' },
-      { counter: '03', title: 'Tiền Kỳ & Tìm Nguồn', description: 'Chúng tôi phối hợp diễn viên, địa điểm, đạo cụ và thiết bị để đảm bảo thực hiện suôn sẻ.' },
-      { counter: '04', title: 'Quay / Sản Xuất', description: 'Đội ngũ giàu kinh nghiệm của chúng tôi ghi lại tầm nhìn của bạn với sự chính xác và phong cách sáng tạo.' },
-      { counter: '05', title: 'Hậu Kỳ', description: 'Dựng phim, chỉnh màu và retouch chuyên nghiệp đưa sản phẩm cuối cùng vào cuộc sống.' },
-      { counter: '06', title: 'Giao Hàng Cuối Cùng', description: 'Chúng tôi giao sản phẩm hoàn chỉnh sẵn sàng cho in ấn, kỹ thuật số và triển khai trên mạng xã hội.' },
-    ],
+    workflow: workflowIds,
     portfolio_settings: {
       label: 'Tác Phẩm Nổi Bật',
       statement: 'Hình ảnh cao cấp phản ánh tham vọng thương hiệu của bạn — một triển lãm của nghệ thuật và sự chú ý đến chi tiết.',
@@ -649,10 +724,17 @@ async function seedCreativePage(portfolioIds: number[], brandLogoIds: number[], 
   }, 'vi');
 }
 
-async function seedProductionPage(keyProjectIds: number[]) {
+async function seedProductionPage(
+  keyProjectIds: number[],
+  serviceEntries: { id: number; page: string; section: string }[]
+) {
   console.log('\n📄 Seeding Production Page...');
 
   const heroImageId = await uploadImage('/images/production/hero-background.jpg');
+
+  // Get service item IDs for this page
+  const servicesIds = getServiceIds(serviceEntries, 'production', 'services');
+  const workflowIds = getServiceIds(serviceEntries, 'production', 'workflow');
 
   // English
   await updateSingleType('production-page', {
@@ -667,24 +749,12 @@ async function seedProductionPage(keyProjectIds: number[]) {
       cta_text: 'Plan Your Production',
       cta_link: '#contact-form',
     },
-    services: [
-      { image: null, title: 'Campaign & Editorial Production', description: 'We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure.' },
-      { image: null, title: 'Photography & Film Production', description: 'From concept to final cut, we deliver high-impact visuals through expert direction, seamless coordination, and creative storytelling.' },
-      { image: null, title: 'Lighting & Equipment Rental', description: 'Premium lighting and state-of-the-art equipment designed to elevate every production with precision, balance, and creative control.' },
-      { image: null, title: 'Make-up & Hair Stylist', description: 'Professional beauty services that transform talent and enhance visual storytelling with meticulous attention to detail.' },
-      { image: null, title: 'Location Scouting & Permits', description: 'We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap.' },
-      { image: null, title: 'Post-production Coordination', description: 'End-to-end post-production management, from editing and color grading to final delivery across all formats.' },
-    ],
+    services: servicesIds,
     intro_2: {
       title: 'The Saint 6 Way of Creation',
       description: 'We believe in structured creativity — a process that respects your vision while bringing our expertise to every detail.',
     },
-    workflow: [
-      { counter: '01', title: 'Pre-Production', description: 'Concept, scheduling, and creative' },
-      { counter: '02', title: 'Set-Up', description: 'Lighting, camera, art direction' },
-      { counter: '03', title: 'Shoot Day', description: 'Execution and real-time adjustments' },
-      { counter: '04', title: 'Wrap & Delivery', description: 'Editing, review, and delivery' },
-    ],
+    workflow: workflowIds,
     key_projects: keyProjectIds,
   });
 
@@ -701,35 +771,30 @@ async function seedProductionPage(keyProjectIds: number[]) {
       cta_text: 'Lên Kế Hoạch Sản Xuất',
       cta_link: '#contact-form',
     },
-    services: [
-      { image: null, title: 'Sản Xuất Chiến Dịch & Editorial', description: 'Chúng tôi tạo ra các chiến dịch và editorial độc đáo kết hợp nghệ thuật, câu chuyện và sự tinh tế vượt thời gian — mang câu chuyện thương hiệu vào cuộc sống với sức hút điện ảnh.' },
-      { image: null, title: 'Sản Xuất Chụp Ảnh & Phim', description: 'Từ ý tưởng đến bản cắt cuối cùng, chúng tôi mang đến hình ảnh có tác động mạnh thông qua chỉ đạo chuyên nghiệp, phối hợp liền mạch và kể chuyện sáng tạo.' },
-      { image: null, title: 'Cho Thuê Ánh Sáng & Thiết Bị', description: 'Ánh sáng cao cấp và thiết bị hiện đại được thiết kế để nâng tầm mọi sản xuất với độ chính xác, cân bằng và kiểm soát sáng tạo.' },
-      { image: null, title: 'Chuyên Viên Trang Điểm & Làm Tóc', description: 'Dịch vụ làm đẹp chuyên nghiệp biến đổi diện mạo và nâng cao câu chuyện hình ảnh với sự chú ý tỉ mỉ đến từng chi tiết.' },
-      { image: null, title: 'Tìm Địa Điểm & Xin Phép', description: 'Chúng tôi tìm kiếm địa điểm hoàn hảo và xử lý tất cả thủ tục giấy phép, đảm bảo hoạt động suôn sẻ từ tiền kỳ đến kết thúc.' },
-      { image: null, title: 'Phối Hợp Hậu Kỳ', description: 'Quản lý hậu kỳ toàn diện, từ dựng phim và chỉnh màu đến sản phẩm cuối cùng trên mọi định dạng.' },
-    ],
+    services: servicesIds,
     intro_2: {
       title: 'Phong Cách Sáng Tạo Saint 6',
       description: 'Chúng tôi tin vào sự sáng tạo có cấu trúc — một quy trình tôn trọng tầm nhìn của bạn đồng thời mang chuyên môn của chúng tôi vào từng chi tiết.',
     },
-    workflow: [
-      { counter: '01', title: 'Tiền Sản Xuất', description: 'Ý tưởng, lên lịch và sáng tạo' },
-      { counter: '02', title: 'Chuẩn Bị', description: 'Ánh sáng, máy quay, chỉ đạo nghệ thuật' },
-      { counter: '03', title: 'Ngày Quay', description: 'Thực hiện và điều chỉnh theo thời gian thực' },
-      { counter: '04', title: 'Hoàn Thành & Giao Hàng', description: 'Dựng phim, duyệt và giao hàng' },
-    ],
+    workflow: workflowIds,
     key_projects: keyProjectIds,
   }, 'vi');
 }
 
-async function seedSetDesignPage(portfolioIds: number[], testimonialIds: number[]) {
+async function seedSetDesignPage(
+  portfolioIds: number[],
+  testimonialIds: number[],
+  serviceEntries: { id: number; page: string; section: string }[]
+) {
   console.log('\n📄 Seeding Set Design Page...');
 
   const heroImageId = await uploadImage('/images/set-design/hero-background.jpg');
 
   // Filter portfolio items for set-design page
   const setDesignPortfolioIds = portfolioIds.slice(5, 7); // Items 6-7 are set-design
+
+  // Get service item IDs for this page
+  const workflowIds = getServiceIds(serviceEntries, 'set-design', 'workflow');
 
   // English
   await updateSingleType('set-design-page', {
@@ -744,14 +809,7 @@ async function seedSetDesignPage(portfolioIds: number[], testimonialIds: number[
       cta_text: 'Get in touch',
       cta_link: '#contact-form',
     },
-    workflow: [
-      { counter: '01', title: 'Brief & Concept Alignment', description: 'We start by understanding your creative direction, brand language, and spatial needs.' },
-      { counter: '02', title: '2D Layout & 3D Render', description: 'We create technical layouts and 3D visuals that bring the proposed set design to life — before anything is built.' },
-      { counter: '03', title: 'Presentation & Feedback Loop', description: 'We present the design and collaborate closely with your team to refine it until it\'s approved.' },
-      { counter: '04', title: 'Set Construction & Sourcing', description: 'We build the set and source all backdrops, structural elements, props, and textures to match the approved concept.' },
-      { counter: '05', title: 'Setup & Shoot Support', description: 'We handle set assembly, stay present during the shoot to make real-time adjustments, and ensure everything works on camera.' },
-      { counter: '06', title: 'Set Maintenance & Tear-Down', description: 'Once the shoot wraps, we handle cleanup and dismantle the set efficiently and professionally.' },
-    ],
+    workflow: workflowIds,
     portfolio_settings: {
       label: 'PORTFOLIO',
       statement: 'We shape physical spaces that reflect your creative intent — environments that become part of your story',
@@ -773,14 +831,7 @@ async function seedSetDesignPage(portfolioIds: number[], testimonialIds: number[
       cta_text: 'Liên hệ ngay',
       cta_link: '#contact-form',
     },
-    workflow: [
-      { counter: '01', title: 'Brief & Thống Nhất Concept', description: 'Chúng tôi bắt đầu bằng việc hiểu định hướng sáng tạo, ngôn ngữ thương hiệu và nhu cầu không gian của bạn.' },
-      { counter: '02', title: 'Bố Cục 2D & Render 3D', description: 'Chúng tôi tạo bản vẽ kỹ thuật và hình ảnh 3D đưa thiết kế set vào cuộc sống — trước khi bất cứ thứ gì được xây dựng.' },
-      { counter: '03', title: 'Trình Bày & Phản Hồi', description: 'Chúng tôi trình bày thiết kế và phối hợp chặt chẽ với đội ngũ của bạn để hoàn thiện cho đến khi được duyệt.' },
-      { counter: '04', title: 'Xây Dựng Set & Tìm Nguồn', description: 'Chúng tôi xây dựng set và tìm nguồn tất cả phông nền, yếu tố cấu trúc, đạo cụ và kết cấu phù hợp với concept đã duyệt.' },
-      { counter: '05', title: 'Lắp Đặt & Hỗ Trợ Quay', description: 'Chúng tôi xử lý việc lắp đặt set, có mặt trong suốt buổi quay để điều chỉnh theo thời gian thực và đảm bảo mọi thứ hoạt động trên camera.' },
-      { counter: '06', title: 'Bảo Trì Set & Tháo Dỡ', description: 'Khi buổi quay kết thúc, chúng tôi xử lý việc dọn dẹp và tháo dỡ set một cách hiệu quả và chuyên nghiệp.' },
-    ],
+    workflow: workflowIds,
     portfolio_settings: {
       label: 'PORTFOLIO',
       statement: 'Chúng tôi tạo hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn',
@@ -790,10 +841,17 @@ async function seedSetDesignPage(portfolioIds: number[], testimonialIds: number[
   }, 'vi');
 }
 
-async function seedEventPlanningPage(keyProjectIds: number[]) {
+async function seedEventPlanningPage(
+  keyProjectIds: number[],
+  serviceEntries: { id: number; page: string; section: string }[]
+) {
   console.log('\n📄 Seeding Event Planning Page...');
 
   const heroImageId = await uploadImage('/images/event-planning/hero-background.jpg');
+
+  // Get service item IDs for this page
+  const servicesIds = getServiceIds(serviceEntries, 'event-planning', 'services');
+  const workflowIds = getServiceIds(serviceEntries, 'event-planning', 'workflow');
 
   // English
   await updateSingleType('event-planning-page', {
@@ -808,25 +866,12 @@ async function seedEventPlanningPage(keyProjectIds: number[]) {
       cta_text: 'Plan Your Event',
       cta_link: '#contact-form',
     },
-    services: [
-      { image: null, title: 'Product & Brand Launches', description: 'We craft launch experiences that captivate audiences and elevate your brand story with precision and flair.' },
-      { image: null, title: 'Fashion Shows', description: 'From runway to backstage, we design and execute fashion events that celebrate artistry and style.' },
-      { image: null, title: 'Private Dinners', description: 'Intimate gatherings curated with exquisite detail, creating memorable moments for your guests.' },
-      { image: null, title: 'Art & Lifestyle Pop-Ups', description: 'Immersive pop-up experiences that blend art, culture, and lifestyle into unforgettable activations.' },
-      { image: null, title: 'Press & Influencer Events', description: 'Strategic media events designed to generate buzz and build lasting connections with key voices.' },
-      { image: null, title: 'Corporate Celebrations', description: 'Professional yet refined corporate events that reflect your company\'s values and vision.' },
-    ],
+    services: servicesIds,
     intro_2: {
       title: 'Every Moment, An Emotion',
       description: 'Beyond venue and décor, Saint 6 delivers artistry in motion — a rare harmony of creative vision, flawless execution, and atmosphere designed to leave a lasting impression.',
     },
-    workflow: [
-      { counter: '01', title: 'Full Creative & Design Direction', description: 'From concept to creation, Saint 6 shapes a cohesive visual story that embodies your brand\'s vision.' },
-      { counter: '02', title: 'Guest Experience & Flow Planning', description: 'Every moment is designed with intention — seamless, elegant, and unforgettable.' },
-      { counter: '03', title: 'On-site Management & Run-of-Show Execution', description: 'Flawless coordination ensures your event unfolds with effortless precision.' },
-      { counter: '04', title: 'Venue Styling & Set Design', description: 'We craft immersive environments that capture emotion, detail, and distinctive character.' },
-      { counter: '05', title: 'Catering & Entertainment Coordination', description: 'We curate dining and performances that enrich the mood and elevate the experience.' },
-    ],
+    workflow: workflowIds,
     event_projects: keyProjectIds,
   });
 
@@ -843,36 +888,29 @@ async function seedEventPlanningPage(keyProjectIds: number[]) {
       cta_text: 'Lên Kế Hoạch Sự Kiện',
       cta_link: '#contact-form',
     },
-    services: [
-      { image: null, title: 'Ra Mắt Sản Phẩm & Thương Hiệu', description: 'Chúng tôi tạo ra những trải nghiệm ra mắt thu hút khán giả và nâng tầm câu chuyện thương hiệu với sự chính xác và phong cách.' },
-      { image: null, title: 'Trình Diễn Thời Trang', description: 'Từ sàn runway đến hậu trường, chúng tôi thiết kế và thực hiện các sự kiện thời trang tôn vinh nghệ thuật và phong cách.' },
-      { image: null, title: 'Bữa Tối Riêng Tư', description: 'Các buổi họp mặt thân mật được chọn lọc với chi tiết tinh tế, tạo nên những khoảnh khắc đáng nhớ cho khách mời.' },
-      { image: null, title: 'Pop-Up Nghệ Thuật & Phong Cách Sống', description: 'Trải nghiệm pop-up sống động kết hợp nghệ thuật, văn hóa và phong cách sống thành những hoạt động khó quên.' },
-      { image: null, title: 'Sự Kiện Báo Chí & Influencer', description: 'Các sự kiện truyền thông chiến lược được thiết kế để tạo tiếng vang và xây dựng kết nối lâu dài với những tiếng nói quan trọng.' },
-      { image: null, title: 'Lễ Kỷ Niệm Doanh Nghiệp', description: 'Các sự kiện doanh nghiệp chuyên nghiệp nhưng tinh tế phản ánh giá trị và tầm nhìn của công ty bạn.' },
-    ],
+    services: servicesIds,
     intro_2: {
       title: 'Mỗi Khoảnh Khắc, Một Cảm Xúc',
       description: 'Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài.',
     },
-    workflow: [
-      { counter: '01', title: 'Chỉ Đạo Sáng Tạo & Thiết Kế Toàn Diện', description: 'Từ ý tưởng đến sáng tạo, Saint 6 định hình câu chuyện hình ảnh mạch lạc thể hiện tầm nhìn thương hiệu của bạn.' },
-      { counter: '02', title: 'Lập Kế Hoạch Trải Nghiệm & Quy Trình Khách Mời', description: 'Mỗi khoảnh khắc được thiết kế với chủ đích — liền mạch, tinh tế và khó quên.' },
-      { counter: '03', title: 'Quản Lý Tại Chỗ & Thực Hiện Kịch Bản', description: 'Phối hợp hoàn hảo đảm bảo sự kiện của bạn diễn ra với sự chính xác nhẹ nhàng.' },
-      { counter: '04', title: 'Thiết Kế Địa Điểm & Set', description: 'Chúng tôi tạo ra môi trường sống động nắm bắt cảm xúc, chi tiết và đặc trưng riêng biệt.' },
-      { counter: '05', title: 'Phối Hợp Ẩm Thực & Giải Trí', description: 'Chúng tôi chọn lọc ẩm thực và biểu diễn làm phong phú không khí và nâng tầm trải nghiệm.' },
-    ],
+    workflow: workflowIds,
     event_projects: keyProjectIds,
   }, 'vi');
 }
 
-async function seedDecorPage(portfolioIds: number[]) {
+async function seedDecorPage(
+  portfolioIds: number[],
+  serviceEntries: { id: number; page: string; section: string }[]
+) {
   console.log('\n📄 Seeding Decor Page...');
 
   const heroImageId = await uploadImage('/images/decoration/hero-background.jpg');
 
   // Filter portfolio items for decor page
   const decorPortfolioIds = portfolioIds.slice(7, 9); // Items 8-9 are decor
+
+  // Get service item IDs for this page
+  const workflowIds = getServiceIds(serviceEntries, 'decor', 'workflow');
 
   // English
   await updateSingleType('decor-page', {
@@ -887,13 +925,7 @@ async function seedDecorPage(portfolioIds: number[]) {
       cta_text: 'Plan Your Decoration',
       cta_link: '#contact-form',
     },
-    workflow: [
-      { counter: '01', title: 'Brief Overview', description: 'We study the brief and develop multiple creative directions based on your brand, audience, and goals.' },
-      { counter: '02', title: '2D Ideation', description: 'Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.' },
-      { counter: '03', title: '3D Render', description: 'We produce photorealistic 3D renders so you can experience the space before construction begins.' },
-      { counter: '04', title: 'Pre-Production', description: 'We coordinate materials, vendors, and timelines to ensure smooth execution of your project.' },
-      { counter: '05', title: 'Final Installation', description: 'Our team manages the complete installation, bringing every detail to life with precision.' },
-    ],
+    workflow: workflowIds,
     intro_2: {
       title: 'every moment, an emotion',
       description: 'Every project begins with a vision. We bring it to life — detail by detail.',
@@ -918,13 +950,7 @@ async function seedDecorPage(portfolioIds: number[]) {
       cta_text: 'Lên Kế Hoạch Trang Trí',
       cta_link: '#contact-form',
     },
-    workflow: [
-      { counter: '01', title: 'Tổng Quan Brief', description: 'Chúng tôi nghiên cứu brief và phát triển nhiều hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.' },
-      { counter: '02', title: 'Ý Tưởng 2D', description: 'Đội ngũ thiết kế của chúng tôi tạo mood board chi tiết và bố cục ý tưởng để hình dung sự chuyển đổi không gian.' },
-      { counter: '03', title: 'Render 3D', description: 'Chúng tôi tạo render 3D chân thực để bạn có thể trải nghiệm không gian trước khi xây dựng bắt đầu.' },
-      { counter: '04', title: 'Tiền Sản Xuất', description: 'Chúng tôi phối hợp vật liệu, nhà cung cấp và tiến độ để đảm bảo thực hiện dự án suôn sẻ.' },
-      { counter: '05', title: 'Lắp Đặt Cuối Cùng', description: 'Đội ngũ của chúng tôi quản lý toàn bộ quá trình lắp đặt, đưa từng chi tiết vào cuộc sống với sự chính xác.' },
-    ],
+    workflow: workflowIds,
     intro_2: {
       title: 'mỗi khoảnh khắc, một cảm xúc',
       description: 'Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một.',
@@ -1107,15 +1133,16 @@ async function main() {
     const portfolioIds = await seedPortfolioItems();
     const keyProjectIds = await seedKeyProjects();
     const testimonialIds = await seedTestimonialItems();
+    const serviceEntries = await seedServiceItems();
 
     // Seed all pages
     await seedHomepage(brandLogoIds, keyProjectIds);
     await seedStudioRentalPage(studioRoomIds, equipmentIds, faqIds);
-    await seedCreativePage(portfolioIds, brandLogoIds, testimonialIds);
-    await seedProductionPage(keyProjectIds);
-    await seedSetDesignPage(portfolioIds, testimonialIds);
-    await seedEventPlanningPage(keyProjectIds);
-    await seedDecorPage(portfolioIds);
+    await seedCreativePage(portfolioIds, brandLogoIds, testimonialIds, serviceEntries);
+    await seedProductionPage(keyProjectIds, serviceEntries);
+    await seedSetDesignPage(portfolioIds, testimonialIds, serviceEntries);
+    await seedEventPlanningPage(keyProjectIds, serviceEntries);
+    await seedDecorPage(portfolioIds, serviceEntries);
     await seedAboutPage();
     await seedContactPage();
 
@@ -1128,6 +1155,7 @@ async function main() {
     console.log(`   - Portfolio Items: ${portfolioIds.length}`);
     console.log(`   - Key Projects: ${keyProjectIds.length}`);
     console.log(`   - Testimonial Items: ${testimonialIds.length}`);
+    console.log(`   - Service Items: ${serviceEntries.length}`);
     console.log(`   - Gallery Images: ${galleryImages.length}`);
     console.log(`   - Images uploaded: ${Object.keys(imageCache).length}`);
     console.log(`   - Pages seeded: 9 (English + Vietnamese)`);

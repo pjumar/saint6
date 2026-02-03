@@ -27,9 +27,9 @@
       "component": "shared.intro"
     },
     "workflow": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.service"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-item.service-item"
     },
     "portfolio_settings": {
       "type": "component",

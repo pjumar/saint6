@@ -151,6 +151,17 @@ export interface StrapiTestimonialItem {
   order: number;
 }
 
+export interface StrapiServiceItem {
+  id: number;
+  title: string;
+  description?: string;
+  counter?: string;
+  image?: StrapiImage;
+  page?: 'creative' | 'production' | 'set-design' | 'event-planning' | 'decor';
+  section?: 'services' | 'workflow';
+  order: number;
+}
+
 // ============================================================================
 // Page Components
 // ============================================================================
@@ -275,7 +286,7 @@ export interface StrapiSetDesignPage {
   id: number;
   hero?: StrapiHero;
   intro?: StrapiIntro;
-  workflow?: StrapiService[];
+  workflow?: StrapiServiceItem[];
   portfolio_settings?: StrapiPortfolioSettings;
   portfolio_items?: StrapiPortfolioItem[];
   testimonials?: StrapiTestimonialItem[];
@@ -285,9 +296,9 @@ export interface StrapiProductionPage {
   id: number;
   hero?: StrapiHero;
   intro?: StrapiIntro;
-  services?: StrapiService[];
+  services?: StrapiServiceItem[];
   intro_2?: StrapiIntro;
-  workflow?: StrapiService[];
+  workflow?: StrapiServiceItem[];
   key_projects?: StrapiKeyProject[];
 }
 
@@ -295,9 +306,9 @@ export interface StrapiEventPlanningPage {
   id: number;
   hero?: StrapiHero;
   intro?: StrapiIntro;
-  services?: StrapiService[];
+  services?: StrapiServiceItem[];
   intro_2?: StrapiIntro;
-  workflow?: StrapiService[];
+  workflow?: StrapiServiceItem[];
   event_projects?: StrapiKeyProject[];
 }
 
@@ -305,7 +316,7 @@ export interface StrapiDecorPage {
   id: number;
   hero?: StrapiHero;
   intro?: StrapiIntro;
-  workflow?: StrapiService[];
+  workflow?: StrapiServiceItem[];
   intro_2?: StrapiIntro;
   portfolio_settings?: StrapiPortfolioSettings;
   portfolio_items?: StrapiPortfolioItem[];
@@ -316,9 +327,9 @@ export interface StrapiCreativePage {
   hero?: StrapiHero;
   clients?: StrapiClientsSection;
   client_logos?: StrapiBrandLogo[];
-  services?: StrapiService[];
+  services?: StrapiServiceItem[];
   intro?: StrapiIntro;
-  workflow?: StrapiService[];
+  workflow?: StrapiServiceItem[];
   portfolio_settings?: StrapiPortfolioSettings;
   portfolio_items?: StrapiPortfolioItem[];
   testimonials?: StrapiTestimonialItem[];
@@ -553,4 +564,19 @@ export async function getTestimonialItems() {
     populate: ['brand_logo'],
     revalidate: 300,
   });
+}
+
+export async function getServiceItems(page?: 'creative' | 'production' | 'set-design' | 'event-planning' | 'decor', section?: 'services' | 'workflow') {
+  const items = await fetchStrapi<StrapiServiceItem[]>('service-items', {
+    populate: ['image'],
+    revalidate: 300,
+  });
+
+  if (items) {
+    let filtered = items;
+    if (page) filtered = filtered.filter(i => i.page === page);
+    if (section) filtered = filtered.filter(i => i.section === section);
+    return filtered.sort((a, b) => a.order - b.order);
+  }
+  return items;
 }

@@ -27,9 +27,9 @@
       "component": "shared.intro"
     },
     "services": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.service"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-item.service-item"
     },
     "intro_2": {
       "type": "component",
@@ -37,9 +37,9 @@
       "component": "shared.intro"
     },
     "workflow": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.service"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-item.service-item"
     },
     "key_projects": {
       "type": "relation",
