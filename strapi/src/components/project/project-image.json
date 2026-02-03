@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_project_project_images",
+  "info": {
+    "displayName": "Project Image",
+    "description": "Gallery image for a project"
+  },
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_project_testimonials",
+  "info": {
+    "displayName": "Testimonial",
+    "description": "Client testimonial with quote and author"
+  },
+  "attributes": {
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
