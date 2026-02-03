@@ -15,18 +15,18 @@ export interface PortfolioCardProps {
 
 // Pinterest-style aspect ratios for mobile variety
 const ASPECT_RATIOS = [
-  "3/4",    // portrait
-  "4/5",    // tall portrait
-  "1/1",    // square
-  "4/3",    // landscape
-  "3/5",    // extra tall
-  "2/3",    // classic portrait
-  "5/7",    // photo portrait
-  "9/16",   // vertical video
-  "5/4",    // slight landscape
-  "7/9",    // medium tall
-  "2/5",    // very tall
-  "16/9",   // wide landscape
+  "3/4", // portrait
+  "4/5", // tall portrait
+  "1/1", // square
+  "4/3", // landscape
+  "3/5", // extra tall
+  "2/3", // classic portrait
+  "5/7", // photo portrait
+  "9/16", // vertical video
+  "5/4", // slight landscape
+  "7/9", // medium tall
+  "2/5", // very tall
+  "16/9", // wide landscape
 ];
 
 export function PortfolioCard({
@@ -53,10 +53,12 @@ export function PortfolioCard({
     <div className={styles.portfolioCard}>
       <div
         className={styles.imageContainer}
-        style={{
-          "--mobile-aspect-ratio": mobileAspectRatio,
-          "--desktop-aspect-ratio": desktopAspectRatio || mobileAspectRatio,
-        } as React.CSSProperties}
+        style={
+          {
+            "--mobile-aspect-ratio": mobileAspectRatio,
+            "--desktop-aspect-ratio": desktopAspectRatio || mobileAspectRatio,
+          } as React.CSSProperties
+        }
       >
         <Image
           src={imageUrl}

@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./TrustedBySection.module.css";
 
@@ -51,8 +51,12 @@ export function TrustedBySection() {
     };
 
     logosContainer.addEventListener("wheel", preventScroll, { passive: false });
-    logosContainer.addEventListener("touchmove", preventScroll, { passive: false });
-    logosContainer.addEventListener("scroll", preventScroll, { passive: false });
+    logosContainer.addEventListener("touchmove", preventScroll, {
+      passive: false,
+    });
+    logosContainer.addEventListener("scroll", preventScroll, {
+      passive: false,
+    });
 
     animate();
 
@@ -100,11 +104,31 @@ export function TrustedBySection() {
   }, []);
 
   const brandLogos = [
-    { src: "/images/brands/brand-01.png", alt: "L'OFFICIEL", width: 170, height: 35 },
-    { src: "/images/brands/brand-02.png", alt: "Lenskart", width: 138, height: 40 },
-    { src: "/images/brands/brand-03.png", alt: "Vinamilk", width: 98, height: 32 },
+    {
+      src: "/images/brands/brand-01.png",
+      alt: "L'OFFICIEL",
+      width: 170,
+      height: 35,
+    },
+    {
+      src: "/images/brands/brand-02.png",
+      alt: "Lenskart",
+      width: 138,
+      height: 40,
+    },
+    {
+      src: "/images/brands/brand-03.png",
+      alt: "Vinamilk",
+      width: 98,
+      height: 32,
+    },
     { src: "/images/brands/brand-04.png", alt: "SONY", width: 114, height: 20 },
-    { src: "/images/brands/brand-05.png", alt: "VinFast", width: 128, height: 32 },
+    {
+      src: "/images/brands/brand-05.png",
+      alt: "VinFast",
+      width: 128,
+      height: 32,
+    },
   ];
 
   const handleLogoError = (index: number) => {

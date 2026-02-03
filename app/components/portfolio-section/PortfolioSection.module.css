@@ -5,7 +5,7 @@
 /* Grid Section */
 .gridSection {
   position: relative;
-  background: var(--color-bg-container, #F5F4F4);
+  background: var(--color-bg-container, #f5f4f4);
   border-radius: 1.5rem 1.5rem 0 0;
   padding: 4rem 1rem;
   margin-top: -1.5rem;

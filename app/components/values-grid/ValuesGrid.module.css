@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  background-color: var(--color-bg-container, #F5F4F4);
+  background-color: var(--color-bg-container, #f5f4f4);
 }
 
 /* Header with spiral decoration and logo */

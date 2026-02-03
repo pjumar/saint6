@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { useTranslation } from "@/app/contexts/TranslationContext";
+import { type FormEvent, useState } from "react";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./InquiryForm.module.css";
 
 export interface InquiryFormProps {
@@ -65,7 +65,7 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -140,8 +140,15 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
       </div>
 
       <div className={styles.submitContainer}>
-        <CommonButton type="submit" variant="primary" size="lg" disabled={isLoading}>
-          {isLoading ? t.STUDIO_RENTAL.FORM.SENDING : t.STUDIO_RENTAL.FORM.SUBMIT}
+        <CommonButton
+          type="submit"
+          variant="primary"
+          size="lg"
+          disabled={isLoading}
+        >
+          {isLoading
+            ? t.STUDIO_RENTAL.FORM.SENDING
+            : t.STUDIO_RENTAL.FORM.SUBMIT}
         </CommonButton>
       </div>
     </form>

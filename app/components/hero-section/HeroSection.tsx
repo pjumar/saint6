@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { Header } from "@/app/components/header/Header";
+import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
-import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./HeroSection.module.css";
 
@@ -77,7 +77,11 @@ export function HeroSection({
   }, [showScrollIndicator]);
 
   useEffect(() => {
-    if (!showDecorativeLine || !decorativeLineRef.current || !thickLineRef.current)
+    if (
+      !showDecorativeLine ||
+      !decorativeLineRef.current ||
+      !thickLineRef.current
+    )
       return;
 
     const tl = gsap.timeline({ repeat: -1 });
@@ -86,20 +90,28 @@ export function HeroSection({
     tl.fromTo(
       decorativeLineRef.current,
       { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power1.out" }
+      { opacity: 1, duration: 0.5, ease: "power1.out" },
     )
       .fromTo(
         thickLineRef.current,
         { left: "-4rem" },
         { left: "100%", duration: 2, ease: "power2.in" },
-        "<"
+        "<",
       )
       // Pause at end
       .to({}, { duration: 0.3 })
       // Reverse: thick line slides back from right to left
-      .to(thickLineRef.current, { left: "-4rem", duration: 2, ease: "power2.out" })
+      .to(thickLineRef.current, {
+        left: "-4rem",
+        duration: 2,
+        ease: "power2.out",
+      })
       // Fade out
-      .to(decorativeLineRef.current, { opacity: 0, duration: 0.5, ease: "power1.in" })
+      .to(decorativeLineRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power1.in",
+      })
       // Pause before restart
       .to({}, { duration: 0.5 });
 
@@ -154,7 +166,9 @@ export function HeroSection({
             </div>
           )}
           <div className={styles.heroContent}>
-            <h1 className={`heading-mobile heading-desktop ${styles.heroHeading}`}>
+            <h1
+              className={`heading-mobile heading-desktop ${styles.heroHeading}`}
+            >
               {heading}
             </h1>
           </div>

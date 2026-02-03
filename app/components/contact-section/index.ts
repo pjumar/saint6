@@ -1,2 +1,2 @@
+export type { ContactFormData, ContactSectionProps } from "./ContactSection";
 export { ContactSection } from "./ContactSection";
-export type { ContactSectionProps, ContactFormData } from "./ContactSection";

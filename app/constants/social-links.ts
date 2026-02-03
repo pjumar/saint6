@@ -34,6 +34,6 @@ export const SOCIAL_LINKS: SocialLinkConfig[] = [
 // Helper to get a specific social link
 export function getSocialLink(platform: string): SocialLinkConfig | undefined {
   return SOCIAL_LINKS.find(
-    (link) => link.platform.toLowerCase() === platform.toLowerCase()
+    (link) => link.platform.toLowerCase() === platform.toLowerCase(),
   );
 }

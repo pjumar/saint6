@@ -18,9 +18,12 @@ export function SectionHeader({
   spiralPosition = "center",
   className,
 }: SectionHeaderProps) {
-  const spiralClass = spiralPosition !== "none"
-    ? styles[`spiral${spiralPosition.charAt(0).toUpperCase() + spiralPosition.slice(1)}`]
-    : "";
+  const spiralClass =
+    spiralPosition !== "none"
+      ? styles[
+          `spiral${spiralPosition.charAt(0).toUpperCase() + spiralPosition.slice(1)}`
+        ]
+      : "";
 
   return (
     <section className={`${styles.sectionHeader} ${className || ""}`}>

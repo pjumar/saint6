@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomCard.module.css";
-import { CommonButton } from "@/app/components/common-button/CommonButton";
 
 export interface ConceptRoomCardProps {
   imageUrl: string;
@@ -41,7 +41,9 @@ export function ConceptRoomCard({
         />
         {showEnterButton && (
           <button type="button" className={styles.enterButton}>
-            <span className={styles.enterButtonText}>{t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}</span>
+            <span className={styles.enterButtonText}>
+              {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
+            </span>
           </button>
         )}
       </div>
@@ -51,21 +53,30 @@ export function ConceptRoomCard({
         {/* Title and Price Header */}
         <div className={styles.header}>
           <h3 className={styles.title}>{title}</h3>
-          <p className={styles.price}>{pricePerHour}{t.STUDIO_RENTAL.ROOMS.PER_HOUR}</p>
+          <p className={styles.price}>
+            {pricePerHour}
+            {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
+          </p>
         </div>
 
         {/* Specs Section */}
         <div className={styles.specs}>
           <div className={styles.specItem}>
-            <span className={styles.specLabel}>{t.STUDIO_RENTAL.ROOMS.SPACE}</span>
+            <span className={styles.specLabel}>
+              {t.STUDIO_RENTAL.ROOMS.SPACE}
+            </span>
             <span className={styles.specValue}>{space}</span>
           </div>
           <div className={styles.specItem}>
-            <span className={styles.specLabel}>{t.STUDIO_RENTAL.ROOMS.WIDTH}</span>
+            <span className={styles.specLabel}>
+              {t.STUDIO_RENTAL.ROOMS.WIDTH}
+            </span>
             <span className={styles.specValue}>{width}</span>
           </div>
           <div className={styles.specItem}>
-            <span className={styles.specLabel}>{t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}</span>
+            <span className={styles.specLabel}>
+              {t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
+            </span>
             <span className={styles.specValue}>{ceilingHeight}</span>
           </div>
         </div>

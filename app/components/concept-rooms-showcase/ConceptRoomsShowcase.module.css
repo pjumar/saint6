@@ -14,7 +14,7 @@
   width: 44.375rem; /* 710px from Figma */
   height: 30.0625rem; /* 481px from Figma */
   pointer-events: none;
-  background-image: url('/images/spiral_decoration.svg');
+  background-image: url("/images/spiral_decoration.svg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: contain;

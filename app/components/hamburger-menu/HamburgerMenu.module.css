@@ -47,7 +47,11 @@
   top: 50%;
   transform: translateY(-50%);
   transform-origin: center;
-  transition: width 0.3s ease, left 0.3s ease, right 0.3s ease, transform 0.3s ease;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hamburgerLinePair:first-child .hamburgerLineThick {
@@ -87,7 +91,11 @@
   left: 50%;
   right: auto;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, left 0.3s ease, right 0.3s ease, transform 0.3s ease;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hamburgerMenuOpen .hamburgerLinePair:last-child .hamburgerLineThick {
@@ -95,19 +103,35 @@
   left: 50%;
   right: auto;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, left 0.3s ease, right 0.3s ease, transform 0.3s ease;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hamburgerMenu:not(.hamburgerMenuOpen) .hamburgerLinePair {
   transition: transform 0.3s ease;
 }
 
-.hamburgerMenu:not(.hamburgerMenuOpen) .hamburgerLinePair:first-child .hamburgerLineThick {
-  transition: width 0.3s ease, left 0.3s ease, right 0.3s ease, transform 0.3s ease;
+.hamburgerMenu:not(.hamburgerMenuOpen)
+  .hamburgerLinePair:first-child
+  .hamburgerLineThick {
+  transition:
+    width 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    transform 0.3s ease;
 }
 
-.hamburgerMenu:not(.hamburgerMenuOpen) .hamburgerLinePair:last-child .hamburgerLineThick {
-  transition: width 0.3s ease, left 0.3s ease, right 0.3s ease, transform 0.3s ease;
+.hamburgerMenu:not(.hamburgerMenuOpen)
+  .hamburgerLinePair:last-child
+  .hamburgerLineThick {
+  transition:
+    width 0.3s ease,
+    left 0.3s ease,
+    right 0.3s ease,
+    transform 0.3s ease;
 }
 
 @media (min-width: 48.0625rem) {
@@ -115,4 +139,3 @@
     display: none;
   }
 }
-

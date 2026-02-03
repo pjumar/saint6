@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import Image from "next/image";
+import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ContactSection.module.css";
 
@@ -17,7 +17,10 @@ export interface ContactFormData {
   message: string;
 }
 
-export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionProps) {
+export function ContactSection({
+  backgroundImageUrl,
+  onSubmit,
+}: ContactSectionProps) {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
@@ -65,7 +68,7 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -99,7 +102,9 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
             </div>
             <div className={styles.headerContent}>
               <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
-              <p className={styles.cardSubtitle}>{t.STUDIO_RENTAL.FORM.SUBTITLE}</p>
+              <p className={styles.cardSubtitle}>
+                {t.STUDIO_RENTAL.FORM.SUBTITLE}
+              </p>
             </div>
           </div>
 
@@ -161,8 +166,14 @@ export function ContactSection({ backgroundImageUrl, onSubmit }: ContactSectionP
               </div>
 
               <div className={styles.submitContainer}>
-                <button type="submit" className={styles.submitButton} disabled={isLoading}>
-                  {isLoading ? t.STUDIO_RENTAL.FORM.SENDING : t.STUDIO_RENTAL.FORM.SUBMIT}
+                <button
+                  type="submit"
+                  className={styles.submitButton}
+                  disabled={isLoading}
+                >
+                  {isLoading
+                    ? t.STUDIO_RENTAL.FORM.SENDING
+                    : t.STUDIO_RENTAL.FORM.SUBMIT}
                 </button>
               </div>
             </form>

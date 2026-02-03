@@ -1,4 +1,6 @@
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://fantastic-attraction-7b2626fe03.strapiapp.com';
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  "https://fantastic-attraction-7b2626fe03.strapiapp.com";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 interface StrapiResponse<T> {
@@ -104,7 +106,7 @@ export interface StrapiStudioRoom {
   id: number;
   title: string;
   slug: string;
-  type: 'blank' | 'concept';
+  type: "blank" | "concept";
   price_per_hour: string;
   counter?: string;
   space?: string;
@@ -136,8 +138,8 @@ export interface StrapiPortfolioItem {
   title: string;
   category?: string;
   image: StrapiImage;
-  size: 'large' | 'tall' | 'short';
-  page?: 'creative' | 'set-design' | 'decor';
+  size: "large" | "tall" | "short";
+  page?: "creative" | "set-design" | "decor";
   order: number;
 }
 
@@ -157,8 +159,8 @@ export interface StrapiServiceItem {
   description?: string;
   counter?: string;
   image?: StrapiImage;
-  page?: 'creative' | 'production' | 'set-design' | 'event-planning' | 'decor';
-  section?: 'services' | 'workflow';
+  page?: "creative" | "production" | "set-design" | "event-planning" | "decor";
+  section?: "services" | "workflow";
   order: number;
 }
 
@@ -365,50 +367,54 @@ async function fetchStrapi<T>(
     populate?: string | string[] | Record<string, unknown>;
     locale?: string;
     revalidate?: number;
-  } = {}
+  } = {},
 ): Promise<T | null> {
-  const { populate = '*', locale = 'en', revalidate = 60 } = options;
+  const { populate = "*", locale = "en", revalidate = 60 } = options;
 
   const params = new URLSearchParams();
 
-  if (typeof populate === 'string') {
-    params.append('populate', populate);
+  if (typeof populate === "string") {
+    params.append("populate", populate);
   } else if (Array.isArray(populate)) {
-    populate.forEach(field => params.append('populate', field));
+    populate.forEach((field) => params.append("populate", field));
   } else {
-    params.append('populate', JSON.stringify(populate));
+    params.append("populate", JSON.stringify(populate));
   }
 
-  params.append('locale', locale);
+  params.append("locale", locale);
 
   const url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`;
 
   try {
     const response = await fetch(url, {
       headers: {
-        'Content-Type': 'application/json',
-        ...(STRAPI_API_TOKEN && { Authorization: `Bearer ${STRAPI_API_TOKEN}` }),
+        "Content-Type": "application/json",
+        ...(STRAPI_API_TOKEN && {
+          Authorization: `Bearer ${STRAPI_API_TOKEN}`,
+        }),
       },
       next: { revalidate },
     });
 
     if (!response.ok) {
-      console.error(`Strapi fetch error: ${response.status} ${response.statusText}`);
+      console.error(
+        `Strapi fetch error: ${response.status} ${response.statusText}`,
+      );
       return null;
     }
 
     const json: StrapiResponse<T> = await response.json();
     return json.data;
   } catch (error) {
-    console.error('Strapi fetch error:', error);
+    console.error("Strapi fetch error:", error);
     return null;
   }
 }
 
 export function getStrapiImageUrl(image: StrapiImage | undefined): string {
-  if (!image?.url) return '';
+  if (!image?.url) return "";
 
-  if (image.url.startsWith('http')) {
+  if (image.url.startsWith("http")) {
     return image.url;
   }
 
@@ -419,74 +425,74 @@ export function getStrapiImageUrl(image: StrapiImage | undefined): string {
 // Page Fetch Functions
 // ============================================================================
 
-const DEEP_POPULATE = 'deep';
+const DEEP_POPULATE = "deep";
 
-export async function getHomepage(locale: string = 'en') {
-  return fetchStrapi<StrapiHomepage>('homepage', {
+export async function getHomepage(locale: string = "en") {
+  return fetchStrapi<StrapiHomepage>("homepage", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getStudioRentalPage(locale: string = 'en') {
-  return fetchStrapi<StrapiStudioRentalPage>('studio-rental-page', {
+export async function getStudioRentalPage(locale: string = "en") {
+  return fetchStrapi<StrapiStudioRentalPage>("studio-rental-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getCreativePage(locale: string = 'en') {
-  return fetchStrapi<StrapiCreativePage>('creative-page', {
+export async function getCreativePage(locale: string = "en") {
+  return fetchStrapi<StrapiCreativePage>("creative-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getProductionPage(locale: string = 'en') {
-  return fetchStrapi<StrapiProductionPage>('production-page', {
+export async function getProductionPage(locale: string = "en") {
+  return fetchStrapi<StrapiProductionPage>("production-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getSetDesignPage(locale: string = 'en') {
-  return fetchStrapi<StrapiSetDesignPage>('set-design-page', {
+export async function getSetDesignPage(locale: string = "en") {
+  return fetchStrapi<StrapiSetDesignPage>("set-design-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getEventPlanningPage(locale: string = 'en') {
-  return fetchStrapi<StrapiEventPlanningPage>('event-planning-page', {
+export async function getEventPlanningPage(locale: string = "en") {
+  return fetchStrapi<StrapiEventPlanningPage>("event-planning-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getDecorPage(locale: string = 'en') {
-  return fetchStrapi<StrapiDecorPage>('decor-page', {
+export async function getDecorPage(locale: string = "en") {
+  return fetchStrapi<StrapiDecorPage>("decor-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getAboutPage(locale: string = 'en') {
-  return fetchStrapi<StrapiAboutPage>('about-page', {
+export async function getAboutPage(locale: string = "en") {
+  return fetchStrapi<StrapiAboutPage>("about-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
   });
 }
 
-export async function getContactPage(locale: string = 'en') {
-  return fetchStrapi<StrapiContactPage>('contact-page', {
+export async function getContactPage(locale: string = "en") {
+  return fetchStrapi<StrapiContactPage>("contact-page", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,
@@ -498,84 +504,89 @@ export async function getContactPage(locale: string = 'en') {
 // ============================================================================
 
 export async function getBrandLogos() {
-  return fetchStrapi<StrapiBrandLogo[]>('brand-logos', {
-    populate: ['logo'],
+  return fetchStrapi<StrapiBrandLogo[]>("brand-logos", {
+    populate: ["logo"],
     revalidate: 300,
   });
 }
 
-export async function getKeyProjects(locale: string = 'en') {
-  return fetchStrapi<StrapiKeyProject[]>('key-projects', {
+export async function getKeyProjects(locale: string = "en") {
+  return fetchStrapi<StrapiKeyProject[]>("key-projects", {
     locale,
-    populate: ['main_image', 'gallery_images.image', 'team', 'testimonial'],
+    populate: ["main_image", "gallery_images.image", "team", "testimonial"],
     revalidate: 60,
   });
 }
 
-export async function getFeaturedProject(locale: string = 'en') {
+export async function getFeaturedProject(locale: string = "en") {
   const projects = await getKeyProjects(locale);
-  return projects?.find(p => p.is_featured) || projects?.[0] || null;
+  return projects?.find((p) => p.is_featured) || projects?.[0] || null;
 }
 
-export async function getStudioRooms(type?: 'blank' | 'concept') {
-  const rooms = await fetchStrapi<StrapiStudioRoom[]>('studio-rooms', {
-    populate: ['image'],
+export async function getStudioRooms(type?: "blank" | "concept") {
+  const rooms = await fetchStrapi<StrapiStudioRoom[]>("studio-rooms", {
+    populate: ["image"],
     revalidate: 300,
   });
 
   if (type && rooms) {
-    return rooms.filter(r => r.type === type);
+    return rooms.filter((r) => r.type === type);
   }
   return rooms;
 }
 
 export async function getEquipmentItems() {
-  return fetchStrapi<StrapiEquipmentItem[]>('equipment-items', {
-    populate: ['image'],
+  return fetchStrapi<StrapiEquipmentItem[]>("equipment-items", {
+    populate: ["image"],
     revalidate: 300,
   });
 }
 
 export async function getFaqItems(category?: string) {
-  const items = await fetchStrapi<StrapiFaqItem[]>('faq-items', {
+  const items = await fetchStrapi<StrapiFaqItem[]>("faq-items", {
     revalidate: 300,
   });
 
   if (category && items) {
-    return items.filter(i => i.category === category);
+    return items.filter((i) => i.category === category);
   }
   return items;
 }
 
-export async function getPortfolioItems(page?: 'creative' | 'set-design' | 'decor') {
-  const items = await fetchStrapi<StrapiPortfolioItem[]>('portfolio-items', {
-    populate: ['image'],
+export async function getPortfolioItems(
+  page?: "creative" | "set-design" | "decor",
+) {
+  const items = await fetchStrapi<StrapiPortfolioItem[]>("portfolio-items", {
+    populate: ["image"],
     revalidate: 300,
   });
 
   if (page && items) {
-    return items.filter(i => i.page === page);
+    return items.filter((i) => i.page === page);
   }
   return items;
 }
 
 export async function getTestimonialItems() {
-  return fetchStrapi<StrapiTestimonialItem[]>('testimonial-items', {
-    populate: ['brand_logo'],
+  return fetchStrapi<StrapiTestimonialItem[]>("testimonial-items", {
+    populate: ["brand_logo"],
     revalidate: 300,
   });
 }
 
-export async function getServiceItems(page?: 'creative' | 'production' | 'set-design' | 'event-planning' | 'decor', section?: 'services' | 'workflow') {
-  const items = await fetchStrapi<StrapiServiceItem[]>('service-items', {
-    populate: ['image'],
+export async function getServiceItems(
+  page?: "creative" | "production" | "set-design" | "event-planning" | "decor",
+  section?: "services" | "workflow",
+) {
+  const items = await fetchStrapi<StrapiServiceItem[]>("service-items", {
+    populate: ["image"],
     revalidate: 300,
   });
 
   if (items) {
     let filtered = items;
-    if (page) filtered = filtered.filter(i => i.page === page);
-    if (section) filtered = filtered.filter(i => i.section === section);
+    if (page) filtered = filtered.filter((i) => i.page === page);
+    if (section) filtered = filtered.filter((i) => i.section === section);
     return filtered.sort((a, b) => a.order - b.order);
   }
   return items;

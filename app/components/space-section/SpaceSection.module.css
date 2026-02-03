@@ -150,7 +150,7 @@
 
 .galleryItem {
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
@@ -209,7 +209,7 @@
   }
 
   .galleryItem {
-    aspect-ratio: 3/4;
+    aspect-ratio: 3 / 4;
     height: 27.5rem;
   }
 }

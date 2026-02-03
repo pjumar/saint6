@@ -9,4 +9,3 @@ export function switchLocale(currentPath: string, newLocale: Locale): string {
   const pathWithoutLocale = currentPath.replace(/^\/(en|vi)/, "") || "/";
   return `/${newLocale}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
 }
-

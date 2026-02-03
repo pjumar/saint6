@@ -1,2 +1,2 @@
-export { MapImage } from "./MapImage";
 export type { MapImageProps } from "./MapImage";
+export { MapImage } from "./MapImage";

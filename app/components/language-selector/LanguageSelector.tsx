@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { switchLocale } from "@/app/lib/navigation";
 import styles from "./LanguageSelector.module.css";
@@ -20,12 +20,14 @@ export function LanguageSelector({
   const { locale, language } = useTranslation();
   const pathname = usePathname();
 
-  const handleLanguageSelect = (newLocale: "en" | "vi") => {
+  const handleLanguageSelect = (_newLocale: "en" | "vi") => {
     setIsOpen(false);
   };
 
-  const containerClass = variant === "menu" ? styles.menuLanguageSelector : styles.languageSelector;
-  const caretClass = variant === "menu" ? styles.menuCaretIcon : styles.caretIcon;
+  const containerClass =
+    variant === "menu" ? styles.menuLanguageSelector : styles.languageSelector;
+  const caretClass =
+    variant === "menu" ? styles.menuCaretIcon : styles.caretIcon;
 
   const handleClick = () => {
     if (variant === "menu") {
@@ -71,4 +73,3 @@ export function LanguageSelector({
     </div>
   );
 }
-

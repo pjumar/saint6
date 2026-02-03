@@ -31,7 +31,9 @@ export function WorkflowStepCard({
   const layoutClass = layout === "horizontal" ? styles.horizontal : "";
 
   return (
-    <div className={`${styles.card} ${styles[variant]} ${layoutClass} ${className}`}>
+    <div
+      className={`${styles.card} ${styles[variant]} ${layoutClass} ${className}`}
+    >
       <div className={styles.imageContainer}>
         <Image
           src={imageUrl}

@@ -1,3 +1,5 @@
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreService('api::studio-rental-page.studio-rental-page');
+export default factories.createCoreService(
+  "api::studio-rental-page.studio-rental-page",
+);

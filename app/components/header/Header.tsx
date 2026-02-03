@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useCallback, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef } from "react";
+import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
-import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Header.module.css";
 
@@ -36,50 +36,56 @@ export function Header({
     { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
   ];
 
-  const handleMouseEnter = useCallback((href: string) => {
-    // Don't animate if this is the active item
-    if (pathname === href) return;
+  const handleMouseEnter = useCallback(
+    (href: string) => {
+      // Don't animate if this is the active item
+      if (pathname === href) return;
 
-    const thickLine = thickLineRefs.current.get(href);
-    if (!thickLine) return;
+      const thickLine = thickLineRefs.current.get(href);
+      if (!thickLine) return;
 
-    // Kill any existing animation for this item
-    const existingAnim = animationsRef.current.get(href);
-    if (existingAnim) {
-      existingAnim.kill();
-    }
+      // Kill any existing animation for this item
+      const existingAnim = animationsRef.current.get(href);
+      if (existingAnim) {
+        existingAnim.kill();
+      }
 
-    // Animate thick line from left to right (fast)
-    const tl = gsap.timeline();
-    animationsRef.current.set(href, tl);
+      // Animate thick line from left to right (fast)
+      const tl = gsap.timeline();
+      animationsRef.current.set(href, tl);
 
-    tl.fromTo(
-      thickLine,
-      { left: 0 },
-      { left: "calc(100% - 1.0625rem)", duration: 0.35, ease: "power1.out" }
-    );
-  }, [pathname]);
+      tl.fromTo(
+        thickLine,
+        { left: 0 },
+        { left: "calc(100% - 1.0625rem)", duration: 0.35, ease: "power1.out" },
+      );
+    },
+    [pathname],
+  );
 
-  const handleMouseLeave = useCallback((href: string) => {
-    // Don't animate if this is the active item
-    if (pathname === href) return;
+  const handleMouseLeave = useCallback(
+    (href: string) => {
+      // Don't animate if this is the active item
+      if (pathname === href) return;
 
-    const anim = animationsRef.current.get(href);
-    if (anim) {
-      anim.kill();
-      animationsRef.current.delete(href);
-    }
+      const anim = animationsRef.current.get(href);
+      if (anim) {
+        anim.kill();
+        animationsRef.current.delete(href);
+      }
 
-    const thickLine = thickLineRefs.current.get(href);
-    if (thickLine) {
-      // Animate back to left before disappearing
-      gsap.to(thickLine, {
-        left: 0,
-        duration: 0.25,
-        ease: "power1.in",
-      });
-    }
-  }, [pathname]);
+      const thickLine = thickLineRefs.current.get(href);
+      if (thickLine) {
+        // Animate back to left before disappearing
+        gsap.to(thickLine, {
+          left: 0,
+          duration: 0.25,
+          ease: "power1.in",
+        });
+      }
+    },
+    [pathname],
+  );
 
   // Set active nav item thick line to end position (no animation)
   useEffect(() => {
@@ -156,4 +162,3 @@ export function Header({
     </header>
   );
 }
-

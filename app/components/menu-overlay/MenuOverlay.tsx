@@ -27,7 +27,9 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
   ];
 
   return (
-    <div className={`${styles.menuOverlay} ${isClosing ? styles.menuOverlayClosing : ""}`}>
+    <div
+      className={`${styles.menuOverlay} ${isClosing ? styles.menuOverlayClosing : ""}`}
+    >
       <div className={styles.menuBackground} />
       <div className={styles.menuDecoration}>
         <Image
@@ -57,7 +59,11 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
             priority
           />
         </div>
-        <HamburgerMenu isOpen={!isClosing} onClick={onClose} ariaLabel="Close menu" />
+        <HamburgerMenu
+          isOpen={!isClosing}
+          onClick={onClose}
+          ariaLabel="Close menu"
+        />
       </div>
       <nav className={styles.menuNav}>
         {menuItems.map((item) => (
@@ -96,4 +102,3 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
     </div>
   );
 }
-

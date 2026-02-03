@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { WorkflowStepCard } from "@/app/components/workflow-step-card/WorkflowStepCard";
 import styles from "./ServiceCardsCarousel.module.css";
 
@@ -18,11 +18,16 @@ interface ServiceCardsCarouselProps {
   showAllOnDesktop?: boolean;
 }
 
-export function ServiceCardsCarousel({ cards, showAllOnDesktop = false }: ServiceCardsCarouselProps) {
+export function ServiceCardsCarousel({
+  cards,
+  showAllOnDesktop = false,
+}: ServiceCardsCarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isManualScrolling, setIsManualScrolling] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<"left" | "right">("right");
+  const [scrollDirection, setScrollDirection] = useState<"left" | "right">(
+    "right",
+  );
   const [isDesktop, setIsDesktop] = useState(false);
   const manualScrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -89,7 +94,8 @@ export function ServiceCardsCarousel({ cards, showAllOnDesktop = false }: Servic
       }
 
       // Convert vertical scroll to horizontal with smooth scroll
-      const scrollAmount = (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
+      const scrollAmount =
+        (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
       carousel.scrollBy({
         left: scrollAmount,
         behavior: "smooth",
@@ -140,7 +146,11 @@ export function ServiceCardsCarousel({ cards, showAllOnDesktop = false }: Servic
               counter={card.counter}
               title={card.title}
               description={card.description}
-              imageSizes={showAllOnDesktop ? "(max-width: 768px) 85vw, 25vw" : "(max-width: 768px) 85vw, 26vw"}
+              imageSizes={
+                showAllOnDesktop
+                  ? "(max-width: 768px) 85vw, 25vw"
+                  : "(max-width: 768px) 85vw, 26vw"
+              }
             />
           </div>
         ))}

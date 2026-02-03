@@ -1,3 +1,5 @@
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::creative-page.creative-page');
+export default factories.createCoreController(
+  "api::creative-page.creative-page",
+);

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslation } from "@/app/contexts/TranslationContext";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./FullRentalCard.module.css";
 
 export interface FullRentalCardProps {
@@ -10,7 +10,10 @@ export interface FullRentalCardProps {
   backgroundImageUrl: string;
 }
 
-export function FullRentalCard({ price, backgroundImageUrl }: FullRentalCardProps) {
+export function FullRentalCard({
+  price,
+  backgroundImageUrl,
+}: FullRentalCardProps) {
   const { t } = useTranslation();
 
   return (
@@ -38,9 +41,14 @@ export function FullRentalCard({ price, backgroundImageUrl }: FullRentalCardProp
           <h3 className={styles.title}>{t.STUDIO_RENTAL.FULL_RENTAL.TITLE}</h3>
           <div className={styles.details}>
             <p className={styles.price}>
-              {price}<span className={styles.perHour}>{t.STUDIO_RENTAL.ROOMS.PER_HOUR}</span>
+              {price}
+              <span className={styles.perHour}>
+                {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
+              </span>
             </p>
-            <p className={styles.description}>{t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}</p>
+            <p className={styles.description}>
+              {t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}
+            </p>
             <div className={styles.actions}>
               <CommonButton variant="primary" size="lg">
                 {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}

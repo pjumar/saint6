@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Public_Sans, JetBrains_Mono, Saira_Condensed } from "next/font/google";
+import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
 import "@/app/globals.css";
-import { Footer } from "@/app/components/footer/Footer";
 import { ErrorBoundary } from "@/app/components/error-boundary";
+import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
 import type { Locale } from "@/app/types";
 
@@ -37,7 +37,9 @@ export async function generateMetadata({
   const isVi = typedLocale === "vi";
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.vercel.app"),
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.vercel.app",
+    ),
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
@@ -114,10 +116,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return [
-    { locale: "en" },
-    { locale: "vi" },
-  ] as Array<{ locale: Locale }>;
+  return [{ locale: "en" }, { locale: "vi" }] as Array<{ locale: Locale }>;
 }
 
 export default async function LocaleLayout({
@@ -146,4 +145,3 @@ export default async function LocaleLayout({
     </html>
   );
 }
-

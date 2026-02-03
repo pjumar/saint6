@@ -1,15 +1,15 @@
 "use client";
 
-import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
-import { RoomCard } from "@/app/components/room-card/RoomCard";
-import { StudioStats } from "@/app/components/studio-stats/StudioStats";
-import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
-import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
-import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard";
-import { FacilitiesShowcase } from "@/app/components/facilities-showcase/FacilitiesShowcase";
+import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { EquipmentGrid } from "@/app/components/equipment-grid/EquipmentGrid";
+import { FacilitiesShowcase } from "@/app/components/facilities-showcase/FacilitiesShowcase";
+import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
+import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard";
+import { RoomCard } from "@/app/components/room-card/RoomCard";
+import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
+import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
+import { StudioStats } from "@/app/components/studio-stats/StudioStats";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./StudioRental.module.css";
 
@@ -105,7 +105,6 @@ export default function StudioRentalPage() {
     { question: t.STUDIO_RENTAL.FAQ.Q3, answer: t.STUDIO_RENTAL.FAQ.A3 },
     { question: t.STUDIO_RENTAL.FAQ.Q4, answer: t.STUDIO_RENTAL.FAQ.A4 },
   ];
-
 
   // Equipment data (CMS integration in Phase 8)
   const equipmentItems = [

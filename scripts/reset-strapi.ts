@@ -6,46 +6,49 @@
  * Usage: npx tsx scripts/reset-strapi.ts
  */
 
-import { config } from 'dotenv';
-config({ path: '.env.local' });
+import { config } from "dotenv";
+
+config({ path: ".env.local" });
 
 // Configuration
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://fantastic-attraction-7b2626fe03.strapiapp.com';
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  "https://fantastic-attraction-7b2626fe03.strapiapp.com";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 if (!STRAPI_API_TOKEN) {
-  console.error('❌ STRAPI_API_TOKEN is required. Set it in .env.local');
+  console.error("❌ STRAPI_API_TOKEN is required. Set it in .env.local");
   process.exit(1);
 }
 
 const headers = {
-  'Authorization': `Bearer ${STRAPI_API_TOKEN}`,
-  'Content-Type': 'application/json',
+  Authorization: `Bearer ${STRAPI_API_TOKEN}`,
+  "Content-Type": "application/json",
 };
 
 // Collections to clear (in order - clear dependent items first)
 const collectionsToReset = [
-  'service-items',
-  'testimonial-items',
-  'brand-logos',
-  'studio-rooms',
-  'equipment-items',
-  'faq-items',
-  'portfolio-items',
-  'key-projects',
+  "service-items",
+  "testimonial-items",
+  "brand-logos",
+  "studio-rooms",
+  "equipment-items",
+  "faq-items",
+  "portfolio-items",
+  "key-projects",
 ];
 
 // Single types to reset
 const singleTypesToReset = [
-  'homepage',
-  'studio-rental-page',
-  'about-page',
-  'contact-page',
-  'creative-page',
-  'production-page',
-  'set-design-page',
-  'event-planning-page',
-  'decor-page',
+  "homepage",
+  "studio-rental-page",
+  "about-page",
+  "contact-page",
+  "creative-page",
+  "production-page",
+  "set-design-page",
+  "event-planning-page",
+  "decor-page",
 ];
 
 async function apiRequest(endpoint: string, options: RequestInit = {}) {
@@ -66,24 +69,31 @@ async function apiRequest(endpoint: string, options: RequestInit = {}) {
   return response.json();
 }
 
-async function getCollectionEntries(contentType: string): Promise<{ id: number; documentId: string }[]> {
+async function getCollectionEntries(
+  contentType: string,
+): Promise<{ id: number; documentId: string }[]> {
   try {
     const result = await apiRequest(`${contentType}?pagination[pageSize]=100`);
-    return result.data?.map((entry: { id: number; documentId: string }) => ({
-      id: entry.id,
-      documentId: entry.documentId,
-    })) || [];
+    return (
+      result.data?.map((entry: { id: number; documentId: string }) => ({
+        id: entry.id,
+        documentId: entry.documentId,
+      })) || []
+    );
   } catch (error) {
     console.log(`⚠️  Could not fetch ${contentType}: ${error}`);
     return [];
   }
 }
 
-async function deleteEntry(contentType: string, documentId: string): Promise<boolean> {
+async function deleteEntry(
+  contentType: string,
+  documentId: string,
+): Promise<boolean> {
   try {
     const url = `${STRAPI_URL}/api/${contentType}/${documentId}`;
     const response = await fetch(url, {
-      method: 'DELETE',
+      method: "DELETE",
       headers,
     });
     // DELETE returns 204 No Content on success
@@ -113,7 +123,9 @@ async function resetCollection(contentType: string): Promise<number> {
     }
   }
 
-  console.log(`   ✅ Deleted ${deleted}/${entries.length} entries from ${contentType}`);
+  console.log(
+    `   ✅ Deleted ${deleted}/${entries.length} entries from ${contentType}`,
+  );
   return deleted;
 }
 
@@ -133,7 +145,7 @@ async function resetSingleType(contentType: string): Promise<boolean> {
     // Reset the single type with empty data
     // Include ALL relation and component fields to ensure clean migration
     await apiRequest(contentType, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify({
         data: {
           // Shared components
@@ -196,21 +208,21 @@ async function resetSingleType(contentType: string): Promise<boolean> {
 }
 
 async function deleteAllMedia(): Promise<number> {
-  console.log('\n🖼️  Deleting uploaded media files...');
+  console.log("\n🖼️  Deleting uploaded media files...");
 
   try {
-    const result = await apiRequest('upload/files?pagination[pageSize]=100');
+    const result = await apiRequest("upload/files?pagination[pageSize]=100");
     const files = result || [];
 
     if (files.length === 0) {
-      console.log('   ✓ No media files found');
+      console.log("   ✓ No media files found");
       return 0;
     }
 
     let deleted = 0;
     for (const file of files) {
       try {
-        await apiRequest(`upload/files/${file.id}`, { method: 'DELETE' });
+        await apiRequest(`upload/files/${file.id}`, { method: "DELETE" });
         deleted++;
         console.log(`   ✓ Deleted media file: ${file.name}`);
       } catch {
@@ -227,7 +239,7 @@ async function deleteAllMedia(): Promise<number> {
 }
 
 async function main() {
-  console.log('🗑️  Starting Strapi CMS Reset...\n');
+  console.log("🗑️  Starting Strapi CMS Reset...\n");
   console.log(`📍 Strapi URL: ${STRAPI_URL}`);
 
   const summary = {
@@ -252,14 +264,13 @@ async function main() {
     // Delete uploaded media files
     summary.mediaFiles = await deleteAllMedia();
 
-    console.log('\n✅ Reset completed successfully!');
-    console.log('\n📊 Summary:');
+    console.log("\n✅ Reset completed successfully!");
+    console.log("\n📊 Summary:");
     console.log(`   - Single types reset: ${summary.singleTypes}`);
     console.log(`   - Collection entries deleted: ${summary.collections}`);
     console.log(`   - Media files deleted: ${summary.mediaFiles}`);
-
   } catch (error) {
-    console.error('\n❌ Reset failed:', error);
+    console.error("\n❌ Reset failed:", error);
     process.exit(1);
   }
 }

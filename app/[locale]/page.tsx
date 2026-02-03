@@ -1,20 +1,20 @@
 "use client";
 
-import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import { TrustedBySection } from "@/app/components/trusted-by-section/TrustedBySection";
-import { GallerySection } from "@/app/components/gallery-section/GallerySection";
 import {
-  KeyProjectSection,
+  CrewAreaSection,
+  type CrewAreaSectionProps,
+} from "@/app/components/crew-area-section/CrewAreaSection";
+import { GallerySection } from "@/app/components/gallery-section/GallerySection";
+import { HeroSection } from "@/app/components/hero-section/HeroSection";
+import {
   type KeyProjectData,
+  KeyProjectSection,
 } from "@/app/components/key-project-section/KeyProjectSection";
 import {
   SpaceSection,
   type SpaceSectionProps,
 } from "@/app/components/space-section/SpaceSection";
-import {
-  CrewAreaSection,
-  type CrewAreaSectionProps,
-} from "@/app/components/crew-area-section/CrewAreaSection";
+import { TrustedBySection } from "@/app/components/trusted-by-section/TrustedBySection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "@/app/page.module.css";
 
@@ -43,7 +43,8 @@ const exampleSpaceData: Omit<SpaceSectionProps, "ctaLink"> = {
 
 const exampleCrewAreaData: CrewAreaSectionProps = {
   caption: "CREW AREA",
-  heading: "And a separate dining area and makeup room for the crew and customers",
+  heading:
+    "And a separate dining area and makeup room for the crew and customers",
   infoLabel: "INFO",
   infoText:
     "Indulge in a dedicated dining space and a professional makeup room—curated for comfort, privacy, and effortless preparation throughout your production.",
@@ -129,4 +130,3 @@ export default function Home() {
     </div>
   );
 }
-

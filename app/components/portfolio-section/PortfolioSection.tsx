@@ -1,6 +1,9 @@
 "use client";
 
-import { PortfolioCard, PortfolioCardProps } from "@/app/components/portfolio-card/PortfolioCard";
+import {
+  PortfolioCard,
+  type PortfolioCardProps,
+} from "@/app/components/portfolio-card/PortfolioCard";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import styles from "./PortfolioSection.module.css";
 
@@ -66,7 +69,9 @@ export function PortfolioSection({
                   imageUrl={item.imageUrl}
                   category={item.category}
                   title={item.title}
-                  desktopAspectRatio={DESKTOP_ASPECT_RATIOS[index % DESKTOP_ASPECT_RATIOS.length]}
+                  desktopAspectRatio={
+                    DESKTOP_ASPECT_RATIOS[index % DESKTOP_ASPECT_RATIOS.length]
+                  }
                 />
               ))}
             </div>

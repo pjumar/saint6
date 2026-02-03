@@ -17,7 +17,11 @@ interface ProductionWorkflowProps {
   steps: WorkflowStep[];
 }
 
-export function ProductionWorkflow({ title, description, steps }: ProductionWorkflowProps) {
+export function ProductionWorkflow({
+  title,
+  description,
+  steps,
+}: ProductionWorkflowProps) {
   return (
     <div className={styles.workflowContent}>
       {title && description && (

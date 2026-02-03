@@ -1,6 +1,6 @@
 .contactFormSection {
   width: 100%;
-  background: var(--color-bg-container, #F5F4F4);
+  background: var(--color-bg-container, #f5f4f4);
   padding: 4rem 1rem;
 }
 
@@ -133,7 +133,9 @@
   background: var(--color-primary, #880300);
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .submitButton:hover {

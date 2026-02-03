@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import styles from "./ValuesGrid.module.css";
 
 export interface ValueItem {
@@ -35,7 +35,9 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isManualScrolling, setIsManualScrolling] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<"left" | "right">("right");
+  const [scrollDirection, setScrollDirection] = useState<"left" | "right">(
+    "right",
+  );
   const [isDesktop, setIsDesktop] = useState(false);
   const manualScrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -51,7 +53,8 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
 
   // Auto-scroll on hover (desktop only, pauses during manual scroll)
   useEffect(() => {
-    if (!isDesktop || !isHovering || isManualScrolling || !carouselRef.current) return;
+    if (!isDesktop || !isHovering || isManualScrolling || !carouselRef.current)
+      return;
 
     const carousel = carouselRef.current;
     const scrollSpeed = 1.5;
@@ -98,7 +101,8 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
       }
 
       // Convert vertical scroll to horizontal with smooth scroll
-      const scrollAmount = (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
+      const scrollAmount =
+        (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
       carousel.scrollBy({
         left: scrollAmount,
         behavior: "smooth",

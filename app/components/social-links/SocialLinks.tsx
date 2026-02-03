@@ -6,7 +6,8 @@ interface SocialLinksProps {
 }
 
 export function SocialLinks({ variant = "default" }: SocialLinksProps) {
-  const containerClass = variant === "menu" ? styles.menuSocialLinks : styles.socialLinks;
+  const containerClass =
+    variant === "menu" ? styles.menuSocialLinks : styles.socialLinks;
 
   return (
     <div className={containerClass}>
@@ -24,4 +25,3 @@ export function SocialLinks({ variant = "default" }: SocialLinksProps) {
     </div>
   );
 }
-

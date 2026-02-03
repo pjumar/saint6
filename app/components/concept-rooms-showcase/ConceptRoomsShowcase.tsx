@@ -1,7 +1,7 @@
 "use client";
 
-import { useTranslation } from "@/app/contexts/TranslationContext";
 import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomCard";
+import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomsShowcase.module.css";
 
 export interface ConceptRoom {

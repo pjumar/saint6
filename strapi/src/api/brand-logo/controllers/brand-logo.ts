@@ -1,3 +1,3 @@
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::brand-logo.brand-logo');
+export default factories.createCoreController("api::brand-logo.brand-logo");

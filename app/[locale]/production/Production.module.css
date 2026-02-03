@@ -38,7 +38,7 @@
 }
 
 .section:nth-child(even) {
-  background: var(--color-bg-container, #F5F4F4);
+  background: var(--color-bg-container, #f5f4f4);
 }
 
 /* Service Grid Section */

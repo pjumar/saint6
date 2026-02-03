@@ -53,7 +53,13 @@
     },
     "page": {
       "type": "enumeration",
-      "enum": ["creative", "production", "set-design", "event-planning", "decor"],
+      "enum": [
+        "creative",
+        "production",
+        "set-design",
+        "event-planning",
+        "decor"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false

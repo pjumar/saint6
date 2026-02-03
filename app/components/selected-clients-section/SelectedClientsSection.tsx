@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
 import styles from "./SelectedClientsSection.module.css";
 
 interface ClientLogo {
@@ -18,18 +18,56 @@ interface SelectedClientsSectionProps {
 }
 
 const clientLogos: ClientLogo[] = [
-  { src: "/images/brands/brand-01.png", alt: "L'OFFICIEL", width: 170, height: 35 },
-  { src: "/images/brands/brand-02.png", alt: "Lenskart", width: 138, height: 40 },
-  { src: "/images/brands/brand-03.png", alt: "Vinamilk", width: 98, height: 32 },
+  {
+    src: "/images/brands/brand-01.png",
+    alt: "L'OFFICIEL",
+    width: 170,
+    height: 35,
+  },
+  {
+    src: "/images/brands/brand-02.png",
+    alt: "Lenskart",
+    width: 138,
+    height: 40,
+  },
+  {
+    src: "/images/brands/brand-03.png",
+    alt: "Vinamilk",
+    width: 98,
+    height: 32,
+  },
   { src: "/images/brands/brand-04.png", alt: "SONY", width: 114, height: 20 },
-  { src: "/images/brands/brand-05.png", alt: "VinFast", width: 128, height: 32 },
-  { src: "/images/brands/brand-06.png", alt: "Miss Cosmo", width: 93, height: 46 },
+  {
+    src: "/images/brands/brand-05.png",
+    alt: "VinFast",
+    width: 128,
+    height: 32,
+  },
+  {
+    src: "/images/brands/brand-06.png",
+    alt: "Miss Cosmo",
+    width: 93,
+    height: 46,
+  },
   { src: "/images/brands/brand-07.png", alt: "Bazaar", width: 89, height: 50 },
-  { src: "/images/brands/brand-08.png", alt: "Highland Coffee", width: 48, height: 36 },
-  { src: "/images/brands/brand-09.png", alt: "Maybelline", width: 254, height: 24 },
+  {
+    src: "/images/brands/brand-08.png",
+    alt: "Highland Coffee",
+    width: 48,
+    height: 36,
+  },
+  {
+    src: "/images/brands/brand-09.png",
+    alt: "Maybelline",
+    width: 254,
+    height: 24,
+  },
 ];
 
-export function SelectedClientsSection({ label = "Selected Clients", description }: SelectedClientsSectionProps) {
+export function SelectedClientsSection({
+  label = "Selected Clients",
+  description,
+}: SelectedClientsSectionProps) {
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -70,8 +108,12 @@ export function SelectedClientsSection({ label = "Selected Clients", description
     };
 
     logosContainer.addEventListener("wheel", preventScroll, { passive: false });
-    logosContainer.addEventListener("touchmove", preventScroll, { passive: false });
-    logosContainer.addEventListener("scroll", preventScroll, { passive: false });
+    logosContainer.addEventListener("touchmove", preventScroll, {
+      passive: false,
+    });
+    logosContainer.addEventListener("scroll", preventScroll, {
+      passive: false,
+    });
 
     animate();
 

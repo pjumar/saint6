@@ -34,8 +34,8 @@
   /* Button styling from Figma: bg #880300, white text, 53px height, 16px font */
   min-width: 12rem;
   height: 3.3125rem; /* 53px from Figma */
-  background: var(--color-primary, #880300) !important;
-  color: #ffffff !important;
+  background: var(--color-primary, #880300);
+  color: #ffffff;
   font-family: var(--font-body, "Public Sans", sans-serif);
   font-size: 1rem; /* 16px Body/Bold from Figma */
   font-weight: 500; /* Medium from Figma */

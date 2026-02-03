@@ -1,3 +1,5 @@
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreService('api::set-design-page.set-design-page');
+export default factories.createCoreService(
+  "api::set-design-page.set-design-page",
+);

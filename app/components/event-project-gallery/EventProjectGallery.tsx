@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import styles from "./EventProjectGallery.module.css";
 
 export interface EventProject {
@@ -21,7 +21,10 @@ function formatCounter(index: number): string {
   return `${String(index + 1).padStart(2, "0")}.`;
 }
 
-export function EventProjectGallery({ projects, autoScrollInterval = 5000 }: EventProjectGalleryProps) {
+export function EventProjectGallery({
+  projects,
+  autoScrollInterval = 5000,
+}: EventProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -75,8 +78,20 @@ export function EventProjectGallery({ projects, autoScrollInterval = 5000 }: Eve
         onClick={handlePrevious}
         aria-label="Previous project"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
       <button
@@ -84,8 +99,20 @@ export function EventProjectGallery({ projects, autoScrollInterval = 5000 }: Eve
         onClick={handleNext}
         aria-label="Next project"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 18L15 12L9 6"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -102,7 +129,9 @@ export function EventProjectGallery({ projects, autoScrollInterval = 5000 }: Eve
               <h3 className={styles.tabTitle}>{project.title}</h3>
               <p className={styles.tabCategory}>{project.category}</p>
             </div>
-            {index === activeIndex && <div className={styles.activeIndicator} />}
+            {index === activeIndex && (
+              <div className={styles.activeIndicator} />
+            )}
           </button>
         ))}
       </div>

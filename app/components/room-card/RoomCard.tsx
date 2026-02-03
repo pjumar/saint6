@@ -42,7 +42,9 @@ export function RoomCard({
         />
         {showEnterButton && (
           <button type="button" className={styles.enterButton}>
-            <span className={styles.enterButtonText}>{t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}</span>
+            <span className={styles.enterButtonText}>
+              {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
+            </span>
           </button>
         )}
       </div>
@@ -55,7 +57,10 @@ export function RoomCard({
         {/* Title, Price, Description */}
         <div className={styles.details}>
           <h3 className={styles.title}>{title}</h3>
-          <p className={styles.priceAmount}>{pricePerHour}{t.STUDIO_RENTAL.ROOMS.PER_HOUR}</p>
+          <p className={styles.priceAmount}>
+            {pricePerHour}
+            {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
+          </p>
           <p className={styles.description}>{description}</p>
         </div>
       </div>

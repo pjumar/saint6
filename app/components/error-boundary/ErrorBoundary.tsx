@@ -57,7 +57,9 @@ export class ErrorBoundary extends React.Component<
             {process.env.NODE_ENV === "development" && this.state.error && (
               <div className={styles.errorDetails}>
                 <p className={styles.errorName}>{this.state.error.name}</p>
-                <p className={styles.errorMessage}>{this.state.error.message}</p>
+                <p className={styles.errorMessage}>
+                  {this.state.error.message}
+                </p>
               </div>
             )}
             <Button

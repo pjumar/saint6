@@ -10,7 +10,11 @@ interface HamburgerMenuProps {
   ariaLabel?: string;
 }
 
-export function HamburgerMenu({ isOpen, onClick, ariaLabel = "Menu" }: HamburgerMenuProps) {
+export function HamburgerMenu({
+  isOpen,
+  onClick,
+  ariaLabel = "Menu",
+}: HamburgerMenuProps) {
   return (
     <Button
       variant="ghost"
@@ -30,4 +34,3 @@ export function HamburgerMenu({ isOpen, onClick, ariaLabel = "Menu" }: Hamburger
     </Button>
   );
 }
-

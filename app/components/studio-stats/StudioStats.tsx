@@ -25,7 +25,10 @@ export function StudioStats({
     { label: t.STUDIO_RENTAL.STATS.CEILING_HEIGHT, value: ceilingHeight },
     { label: t.STUDIO_RENTAL.STATS.TOTAL_SPACE, value: totalSpace },
     { label: t.STUDIO_RENTAL.STATS.BLANK_ROOMS, value: blankRooms.toString() },
-    { label: t.STUDIO_RENTAL.STATS.CONCEPT_ROOMS, value: conceptRooms.toString() },
+    {
+      label: t.STUDIO_RENTAL.STATS.CONCEPT_ROOMS,
+      value: conceptRooms.toString(),
+    },
   ];
 
   return (

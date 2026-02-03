@@ -38,7 +38,7 @@
 }
 
 .section:nth-child(even) {
-  background: var(--color-bg-container, #F5F4F4);
+  background: var(--color-bg-container, #f5f4f4);
 }
 
 /* Gallery Section - Full Width with Blurred Sides */
@@ -64,7 +64,7 @@
 /* Testimonials Section */
 .testimonialsSection {
   width: 100%;
-  background: var(--color-bg-container, #F5F4F4);
+  background: var(--color-bg-container, #f5f4f4);
   border-radius: 1.25rem 1.25rem 0 0;
   position: relative;
   margin-top: -1.25rem;

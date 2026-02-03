@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import Image from "next/image";
+import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ContactFormSection.module.css";
 
@@ -34,11 +34,14 @@ export function ContactFormSection({
   });
 
   // Use translations with fallbacks
-  const contactTranslations = (t as { CONTACT_US?: Record<string, unknown> }).CONTACT_US || {};
-  const formTranslations = (contactTranslations.FORM as Record<string, string>) || {};
+  const contactTranslations =
+    (t as { CONTACT_US?: Record<string, unknown> }).CONTACT_US || {};
+  const formTranslations =
+    (contactTranslations.FORM as Record<string, string>) || {};
 
   const displayTitle = title ?? formTranslations.TITLE ?? "Get in touch";
-  const displaySubtitle = subtitle ?? formTranslations.SUBTITLE ?? "Let's Build Something Beautiful";
+  const displaySubtitle =
+    subtitle ?? formTranslations.SUBTITLE ?? "Let's Build Something Beautiful";
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -78,7 +81,7 @@ export function ContactFormSection({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -164,10 +167,14 @@ export function ContactFormSection({
             </div>
 
             <div className={styles.submitContainer}>
-              <button type="submit" className={styles.submitButton} disabled={isLoading}>
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={isLoading}
+              >
                 {isLoading
-                  ? formTranslations.SENDING ?? "Sending..."
-                  : formTranslations.SUBMIT ?? "Submit"}
+                  ? (formTranslations.SENDING ?? "Sending...")
+                  : (formTranslations.SUBMIT ?? "Submit")}
               </button>
             </div>
           </form>

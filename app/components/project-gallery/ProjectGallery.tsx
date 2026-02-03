@@ -42,7 +42,10 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
 
       <div className={styles.imageGrid} data-count={displayImages.length}>
         {displayImages.map((image, index) => (
-          <div key={index} className={styles[`image${index + 1}`] || styles.image}>
+          <div
+            key={index}
+            className={styles[`image${index + 1}`] || styles.image}
+          >
             <Image
               src={image.src}
               alt={image.alt}

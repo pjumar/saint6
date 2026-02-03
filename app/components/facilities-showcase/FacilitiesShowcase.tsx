@@ -9,7 +9,10 @@ export interface FacilitiesShowcaseProps {
   loungeImageUrl: string;
 }
 
-export function FacilitiesShowcase({ makeupImageUrl, loungeImageUrl }: FacilitiesShowcaseProps) {
+export function FacilitiesShowcase({
+  makeupImageUrl,
+  loungeImageUrl,
+}: FacilitiesShowcaseProps) {
   const { t } = useTranslation();
 
   return (
@@ -17,7 +20,9 @@ export function FacilitiesShowcase({ makeupImageUrl, loungeImageUrl }: Facilitie
       {/* Left Column - Dining Lounge */}
       <div className={styles.leftColumn}>
         <div className={styles.loungeCard}>
-          <p className={styles.cardLabel}>{t.STUDIO_RENTAL.FACILITIES.DINING_LABEL}</p>
+          <p className={styles.cardLabel}>
+            {t.STUDIO_RENTAL.FACILITIES.DINING_LABEL}
+          </p>
           <div className={styles.loungeImageContainer}>
             <Image
               src={loungeImageUrl}
@@ -31,7 +36,9 @@ export function FacilitiesShowcase({ makeupImageUrl, loungeImageUrl }: Facilitie
 
       {/* Right Column - Makeup Room */}
       <div className={styles.rightColumn}>
-        <p className={styles.cardLabel}>{t.STUDIO_RENTAL.FACILITIES.MAKEUP_LABEL}</p>
+        <p className={styles.cardLabel}>
+          {t.STUDIO_RENTAL.FACILITIES.MAKEUP_LABEL}
+        </p>
         <div className={styles.makeupImageContainer}>
           <Image
             src={makeupImageUrl}

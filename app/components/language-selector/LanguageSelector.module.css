@@ -61,7 +61,9 @@
   letter-spacing: 0.125rem;
   cursor: pointer;
   text-align: left;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   text-decoration: none;
   display: block;
   width: 100%;
@@ -82,7 +84,7 @@
   width: 0.75rem;
   height: 0.75rem;
   background: var(--color-text-invert-80);
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 9L1 4h10z'/%3E%3C/svg%3E") no-repeat center;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 9L1 4h10z'/%3E%3C/svg%3E")
+    no-repeat center;
   mask-size: contain;
 }
-

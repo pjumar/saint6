@@ -1,6 +1,9 @@
 "use client";
 
-import { TestimonialCard, TestimonialCardProps } from "@/app/components/testimonial-card/TestimonialCard";
+import {
+  TestimonialCard,
+  type TestimonialCardProps,
+} from "@/app/components/testimonial-card/TestimonialCard";
 import styles from "./TestimonialsSection.module.css";
 
 export interface TestimonialItem extends TestimonialCardProps {

@@ -1,13 +1,25 @@
 "use client";
 
-import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
-import { CreativeServicesGrid, CreativeServiceItem } from "@/app/components/creative-services-grid/CreativeServicesGrid";
-import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
-import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
-import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
+import {
+  type CreativeServiceItem,
+  CreativeServicesGrid,
+} from "@/app/components/creative-services-grid/CreativeServicesGrid";
+import { HeroSection } from "@/app/components/hero-section/HeroSection";
+import {
+  type PortfolioItem,
+  PortfolioSection,
+} from "@/app/components/portfolio-section/PortfolioSection";
 import { SelectedClientsSection } from "@/app/components/selected-clients-section/SelectedClientsSection";
+import {
+  type ServiceCard,
+  ServiceCardsCarousel,
+} from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
+import {
+  type TestimonialItem,
+  TestimonialsSection,
+} from "@/app/components/testimonials-section/TestimonialsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./Creative.module.css";
 
@@ -17,13 +29,15 @@ const creativeServices: CreativeServiceItem[] = [
     id: "brand-advertising",
     imageUrl: "/images/creative/service-advertising.png",
     title: "Brand &\nAdvertising Campaigns",
-    description: "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.",
+    description:
+      "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.",
   },
   {
     id: "product-packaging",
     imageUrl: "/images/creative/service-packaging.png",
     title: "Product &\nPackaging Shoots",
-    description: "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.",
+    description:
+      "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.",
   },
 ];
 
@@ -34,42 +48,48 @@ const workflowSteps: ServiceCard[] = [
     imageUrl: "/images/creative/workflow-direction.jpg",
     counter: "01.",
     title: "Creative Direction",
-    description: "We study your brief and develop creative directions based on your brand, audience, and goals.",
+    description:
+      "We study your brief and develop creative directions based on your brand, audience, and goals.",
   },
   {
     id: "storyboard",
     imageUrl: "/images/creative/workflow-storyboard.jpg",
     counter: "02.",
     title: "Storyboard Development",
-    description: "Our team creates detailed storyboards and shot lists to visualize the final output.",
+    description:
+      "Our team creates detailed storyboards and shot lists to visualize the final output.",
   },
   {
     id: "pre-production",
     imageUrl: "/images/creative/workflow-preproduction.jpg",
     counter: "03.",
     title: "Pre-production & Sourcing",
-    description: "We coordinate talent, locations, props, and equipment to ensure smooth execution.",
+    description:
+      "We coordinate talent, locations, props, and equipment to ensure smooth execution.",
   },
   {
     id: "shoot-production",
     imageUrl: "/images/creative/workflow-shoot.jpg",
     counter: "04.",
     title: "Shoot / Production",
-    description: "Our experienced crew captures your vision with precision and creative flair.",
+    description:
+      "Our experienced crew captures your vision with precision and creative flair.",
   },
   {
     id: "post-production",
     imageUrl: "/images/creative/workflow-post.jpg",
     counter: "05.",
     title: "Post-production",
-    description: "Professional editing, color grading, and retouching bring the final deliverables to life.",
+    description:
+      "Professional editing, color grading, and retouching bring the final deliverables to life.",
   },
   {
     id: "delivery",
     imageUrl: "/images/creative/workflow-delivery.jpg",
     counter: "06.",
     title: "Final Delivery",
-    description: "We deliver polished assets ready for print, digital, and social media deployment.",
+    description:
+      "We deliver polished assets ready for print, digital, and social media deployment.",
   },
 ];
 
@@ -139,7 +159,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "testimonial-1",
     logoUrl: "/images/brands/brand-01.png",
     logoAlt: "L'OFFICIEL",
-    quote: "It's rare to find a studio where creative direction, production, and hospitality all come together. Saint 6 delivered on every front. Our client was blown away.",
+    quote:
+      "It's rare to find a studio where creative direction, production, and hospitality all come together. Saint 6 delivered on every front. Our client was blown away.",
     authorName: "Aaron Tan",
     authorTitle: "Creative Director, Elle Vietnam",
   },
@@ -147,7 +168,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "testimonial-2",
     logoUrl: "/images/brands/brand-02.png",
     logoAlt: "Fressi",
-    quote: "Saint 6's attention to detail and creative vision transformed our campaign into something truly memorable. The team understood our brand from day one.",
+    quote:
+      "Saint 6's attention to detail and creative vision transformed our campaign into something truly memorable. The team understood our brand from day one.",
     authorName: "Nguyen Thi Mai",
     authorTitle: "Marketing Director, Fressi Vietnam",
   },
@@ -155,7 +177,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "testimonial-3",
     logoUrl: "/images/brands/brand-03.png",
     logoAlt: "Vinamilk",
-    quote: "Working with Saint 6 was seamless. Their production quality and creative approach exceeded our expectations for the product launch.",
+    quote:
+      "Working with Saint 6 was seamless. Their production quality and creative approach exceeded our expectations for the product launch.",
     authorName: "Tran Van Duc",
     authorTitle: "Brand Manager, Vinamilk",
   },
@@ -163,7 +186,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "testimonial-4",
     logoUrl: "/images/brands/brand-04.png",
     logoAlt: "Sony",
-    quote: "The team's expertise in both creative direction and technical execution made our collaboration incredibly smooth and successful.",
+    quote:
+      "The team's expertise in both creative direction and technical execution made our collaboration incredibly smooth and successful.",
     authorName: "Le Hoang Nam",
     authorTitle: "Creative Lead, Sony Vietnam",
   },
@@ -178,7 +202,8 @@ export default function CreativePage() {
     const translation = t.CREATIVE?.SERVICES?.[cardKey];
     return {
       title: translation?.TITLE ?? creativeServices[index].title,
-      description: translation?.DESCRIPTION ?? creativeServices[index].description,
+      description:
+        translation?.DESCRIPTION ?? creativeServices[index].description,
     };
   };
 
@@ -206,7 +231,10 @@ export default function CreativePage() {
     <div className={styles.creativePage}>
       {/* Hero Section */}
       <HeroSection
-        heading={t.CREATIVE?.HERO?.TAGLINE ?? "Creative production for brands, campaigns & products"}
+        heading={
+          t.CREATIVE?.HERO?.TAGLINE ??
+          "Creative production for brands, campaigns & products"
+        }
         backgroundImage="/images/creative/hero-background.jpg"
         backgroundAlt="Creative"
         showScrollIndicator={true}
@@ -217,7 +245,10 @@ export default function CreativePage() {
         {/* Selected Clients Section */}
         <SelectedClientsSection
           label={t.CREATIVE?.CLIENTS?.LABEL ?? "Selected Clients"}
-          description={t.CREATIVE?.CLIENTS?.DESCRIPTION ?? "We're proud to collaborate with leading brands, agencies, and startups worldwide."}
+          description={
+            t.CREATIVE?.CLIENTS?.DESCRIPTION ??
+            "We're proud to collaborate with leading brands, agencies, and startups worldwide."
+          }
         />
 
         {/* Services Section */}
@@ -228,7 +259,10 @@ export default function CreativePage() {
           <div className={styles.sectionInner}>
             <StudioIntro
               title={t.CREATIVE?.INTRO?.LABEL ?? "How We Work"}
-              description={t.CREATIVE?.INTRO?.DESCRIPTION ?? "We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery."}
+              description={
+                t.CREATIVE?.INTRO?.DESCRIPTION ??
+                "We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery."
+              }
               ctaText={t.CREATIVE?.INTRO?.CTA ?? "Get in touch"}
             />
           </div>
@@ -245,7 +279,10 @@ export default function CreativePage() {
         <div className={styles.portfolioWrapper} id="portfolio">
           <PortfolioSection
             label={t.CREATIVE?.PORTFOLIO?.LABEL ?? "Featured Work"}
-            statement={t.CREATIVE?.PORTFOLIO?.STATEMENT ?? "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail."}
+            statement={
+              t.CREATIVE?.PORTFOLIO?.STATEMENT ??
+              "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail."
+            }
             items={portfolioItems}
           />
         </div>
@@ -254,7 +291,10 @@ export default function CreativePage() {
         <section className={styles.testimonialsSection} id="testimonials">
           <TestimonialsSection
             label={t.CREATIVE?.TESTIMONIALS?.LABEL ?? "Voices Behind the Lens"}
-            title={t.CREATIVE?.TESTIMONIALS?.TITLE ?? "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."}
+            title={
+              t.CREATIVE?.TESTIMONIALS?.TITLE ??
+              "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
+            }
             items={testimonialItems}
           />
         </section>

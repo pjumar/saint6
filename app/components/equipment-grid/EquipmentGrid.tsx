@@ -17,7 +17,10 @@ export interface EquipmentGridProps {
   backgroundColorsImage?: string;
 }
 
-export function EquipmentGrid({ items, backgroundColorsImage }: EquipmentGridProps) {
+export function EquipmentGrid({
+  items,
+  backgroundColorsImage,
+}: EquipmentGridProps) {
   const { t } = useTranslation();
 
   return (
@@ -25,7 +28,9 @@ export function EquipmentGrid({ items, backgroundColorsImage }: EquipmentGridPro
       {/* Left side - Heading and Background Colors */}
       <div className={styles.headingColumn}>
         <div className={styles.headingContent}>
-          <span className={styles.sectionLabel}>{t.STUDIO_RENTAL.EQUIPMENT.TITLE}</span>
+          <span className={styles.sectionLabel}>
+            {t.STUDIO_RENTAL.EQUIPMENT.TITLE}
+          </span>
           <h3 className={styles.sectionTitle}>
             {t.STUDIO_RENTAL.EQUIPMENT.HEADING}
           </h3>
@@ -42,7 +47,9 @@ export function EquipmentGrid({ items, backgroundColorsImage }: EquipmentGridPro
               />
             </div>
             <div className={styles.itemInfo}>
-              <p className={styles.equipmentName}>{t.STUDIO_RENTAL.EQUIPMENT.BACKGROUND_COLORS}</p>
+              <p className={styles.equipmentName}>
+                {t.STUDIO_RENTAL.EQUIPMENT.BACKGROUND_COLORS}
+              </p>
               <p className={styles.equipmentSpec}>60CM</p>
             </div>
           </div>

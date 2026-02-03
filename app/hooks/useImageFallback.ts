@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
 const DEFAULT_PLACEHOLDER = "/images/placeholder.svg";
 
@@ -33,7 +33,7 @@ interface UseImageFallbackResult {
  */
 export function useImageFallback(
   src: string,
-  fallbackSrc: string = DEFAULT_PLACEHOLDER
+  fallbackSrc: string = DEFAULT_PLACEHOLDER,
 ): UseImageFallbackResult {
   const [hasError, setHasError] = useState(false);
 

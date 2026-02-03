@@ -1,3 +1,5 @@
-import { factories } from '@strapi/strapi';
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreRouter('api::production-page.production-page');
+export default factories.createCoreRouter(
+  "api::production-page.production-page",
+);

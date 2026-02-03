@@ -1,11 +1,20 @@
 "use client";
 
-import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
-import { ServiceCardsCarousel, ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
-import { PortfolioSection, PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
-import { TestimonialsSection, TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
+import { HeroSection } from "@/app/components/hero-section/HeroSection";
+import {
+  type PortfolioItem,
+  PortfolioSection,
+} from "@/app/components/portfolio-section/PortfolioSection";
+import {
+  type ServiceCard,
+  ServiceCardsCarousel,
+} from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
+import {
+  type TestimonialItem,
+  TestimonialsSection,
+} from "@/app/components/testimonials-section/TestimonialsSection";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./SetDesign.module.css";
 
@@ -75,7 +84,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "vinfast",
     logoUrl: "/images/set-design/logo-vinfast.png",
     logoAlt: "VinFast",
-    quote: "Saint Six Studio helped us create an authentic Vietnamese atmosphere for our commercial shoot. Their attention to detail and understanding of our vision was exceptional.",
+    quote:
+      "Saint Six Studio helped us create an authentic Vietnamese atmosphere for our commercial shoot. Their attention to detail and understanding of our vision was exceptional.",
     authorName: "Nguyễn Văn A",
     authorTitle: "Creative Director, VinFast",
   },
@@ -83,7 +93,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "pepsi",
     logoUrl: "/images/set-design/logo-pepsi.png",
     logoAlt: "Pepsi",
-    quote: "The set design team delivered beyond our expectations. They transformed our concept into a stunning reality that perfectly captured the energy of our brand.",
+    quote:
+      "The set design team delivered beyond our expectations. They transformed our concept into a stunning reality that perfectly captured the energy of our brand.",
     authorName: "Trần Thị B",
     authorTitle: "Marketing Manager, PepsiCo Vietnam",
   },
@@ -91,7 +102,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "samsung",
     logoUrl: "/images/set-design/logo-samsung.png",
     logoAlt: "Samsung",
-    quote: "Working with Saint Six was seamless. From initial concept to final build, they maintained the highest standards of quality and professionalism.",
+    quote:
+      "Working with Saint Six was seamless. From initial concept to final build, they maintained the highest standards of quality and professionalism.",
     authorName: "Lê Văn C",
     authorTitle: "Brand Director, Samsung Vietnam",
   },
@@ -99,7 +111,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "honda",
     logoUrl: "/images/set-design/logo-honda.png",
     logoAlt: "Honda",
-    quote: "Their creative approach and technical expertise made our product launch a visual success. The team understood exactly what we needed.",
+    quote:
+      "Their creative approach and technical expertise made our product launch a visual success. The team understood exactly what we needed.",
     authorName: "Phạm Thị D",
     authorTitle: "Event Manager, Honda Vietnam",
   },
@@ -107,7 +120,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "unilever",
     logoUrl: "/images/set-design/logo-unilever.png",
     logoAlt: "Unilever",
-    quote: "Saint Six Studio consistently delivers exceptional set designs that elevate our campaigns. They're our go-to partner for all production needs.",
+    quote:
+      "Saint Six Studio consistently delivers exceptional set designs that elevate our campaigns. They're our go-to partner for all production needs.",
     authorName: "Hoàng Văn E",
     authorTitle: "Production Head, Unilever Vietnam",
   },
@@ -115,7 +129,8 @@ const testimonialItems: TestimonialItem[] = [
     id: "grab",
     logoUrl: "/images/set-design/logo-grab.png",
     logoAlt: "Grab",
-    quote: "The team's ability to bring our digital brand into physical spaces was remarkable. They created an immersive experience that resonated with our audience.",
+    quote:
+      "The team's ability to bring our digital brand into physical spaces was remarkable. They created an immersive experience that resonated with our audience.",
     authorName: "Đỗ Thị F",
     authorTitle: "Creative Lead, Grab Vietnam",
   },
@@ -123,33 +138,62 @@ const testimonialItems: TestimonialItem[] = [
 
 // Service capability base data (CMS integration in Phase 8)
 const serviceCapabilitiesBase = [
-  { id: "brief-concept", imageUrl: "/images/set-design/set-brief-concept.jpg", counter: "01." },
-  { id: "layout-render", imageUrl: "/images/set-design/set-layout-render.jpg", counter: "02." },
-  { id: "feedback-loop", imageUrl: "/images/set-design/set-feedback-loop.jpg", counter: "03." },
-  { id: "construction", imageUrl: "/images/set-design/set-construction.jpg", counter: "04." },
-  { id: "shoot-support", imageUrl: "/images/set-design/set-shoot-support.jpg", counter: "05." },
-  { id: "maintenance", imageUrl: "/images/set-design/set-maintenance.jpg", counter: "06." },
+  {
+    id: "brief-concept",
+    imageUrl: "/images/set-design/set-brief-concept.jpg",
+    counter: "01.",
+  },
+  {
+    id: "layout-render",
+    imageUrl: "/images/set-design/set-layout-render.jpg",
+    counter: "02.",
+  },
+  {
+    id: "feedback-loop",
+    imageUrl: "/images/set-design/set-feedback-loop.jpg",
+    counter: "03.",
+  },
+  {
+    id: "construction",
+    imageUrl: "/images/set-design/set-construction.jpg",
+    counter: "04.",
+  },
+  {
+    id: "shoot-support",
+    imageUrl: "/images/set-design/set-shoot-support.jpg",
+    counter: "05.",
+  },
+  {
+    id: "maintenance",
+    imageUrl: "/images/set-design/set-maintenance.jpg",
+    counter: "06.",
+  },
 ];
 
 export default function SetDesignPage() {
   const { t } = useTranslation();
 
   // Build service cards with translations
-  const serviceCards: ServiceCard[] = serviceCapabilitiesBase.map((service, index) => {
-    const cardKey = `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
-    const translation = t.SET_DESIGN?.SERVICES?.[cardKey];
-    return {
-      ...service,
-      title: translation?.TITLE ?? `Service ${index + 1}`,
-      description: translation?.DESCRIPTION ?? "Service description",
-    };
-  });
+  const serviceCards: ServiceCard[] = serviceCapabilitiesBase.map(
+    (service, index) => {
+      const cardKey = `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
+      const translation = t.SET_DESIGN?.SERVICES?.[cardKey];
+      return {
+        ...service,
+        title: translation?.TITLE ?? `Service ${index + 1}`,
+        description: translation?.DESCRIPTION ?? "Service description",
+      };
+    },
+  );
 
   return (
     <div className={styles.setDesignPage}>
       {/* Hero Section */}
       <HeroSection
-        heading={t.SET_DESIGN?.HERO?.TAGLINE || "From Moodboard to Build — Complete Set Design for Visual Storytelling"}
+        heading={
+          t.SET_DESIGN?.HERO?.TAGLINE ||
+          "From Moodboard to Build — Complete Set Design for Visual Storytelling"
+        }
         backgroundImage="/images/set-design/hero-background.jpg"
         backgroundAlt="Set Design"
         showScrollIndicator={true}
@@ -162,7 +206,10 @@ export default function SetDesignPage() {
           <div className={styles.sectionInner}>
             <StudioIntro
               title={t.SET_DESIGN?.INTRO?.TITLE || "How We Work"}
-              description={t.SET_DESIGN?.INTRO?.DESCRIPTION || "We design, construct, and manage physical sets that transform creative direction into production-ready environments."}
+              description={
+                t.SET_DESIGN?.INTRO?.DESCRIPTION ||
+                "We design, construct, and manage physical sets that transform creative direction into production-ready environments."
+              }
               ctaText={t.SET_DESIGN?.INTRO?.CTA || "Get in touch"}
             />
             <div id="services">
@@ -175,7 +222,10 @@ export default function SetDesignPage() {
         <div className={styles.portfolioWrapper} id="portfolio">
           <PortfolioSection
             label={t.SET_DESIGN?.PORTFOLIO?.LABEL || "PORTFOLIO"}
-            statement={t.SET_DESIGN?.PORTFOLIO?.STATEMENT || "We shape physical spaces that reflect your creative intent — environments that become part of your story"}
+            statement={
+              t.SET_DESIGN?.PORTFOLIO?.STATEMENT ||
+              "We shape physical spaces that reflect your creative intent — environments that become part of your story"
+            }
             items={portfolioItems}
           />
         </div>
@@ -183,8 +233,13 @@ export default function SetDesignPage() {
         {/* Testimonials Section */}
         <div id="testimonials">
           <TestimonialsSection
-            label={t.SET_DESIGN?.TESTIMONIALS?.LABEL || "VOICES BEHIND THE LENS"}
-            title={t.SET_DESIGN?.TESTIMONIALS?.TITLE || "Stories from Brands Who Trusted Us to Build Their Vision"}
+            label={
+              t.SET_DESIGN?.TESTIMONIALS?.LABEL || "VOICES BEHIND THE LENS"
+            }
+            title={
+              t.SET_DESIGN?.TESTIMONIALS?.TITLE ||
+              "Stories from Brands Who Trusted Us to Build Their Vision"
+            }
             items={testimonialItems}
           />
         </div>

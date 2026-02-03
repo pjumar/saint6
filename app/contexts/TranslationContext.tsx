@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
+import { createContext, type ReactNode, useContext } from "react";
 import enTranslations from "@/app/translations/en.json";
 import viTranslations from "@/app/translations/vi.json";
 import type { Locale } from "@/app/types";
@@ -16,7 +16,9 @@ interface TranslationContextType {
   t: Translations;
 }
 
-const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
+const TranslationContext = createContext<TranslationContextType | undefined>(
+  undefined,
+);
 
 export function TranslationProvider({
   children,
@@ -26,10 +28,10 @@ export function TranslationProvider({
   locale: Locale;
 }) {
   const params = useParams();
-  const pathname = usePathname();
   const locale = (params?.locale as Locale) || initialLocale || "en";
   const language: Language = locale === "vi" ? "VI" : "EN";
-  const translations: Translations = locale === "vi" ? viTranslations : enTranslations;
+  const translations: Translations =
+    locale === "vi" ? viTranslations : enTranslations;
 
   return (
     <TranslationContext.Provider value={{ locale, language, t: translations }}>
@@ -45,4 +47,3 @@ export function useTranslation() {
   }
   return context;
 }
-
