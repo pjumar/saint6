@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "heroHeading": {
+    "hero_heading": {
       "type": "string",
       "required": true,
       "pluginOptions": {
@@ -25,7 +25,7 @@
         }
       }
     },
-    "heroBackgroundImage": {
+    "hero_background_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -36,7 +36,7 @@
         }
       }
     },
-    "heroBackgroundAlt": {
+    "hero_background_alt": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -44,7 +44,7 @@
         }
       }
     },
-    "trustedByCaption": {
+    "trusted_by_caption": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -52,7 +52,7 @@
         }
       }
     },
-    "trustedByHeading": {
+    "trusted_by_heading": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -60,17 +60,17 @@
         }
       }
     },
-    "brandLogos": {
+    "brand_logos": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::brand-logo.brand-logo"
     },
-    "galleryImages": {
+    "gallery_images": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::gallery-image.gallery-image"
     },
-    "featuredProject": {
+    "featured_project": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::key-project.key-project"

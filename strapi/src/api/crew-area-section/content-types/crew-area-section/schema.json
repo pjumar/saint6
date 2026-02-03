@@ -34,7 +34,7 @@
         }
       }
     },
-    "infoLabel": {
+    "info_label": {
       "type": "string",
       "default": "INFO",
       "pluginOptions": {
@@ -43,7 +43,7 @@
         }
       }
     },
-    "infoText": {
+    "info_text": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -51,7 +51,7 @@
         }
       }
     },
-    "mainImage": {
+    "main_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -62,7 +62,7 @@
         }
       }
     },
-    "secondaryImage1": {
+    "secondary_image_1": {
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"],
@@ -72,7 +72,7 @@
         }
       }
     },
-    "secondaryImage2": {
+    "secondary_image_2": {
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"],

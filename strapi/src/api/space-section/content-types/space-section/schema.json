@@ -34,7 +34,7 @@
         }
       }
     },
-    "ctaText": {
+    "cta_text": {
       "type": "string",
       "default": "VIEW STUDIO RENTAL",
       "pluginOptions": {
@@ -43,7 +43,7 @@
         }
       }
     },
-    "ctaLink": {
+    "cta_link": {
       "type": "string",
       "default": "/studio-rental",
       "pluginOptions": {
@@ -57,7 +57,7 @@
       "repeatable": true,
       "component": "space.space-stat"
     },
-    "galleryImages": {
+    "gallery_images": {
       "type": "component",
       "repeatable": true,
       "component": "space.space-image"

@@ -1,4 +1,4 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
 
 export default {
   /**
@@ -16,5 +16,24 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    // Add Vietnamese locale if it doesn't exist
+    const localeService = strapi.plugin('i18n')?.service('locales');
+
+    if (localeService) {
+      const existingLocales = await localeService.find();
+      const hasVietnamese = existingLocales.some(
+        (locale: { code: string }) => locale.code === 'vi'
+      );
+
+      if (!hasVietnamese) {
+        await localeService.create({
+          code: 'vi',
+          name: 'Vietnamese (Việt Nam)',
+          isDefault: false,
+        });
+        console.log('✅ Vietnamese locale added');
+      }
+    }
+  },
 };

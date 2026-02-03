@@ -29,7 +29,7 @@
       "type": "uid",
       "targetField": "title"
     },
-    "projectNumber": {
+    "project_number": {
       "type": "string",
       "default": "01/01",
       "pluginOptions": {
@@ -47,7 +47,7 @@
         }
       }
     },
-    "infoText": {
+    "info_text": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -68,7 +68,7 @@
       "repeatable": true,
       "component": "project.team-member"
     },
-    "mainImage": {
+    "main_image": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -79,7 +79,7 @@
         }
       }
     },
-    "galleryImages": {
+    "gallery_images": {
       "type": "component",
       "repeatable": true,
       "component": "project.project-image"
@@ -89,7 +89,7 @@
       "repeatable": false,
       "component": "project.testimonial"
     },
-    "isFeatured": {
+    "is_featured": {
       "type": "boolean",
       "default": false,
       "pluginOptions": {
