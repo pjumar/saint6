@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { useTranslation } from "@/app/contexts/TranslationContext";
@@ -10,6 +10,7 @@ export function TrustedBySection() {
   const { t } = useTranslation();
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
+  const [hiddenLogos, setHiddenLogos] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const logosContainer = logosRef.current;
@@ -57,7 +58,7 @@ export function TrustedBySection() {
 
     const handleResize = () => {
       const isMobile = checkMobile();
-      
+
       if (animationRef.current) {
         animationRef.current.kill();
         animationRef.current = null;
@@ -106,6 +107,10 @@ export function TrustedBySection() {
     { src: "/images/brands/brand-05.png", alt: "VinFast", width: 128, height: 32 },
   ];
 
+  const handleLogoError = (index: number) => {
+    setHiddenLogos((prev) => new Set(prev).add(index));
+  };
+
   return (
     <section className={styles.trustedBy}>
       <div className={styles.trustedByContent}>
@@ -123,6 +128,8 @@ export function TrustedBySection() {
             width={logo.width}
             height={logo.height}
             className={styles.brandLogo}
+            style={hiddenLogos.has(index) ? { display: "none" } : undefined}
+            onError={() => handleLogoError(index)}
           />
         ))}
         <div className={styles.brandLogosDuplicate}>
@@ -134,6 +141,8 @@ export function TrustedBySection() {
               width={logo.width}
               height={logo.height}
               className={styles.brandLogo}
+              style={hiddenLogos.has(index) ? { display: "none" } : undefined}
+              onError={() => handleLogoError(index)}
             />
           ))}
         </div>
@@ -141,4 +150,3 @@ export function TrustedBySection() {
     </section>
   );
 }
-

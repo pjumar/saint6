@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./GallerySection.module.css";
 
@@ -7,7 +10,11 @@ interface GalleryImage {
   alt: string;
 }
 
+const PLACEHOLDER_SRC = "/images/placeholder.svg";
+
 export function GallerySection() {
+  const [errorImages, setErrorImages] = useState<Set<number>>(new Set());
+
   const galleryImages: GalleryImage[] = [
     { id: 1, src: "/images/gallery/gallery-01.jpg", alt: "Gallery image 1" },
     { id: 2, src: "/images/gallery/gallery-02.jpg", alt: "Gallery image 2" },
@@ -26,17 +33,26 @@ export function GallerySection() {
     { id: 15, src: "/images/gallery/gallery-15.jpg", alt: "Gallery image 15" },
   ];
 
+  const handleImageError = (imageId: number) => {
+    setErrorImages((prev) => new Set(prev).add(imageId));
+  };
+
+  const getImageSrc = (image: GalleryImage) => {
+    return errorImages.has(image.id) ? PLACEHOLDER_SRC : image.src;
+  };
+
   return (
     <section className={styles.gallery}>
       <div className={styles.galleryGrid}>
         {galleryImages.map((image) => (
           <div key={image.id} className={styles.galleryItem}>
             <Image
-              src={image.src}
+              src={getImageSrc(image)}
               alt={image.alt}
               width={400}
               height={600}
               className={styles.galleryImage}
+              onError={() => handleImageError(image.id)}
             />
           </div>
         ))}
@@ -44,4 +60,3 @@ export function GallerySection() {
     </section>
   );
 }
-

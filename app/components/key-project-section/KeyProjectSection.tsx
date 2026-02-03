@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
@@ -37,8 +38,28 @@ interface KeyProjectSectionProps {
   project: KeyProjectData;
 }
 
+const PLACEHOLDER_SRC = "/images/placeholder.svg";
+
 export function KeyProjectSection({ project }: KeyProjectSectionProps) {
   const { t } = useTranslation();
+  const [mainImageError, setMainImageError] = useState(false);
+  const [galleryErrors, setGalleryErrors] = useState<Set<number>>(new Set());
+
+  const handleMainImageError = () => {
+    setMainImageError(true);
+  };
+
+  const handleGalleryError = (index: number) => {
+    setGalleryErrors((prev) => new Set(prev).add(index));
+  };
+
+  const getMainImageSrc = () => {
+    return mainImageError ? PLACEHOLDER_SRC : project.mainImage.src;
+  };
+
+  const getGalleryImageSrc = (image: ProjectImage, index: number) => {
+    return galleryErrors.has(index) ? PLACEHOLDER_SRC : image.src;
+  };
 
   return (
     <div className={styles.keyProjectWrapper}>
@@ -55,16 +76,16 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
           <p className={styles.projectNoLabel}>{t.KEY_PROJECT.PROJECT_NO}</p>
           <p className={styles.projectNoValue}>{project.projectNumber}</p>
         </div>
-        
+
         <div className={styles.projectContent}>
           <h2 className={styles.projectTitle}>{project.title}</h2>
-          
+
           <div className={styles.projectDetails}>
             <div className={styles.infoSection}>
               <div className={styles.sectionLabel}>{t.KEY_PROJECT.INFO}</div>
               <p className={styles.infoText}>{project.infoText}</p>
             </div>
-            
+
             <div className={styles.ekipSection}>
               <div className={styles.sectionLabel}>{t.KEY_PROJECT.EKIP}</div>
               <div className={styles.ekipList}>
@@ -75,7 +96,7 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
                 ))}
               </div>
             </div>
-            
+
             <div className={styles.expertiseClientRow}>
               <div className={styles.expertiseSection}>
                 <div className={styles.sectionLabel}>{t.KEY_PROJECT.EXPERTISE}</div>
@@ -85,7 +106,7 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
                   ))}
                 </div>
               </div>
-              
+
               <div className={styles.clientSection}>
                 <div className={styles.sectionLabel}>{t.KEY_PROJECT.CLIENT}</div>
                 <p className={styles.clientName}>{project.client}</p>
@@ -94,15 +115,16 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
           </div>
         </div>
       </div>
-      
+
       <div className={styles.contentGrid}>
         <div className={styles.mainImageContainer}>
           <Image
-            src={project.mainImage.src}
+            src={getMainImageSrc()}
             alt={project.mainImage.alt}
             width={project.mainImage.width}
             height={project.mainImage.height}
             className={styles.mainImage}
+            onError={handleMainImageError}
           />
         </div>
 
@@ -132,11 +154,12 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
             {project.galleryImages.slice(0, 3).map((image, index) => (
               <div key={index} className={styles[`galleryImage${index + 1}`]}>
                 <Image
-                  src={image.src}
+                  src={getGalleryImageSrc(image, index)}
                   alt={image.alt}
                   width={image.width}
                   height={image.height}
                   className={styles.galleryImage}
+                  onError={() => handleGalleryError(index)}
                 />
               </div>
             ))}
