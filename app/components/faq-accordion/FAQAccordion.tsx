@@ -17,40 +17,50 @@ export function FAQAccordion({
   items,
   defaultExpandedIndex = -1,
 }: FAQAccordionProps) {
-  const [expandedIndex, setExpandedIndex] = useState(defaultExpandedIndex);
+  // Track expanded state by question string instead of index
+  const defaultExpanded =
+    defaultExpandedIndex >= 0 && defaultExpandedIndex < items.length
+      ? items[defaultExpandedIndex].question
+      : null;
+  const [expandedQuestion, setExpandedQuestion] = useState<string | null>(
+    defaultExpanded,
+  );
 
-  const toggleItem = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? -1 : index);
+  const toggleItem = (question: string) => {
+    setExpandedQuestion(expandedQuestion === question ? null : question);
   };
 
   return (
     <div className={styles.accordionContainer}>
-      {items.map((item, index) => (
-        <div key={index} className={styles.accordionItem}>
-          <button
-            type="button"
-            className={styles.accordionButton}
-            onClick={() => toggleItem(index)}
-            aria-expanded={expandedIndex === index}
-          >
-            <span
-              className={`${styles.question} ${expandedIndex === index ? styles.questionExpanded : ""}`}
+      {items.map((item) => {
+        const isExpanded = expandedQuestion === item.question;
+        return (
+          <div key={item.question} className={styles.accordionItem}>
+            <button
+              type="button"
+              className={styles.accordionButton}
+              onClick={() => toggleItem(item.question)}
+              aria-expanded={isExpanded}
             >
-              {item.question}
-            </span>
-            <span
-              className={`${styles.icon} ${expandedIndex === index ? styles.iconExpanded : ""}`}
+              <span
+                className={`${styles.question} ${isExpanded ? styles.questionExpanded : ""}`}
+              >
+                {item.question}
+              </span>
+              <span
+                className={`${styles.icon} ${isExpanded ? styles.iconExpanded : ""}`}
+              >
+                {isExpanded ? "−" : "+"}
+              </span>
+            </button>
+            <div
+              className={`${styles.accordionContent} ${isExpanded ? styles.contentExpanded : ""}`}
             >
-              {expandedIndex === index ? "−" : "+"}
-            </span>
-          </button>
-          <div
-            className={`${styles.accordionContent} ${expandedIndex === index ? styles.contentExpanded : ""}`}
-          >
-            <div className={styles.answer}>{item.answer}</div>
+              <div className={styles.answer}>{item.answer}</div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

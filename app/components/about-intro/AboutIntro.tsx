@@ -33,8 +33,8 @@ export function AboutIntro({
 
           <div className={styles.bodyRow}>
             <div className={styles.bodyContent}>
-              {bodyText.map((paragraph, index) => (
-                <p key={index} className={styles.bodyText}>
+              {bodyText.map((paragraph) => (
+                <p key={paragraph} className={styles.bodyText}>
                   {paragraph}
                 </p>
               ))}

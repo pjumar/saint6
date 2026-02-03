@@ -43,22 +43,22 @@ const PLACEHOLDER_SRC = "/images/placeholder.svg";
 export function KeyProjectSection({ project }: KeyProjectSectionProps) {
   const { t } = useTranslation();
   const [mainImageError, setMainImageError] = useState(false);
-  const [galleryErrors, setGalleryErrors] = useState<Set<number>>(new Set());
+  const [galleryErrors, setGalleryErrors] = useState<Set<string>>(new Set());
 
   const handleMainImageError = () => {
     setMainImageError(true);
   };
 
-  const handleGalleryError = (index: number) => {
-    setGalleryErrors((prev) => new Set(prev).add(index));
+  const handleGalleryError = (src: string) => {
+    setGalleryErrors((prev) => new Set(prev).add(src));
   };
 
   const getMainImageSrc = () => {
     return mainImageError ? PLACEHOLDER_SRC : project.mainImage.src;
   };
 
-  const getGalleryImageSrc = (image: ProjectImage, index: number) => {
-    return galleryErrors.has(index) ? PLACEHOLDER_SRC : image.src;
+  const getGalleryImageSrc = (image: ProjectImage) => {
+    return galleryErrors.has(image.src) ? PLACEHOLDER_SRC : image.src;
   };
 
   return (
@@ -89,8 +89,8 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
               <div className={styles.ekipSection}>
                 <div className={styles.sectionLabel}>{t.KEY_PROJECT.EKIP}</div>
                 <div className={styles.ekipList}>
-                  {project.team.map((member, index) => (
-                    <p key={index}>
+                  {project.team.map((member) => (
+                    <p key={`${member.role}-${member.name}`}>
                       {member.role} : {member.name}
                     </p>
                   ))}
@@ -103,8 +103,8 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
                     {t.KEY_PROJECT.EXPERTISE}
                   </div>
                   <div className={styles.expertiseList}>
-                    {project.expertise.map((item, index) => (
-                      <p key={index}>{item}</p>
+                    {project.expertise.map((item) => (
+                      <p key={item}>{item}</p>
                     ))}
                   </div>
                 </div>
@@ -158,14 +158,14 @@ export function KeyProjectSection({ project }: KeyProjectSectionProps) {
           {project.galleryImages.length > 0 && (
             <div className={styles.galleryGrid}>
               {project.galleryImages.slice(0, 3).map((image, index) => (
-                <div key={index} className={styles[`galleryImage${index + 1}`]}>
+                <div key={image.src} className={styles[`galleryImage${index + 1}`]}>
                   <Image
-                    src={getGalleryImageSrc(image, index)}
+                    src={getGalleryImageSrc(image)}
                     alt={image.alt}
                     width={image.width}
                     height={image.height}
                     className={styles.galleryImage}
-                    onError={() => handleGalleryError(index)}
+                    onError={() => handleGalleryError(image.src)}
                   />
                 </div>
               ))}
