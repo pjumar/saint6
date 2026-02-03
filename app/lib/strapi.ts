@@ -444,7 +444,9 @@ export function getStrapiImageUrl(image: StrapiImage | undefined): string {
 // Page Fetch Functions
 // ============================================================================
 
-const DEEP_POPULATE = "deep";
+// Use "*" for standard Strapi 4 populate (one level deep)
+// "deep" requires strapi-plugin-populate-deep which may not be installed
+const DEEP_POPULATE = "*";
 
 export async function getHomepage(locale: string = "en") {
   return fetchStrapi<StrapiHomepage>("homepage", {
