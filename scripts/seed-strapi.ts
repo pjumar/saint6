@@ -657,31 +657,31 @@ const portfolioItems = [
 const testimonialItems = [
   {
     brand_name: "L'OFFICIEL",
-    brand_logo: "/images/brands/brand-01.png",
+    brand_logo: "/images/brands/lofficiel.png",
     quote_en:
       "It's rare to find a studio where creative direction, production, and hospitality all come together. Saint 6 delivered on every front. Our client was blown away.",
     quote_vi:
       "Hiếm có studio nào mà chỉ đạo sáng tạo, sản xuất và dịch vụ đều hoàn hảo. Saint 6 đã làm được tất cả. Khách hàng của chúng tôi vô cùng ấn tượng.",
     author_name: "Aaron Tan",
-    author_title_en: "Creative Director, Elle Vietnam",
-    author_title_vi: "Giám đốc Sáng tạo, Elle Vietnam",
+    author_title_en: "Creative Director, L'Officiel Vietnam",
+    author_title_vi: "Giám đốc Sáng tạo, L'Officiel Vietnam",
     order: 1,
   },
   {
-    brand_name: "Fressi",
-    brand_logo: "/images/brands/brand-02.png",
+    brand_name: "Harper's Bazaar",
+    brand_logo: "/images/brands/harpers-bazaar.png",
     quote_en:
       "Saint 6's attention to detail and creative vision transformed our campaign into something truly memorable. The team understood our brand from day one.",
     quote_vi:
       "Sự chú ý đến chi tiết và tầm nhìn sáng tạo của Saint 6 đã biến chiến dịch của chúng tôi thành điều thực sự đáng nhớ. Đội ngũ hiểu thương hiệu của chúng tôi ngay từ ngày đầu.",
     author_name: "Nguyen Thi Mai",
-    author_title_en: "Marketing Director, Fressi Vietnam",
-    author_title_vi: "Giám đốc Marketing, Fressi Vietnam",
+    author_title_en: "Editor-in-Chief, Harper's Bazaar Vietnam",
+    author_title_vi: "Tổng Biên tập, Harper's Bazaar Vietnam",
     order: 2,
   },
   {
     brand_name: "Vinamilk",
-    brand_logo: "/images/brands/brand-03.png",
+    brand_logo: "/images/brands/vinamilk.png",
     quote_en:
       "Working with Saint 6 was seamless. Their production quality and creative approach exceeded our expectations for the product launch.",
     quote_vi:
@@ -693,7 +693,7 @@ const testimonialItems = [
   },
   {
     brand_name: "Sony",
-    brand_logo: "/images/brands/brand-04.png",
+    brand_logo: "/images/brands/sony.png",
     quote_en:
       "The team's expertise in both creative direction and technical execution made our collaboration incredibly smooth and successful.",
     quote_vi:
