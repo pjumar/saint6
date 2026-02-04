@@ -18,7 +18,7 @@ import * as path from "node:path";
 // Configuration
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://attractive-confidence-baa5492cbd.strapiapp.com";
+  "https://saint6-strapi.ccly.dev";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 if (!STRAPI_API_TOKEN) {
