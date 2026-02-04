@@ -46,17 +46,27 @@ import styles from "@/app/page.module.css";
 function transformBrandLogos(logos: StrapiBrandLogo[] | undefined): BrandLogo[] {
   if (!logos || logos.length === 0) return [];
 
+  // Target display height for brand logos (matching design)
+  const DISPLAY_HEIGHT = 40;
+
   return logos
     .sort((a, b) => a.order - b.order)
     .map((logo) => {
       const src = getStrapiImageUrl(logo.logo);
       if (!src) return null;
+
+      // Calculate display width maintaining aspect ratio
+      const originalWidth = logo.logo?.width || 150;
+      const originalHeight = logo.logo?.height || 40;
+      const aspectRatio = originalWidth / originalHeight;
+      const displayWidth = Math.round(DISPLAY_HEIGHT * aspectRatio);
+
       return {
         id: String(logo.id),
         src,
         alt: logo.name,
-        width: logo.logo?.width || 150,
-        height: logo.logo?.height || 40,
+        width: displayWidth,
+        height: DISPLAY_HEIGHT,
       };
     })
     .filter((logo): logo is BrandLogo => logo !== null);

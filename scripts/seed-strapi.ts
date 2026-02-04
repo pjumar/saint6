@@ -18,7 +18,7 @@ import * as path from "node:path";
 // Configuration
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://fantastic-attraction-7b2626fe03.strapiapp.com";
+  "https://attractive-confidence-baa5492cbd.strapiapp.com";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 if (!STRAPI_API_TOKEN) {
@@ -69,11 +69,47 @@ function getMimeType(filePath: string): string {
   return mimeTypes[ext] || "application/octet-stream";
 }
 
+// Find existing image in Strapi media library by filename
+async function findExistingImage(fileName: string): Promise<number | null> {
+  try {
+    const response = await fetch(`${STRAPI_URL}/api/upload/files`, {
+      headers: { Authorization: `Bearer ${STRAPI_API_TOKEN}` },
+    });
+
+    if (!response.ok) return null;
+
+    const files = await response.json();
+    // Find the most recent upload with matching filename
+    const matches = files
+      .filter((f: { name: string }) => f.name === fileName)
+      .sort((a: { id: number }, b: { id: number }) => b.id - a.id);
+
+    if (matches.length > 0) {
+      console.log(`📎 Found existing: ${fileName} (ID: ${matches[0].id})`);
+      return matches[0].id;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function uploadImage(imagePath: string): Promise<number | null> {
+  const fileName = path.basename(imagePath);
+
+  // Check cache first
   if (imageCache[imagePath]) {
     return imageCache[imagePath];
   }
 
+  // Check if image already exists in Strapi
+  const existingId = await findExistingImage(fileName);
+  if (existingId) {
+    imageCache[imagePath] = existingId;
+    return existingId;
+  }
+
+  // Upload new image
   const fullPath = path.join(process.cwd(), "public", imagePath);
 
   if (!fs.existsSync(fullPath)) {
@@ -82,7 +118,6 @@ async function uploadImage(imagePath: string): Promise<number | null> {
   }
 
   const fileBuffer = fs.readFileSync(fullPath);
-  const fileName = path.basename(imagePath);
   const mimeType = getMimeType(fullPath);
 
   const formData = new FormData();
@@ -1151,22 +1186,37 @@ const serviceItems = [
 const keyProjects = [
   {
     title: "LSoul Casting call for Shanghai Fashion Week 2025",
+    title_vi: "LSoul Casting call cho Tuần lễ Thời trang Thượng Hải 2025",
     slug: "lsoul-shanghai-fashion-week-2025",
-    project_number: "01/03",
+    project_number: "01/02",
     client: "LSoul",
     info_text:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "A high-profile casting call and photoshoot for Shanghai Fashion Week 2025, featuring emerging Vietnamese talent and international models in a stunning editorial showcase.",
+    info_text_vi:
+      "Buổi casting và chụp hình cao cấp cho Tuần lễ Thời trang Thượng Hải 2025, giới thiệu tài năng Việt Nam mới nổi và người mẫu quốc tế trong một bộ ảnh thời trang ấn tượng.",
     expertise: ["Set Design", "Production", "Location"],
+    expertise_vi: ["Thiết Kế Bối Cảnh", "Sản Xuất", "Địa Điểm"],
     team: [
       { role: "Photo", name: "Linh Phạm" },
       { role: "Fashion Director", name: "Trần Đạt" },
       { role: "Set design production", name: "SAINT6 Production" },
+    ],
+    team_vi: [
+      { role: "Nhiếp Ảnh", name: "Linh Phạm" },
+      { role: "Giám Đốc Thời Trang", name: "Trần Đạt" },
+      { role: "Sản xuất thiết kế bối cảnh", name: "SAINT6 Production" },
     ],
     testimonial: {
       quote:
         "Spacious, modular, with the energy and tools that serious creatives need.",
       author: "Crish Phan",
       role: "Creative Director at LSoul",
+    },
+    testimonial_vi: {
+      quote:
+        "Rộng rãi, linh hoạt, với năng lượng và công cụ mà các nhà sáng tạo chuyên nghiệp cần.",
+      author: "Crish Phan",
+      role: "Giám Đốc Sáng Tạo tại LSoul",
     },
     main_image: "/images/project/project-main.jpg",
     gallery_images: [
@@ -1175,6 +1225,48 @@ const keyProjects = [
       { image: "/images/project/project-03.jpg", alt: "Project gallery 3" },
     ],
     is_featured: true,
+  },
+  {
+    title: "Vinamilk Brand Campaign 2025",
+    title_vi: "Chiến Dịch Thương Hiệu Vinamilk 2025",
+    slug: "vinamilk-brand-campaign-2025",
+    project_number: "02/02",
+    client: "Vinamilk",
+    info_text:
+      "A comprehensive brand campaign for Vietnam's leading dairy company, combining lifestyle photography with product showcases across multiple studio sets.",
+    info_text_vi:
+      "Chiến dịch thương hiệu toàn diện cho công ty sữa hàng đầu Việt Nam, kết hợp nhiếp ảnh lifestyle với trưng bày sản phẩm trên nhiều bối cảnh studio.",
+    expertise: ["Creative Direction", "Set Design", "Production"],
+    expertise_vi: ["Chỉ Đạo Sáng Tạo", "Thiết Kế Bối Cảnh", "Sản Xuất"],
+    team: [
+      { role: "Creative Director", name: "Minh Nguyễn" },
+      { role: "Art Director", name: "Hương Trần" },
+      { role: "Production Manager", name: "SAINT6 Production" },
+    ],
+    team_vi: [
+      { role: "Giám Đốc Sáng Tạo", name: "Minh Nguyễn" },
+      { role: "Giám Đốc Nghệ Thuật", name: "Hương Trần" },
+      { role: "Quản Lý Sản Xuất", name: "SAINT6 Production" },
+    ],
+    testimonial: {
+      quote:
+        "SAINT6 delivered beyond our expectations. The versatility of their space allowed us to create multiple distinct looks in a single shoot.",
+      author: "Thu Hà",
+      role: "Marketing Director at Vinamilk",
+    },
+    testimonial_vi: {
+      quote:
+        "SAINT6 đã vượt xa kỳ vọng của chúng tôi. Sự đa dạng của không gian cho phép chúng tôi tạo ra nhiều phong cách khác nhau trong một buổi chụp.",
+      author: "Thu Hà",
+      role: "Giám Đốc Marketing tại Vinamilk",
+    },
+    main_image: "/images/gallery/gallery-01.jpg",
+    gallery_images: [
+      { image: "/images/gallery/gallery-02.jpg", alt: "Vinamilk campaign 1" },
+      { image: "/images/gallery/gallery-03.jpg", alt: "Vinamilk campaign 2" },
+      { image: "/images/gallery/gallery-04.jpg", alt: "Vinamilk campaign 3" },
+    ],
+    is_featured: false,
   },
 ];
 
@@ -1303,12 +1395,43 @@ async function seedKeyProjects() {
       const id = await uploadImage(img.image);
       if (id) galleryImageComponents.push({ image: id, alt: img.alt });
     }
+
+    // Extract Vietnamese fields
+    const {
+      title_vi,
+      info_text_vi,
+      expertise_vi,
+      team_vi,
+      testimonial_vi,
+      ...projectData
+    } = project;
+
+    // Create English version
     const entry = await createEntry("key-projects", {
-      ...project,
+      title: projectData.title,
+      slug: projectData.slug,
+      project_number: projectData.project_number,
+      client: projectData.client,
+      info_text: projectData.info_text,
+      expertise: projectData.expertise,
+      team: projectData.team,
+      testimonial: projectData.testimonial,
       main_image: mainImageId,
       gallery_images: galleryImageComponents,
+      is_featured: projectData.is_featured,
     });
-    if (entry) createdIds.push(entry.id);
+
+    if (entry) {
+      createdIds.push(entry.id);
+      // Create Vietnamese localization
+      await createLocalization("key-projects", entry.documentId, "vi", {
+        title: title_vi,
+        info_text: info_text_vi,
+        expertise: expertise_vi,
+        team: team_vi,
+        testimonial: testimonial_vi,
+      });
+    }
   }
   return createdIds;
 }

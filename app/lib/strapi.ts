@@ -380,6 +380,43 @@ export interface StrapiContactPage {
  *
  * @returns Data from Strapi or null if fetch fails
  */
+/**
+ * Recursively builds Strapi 5 populate query string parameters.
+ * Converts nested populate objects into bracket notation with URL encoding:
+ * { hero: { populate: "*" } } → populate%5Bhero%5D%5Bpopulate%5D=*
+ * { brand_logos: { populate: ["logo"] } } → populate%5Bbrand_logos%5D%5Bpopulate%5D%5B0%5D=logo
+ */
+function buildPopulateParams(
+  obj: Record<string, unknown>,
+  prefix = "populate",
+): string[] {
+  const params: string[] = [];
+
+  for (const [key, value] of Object.entries(obj)) {
+    // URL encode the brackets
+    const encodedKey = encodeURIComponent(`[${key}]`);
+    const newPrefix = `${prefix}${encodedKey}`;
+
+    if (value && typeof value === "object" && !Array.isArray(value)) {
+      // Nested object - recurse
+      params.push(
+        ...buildPopulateParams(value as Record<string, unknown>, newPrefix),
+      );
+    } else if (Array.isArray(value)) {
+      // Array of values
+      value.forEach((item, index) => {
+        const encodedIndex = encodeURIComponent(`[${index}]`);
+        params.push(`${newPrefix}${encodedIndex}=${encodeURIComponent(String(item))}`);
+      });
+    } else {
+      // Simple value
+      params.push(`${newPrefix}=${encodeURIComponent(String(value))}`);
+    }
+  }
+
+  return params;
+}
+
 async function fetchStrapi<T>(
   endpoint: string,
   options: {
@@ -396,13 +433,20 @@ async function fetchStrapi<T>(
     params.append("populate", populate);
   } else if (Array.isArray(populate)) {
     populate.forEach((field) => params.append("populate", field));
-  } else {
-    params.append("populate", JSON.stringify(populate));
   }
 
   params.append("locale", locale);
 
-  const url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`;
+  // Build URL with standard params
+  let url = `${STRAPI_URL}/api/${endpoint}?${params.toString()}`;
+
+  // For nested populate objects, append the bracket-notation params
+  if (populate && typeof populate === "object" && !Array.isArray(populate)) {
+    const populateParams = buildPopulateParams(populate);
+    if (populateParams.length > 0) {
+      url += `&${populateParams.join("&")}`;
+    }
+  }
 
   try {
     const response = await fetch(url, {
@@ -449,9 +493,20 @@ export function getStrapiImageUrl(image: StrapiImage | undefined): string | null
 const DEEP_POPULATE = "*";
 
 export async function getHomepage(locale: string = "en") {
+  // Strapi 5 deep populate - use "*" to get all nested fields
+  // populate: "*" alone only goes one level deep, so we need explicit nested populate
+  const populateQuery = {
+    hero: { populate: "*" },
+    brand_logos: { populate: "*" },
+    gallery_images: { populate: "*" },
+    key_projects: { populate: "*" },
+    space_section: { populate: "*" },
+    crew_area: { populate: "*" },
+  };
+
   return fetchStrapi<StrapiHomepage>("homepage", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
