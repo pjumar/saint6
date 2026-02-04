@@ -129,12 +129,93 @@ async function resetCollection(contentType: string): Promise<number> {
   return deleted;
 }
 
+// Page-specific reset data (only include fields that exist on each page)
+const pageResetData: Record<string, Record<string, unknown>> = {
+  homepage: {
+    hero: null,
+    brand_logos: [],
+    gallery_images: [],
+    key_projects: [],
+    space_section: null,
+    crew_area: null,
+  },
+  "studio-rental-page": {
+    hero: null,
+    intro: null,
+    stats: null,
+    rooms: [],
+    concept_rooms: [],
+    full_rental: null,
+    facilities: null,
+    equipment: [],
+    faqs: [],
+  },
+  "about-page": {
+    hero: null,
+    intro: null,
+    vision: null,
+    mission: null,
+    values: [],
+    our_story: null,
+    timeline: [],
+    founder: null,
+    full_width_image: null,
+  },
+  "contact-page": {
+    hero: null,
+    info: null,
+    map_image: null,
+  },
+  "creative-page": {
+    hero: null,
+    clients: null,
+    client_logos: [],
+    services: [],
+    intro: null,
+    workflow: [],
+    portfolio_settings: null,
+    portfolio_items: [],
+    testimonials: [],
+  },
+  "production-page": {
+    hero: null,
+    intro: null,
+    services: [],
+    intro_2: null,
+    workflow: [],
+    key_projects: [],
+  },
+  "set-design-page": {
+    hero: null,
+    intro: null,
+    workflow: [],
+    portfolio_settings: null,
+    portfolio_items: [],
+    testimonials: [],
+  },
+  "event-planning-page": {
+    hero: null,
+    intro: null,
+    services: [],
+    intro_2: null,
+    workflow: [],
+    event_projects: [],
+  },
+  "decor-page": {
+    hero: null,
+    intro: null,
+    workflow: [],
+    intro_2: null,
+    portfolio_settings: null,
+    portfolio_items: [],
+  },
+};
+
 async function resetSingleType(contentType: string): Promise<boolean> {
   console.log(`\n📄 Resetting ${contentType}...`);
 
   try {
     // For single types, we reset by setting all fields to null/empty
-    // First, get the current data to understand the structure
     const result = await apiRequest(contentType);
 
     if (!result.data) {
@@ -142,61 +223,12 @@ async function resetSingleType(contentType: string): Promise<boolean> {
       return true;
     }
 
-    // Reset the single type with empty data
-    // Include ALL relation and component fields to ensure clean migration
+    // Get page-specific reset data or use empty object
+    const resetData = pageResetData[contentType] || {};
+
     await apiRequest(contentType, {
       method: "PUT",
-      body: JSON.stringify({
-        data: {
-          // Shared components
-          hero: null,
-          intro: null,
-          intro_2: null,
-
-          // Homepage
-          brand_logos: [],
-          gallery_images: [],
-          key_projects: [],
-          space_section: null,
-          crew_area: null,
-
-          // Studio Rental Page
-          stats: null,
-          rooms: [],
-          concept_rooms: [],
-          full_rental: null,
-          facilities: null,
-          equipment: [],
-          faqs: [],
-
-          // Creative Page
-          clients: null,
-          client_logos: [],
-          services: [],
-          workflow: [],
-          portfolio_settings: null,
-          portfolio_items: [],
-          testimonials: [],
-
-          // Production Page (key_projects already included above)
-
-          // Event Planning Page
-          event_projects: [],
-
-          // About Page
-          vision: null,
-          mission: null,
-          values: [],
-          our_story: null,
-          timeline: [],
-          founder: null,
-          full_width_image: null,
-
-          // Contact Page
-          info: null,
-          map_image: null,
-        },
-      }),
+      body: JSON.stringify({ data: resetData }),
     });
 
     console.log(`   ✅ Reset ${contentType}`);
