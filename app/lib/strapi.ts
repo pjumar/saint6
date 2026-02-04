@@ -499,7 +499,14 @@ export async function getHomepage(locale: string = "en") {
     hero: { populate: "*" },
     brand_logos: { populate: "*" },
     gallery_images: { populate: "*" },
-    key_projects: { populate: "*" },
+    key_projects: {
+      populate: {
+        main_image: { populate: "*" },
+        gallery_images: { populate: { image: { populate: "*" } } },
+        team: { populate: "*" },
+        testimonial: { populate: "*" },
+      },
+    },
     space_section: { populate: "*" },
     crew_area: { populate: "*" },
   };
