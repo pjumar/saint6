@@ -151,55 +151,62 @@ function transformCrewArea(
   };
 }
 
-function transformKeyProject(
+function transformKeyProjects(
   projects: StrapiKeyProject[] | undefined
-): KeyProjectData | null {
-  if (!projects || projects.length === 0) return null;
+): KeyProjectData[] {
+  if (!projects || projects.length === 0) return [];
 
-  // Get the featured project or first project
-  const project = projects.find((p) => p.is_featured) || projects[0];
-  if (!project) return null;
+  const totalProjects = projects.length;
+  const paddedTotal = String(totalProjects).padStart(2, "0");
 
-  const mainImageSrc = getStrapiImageUrl(project.main_image);
-  if (!mainImageSrc) return null; // Main image is required
+  const result: KeyProjectData[] = [];
 
-  return {
-    projectNumber: project.project_number || "01/01",
-    title: project.title,
-    infoText: project.info_text || "",
-    team: project.team || [],
-    expertise: project.expertise || [],
-    client: project.client,
-    mainImage: {
-      src: mainImageSrc,
-      alt: project.main_image?.alternativeText || project.title,
-      width: project.main_image?.width || 440,
-      height: project.main_image?.height || 297,
-    },
-    testimonial: project.testimonial
-      ? {
-          quote: project.testimonial.quote,
-          author: project.testimonial.author,
-          role: project.testimonial.role,
-        }
-      : undefined,
-    galleryImages:
-      project.gallery_images
-        ?.map((img) => {
-          const src = getStrapiImageUrl(img.image);
-          if (!src) return null;
-          return {
-            src,
-            alt: img.alt || "",
-            width: img.image?.width || 200,
-            height: img.image?.height || 200,
-          };
-        })
-        .filter(
-          (img): img is { src: string; alt: string; width: number; height: number } =>
-            img !== null
-        ) || [],
-  };
+  projects.forEach((project, index) => {
+    const mainImageSrc = getStrapiImageUrl(project.main_image);
+    if (!mainImageSrc) return; // Main image is required
+
+    const paddedIndex = String(index + 1).padStart(2, "0");
+
+    result.push({
+      projectNumber: `${paddedIndex}/${paddedTotal}`,
+      title: project.title,
+      infoText: project.info_text || "",
+      team: project.team || [],
+      expertise: project.expertise || [],
+      client: project.client,
+      mainImage: {
+        src: mainImageSrc,
+        alt: project.main_image?.alternativeText || project.title,
+        width: project.main_image?.width || 440,
+        height: project.main_image?.height || 297,
+      },
+      testimonial: project.testimonial
+        ? {
+            quote: project.testimonial.quote,
+            author: project.testimonial.author,
+            role: project.testimonial.role,
+          }
+        : undefined,
+      galleryImages:
+        project.gallery_images
+          ?.map((img) => {
+            const src = getStrapiImageUrl(img.image);
+            if (!src) return null;
+            return {
+              src,
+              alt: img.alt || "",
+              width: img.image?.width || 200,
+              height: img.image?.height || 200,
+            };
+          })
+          .filter(
+            (img): img is { src: string; alt: string; width: number; height: number } =>
+              img !== null
+          ) || [],
+    });
+  });
+
+  return result;
 }
 
 // ============================================================================
@@ -247,11 +254,11 @@ export default async function Home({ params }: PageProps) {
     : useFallback
       ? FALLBACK_CREW_AREA_DATA
       : null;
-  const keyProjectData = strapiData?.key_projects
-    ? transformKeyProject(strapiData.key_projects)
+  const keyProjectsData = strapiData?.key_projects
+    ? transformKeyProjects(strapiData.key_projects)
     : useFallback
-      ? FALLBACK_PROJECT_DATA
-      : null;
+      ? [FALLBACK_PROJECT_DATA]
+      : [];
 
   // Get hero data from CMS or use translations/fallback
   const heroHeading =
@@ -275,7 +282,9 @@ export default async function Home({ params }: PageProps) {
       <div className={styles.contentContainer}>
         <TrustedBySection logos={brandLogos.length > 0 ? brandLogos : undefined} />
         <GallerySection images={galleryImages.length > 0 ? galleryImages : undefined} />
-        {keyProjectData && <KeyProjectSection project={keyProjectData} />}
+        {keyProjectsData.map((project, index) => (
+          <KeyProjectSection key={project.title || index} project={project} />
+        ))}
         {spaceData && (
           <SpaceSection {...spaceData} ctaLink="/studio-rental" />
         )}
