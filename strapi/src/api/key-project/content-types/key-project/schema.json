@@ -29,15 +29,6 @@
       "type": "uid",
       "targetField": "title"
     },
-    "project_number": {
-      "type": "string",
-      "default": "01/01",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "client": {
       "type": "string",
       "required": true,
