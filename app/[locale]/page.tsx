@@ -282,9 +282,9 @@ export default async function Home({ params }: PageProps) {
       <div className={styles.contentContainer}>
         <TrustedBySection logos={brandLogos.length > 0 ? brandLogos : undefined} />
         <GallerySection images={galleryImages.length > 0 ? galleryImages : undefined} />
-        {keyProjectsData.map((project, index) => (
-          <KeyProjectSection key={project.title || index} project={project} />
-        ))}
+        {keyProjectsData.length > 0 && (
+          <KeyProjectSection projects={keyProjectsData} />
+        )}
         {spaceData && (
           <SpaceSection {...spaceData} ctaLink="/studio-rental" />
         )}

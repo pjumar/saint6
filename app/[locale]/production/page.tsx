@@ -221,7 +221,7 @@ export default function ProductionPage() {
 
         {/* Key Project Section */}
         <div className={styles.keyProjectWrapper} id="key-project">
-          <KeyProjectSection project={keyProjectData} />
+          <KeyProjectSection projects={[keyProjectData]} />
         </div>
 
         {/* Contact Section */}

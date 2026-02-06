@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+/* Add spacing between consecutive projects */
+.projectItem + .projectItem {
+  margin-top: 8rem;
+}
+
 .keyProjectSection {
   background: var(--color-bg-container);
   display: flex;
