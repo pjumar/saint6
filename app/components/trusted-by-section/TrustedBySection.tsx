@@ -20,11 +20,15 @@ interface TrustedBySectionProps {
 
 // Default fallback logos
 const DEFAULT_LOGOS: BrandLogo[] = [
-  { id: "1", src: "/images/brands/brand-01.png", alt: "L'OFFICIEL", width: 170, height: 35 },
-  { id: "2", src: "/images/brands/brand-02.png", alt: "Lenskart", width: 138, height: 40 },
-  { id: "3", src: "/images/brands/brand-03.png", alt: "Vinamilk", width: 98, height: 32 },
-  { id: "4", src: "/images/brands/brand-04.png", alt: "SONY", width: 114, height: 20 },
-  { id: "5", src: "/images/brands/brand-05.png", alt: "VinFast", width: 128, height: 32 },
+  { id: "1", src: "/images/brands/lenskart.png", alt: "Lenskart", width: 138, height: 40 },
+  { id: "2", src: "/images/brands/lofficiel.png", alt: "L'Officiel", width: 170, height: 35 },
+  { id: "3", src: "/images/brands/vinamilk.png", alt: "Vinamilk", width: 98, height: 32 },
+  { id: "4", src: "/images/brands/sony.png", alt: "Sony", width: 114, height: 20 },
+  { id: "5", src: "/images/brands/vinfast.png", alt: "VinFast", width: 128, height: 32 },
+  { id: "6", src: "/images/brands/miss-cosmo.png", alt: "Miss Cosmo", width: 120, height: 35 },
+  { id: "7", src: "/images/brands/harpers-bazaar.png", alt: "Harper's Bazaar", width: 140, height: 30 },
+  { id: "8", src: "/images/brands/highlands-coffee.png", alt: "Highlands Coffee", width: 100, height: 40 },
+  { id: "9", src: "/images/brands/maybelline.png", alt: "Maybelline New York", width: 130, height: 35 },
 ];
 
 export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProps) {
