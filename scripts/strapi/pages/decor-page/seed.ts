@@ -10,16 +10,16 @@
 import {
   uploadImage,
   updateSingleType,
-  getServiceItemIds,
-  getPortfolioItemIds,
+  getServiceItemDocumentIds,
+  getPortfolioItemDocumentIds,
 } from "../../shared/api";
 
 async function seedDecorPage(): Promise<void> {
   console.log("\n Seeding Decor Page...");
 
-  // Get required collection IDs
-  const workflowIds = await getServiceItemIds("decor", "workflow");
-  const portfolioIds = await getPortfolioItemIds("decor");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const workflowDocIds = await getServiceItemDocumentIds("decor", "workflow");
+  const portfolioDocIds = await getPortfolioItemDocumentIds("decor");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -41,7 +41,7 @@ async function seedDecorPage(): Promise<void> {
       cta_text: "Plan Your Decoration",
       cta_link: "#contact-form",
     },
-    workflow: workflowIds,
+    workflow: workflowDocIds,
     intro_2: {
       label: "every moment, an emotion",
       description:
@@ -52,7 +52,7 @@ async function seedDecorPage(): Promise<void> {
       statement:
         "Every project begins with a vision. We bring it to life — detail by detail.",
     },
-    portfolio_items: portfolioIds,
+    portfolio_items: portfolioDocIds,
   });
 
   // Vietnamese
@@ -72,7 +72,7 @@ async function seedDecorPage(): Promise<void> {
         cta_text: "Lên Kế Hoạch Trang Trí",
         cta_link: "#contact-form",
       },
-      workflow: workflowIds,
+      workflow: workflowDocIds,
       intro_2: {
         label: "mỗi khoảnh khắc, một cảm xúc",
         description:
@@ -83,7 +83,7 @@ async function seedDecorPage(): Promise<void> {
         statement:
           "Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một.",
       },
-      portfolio_items: portfolioIds,
+      portfolio_items: portfolioDocIds,
     },
     "vi"
   );

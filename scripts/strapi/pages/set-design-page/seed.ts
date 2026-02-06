@@ -10,18 +10,18 @@
 import {
   uploadImage,
   updateSingleType,
-  getCollectionIds,
-  getServiceItemIds,
-  getPortfolioItemIds,
+  getCollectionDocumentIds,
+  getServiceItemDocumentIds,
+  getPortfolioItemDocumentIds,
 } from "../../shared/api";
 
 async function seedSetDesignPage(): Promise<void> {
   console.log("\n Seeding Set Design Page...");
 
-  // Get required collection IDs
-  const testimonialIds = await getCollectionIds("testimonial-items");
-  const workflowIds = await getServiceItemIds("set-design", "workflow");
-  const portfolioIds = await getPortfolioItemIds("set-design");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const testimonialDocIds = await getCollectionDocumentIds("testimonial-items");
+  const workflowDocIds = await getServiceItemDocumentIds("set-design", "workflow");
+  const portfolioDocIds = await getPortfolioItemDocumentIds("set-design");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -43,14 +43,14 @@ async function seedSetDesignPage(): Promise<void> {
       cta_text: "Get in touch",
       cta_link: "#contact-form",
     },
-    workflow: workflowIds,
+    workflow: workflowDocIds,
     portfolio_settings: {
       label: "PORTFOLIO",
       statement:
         "We shape physical spaces that reflect your creative intent — environments that become part of your story",
     },
-    portfolio_items: portfolioIds,
-    testimonials: testimonialIds,
+    portfolio_items: portfolioDocIds,
+    testimonials: testimonialDocIds,
   });
 
   // Vietnamese
@@ -70,14 +70,14 @@ async function seedSetDesignPage(): Promise<void> {
         cta_text: "Liên hệ ngay",
         cta_link: "#contact-form",
       },
-      workflow: workflowIds,
+      workflow: workflowDocIds,
       portfolio_settings: {
         label: "PORTFOLIO",
         statement:
           "Chúng tôi tạo hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn",
       },
-      portfolio_items: portfolioIds,
-      testimonials: testimonialIds,
+      portfolio_items: portfolioDocIds,
+      testimonials: testimonialDocIds,
     },
     "vi"
   );

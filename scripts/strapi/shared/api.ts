@@ -193,12 +193,19 @@ export async function getCollectionEntries(
   const allEntries: { id: number; documentId: string }[] = [];
   const seenDocumentIds = new Set<string>();
 
-  // Query both EN and VI locales to catch all entries
-  for (const locale of ["en", "vi"]) {
+  // First query without locale (for non-i18n content types like brand-logos)
+  // Then query with locales (for i18n content types)
+  const queries = [
+    `${contentType}?pagination[pageSize]=100`,
+    `${contentType}?locale=en&pagination[pageSize]=100`,
+    `${contentType}?locale=vi&pagination[pageSize]=100`,
+  ];
+
+  for (const query of queries) {
     try {
-      const result = (await apiRequest(
-        `${contentType}?locale=${locale}&pagination[pageSize]=100`
-      )) as { data: { id: number; documentId: string }[] };
+      const result = (await apiRequest(query)) as {
+        data: { id: number; documentId: string }[];
+      };
 
       for (const entry of result.data || []) {
         if (!seenDocumentIds.has(entry.documentId)) {
@@ -209,8 +216,8 @@ export async function getCollectionEntries(
           });
         }
       }
-    } catch (error) {
-      console.log(`  Could not fetch ${contentType} (${locale}): ${error}`);
+    } catch {
+      // Silently continue - some queries may fail for non-i18n types
     }
   }
 
@@ -328,6 +335,21 @@ export async function getServiceItemIds(
   }
 }
 
+// Get service item documentIds filtered by page and section
+export async function getServiceItemDocumentIds(
+  page: string,
+  section: string
+): Promise<string[]> {
+  try {
+    const result = (await apiRequest(
+      `service-items?filters[page][$eq]=${page}&filters[section][$eq]=${section}&pagination[pageSize]=100`
+    )) as { data: { documentId: string }[] };
+    return result.data?.map((entry) => entry.documentId) || [];
+  } catch {
+    return [];
+  }
+}
+
 // Get portfolio item IDs filtered by page
 export async function getPortfolioItemIds(page: string): Promise<number[]> {
   try {
@@ -335,6 +357,20 @@ export async function getPortfolioItemIds(page: string): Promise<number[]> {
       `portfolio-items?filters[page][$eq]=${page}&pagination[pageSize]=100`
     )) as { data: { id: number }[] };
     return result.data?.map((entry) => entry.id) || [];
+  } catch {
+    return [];
+  }
+}
+
+// Get portfolio item documentIds filtered by page
+export async function getPortfolioItemDocumentIds(
+  page: string
+): Promise<string[]> {
+  try {
+    const result = (await apiRequest(
+      `portfolio-items?filters[page][$eq]=${page}&pagination[pageSize]=100`
+    )) as { data: { documentId: string }[] };
+    return result.data?.map((entry) => entry.documentId) || [];
   } catch {
     return [];
   }

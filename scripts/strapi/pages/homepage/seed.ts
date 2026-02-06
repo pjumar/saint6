@@ -10,16 +10,16 @@
 import {
   uploadImage,
   updateSingleType,
-  getCollectionIds,
+  getCollectionDocumentIds,
 } from "../../shared/api";
 import { galleryImages } from "../../shared/data/gallery-images";
 
 async function seedHomepage(): Promise<void> {
   console.log("\n Seeding Homepage...");
 
-  // Get required collection IDs
-  const brandLogoIds = await getCollectionIds("brand-logos");
-  const keyProjectIds = await getCollectionIds("key-projects");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const brandLogoDocIds = await getCollectionDocumentIds("brand-logos");
+  const keyProjectDocIds = await getCollectionDocumentIds("key-projects");
 
   // Upload images
   const heroImageId = await uploadImage("/images/hero/hero-background.jpg");
@@ -47,9 +47,9 @@ async function seedHomepage(): Promise<void> {
       background_image: heroImageId,
       background_alt: "Saint 6 Studio",
     },
-    brand_logos: brandLogoIds,
+    brand_logos: brandLogoDocIds,
     gallery_images: galleryImageComponents,
-    key_projects: keyProjectIds,
+    key_projects: keyProjectDocIds,
     space_section: {
       caption: "WIDE RANGE OF SPACE",
       description:
@@ -88,9 +88,9 @@ async function seedHomepage(): Promise<void> {
         background_image: heroImageId,
         background_alt: "Saint 6 Studio",
       },
-      brand_logos: brandLogoIds,
+      brand_logos: brandLogoDocIds,
       gallery_images: galleryImageComponents,
-      key_projects: keyProjectIds,
+      key_projects: keyProjectDocIds,
       space_section: {
         caption: "KHÔNG GIAN ĐA DẠNG",
         description:

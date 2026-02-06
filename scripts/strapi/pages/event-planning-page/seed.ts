@@ -10,17 +10,17 @@
 import {
   uploadImage,
   updateSingleType,
-  getCollectionIds,
-  getServiceItemIds,
+  getCollectionDocumentIds,
+  getServiceItemDocumentIds,
 } from "../../shared/api";
 
 async function seedEventPlanningPage(): Promise<void> {
   console.log("\n Seeding Event Planning Page...");
 
-  // Get required collection IDs
-  const keyProjectIds = await getCollectionIds("key-projects");
-  const servicesIds = await getServiceItemIds("event-planning", "services");
-  const workflowIds = await getServiceItemIds("event-planning", "workflow");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const keyProjectDocIds = await getCollectionDocumentIds("key-projects");
+  const servicesDocIds = await getServiceItemDocumentIds("event-planning", "services");
+  const workflowDocIds = await getServiceItemDocumentIds("event-planning", "workflow");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -41,14 +41,14 @@ async function seedEventPlanningPage(): Promise<void> {
       cta_text: "Plan Your Event",
       cta_link: "#contact-form",
     },
-    services: servicesIds,
+    services: servicesDocIds,
     intro_2: {
       label: "Every Moment, An Emotion",
       description:
         "Beyond venue and décor, Saint 6 delivers artistry in motion — a rare harmony of creative vision, flawless execution, and atmosphere designed to leave a lasting impression.",
     },
-    workflow: workflowIds,
-    event_projects: keyProjectIds,
+    workflow: workflowDocIds,
+    event_projects: keyProjectDocIds,
   });
 
   // Vietnamese
@@ -67,14 +67,14 @@ async function seedEventPlanningPage(): Promise<void> {
         cta_text: "Lên Kế Hoạch Sự Kiện",
         cta_link: "#contact-form",
       },
-      services: servicesIds,
+      services: servicesDocIds,
       intro_2: {
         label: "Mỗi Khoảnh Khắc, Một Cảm Xúc",
         description:
           "Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài.",
       },
-      workflow: workflowIds,
-      event_projects: keyProjectIds,
+      workflow: workflowDocIds,
+      event_projects: keyProjectDocIds,
     },
     "vi"
   );

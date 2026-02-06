@@ -10,17 +10,17 @@
 import {
   uploadImage,
   updateSingleType,
-  getCollectionIds,
-  getServiceItemIds,
+  getCollectionDocumentIds,
+  getServiceItemDocumentIds,
 } from "../../shared/api";
 
 async function seedProductionPage(): Promise<void> {
   console.log("\n Seeding Production Page...");
 
-  // Get required collection IDs
-  const keyProjectIds = await getCollectionIds("key-projects");
-  const servicesIds = await getServiceItemIds("production", "services");
-  const workflowIds = await getServiceItemIds("production", "workflow");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const keyProjectDocIds = await getCollectionDocumentIds("key-projects");
+  const servicesDocIds = await getServiceItemDocumentIds("production", "services");
+  const workflowDocIds = await getServiceItemDocumentIds("production", "workflow");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -41,14 +41,14 @@ async function seedProductionPage(): Promise<void> {
       cta_text: "Plan Your Production",
       cta_link: "#contact-form",
     },
-    services: servicesIds,
+    services: servicesDocIds,
     intro_2: {
       label: "The Saint 6 Way of Creation",
       description:
         "We believe in structured creativity — a process that respects your vision while bringing our expertise to every detail.",
     },
-    workflow: workflowIds,
-    key_projects: keyProjectIds,
+    workflow: workflowDocIds,
+    key_projects: keyProjectDocIds,
   });
 
   // Vietnamese
@@ -67,14 +67,14 @@ async function seedProductionPage(): Promise<void> {
         cta_text: "Lên Kế Hoạch Sản Xuất",
         cta_link: "#contact-form",
       },
-      services: servicesIds,
+      services: servicesDocIds,
       intro_2: {
         label: "Phong Cách Sáng Tạo Saint 6",
         description:
           "Chúng tôi tin vào sự sáng tạo có cấu trúc — một quy trình tôn trọng tầm nhìn của bạn đồng thời mang chuyên môn của chúng tôi vào từng chi tiết.",
       },
-      workflow: workflowIds,
-      key_projects: keyProjectIds,
+      workflow: workflowDocIds,
+      key_projects: keyProjectDocIds,
     },
     "vi"
   );

@@ -10,20 +10,20 @@
 import {
   uploadImage,
   updateSingleType,
-  getCollectionIds,
-  getServiceItemIds,
-  getPortfolioItemIds,
+  getCollectionDocumentIds,
+  getServiceItemDocumentIds,
+  getPortfolioItemDocumentIds,
 } from "../../shared/api";
 
 async function seedCreativePage(): Promise<void> {
   console.log("\n Seeding Creative Page...");
 
-  // Get required collection IDs
-  const brandLogoIds = await getCollectionIds("brand-logos");
-  const testimonialIds = await getCollectionIds("testimonial-items");
-  const servicesIds = await getServiceItemIds("creative", "services");
-  const workflowIds = await getServiceItemIds("creative", "workflow");
-  const portfolioIds = await getPortfolioItemIds("creative");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const brandLogoDocIds = await getCollectionDocumentIds("brand-logos");
+  const testimonialDocIds = await getCollectionDocumentIds("testimonial-items");
+  const servicesDocIds = await getServiceItemDocumentIds("creative", "services");
+  const workflowDocIds = await getServiceItemDocumentIds("creative", "workflow");
+  const portfolioDocIds = await getPortfolioItemDocumentIds("creative");
 
   // Upload images
   const heroImageId = await uploadImage("/images/creative/hero-background.jpg");
@@ -40,8 +40,8 @@ async function seedCreativePage(): Promise<void> {
       description:
         "We're proud to collaborate with leading brands, agencies, and startups worldwide.",
     },
-    client_logos: brandLogoIds,
-    services: servicesIds,
+    client_logos: brandLogoDocIds,
+    services: servicesDocIds,
     intro: {
       label: "How We Work",
       description:
@@ -49,14 +49,14 @@ async function seedCreativePage(): Promise<void> {
       cta_text: "Get in touch",
       cta_link: "#contact-form",
     },
-    workflow: workflowIds,
+    workflow: workflowDocIds,
     portfolio_settings: {
       label: "Featured Work",
       statement:
         "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail.",
     },
-    portfolio_items: portfolioIds,
-    testimonials: testimonialIds,
+    portfolio_items: portfolioDocIds,
+    testimonials: testimonialDocIds,
   });
 
   // Vietnamese
@@ -73,8 +73,8 @@ async function seedCreativePage(): Promise<void> {
         description:
           "Chúng tôi tự hào hợp tác với các thương hiệu, agency và startup hàng đầu trên toàn thế giới.",
       },
-      client_logos: brandLogoIds,
-      services: servicesIds,
+      client_logos: brandLogoDocIds,
+      services: servicesDocIds,
       intro: {
         label: "Cách Chúng Tôi Làm Việc",
         description:
@@ -82,14 +82,14 @@ async function seedCreativePage(): Promise<void> {
         cta_text: "Liên hệ ngay",
         cta_link: "#contact-form",
       },
-      workflow: workflowIds,
+      workflow: workflowDocIds,
       portfolio_settings: {
         label: "Tác Phẩm Nổi Bật",
         statement:
           "Hình ảnh cao cấp phản ánh tham vọng thương hiệu của bạn — một triển lãm của nghệ thuật và sự chú ý đến chi tiết.",
       },
-      portfolio_items: portfolioIds,
-      testimonials: testimonialIds,
+      portfolio_items: portfolioDocIds,
+      testimonials: testimonialDocIds,
     },
     "vi"
   );

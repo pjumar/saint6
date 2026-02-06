@@ -10,36 +10,36 @@
 import {
   uploadImage,
   updateSingleType,
-  getCollectionIds,
+  getCollectionDocumentIds,
   apiRequest,
 } from "../../shared/api";
 
 async function seedStudioRentalPage(): Promise<void> {
   console.log("\n Seeding Studio Rental Page...");
 
-  // Get required collection IDs
-  const roomIds = await getCollectionIds("studio-rooms");
-  const equipmentIds = await getCollectionIds("equipment-items");
-  const faqIds = await getCollectionIds("faq-items");
+  // Get required collection documentIds (Strapi v5 relations use documentId)
+  const roomDocIds = await getCollectionDocumentIds("studio-rooms");
+  const equipmentDocIds = await getCollectionDocumentIds("equipment-items");
+  const faqDocIds = await getCollectionDocumentIds("faq-items");
 
   // Separate blank rooms and concept rooms by querying with filters
-  let blankRoomIds: number[] = [];
-  let conceptRoomIds: number[] = [];
+  let blankRoomDocIds: string[] = [];
+  let conceptRoomDocIds: string[] = [];
 
   try {
     const blankResult = (await apiRequest(
       "studio-rooms?filters[type][$eq]=blank&pagination[pageSize]=100"
-    )) as { data: { id: number }[] };
-    blankRoomIds = blankResult.data?.map((r) => r.id) || [];
+    )) as { data: { documentId: string }[] };
+    blankRoomDocIds = blankResult.data?.map((r) => r.documentId) || [];
 
     const conceptResult = (await apiRequest(
       "studio-rooms?filters[type][$eq]=concept&pagination[pageSize]=100"
-    )) as { data: { id: number }[] };
-    conceptRoomIds = conceptResult.data?.map((r) => r.id) || [];
+    )) as { data: { documentId: string }[] };
+    conceptRoomDocIds = conceptResult.data?.map((r) => r.documentId) || [];
   } catch {
     // Fallback: use first 3 as blank, rest as concept
-    blankRoomIds = roomIds.slice(0, 3);
-    conceptRoomIds = roomIds.slice(3);
+    blankRoomDocIds = roomDocIds.slice(0, 3);
+    conceptRoomDocIds = roomDocIds.slice(3);
   }
 
   // Upload images
@@ -73,8 +73,8 @@ async function seedStudioRentalPage(): Promise<void> {
       blank_rooms: 3,
       concept_rooms: 3,
     },
-    rooms: blankRoomIds,
-    concept_rooms: conceptRoomIds,
+    rooms: blankRoomDocIds,
+    concept_rooms: conceptRoomDocIds,
     full_rental: {
       price: "2,500,000",
       background_image: fullRentalBgId,
@@ -83,8 +83,8 @@ async function seedStudioRentalPage(): Promise<void> {
       makeup_image: makeupImageId,
       lounge_image: loungeImageId,
     },
-    equipment: equipmentIds,
-    faqs: faqIds,
+    equipment: equipmentDocIds,
+    faqs: faqDocIds,
   });
 
   // Vietnamese
@@ -110,8 +110,8 @@ async function seedStudioRentalPage(): Promise<void> {
         blank_rooms: 3,
         concept_rooms: 3,
       },
-      rooms: blankRoomIds,
-      concept_rooms: conceptRoomIds,
+      rooms: blankRoomDocIds,
+      concept_rooms: conceptRoomDocIds,
       full_rental: {
         price: "2,500,000",
         background_image: fullRentalBgId,
@@ -120,8 +120,8 @@ async function seedStudioRentalPage(): Promise<void> {
         makeup_image: makeupImageId,
         lounge_image: loungeImageId,
       },
-      equipment: equipmentIds,
-      faqs: faqIds,
+      equipment: equipmentDocIds,
+      faqs: faqDocIds,
     },
     "vi"
   );
