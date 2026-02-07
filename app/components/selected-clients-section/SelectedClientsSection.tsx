@@ -5,19 +5,20 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styles from "./SelectedClientsSection.module.css";
 
-interface ClientLogo {
+export interface ClientLogo {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 interface SelectedClientsSectionProps {
   label?: string;
   description: string;
+  logos?: ClientLogo[];
 }
 
-const clientLogos: ClientLogo[] = [
+const DEFAULT_LOGOS: ClientLogo[] = [
   {
     src: "/images/brands/lofficiel.png",
     alt: "L'OFFICIEL",
@@ -67,7 +68,9 @@ const clientLogos: ClientLogo[] = [
 export function SelectedClientsSection({
   label = "Selected Clients",
   description,
+  logos,
 }: SelectedClientsSectionProps) {
+  const clientLogos = logos && logos.length > 0 ? logos : DEFAULT_LOGOS;
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -187,8 +190,8 @@ export function SelectedClientsSection({
               key={`logo-${index}`}
               src={logo.src}
               alt={logo.alt}
-              width={logo.width}
-              height={logo.height}
+              width={logo.width ?? 120}
+              height={logo.height ?? 40}
               className={styles.logo}
             />
           ))}
@@ -199,8 +202,8 @@ export function SelectedClientsSection({
                 key={`logo-dup-${index}`}
                 src={logo.src}
                 alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
+                width={logo.width ?? 120}
+                height={logo.height ?? 40}
                 className={styles.logo}
               />
             ))}

@@ -8,7 +8,10 @@ import {
   type PortfolioItem,
   PortfolioSection,
 } from "@/app/components/portfolio-section/PortfolioSection";
-import { SelectedClientsSection } from "@/app/components/selected-clients-section/SelectedClientsSection";
+import {
+  type ClientLogo,
+  SelectedClientsSection,
+} from "@/app/components/selected-clients-section/SelectedClientsSection";
 import {
   type ServiceCard,
   ServiceCardsCarousel,
@@ -28,6 +31,7 @@ import {
 import {
   getCreativePage,
   getStrapiImageUrl,
+  type StrapiBrandLogo,
   type StrapiServiceItem,
   type StrapiPortfolioItem,
   type StrapiTestimonialItem,
@@ -120,6 +124,23 @@ function transformTestimonials(
     });
 }
 
+function transformClientLogos(
+  logos: StrapiBrandLogo[] | undefined
+): ClientLogo[] {
+  if (!logos || logos.length === 0) return [];
+
+  return logos
+    .sort((a, b) => a.order - b.order)
+    .map((logo) => {
+      const imageUrl = getStrapiImageUrl(logo.logo);
+      return {
+        src: imageUrl || "/images/brands/placeholder.png",
+        alt: logo.name,
+      };
+    })
+    .filter((logo) => logo.src !== "/images/brands/placeholder.png");
+}
+
 // ============================================================================
 // Page Component - Server Component with static generation
 // ============================================================================
@@ -170,6 +191,7 @@ export default async function CreativePage({ params }: PageProps) {
     strapiData?.clients?.description ||
     t.CREATIVE?.CLIENTS?.DESCRIPTION ||
     "We're proud to collaborate with leading brands, agencies, and startups worldwide.";
+  const clientLogos = transformClientLogos(strapiData?.client_logos);
 
   // Services
   const creativeServices = strapiData?.services
@@ -260,6 +282,7 @@ export default async function CreativePage({ params }: PageProps) {
         <SelectedClientsSection
           label={clientsLabel}
           description={clientsDescription}
+          logos={clientLogos.length > 0 ? clientLogos : undefined}
         />
 
         {/* Services Section */}
