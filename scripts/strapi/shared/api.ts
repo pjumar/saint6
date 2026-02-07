@@ -253,8 +253,8 @@ export async function updateSingleType(
   locale: string = "en"
 ): Promise<{ id: number; documentId: string } | null> {
   try {
-    const url =
-      locale === "en" ? contentType : `${contentType}?locale=${locale}`;
+    // Always include locale parameter for explicit locale targeting in Strapi v5
+    const url = `${contentType}?locale=${locale}`;
     const result = (await apiRequest(url, {
       method: "PUT",
       body: JSON.stringify({ data }),
