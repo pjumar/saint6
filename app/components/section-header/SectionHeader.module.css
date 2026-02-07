@@ -2,9 +2,9 @@
   position: relative;
   background: var(--color-primary, #880300);
   border-radius: 1.5rem 1.5rem 0 0;
-  padding: 1.5rem 1.5rem 3rem;
+  padding: 1.5rem 1.5rem 2rem;
   overflow: hidden;
-  min-height: 22rem;
+  min-height: 16rem;
   display: flex;
   align-items: stretch;
 }
@@ -70,10 +70,10 @@
 /* Spiral position: center (default) - centered at bottom */
 .spiralCenter {
   left: 50%;
-  bottom: -12rem;
+  bottom: -10rem;
   transform: translateX(-50%);
-  width: 24rem;
-  height: 24rem;
+  width: 20rem;
+  height: 20rem;
 }
 
 /* Spiral position: right - right side vertically centered */
@@ -94,8 +94,8 @@
 /* Tablet and Desktop */
 @media (min-width: 48.0625rem) {
   .sectionHeader {
-    padding: 2rem 2rem 5rem;
-    min-height: 28rem;
+    padding: 2rem 2rem 3rem;
+    min-height: 22rem;
   }
 
   .title {
@@ -106,9 +106,9 @@
   }
 
   .spiralCenter {
-    width: 44rem;
-    height: 44rem;
-    bottom: -22rem;
+    width: 36rem;
+    height: 36rem;
+    bottom: -18rem;
   }
 
   .spiralRight {
