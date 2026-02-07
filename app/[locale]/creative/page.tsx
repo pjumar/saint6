@@ -1,5 +1,3 @@
-"use client";
-
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import {
   type CreativeServiceItem,
@@ -20,223 +18,239 @@ import {
   type TestimonialItem,
   TestimonialsSection,
 } from "@/app/components/testimonials-section/TestimonialsSection";
-import { useTranslation } from "@/app/contexts/TranslationContext";
+import {
+  FALLBACK_CREATIVE_HERO,
+  FALLBACK_CREATIVE_PORTFOLIO,
+  FALLBACK_CREATIVE_SERVICES,
+  FALLBACK_CREATIVE_TESTIMONIALS,
+  FALLBACK_CREATIVE_WORKFLOW,
+} from "@/app/lib/fallback-data";
+import {
+  getCreativePage,
+  getStrapiImageUrl,
+  type StrapiServiceItem,
+  type StrapiPortfolioItem,
+  type StrapiTestimonialItem,
+} from "@/app/lib/strapi";
+import { getTranslations } from "@/app/lib/translations";
 import styles from "./Creative.module.css";
 
-// Creative services data (CMS integration in Phase 8)
-const creativeServices: CreativeServiceItem[] = [
-  {
-    id: "brand-advertising",
-    imageUrl: "/images/creative/service-advertising.png",
-    title: "Brand &\nAdvertising Campaigns",
-    description:
-      "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.",
-  },
-  {
-    id: "product-packaging",
-    imageUrl: "/images/creative/service-packaging.png",
-    title: "Product &\nPackaging Shoots",
-    description:
-      "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.",
-  },
-];
+// ============================================================================
+// Transformer Functions - Convert Strapi data to component props
+// ============================================================================
 
-// Workflow steps data (CMS integration in Phase 8)
-const workflowSteps: ServiceCard[] = [
-  {
-    id: "creative-direction",
-    imageUrl: "/images/creative/workflow-direction.jpg",
-    counter: "01.",
-    title: "Creative Direction",
-    description:
-      "We study your brief and develop creative directions based on your brand, audience, and goals.",
-  },
-  {
-    id: "storyboard",
-    imageUrl: "/images/creative/workflow-storyboard.jpg",
-    counter: "02.",
-    title: "Storyboard Development",
-    description:
-      "Our team creates detailed storyboards and shot lists to visualize the final output.",
-  },
-  {
-    id: "pre-production",
-    imageUrl: "/images/creative/workflow-preproduction.jpg",
-    counter: "03.",
-    title: "Pre-production & Sourcing",
-    description:
-      "We coordinate talent, locations, props, and equipment to ensure smooth execution.",
-  },
-  {
-    id: "shoot-production",
-    imageUrl: "/images/creative/workflow-shoot.jpg",
-    counter: "04.",
-    title: "Shoot / Production",
-    description:
-      "Our experienced crew captures your vision with precision and creative flair.",
-  },
-  {
-    id: "post-production",
-    imageUrl: "/images/creative/workflow-post.jpg",
-    counter: "05.",
-    title: "Post-production",
-    description:
-      "Professional editing, color grading, and retouching bring the final deliverables to life.",
-  },
-  {
-    id: "delivery",
-    imageUrl: "/images/creative/workflow-delivery.jpg",
-    counter: "06.",
-    title: "Final Delivery",
-    description:
-      "We deliver polished assets ready for print, digital, and social media deployment.",
-  },
-];
+function transformCreativeServices(
+  services: StrapiServiceItem[] | undefined
+): CreativeServiceItem[] {
+  if (!services || services.length === 0) return [];
 
-// Portfolio items data (CMS integration in Phase 8)
-const portfolioItems: PortfolioItem[] = [
-  {
-    id: "fressi-kv",
-    imageUrl: "/images/creative/portfolio-fressi.jpg",
-    category: "Campaign",
-    title: "FRESSI KV",
-    size: "large",
-  },
-  {
-    id: "mirinda",
-    imageUrl: "/images/creative/portfolio-mirinda.jpg",
-    category: "Campaign",
-    title: "MIRINDA",
-    size: "large",
-  },
-  {
-    id: "den-vau-1",
-    imageUrl: "/images/creative/portfolio-denvau-1.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "short",
-  },
-  {
-    id: "den-vau-2",
-    imageUrl: "/images/creative/portfolio-denvau-2.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "tall",
-  },
-  {
-    id: "den-vau-3",
-    imageUrl: "/images/creative/portfolio-denvau-3.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "tall",
-  },
-  {
-    id: "den-vau-4",
-    imageUrl: "/images/creative/portfolio-denvau-4.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "tall",
-  },
-  {
-    id: "den-vau-5",
-    imageUrl: "/images/creative/portfolio-denvau-5.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "short",
-  },
-  {
-    id: "yamaha",
-    imageUrl: "/images/creative/portfolio-yamaha.jpg",
-    category: "Campaign",
-    title: "YAMAHA SOCIAL LAYOUT",
-    size: "short",
-  },
-];
+  return services
+    .sort((a, b) => a.order - b.order)
+    .map((service) => {
+      const imageUrl = getStrapiImageUrl(service.image);
+      return {
+        id: String(service.id),
+        imageUrl: imageUrl || "/images/creative/service-placeholder.jpg",
+        title: service.title,
+        description: service.description || "",
+      };
+    });
+}
 
-// Testimonials data (CMS integration in Phase 8)
-const testimonialItems: TestimonialItem[] = [
-  {
-    id: "testimonial-1",
-    logoUrl: "/images/brands/brand-01.png",
-    logoAlt: "L'OFFICIEL",
-    quote:
-      "It's rare to find a studio where creative direction, production, and hospitality all come together. Saint 6 delivered on every front. Our client was blown away.",
-    authorName: "Aaron Tan",
-    authorTitle: "Creative Director, Elle Vietnam",
-  },
-  {
-    id: "testimonial-2",
-    logoUrl: "/images/brands/brand-02.png",
-    logoAlt: "Fressi",
-    quote:
-      "Saint 6's attention to detail and creative vision transformed our campaign into something truly memorable. The team understood our brand from day one.",
-    authorName: "Nguyen Thi Mai",
-    authorTitle: "Marketing Director, Fressi Vietnam",
-  },
-  {
-    id: "testimonial-3",
-    logoUrl: "/images/brands/brand-03.png",
-    logoAlt: "Vinamilk",
-    quote:
-      "Working with Saint 6 was seamless. Their production quality and creative approach exceeded our expectations for the product launch.",
-    authorName: "Tran Van Duc",
-    authorTitle: "Brand Manager, Vinamilk",
-  },
-  {
-    id: "testimonial-4",
-    logoUrl: "/images/brands/brand-04.png",
-    logoAlt: "Sony",
-    quote:
-      "The team's expertise in both creative direction and technical execution made our collaboration incredibly smooth and successful.",
-    authorName: "Le Hoang Nam",
-    authorTitle: "Creative Lead, Sony Vietnam",
-  },
-];
+function transformWorkflow(
+  workflow: StrapiServiceItem[] | undefined
+): ServiceCard[] {
+  if (!workflow || workflow.length === 0) return [];
 
-export default function CreativePage() {
-  const { t } = useTranslation();
+  return workflow
+    .sort((a, b) => a.order - b.order)
+    .map((step) => {
+      const imageUrl = getStrapiImageUrl(step.image);
+      return {
+        id: String(step.id),
+        imageUrl: imageUrl || "/images/creative/workflow-placeholder.jpg",
+        counter: step.counter || "",
+        title: step.title,
+        description: step.description || "",
+      };
+    });
+}
 
-  // Get service translations
-  const getServiceTranslation = (index: number) => {
+function transformPortfolio(
+  items: StrapiPortfolioItem[] | undefined
+): PortfolioItem[] {
+  if (!items || items.length === 0) return [];
+
+  const result: PortfolioItem[] = [];
+
+  items
+    .sort((a, b) => a.order - b.order)
+    .forEach((item) => {
+      const imageUrl = getStrapiImageUrl(item.image);
+      if (!imageUrl) return;
+      result.push({
+        id: String(item.id),
+        imageUrl,
+        category: item.category || "Campaign",
+        title: item.title,
+        size: item.size,
+      });
+    });
+
+  return result;
+}
+
+function transformTestimonials(
+  testimonials: StrapiTestimonialItem[] | undefined
+): TestimonialItem[] {
+  if (!testimonials || testimonials.length === 0) return [];
+
+  return testimonials
+    .sort((a, b) => a.order - b.order)
+    .map((testimonial) => {
+      const logoUrl = getStrapiImageUrl(testimonial.brand_logo);
+      return {
+        id: String(testimonial.id),
+        logoUrl: logoUrl || "/images/brands/placeholder.png",
+        logoAlt: testimonial.brand_name,
+        quote: testimonial.quote,
+        authorName: testimonial.author_name,
+        authorTitle: testimonial.author_title,
+      };
+    });
+}
+
+// ============================================================================
+// Page Component - Server Component with static generation
+// ============================================================================
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function CreativePage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+  const isDev = process.env.NODE_ENV === "development";
+
+  // Fetch CMS data at build time
+  const strapiData = await getCreativePage(locale);
+
+  // Dev fallback - use hardcoded data when Strapi is unavailable during development
+  const useFallback = !strapiData && isDev;
+  if (useFallback) {
+    console.warn(
+      "[CreativePage] Using fallback data - Strapi CMS not available in development"
+    );
+  }
+
+  // Transform Strapi data to component props (or use fallbacks)
+
+  // Hero
+  const heroHeading =
+    strapiData?.hero?.heading ||
+    (useFallback
+      ? FALLBACK_CREATIVE_HERO.heading
+      : t.CREATIVE?.HERO?.TAGLINE ??
+        "Creative production for brands, campaigns & products");
+  const heroBackgroundFromCms = strapiData?.hero?.background_image
+    ? getStrapiImageUrl(strapiData.hero.background_image)
+    : null;
+  const heroBackground =
+    heroBackgroundFromCms || FALLBACK_CREATIVE_HERO.backgroundImage;
+  const heroBackgroundAlt =
+    strapiData?.hero?.background_alt || FALLBACK_CREATIVE_HERO.backgroundAlt;
+
+  // Clients section
+  const clientsLabel =
+    strapiData?.clients?.label ||
+    t.CREATIVE?.CLIENTS?.LABEL ||
+    "Selected Clients";
+  const clientsDescription =
+    strapiData?.clients?.description ||
+    t.CREATIVE?.CLIENTS?.DESCRIPTION ||
+    "We're proud to collaborate with leading brands, agencies, and startups worldwide.";
+
+  // Services
+  const creativeServices = strapiData?.services
+    ? transformCreativeServices(strapiData.services)
+    : useFallback
+      ? FALLBACK_CREATIVE_SERVICES
+      : [];
+
+  // Apply translations to services
+  const translatedServices = creativeServices.map((service, index) => {
     const cardKey = `CARD_${index + 1}` as keyof typeof t.CREATIVE.SERVICES;
     const translation = t.CREATIVE?.SERVICES?.[cardKey];
     return {
-      title: translation?.TITLE ?? creativeServices[index].title,
-      description:
-        translation?.DESCRIPTION ?? creativeServices[index].description,
+      ...service,
+      title: translation?.TITLE ?? service.title,
+      description: translation?.DESCRIPTION ?? service.description,
     };
-  };
+  });
 
-  const translatedServices = creativeServices.map((service, index) => ({
-    ...service,
-    ...getServiceTranslation(index),
-  }));
+  // Intro (How We Work)
+  const introLabel =
+    strapiData?.intro?.label || t.CREATIVE?.INTRO?.LABEL || "How We Work";
+  const introDescription =
+    strapiData?.intro?.description ||
+    t.CREATIVE?.INTRO?.DESCRIPTION ||
+    "We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery.";
+  const introCta =
+    strapiData?.intro?.cta_text || t.CREATIVE?.INTRO?.CTA || "Get in touch";
 
-  // Get workflow translations
-  const getWorkflowTranslation = (index: number) => {
-    const cardKey = `STEP_${index + 1}` as keyof typeof t.CREATIVE.WORKFLOW;
-    const translation = t.CREATIVE?.WORKFLOW?.[cardKey];
+  // Workflow
+  const workflowSteps = strapiData?.workflow
+    ? transformWorkflow(strapiData.workflow)
+    : useFallback
+      ? FALLBACK_CREATIVE_WORKFLOW
+      : [];
+
+  // Apply translations to workflow
+  const translatedWorkflow = workflowSteps.map((step, index) => {
+    const stepKey = `STEP_${index + 1}` as keyof typeof t.CREATIVE.WORKFLOW;
+    const translation = t.CREATIVE?.WORKFLOW?.[stepKey];
     return {
-      title: translation?.TITLE ?? workflowSteps[index].title,
-      description: translation?.DESCRIPTION ?? workflowSteps[index].description,
+      ...step,
+      title: translation?.TITLE ?? step.title,
+      description: translation?.DESCRIPTION ?? step.description,
     };
-  };
+  });
 
-  const translatedWorkflowSteps = workflowSteps.map((step, index) => ({
-    ...step,
-    ...getWorkflowTranslation(index),
-  }));
+  // Portfolio
+  const portfolioLabel =
+    strapiData?.portfolio_settings?.label ||
+    t.CREATIVE?.PORTFOLIO?.LABEL ||
+    "Featured Work";
+  const portfolioStatement =
+    strapiData?.portfolio_settings?.statement ||
+    t.CREATIVE?.PORTFOLIO?.STATEMENT ||
+    "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail.";
+  const portfolioItems = strapiData?.portfolio_items
+    ? transformPortfolio(strapiData.portfolio_items)
+    : useFallback
+      ? FALLBACK_CREATIVE_PORTFOLIO
+      : [];
+
+  // Testimonials
+  const testimonialsLabel =
+    t.CREATIVE?.TESTIMONIALS?.LABEL || "Voices Behind the Lens";
+  const testimonialsTitle =
+    t.CREATIVE?.TESTIMONIALS?.TITLE ||
+    "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio.";
+  const testimonialItems = strapiData?.testimonials
+    ? transformTestimonials(strapiData.testimonials)
+    : useFallback
+      ? FALLBACK_CREATIVE_TESTIMONIALS
+      : [];
 
   return (
     <div className={styles.creativePage}>
       {/* Hero Section */}
       <HeroSection
-        heading={
-          t.CREATIVE?.HERO?.TAGLINE ??
-          "Creative production for brands, campaigns & products"
-        }
-        backgroundImage="/images/creative/hero-background.jpg"
-        backgroundAlt="Creative"
+        heading={heroHeading}
+        backgroundImage={heroBackground}
+        backgroundAlt={heroBackgroundAlt}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />
@@ -244,60 +258,56 @@ export default function CreativePage() {
       <div className={styles.contentContainer}>
         {/* Selected Clients Section */}
         <SelectedClientsSection
-          label={t.CREATIVE?.CLIENTS?.LABEL ?? "Selected Clients"}
-          description={
-            t.CREATIVE?.CLIENTS?.DESCRIPTION ??
-            "We're proud to collaborate with leading brands, agencies, and startups worldwide."
-          }
+          label={clientsLabel}
+          description={clientsDescription}
         />
 
         {/* Services Section */}
-        <CreativeServicesGrid items={translatedServices} />
+        {translatedServices.length > 0 && (
+          <CreativeServicesGrid items={translatedServices} />
+        )}
 
         {/* How We Work Section */}
         <section className={styles.section} id="how-we-work">
           <div className={styles.sectionInner}>
             <StudioIntro
-              title={t.CREATIVE?.INTRO?.LABEL ?? "How We Work"}
-              description={
-                t.CREATIVE?.INTRO?.DESCRIPTION ??
-                "We can take on full-service production or jump in at any stage — from moodboard and concept development to post-production and final delivery."
-              }
-              ctaText={t.CREATIVE?.INTRO?.CTA ?? "Get in touch"}
+              title={introLabel}
+              description={introDescription}
+              ctaText={introCta}
             />
           </div>
         </section>
 
         {/* Workflow Section */}
-        <section className={styles.workflowSection} id="workflow">
-          <div className={styles.workflowSectionInner}>
-            <ServiceCardsCarousel cards={translatedWorkflowSteps} />
-          </div>
-        </section>
+        {translatedWorkflow.length > 0 && (
+          <section className={styles.workflowSection} id="workflow">
+            <div className={styles.workflowSectionInner}>
+              <ServiceCardsCarousel cards={translatedWorkflow} />
+            </div>
+          </section>
+        )}
 
         {/* Portfolio Section */}
-        <div className={styles.portfolioWrapper} id="portfolio">
-          <PortfolioSection
-            label={t.CREATIVE?.PORTFOLIO?.LABEL ?? "Featured Work"}
-            statement={
-              t.CREATIVE?.PORTFOLIO?.STATEMENT ??
-              "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail."
-            }
-            items={portfolioItems}
-          />
-        </div>
+        {portfolioItems.length > 0 && (
+          <div className={styles.portfolioWrapper} id="portfolio">
+            <PortfolioSection
+              label={portfolioLabel}
+              statement={portfolioStatement}
+              items={portfolioItems}
+            />
+          </div>
+        )}
 
         {/* Testimonials Section */}
-        <section className={styles.testimonialsSection} id="testimonials">
-          <TestimonialsSection
-            label={t.CREATIVE?.TESTIMONIALS?.LABEL ?? "Voices Behind the Lens"}
-            title={
-              t.CREATIVE?.TESTIMONIALS?.TITLE ??
-              "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
-            }
-            items={testimonialItems}
-          />
-        </section>
+        {testimonialItems.length > 0 && (
+          <section className={styles.testimonialsSection} id="testimonials">
+            <TestimonialsSection
+              label={testimonialsLabel}
+              title={testimonialsTitle}
+              items={testimonialItems}
+            />
+          </section>
+        )}
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">

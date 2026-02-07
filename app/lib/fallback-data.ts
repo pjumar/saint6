@@ -9,6 +9,11 @@ import type { CrewAreaSectionProps } from "@/app/components/crew-area-section/Cr
 import type { KeyProjectData } from "@/app/components/key-project-section/KeyProjectSection";
 import type { BrandLogo } from "@/app/components/trusted-by-section/TrustedBySection";
 import type { GalleryImage } from "@/app/components/gallery-section/GallerySection";
+import type { CreativeServiceItem } from "@/app/components/creative-services-grid/CreativeServicesGrid";
+import type { ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import type { PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
+import type { TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
+import type { ProductionServiceItem } from "@/app/components/production-service-grid/ProductionServiceGrid";
 
 // ============================================================================
 // Hero Fallback Data
@@ -315,6 +320,318 @@ export const FALLBACK_PROJECT_DATA: KeyProjectData = {
       alt: "",
       width: 219,
       height: 137,
+    },
+  ],
+};
+
+// ============================================================================
+// Creative Page Fallback Data
+// ============================================================================
+
+export const FALLBACK_CREATIVE_HERO = {
+  heading: "Creative production for brands, campaigns & products",
+  backgroundImage: "/images/creative/hero-background.jpg",
+  backgroundAlt: "Creative",
+};
+
+export const FALLBACK_CREATIVE_SERVICES: CreativeServiceItem[] = [
+  {
+    id: "brand-advertising",
+    imageUrl: "/images/creative/service-advertising.png",
+    title: "Brand &\nAdvertising Campaigns",
+    description:
+      "We produce fashion, lifestyle, editorial, social media, and influencer campaigns that bring brands to life with fresh creative energy.",
+  },
+  {
+    id: "product-packaging",
+    imageUrl: "/images/creative/service-packaging.png",
+    title: "Product &\nPackaging Shoots",
+    description:
+      "From product labels and e-commerce images to packshots and still life, we create polished visuals that elevate packaging, catalogs, and online stores.",
+  },
+];
+
+export const FALLBACK_CREATIVE_WORKFLOW: ServiceCard[] = [
+  {
+    id: "creative-direction",
+    imageUrl: "/images/creative/workflow-direction.jpg",
+    counter: "01.",
+    title: "Creative Direction",
+    description:
+      "We study your brief and develop creative directions based on your brand, audience, and goals.",
+  },
+  {
+    id: "storyboard",
+    imageUrl: "/images/creative/workflow-storyboard.jpg",
+    counter: "02.",
+    title: "Storyboard Development",
+    description:
+      "Our team creates detailed storyboards and shot lists to visualize the final output.",
+  },
+  {
+    id: "pre-production",
+    imageUrl: "/images/creative/workflow-preproduction.jpg",
+    counter: "03.",
+    title: "Pre-production & Sourcing",
+    description:
+      "We coordinate talent, locations, props, and equipment to ensure smooth execution.",
+  },
+  {
+    id: "shoot-production",
+    imageUrl: "/images/creative/workflow-shoot.jpg",
+    counter: "04.",
+    title: "Shoot / Production",
+    description:
+      "Our experienced crew captures your vision with precision and creative flair.",
+  },
+  {
+    id: "post-production",
+    imageUrl: "/images/creative/workflow-post.jpg",
+    counter: "05.",
+    title: "Post-production",
+    description:
+      "Professional editing, color grading, and retouching bring the final deliverables to life.",
+  },
+  {
+    id: "delivery",
+    imageUrl: "/images/creative/workflow-delivery.jpg",
+    counter: "06.",
+    title: "Final Delivery",
+    description:
+      "We deliver polished assets ready for print, digital, and social media deployment.",
+  },
+];
+
+export const FALLBACK_CREATIVE_PORTFOLIO: PortfolioItem[] = [
+  {
+    id: "fressi-kv",
+    imageUrl: "/images/creative/portfolio-fressi.jpg",
+    category: "Campaign",
+    title: "FRESSI KV",
+    size: "large",
+  },
+  {
+    id: "mirinda",
+    imageUrl: "/images/creative/portfolio-mirinda.jpg",
+    category: "Campaign",
+    title: "MIRINDA",
+    size: "large",
+  },
+  {
+    id: "den-vau-1",
+    imageUrl: "/images/creative/portfolio-denvau-1.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "short",
+  },
+  {
+    id: "den-vau-2",
+    imageUrl: "/images/creative/portfolio-denvau-2.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-3",
+    imageUrl: "/images/creative/portfolio-denvau-3.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-4",
+    imageUrl: "/images/creative/portfolio-denvau-4.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-5",
+    imageUrl: "/images/creative/portfolio-denvau-5.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "short",
+  },
+  {
+    id: "yamaha",
+    imageUrl: "/images/creative/portfolio-yamaha.jpg",
+    category: "Campaign",
+    title: "YAMAHA SOCIAL LAYOUT",
+    size: "short",
+  },
+];
+
+export const FALLBACK_CREATIVE_TESTIMONIALS: TestimonialItem[] = [
+  {
+    id: "testimonial-1",
+    logoUrl: "/images/brands/brand-01.png",
+    logoAlt: "L'OFFICIEL",
+    quote:
+      "It's rare to find a studio where creative direction, production, and hospitality all come together. Saint 6 delivered on every front. Our client was blown away.",
+    authorName: "Aaron Tan",
+    authorTitle: "Creative Director, Elle Vietnam",
+  },
+  {
+    id: "testimonial-2",
+    logoUrl: "/images/brands/brand-02.png",
+    logoAlt: "Fressi",
+    quote:
+      "Saint 6's attention to detail and creative vision transformed our campaign into something truly memorable. The team understood our brand from day one.",
+    authorName: "Nguyen Thi Mai",
+    authorTitle: "Marketing Director, Fressi Vietnam",
+  },
+  {
+    id: "testimonial-3",
+    logoUrl: "/images/brands/brand-03.png",
+    logoAlt: "Vinamilk",
+    quote:
+      "Working with Saint 6 was seamless. Their production quality and creative approach exceeded our expectations for the product launch.",
+    authorName: "Tran Van Duc",
+    authorTitle: "Brand Manager, Vinamilk",
+  },
+  {
+    id: "testimonial-4",
+    logoUrl: "/images/brands/brand-04.png",
+    logoAlt: "Sony",
+    quote:
+      "The team's expertise in both creative direction and technical execution made our collaboration incredibly smooth and successful.",
+    authorName: "Le Hoang Nam",
+    authorTitle: "Creative Lead, Sony Vietnam",
+  },
+];
+
+// ============================================================================
+// Production Page Fallback Data
+// ============================================================================
+
+export const FALLBACK_PRODUCTION_HERO = {
+  heading: "Full-Scale Production, Seamless Execution.",
+  backgroundImage: "/images/production/hero-background.jpg",
+  backgroundAlt: "Production",
+};
+
+export const FALLBACK_PRODUCTION_SERVICES: ProductionServiceItem[] = [
+  {
+    id: "campaign-editorial",
+    imageUrl: "/images/production/service-campaign.jpg",
+    title: "Campaign & Editorial Production",
+    description:
+      "We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure.",
+  },
+  {
+    id: "photography-film",
+    imageUrl: "/images/production/service-photography.jpg",
+    title: "Photography & Film Production",
+    description:
+      "From concept to final cut, we deliver high-impact visuals through expert direction, seamless coordination, and creative storytelling.",
+  },
+  {
+    id: "lighting-equipment",
+    imageUrl: "/images/production/service-lighting.jpg",
+    title: "Lighting & Equipment Rental",
+    description:
+      "Premium lighting and state-of-the-art equipment designed to elevate every production with precision, balance, and creative control.",
+  },
+  {
+    id: "makeup-hair",
+    imageUrl: "/images/production/service-makeup.jpg",
+    title: "Make-up & Hair Stylist",
+    description:
+      "Professional beauty services that transform talent and enhance visual storytelling with meticulous attention to detail.",
+  },
+  {
+    id: "location-permits",
+    imageUrl: "/images/production/service-location.jpg",
+    title: "Location Scouting & Permits",
+    description:
+      "We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap.",
+  },
+  {
+    id: "post-production",
+    imageUrl: "/images/production/service-postproduction.jpg",
+    title: "Post-production Coordination",
+    description:
+      "End-to-end post-production management, from editing and color grading to final delivery across all formats.",
+  },
+];
+
+export const FALLBACK_PRODUCTION_WORKFLOW: ServiceCard[] = [
+  {
+    id: "pre-production",
+    imageUrl: "/images/production/workflow-pre-production.jpg",
+    counter: "01.",
+    title: "Pre-production",
+    description:
+      "We plan every detail from concept development to logistics and scheduling.",
+  },
+  {
+    id: "set-up",
+    imageUrl: "/images/production/workflow-setup.jpg",
+    counter: "02.",
+    title: "Set-up",
+    description:
+      "Our team prepares the location, lighting, and equipment for optimal shooting conditions.",
+  },
+  {
+    id: "shoot-day",
+    imageUrl: "/images/production/workflow-shoot.jpg",
+    counter: "03.",
+    title: "Shoot Day",
+    description:
+      "Expert direction and coordination ensure smooth capture of your creative vision.",
+  },
+  {
+    id: "wrap-delivery",
+    imageUrl: "/images/production/workflow-delivery.jpg",
+    counter: "04.",
+    title: "Wrap & Delivery",
+    description:
+      "Post-production, editing, and final delivery across all required formats.",
+  },
+];
+
+export const FALLBACK_PRODUCTION_KEY_PROJECT: KeyProjectData = {
+  projectNumber: "01",
+  title: "Giai Nhan Show",
+  infoText:
+    "A high-profile production capturing the elegance and artistry of Vietnamese fashion. Our team managed end-to-end production for this campaign, from location scouting to final delivery.",
+  team: [
+    { role: "Creative Director", name: "Nguyen Van A" },
+    { role: "Producer", name: "Tran Thi B" },
+    { role: "Director of Photography", name: "Le Van C" },
+  ],
+  expertise: ["Campaign Production", "Photography", "Post-production"],
+  client: "Giai Nhan Studio",
+  mainImage: {
+    src: "/images/production/key-project-main.jpg",
+    alt: "Giai Nhan Show - Main Image",
+    width: 1200,
+    height: 800,
+  },
+  testimonial: {
+    quote:
+      "Saint Six Studio delivered beyond our expectations. Their attention to detail and creative vision brought our campaign to life in ways we hadn't imagined.",
+    author: "Nguyen Van D",
+    role: "Creative Director, Giai Nhan",
+  },
+  galleryImages: [
+    {
+      src: "/images/production/key-project-gallery-1.jpg",
+      alt: "Giai Nhan Show - Gallery 1",
+      width: 400,
+      height: 600,
+    },
+    {
+      src: "/images/production/key-project-gallery-2.jpg",
+      alt: "Giai Nhan Show - Gallery 2",
+      width: 600,
+      height: 400,
+    },
+    {
+      src: "/images/production/key-project-gallery-3.jpg",
+      alt: "Giai Nhan Show - Gallery 3",
+      width: 600,
+      height: 400,
     },
   ],
 };

@@ -1,5 +1,3 @@
-"use client";
-
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import {
@@ -16,171 +14,235 @@ import {
   ServiceCardsCarousel,
 } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import { useTranslation } from "@/app/contexts/TranslationContext";
+import {
+  FALLBACK_PRODUCTION_HERO,
+  FALLBACK_PRODUCTION_KEY_PROJECT,
+  FALLBACK_PRODUCTION_SERVICES,
+  FALLBACK_PRODUCTION_WORKFLOW,
+} from "@/app/lib/fallback-data";
+import {
+  getProductionPage,
+  getStrapiImageUrl,
+  type StrapiServiceItem,
+  type StrapiKeyProject,
+} from "@/app/lib/strapi";
+import { getTranslations } from "@/app/lib/translations";
 import styles from "./Production.module.css";
 
-// Production services data (CMS integration in Phase 8)
-const productionServices: ProductionServiceItem[] = [
-  {
-    id: "campaign-editorial",
-    imageUrl: "/images/production/service-campaign.jpg",
-    title: "Campaign & Editorial Production",
-    description:
-      "We curate bespoke campaigns and editorials that blend artistry, narrative, and timeless sophistication — bringing each brand story to life with cinematic allure.",
-  },
-  {
-    id: "photography-film",
-    imageUrl: "/images/production/service-photography.jpg",
-    title: "Photography & Film Production",
-    description:
-      "From concept to final cut, we deliver high-impact visuals through expert direction, seamless coordination, and creative storytelling.",
-  },
-  {
-    id: "lighting-equipment",
-    imageUrl: "/images/production/service-lighting.jpg",
-    title: "Lighting & Equipment Rental",
-    description:
-      "Premium lighting and state-of-the-art equipment designed to elevate every production with precision, balance, and creative control.",
-  },
-  {
-    id: "makeup-hair",
-    imageUrl: "/images/production/service-makeup.jpg",
-    title: "Make-up & Hair Stylist",
-    description:
-      "Professional beauty services that transform talent and enhance visual storytelling with meticulous attention to detail.",
-  },
-  {
-    id: "location-permits",
-    imageUrl: "/images/production/service-location.jpg",
-    title: "Location Scouting & Permits",
-    description:
-      "We source the perfect locations and handle all permit logistics, ensuring smooth operations from pre-production to wrap.",
-  },
-  {
-    id: "post-production",
-    imageUrl: "/images/production/service-postproduction.jpg",
-    title: "Post-production Coordination",
-    description:
-      "End-to-end post-production management, from editing and color grading to final delivery across all formats.",
-  },
-];
+// ============================================================================
+// Transformer Functions - Convert Strapi data to component props
+// ============================================================================
 
-// Workflow steps base data (translations applied in component)
-const workflowStepsBase = [
-  {
-    id: "pre-production",
-    imageUrl: "/images/production/workflow-pre-production.jpg",
-    counter: "01.",
-  },
-  {
-    id: "set-up",
-    imageUrl: "/images/production/workflow-setup.jpg",
-    counter: "02.",
-  },
-  {
-    id: "shoot-day",
-    imageUrl: "/images/production/workflow-shoot.jpg",
-    counter: "03.",
-  },
-  {
-    id: "wrap-delivery",
-    imageUrl: "/images/production/workflow-delivery.jpg",
-    counter: "04.",
-  },
-];
+function transformProductionServices(
+  services: StrapiServiceItem[] | undefined
+): ProductionServiceItem[] {
+  if (!services || services.length === 0) return [];
 
-// Key project data (CMS integration in Phase 8)
-const keyProjectData: KeyProjectData = {
-  projectNumber: "01",
-  title: "Giai Nhan Show",
-  infoText:
-    "A high-profile production capturing the elegance and artistry of Vietnamese fashion. Our team managed end-to-end production for this campaign, from location scouting to final delivery.",
-  team: [
-    { role: "Creative Director", name: "Nguyen Van A" },
-    { role: "Producer", name: "Tran Thi B" },
-    { role: "Director of Photography", name: "Le Van C" },
-  ],
-  expertise: ["Campaign Production", "Photography", "Post-production"],
-  client: "Giai Nhan Studio",
-  mainImage: {
-    src: "/images/production/key-project-main.jpg",
-    alt: "Giai Nhan Show - Main Image",
-    width: 1200,
-    height: 800,
-  },
-  testimonial: {
-    quote:
-      "Saint Six Studio delivered beyond our expectations. Their attention to detail and creative vision brought our campaign to life in ways we hadn't imagined.",
-    author: "Nguyen Van D",
-    role: "Creative Director, Giai Nhan",
-  },
-  galleryImages: [
-    {
-      src: "/images/production/key-project-gallery-1.jpg",
-      alt: "Giai Nhan Show - Gallery 1",
-      width: 400,
-      height: 600,
-    },
-    {
-      src: "/images/production/key-project-gallery-2.jpg",
-      alt: "Giai Nhan Show - Gallery 2",
-      width: 600,
-      height: 400,
-    },
-    {
-      src: "/images/production/key-project-gallery-3.jpg",
-      alt: "Giai Nhan Show - Gallery 3",
-      width: 600,
-      height: 400,
-    },
-  ],
-};
+  return services
+    .sort((a, b) => a.order - b.order)
+    .map((service) => {
+      const imageUrl = getStrapiImageUrl(service.image);
+      return {
+        id: String(service.id),
+        imageUrl: imageUrl || "/images/production/service-placeholder.jpg",
+        title: service.title,
+        description: service.description || "",
+      };
+    });
+}
 
-export default function ProductionPage() {
-  const { t } = useTranslation();
+function transformWorkflow(
+  workflow: StrapiServiceItem[] | undefined
+): ServiceCard[] {
+  if (!workflow || workflow.length === 0) return [];
 
-  // Get service translations (fallback to hardcoded data)
-  const getServiceTranslation = (index: number) => {
-    const serviceKey =
-      `CARD_${index + 1}` as keyof typeof t.PRODUCTION.SERVICES;
+  return workflow
+    .sort((a, b) => a.order - b.order)
+    .map((step) => {
+      const imageUrl = getStrapiImageUrl(step.image);
+      return {
+        id: String(step.id),
+        imageUrl: imageUrl || "/images/production/workflow-placeholder.jpg",
+        counter: step.counter || "",
+        title: step.title,
+        description: step.description || "",
+      };
+    });
+}
+
+function transformKeyProjects(
+  projects: StrapiKeyProject[] | undefined
+): KeyProjectData[] {
+  if (!projects || projects.length === 0) return [];
+
+  const totalProjects = projects.length;
+  const paddedTotal = String(totalProjects).padStart(2, "0");
+
+  const result: KeyProjectData[] = [];
+
+  projects.forEach((project, index) => {
+    const mainImageSrc = getStrapiImageUrl(project.main_image);
+    if (!mainImageSrc) return;
+
+    const paddedIndex = String(index + 1).padStart(2, "0");
+
+    result.push({
+      projectNumber: `${paddedIndex}/${paddedTotal}`,
+      title: project.title,
+      infoText: project.info_text || "",
+      team: project.team || [],
+      expertise: project.expertise || [],
+      client: project.client,
+      mainImage: {
+        src: mainImageSrc,
+        alt: project.main_image?.alternativeText || project.title,
+        width: project.main_image?.width || 440,
+        height: project.main_image?.height || 297,
+      },
+      testimonial: project.testimonial
+        ? {
+            quote: project.testimonial.quote,
+            author: project.testimonial.author,
+            role: project.testimonial.role,
+          }
+        : undefined,
+      galleryImages:
+        project.gallery_images
+          ?.map((img) => {
+            const src = getStrapiImageUrl(img.image);
+            if (!src) return null;
+            return {
+              src,
+              alt: img.alt || "",
+              width: img.image?.width || 200,
+              height: img.image?.height || 200,
+            };
+          })
+          .filter(
+            (
+              img
+            ): img is { src: string; alt: string; width: number; height: number } =>
+              img !== null
+          ) || [],
+    });
+  });
+
+  return result;
+}
+
+// ============================================================================
+// Page Component - Server Component with static generation
+// ============================================================================
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function ProductionPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+  const isDev = process.env.NODE_ENV === "development";
+
+  // Fetch CMS data at build time
+  const strapiData = await getProductionPage(locale);
+
+  // Dev fallback - use hardcoded data when Strapi is unavailable during development
+  const useFallback = !strapiData && isDev;
+  if (useFallback) {
+    console.warn(
+      "[ProductionPage] Using fallback data - Strapi CMS not available in development"
+    );
+  }
+
+  // Transform Strapi data to component props (or use fallbacks)
+
+  // Hero
+  const heroHeading =
+    strapiData?.hero?.heading ||
+    (useFallback
+      ? FALLBACK_PRODUCTION_HERO.heading
+      : t.PRODUCTION?.HERO?.TAGLINE ||
+        "Full-Scale Production, Seamless Execution.");
+  const heroBackgroundFromCms = strapiData?.hero?.background_image
+    ? getStrapiImageUrl(strapiData.hero.background_image)
+    : null;
+  const heroBackground =
+    heroBackgroundFromCms || FALLBACK_PRODUCTION_HERO.backgroundImage;
+  const heroBackgroundAlt =
+    strapiData?.hero?.background_alt || FALLBACK_PRODUCTION_HERO.backgroundAlt;
+
+  // Intro
+  const introLabel =
+    strapiData?.intro?.label || t.PRODUCTION?.INTRO?.LABEL || "Our Service";
+  const introDescription =
+    strapiData?.intro?.description ||
+    t.PRODUCTION?.INTRO?.DESCRIPTION ||
+    "From concept to final delivery, we bring your campaign to life through precision planning, creative direction, and technical mastery.";
+  const introCta =
+    strapiData?.intro?.cta_text ||
+    t.PRODUCTION?.INTRO?.CTA ||
+    "Plan Your Production";
+
+  // Services
+  const productionServices = strapiData?.services
+    ? transformProductionServices(strapiData.services)
+    : useFallback
+      ? FALLBACK_PRODUCTION_SERVICES
+      : [];
+
+  // Apply translations to services
+  const translatedServices = productionServices.map((service, index) => {
+    const serviceKey = `CARD_${index + 1}` as keyof typeof t.PRODUCTION.SERVICES;
     const translation = t.PRODUCTION?.SERVICES?.[serviceKey];
     return {
-      title: translation?.TITLE || productionServices[index].title,
-      description:
-        translation?.DESCRIPTION || productionServices[index].description,
+      ...service,
+      title: translation?.TITLE ?? service.title,
+      description: translation?.DESCRIPTION ?? service.description,
     };
-  };
+  });
 
-  const translatedServices = productionServices.map((service, index) => ({
-    ...service,
-    ...getServiceTranslation(index),
-  }));
+  // Quote intro (intro_2)
+  const quoteLabel =
+    strapiData?.intro_2?.label ||
+    t.PRODUCTION?.KEY_PROJECT?.WAY_TITLE ||
+    "The Saint 6 Way of Creation";
+  const quoteDescription =
+    strapiData?.intro_2?.description ||
+    t.PRODUCTION?.KEY_PROJECT?.WAY_DESCRIPTION ||
+    "We bring structure to creativity — blending strategic direction, artistic vision, and refined execution to produce visuals that speak luxury, authenticity, and emotion.";
 
-  // Build workflow steps with translations
-  const translatedWorkflowSteps: ServiceCard[] = workflowStepsBase.map(
-    (step, index) => {
-      const stepKey = `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
-      const translation = t.PRODUCTION?.WORKFLOW?.[stepKey];
-      return {
-        ...step,
-        title: translation?.TITLE ?? `[WORKFLOW.STEP_${index + 1}.TITLE]`,
-        description:
-          translation?.DESCRIPTION ??
-          `[WORKFLOW.STEP_${index + 1}.DESCRIPTION]`,
-      };
-    },
-  );
+  // Workflow
+  const workflowSteps = strapiData?.workflow
+    ? transformWorkflow(strapiData.workflow)
+    : useFallback
+      ? FALLBACK_PRODUCTION_WORKFLOW
+      : [];
+
+  // Apply translations to workflow
+  const translatedWorkflow = workflowSteps.map((step, index) => {
+    const stepKey = `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
+    const translation = t.PRODUCTION?.WORKFLOW?.[stepKey];
+    return {
+      ...step,
+      title: translation?.TITLE ?? step.title,
+      description: translation?.DESCRIPTION ?? step.description,
+    };
+  });
+
+  // Key Projects
+  const keyProjects = strapiData?.key_projects
+    ? transformKeyProjects(strapiData.key_projects)
+    : useFallback
+      ? [FALLBACK_PRODUCTION_KEY_PROJECT]
+      : [];
 
   return (
     <div className={styles.productionPage}>
       {/* Hero Section */}
       <HeroSection
-        heading={
-          t.PRODUCTION?.HERO?.TAGLINE ||
-          "Full-Scale Production, Seamless Execution."
-        }
-        backgroundImage="/images/production/hero-background.jpg"
-        backgroundAlt="Production"
+        heading={heroHeading}
+        backgroundImage={heroBackground}
+        backgroundAlt={heroBackgroundAlt}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />
@@ -190,39 +252,33 @@ export default function ProductionPage() {
         <section className={styles.section} id="our-service">
           <div className={styles.sectionInner}>
             <StudioIntro
-              title={t.PRODUCTION?.INTRO?.LABEL || "Our Service"}
-              description={
-                t.PRODUCTION?.INTRO?.DESCRIPTION ||
-                "From concept to final delivery, we bring your campaign to life through precision planning, creative direction, and technical mastery."
-              }
-              ctaText={t.PRODUCTION?.INTRO?.CTA || "Plan Your Production"}
+              title={introLabel}
+              description={introDescription}
+              ctaText={introCta}
             />
-            <div id="services">
-              <ProductionServiceGrid items={translatedServices} />
-            </div>
-            <div id="workflow">
-              <QuoteIntro
-                label={
-                  t.PRODUCTION?.KEY_PROJECT?.WAY_TITLE ||
-                  "The Saint 6 Way of Creation"
-                }
-                quote={
-                  t.PRODUCTION?.KEY_PROJECT?.WAY_DESCRIPTION ||
-                  "We bring structure to creativity — blending strategic direction, artistic vision, and refined execution to produce visuals that speak luxury, authenticity, and emotion."
-                }
-              />
-              <ServiceCardsCarousel
-                cards={translatedWorkflowSteps}
-                showAllOnDesktop
-              />
-            </div>
+            {translatedServices.length > 0 && (
+              <div id="services">
+                <ProductionServiceGrid items={translatedServices} />
+              </div>
+            )}
+            {translatedWorkflow.length > 0 && (
+              <div id="workflow">
+                <QuoteIntro label={quoteLabel} quote={quoteDescription} />
+                <ServiceCardsCarousel
+                  cards={translatedWorkflow}
+                  showAllOnDesktop
+                />
+              </div>
+            )}
           </div>
         </section>
 
         {/* Key Project Section */}
-        <div className={styles.keyProjectWrapper} id="key-project">
-          <KeyProjectSection projects={[keyProjectData]} />
-        </div>
+        {keyProjects.length > 0 && (
+          <div className={styles.keyProjectWrapper} id="key-project">
+            <KeyProjectSection projects={keyProjects} />
+          </div>
+        )}
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">
