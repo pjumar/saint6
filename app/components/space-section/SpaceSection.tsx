@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
 import styles from "./SpaceSection.module.css";
 
 export interface SpaceStat {
@@ -65,7 +66,9 @@ export function SpaceSection({
             {stats.slice(0, 3).map((stat, index) => (
               <div key={index} className={styles.statItem}>
                 <p className={styles.statLabel}>{stat.label}</p>
-                <p className={styles.statValue}>{stat.value}</p>
+                <p className={styles.statValue}>
+                  <AnimatedValue value={stat.value} delay={index * 100} />
+                </p>
               </div>
             ))}
           </div>
@@ -73,7 +76,9 @@ export function SpaceSection({
             {stats.slice(3, 5).map((stat, index) => (
               <div key={index} className={styles.statItem}>
                 <p className={styles.statLabel}>{stat.label}</p>
-                <p className={styles.statValue}>{stat.value}</p>
+                <p className={styles.statValue}>
+                  <AnimatedValue value={stat.value} delay={(index + 3) * 100} />
+                </p>
               </div>
             ))}
           </div>

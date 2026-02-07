@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
 import styles from "./StudioStats.module.css";
 
 export interface StudioStatsProps {
@@ -36,7 +37,9 @@ export function StudioStats({
       {stats.map((stat, index) => (
         <div key={index} className={styles.statItem}>
           <p className={styles.statLabel}>{stat.label}</p>
-          <p className={styles.statValue}>{stat.value}</p>
+          <p className={styles.statValue}>
+            <AnimatedValue value={stat.value} delay={index * 100} />
+          </p>
         </div>
       ))}
     </div>
