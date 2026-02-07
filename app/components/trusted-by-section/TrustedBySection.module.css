@@ -59,6 +59,15 @@
   flex-shrink: 0;
 }
 
+/* When logos fit without overflow, center them and hide duplicate */
+.noOverflow {
+  justify-content: center;
+}
+
+.noOverflow .brandLogosDuplicate {
+  display: none;
+}
+
 @media (min-width: 48.0625rem) {
   .trustedBy {
     padding: 8rem 1rem 0;
@@ -71,13 +80,7 @@
   }
 
   .brandLogos {
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 3rem;
     padding-bottom: 0;
-    max-width: none;
-  }
-
-  .brandLogosDuplicate {
-    display: none;
   }
 }
