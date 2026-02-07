@@ -1,5 +1,3 @@
-"use client";
-
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import {
@@ -11,142 +9,160 @@ import {
   ServiceCardsCarousel,
 } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import { useTranslation } from "@/app/contexts/TranslationContext";
+import {
+  FALLBACK_DECOR_HERO,
+  FALLBACK_DECOR_PORTFOLIO,
+  FALLBACK_DECOR_WORKFLOW,
+} from "@/app/lib/fallback-data";
+import {
+  getDecorPage,
+  getStrapiImageUrl,
+  type StrapiServiceItem,
+  type StrapiPortfolioItem,
+} from "@/app/lib/strapi";
+import { getTranslations } from "@/app/lib/translations";
 import styles from "./Decoration.module.css";
 
-// Portfolio items data - same structure as Set Design (CMS integration in Phase 8)
-const portfolioItems: PortfolioItem[] = [
-  {
-    id: "fressi-kv",
-    imageUrl: "/images/decoration/portfolio-fressi.jpg",
-    category: "Fashion Stores",
-    title: "FRESSI KV",
-    size: "large",
-  },
-  {
-    id: "mirinda",
-    imageUrl: "/images/decoration/portfolio-mirinda.jpg",
-    category: "Campaign",
-    title: "MIRINDA",
-    size: "large",
-  },
-  {
-    id: "den-vau-1",
-    imageUrl: "/images/decoration/portfolio-denvau-1.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "short",
-  },
-  {
-    id: "den-vau-2",
-    imageUrl: "/images/decoration/portfolio-denvau-2.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "tall",
-  },
-  {
-    id: "den-vau-3",
-    imageUrl: "/images/decoration/portfolio-denvau-3.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "tall",
-  },
-  {
-    id: "den-vau-4",
-    imageUrl: "/images/decoration/portfolio-denvau-4.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "tall",
-  },
-  {
-    id: "den-vau-5",
-    imageUrl: "/images/decoration/portfolio-denvau-5.jpg",
-    category: "Campaign",
-    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
-    size: "short",
-  },
-  {
-    id: "yamaha",
-    imageUrl: "/images/decoration/portfolio-yamaha.jpg",
-    category: "Campaign",
-    title: "YAMAHA SOCIAL LAYOUT",
-    size: "short",
-  },
-];
+// ============================================================================
+// Transformer Functions - Convert Strapi data to component props
+// ============================================================================
 
-// Decoration workflow steps data (CMS integration in Phase 8)
-const decorWorkflowSteps: ServiceCard[] = [
-  {
-    id: "brief-overview",
-    imageUrl: "/images/decoration/workflow-brief.jpg",
-    counter: "01.",
-    title: "Brief Overview",
-    description:
-      "We study the brief and develop multiple creative directions based on your brand, audience, and goals.",
-  },
-  {
-    id: "2d-ideation",
-    imageUrl: "/images/decoration/workflow-2d.jpg",
-    counter: "02.",
-    title: "2D Ideation",
-    description:
-      "Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.",
-  },
-  {
-    id: "3d-render",
-    imageUrl: "/images/decoration/workflow-3d.jpg",
-    counter: "03.",
-    title: "3D Render",
-    description:
-      "We produce photorealistic 3D renders so you can experience the space before construction begins.",
-  },
-  {
-    id: "pre-production",
-    imageUrl: "/images/decoration/workflow-preproduction.jpg",
-    counter: "04.",
-    title: "Pre-Production",
-    description:
-      "We coordinate materials, vendors, and timelines to ensure smooth execution of your project.",
-  },
-  {
-    id: "final-installation",
-    imageUrl: "/images/decoration/workflow-installation.jpg",
-    counter: "05.",
-    title: "Final Installation",
-    description:
-      "Our team manages the complete installation, bringing every detail to life with precision.",
-  },
-];
+function transformWorkflow(
+  workflow: StrapiServiceItem[] | undefined
+): ServiceCard[] {
+  if (!workflow || workflow.length === 0) return [];
 
-export default function DecorationPage() {
-  const { t } = useTranslation();
+  return workflow
+    .sort((a, b) => a.order - b.order)
+    .map((step) => {
+      const imageUrl = getStrapiImageUrl(step.image);
+      return {
+        id: String(step.id),
+        imageUrl: imageUrl || "/images/decoration/workflow-placeholder.jpg",
+        counter: step.counter || "",
+        title: step.title,
+        description: step.description || "",
+      };
+    });
+}
 
-  // Get workflow translations
-  const getWorkflowTranslation = (index: number) => {
+function transformPortfolio(
+  items: StrapiPortfolioItem[] | undefined
+): PortfolioItem[] {
+  if (!items || items.length === 0) return [];
+
+  const result: PortfolioItem[] = [];
+
+  items
+    .sort((a, b) => a.order - b.order)
+    .forEach((item) => {
+      const imageUrl = getStrapiImageUrl(item.image);
+      if (!imageUrl) return;
+      result.push({
+        id: String(item.id),
+        imageUrl,
+        category: item.category || "Campaign",
+        title: item.title,
+        size: item.size,
+      });
+    });
+
+  return result;
+}
+
+// ============================================================================
+// Page Component - Server Component with static generation
+// ============================================================================
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function DecorationPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+  const isDev = process.env.NODE_ENV === "development";
+
+  // Fetch CMS data at build time
+  const strapiData = await getDecorPage(locale);
+
+  // Dev fallback - use hardcoded data when Strapi is unavailable during development
+  const useFallback = !strapiData && isDev;
+  if (useFallback) {
+    console.warn(
+      "[DecorationPage] Using fallback data - Strapi CMS not available in development"
+    );
+  }
+
+  // Transform Strapi data to component props (or use fallbacks)
+
+  // Hero
+  const heroHeading =
+    strapiData?.hero?.heading ||
+    (useFallback
+      ? FALLBACK_DECOR_HERO.heading
+      : t.DECORATION?.HERO?.TAGLINE ||
+        "From flagship stores to private villas — we design and decorate spaces that tell a story.");
+  const heroBackgroundFromCms = strapiData?.hero?.background_image
+    ? getStrapiImageUrl(strapiData.hero.background_image)
+    : null;
+  const heroBackground =
+    heroBackgroundFromCms || FALLBACK_DECOR_HERO.backgroundImage;
+  const heroBackgroundAlt =
+    strapiData?.hero?.background_alt || FALLBACK_DECOR_HERO.backgroundAlt;
+
+  // Intro
+  const introLabel =
+    strapiData?.intro?.label || t.DECORATION?.INTRO?.LABEL || "How We Work";
+  const introDescription =
+    strapiData?.intro?.description ||
+    t.DECORATION?.INTRO?.DESCRIPTION ||
+    'The name "Decor" feels refined and adaptable, representing Saint 6\'s creative work across fashion stores, restaurants, and personal villas.';
+  const introCta =
+    strapiData?.intro?.cta_text ||
+    t.DECORATION?.INTRO?.CTA ||
+    "Plan Your Decoration";
+
+  // Workflow
+  const workflowSteps = strapiData?.workflow
+    ? transformWorkflow(strapiData.workflow)
+    : useFallback
+      ? FALLBACK_DECOR_WORKFLOW
+      : [];
+
+  // Apply translations to workflow
+  const translatedWorkflow = workflowSteps.map((step, index) => {
     const cardKey = `CARD_${index + 1}` as keyof typeof t.DECORATION.SERVICES;
     const translation = t.DECORATION?.SERVICES?.[cardKey];
     return {
-      title: translation?.TITLE ?? decorWorkflowSteps[index].title,
-      description:
-        translation?.DESCRIPTION ?? decorWorkflowSteps[index].description,
+      ...step,
+      title: translation?.TITLE ?? step.title,
+      description: translation?.DESCRIPTION ?? step.description,
     };
-  };
+  });
 
-  const translatedWorkflowSteps = decorWorkflowSteps.map((step, index) => ({
-    ...step,
-    ...getWorkflowTranslation(index),
-  }));
+  // Portfolio
+  const portfolioLabel =
+    strapiData?.portfolio_settings?.label ||
+    t.DECORATION?.PORTFOLIO?.LABEL ||
+    "every moment, an emotion";
+  const portfolioStatement =
+    strapiData?.portfolio_settings?.statement ||
+    t.DECORATION?.PORTFOLIO?.QUOTE ||
+    "Every project begins with a vision. We bring it to life — detail by detail.";
+  const portfolioItems = strapiData?.portfolio_items
+    ? transformPortfolio(strapiData.portfolio_items)
+    : useFallback
+      ? FALLBACK_DECOR_PORTFOLIO
+      : [];
 
   return (
     <div className={styles.decorationPage}>
       {/* Hero Section */}
       <HeroSection
-        heading={
-          t.DECORATION?.HERO?.TAGLINE ??
-          "From flagship stores to private villas — we design and decorate spaces that tell a story."
-        }
-        backgroundImage="/images/decoration/hero-background.jpg"
-        backgroundAlt="Decoration"
+        heading={heroHeading}
+        backgroundImage={heroBackground}
+        backgroundAlt={heroBackgroundAlt}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />
@@ -156,34 +172,32 @@ export default function DecorationPage() {
         <section className={styles.section} id="how-we-work">
           <div className={styles.sectionInner}>
             <StudioIntro
-              title={t.DECORATION?.INTRO?.LABEL ?? "How We Work"}
-              description={
-                t.DECORATION?.INTRO?.DESCRIPTION ??
-                'The name "Decor" feels refined and adaptable, representing Saint 6\'s creative work across fashion stores, restaurants, and personal villas.'
-              }
-              ctaText={t.DECORATION?.INTRO?.CTA ?? "Plan Your Decoration"}
+              title={introLabel}
+              description={introDescription}
+              ctaText={introCta}
             />
           </div>
         </section>
 
         {/* Workflow Section - Service Cards */}
-        <section className={styles.workflowSection} id="services">
-          <div className={styles.workflowSectionInner}>
-            <ServiceCardsCarousel cards={translatedWorkflowSteps} />
-          </div>
-        </section>
+        {translatedWorkflow.length > 0 && (
+          <section className={styles.workflowSection} id="services">
+            <div className={styles.workflowSectionInner}>
+              <ServiceCardsCarousel cards={translatedWorkflow} />
+            </div>
+          </section>
+        )}
 
-        {/* Portfolio Section - Reuses PortfolioSection component from Set Design */}
-        <div className={styles.portfolioWrapper} id="portfolio">
-          <PortfolioSection
-            label={t.DECORATION?.PORTFOLIO?.LABEL ?? "every moment, an emotion"}
-            statement={
-              t.DECORATION?.PORTFOLIO?.QUOTE ??
-              "Every project begins with a vision. We bring it to life — detail by detail."
-            }
-            items={portfolioItems}
-          />
-        </div>
+        {/* Portfolio Section */}
+        {portfolioItems.length > 0 && (
+          <div className={styles.portfolioWrapper} id="portfolio">
+            <PortfolioSection
+              label={portfolioLabel}
+              statement={portfolioStatement}
+              items={portfolioItems}
+            />
+          </div>
+        )}
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">

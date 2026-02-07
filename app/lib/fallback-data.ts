@@ -635,3 +635,431 @@ export const FALLBACK_PRODUCTION_KEY_PROJECT: KeyProjectData = {
     },
   ],
 };
+
+// ============================================================================
+// Set Design Page Fallback Data
+// ============================================================================
+
+export const FALLBACK_SET_DESIGN_HERO = {
+  heading:
+    "From Moodboard to Build — Complete Set Design for Visual Storytelling",
+  backgroundImage: "/images/set-design/hero-background.jpg",
+  backgroundAlt: "Set Design",
+};
+
+export const FALLBACK_SET_DESIGN_WORKFLOW: ServiceCard[] = [
+  {
+    id: "brief-concept",
+    imageUrl: "/images/set-design/set-brief-concept.jpg",
+    counter: "01.",
+    title: "Brief & Concept",
+    description:
+      "We analyze your vision and develop creative concepts that align with your brand story.",
+  },
+  {
+    id: "layout-render",
+    imageUrl: "/images/set-design/set-layout-render.jpg",
+    counter: "02.",
+    title: "Layout & Render",
+    description:
+      "Detailed 2D layouts and 3D renders bring your vision to life before construction.",
+  },
+  {
+    id: "feedback-loop",
+    imageUrl: "/images/set-design/set-feedback-loop.jpg",
+    counter: "03.",
+    title: "Feedback Loop",
+    description:
+      "Collaborative refinement ensures every detail meets your expectations.",
+  },
+  {
+    id: "construction",
+    imageUrl: "/images/set-design/set-construction.jpg",
+    counter: "04.",
+    title: "Construction",
+    description:
+      "Our skilled team builds your set with precision craftsmanship.",
+  },
+  {
+    id: "shoot-support",
+    imageUrl: "/images/set-design/set-shoot-support.jpg",
+    counter: "05.",
+    title: "Shoot Support",
+    description:
+      "On-set assistance ensures everything runs smoothly during production.",
+  },
+  {
+    id: "maintenance",
+    imageUrl: "/images/set-design/set-maintenance.jpg",
+    counter: "06.",
+    title: "Maintenance",
+    description:
+      "Post-shoot care and storage options for reusable set elements.",
+  },
+];
+
+export const FALLBACK_SET_DESIGN_PORTFOLIO: PortfolioItem[] = [
+  {
+    id: "fressi-kv",
+    imageUrl: "/images/set-design/campaign-fressi.jpg",
+    category: "Campaign",
+    title: "FRESSI KV",
+    size: "large",
+  },
+  {
+    id: "mirinda",
+    imageUrl: "/images/set-design/campaign-mirinda.jpg",
+    category: "Campaign",
+    title: "Mirinda",
+    size: "large",
+  },
+  {
+    id: "den-vau-1",
+    imageUrl: "/images/set-design/portfolio-den-vau-1.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "short",
+  },
+  {
+    id: "den-vau-2",
+    imageUrl: "/images/set-design/portfolio-den-vau-2.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "tall",
+  },
+  {
+    id: "den-vau-3",
+    imageUrl: "/images/set-design/portfolio-den-vau-3.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "tall",
+  },
+  {
+    id: "den-vau-4",
+    imageUrl: "/images/set-design/portfolio-den-vau-4.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "tall",
+  },
+  {
+    id: "den-vau-5",
+    imageUrl: "/images/set-design/portfolio-den-vau-5.jpg",
+    category: "Campaign",
+    title: "MV Diễn Viên Tồi - Đen Vâu",
+    size: "short",
+  },
+  {
+    id: "yamaha",
+    imageUrl: "/images/set-design/portfolio-yamaha.jpg",
+    category: "Campaign",
+    title: "YAMAHA SOCIAL LAYOUT",
+    size: "short",
+  },
+];
+
+export const FALLBACK_SET_DESIGN_TESTIMONIALS: TestimonialItem[] = [
+  {
+    id: "vinfast",
+    logoUrl: "/images/set-design/logo-vinfast.png",
+    logoAlt: "VinFast",
+    quote:
+      "Saint Six Studio helped us create an authentic Vietnamese atmosphere for our commercial shoot. Their attention to detail and understanding of our vision was exceptional.",
+    authorName: "Nguyễn Văn A",
+    authorTitle: "Creative Director, VinFast",
+  },
+  {
+    id: "pepsi",
+    logoUrl: "/images/set-design/logo-pepsi.png",
+    logoAlt: "Pepsi",
+    quote:
+      "The set design team delivered beyond our expectations. They transformed our concept into a stunning reality that perfectly captured the energy of our brand.",
+    authorName: "Trần Thị B",
+    authorTitle: "Marketing Manager, PepsiCo Vietnam",
+  },
+  {
+    id: "samsung",
+    logoUrl: "/images/set-design/logo-samsung.png",
+    logoAlt: "Samsung",
+    quote:
+      "Working with Saint Six was seamless. From initial concept to final build, they maintained the highest standards of quality and professionalism.",
+    authorName: "Lê Văn C",
+    authorTitle: "Brand Director, Samsung Vietnam",
+  },
+  {
+    id: "honda",
+    logoUrl: "/images/set-design/logo-honda.png",
+    logoAlt: "Honda",
+    quote:
+      "Their creative approach and technical expertise made our product launch a visual success. The team understood exactly what we needed.",
+    authorName: "Phạm Thị D",
+    authorTitle: "Event Manager, Honda Vietnam",
+  },
+  {
+    id: "unilever",
+    logoUrl: "/images/set-design/logo-unilever.png",
+    logoAlt: "Unilever",
+    quote:
+      "Saint Six Studio consistently delivers exceptional set designs that elevate our campaigns. They're our go-to partner for all production needs.",
+    authorName: "Hoàng Văn E",
+    authorTitle: "Production Head, Unilever Vietnam",
+  },
+  {
+    id: "grab",
+    logoUrl: "/images/set-design/logo-grab.png",
+    logoAlt: "Grab",
+    quote:
+      "The team's ability to bring our digital brand into physical spaces was remarkable. They created an immersive experience that resonated with our audience.",
+    authorName: "Đỗ Thị F",
+    authorTitle: "Creative Lead, Grab Vietnam",
+  },
+];
+
+// ============================================================================
+// Event Planning Page Fallback Data
+// ============================================================================
+
+export const FALLBACK_EVENT_HERO = {
+  heading: "Curated events that captivate and inspire",
+  backgroundImage: "/images/event-planning/hero-background.jpg",
+  backgroundAlt: "Event Planning",
+};
+
+export const FALLBACK_EVENT_SERVICES: ProductionServiceItem[] = [
+  {
+    id: "product-launches",
+    imageUrl: "/images/event-planning/service-product-launches.jpg",
+    title: "Product & Brand Launches",
+    description:
+      "We craft launch experiences that captivate audiences and elevate your brand story with precision and flair.",
+  },
+  {
+    id: "fashion-shows",
+    imageUrl: "/images/event-planning/service-fashion-shows.jpg",
+    title: "Fashion Shows",
+    description:
+      "From runway to backstage, we design and execute fashion events that celebrate artistry and style.",
+  },
+  {
+    id: "private-dinners",
+    imageUrl: "/images/event-planning/service-private-dinners.jpg",
+    title: "Private Dinners",
+    description:
+      "Intimate gatherings curated with exquisite detail, creating memorable moments for your guests.",
+  },
+  {
+    id: "art-popups",
+    imageUrl: "/images/event-planning/service-art-popups.jpg",
+    title: "Art & Lifestyle Pop-Ups",
+    description:
+      "Immersive pop-up experiences that blend art, culture, and lifestyle into unforgettable activations.",
+  },
+  {
+    id: "press-events",
+    imageUrl: "/images/event-planning/service-press-events.jpg",
+    title: "Press & Influencer Events",
+    description:
+      "Strategic media events designed to generate buzz and build lasting connections with key voices.",
+  },
+  {
+    id: "corporate-celebrations",
+    imageUrl: "/images/event-planning/service-corporate.jpg",
+    title: "Corporate Celebrations",
+    description:
+      "Professional yet refined corporate events that reflect your company's values and vision.",
+  },
+];
+
+export const FALLBACK_EVENT_WORKFLOW: ServiceCard[] = [
+  {
+    id: "creative-direction",
+    imageUrl: "/images/event-planning/workflow-discovery.jpg",
+    counter: "01.",
+    title: "Discovery & Vision",
+    description:
+      "We understand your goals and create a vision that aligns with your brand identity.",
+  },
+  {
+    id: "guest-experience",
+    imageUrl: "/images/event-planning/workflow-concept.jpg",
+    counter: "02.",
+    title: "Concept Development",
+    description:
+      "Creative concepts and mood boards bring your event vision to life.",
+  },
+  {
+    id: "onsite-management",
+    imageUrl: "/images/event-planning/workflow-planning.jpg",
+    counter: "03.",
+    title: "Planning & Logistics",
+    description:
+      "Meticulous planning ensures every detail is accounted for.",
+  },
+  {
+    id: "venue-styling",
+    imageUrl: "/images/event-planning/workflow-execution.jpg",
+    counter: "04.",
+    title: "Execution",
+    description:
+      "Flawless execution brings your event to life with precision.",
+  },
+  {
+    id: "catering-entertainment",
+    imageUrl: "/images/event-planning/workflow-followup.jpg",
+    counter: "05.",
+    title: "Follow-up",
+    description:
+      "Post-event support and documentation capture your success.",
+  },
+];
+
+export interface EventProjectFallback {
+  id: string;
+  imageUrl: string;
+  imageAlt: string;
+  title: string;
+  category: string;
+}
+
+export const FALLBACK_EVENT_PROJECTS: EventProjectFallback[] = [
+  {
+    id: "project-1",
+    imageUrl: "/images/project-1.jpg",
+    imageAlt: "Fashion Show Event",
+    title: "Spring Collection Reveal",
+    category: "Fashion Shows",
+  },
+  {
+    id: "project-2",
+    imageUrl: "/images/project-1.jpg",
+    imageAlt: "Private Dinner Event",
+    title: "VIP Gala Evening",
+    category: "Private Dinners",
+  },
+  {
+    id: "project-3",
+    imageUrl: "/images/project-1.jpg",
+    imageAlt: "Art Pop-Up Event",
+    title: "Contemporary Art Opening",
+    category: "Art & Lifestyle Pop-Ups",
+  },
+  {
+    id: "project-4",
+    imageUrl: "/images/project-1.jpg",
+    imageAlt: "Corporate Celebration",
+    title: "Annual Awards Ceremony",
+    category: "Corporate Celebrations",
+  },
+];
+
+// ============================================================================
+// Decor Page Fallback Data
+// ============================================================================
+
+export const FALLBACK_DECOR_HERO = {
+  heading:
+    "From flagship stores to private villas — we design and decorate spaces that tell a story.",
+  backgroundImage: "/images/decoration/hero-background.jpg",
+  backgroundAlt: "Decoration",
+};
+
+export const FALLBACK_DECOR_WORKFLOW: ServiceCard[] = [
+  {
+    id: "brief-overview",
+    imageUrl: "/images/decoration/workflow-brief.jpg",
+    counter: "01.",
+    title: "Brief Overview",
+    description:
+      "We study the brief and develop multiple creative directions based on your brand, audience, and goals.",
+  },
+  {
+    id: "2d-ideation",
+    imageUrl: "/images/decoration/workflow-2d.jpg",
+    counter: "02.",
+    title: "2D Ideation",
+    description:
+      "Our design team creates detailed mood boards and conceptual layouts to visualize the space transformation.",
+  },
+  {
+    id: "3d-render",
+    imageUrl: "/images/decoration/workflow-3d.jpg",
+    counter: "03.",
+    title: "3D Render",
+    description:
+      "We produce photorealistic 3D renders so you can experience the space before construction begins.",
+  },
+  {
+    id: "pre-production",
+    imageUrl: "/images/decoration/workflow-preproduction.jpg",
+    counter: "04.",
+    title: "Pre-Production",
+    description:
+      "We coordinate materials, vendors, and timelines to ensure smooth execution of your project.",
+  },
+  {
+    id: "final-installation",
+    imageUrl: "/images/decoration/workflow-installation.jpg",
+    counter: "05.",
+    title: "Final Installation",
+    description:
+      "Our team manages the complete installation, bringing every detail to life with precision.",
+  },
+];
+
+export const FALLBACK_DECOR_PORTFOLIO: PortfolioItem[] = [
+  {
+    id: "fressi-kv",
+    imageUrl: "/images/decoration/portfolio-fressi.jpg",
+    category: "Fashion Stores",
+    title: "FRESSI KV",
+    size: "large",
+  },
+  {
+    id: "mirinda",
+    imageUrl: "/images/decoration/portfolio-mirinda.jpg",
+    category: "Campaign",
+    title: "MIRINDA",
+    size: "large",
+  },
+  {
+    id: "den-vau-1",
+    imageUrl: "/images/decoration/portfolio-denvau-1.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "short",
+  },
+  {
+    id: "den-vau-2",
+    imageUrl: "/images/decoration/portfolio-denvau-2.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-3",
+    imageUrl: "/images/decoration/portfolio-denvau-3.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-4",
+    imageUrl: "/images/decoration/portfolio-denvau-4.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "tall",
+  },
+  {
+    id: "den-vau-5",
+    imageUrl: "/images/decoration/portfolio-denvau-5.jpg",
+    category: "Campaign",
+    title: "MV DIỄN VIÊN TỒI - ĐEN VÂU",
+    size: "short",
+  },
+  {
+    id: "yamaha",
+    imageUrl: "/images/decoration/portfolio-yamaha.jpg",
+    category: "Campaign",
+    title: "YAMAHA SOCIAL LAYOUT",
+    size: "short",
+  },
+];

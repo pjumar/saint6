@@ -1,5 +1,3 @@
-"use client";
-
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import {
   type EventProject,
@@ -17,217 +15,197 @@ import {
 } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import {
-  type TestimonialItem,
-  TestimonialsSection,
-} from "@/app/components/testimonials-section/TestimonialsSection";
-import { useTranslation } from "@/app/contexts/TranslationContext";
+  FALLBACK_EVENT_HERO,
+  FALLBACK_EVENT_PROJECTS,
+  FALLBACK_EVENT_SERVICES,
+  FALLBACK_EVENT_WORKFLOW,
+} from "@/app/lib/fallback-data";
+import {
+  getEventPlanningPage,
+  getStrapiImageUrl,
+  type StrapiServiceItem,
+  type StrapiKeyProject,
+} from "@/app/lib/strapi";
+import { getTranslations } from "@/app/lib/translations";
 import styles from "./EventPlanning.module.css";
 
-// Event Planning services data (CMS integration in Phase 8)
-const eventServices: ProductionServiceItem[] = [
-  {
-    id: "product-launches",
-    imageUrl: "/images/event-planning/service-product-launches.jpg",
-    title: "Product & Brand Launches",
-    description:
-      "We craft launch experiences that captivate audiences and elevate your brand story with precision and flair.",
-  },
-  {
-    id: "fashion-shows",
-    imageUrl: "/images/event-planning/service-fashion-shows.jpg",
-    title: "Fashion Shows",
-    description:
-      "From runway to backstage, we design and execute fashion events that celebrate artistry and style.",
-  },
-  {
-    id: "private-dinners",
-    imageUrl: "/images/event-planning/service-private-dinners.jpg",
-    title: "Private Dinners",
-    description:
-      "Intimate gatherings curated with exquisite detail, creating memorable moments for your guests.",
-  },
-  {
-    id: "art-popups",
-    imageUrl: "/images/event-planning/service-art-popups.jpg",
-    title: "Art & Lifestyle Pop-Ups",
-    description:
-      "Immersive pop-up experiences that blend art, culture, and lifestyle into unforgettable activations.",
-  },
-  {
-    id: "press-events",
-    imageUrl: "/images/event-planning/service-press-events.jpg",
-    title: "Press & Influencer Events",
-    description:
-      "Strategic media events designed to generate buzz and build lasting connections with key voices.",
-  },
-  {
-    id: "corporate-celebrations",
-    imageUrl: "/images/event-planning/service-corporate.jpg",
-    title: "Corporate Celebrations",
-    description:
-      "Professional yet refined corporate events that reflect your company's values and vision.",
-  },
-];
+// ============================================================================
+// Transformer Functions - Convert Strapi data to component props
+// ============================================================================
 
-// Workflow steps base data (CMS integration in Phase 8)
-const workflowStepsBase = [
-  {
-    id: "creative-direction",
-    imageUrl: "/images/event-planning/workflow-discovery.jpg",
-    counter: "01.",
-  },
-  {
-    id: "guest-experience",
-    imageUrl: "/images/event-planning/workflow-concept.jpg",
-    counter: "02.",
-  },
-  {
-    id: "onsite-management",
-    imageUrl: "/images/event-planning/workflow-planning.jpg",
-    counter: "03.",
-  },
-  {
-    id: "venue-styling",
-    imageUrl: "/images/event-planning/workflow-execution.jpg",
-    counter: "04.",
-  },
-  {
-    id: "catering-entertainment",
-    imageUrl: "/images/event-planning/workflow-followup.jpg",
-    counter: "05.",
-  },
-];
+function transformServices(
+  services: StrapiServiceItem[] | undefined
+): ProductionServiceItem[] {
+  if (!services || services.length === 0) return [];
 
-// Project gallery items (CMS integration in Phase 8)
-const eventProjects: EventProject[] = [
-  {
-    id: "project-1",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Fashion Show Event",
-    title: "Spring Collection Reveal",
-    category: "Fashion Shows",
-  },
-  {
-    id: "project-2",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Private Dinner Event",
-    title: "VIP Gala Evening",
-    category: "Private Dinners",
-  },
-  {
-    id: "project-3",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Art Pop-Up Event",
-    title: "Contemporary Art Opening",
-    category: "Art & Lifestyle Pop-Ups",
-  },
-  {
-    id: "project-4",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Corporate Celebration",
-    title: "Annual Awards Ceremony",
-    category: "Corporate Celebrations",
-  },
-];
+  return services
+    .sort((a, b) => a.order - b.order)
+    .map((service) => {
+      const imageUrl = getStrapiImageUrl(service.image);
+      return {
+        id: String(service.id),
+        imageUrl: imageUrl || "/images/event-planning/service-placeholder.jpg",
+        title: service.title,
+        description: service.description || "",
+      };
+    });
+}
 
-// Testimonials data (CMS integration in Phase 8)
-const testimonialItems: TestimonialItem[] = [
-  {
-    id: "testimonial-1",
-    logoUrl: "/images/event-planning/logo-1.png",
-    logoAlt: "Client Logo 1",
-    quote:
-      "Saint 6 transformed our product launch into an unforgettable experience. Their attention to detail was impeccable.",
-    authorName: "Nguyen Thi A",
-    authorTitle: "Marketing Director, Fashion Brand",
-  },
-  {
-    id: "testimonial-2",
-    logoUrl: "/images/event-planning/logo-2.png",
-    logoAlt: "Client Logo 2",
-    quote:
-      "From concept to execution, they delivered a flawless fashion show that exceeded all our expectations.",
-    authorName: "Tran Van B",
-    authorTitle: "Creative Director, Luxury House",
-  },
-  {
-    id: "testimonial-3",
-    logoUrl: "/images/event-planning/logo-3.png",
-    logoAlt: "Client Logo 3",
-    quote:
-      "The private dinner they curated for our VIP clients was absolutely stunning. Every detail was perfect.",
-    authorName: "Le Thi C",
-    authorTitle: "CEO, Corporate Client",
-  },
-  {
-    id: "testimonial-4",
-    logoUrl: "/images/event-planning/logo-4.png",
-    logoAlt: "Client Logo 4",
-    quote:
-      "Their pop-up activation brought our brand story to life in ways we hadn't imagined possible.",
-    authorName: "Pham Van D",
-    authorTitle: "Brand Manager, Lifestyle Brand",
-  },
-  {
-    id: "testimonial-5",
-    logoUrl: "/images/event-planning/logo-5.png",
-    logoAlt: "Client Logo 5",
-    quote:
-      "Professional, creative, and incredibly responsive. Saint 6 is now our go-to events partner.",
-    authorName: "Hoang Thi E",
-    authorTitle: "PR Director, Media Agency",
-  },
-  {
-    id: "testimonial-6",
-    logoUrl: "/images/event-planning/logo-6.png",
-    logoAlt: "Client Logo 6",
-    quote:
-      "They understood our vision from day one and delivered an event that perfectly reflected our brand values.",
-    authorName: "Nguyen Van F",
-    authorTitle: "Events Manager, Hospitality Group",
-  },
-];
+function transformWorkflow(
+  workflow: StrapiServiceItem[] | undefined
+): ServiceCard[] {
+  if (!workflow || workflow.length === 0) return [];
 
-export default function EventPlanningPage() {
-  const { t } = useTranslation();
+  return workflow
+    .sort((a, b) => a.order - b.order)
+    .map((step) => {
+      const imageUrl = getStrapiImageUrl(step.image);
+      return {
+        id: String(step.id),
+        imageUrl: imageUrl || "/images/event-planning/workflow-placeholder.jpg",
+        counter: step.counter || "",
+        title: step.title,
+        description: step.description || "",
+      };
+    });
+}
 
-  // Get service translations
-  const getServiceTranslation = (index: number) => {
+function transformEventProjects(
+  projects: StrapiKeyProject[] | undefined
+): EventProject[] {
+  if (!projects || projects.length === 0) return [];
+
+  const result: EventProject[] = [];
+
+  projects.forEach((project) => {
+    const imageUrl = getStrapiImageUrl(project.main_image);
+    if (!imageUrl) return;
+    result.push({
+      id: String(project.id),
+      imageUrl,
+      imageAlt: project.main_image?.alternativeText || project.title,
+      title: project.title,
+      category: project.expertise?.[0] || "Event",
+    });
+  });
+
+  return result;
+}
+
+// ============================================================================
+// Page Component - Server Component with static generation
+// ============================================================================
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function EventPlanningPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = getTranslations(locale);
+  const isDev = process.env.NODE_ENV === "development";
+
+  // Fetch CMS data at build time
+  const strapiData = await getEventPlanningPage(locale);
+
+  // Dev fallback - use hardcoded data when Strapi is unavailable during development
+  const useFallback = !strapiData && isDev;
+  if (useFallback) {
+    console.warn(
+      "[EventPlanningPage] Using fallback data - Strapi CMS not available in development"
+    );
+  }
+
+  // Transform Strapi data to component props (or use fallbacks)
+
+  // Hero
+  const heroHeading =
+    strapiData?.hero?.heading ||
+    (useFallback
+      ? FALLBACK_EVENT_HERO.heading
+      : t.EVENT_PLANNING?.HERO?.TAGLINE ||
+        "Curated events that captivate and inspire");
+  const heroBackgroundFromCms = strapiData?.hero?.background_image
+    ? getStrapiImageUrl(strapiData.hero.background_image)
+    : null;
+  const heroBackground =
+    heroBackgroundFromCms || FALLBACK_EVENT_HERO.backgroundImage;
+  const heroBackgroundAlt =
+    strapiData?.hero?.background_alt || FALLBACK_EVENT_HERO.backgroundAlt;
+
+  // Intro
+  const introLabel =
+    strapiData?.intro?.label || t.EVENT_PLANNING?.INTRO?.LABEL || "Our Service";
+  const introDescription =
+    strapiData?.intro?.description ||
+    t.EVENT_PLANNING?.INTRO?.DESCRIPTION ||
+    "From intimate dinners to grand launches, we design and execute events that leave lasting impressions.";
+  const introCta =
+    strapiData?.intro?.cta_text ||
+    t.EVENT_PLANNING?.INTRO?.CTA ||
+    "Plan Your Event";
+
+  // Services
+  const eventServices = strapiData?.services
+    ? transformServices(strapiData.services)
+    : useFallback
+      ? FALLBACK_EVENT_SERVICES
+      : [];
+
+  // Apply translations to services
+  const translatedServices = eventServices.map((service, index) => {
     const serviceKey =
       `CARD_${index + 1}` as keyof typeof t.EVENT_PLANNING.SERVICES;
     const translation = t.EVENT_PLANNING?.SERVICES?.[serviceKey];
     return {
-      title: translation?.TITLE ?? `[SERVICES.CARD_${index + 1}.TITLE]`,
-      description:
-        translation?.DESCRIPTION ?? `[SERVICES.CARD_${index + 1}.DESCRIPTION]`,
+      ...service,
+      title: translation?.TITLE ?? service.title,
+      description: translation?.DESCRIPTION ?? service.description,
     };
-  };
+  });
 
-  const translatedServices = eventServices.map((service, index) => ({
-    ...service,
-    ...getServiceTranslation(index),
-  }));
+  // Quote intro (intro_2)
+  const quoteLabel =
+    strapiData?.intro_2?.label ||
+    t.EVENT_PLANNING?.PROCESS?.TITLE ||
+    "Our Process";
+  const quoteDescription =
+    strapiData?.intro_2?.description ||
+    t.EVENT_PLANNING?.PROCESS?.DESCRIPTION ||
+    "Every event begins with a vision. We bring it to life through meticulous planning and flawless execution.";
 
-  // Build workflow steps with translations
-  const workflowSteps: ServiceCard[] = workflowStepsBase.map((step, index) => {
-    const stepKey =
-      `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
+  // Workflow
+  const workflowSteps = strapiData?.workflow
+    ? transformWorkflow(strapiData.workflow)
+    : useFallback
+      ? FALLBACK_EVENT_WORKFLOW
+      : [];
+
+  // Apply translations to workflow
+  const translatedWorkflow = workflowSteps.map((step, index) => {
+    const stepKey = `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
     const translation = t.EVENT_PLANNING?.WORKFLOW?.[stepKey];
     return {
       ...step,
-      title: translation?.TITLE ?? `[WORKFLOW.STEP_${index + 1}.TITLE]`,
-      description:
-        translation?.DESCRIPTION ?? `[WORKFLOW.STEP_${index + 1}.DESCRIPTION]`,
+      title: translation?.TITLE ?? step.title,
+      description: translation?.DESCRIPTION ?? step.description,
     };
   });
+
+  // Event Projects
+  const eventProjects = strapiData?.event_projects
+    ? transformEventProjects(strapiData.event_projects)
+    : useFallback
+      ? FALLBACK_EVENT_PROJECTS
+      : [];
 
   return (
     <div className={styles.eventPlanningPage}>
       {/* Hero Section */}
       <HeroSection
-        heading={t.EVENT_PLANNING?.HERO?.TAGLINE ?? "[HERO.TAGLINE]"}
-        backgroundImage="/images/event-planning/hero-background.jpg"
-        backgroundAlt="Event Planning"
+        heading={heroHeading}
+        backgroundImage={heroBackground}
+        backgroundAlt={heroBackgroundAlt}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />
@@ -237,47 +215,32 @@ export default function EventPlanningPage() {
         <section className={styles.section} id="our-service">
           <div className={styles.sectionInner}>
             <StudioIntro
-              title={t.EVENT_PLANNING?.INTRO?.LABEL ?? "[INTRO.LABEL]"}
-              description={
-                t.EVENT_PLANNING?.INTRO?.DESCRIPTION ?? "[INTRO.DESCRIPTION]"
-              }
-              ctaText={t.EVENT_PLANNING?.INTRO?.CTA ?? "[INTRO.CTA]"}
+              title={introLabel}
+              description={introDescription}
+              ctaText={introCta}
             />
-            <div id="services">
-              <ProductionServiceGrid items={translatedServices} />
-            </div>
-            <div id="process">
-              <QuoteIntro
-                label={t.EVENT_PLANNING?.PROCESS?.TITLE ?? "[PROCESS.TITLE]"}
-                quote={
-                  t.EVENT_PLANNING?.PROCESS?.DESCRIPTION ??
-                  "[PROCESS.DESCRIPTION]"
-                }
-              />
-              <ServiceCardsCarousel cards={workflowSteps} />
-            </div>
+            {translatedServices.length > 0 && (
+              <div id="services">
+                <ProductionServiceGrid items={translatedServices} />
+              </div>
+            )}
+            {translatedWorkflow.length > 0 && (
+              <div id="process">
+                <QuoteIntro label={quoteLabel} quote={quoteDescription} />
+                <ServiceCardsCarousel cards={translatedWorkflow} />
+              </div>
+            )}
           </div>
         </section>
 
         {/* Project Gallery Section */}
-        <section className={styles.gallerySection} id="gallery">
-          <div className={styles.gallerySectionInner}>
-            <EventProjectGallery projects={eventProjects} />
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className={styles.testimonialsSection} id="testimonials">
-          <TestimonialsSection
-            label={
-              t.EVENT_PLANNING?.TESTIMONIALS?.LABEL ?? "[TESTIMONIALS.LABEL]"
-            }
-            title={
-              t.EVENT_PLANNING?.TESTIMONIALS?.TITLE ?? "[TESTIMONIALS.TITLE]"
-            }
-            items={testimonialItems}
-          />
-        </section>
+        {eventProjects.length > 0 && (
+          <section className={styles.gallerySection} id="gallery">
+            <div className={styles.gallerySectionInner}>
+              <EventProjectGallery projects={eventProjects} />
+            </div>
+          </section>
+        )}
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">
