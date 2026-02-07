@@ -11,6 +11,7 @@ import {
   uploadImage,
   updateSingleType,
   getCollectionDocumentIds,
+  getBrandLogoDocumentIds,
 } from "../../shared/api";
 import { galleryImages } from "../../shared/data/gallery-images";
 
@@ -18,7 +19,8 @@ async function seedHomepage(): Promise<void> {
   console.log("\n Seeding Homepage...");
 
   // Get required collection documentIds (Strapi v5 relations use documentId)
-  const brandLogoDocIds = await getCollectionDocumentIds("brand-logos");
+  // Exclude Maybelline from homepage brand logos
+  const brandLogoDocIds = await getBrandLogoDocumentIds(["Maybelline New York"]);
   const keyProjectDocIds = await getCollectionDocumentIds("key-projects");
 
   // Upload images

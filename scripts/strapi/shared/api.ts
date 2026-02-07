@@ -320,6 +320,24 @@ export async function getCollectionDocumentIds(
   return entries.map((e) => e.documentId);
 }
 
+// Get brand logo documentIds excluding specific names
+export async function getBrandLogoDocumentIds(
+  excludeNames: string[] = []
+): Promise<string[]> {
+  try {
+    const result = (await apiRequest(
+      `brand-logos?pagination[pageSize]=100`
+    )) as { data: { documentId: string; name: string }[] };
+    return (
+      result.data
+        ?.filter((entry) => !excludeNames.includes(entry.name))
+        .map((entry) => entry.documentId) || []
+    );
+  } catch {
+    return [];
+  }
+}
+
 // Get service item IDs filtered by page and section
 export async function getServiceItemIds(
   page: string,
