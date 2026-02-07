@@ -16,6 +16,7 @@ export interface PortfolioSectionProps {
   label: string;
   statement: string;
   items: PortfolioItem[];
+  gridClassName?: string;
 }
 
 // Desktop masonry pattern (3 columns, CSS columns flow down each column):
@@ -26,6 +27,7 @@ export function PortfolioSection({
   label,
   statement,
   items,
+  gridClassName,
 }: PortfolioSectionProps) {
   // First 2 items go in top row, rest in masonry grid
   const topRow = items.slice(0, 2);
@@ -43,7 +45,7 @@ export function PortfolioSection({
 
       {/* Portfolio Grid Section */}
       <section className={styles.gridSection}>
-        <div className={styles.gridContainer}>
+        <div className={`${styles.gridContainer}${gridClassName ? ` ${gridClassName}` : ""}`}>
           {/* Top Row - Side by side on desktop, stacked on mobile */}
           {topRow.length > 0 && (
             <div className={styles.topRow}>

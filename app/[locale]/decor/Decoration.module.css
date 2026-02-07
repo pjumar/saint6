@@ -49,6 +49,10 @@
   width: 100%;
 }
 
+.portfolioGrid {
+  padding-bottom: 6.75rem;
+}
+
 /* Contact Section */
 .contactSectionWrapper {
   width: 100%;

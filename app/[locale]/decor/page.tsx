@@ -195,6 +195,7 @@ export default async function DecorationPage({ params }: PageProps) {
               label={portfolioLabel}
               statement={portfolioStatement}
               items={portfolioItems}
+              gridClassName={styles.portfolioGrid}
             />
           </div>
         )}
