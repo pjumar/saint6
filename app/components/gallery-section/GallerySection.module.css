@@ -10,11 +10,13 @@
   gap: 0.5rem;
   max-width: 87rem;
   margin: 0 auto;
+  padding: 0 0.5rem;
 }
 
 .galleryItem {
-  /* 5 columns with 0.5rem gap */
-  width: calc((100% - 4 * 0.5rem) / 5);
+  flex: 1 1 150px;
+  min-width: 120px;
+  max-width: 200px;
   aspect-ratio: 218.67 / 312;
   position: relative;
   overflow: hidden;
@@ -33,10 +35,12 @@
 
   .galleryGrid {
     gap: 1.5rem;
+    padding: 0;
   }
 
   .galleryItem {
-    /* 6 columns with 1.5rem gap */
-    width: calc((100% - 5 * 1.5rem) / 6);
+    flex: 1 1 180px;
+    min-width: 150px;
+    max-width: 230px;
   }
 }
