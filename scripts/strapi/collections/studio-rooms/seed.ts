@@ -10,7 +10,7 @@ import { uploadImage, createEntry, createLocalization } from "../../shared/api";
 import { studioRooms } from "../../shared/data/studio-rooms";
 
 async function seedStudioRooms(): Promise<number[]> {
-  console.log("\n Seeding Studio Rooms...");
+  console.log("\nSeeding Studio Rooms...");
   const createdIds: number[] = [];
 
   for (const room of studioRooms) {
@@ -26,6 +26,7 @@ async function seedStudioRooms(): Promise<number[]> {
     }
 
     // Create English version (exclude _vi fields)
+    // For Strapi 5 POST: pass media array directly (not {connect: ...} which is for PUT)
     const entry = await createEntry("studio-rooms", {
       title: room.title,
       slug: room.slug,
@@ -37,17 +38,20 @@ async function seedStudioRooms(): Promise<number[]> {
       ceiling_height: room.ceiling_height,
       description: room.description,
       image: imageId,
-      gallery: galleryIds,
+      gallery: galleryIds.length > 0 ? galleryIds : undefined,
       order: room.order,
     });
 
     if (entry) {
       createdIds.push(entry.id);
-      // Create Vietnamese localization (include image for both locales)
+
+      // Create Vietnamese localization
+      // For PUT requests (localization), use { set: [...] } format for media relations
       await createLocalization("studio-rooms", entry.documentId, "vi", {
         title: room.title_vi,
         description: room.description_vi,
         image: imageId,
+        gallery: galleryIds.length > 0 ? { set: galleryIds } : undefined,
       });
     }
   }

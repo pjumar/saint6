@@ -1,5 +1,26 @@
 import type { StudioRoom } from "../types";
 
+// All room images for gallery (each room shows its own image first, then the others)
+const allRoomImages = [
+  "/images/rooms/loft.jpg",
+  "/images/rooms/studio.jpg",
+  "/images/rooms/arena.jpg",
+  "/images/rooms/concept1.jpg",
+  "/images/rooms/concept2.jpg",
+  "/images/rooms/concept3.jpg",
+];
+
+// Helper to create gallery with own image first, then others
+function createGallery(ownImageIndex: number): string[] {
+  const gallery = [allRoomImages[ownImageIndex]];
+  for (let i = 0; i < allRoomImages.length; i++) {
+    if (i !== ownImageIndex) {
+      gallery.push(allRoomImages[i]);
+    }
+  }
+  return gallery;
+}
+
 export const studioRooms: StudioRoom[] = [
   {
     title: "The Loft",
@@ -16,11 +37,7 @@ export const studioRooms: StudioRoom[] = [
     description_vi:
       "Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.",
     image: "/images/rooms/loft.jpg",
-    gallery: [
-      "/images/gallery/gallery-01.jpg",
-      "/images/gallery/gallery-02.jpg",
-      "/images/gallery/gallery-03.jpg",
-    ],
+    gallery: createGallery(0),
     order: 1,
   },
   {
@@ -38,11 +55,7 @@ export const studioRooms: StudioRoom[] = [
     description_vi:
       "Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.",
     image: "/images/rooms/studio.jpg",
-    gallery: [
-      "/images/gallery/gallery-04.jpg",
-      "/images/gallery/gallery-05.jpg",
-      "/images/gallery/gallery-06.jpg",
-    ],
+    gallery: createGallery(1),
     order: 2,
   },
   {
@@ -60,11 +73,7 @@ export const studioRooms: StudioRoom[] = [
     description_vi:
       "Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.",
     image: "/images/rooms/arena.jpg",
-    gallery: [
-      "/images/gallery/gallery-07.jpg",
-      "/images/gallery/gallery-08.jpg",
-      "/images/gallery/gallery-09.jpg",
-    ],
+    gallery: createGallery(2),
     order: 3,
   },
   {
@@ -80,11 +89,7 @@ export const studioRooms: StudioRoom[] = [
     description: "Seasonal themed room for unique creative concepts.",
     description_vi: "Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.",
     image: "/images/rooms/concept1.jpg",
-    gallery: [
-      "/images/gallery/gallery-10.jpg",
-      "/images/gallery/gallery-11.jpg",
-      "/images/gallery/gallery-12.jpg",
-    ],
+    gallery: createGallery(3),
     order: 4,
   },
   {
@@ -100,11 +105,7 @@ export const studioRooms: StudioRoom[] = [
     description: "Seasonal themed room for unique creative concepts.",
     description_vi: "Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.",
     image: "/images/rooms/concept2.jpg",
-    gallery: [
-      "/images/gallery/gallery-13.jpg",
-      "/images/gallery/gallery-14.jpg",
-      "/images/gallery/gallery-15.jpg",
-    ],
+    gallery: createGallery(4),
     order: 5,
   },
   {
@@ -120,11 +121,7 @@ export const studioRooms: StudioRoom[] = [
     description: "Seasonal themed room for unique creative concepts.",
     description_vi: "Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.",
     image: "/images/rooms/concept3.jpg",
-    gallery: [
-      "/images/gallery/gallery-01.jpg",
-      "/images/gallery/gallery-04.jpg",
-      "/images/gallery/gallery-07.jpg",
-    ],
+    gallery: createGallery(5),
     order: 6,
   },
 ];

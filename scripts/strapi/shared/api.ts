@@ -448,3 +448,18 @@ export async function getPortfolioItemDocumentIds(
     return [];
   }
 }
+
+// Get studio room documentIds filtered by type (blank or concept)
+export async function getStudioRoomDocumentIdsByType(
+  type: "blank" | "concept",
+  locale: string = "en"
+): Promise<string[]> {
+  try {
+    const result = (await apiRequest(
+      `studio-rooms?filters[type][$eq]=${type}&locale=${locale}&pagination[pageSize]=100`
+    )) as { data: { documentId: string }[] };
+    return result.data?.map((entry) => entry.documentId) || [];
+  } catch {
+    return [];
+  }
+}
