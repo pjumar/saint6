@@ -17,10 +17,10 @@ import {
 async function seedEventPlanningPage(): Promise<void> {
   console.log("\n Seeding Event Planning Page...");
 
-  // Get required collection documentIds (Strapi v5 relations use documentId)
-  const keyProjectDocIds = await getCollectionDocumentIds("key-projects");
-  const servicesDocIds = await getServiceItemDocumentIds("event-planning", "services");
-  const workflowDocIds = await getServiceItemDocumentIds("event-planning", "workflow");
+  // Get required collection documentIds for EN locale (Strapi v5 relations use documentId)
+  const keyProjectDocIds = await getCollectionDocumentIds("key-projects", "en");
+  const servicesDocIds = await getServiceItemDocumentIds("event-planning", "services", "en");
+  const workflowDocIds = await getServiceItemDocumentIds("event-planning", "workflow", "en");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -51,7 +51,7 @@ async function seedEventPlanningPage(): Promise<void> {
     event_projects: keyProjectDocIds,
   });
 
-  // Vietnamese
+  // Vietnamese - only update text fields, relations shared from EN
   await updateSingleType(
     "event-planning-page",
     {
@@ -67,14 +67,13 @@ async function seedEventPlanningPage(): Promise<void> {
         cta_text: "Lên Kế Hoạch Sự Kiện",
         cta_link: "#contact-form",
       },
-      services: servicesDocIds,
       intro_2: {
         label: "Mỗi Khoảnh Khắc, Một Cảm Xúc",
         description:
           "Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài.",
       },
-      workflow: workflowDocIds,
-      event_projects: keyProjectDocIds,
+      // Note: services, workflow, event_projects are i18n
+      // and only have EN locale, so we don't update them for VI
     },
     "vi"
   );

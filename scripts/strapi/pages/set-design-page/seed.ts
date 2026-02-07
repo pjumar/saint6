@@ -18,10 +18,10 @@ import {
 async function seedSetDesignPage(): Promise<void> {
   console.log("\n Seeding Set Design Page...");
 
-  // Get required collection documentIds (Strapi v5 relations use documentId)
-  const testimonialDocIds = await getCollectionDocumentIds("testimonial-items");
-  const workflowDocIds = await getServiceItemDocumentIds("set-design", "workflow");
-  const portfolioDocIds = await getPortfolioItemDocumentIds("set-design");
+  // Get required collection documentIds for EN locale (Strapi v5 relations use documentId)
+  const testimonialDocIds = await getCollectionDocumentIds("testimonial-items", "en");
+  const workflowDocIds = await getServiceItemDocumentIds("set-design", "workflow", "en");
+  const portfolioDocIds = await getPortfolioItemDocumentIds("set-design", "en");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -53,7 +53,7 @@ async function seedSetDesignPage(): Promise<void> {
     testimonials: testimonialDocIds,
   });
 
-  // Vietnamese
+  // Vietnamese - only update text fields, relations shared from EN
   await updateSingleType(
     "set-design-page",
     {
@@ -70,14 +70,13 @@ async function seedSetDesignPage(): Promise<void> {
         cta_text: "Liên hệ ngay",
         cta_link: "#contact-form",
       },
-      workflow: workflowDocIds,
       portfolio_settings: {
         label: "PORTFOLIO",
         statement:
           "Chúng tôi tạo hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn",
       },
-      portfolio_items: portfolioDocIds,
-      testimonials: testimonialDocIds,
+      // Note: workflow, portfolio_items, testimonials are i18n
+      // and only have EN locale, so we don't update them for VI
     },
     "vi"
   );

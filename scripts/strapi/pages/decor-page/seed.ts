@@ -17,9 +17,9 @@ import {
 async function seedDecorPage(): Promise<void> {
   console.log("\n Seeding Decor Page...");
 
-  // Get required collection documentIds (Strapi v5 relations use documentId)
-  const workflowDocIds = await getServiceItemDocumentIds("decor", "workflow");
-  const portfolioDocIds = await getPortfolioItemDocumentIds("decor");
+  // Get required collection documentIds for EN locale (Strapi v5 relations use documentId)
+  const workflowDocIds = await getServiceItemDocumentIds("decor", "workflow", "en");
+  const portfolioDocIds = await getPortfolioItemDocumentIds("decor", "en");
 
   // Upload images
   const heroImageId = await uploadImage(
@@ -55,7 +55,7 @@ async function seedDecorPage(): Promise<void> {
     portfolio_items: portfolioDocIds,
   });
 
-  // Vietnamese
+  // Vietnamese - only update text fields, relations shared from EN
   await updateSingleType(
     "decor-page",
     {
@@ -72,7 +72,6 @@ async function seedDecorPage(): Promise<void> {
         cta_text: "Lên Kế Hoạch Trang Trí",
         cta_link: "#contact-form",
       },
-      workflow: workflowDocIds,
       intro_2: {
         label: "mỗi khoảnh khắc, một cảm xúc",
         description:
@@ -83,7 +82,8 @@ async function seedDecorPage(): Promise<void> {
         statement:
           "Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một.",
       },
-      portfolio_items: portfolioDocIds,
+      // Note: workflow, portfolio_items are i18n
+      // and only have EN locale, so we don't update them for VI
     },
     "vi"
   );

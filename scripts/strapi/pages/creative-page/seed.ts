@@ -18,12 +18,16 @@ import {
 async function seedCreativePage(): Promise<void> {
   console.log("\n Seeding Creative Page...");
 
-  // Get required collection documentIds (Strapi v5 relations use documentId)
+  // Get required collection documentIds for EN locale (Strapi v5 relations use documentId)
+  // Brand logos are not i18n, others need EN locale
   const brandLogoDocIds = await getCollectionDocumentIds("brand-logos");
-  const testimonialDocIds = await getCollectionDocumentIds("testimonial-items");
-  const servicesDocIds = await getServiceItemDocumentIds("creative", "services");
-  const workflowDocIds = await getServiceItemDocumentIds("creative", "workflow");
-  const portfolioDocIds = await getPortfolioItemDocumentIds("creative");
+  const testimonialDocIds = await getCollectionDocumentIds("testimonial-items", "en");
+  const servicesDocIds = await getServiceItemDocumentIds("creative", "services", "en");
+  const workflowDocIds = await getServiceItemDocumentIds("creative", "workflow", "en");
+  const portfolioDocIds = await getPortfolioItemDocumentIds("creative", "en");
+
+  console.log(`  Brand logos: ${brandLogoDocIds.length}, Testimonials: ${testimonialDocIds.length}`);
+  console.log(`  Services: ${servicesDocIds.length}, Workflow: ${workflowDocIds.length}, Portfolio: ${portfolioDocIds.length}`);
 
   // Upload images
   const heroImageId = await uploadImage("/images/creative/hero-background.jpg");
@@ -59,7 +63,7 @@ async function seedCreativePage(): Promise<void> {
     testimonials: testimonialDocIds,
   });
 
-  // Vietnamese
+  // Vietnamese - only update text fields, relations shared from EN
   await updateSingleType(
     "creative-page",
     {
@@ -73,8 +77,7 @@ async function seedCreativePage(): Promise<void> {
         description:
           "Chúng tôi tự hào hợp tác với các thương hiệu, agency và startup hàng đầu trên toàn thế giới.",
       },
-      client_logos: brandLogoDocIds,
-      services: servicesDocIds,
+      client_logos: brandLogoDocIds, // Brand logos are not i18n
       intro: {
         label: "Cách Chúng Tôi Làm Việc",
         description:
@@ -82,14 +85,13 @@ async function seedCreativePage(): Promise<void> {
         cta_text: "Liên hệ ngay",
         cta_link: "#contact-form",
       },
-      workflow: workflowDocIds,
       portfolio_settings: {
         label: "Tác Phẩm Nổi Bật",
         statement:
           "Hình ảnh cao cấp phản ánh tham vọng thương hiệu của bạn — một triển lãm của nghệ thuật và sự chú ý đến chi tiết.",
       },
-      portfolio_items: portfolioDocIds,
-      testimonials: testimonialDocIds,
+      // Note: services, workflow, portfolio_items, testimonials are i18n
+      // and only have EN locale, so we don't update them for VI
     },
     "vi"
   );

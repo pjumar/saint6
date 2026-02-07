@@ -11,36 +11,22 @@ import {
   uploadImage,
   updateSingleType,
   getCollectionDocumentIds,
-  apiRequest,
 } from "../../shared/api";
 
 async function seedStudioRentalPage(): Promise<void> {
   console.log("\n Seeding Studio Rental Page...");
 
-  // Get required collection documentIds (Strapi v5 relations use documentId)
-  const roomDocIds = await getCollectionDocumentIds("studio-rooms");
-  const equipmentDocIds = await getCollectionDocumentIds("equipment-items");
-  const faqDocIds = await getCollectionDocumentIds("faq-items");
+  // Get required collection documentIds for EN locale (Strapi v5 relations use documentId)
+  const roomDocIds = await getCollectionDocumentIds("studio-rooms", "en");
+  const equipmentDocIds = await getCollectionDocumentIds("equipment-items", "en");
+  const faqDocIds = await getCollectionDocumentIds("faq-items", "en");
 
-  // Separate blank rooms and concept rooms by querying with filters
-  let blankRoomDocIds: string[] = [];
-  let conceptRoomDocIds: string[] = [];
+  // Use first 3 as blank, rest as concept (matches seed order)
+  const blankRoomDocIds = roomDocIds.slice(0, 3);
+  const conceptRoomDocIds = roomDocIds.slice(3, 6);
 
-  try {
-    const blankResult = (await apiRequest(
-      "studio-rooms?filters[type][$eq]=blank&pagination[pageSize]=100"
-    )) as { data: { documentId: string }[] };
-    blankRoomDocIds = blankResult.data?.map((r) => r.documentId) || [];
-
-    const conceptResult = (await apiRequest(
-      "studio-rooms?filters[type][$eq]=concept&pagination[pageSize]=100"
-    )) as { data: { documentId: string }[] };
-    conceptRoomDocIds = conceptResult.data?.map((r) => r.documentId) || [];
-  } catch {
-    // Fallback: use first 3 as blank, rest as concept
-    blankRoomDocIds = roomDocIds.slice(0, 3);
-    conceptRoomDocIds = roomDocIds.slice(3);
-  }
+  console.log(`  Rooms: ${blankRoomDocIds.length} blank, ${conceptRoomDocIds.length} concept`);
+  console.log(`  Equipment: ${equipmentDocIds.length}, FAQs: ${faqDocIds.length}`);
 
   // Upload images
   const heroImageId = await uploadImage(

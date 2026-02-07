@@ -157,6 +157,38 @@ export async function createEntry(
     );
     return result.data;
   } catch (error) {
+    // If unique constraint error, try to find and update existing entry
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    if (errorMessage.includes("must be unique") && data.slug) {
+      try {
+        // Find existing entry by slug
+        const findResult = await apiRequest(
+          `${contentType}?filters[slug][$eq]=${data.slug}&status=draft`
+        ).catch(() => null) as { data?: { documentId: string }[] } | null;
+
+        let existingDoc = findResult?.data?.[0];
+
+        // Also try published
+        if (!existingDoc) {
+          const publishedResult = await apiRequest(
+            `${contentType}?filters[slug][$eq]=${data.slug}`
+          ).catch(() => null) as { data?: { documentId: string }[] } | null;
+          existingDoc = publishedResult?.data?.[0];
+        }
+
+        if (existingDoc?.documentId) {
+          console.log(`  Found existing ${contentType} with slug ${data.slug}, updating...`);
+          const updateResult = (await apiRequest(`${contentType}/${existingDoc.documentId}`, {
+            method: "PUT",
+            body: JSON.stringify({ data }),
+          })) as { data: { id: number; documentId: string } };
+          console.log(`  Updated ${contentType}: ${data.title || data.name || "entry"}`);
+          return updateResult.data;
+        }
+      } catch (updateError) {
+        console.error(`  Failed to update existing ${contentType}:`, updateError);
+      }
+    }
     console.error(`  Failed to create ${contentType}:`, error);
     return null;
   }
@@ -253,8 +285,9 @@ export async function updateSingleType(
   locale: string = "en"
 ): Promise<{ id: number; documentId: string } | null> {
   try {
-    // Always include locale parameter for explicit locale targeting in Strapi v5
-    const url = `${contentType}?locale=${locale}`;
+    // For default locale (en), don't include locale parameter
+    // For other locales, include locale parameter
+    const url = locale === "en" ? contentType : `${contentType}?locale=${locale}`;
     const result = (await apiRequest(url, {
       method: "PUT",
       body: JSON.stringify({ data }),
@@ -314,8 +347,21 @@ export async function getCollectionIds(
 }
 
 export async function getCollectionDocumentIds(
-  contentType: string
+  contentType: string,
+  locale?: string
 ): Promise<string[]> {
+  if (locale) {
+    // Get only entries for specific locale
+    try {
+      const query = `${contentType}?locale=${locale}&pagination[pageSize]=100`;
+      const result = (await apiRequest(query)) as {
+        data: { documentId: string }[];
+      };
+      return result.data?.map((e) => e.documentId) || [];
+    } catch {
+      return [];
+    }
+  }
   const entries = await getCollectionEntries(contentType);
   return entries.map((e) => e.documentId);
 }
@@ -356,11 +402,12 @@ export async function getServiceItemIds(
 // Get service item documentIds filtered by page and section
 export async function getServiceItemDocumentIds(
   page: string,
-  section: string
+  section: string,
+  locale: string = "en"
 ): Promise<string[]> {
   try {
     const result = (await apiRequest(
-      `service-items?filters[page][$eq]=${page}&filters[section][$eq]=${section}&pagination[pageSize]=100`
+      `service-items?filters[page][$eq]=${page}&filters[section][$eq]=${section}&locale=${locale}&pagination[pageSize]=100`
     )) as { data: { documentId: string }[] };
     return result.data?.map((entry) => entry.documentId) || [];
   } catch {
@@ -369,10 +416,13 @@ export async function getServiceItemDocumentIds(
 }
 
 // Get portfolio item IDs filtered by page
-export async function getPortfolioItemIds(page: string): Promise<number[]> {
+export async function getPortfolioItemIds(
+  page: string,
+  locale: string = "en"
+): Promise<number[]> {
   try {
     const result = (await apiRequest(
-      `portfolio-items?filters[page][$eq]=${page}&pagination[pageSize]=100`
+      `portfolio-items?filters[page][$eq]=${page}&locale=${locale}&pagination[pageSize]=100`
     )) as { data: { id: number }[] };
     return result.data?.map((entry) => entry.id) || [];
   } catch {
@@ -382,11 +432,12 @@ export async function getPortfolioItemIds(page: string): Promise<number[]> {
 
 // Get portfolio item documentIds filtered by page
 export async function getPortfolioItemDocumentIds(
-  page: string
+  page: string,
+  locale: string = "en"
 ): Promise<string[]> {
   try {
     const result = (await apiRequest(
-      `portfolio-items?filters[page][$eq]=${page}&pagination[pageSize]=100`
+      `portfolio-items?filters[page][$eq]=${page}&locale=${locale}&pagination[pageSize]=100`
     )) as { data: { documentId: string }[] };
     return result.data?.map((entry) => entry.documentId) || [];
   } catch {
