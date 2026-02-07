@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./EquipmentGrid.module.css";
 
 export interface EquipmentItem {
@@ -22,12 +23,21 @@ export function EquipmentGrid({
   backgroundColorsImage,
 }: EquipmentGridProps) {
   const { t } = useTranslation();
+  const headingRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const bgColorsRef = useScrollAnimation<HTMLDivElement>({
+    type: "scale",
+    delay: 0.15,
+  });
+  const gridRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+  });
 
   return (
     <div className={styles.equipmentSection}>
       {/* Left side - Heading and Background Colors */}
       <div className={styles.headingColumn}>
-        <div className={styles.headingContent}>
+        <div ref={headingRef} className={styles.headingContent}>
           <span className={styles.sectionLabel}>
             {t.STUDIO_RENTAL.EQUIPMENT.TITLE}
           </span>
@@ -37,7 +47,7 @@ export function EquipmentGrid({
         </div>
 
         {backgroundColorsImage && (
-          <div className={styles.backgroundColorsCard}>
+          <div ref={bgColorsRef} className={styles.backgroundColorsCard}>
             <div className={styles.backgroundColorsImageContainer}>
               <Image
                 src={backgroundColorsImage}
@@ -58,7 +68,7 @@ export function EquipmentGrid({
 
       {/* Right side - Equipment Grid */}
       <div className={styles.gridColumn}>
-        <div className={styles.grid}>
+        <div ref={gridRef} className={styles.grid}>
           {items.map((item) => (
             <div key={item.id} className={styles.equipmentCard}>
               <div className={styles.imageContainer}>

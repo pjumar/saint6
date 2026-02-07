@@ -5,6 +5,10 @@ import {
   type PortfolioCardProps,
 } from "@/app/components/portfolio-card/PortfolioCard";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
+import {
+  useScrollAnimationChildren,
+  useScrollAnimationGrid,
+} from "@/app/hooks";
 import styles from "./PortfolioSection.module.css";
 
 export interface PortfolioItem extends Omit<PortfolioCardProps, "imageHeight"> {
@@ -33,6 +37,15 @@ export function PortfolioSection({
   const topRow = items.slice(0, 2);
   const masonryItems = items.slice(2);
 
+  // Scroll animation refs
+  const topRowRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "scale",
+    stagger: 0.15,
+  });
+  const masonryRef = useScrollAnimationGrid<HTMLDivElement>({
+    columns: 3,
+  });
+
   return (
     <div className={styles.portfolioWrapper}>
       {/* Statement Section - Red Background */}
@@ -48,7 +61,7 @@ export function PortfolioSection({
         <div className={`${styles.gridContainer}${gridClassName ? ` ${gridClassName}` : ""}`}>
           {/* Top Row - Side by side on desktop, stacked on mobile */}
           {topRow.length > 0 && (
-            <div className={styles.topRow}>
+            <div className={styles.topRow} ref={topRowRef}>
               {topRow.map((item) => (
                 <div key={item.id} className={styles.topRowItem}>
                   <PortfolioCard
@@ -64,7 +77,7 @@ export function PortfolioSection({
 
           {/* Masonry Grid - Random on mobile, fixed pattern on desktop */}
           {masonryItems.length > 0 && (
-            <div className={styles.masonryGrid}>
+            <div className={styles.masonryGrid} ref={masonryRef}>
               {masonryItems.map((item, index) => (
                 <PortfolioCard
                   key={item.id}

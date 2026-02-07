@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import {
+  useScrollAnimation,
+  useScrollAnimationChildren,
+} from "@/app/hooks";
 import styles from "./KeyProjectSection.module.css";
 
 export interface ProjectTeamMember {
@@ -45,6 +49,17 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
   const [mainImageError, setMainImageError] = useState(false);
   const [galleryErrors, setGalleryErrors] = useState<Set<string>>(new Set());
 
+  const headerRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const mainImageRef = useScrollAnimation<HTMLDivElement>({
+    type: "scale",
+    duration: 0.8,
+  });
+  const galleryRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "scaleRotate",
+    stagger: 0.15,
+    duration: 0.6,
+  });
+
   const handleMainImageError = () => {
     setMainImageError(true);
   };
@@ -63,7 +78,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
 
   return (
     <div className={styles.projectItem}>
-      <div className={styles.projectHeader}>
+      <div ref={headerRef} className={styles.projectHeader}>
         <div className={styles.projectNumber}>
           <p className={styles.projectNoLabel}>{t.KEY_PROJECT.PROJECT_NO}</p>
           <p className={styles.projectNoValue}>{project.projectNumber}</p>
@@ -113,7 +128,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
       </div>
 
       <div className={styles.contentGrid}>
-        <div className={styles.mainImageContainer}>
+        <div ref={mainImageRef} className={styles.mainImageContainer}>
           <Image
             src={getMainImageSrc()}
             alt={project.mainImage.alt}
@@ -154,7 +169,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
         )}
 
         {project.galleryImages.length > 0 && (
-          <div className={styles.galleryGrid}>
+          <div ref={galleryRef} className={styles.galleryGrid}>
             {project.galleryImages.slice(0, 3).map((image, index) => (
               <div key={image.src} className={styles[`galleryImage${index + 1}`]}>
                 <Image

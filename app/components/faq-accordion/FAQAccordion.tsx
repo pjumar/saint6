@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./FAQAccordion.module.css";
 
 export interface FAQItem {
@@ -30,8 +31,14 @@ export function FAQAccordion({
     setExpandedQuestion(expandedQuestion === question ? null : question);
   };
 
+  // Scroll animation for staggered FAQ items
+  const accordionRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+  });
+
   return (
-    <div className={styles.accordionContainer}>
+    <div className={styles.accordionContainer} ref={accordionRef}>
       {items.map((item) => {
         const isExpanded = expandedQuestion === item.question;
         return (

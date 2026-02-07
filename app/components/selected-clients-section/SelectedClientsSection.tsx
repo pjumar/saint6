@@ -3,6 +3,7 @@
 import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./SelectedClientsSection.module.css";
 
 export interface ClientLogo {
@@ -73,6 +74,17 @@ export function SelectedClientsSection({
   const clientLogos = logos && logos.length > 0 ? logos : DEFAULT_LOGOS;
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
+
+  // Scroll animations for header content
+  const labelRef = useScrollAnimation<HTMLParagraphElement>({
+    type: "fadeUp",
+    duration: 0.6,
+  });
+  const descriptionRef = useScrollAnimation<HTMLParagraphElement>({
+    type: "fadeUp",
+    duration: 0.8,
+    delay: 0.1,
+  });
 
   useEffect(() => {
     const logosContainer = logosRef.current;
@@ -167,11 +179,11 @@ export function SelectedClientsSection({
     <section className={styles.selectedClients}>
       <div className={styles.container}>
         {/* Label */}
-        <p className={styles.label}>{label}</p>
+        <p className={styles.label} ref={labelRef}>{label}</p>
 
         {/* Content area with text and decorative graphic */}
         <div className={styles.contentArea}>
-          <p className={styles.description}>{description}</p>
+          <p className={styles.description} ref={descriptionRef}>{description}</p>
           <div className={styles.spiralDecoration}>
             <Image
               src="/images/spiral_decoration.svg"

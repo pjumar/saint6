@@ -1,6 +1,7 @@
 "use client";
 
 import { WorkflowStepCard } from "@/app/components/workflow-step-card/WorkflowStepCard";
+import { useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./ProductionServiceGrid.module.css";
 
 export interface ProductionServiceItem {
@@ -22,6 +23,15 @@ export function ProductionServiceGrid({ items }: ProductionServiceGridProps) {
   // First 2 items are large, rest are small
   const largeItems = items.slice(0, 2);
   const smallItems = items.slice(2, 6);
+  const largeCardsRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.15,
+  });
+  const smallCardsRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+    delay: 0.2,
+  });
 
   return (
     <div className={styles.productionServiceGrid}>
@@ -44,7 +54,7 @@ export function ProductionServiceGrid({ items }: ProductionServiceGridProps) {
       </div>
 
       {/* Desktop: Large Cards Row */}
-      <div className={styles.largeCardsRow}>
+      <div ref={largeCardsRef} className={styles.largeCardsRow}>
         {largeItems.map((item, index) => (
           <div
             key={item.id}
@@ -63,7 +73,7 @@ export function ProductionServiceGrid({ items }: ProductionServiceGridProps) {
       </div>
 
       {/* Desktop: Small Cards Row */}
-      <div className={styles.smallCardsRow}>
+      <div ref={smallCardsRef} className={styles.smallCardsRow}>
         {smallItems.map((item, index) => (
           <div key={item.id} className={styles.smallCard}>
             <WorkflowStepCard

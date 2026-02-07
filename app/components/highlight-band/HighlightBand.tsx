@@ -1,3 +1,6 @@
+"use client";
+
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./HighlightBand.module.css";
 
 export interface HighlightBandProps {
@@ -14,11 +17,13 @@ export function HighlightBand({
   statement,
   variant = "primary",
 }: HighlightBandProps) {
+  const containerRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+
   return (
     <section
       className={`${styles.band} ${variant === "inverted" ? styles.inverted : ""}`}
     >
-      <div className={styles.container}>
+      <div ref={containerRef} className={styles.container}>
         <p className={styles.label}>{label}</p>
         <p className={styles.statement}>{statement}</p>
       </div>

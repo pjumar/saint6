@@ -4,6 +4,7 @@ import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { ContactSuccessModal } from "@/app/components/contact-success-modal";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./ContactSection.module.css";
 
 const STRAPI_URL =
@@ -35,6 +36,12 @@ export function ContactSection({
     email: "",
     company: "",
     message: "",
+  });
+
+  // Scroll animation for the contact card
+  const cardRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeUp",
+    duration: 0.8,
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -111,7 +118,7 @@ export function ContactSection({
 
       {/* Contact Card */}
       <div className={styles.cardWrapper}>
-        <div className={styles.contactCard}>
+        <div className={styles.contactCard} ref={cardRef}>
           {/* Red Header */}
           <div className={styles.cardHeader}>
             <div className={styles.spiralDecoration}>

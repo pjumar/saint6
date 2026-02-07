@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./MapImage.module.css";
 
 export interface MapImageProps {
@@ -20,10 +21,12 @@ export function MapImage({
   showSpiral = true,
   showPin = true,
 }: MapImageProps) {
+  const mapRef = useScrollAnimation<HTMLDivElement>({ type: "scale" });
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.mapImage}>
+        <div ref={mapRef} className={styles.mapImage}>
           <Image
             src={imageUrl}
             alt={alt}

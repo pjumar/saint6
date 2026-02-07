@@ -1,6 +1,7 @@
 "use client";
 
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./StudioIntro.module.css";
 
 export interface StudioIntroProps {
@@ -18,6 +19,12 @@ export function StudioIntro({
   ctaLink = "#contact-form",
   onCtaClick,
 }: StudioIntroProps) {
+  // Scroll animation for the intro container
+  const containerRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeUp",
+    duration: 0.8,
+  });
+
   const handleClick = () => {
     if (onCtaClick) {
       onCtaClick();
@@ -35,7 +42,7 @@ export function StudioIntro({
   };
 
   return (
-    <div className={styles.introContainer}>
+    <div className={styles.introContainer} ref={containerRef}>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
       <CommonButton variant="primary" size="lg" onClick={handleClick}>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./FullRentalCard.module.css";
 
 export interface FullRentalCardProps {
@@ -15,6 +16,11 @@ export function FullRentalCard({
   backgroundImageUrl,
 }: FullRentalCardProps) {
   const { t } = useTranslation();
+  const introRef = useScrollAnimation<HTMLDivElement>({ type: "fadeLeft" });
+  const cardRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeUp",
+    delay: 0.2,
+  });
 
   return (
     <div className={styles.section}>
@@ -30,14 +36,14 @@ export function FullRentalCard({
 
       <div className={styles.contentRow}>
         {/* Left side - Facilities intro text */}
-        <div className={styles.introTextContainer}>
+        <div ref={introRef} className={styles.introTextContainer}>
           <p className={styles.introText}>
             {t.STUDIO_RENTAL.FACILITIES.INTRO_TEXT}
           </p>
         </div>
 
         {/* Right side - Rental card */}
-        <div className={styles.contentCard}>
+        <div ref={cardRef} className={styles.contentCard}>
           <h3 className={styles.title}>{t.STUDIO_RENTAL.FULL_RENTAL.TITLE}</h3>
           <div className={styles.details}>
             <p className={styles.price}>

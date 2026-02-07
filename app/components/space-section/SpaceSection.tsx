@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./SpaceSection.module.css";
 
 export interface SpaceStat {
@@ -34,6 +35,11 @@ export function SpaceSection({
   galleryImages,
 }: SpaceSectionProps) {
   const { locale } = useTranslation();
+  const contentRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const galleryRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "scale",
+    stagger: 0.1,
+  });
 
   return (
     <section className={styles.spaceSection}>
@@ -51,7 +57,7 @@ export function SpaceSection({
       <div className={styles.content}>
         <p className={styles.caption}>{caption}</p>
 
-        <div className={styles.mainContent}>
+        <div ref={contentRef} className={styles.mainContent}>
           <p className={styles.description}>{description}</p>
 
           <Link href={`/${locale}${ctaLink}`} className={styles.ctaLink}>
@@ -84,7 +90,7 @@ export function SpaceSection({
           </div>
         </div>
 
-        <div className={styles.galleryGrid}>
+        <div ref={galleryRef} className={styles.galleryGrid}>
           {galleryImages.slice(0, 4).map((image, index) => (
             <div key={index} className={styles.galleryItem}>
               <Image

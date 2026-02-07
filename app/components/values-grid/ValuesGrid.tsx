@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./ValuesGrid.module.css";
 
 export interface ValueItem {
@@ -40,6 +41,24 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
   );
   const [isDesktop, setIsDesktop] = useState(false);
   const manualScrollTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  // Scroll animations
+  const headerRef = useScrollAnimation<HTMLDivElement>({
+    type: "scale",
+    duration: 0.8,
+  });
+  const mobileLayoutRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+  });
+  const storyLabelRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeUp",
+    duration: 0.6,
+  });
+  const storyTextRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.15,
+  });
 
   // Track desktop breakpoint
   useEffect(() => {
@@ -138,7 +157,7 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
   return (
     <section className={styles.section}>
       {/* Header with spiral decoration and SAINT6 logo */}
-      <div className={styles.header}>
+      <div className={styles.header} ref={headerRef}>
         <div className={styles.spiralContainer}>
           <Image
             src="/images/spiral_decoration.svg"
@@ -189,7 +208,7 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
       </div>
 
       {/* Mobile: Vertical stacked list */}
-      <div className={styles.mobileLayout}>
+      <div className={styles.mobileLayout} ref={mobileLayoutRef}>
         {values.map((value) => (
           <div key={value.id} className={styles.mobileCard}>
             <div className={styles.mobileCardLetter}>
@@ -212,10 +231,10 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
       {/* Our Story section */}
       {story && (
         <div className={styles.storyContainer}>
-          <div className={styles.storyLabelWrapper}>
+          <div className={styles.storyLabelWrapper} ref={storyLabelRef}>
             <p className={styles.storyLabel}>{story.label}</p>
           </div>
-          <div className={styles.storyTextWrapper}>
+          <div className={styles.storyTextWrapper} ref={storyTextRef}>
             {story.paragraphs.map((paragraph, index) => (
               <p key={index} className={styles.storyText}>
                 {paragraph}

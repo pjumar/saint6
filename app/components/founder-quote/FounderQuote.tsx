@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./FounderQuote.module.css";
 
 export interface FounderQuoteProps {
@@ -18,12 +21,23 @@ export function FounderQuote({
   name,
   title,
 }: FounderQuoteProps) {
+  // Scroll animations for quote card and image
+  const quoteRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeUp",
+    duration: 0.8,
+  });
+  const imageRef = useScrollAnimation<HTMLDivElement>({
+    type: "scale",
+    duration: 0.8,
+    delay: 0.2,
+  });
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         {/* Desktop: Image left, Quote card right */}
         {/* Mobile: Quote card top, Image bottom */}
-        <div className={styles.quoteCard}>
+        <div className={styles.quoteCard} ref={quoteRef}>
           <div className={styles.quoteContent}>
             <p className={styles.quote}>
               <span className={styles.openQuote}>&ldquo;</span>
@@ -35,7 +49,7 @@ export function FounderQuote({
             </div>
           </div>
         </div>
-        <div className={styles.imageWrapper}>
+        <div className={styles.imageWrapper} ref={imageRef}>
           <Image
             src={imageUrl}
             alt={`${name}, ${title}`}

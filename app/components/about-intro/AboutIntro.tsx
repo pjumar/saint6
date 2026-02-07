@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./AboutIntro.module.css";
 
 export interface AboutIntroProps {
@@ -21,18 +24,33 @@ export function AboutIntro({
   imageUrl,
   imageAlt = "Portrait",
 }: AboutIntroProps) {
+  const labelRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const headlineRef = useScrollAnimation<HTMLHeadingElement>({
+    type: "fadeUp",
+    delay: 0.1,
+  });
+  const bodyRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+    delay: 0.2,
+  });
+  const imageRef = useScrollAnimation<HTMLDivElement>({
+    type: "scale",
+    delay: 0.15,
+  });
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.labelWrapper}>
+        <div ref={labelRef} className={styles.labelWrapper}>
           <p className={styles.label}>{label}</p>
         </div>
 
         <div className={styles.contentWrapper}>
-          <h2 className={styles.headline}>{headline}</h2>
+          <h2 ref={headlineRef} className={styles.headline}>{headline}</h2>
 
           <div className={styles.bodyRow}>
-            <div className={styles.bodyContent}>
+            <div ref={bodyRef} className={styles.bodyContent}>
               {bodyText.map((paragraph) => (
                 <p key={paragraph} className={styles.bodyText}>
                   {paragraph}
@@ -40,7 +58,7 @@ export function AboutIntro({
               ))}
             </div>
 
-            <div className={styles.imageWrapper}>
+            <div ref={imageRef} className={styles.imageWrapper}>
               <Image
                 src={imageUrl}
                 alt={imageAlt}

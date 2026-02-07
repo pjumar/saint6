@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./TrustedBySection.module.css";
 
 export interface BrandLogo {
@@ -36,6 +37,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProp
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
   const [hiddenLogos, setHiddenLogos] = useState<Set<string>>(new Set());
+  const headingRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
 
   useEffect(() => {
     const logosContainer = logosRef.current;
@@ -125,7 +127,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProp
 
   return (
     <section className={styles.trustedBy}>
-      <div className={styles.trustedByContent}>
+      <div ref={headingRef} className={styles.trustedByContent}>
         <p className="caption" style={{ color: "var(--color-primary)" }}>
           {t.TRUSTED_BY.CAPTION}
         </p>

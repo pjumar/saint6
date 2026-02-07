@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./CrewAreaSection.module.css";
 
 export interface CrewAreaSectionProps {
@@ -31,10 +32,20 @@ export function CrewAreaSection({
   secondaryImage1,
   secondaryImage2,
 }: CrewAreaSectionProps) {
+  const leftColumnRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const mainImageRef = useScrollAnimation<HTMLDivElement>({
+    type: "scale",
+    duration: 0.8,
+  });
+  const secondaryImagesRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "scale",
+    stagger: 0.15,
+  });
+
   return (
     <section className={styles.crewAreaSection}>
       <div className={styles.content}>
-        <div className={styles.leftColumn}>
+        <div ref={leftColumnRef} className={styles.leftColumn}>
           <p className={styles.caption}>{caption}</p>
           <h2 className={styles.heading}>{heading}</h2>
 
@@ -45,7 +56,7 @@ export function CrewAreaSection({
         </div>
 
         <div className={styles.rightColumn}>
-          <div className={styles.mainImageWrapper}>
+          <div ref={mainImageRef} className={styles.mainImageWrapper}>
             <Image
               src={mainImage.src}
               alt={mainImage.alt}
@@ -54,7 +65,7 @@ export function CrewAreaSection({
             />
           </div>
 
-          <div className={styles.secondaryImages}>
+          <div ref={secondaryImagesRef} className={styles.secondaryImages}>
             {secondaryImage1 && (
               <div className={styles.secondaryImageWrapper}>
                 <Image

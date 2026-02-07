@@ -4,6 +4,7 @@ import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { ContactSuccessModal } from "@/app/components/contact-success-modal";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./ContactFormSection.module.css";
 
 const STRAPI_URL =
@@ -30,6 +31,11 @@ export function ContactFormSection({
   onSubmit,
 }: ContactFormSectionProps) {
   const { t } = useTranslation();
+  const headerRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const formRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeUp",
+    delay: 0.2,
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -114,7 +120,7 @@ export function ContactFormSection({
     <section className={styles.contactFormSection}>
       <div className={styles.container}>
         {/* Red Header */}
-        <div className={styles.header}>
+        <div ref={headerRef} className={styles.header}>
           <div className={styles.spiralDecoration}>
             <Image
               src="/images/spiral_decoration.svg"
@@ -131,7 +137,7 @@ export function ContactFormSection({
         </div>
 
         {/* White Form Area */}
-        <div className={styles.formContainer} suppressHydrationWarning>
+        <div ref={formRef} className={styles.formContainer} suppressHydrationWarning>
           <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.formRow}>
               <div className={styles.formGroup} suppressHydrationWarning>

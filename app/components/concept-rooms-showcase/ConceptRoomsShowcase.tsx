@@ -2,6 +2,7 @@
 
 import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomCard";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./ConceptRoomsShowcase.module.css";
 
 export interface GalleryImage {
@@ -28,6 +29,11 @@ export interface ConceptRoomsShowcaseProps {
 
 export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
   const { t } = useTranslation();
+  const headerRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const roomsGridRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "scale",
+    stagger: 0.15,
+  });
 
   // Split the title into two lines for formatting
   const titleLines = t.STUDIO_RENTAL.CONCEPT.TITLE.split("\n");
@@ -40,7 +46,7 @@ export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
       {/* Content */}
       <div className={styles.content}>
         {/* Header */}
-        <div className={styles.header}>
+        <div ref={headerRef} className={styles.header}>
           <p className={styles.subtitle}>{t.STUDIO_RENTAL.CONCEPT.SUBTITLE}</p>
           <h2 className={styles.title}>
             {titleLines[0]}
@@ -57,7 +63,7 @@ export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
         </div>
 
         {/* Room Cards Grid */}
-        <div className={styles.roomsGrid}>
+        <div ref={roomsGridRef} className={styles.roomsGrid}>
           {rooms.map((room) => (
             <ConceptRoomCard key={room.id} {...room} />
           ))}

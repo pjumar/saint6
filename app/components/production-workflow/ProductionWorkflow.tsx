@@ -1,6 +1,7 @@
 "use client";
 
 import { WorkflowStepCard } from "@/app/components/workflow-step-card/WorkflowStepCard";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./ProductionWorkflow.module.css";
 
 export interface WorkflowStep {
@@ -22,10 +23,17 @@ export function ProductionWorkflow({
   description,
   steps,
 }: ProductionWorkflowProps) {
+  const headerRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+  const desktopGridRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+    delay: 0.15,
+  });
+
   return (
     <div className={styles.workflowContent}>
       {title && description && (
-        <div className={styles.header}>
+        <div ref={headerRef} className={styles.header}>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.description}>{description}</p>
         </div>
@@ -47,7 +55,7 @@ export function ProductionWorkflow({
       </div>
 
       {/* Desktop: Grid */}
-      <div className={styles.desktopGrid}>
+      <div ref={desktopGridRef} className={styles.desktopGrid}>
         {steps.map((step) => (
           <div key={step.id} className={styles.stepCard}>
             <WorkflowStepCard

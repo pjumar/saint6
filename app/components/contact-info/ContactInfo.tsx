@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./ContactInfo.module.css";
 
 export interface SocialLink {
@@ -31,6 +32,12 @@ export function ContactInfo({
   phone,
   socialLinks,
 }: ContactInfoProps) {
+  const leftColumnRef = useScrollAnimation<HTMLDivElement>({ type: "fadeLeft" });
+  const rightColumnRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeRight",
+    delay: 0.15,
+  });
+
   return (
     <section className={styles.section}>
       {/* Spiral Decoration - Top Center */}
@@ -46,13 +53,13 @@ export function ContactInfo({
 
       <div className={styles.container}>
         {/* Left Column: Heading + Subheading */}
-        <div className={styles.leftColumn}>
+        <div ref={leftColumnRef} className={styles.leftColumn}>
           <h2 className={styles.heading}>{heading}</h2>
           <p className={styles.subheading}>{subheading}</p>
         </div>
 
         {/* Right Column: Contact Details */}
-        <div className={styles.rightColumn}>
+        <div ref={rightColumnRef} className={styles.rightColumn}>
           <div className={styles.details}>
             <p className={styles.detailText}>{address}</p>
             <a href={`mailto:${email}`} className={styles.detailLink}>

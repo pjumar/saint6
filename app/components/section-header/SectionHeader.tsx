@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useScrollAnimation } from "@/app/hooks";
 import styles from "./SectionHeader.module.css";
 
 export interface SectionHeaderProps {
@@ -18,6 +19,8 @@ export function SectionHeader({
   spiralPosition = "center",
   className,
 }: SectionHeaderProps) {
+  const contentRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
+
   const spiralClass =
     spiralPosition !== "none"
       ? styles[
@@ -27,7 +30,7 @@ export function SectionHeader({
 
   return (
     <section className={`${styles.sectionHeader} ${className || ""}`}>
-      <div className={`${styles.content} ${styles[textAlign]}`}>
+      <div ref={contentRef} className={`${styles.content} ${styles[textAlign]}`}>
         {label && <p className={styles.label}>{label}</p>}
         <h2 className={styles.title}>{title}</h2>
       </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useScrollAnimationGrid } from "@/app/hooks";
 import styles from "./GallerySection.module.css";
 
 export interface GalleryImage {
@@ -37,6 +38,10 @@ const PLACEHOLDER_SRC = "/images/placeholder.svg";
 
 export function GallerySection({ images = DEFAULT_IMAGES }: GallerySectionProps) {
   const [errorImages, setErrorImages] = useState<Set<string>>(new Set());
+  const gridRef = useScrollAnimationGrid<HTMLDivElement>({
+    columns: 6,
+    duration: 0.5,
+  });
 
   const handleImageError = (imageId: string) => {
     setErrorImages((prev) => new Set(prev).add(imageId));
@@ -48,7 +53,7 @@ export function GallerySection({ images = DEFAULT_IMAGES }: GallerySectionProps)
 
   return (
     <section className={styles.gallery}>
-      <div className={styles.galleryGrid}>
+      <div ref={gridRef} className={styles.galleryGrid}>
         {images.map((image) => (
           <div key={image.id} className={styles.galleryItem}>
             <Image

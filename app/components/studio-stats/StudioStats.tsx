@@ -2,6 +2,7 @@
 
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
+import { useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./StudioStats.module.css";
 
 export interface StudioStatsProps {
@@ -32,8 +33,14 @@ export function StudioStats({
     },
   ];
 
+  // Scroll animation for staggered stats reveal
+  const statsRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.1,
+  });
+
   return (
-    <div className={styles.statsContainer}>
+    <div className={styles.statsContainer} ref={statsRef}>
       {stats.map((stat, index) => (
         <div key={index} className={styles.statItem}>
           <p className={styles.statLabel}>{stat.label}</p>

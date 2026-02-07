@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./FacilitiesShowcase.module.css";
 
 export interface FacilitiesShowcaseProps {
@@ -14,11 +15,21 @@ export function FacilitiesShowcase({
   loungeImageUrl,
 }: FacilitiesShowcaseProps) {
   const { t } = useTranslation();
+  const leftColumnRef = useScrollAnimation<HTMLDivElement>({ type: "fadeLeft" });
+  const rightColumnRef = useScrollAnimation<HTMLDivElement>({
+    type: "fadeRight",
+    delay: 0.15,
+  });
+  const featuresRef = useScrollAnimationChildren<HTMLUListElement>({
+    type: "fadeUp",
+    stagger: 0.08,
+    delay: 0.3,
+  });
 
   return (
     <div className={styles.showcase}>
       {/* Left Column - Dining Lounge */}
-      <div className={styles.leftColumn}>
+      <div ref={leftColumnRef} className={styles.leftColumn}>
         <div className={styles.loungeCard}>
           <p className={styles.cardLabel}>
             {t.STUDIO_RENTAL.FACILITIES.DINING_LABEL}
@@ -35,7 +46,7 @@ export function FacilitiesShowcase({
       </div>
 
       {/* Right Column - Makeup Room */}
-      <div className={styles.rightColumn}>
+      <div ref={rightColumnRef} className={styles.rightColumn}>
         <p className={styles.cardLabel}>
           {t.STUDIO_RENTAL.FACILITIES.MAKEUP_LABEL}
         </p>
@@ -50,7 +61,7 @@ export function FacilitiesShowcase({
         <div className={styles.freeBadge}>
           {t.STUDIO_RENTAL.FACILITIES.FREE_BADGE}
         </div>
-        <ul className={styles.featuresList}>
+        <ul ref={featuresRef} className={styles.featuresList}>
           <li className={styles.featureItem}>
             <Image
               src="/images/icons/makeup-table.svg"

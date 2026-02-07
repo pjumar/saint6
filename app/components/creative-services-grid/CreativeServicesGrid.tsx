@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./CreativeServicesGrid.module.css";
 
 export interface CreativeServiceItem {
@@ -15,10 +16,24 @@ interface CreativeServicesGridProps {
 }
 
 export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
+  const mobileRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.15,
+  });
+  const textRowRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "fadeUp",
+    stagger: 0.15,
+  });
+  const imageRowRef = useScrollAnimationChildren<HTMLDivElement>({
+    type: "scale",
+    stagger: 0.15,
+    delay: 0.2,
+  });
+
   return (
     <div className={styles.grid}>
       {/* Mobile: stacked cards */}
-      <div className={styles.mobileView}>
+      <div ref={mobileRef} className={styles.mobileView}>
         {items.map((item) => (
           <div key={item.id} className={styles.card}>
             <div className={styles.textContent}>
@@ -40,7 +55,7 @@ export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
 
       {/* Desktop: aligned rows */}
       <div className={styles.desktopView}>
-        <div className={styles.textRow}>
+        <div ref={textRowRef} className={styles.textRow}>
           {items.map((item) => (
             <div key={item.id} className={styles.textContent}>
               <h3 className={styles.title}>{item.title}</h3>
@@ -48,7 +63,7 @@ export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
             </div>
           ))}
         </div>
-        <div className={styles.imageRow}>
+        <div ref={imageRowRef} className={styles.imageRow}>
           {items.map((item) => (
             <div key={item.id} className={styles.imageContainer}>
               <Image
