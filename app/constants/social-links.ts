@@ -18,6 +18,12 @@ export const SOCIAL_LINKS: SocialLinkConfig[] = [
     shortLabel: "FB",
   },
   {
+    platform: "Messenger",
+    url: "https://m.me/saint6studios",
+    label: "MESSENGER",
+    shortLabel: "MSG",
+  },
+  {
     platform: "Instagram",
     url: "https://www.instagram.com/saint6.studios/",
     label: "INSTAGRAM",

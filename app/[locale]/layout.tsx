@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
 import "@/app/globals.css";
 import { ErrorBoundary } from "@/app/components/error-boundary";
+import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
 import type { Locale } from "@/app/types";
@@ -139,6 +140,7 @@ export default async function LocaleLayout({
           <TranslationProvider locale={typedLocale}>
             {children}
             <Footer />
+            <FloatingMessengerButton />
           </TranslationProvider>
         </ErrorBoundary>
       </body>

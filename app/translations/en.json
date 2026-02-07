@@ -102,7 +102,8 @@
       "SUCCESS": "Thank you! Your message has been sent.",
       "SUCCESS_TITLE": "Thank you for reaching out",
       "SUCCESS_MESSAGE": "Your message has been received — our team will get back to you shortly to assist with your request.",
-      "ERROR": "Something went wrong. Please try again."
+      "ERROR": "Something went wrong. Please try again.",
+      "MESSENGER_CTA": "Or chat with us on Messenger"
     },
     "FULL_RENTAL": {
       "TITLE": "You can also rent the entire Studio - 900m² for exclusive use.",

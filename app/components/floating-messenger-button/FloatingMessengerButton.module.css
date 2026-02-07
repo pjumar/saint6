@@ -1,0 +1,46 @@
+.button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, #0084ff 0%, #0099ff 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 132, 255, 0.5);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* Larger button on desktop */
+@media (min-width: 48.0625rem) {
+  .button {
+    bottom: 2rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

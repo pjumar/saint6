@@ -102,7 +102,8 @@
       "SUCCESS": "Cảm ơn bạn! Tin nhắn của bạn đã được gửi.",
       "SUCCESS_TITLE": "Cảm ơn bạn đã liên hệ",
       "SUCCESS_MESSAGE": "Tin nhắn của bạn đã được gửi — đội ngũ của chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.",
-      "ERROR": "Đã xảy ra lỗi. Vui lòng thử lại."
+      "ERROR": "Đã xảy ra lỗi. Vui lòng thử lại.",
+      "MESSENGER_CTA": "Hoặc nhắn tin qua Messenger"
     },
     "FULL_RENTAL": {
       "TITLE": "Bạn cũng có thể thuê toàn bộ Studio - 900m² để sử dụng độc quyền.",
