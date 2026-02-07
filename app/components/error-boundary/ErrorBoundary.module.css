@@ -15,6 +15,10 @@
   max-width: 480px;
 }
 
+.logo {
+  margin-bottom: 2rem;
+}
+
 .heading {
   font-family: var(--font-saira-condensed), sans-serif;
   font-size: 2rem;
@@ -60,6 +64,7 @@
 
 .button {
   min-width: 160px;
+  color: #ffffff !important;
 }
 
 @media (min-width: 768px) {

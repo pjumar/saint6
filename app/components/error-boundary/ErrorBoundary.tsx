@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { Button } from "@/app/components/ui/button";
 import styles from "./ErrorBoundary.module.css";
@@ -50,6 +51,13 @@ export class ErrorBoundary extends React.Component<
       return (
         <div className={styles.container}>
           <div className={styles.content}>
+            <Image
+              src="/assets/saint6-logo.svg"
+              alt="Saint6"
+              width={120}
+              height={32}
+              className={styles.logo}
+            />
             <h1 className={styles.heading}>Something went wrong</h1>
             <p className={styles.message}>
               We apologize for the inconvenience. Please try reloading the page.
