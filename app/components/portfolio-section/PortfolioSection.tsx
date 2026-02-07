@@ -37,13 +37,17 @@ export function PortfolioSection({
   const topRow = items.slice(0, 2);
   const masonryItems = items.slice(2);
 
-  // Scroll animation refs
+  // Scroll animation refs - smoother settings
   const topRowRef = useScrollAnimationChildren<HTMLDivElement>({
     type: "scale",
-    stagger: 0.15,
+    duration: 0.9,
+    stagger: 0.2,
+    ease: "power2.out",
   });
   const masonryRef = useScrollAnimationGrid<HTMLDivElement>({
     columns: 3,
+    duration: 0.9,
+    ease: "power2.out",
   });
 
   return (

@@ -168,9 +168,9 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
 
 // Hook for grid animations with wave-like stagger from center
 export function useScrollAnimationGrid<T extends HTMLElement>(
-  options: { columns?: number; duration?: number; start?: string } = {}
+  options: { columns?: number; duration?: number; start?: string; ease?: string } = {}
 ) {
-  const { columns = 5, duration = 0.6, start = "top 85%" } = options;
+  const { columns = 5, duration = 0.9, start = "top 85%", ease = "power2.out" } = options;
   const containerRef = useRef<T>(null);
 
   useEffect(() => {
@@ -180,24 +180,23 @@ export function useScrollAnimationGrid<T extends HTMLElement>(
     const children = Array.from(container.children) as HTMLElement[];
     if (!children.length) return;
 
-    // Set initial state
+    // Set initial state - gentler values for smoother animation
     gsap.set(children, {
       opacity: 0,
-      scale: 0.8,
-      y: 30,
+      scale: 0.95,
+      y: 40,
     });
 
-    // Calculate stagger based on position - items in center appear first
+    // Stagger from top-left for natural reading flow
     const animation = gsap.to(children, {
       opacity: 1,
       scale: 1,
       y: 0,
       duration,
-      ease: "back.out(1.2)",
+      ease,
       stagger: {
-        amount: 0.8,
-        grid: [Math.ceil(children.length / columns), columns],
-        from: "center",
+        amount: 0.6,
+        from: "start",
       },
       scrollTrigger: {
         trigger: container,
