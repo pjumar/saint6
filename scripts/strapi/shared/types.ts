@@ -27,6 +27,7 @@ export interface StudioRoom {
   description: string;
   description_vi: string;
   image: string;
+  gallery: string[];
   order: number;
 }
 

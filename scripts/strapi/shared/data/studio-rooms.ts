@@ -16,6 +16,11 @@ export const studioRooms: StudioRoom[] = [
     description_vi:
       "Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.",
     image: "/images/rooms/loft.jpg",
+    gallery: [
+      "/images/gallery/gallery-01.jpg",
+      "/images/gallery/gallery-02.jpg",
+      "/images/gallery/gallery-03.jpg",
+    ],
     order: 1,
   },
   {
@@ -33,6 +38,11 @@ export const studioRooms: StudioRoom[] = [
     description_vi:
       "Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.",
     image: "/images/rooms/studio.jpg",
+    gallery: [
+      "/images/gallery/gallery-04.jpg",
+      "/images/gallery/gallery-05.jpg",
+      "/images/gallery/gallery-06.jpg",
+    ],
     order: 2,
   },
   {
@@ -50,6 +60,11 @@ export const studioRooms: StudioRoom[] = [
     description_vi:
       "Hoàn hảo cho các buổi chụp editorial, phỏng vấn và chiến dịch tối giản.",
     image: "/images/rooms/arena.jpg",
+    gallery: [
+      "/images/gallery/gallery-07.jpg",
+      "/images/gallery/gallery-08.jpg",
+      "/images/gallery/gallery-09.jpg",
+    ],
     order: 3,
   },
   {
@@ -65,6 +80,11 @@ export const studioRooms: StudioRoom[] = [
     description: "Seasonal themed room for unique creative concepts.",
     description_vi: "Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.",
     image: "/images/rooms/concept1.jpg",
+    gallery: [
+      "/images/gallery/gallery-10.jpg",
+      "/images/gallery/gallery-11.jpg",
+      "/images/gallery/gallery-12.jpg",
+    ],
     order: 4,
   },
   {
@@ -80,6 +100,11 @@ export const studioRooms: StudioRoom[] = [
     description: "Seasonal themed room for unique creative concepts.",
     description_vi: "Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.",
     image: "/images/rooms/concept2.jpg",
+    gallery: [
+      "/images/gallery/gallery-13.jpg",
+      "/images/gallery/gallery-14.jpg",
+      "/images/gallery/gallery-15.jpg",
+    ],
     order: 5,
   },
   {
@@ -95,6 +120,11 @@ export const studioRooms: StudioRoom[] = [
     description: "Seasonal themed room for unique creative concepts.",
     description_vi: "Phòng theo chủ đề mùa cho các concept sáng tạo độc đáo.",
     image: "/images/rooms/concept3.jpg",
+    gallery: [
+      "/images/gallery/gallery-01.jpg",
+      "/images/gallery/gallery-04.jpg",
+      "/images/gallery/gallery-07.jpg",
+    ],
     order: 6,
   },
 ];

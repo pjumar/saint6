@@ -122,6 +122,7 @@ export interface StrapiStudioRoom {
   ceiling_height?: string;
   description?: string;
   image: StrapiImage;
+  gallery?: StrapiImage[];
   order: number;
 }
 
@@ -537,8 +538,8 @@ export async function getStudioRentalPage(locale: string = "en") {
     hero: { populate: "*" },
     intro: { populate: "*" },
     stats: { populate: "*" },
-    rooms: { populate: { image: { populate: "*" } } },
-    concept_rooms: { populate: { image: { populate: "*" } } },
+    rooms: { populate: { image: { populate: "*" }, gallery: { populate: "*" } } },
+    concept_rooms: { populate: { image: { populate: "*" }, gallery: { populate: "*" } } },
     full_rental: { populate: "*" },
     facilities: { populate: "*" },
     equipment: { populate: { image: { populate: "*" } } },
@@ -692,7 +693,7 @@ export async function getFeaturedProject(locale: string = "en") {
 
 export async function getStudioRooms(type?: "blank" | "concept") {
   const rooms = await fetchStrapi<StrapiStudioRoom[]>("studio-rooms", {
-    populate: ["image"],
+    populate: ["image", "gallery"],
     revalidate: 300,
   });
 

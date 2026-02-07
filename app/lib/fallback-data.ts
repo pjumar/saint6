@@ -150,6 +150,11 @@ export const FALLBACK_STUDIO_ROOMS = [
     description:
       "Perfect for editorial shoots, interviews, and minimalist campaigns.",
     imageUrl: "/images/rooms/loft.jpg",
+    gallery: [
+      { url: "/images/gallery/gallery-01.jpg", alt: "The Loft gallery 1" },
+      { url: "/images/gallery/gallery-02.jpg", alt: "The Loft gallery 2" },
+      { url: "/images/gallery/gallery-03.jpg", alt: "The Loft gallery 3" },
+    ],
   },
   {
     id: "studio",
@@ -162,6 +167,11 @@ export const FALLBACK_STUDIO_ROOMS = [
     description:
       "Perfect for editorial shoots, interviews, and minimalist campaigns.",
     imageUrl: "/images/rooms/studio.jpg",
+    gallery: [
+      { url: "/images/gallery/gallery-04.jpg", alt: "The Studio gallery 1" },
+      { url: "/images/gallery/gallery-05.jpg", alt: "The Studio gallery 2" },
+      { url: "/images/gallery/gallery-06.jpg", alt: "The Studio gallery 3" },
+    ],
   },
   {
     id: "arena",
@@ -174,6 +184,11 @@ export const FALLBACK_STUDIO_ROOMS = [
     description:
       "Perfect for editorial shoots, interviews, and minimalist campaigns.",
     imageUrl: "/images/rooms/arena.jpg",
+    gallery: [
+      { url: "/images/gallery/gallery-07.jpg", alt: "The Arena gallery 1" },
+      { url: "/images/gallery/gallery-08.jpg", alt: "The Arena gallery 2" },
+      { url: "/images/gallery/gallery-09.jpg", alt: "The Arena gallery 3" },
+    ],
   },
 ];
 
@@ -188,6 +203,11 @@ export const FALLBACK_CONCEPT_ROOMS = [
     ceilingHeight: "4.5m",
     description: "Seasonal themed room for unique creative concepts.",
     imageUrl: "/images/rooms/concept1.jpg",
+    gallery: [
+      { url: "/images/gallery/gallery-10.jpg", alt: "Concept room 1 gallery 1" },
+      { url: "/images/gallery/gallery-11.jpg", alt: "Concept room 1 gallery 2" },
+      { url: "/images/gallery/gallery-12.jpg", alt: "Concept room 1 gallery 3" },
+    ],
   },
   {
     id: "concept2",
@@ -199,6 +219,11 @@ export const FALLBACK_CONCEPT_ROOMS = [
     ceilingHeight: "4.5m",
     description: "Seasonal themed room for unique creative concepts.",
     imageUrl: "/images/rooms/concept2.jpg",
+    gallery: [
+      { url: "/images/gallery/gallery-13.jpg", alt: "Concept room 2 gallery 1" },
+      { url: "/images/gallery/gallery-14.jpg", alt: "Concept room 2 gallery 2" },
+      { url: "/images/gallery/gallery-15.jpg", alt: "Concept room 2 gallery 3" },
+    ],
   },
   {
     id: "concept3",
@@ -210,6 +235,11 @@ export const FALLBACK_CONCEPT_ROOMS = [
     ceilingHeight: "4.5m",
     description: "Seasonal themed room for unique creative concepts.",
     imageUrl: "/images/rooms/concept3.jpg",
+    gallery: [
+      { url: "/images/gallery/gallery-01.jpg", alt: "Concept room 3 gallery 1" },
+      { url: "/images/gallery/gallery-04.jpg", alt: "Concept room 3 gallery 2" },
+      { url: "/images/gallery/gallery-07.jpg", alt: "Concept room 3 gallery 3" },
+    ],
   },
 ];
 

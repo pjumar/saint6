@@ -1,9 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import { GalleryModal } from "@/app/components/gallery-modal/GalleryModal";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomCard.module.css";
+
+export interface GalleryImage {
+  url: string;
+  alt?: string;
+}
 
 export interface ConceptRoomCardProps {
   imageUrl: string;
@@ -14,6 +21,7 @@ export interface ConceptRoomCardProps {
   ceilingHeight: string;
   description: string;
   showEnterButton?: boolean;
+  gallery?: GalleryImage[];
 }
 
 export function ConceptRoomCard({
@@ -25,8 +33,16 @@ export function ConceptRoomCard({
   ceilingHeight,
   description,
   showEnterButton = false,
+  gallery = [],
 }: ConceptRoomCardProps) {
   const { t } = useTranslation();
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+  const handleEnterRoom = () => {
+    if (gallery.length > 0) {
+      setIsGalleryOpen(true);
+    }
+  };
 
   return (
     <div className={styles.conceptCard}>
@@ -39,8 +55,12 @@ export function ConceptRoomCard({
           height={449}
           className={styles.roomImage}
         />
-        {showEnterButton && (
-          <button type="button" className={styles.enterButton}>
+        {showEnterButton && gallery.length > 0 && (
+          <button
+            type="button"
+            className={styles.enterButton}
+            onClick={handleEnterRoom}
+          >
             <span className={styles.enterButtonText}>
               {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
             </span>
@@ -88,12 +108,24 @@ export function ConceptRoomCard({
             <CommonButton variant="primary" size="lg">
               {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
             </CommonButton>
-            <CommonButton variant="outline" size="lg">
+            <CommonButton
+              variant="outline"
+              size="lg"
+              onClick={gallery.length > 0 ? handleEnterRoom : undefined}
+            >
               {t.STUDIO_RENTAL.ROOMS.GALLERY}
             </CommonButton>
           </div>
         </div>
       </div>
+
+      {/* Gallery Modal */}
+      <GalleryModal
+        isOpen={isGalleryOpen}
+        onClose={() => setIsGalleryOpen(false)}
+        images={gallery}
+        title={title}
+      />
     </div>
   );
 }

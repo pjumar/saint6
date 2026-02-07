@@ -16,6 +16,15 @@ async function seedStudioRooms(): Promise<number[]> {
   for (const room of studioRooms) {
     const imageId = await uploadImage(room.image);
 
+    // Upload gallery images
+    const galleryIds: number[] = [];
+    for (const galleryImage of room.gallery) {
+      const galleryImageId = await uploadImage(galleryImage);
+      if (galleryImageId) {
+        galleryIds.push(galleryImageId);
+      }
+    }
+
     // Create English version (exclude _vi fields)
     const entry = await createEntry("studio-rooms", {
       title: room.title,
@@ -28,6 +37,7 @@ async function seedStudioRooms(): Promise<number[]> {
       ceiling_height: room.ceiling_height,
       description: room.description,
       image: imageId,
+      gallery: galleryIds,
       order: room.order,
     });
 

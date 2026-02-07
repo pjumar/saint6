@@ -4,6 +4,11 @@ import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomC
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomsShowcase.module.css";
 
+export interface GalleryImage {
+  url: string;
+  alt?: string;
+}
+
 export interface ConceptRoom {
   id: string;
   imageUrl: string;
@@ -14,6 +19,7 @@ export interface ConceptRoom {
   ceilingHeight: string;
   description: string;
   showEnterButton?: boolean;
+  gallery?: GalleryImage[];
 }
 
 export interface ConceptRoomsShowcaseProps {

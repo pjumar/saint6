@@ -32,6 +32,11 @@ import styles from "./StudioRental.module.css";
 // Transformer Functions - Convert Strapi data to component props
 // ============================================================================
 
+interface GalleryImage {
+  url: string;
+  alt?: string;
+}
+
 interface RoomData {
   id: string;
   title: string;
@@ -43,6 +48,7 @@ interface RoomData {
   description: string;
   imageUrl: string;
   showEnterButton?: boolean;
+  gallery?: GalleryImage[];
 }
 
 function transformRooms(
@@ -63,6 +69,20 @@ function transformRooms(
       const roomIndex = startIndex + index + 1;
       const counter = `${String(roomIndex).padStart(2, "0")}/${String(totalRooms).padStart(2, "0")}`;
 
+      // Transform gallery images
+      const gallery: GalleryImage[] = [];
+      if (room.gallery && room.gallery.length > 0) {
+        for (const img of room.gallery) {
+          const galleryUrl = getStrapiImageUrl(img);
+          if (galleryUrl) {
+            gallery.push({
+              url: galleryUrl,
+              alt: img.alternativeText || room.title,
+            });
+          }
+        }
+      }
+
       result.push({
         id: room.slug || String(room.id),
         title: room.title,
@@ -74,6 +94,7 @@ function transformRooms(
         description: room.description || "",
         imageUrl,
         showEnterButton: true,
+        gallery,
       });
     });
 
