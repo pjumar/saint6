@@ -1,10 +1,10 @@
+import { BlankRoomsGrid } from "@/app/components/blank-rooms-grid/BlankRoomsGrid";
 import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { EquipmentGrid } from "@/app/components/equipment-grid/EquipmentGrid";
 import { FacilitiesShowcase } from "@/app/components/facilities-showcase/FacilitiesShowcase";
 import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
 import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard";
-import { RoomCard } from "@/app/components/room-card/RoomCard";
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { StudioStats } from "@/app/components/studio-stats/StudioStats";
@@ -299,13 +299,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
               ctaText={introCtaText}
             />
             <StudioStats {...statsData} />
-            {studioRooms.length > 0 && (
-              <div className={styles.roomGrid}>
-                {studioRooms.map((room) => (
-                  <RoomCard key={room.id} {...room} />
-                ))}
-              </div>
-            )}
+            <BlankRoomsGrid rooms={studioRooms} />
           </div>
         </section>
 
