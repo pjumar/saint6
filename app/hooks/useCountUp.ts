@@ -9,7 +9,7 @@ export function useCountUp(
   targetValue: string,
   options: UseCountUpOptions = {}
 ) {
-  const { duration = 1500, delay = 0 } = options;
+  const { duration = 1200, delay = 0 } = options;
   const [displayValue, setDisplayValue] = useState("0");
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
@@ -46,10 +46,15 @@ export function useCountUp(
       const easedProgress = easeOutQuart(progress);
       const currentValue = target * easedProgress;
 
+      // Use Math.round for snappier feel, and ensure final value is exact
       const formattedValue =
-        decimalPlaces > 0
-          ? currentValue.toFixed(decimalPlaces)
-          : Math.floor(currentValue).toString();
+        progress >= 1
+          ? decimalPlaces > 0
+            ? target.toFixed(decimalPlaces)
+            : target.toString()
+          : decimalPlaces > 0
+            ? currentValue.toFixed(decimalPlaces)
+            : Math.round(currentValue).toString();
 
       setDisplayValue(formattedValue + suffix);
 
