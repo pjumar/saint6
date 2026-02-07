@@ -2,9 +2,9 @@
   position: relative;
   background: var(--color-primary, #880300);
   border-radius: 1.5rem 1.5rem 0 0;
-  padding: 1.5rem 1.5rem 5rem;
+  padding: 1.5rem 1.5rem 3rem;
   overflow: hidden;
-  min-height: 35rem;
+  min-height: 22rem;
   display: flex;
   align-items: stretch;
 }
@@ -14,7 +14,7 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   max-width: 90rem;
   width: 100%;
   flex: 1;
@@ -50,13 +50,15 @@
 
 .title {
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 300;
   line-height: 120%;
-  letter-spacing: -0.045rem;
+  letter-spacing: -0.06rem;
   color: var(--Text-TextinvertAlpha100, #fff);
   margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
   max-width: 42rem;
 }
 
@@ -68,10 +70,10 @@
 /* Spiral position: center (default) - centered at bottom */
 .spiralCenter {
   left: 50%;
-  bottom: -50%;
+  bottom: -12rem;
   transform: translateX(-50%);
-  width: 30rem;
-  height: 30rem;
+  width: 24rem;
+  height: 24rem;
 }
 
 /* Spiral position: right - right side vertically centered */
@@ -92,19 +94,21 @@
 /* Tablet and Desktop */
 @media (min-width: 48.0625rem) {
   .sectionHeader {
-    padding: 1.5rem 1.5rem 5rem;
-    min-height: 25rem;
+    padding: 2rem 2rem 5rem;
+    min-height: 28rem;
   }
 
   .title {
-    font-size: 2.25rem;
-    letter-spacing: -0.045rem;
+    font-size: 8rem;
+    letter-spacing: -0.16rem;
+    line-height: 1.1;
+    max-width: none;
   }
 
   .spiralCenter {
     width: 44rem;
     height: 44rem;
-    bottom: -60%;
+    bottom: -22rem;
   }
 
   .spiralRight {

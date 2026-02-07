@@ -5,9 +5,26 @@
   flex-direction: column;
 }
 
-/* Add spacing between consecutive projects */
+/* Add spacing and divider between consecutive projects */
 .projectItem + .projectItem {
   margin-top: 8rem;
+  position: relative;
+}
+
+.projectItem + .projectItem::before {
+  content: "";
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 800px;
+  height: 20px;
+  background-image: url("/images/icons/heartbeat-divider.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.2;
 }
 
 .keyProjectSection {
@@ -19,14 +36,13 @@
   overflow: hidden;
   margin-top: -1.5rem;
   position: relative;
-  padding-top: 8rem;
   padding-bottom: 8rem;
 }
 
 .projectHeader {
   display: flex;
   flex-direction: column;
-  gap: 17.1875rem;
+  gap: 2rem;
   padding: 2rem 1.5rem 1.5rem;
 }
 
