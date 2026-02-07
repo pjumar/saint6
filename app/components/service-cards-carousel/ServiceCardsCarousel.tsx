@@ -82,7 +82,20 @@ export function ServiceCardsCarousel({
     if (!carousel) return;
 
     const handleWheel = (e: WheelEvent) => {
-      // Prevent page scroll
+      // Calculate scroll amount and direction
+      const scrollAmount =
+        (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
+
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      const isAtStart = carousel.scrollLeft <= 0;
+      const isAtEnd = carousel.scrollLeft >= maxScroll - 1; // -1 for rounding tolerance
+
+      // Allow page scroll if at boundary and trying to scroll past it
+      if ((isAtStart && scrollAmount < 0) || (isAtEnd && scrollAmount > 0)) {
+        return; // Don't prevent default, let page scroll
+      }
+
+      // Prevent page scroll when carousel can still scroll
       e.preventDefault();
 
       // Pause auto-scroll during manual scroll
@@ -94,8 +107,6 @@ export function ServiceCardsCarousel({
       }
 
       // Convert vertical scroll to horizontal with smooth scroll
-      const scrollAmount =
-        (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
       carousel.scrollBy({
         left: scrollAmount,
         behavior: "smooth",

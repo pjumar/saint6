@@ -163,6 +163,7 @@
   letter-spacing: -0.02em; /* -2% tracking from Figma */
   color: var(--color-text-primary, #231d1d);
   margin: 0;
+  min-height: 4.5rem; /* 3 lines (1rem * 1.5 line-height * 3) for consistent card alignment */
 }
 
 .actions {
