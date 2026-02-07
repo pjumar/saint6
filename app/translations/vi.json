@@ -98,7 +98,9 @@
       "COMPANY": "Công ty",
       "MESSAGE": "Tin nhắn",
       "SUBMIT": "Gửi",
-      "SENDING": "Đang gửi..."
+      "SENDING": "Đang gửi...",
+      "SUCCESS": "Cảm ơn bạn! Tin nhắn của bạn đã được gửi.",
+      "ERROR": "Đã xảy ra lỗi. Vui lòng thử lại."
     },
     "FULL_RENTAL": {
       "TITLE": "Bạn cũng có thể thuê toàn bộ Studio - 900m² để sử dụng độc quyền.",
@@ -532,7 +534,9 @@
       "COMPANY": "Công ty",
       "MESSAGE": "Tin nhắn",
       "SUBMIT": "Gửi",
-      "SENDING": "Đang gửi..."
+      "SENDING": "Đang gửi...",
+      "SUCCESS": "Cảm ơn bạn! Tin nhắn của bạn đã được gửi.",
+      "ERROR": "Đã xảy ra lỗi. Vui lòng thử lại."
     }
   }
 }

@@ -98,7 +98,9 @@
       "COMPANY": "Company",
       "MESSAGE": "Message",
       "SUBMIT": "Submit",
-      "SENDING": "Sending..."
+      "SENDING": "Sending...",
+      "SUCCESS": "Thank you! Your message has been sent.",
+      "ERROR": "Something went wrong. Please try again."
     },
     "FULL_RENTAL": {
       "TITLE": "You can also rent the entire Studio - 900m² for exclusive use.",
@@ -532,7 +534,9 @@
       "COMPANY": "Company",
       "MESSAGE": "Message",
       "SUBMIT": "Submit",
-      "SENDING": "Sending..."
+      "SENDING": "Sending...",
+      "SUCCESS": "Thank you! Your message has been sent.",
+      "ERROR": "Something went wrong. Please try again."
     }
   }
 }

@@ -199,12 +199,12 @@ export function ContactSection({
                 </button>
                 {submitStatus === "success" && (
                   <p className={styles.successMessage}>
-                    Thank you! Your message has been sent.
+                    {t.STUDIO_RENTAL.FORM.SUCCESS}
                   </p>
                 )}
                 {submitStatus === "error" && (
                   <p className={styles.errorMessage}>
-                    Something went wrong. Please try again.
+                    {t.STUDIO_RENTAL.FORM.ERROR}
                   </p>
                 )}
               </div>
