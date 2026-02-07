@@ -74,7 +74,6 @@ export interface ServiceItem {
   description: string;
   description_vi: string;
   image?: string;
-  counter?: string;
   page: string;
   section: "services" | "workflow";
   order: number;

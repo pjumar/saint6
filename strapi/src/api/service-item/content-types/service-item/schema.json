@@ -33,14 +33,6 @@
         }
       }
     },
-    "counter": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "image": {
       "type": "media",
       "multiple": false,

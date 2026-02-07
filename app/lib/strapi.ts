@@ -61,7 +61,6 @@ export interface StrapiIntro {
 
 export interface StrapiService {
   image: StrapiImage;
-  counter?: string;
   title: string;
   description: string;
 }
@@ -166,7 +165,6 @@ export interface StrapiServiceItem {
   id: number;
   title: string;
   description?: string;
-  counter?: string;
   image?: StrapiImage;
   page?: "creative" | "production" | "set-design" | "event-planning" | "decor";
   section?: "services" | "workflow";

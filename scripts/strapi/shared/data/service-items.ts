@@ -35,7 +35,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi nghiên cứu brief và phát triển định hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.",
     image: "/images/creative/workflow-direction.jpg",
-    counter: "01.",
     page: "creative",
     section: "workflow",
     order: 1,
@@ -48,7 +47,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Đội ngũ của chúng tôi tạo storyboard chi tiết và danh sách cảnh quay để hình dung sản phẩm cuối cùng.",
     image: "/images/creative/workflow-storyboard.jpg",
-    counter: "02.",
     page: "creative",
     section: "workflow",
     order: 2,
@@ -61,7 +59,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi phối hợp nhân sự, địa điểm, đạo cụ và thiết bị để đảm bảo thực hiện suôn sẻ.",
     image: "/images/creative/workflow-preproduction.jpg",
-    counter: "03.",
     page: "creative",
     section: "workflow",
     order: 3,
@@ -74,7 +71,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Đội ngũ giàu kinh nghiệm của chúng tôi ghi lại tầm nhìn của bạn với độ chính xác và phong cách sáng tạo.",
     image: "/images/creative/workflow-shoot.jpg",
-    counter: "04.",
     page: "creative",
     section: "workflow",
     order: 4,
@@ -87,7 +83,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chỉnh sửa chuyên nghiệp, chỉnh màu và retouch mang sản phẩm cuối cùng thành hiện thực.",
     image: "/images/creative/workflow-post.jpg",
-    counter: "05.",
     page: "creative",
     section: "workflow",
     order: 5,
@@ -100,7 +95,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi bàn giao sản phẩm hoàn chỉnh sẵn sàng cho in ấn, kỹ thuật số và mạng xã hội.",
     image: "/images/creative/workflow-delivery.jpg",
-    counter: "06.",
     page: "creative",
     section: "workflow",
     order: 6,
@@ -186,7 +180,6 @@ export const serviceItems: ServiceItem[] = [
     description: "Concept, scheduling, and creative",
     description_vi: "Concept, lịch trình và sáng tạo",
     image: "/images/production/workflow-pre-production.jpg",
-    counter: "01.",
     page: "production",
     section: "workflow",
     order: 1,
@@ -197,7 +190,6 @@ export const serviceItems: ServiceItem[] = [
     description: "Lighting, camera, art direction",
     description_vi: "Ánh sáng, máy quay, chỉ đạo nghệ thuật",
     image: "/images/production/workflow-setup.jpg",
-    counter: "02.",
     page: "production",
     section: "workflow",
     order: 2,
@@ -208,7 +200,6 @@ export const serviceItems: ServiceItem[] = [
     description: "Execution and real-time adjustments",
     description_vi: "Thực hiện và điều chỉnh thời gian thực",
     image: "/images/production/workflow-shoot.jpg",
-    counter: "03.",
     page: "production",
     section: "workflow",
     order: 3,
@@ -219,7 +210,6 @@ export const serviceItems: ServiceItem[] = [
     description: "Editing, review, and delivery",
     description_vi: "Chỉnh sửa, đánh giá và bàn giao",
     image: "/images/production/workflow-delivery.jpg",
-    counter: "04.",
     page: "production",
     section: "workflow",
     order: 4,
@@ -234,7 +224,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi bắt đầu bằng việc hiểu định hướng sáng tạo, ngôn ngữ thương hiệu và nhu cầu không gian của bạn.",
     image: "/images/decoration/workflow-brief.jpg",
-    counter: "01.",
     page: "set-design",
     section: "workflow",
     order: 1,
@@ -247,7 +236,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi tạo bản vẽ kỹ thuật và hình ảnh 3D mang thiết kế bối cảnh đề xuất thành hiện thực — trước khi bất cứ thứ gì được xây dựng.",
     image: "/images/decoration/workflow-2d.jpg",
-    counter: "02.",
     page: "set-design",
     section: "workflow",
     order: 2,
@@ -260,7 +248,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi trình bày thiết kế và hợp tác chặt chẽ với đội ngũ của bạn để hoàn thiện cho đến khi được phê duyệt.",
     image: "/images/decoration/workflow-3d.jpg",
-    counter: "03.",
     page: "set-design",
     section: "workflow",
     order: 3,
@@ -273,7 +260,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi xây dựng bối cảnh và chuẩn bị tất cả phông nền, yếu tố cấu trúc, đạo cụ và kết cấu phù hợp với concept đã duyệt.",
     image: "/images/decoration/workflow-preproduction.jpg",
-    counter: "04.",
     page: "set-design",
     section: "workflow",
     order: 4,
@@ -286,7 +272,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi xử lý lắp đặt bối cảnh, có mặt trong suốt buổi quay để điều chỉnh thời gian thực và đảm bảo mọi thứ hoạt động trên camera.",
     image: "/images/decoration/workflow-installation.jpg",
-    counter: "05.",
     page: "set-design",
     section: "workflow",
     order: 5,
@@ -299,7 +284,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Khi buổi quay kết thúc, chúng tôi xử lý dọn dẹp và tháo dỡ bối cảnh một cách hiệu quả và chuyên nghiệp.",
     image: "/images/decoration/workflow-installation.jpg",
-    counter: "06.",
     page: "set-design",
     section: "workflow",
     order: 6,
@@ -387,7 +371,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Từ concept đến sáng tạo, Saint 6 định hình câu chuyện hình ảnh gắn kết thể hiện tầm nhìn thương hiệu của bạn.",
     image: "/images/event-planning/workflow-discovery.jpg",
-    counter: "01.",
     page: "event-planning",
     section: "workflow",
     order: 1,
@@ -400,7 +383,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Mỗi khoảnh khắc được thiết kế có chủ đích — liền mạch, thanh lịch và khó quên.",
     image: "/images/event-planning/workflow-concept.jpg",
-    counter: "02.",
     page: "event-planning",
     section: "workflow",
     order: 2,
@@ -413,7 +395,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Phối hợp hoàn hảo đảm bảo sự kiện của bạn diễn ra với độ chính xác dễ dàng.",
     image: "/images/event-planning/workflow-planning.jpg",
-    counter: "03.",
     page: "event-planning",
     section: "workflow",
     order: 3,
@@ -426,7 +407,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi tạo ra môi trường đắm chìm nắm bắt cảm xúc, chi tiết và tính cách đặc biệt.",
     image: "/images/event-planning/workflow-execution.jpg",
-    counter: "04.",
     page: "event-planning",
     section: "workflow",
     order: 4,
@@ -439,7 +419,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi tuyển chọn ẩm thực và biểu diễn làm phong phú không khí và nâng tầm trải nghiệm.",
     image: "/images/event-planning/workflow-followup.jpg",
-    counter: "05.",
     page: "event-planning",
     section: "workflow",
     order: 5,
@@ -454,7 +433,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi nghiên cứu brief và phát triển nhiều hướng sáng tạo dựa trên thương hiệu, đối tượng và mục tiêu của bạn.",
     image: "/images/decoration/workflow-brief.jpg",
-    counter: "01.",
     page: "decor",
     section: "workflow",
     order: 1,
@@ -467,7 +445,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Đội ngũ thiết kế của chúng tôi tạo mood board chi tiết và bố cục khái niệm để hình dung sự chuyển đổi không gian.",
     image: "/images/decoration/workflow-2d.jpg",
-    counter: "02.",
     page: "decor",
     section: "workflow",
     order: 2,
@@ -480,7 +457,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi tạo ra render 3D thực tế để bạn có thể trải nghiệm không gian trước khi xây dựng bắt đầu.",
     image: "/images/decoration/workflow-3d.jpg",
-    counter: "03.",
     page: "decor",
     section: "workflow",
     order: 3,
@@ -493,7 +469,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Chúng tôi phối hợp vật liệu, nhà cung cấp và lịch trình để đảm bảo thực hiện dự án suôn sẻ.",
     image: "/images/decoration/workflow-preproduction.jpg",
-    counter: "04.",
     page: "decor",
     section: "workflow",
     order: 4,
@@ -506,7 +481,6 @@ export const serviceItems: ServiceItem[] = [
     description_vi:
       "Đội ngũ của chúng tôi quản lý việc lắp đặt hoàn chỉnh, đưa từng chi tiết vào cuộc sống với độ chính xác.",
     image: "/images/decoration/workflow-installation.jpg",
-    counter: "05.",
     page: "decor",
     section: "workflow",
     order: 5,

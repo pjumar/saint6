@@ -22,7 +22,6 @@ async function seedServiceItems(): Promise<
     const entry = await createEntry("service-items", {
       title: item.title,
       description: item.description,
-      counter: item.counter,
       page: item.page,
       section: item.section,
       order: item.order,

@@ -45,7 +45,7 @@ function transformWorkflow(
       return {
         id: String(step.id),
         imageUrl: imageUrl || "/images/set-design/workflow-placeholder.jpg",
-        counter: step.counter || "",
+        counter: `${String(step.order).padStart(2, "0")}.`,
         title: step.title,
         description: step.description || "",
       };
