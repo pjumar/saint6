@@ -5,6 +5,10 @@ import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ContactSection.module.css";
 
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  "https://saint6-strapi.ccly.dev";
+
 export interface ContactSectionProps {
   backgroundImageUrl: string;
   onSubmit?: (data: ContactFormData) => void;
@@ -23,6 +27,7 @@ export function ContactSection({
 }: ContactSectionProps) {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -33,10 +38,10 @@ export function ContactSection({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setSubmitStatus("idle");
 
     // Client-side validation
-    if (!formData.name || !formData.email || !formData.message) {
-      console.log("Validation failed: Required fields missing");
+    if (!formData.name || !formData.email || !formData.company || !formData.message) {
       setIsLoading(false);
       return;
     }
@@ -44,27 +49,42 @@ export function ContactSection({
     // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      console.log("Validation failed: Invalid email format");
       setIsLoading(false);
       return;
     }
 
-    console.log("Form submitted:", formData);
+    try {
+      const response = await fetch(`${STRAPI_URL}/api/contact-submissions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: formData,
+        }),
+      });
 
-    if (onSubmit) {
-      onSubmit(formData);
-    }
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
-    // Reset form after submission
-    setTimeout(() => {
+      setSubmitStatus("success");
       setFormData({
         name: "",
         email: "",
         company: "",
         message: "",
       });
+
+      if (onSubmit) {
+        onSubmit(formData);
+      }
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleChange = (
@@ -133,7 +153,7 @@ export function ContactSection({
                   value={formData.email}
                   onChange={handleChange}
                   className={styles.input}
-                  placeholder={t.STUDIO_RENTAL.FORM.EMAIL}
+                  placeholder={`${t.STUDIO_RENTAL.FORM.EMAIL}*`}
                   required
                   aria-required="true"
                 />
@@ -147,7 +167,9 @@ export function ContactSection({
                   value={formData.company}
                   onChange={handleChange}
                   className={styles.input}
-                  placeholder={t.STUDIO_RENTAL.FORM.COMPANY}
+                  placeholder={`${t.STUDIO_RENTAL.FORM.COMPANY}*`}
+                  required
+                  aria-required="true"
                 />
               </div>
 
@@ -158,7 +180,7 @@ export function ContactSection({
                   value={formData.message}
                   onChange={handleChange}
                   className={styles.textarea}
-                  placeholder={t.STUDIO_RENTAL.FORM.MESSAGE}
+                  placeholder={`${t.STUDIO_RENTAL.FORM.MESSAGE}*`}
                   rows={3}
                   required
                   aria-required="true"
@@ -175,6 +197,16 @@ export function ContactSection({
                     ? t.STUDIO_RENTAL.FORM.SENDING
                     : t.STUDIO_RENTAL.FORM.SUBMIT}
                 </button>
+                {submitStatus === "success" && (
+                  <p className={styles.successMessage}>
+                    Thank you! Your message has been sent.
+                  </p>
+                )}
+                {submitStatus === "error" && (
+                  <p className={styles.errorMessage}>
+                    Something went wrong. Please try again.
+                  </p>
+                )}
               </div>
             </form>
           </div>

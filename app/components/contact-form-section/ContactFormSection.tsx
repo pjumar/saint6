@@ -54,7 +54,7 @@ export function ContactFormSection({
     setSubmitStatus("idle");
 
     // Client-side validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.company || !formData.message) {
       setIsLoading(false);
       return;
     }
@@ -168,7 +168,9 @@ export function ContactFormSection({
                 value={formData.company}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder={formTranslations.COMPANY ?? "Company"}
+                placeholder={`${formTranslations.COMPANY ?? "Company"}*`}
+                required
+                aria-required="true"
               />
             </div>
 
