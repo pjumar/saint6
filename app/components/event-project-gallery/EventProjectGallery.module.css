@@ -93,13 +93,13 @@
   opacity: 1;
 }
 
-.activeIndicator {
+.progressIndicator {
   position: absolute;
   top: -1px;
   left: 0;
-  width: 64px;
   height: 1px;
   background: var(--color-primary, #880300);
+  transition: width 0.3s ease;
 }
 
 .tabCounter {

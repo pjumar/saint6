@@ -764,7 +764,7 @@ export interface ApiEventPlanningPageEventPlanningPage
       Schema.Attribute.Private;
     event_projects: Schema.Attribute.Relation<
       'oneToMany',
-      'api::key-project.key-project'
+      'api::event-project.event-project'
     >;
     hero: Schema.Attribute.Component<'shared.hero', false>;
     intro: Schema.Attribute.Component<'shared.intro', false>;
@@ -786,6 +786,68 @@ export interface ApiEventPlanningPageEventPlanningPage
       'oneToMany',
       'api::service-item.service-item'
     >;
+  };
+}
+
+export interface ApiEventProjectEventProject
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'event_projects';
+  info: {
+    description: 'Event projects for event planning page showcase';
+    displayName: 'Event Project';
+    pluralName: 'event-projects';
+    singularName: 'event-project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    category: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::event-project.event-project'
+    >;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1945,6 +2007,7 @@ declare module '@strapi/strapi' {
       'api::decor-page.decor-page': ApiDecorPageDecorPage;
       'api::equipment-item.equipment-item': ApiEquipmentItemEquipmentItem;
       'api::event-planning-page.event-planning-page': ApiEventPlanningPageEventPlanningPage;
+      'api::event-project.event-project': ApiEventProjectEventProject;
       'api::faq-item.faq-item': ApiFaqItemFaqItem;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::key-project.key-project': ApiKeyProjectKeyProject;

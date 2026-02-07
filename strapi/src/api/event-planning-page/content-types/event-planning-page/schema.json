@@ -44,7 +44,7 @@
     "event_projects": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::key-project.key-project"
+      "target": "api::event-project.event-project"
     }
   }
 }

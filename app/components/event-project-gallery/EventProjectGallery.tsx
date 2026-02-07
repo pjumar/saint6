@@ -1,13 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./EventProjectGallery.module.css";
+
+export interface EventProjectImage {
+  url: string;
+  alt: string;
+}
 
 export interface EventProject {
   id: string;
-  imageUrl: string;
-  imageAlt: string;
+  images: EventProjectImage[];
   title: string;
   category: string;
 }
@@ -25,16 +29,39 @@ export function EventProjectGallery({
   projects,
   autoScrollInterval = 5000,
 }: EventProjectGalleryProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-scroll effect
+  const activeProject = projects[activeProjectIndex];
+  const activeImage = activeProject?.images[activeImageIndex];
+
+  // Calculate total images and current global index for navigation
+  const totalImages = useMemo(
+    () => projects.reduce((sum, p) => sum + p.images.length, 0),
+    [projects]
+  );
+
+  // Auto-scroll effect - advance through images, switch to next project on last image
   useEffect(() => {
-    if (isPaused || projects.length <= 1) return;
+    if (isPaused || totalImages <= 1) return;
 
     intervalRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+      setActiveImageIndex((prevImageIndex) => {
+        const currentProject = projects[activeProjectIndex];
+        const isLastImage = prevImageIndex >= currentProject.images.length - 1;
+
+        if (isLastImage) {
+          // Move to next project
+          setActiveProjectIndex((prevProjectIndex) =>
+            prevProjectIndex >= projects.length - 1 ? 0 : prevProjectIndex + 1
+          );
+          return 0; // Reset to first image of next project
+        }
+
+        return prevImageIndex + 1;
+      });
     }, autoScrollInterval);
 
     return () => {
@@ -42,17 +69,45 @@ export function EventProjectGallery({
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPaused, projects.length, autoScrollInterval]);
+  }, [isPaused, totalImages, autoScrollInterval, projects, activeProjectIndex]);
+
+  // Reset image index when project changes manually
+  const handleProjectClick = (projectIndex: number) => {
+    setActiveProjectIndex(projectIndex);
+    setActiveImageIndex(0);
+  };
 
   const handlePrevious = () => {
-    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+    if (activeImageIndex > 0) {
+      // Go to previous image in same project
+      setActiveImageIndex((prev) => prev - 1);
+    } else {
+      // Go to previous project's last image
+      const prevProjectIndex =
+        activeProjectIndex === 0 ? projects.length - 1 : activeProjectIndex - 1;
+      setActiveProjectIndex(prevProjectIndex);
+      setActiveImageIndex(projects[prevProjectIndex].images.length - 1);
+    }
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    const currentProject = projects[activeProjectIndex];
+    if (activeImageIndex < currentProject.images.length - 1) {
+      // Go to next image in same project
+      setActiveImageIndex((prev) => prev + 1);
+    } else {
+      // Go to next project's first image
+      setActiveProjectIndex((prev) =>
+        prev >= projects.length - 1 ? 0 : prev + 1
+      );
+      setActiveImageIndex(0);
+    }
   };
 
-  const activeProject = projects[activeIndex];
+  // Calculate progress percentage for active project
+  const progressPercentage = activeProject
+    ? ((activeImageIndex + 1) / activeProject.images.length) * 100
+    : 0;
 
   return (
     <section
@@ -62,21 +117,23 @@ export function EventProjectGallery({
     >
       {/* Main Image */}
       <div className={styles.imageContainer}>
-        <Image
-          src={activeProject.imageUrl}
-          alt={activeProject.imageAlt}
-          fill
-          sizes="100vw"
-          className={styles.backgroundImage}
-          priority
-        />
+        {activeImage && (
+          <Image
+            src={activeImage.url}
+            alt={activeImage.alt}
+            fill
+            sizes="100vw"
+            className={styles.backgroundImage}
+            priority
+          />
+        )}
       </div>
 
       {/* Navigation Arrows */}
       <button
         className={`${styles.navButton} ${styles.navButtonLeft}`}
         onClick={handlePrevious}
-        aria-label="Previous project"
+        aria-label="Previous image"
       >
         <svg
           width="24"
@@ -97,7 +154,7 @@ export function EventProjectGallery({
       <button
         className={`${styles.navButton} ${styles.navButtonRight}`}
         onClick={handleNext}
-        aria-label="Next project"
+        aria-label="Next image"
       >
         <svg
           width="24"
@@ -118,22 +175,28 @@ export function EventProjectGallery({
 
       {/* Project Tabs */}
       <div className={styles.tabsContainer}>
-        {projects.map((project, index) => (
-          <button
-            key={project.id}
-            className={`${styles.tab} ${index === activeIndex ? styles.tabActive : ""}`}
-            onClick={() => setActiveIndex(index)}
-          >
-            <span className={styles.tabCounter}>{formatCounter(index)}</span>
-            <div className={styles.tabContent}>
-              <h3 className={styles.tabTitle}>{project.title}</h3>
-              <p className={styles.tabCategory}>{project.category}</p>
-            </div>
-            {index === activeIndex && (
-              <div className={styles.activeIndicator} />
-            )}
-          </button>
-        ))}
+        {projects.map((project, index) => {
+          const isActive = index === activeProjectIndex;
+          const tabProgressPercentage = isActive ? progressPercentage : 0;
+
+          return (
+            <button
+              key={project.id}
+              className={`${styles.tab} ${isActive ? styles.tabActive : ""}`}
+              onClick={() => handleProjectClick(index)}
+            >
+              <span className={styles.tabCounter}>{formatCounter(index)}</span>
+              <div className={styles.tabContent}>
+                <h3 className={styles.tabTitle}>{project.title}</h3>
+                <p className={styles.tabCategory}>{project.category}</p>
+              </div>
+              <div
+                className={styles.progressIndicator}
+                style={{ width: `${tabProgressPercentage}%` }}
+              />
+            </button>
+          );
+        })}
       </div>
     </section>
   );

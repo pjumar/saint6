@@ -942,10 +942,14 @@ export const FALLBACK_EVENT_WORKFLOW: ServiceCard[] = [
   },
 ];
 
+export interface EventProjectImageFallback {
+  url: string;
+  alt: string;
+}
+
 export interface EventProjectFallback {
   id: string;
-  imageUrl: string;
-  imageAlt: string;
+  images: EventProjectImageFallback[];
   title: string;
   category: string;
 }
@@ -953,29 +957,41 @@ export interface EventProjectFallback {
 export const FALLBACK_EVENT_PROJECTS: EventProjectFallback[] = [
   {
     id: "project-1",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Fashion Show Event",
+    images: [
+      { url: "/images/event-planning/gallery-1.jpg", alt: "Spring Collection Reveal - Photo 1" },
+      { url: "/images/event-planning/gallery-2.jpg", alt: "Spring Collection Reveal - Photo 2" },
+      { url: "/images/event-planning/portfolio-1.jpg", alt: "Spring Collection Reveal - Photo 3" },
+    ],
     title: "Spring Collection Reveal",
     category: "Fashion Shows",
   },
   {
     id: "project-2",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Private Dinner Event",
+    images: [
+      { url: "/images/event-planning/gallery-3.jpg", alt: "VIP Gala Evening - Photo 1" },
+      { url: "/images/event-planning/gallery-4.jpg", alt: "VIP Gala Evening - Photo 2" },
+      { url: "/images/event-planning/portfolio-2.jpg", alt: "VIP Gala Evening - Photo 3" },
+      { url: "/images/event-planning/portfolio-3.jpg", alt: "VIP Gala Evening - Photo 4" },
+    ],
     title: "VIP Gala Evening",
     category: "Private Dinners",
   },
   {
     id: "project-3",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Art Pop-Up Event",
+    images: [
+      { url: "/images/event-planning/portfolio-4.jpg", alt: "Contemporary Art Opening - Photo 1" },
+      { url: "/images/event-planning/portfolio-5.jpg", alt: "Contemporary Art Opening - Photo 2" },
+    ],
     title: "Contemporary Art Opening",
     category: "Art & Lifestyle Pop-Ups",
   },
   {
     id: "project-4",
-    imageUrl: "/images/project-1.jpg",
-    imageAlt: "Corporate Celebration",
+    images: [
+      { url: "/images/event-planning/service-corporate.jpg", alt: "Annual Awards Ceremony - Photo 1" },
+      { url: "/images/event-planning/service-press-events.jpg", alt: "Annual Awards Ceremony - Photo 2" },
+      { url: "/images/event-planning/service-product-launches.jpg", alt: "Annual Awards Ceremony - Photo 3" },
+    ],
     title: "Annual Awards Ceremony",
     category: "Corporate Celebrations",
   },

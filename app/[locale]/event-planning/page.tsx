@@ -24,7 +24,7 @@ import {
   getEventPlanningPage,
   getStrapiImageUrl,
   type StrapiServiceItem,
-  type StrapiKeyProject,
+  type StrapiEventProject,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
 import styles from "./EventPlanning.module.css";
@@ -71,25 +71,34 @@ function transformWorkflow(
 }
 
 function transformEventProjects(
-  projects: StrapiKeyProject[] | undefined
+  projects: StrapiEventProject[] | undefined
 ): EventProject[] {
   if (!projects || projects.length === 0) return [];
 
-  const result: EventProject[] = [];
+  return projects
+    .sort((a, b) => a.order - b.order)
+    .map((project) => {
+      // Transform Strapi images array to component format
+      const images = (project.images || [])
+        .map((img) => {
+          const imageUrl = getStrapiImageUrl(img);
+          return imageUrl
+            ? {
+                url: imageUrl,
+                alt: img?.alternativeText || project.title,
+              }
+            : null;
+        })
+        .filter((img): img is { url: string; alt: string } => img !== null);
 
-  projects.forEach((project) => {
-    const imageUrl = getStrapiImageUrl(project.main_image);
-    if (!imageUrl) return;
-    result.push({
-      id: String(project.id),
-      imageUrl,
-      imageAlt: project.main_image?.alternativeText || project.title,
-      title: project.title,
-      category: project.expertise?.[0] || "Event",
-    });
-  });
-
-  return result;
+      return {
+        id: String(project.id),
+        images,
+        title: project.title,
+        category: project.category,
+      };
+    })
+    .filter((project) => project.images.length > 0);
 }
 
 // ============================================================================

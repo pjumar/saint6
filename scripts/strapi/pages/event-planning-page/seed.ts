@@ -2,7 +2,7 @@
  * Seed Event Planning Page
  *
  * Seeds event planning page content for both EN and VI locales.
- * Requires service-items and key-projects to be seeded first.
+ * Requires service-items and event-projects to be seeded first.
  *
  * Usage: npx tsx scripts/strapi/pages/event-planning-page/seed.ts
  */
@@ -18,7 +18,7 @@ async function seedEventPlanningPage(): Promise<void> {
   console.log("\n Seeding Event Planning Page...");
 
   // Get required collection documentIds for EN locale (Strapi v5 relations use documentId)
-  const keyProjectDocIds = await getCollectionDocumentIds("key-projects", "en");
+  const eventProjectDocIds = await getCollectionDocumentIds("event-projects", "en");
   const servicesDocIds = await getServiceItemDocumentIds("event-planning", "services", "en");
   const workflowDocIds = await getServiceItemDocumentIds("event-planning", "workflow", "en");
 
@@ -48,7 +48,7 @@ async function seedEventPlanningPage(): Promise<void> {
         "Beyond venue and décor, Saint 6 delivers artistry in motion — a rare harmony of creative vision, flawless execution, and atmosphere designed to leave a lasting impression.",
     },
     workflow: workflowDocIds,
-    event_projects: keyProjectDocIds,
+    event_projects: eventProjectDocIds,
   });
 
   // Vietnamese - only update text fields, relations shared from EN

@@ -110,6 +110,16 @@ export interface StrapiKeyProject {
   is_featured: boolean;
 }
 
+export interface StrapiEventProject {
+  id: number;
+  documentId: string;
+  title: string;
+  slug: string;
+  category: string;
+  images: StrapiImage[];
+  order: number;
+}
+
 export interface StrapiStudioRoom {
   id: number;
   title: string;
@@ -319,7 +329,7 @@ export interface StrapiEventPlanningPage {
   services?: StrapiServiceItem[];
   intro_2?: StrapiIntro;
   workflow?: StrapiServiceItem[];
-  event_projects?: StrapiKeyProject[];
+  event_projects?: StrapiEventProject[];
 }
 
 export interface StrapiDecorPage {
@@ -621,8 +631,7 @@ export async function getEventPlanningPage(locale: string = "en") {
     workflow: { populate: { image: { populate: "*" } } },
     event_projects: {
       populate: {
-        main_image: { populate: "*" },
-        gallery_images: { populate: { image: { populate: "*" } } },
+        images: { populate: "*" },
       },
     },
   };
