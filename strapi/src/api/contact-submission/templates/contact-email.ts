@@ -40,6 +40,11 @@ export function getHtmlTemplate(data: ContactEmailData): string {
 
   const formattedMessage = escapeHtml(data.message).replace(/\n/g, "<br>");
 
+  // Saint6 logo as inline SVG for email compatibility
+  const logoSvg = `<svg width="120" height="24" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="32" font-family="Georgia, serif" font-size="32" font-weight="300" fill="#ffffff" letter-spacing="0.1em">SAINT6</text>
+  </svg>`;
+
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -47,40 +52,67 @@ export function getHtmlTemplate(data: ContactEmailData): string {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
-  <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-    <!-- Header -->
-    <div style="background-color: #880300; padding: 24px 32px;">
-      <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 500;">New Business Inquiry</h1>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f4f4;">
+  <div style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
+    <!-- Main Card -->
+    <div style="background-color: #ffffff; border-radius: 0; overflow: hidden; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);">
+      <!-- Header with Logo -->
+      <div style="background-color: #880300; padding: 40px 32px; text-align: center;">
+        <div style="margin-bottom: 24px;">
+          ${logoSvg}
+        </div>
+        <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase;">New Business Inquiry</h1>
+      </div>
+
+      <!-- Content -->
+      <div style="padding: 40px 32px;">
+        <!-- Intro -->
+        <p style="margin: 0 0 32px 0; color: #666666; font-size: 14px; line-height: 1.6;">
+          You've received a new inquiry from the Saint 6 Studios website.
+        </p>
+
+        <!-- Details -->
+        <div style="margin-bottom: 32px;">
+          <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
+            <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">From</div>
+            <div style="color: #231d1d; font-size: 16px; font-weight: 500;">${escapeHtml(data.name)}</div>
+          </div>
+          <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
+            <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Email</div>
+            <div style="font-size: 16px;">
+              <a href="mailto:${escapeHtml(data.email)}" style="color: #880300; text-decoration: none;">${escapeHtml(data.email)}</a>
+            </div>
+          </div>
+          <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
+            <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Company</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.company || "—")}</div>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div style="background-color: #fafafa; padding: 24px; border-left: 3px solid #880300;">
+          <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Message</div>
+          <div style="color: #231d1d; font-size: 15px; line-height: 1.7;">${formattedMessage}</div>
+        </div>
+
+        <!-- Reply Button -->
+        <div style="margin-top: 32px; text-align: center;">
+          <a href="mailto:${escapeHtml(data.email)}?subject=Re: Your inquiry to Saint 6 Studios" style="display: inline-block; background-color: #880300; color: #ffffff; padding: 14px 40px; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.05em;">Reply to ${escapeHtml(data.name.split(' ')[0])}</a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div style="padding: 24px 32px; background-color: #231d1d; text-align: center;">
+        <p style="margin: 0 0 8px 0; font-size: 13px; color: #ffffff; font-weight: 500;">Saint 6 Studios</p>
+        <p style="margin: 0; font-size: 11px; color: rgba(255, 255, 255, 0.6);">
+          6 Be Van Cam, Tan Kieng, District 7, HCMC
+        </p>
+      </div>
     </div>
 
-    <!-- Content -->
-    <div style="padding: 32px;">
-      <table style="border-collapse: collapse; width: 100%;">
-        <tr>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0; font-weight: 600; background-color: #fafafa; width: 120px; vertical-align: top;">Name</td>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0;">${escapeHtml(data.name)}</td>
-        </tr>
-        <tr>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0; font-weight: 600; background-color: #fafafa; vertical-align: top;">Email</td>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0;">
-            <a href="mailto:${escapeHtml(data.email)}" style="color: #880300; text-decoration: none;">${escapeHtml(data.email)}</a>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0; font-weight: 600; background-color: #fafafa; vertical-align: top;">Company</td>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0;">${escapeHtml(data.company || "Not provided")}</td>
-        </tr>
-        <tr>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0; font-weight: 600; background-color: #fafafa; vertical-align: top;">Message</td>
-          <td style="padding: 12px 16px; border: 1px solid #e0e0e0; line-height: 1.6;">${formattedMessage}</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Footer -->
-    <div style="padding: 16px 32px; background-color: #fafafa; border-top: 1px solid #e0e0e0;">
-      <p style="margin: 0; font-size: 12px; color: #666;">
+    <!-- Disclaimer -->
+    <div style="text-align: center; padding: 24px 0;">
+      <p style="margin: 0; font-size: 11px; color: #999999;">
         This email was sent from the Saint 6 Studios website contact form.
       </p>
     </div>
