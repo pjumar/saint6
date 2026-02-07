@@ -40,8 +40,10 @@ export default factories.createCoreController(
 
         const resend = new Resend(resendApiKey);
 
+        const fromEmail = process.env.EMAIL_FROM || "Saint6 Studios <noreply@ccly.dev>";
+
         const { error } = await resend.emails.send({
-          from: "Saint6 Studios <noreply@saint6studios.com>",
+          from: fromEmail,
           to: toEmail,
           subject: getSubject(name),
           text: getTextTemplate(emailData),
