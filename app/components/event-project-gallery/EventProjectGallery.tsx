@@ -119,6 +119,7 @@ export function EventProjectGallery({
       <div className={styles.imageContainer}>
         {activeImage && (
           <Image
+            key={`${activeProjectIndex}-${activeImageIndex}`}
             src={activeImage.url}
             alt={activeImage.alt}
             fill

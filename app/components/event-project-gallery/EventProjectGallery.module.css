@@ -18,6 +18,7 @@
 .backgroundImage {
   object-fit: cover;
   object-position: top center;
+  transition: opacity 0.3s ease;
 }
 
 /* Navigation Buttons */
@@ -86,7 +87,11 @@
 }
 
 .tab:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+.tab:active {
+  opacity: 0.7;
 }
 
 .tabActive {
