@@ -90,13 +90,13 @@ Plans:
 **Depends on**: Phase 7
 **Research**: Likely (new CMS integration, library choice)
 **Research topics**: CMS options (Strapi, Contentful, Sanity, Supabase), data schema for projects/team/services, build-time content fetching pattern
-**Plans**: 3-4 plans
+**Plans**: 4 plans
 
 Plans:
 - [x] 08-01: Homepage CMS Integration — completed 2026-02-03
 - [x] 08-02: Studio Rental CMS Integration — completed 2026-02-07
 - [x] 08-03: Service Pages CMS Integration — completed 2026-02-07
-- [ ] 08-04: Info Pages CMS (About, Contact)
+- [x] 08-04: Info Pages CMS (About, Contact) — completed 2026-02-07
 
 ### Phase 9: Polish & Launch
 **Goal**: Final polish, social links, deployment ready
@@ -122,7 +122,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 5. Creative                    | v1.0      | 1/1            | Complete    | 2026-01-25 |
 | 6. About Us & Contact          | v1.0      | 2/2            | Complete    | 2026-01-25 |
 | 7. Error Handling & Stability  | v1.1      | 3/3            | Complete    | 2026-02-03 |
-| 8. CMS Integration             | v1.1      | 3/4            | In progress | -          |
+| 8. CMS Integration             | v1.1      | 4/4            | Complete    | 2026-02-07 |
 | 9. Polish & Launch             | v1.1      | 0/2            | Not started | -          |
 
 ---
