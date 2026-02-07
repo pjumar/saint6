@@ -538,41 +538,98 @@ export async function getStudioRentalPage(locale: string = "en") {
 }
 
 export async function getCreativePage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: "*" },
+    services: { populate: { image: { populate: "*" } } },
+    workflow: { populate: { image: { populate: "*" } } },
+    portfolio_settings: { populate: "*" },
+    portfolio_items: { populate: { image: { populate: "*" } } },
+    brand_logos: { populate: { logo: { populate: "*" } } },
+    testimonials: { populate: { brand_logo: { populate: "*" } } },
+  };
+
   return fetchStrapi<StrapiCreativePage>("creative-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
 
 export async function getProductionPage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: "*" },
+    services: { populate: { image: { populate: "*" } } },
+    workflow: { populate: { image: { populate: "*" } } },
+    key_projects: {
+      populate: {
+        main_image: { populate: "*" },
+        gallery_images: { populate: { image: { populate: "*" } } },
+      },
+    },
+    testimonials: { populate: { brand_logo: { populate: "*" } } },
+  };
+
   return fetchStrapi<StrapiProductionPage>("production-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
 
 export async function getSetDesignPage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: "*" },
+    workflow: { populate: { image: { populate: "*" } } },
+    portfolio_settings: { populate: "*" },
+    portfolio_items: { populate: { image: { populate: "*" } } },
+    testimonials: { populate: { brand_logo: { populate: "*" } } },
+  };
+
   return fetchStrapi<StrapiSetDesignPage>("set-design-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
 
 export async function getEventPlanningPage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: "*" },
+    services: { populate: { image: { populate: "*" } } },
+    workflow: { populate: { image: { populate: "*" } } },
+    key_projects: {
+      populate: {
+        main_image: { populate: "*" },
+        gallery_images: { populate: { image: { populate: "*" } } },
+      },
+    },
+    testimonials: { populate: { brand_logo: { populate: "*" } } },
+  };
+
   return fetchStrapi<StrapiEventPlanningPage>("event-planning-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
 
 export async function getDecorPage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: "*" },
+    workflow: { populate: { image: { populate: "*" } } },
+    portfolio_settings: { populate: "*" },
+    portfolio_items: { populate: { image: { populate: "*" } } },
+    testimonials: { populate: { brand_logo: { populate: "*" } } },
+  };
+
   return fetchStrapi<StrapiDecorPage>("decor-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
