@@ -108,6 +108,168 @@ export const FALLBACK_CREW_AREA_DATA: CrewAreaSectionProps = {
 };
 
 // ============================================================================
+// Studio Rental Fallback Data
+// ============================================================================
+
+export const FALLBACK_STUDIO_HERO = {
+  heading: "Your creative playground",
+  backgroundImage: "/images/studio-rental/hero-background.jpg",
+  backgroundAlt: "Studio Rental",
+};
+
+export const FALLBACK_STUDIO_INTRO = {
+  title: "How It Works",
+  description:
+    "Because your vision deserves more than a space— It needs a stage, a story, and a studio that moves with you.",
+  ctaText: "Get in touch",
+  ctaLink: "#contact-form",
+};
+
+export const FALLBACK_STUDIO_STATS = {
+  totalRooms: 6,
+  ceilingHeight: "4.5m",
+  totalSpace: "900m²",
+  blankRooms: 3,
+  conceptRooms: 3,
+};
+
+export const FALLBACK_STUDIO_ROOMS = [
+  {
+    id: "loft",
+    title: "The Loft",
+    pricePerHour: "450,000",
+    counter: "01/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description:
+      "Perfect for editorial shoots, interviews, and minimalist campaigns.",
+    imageUrl: "/images/rooms/loft.jpg",
+  },
+  {
+    id: "studio",
+    title: "The Studio",
+    pricePerHour: "800,000",
+    counter: "02/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description:
+      "Perfect for editorial shoots, interviews, and minimalist campaigns.",
+    imageUrl: "/images/rooms/studio.jpg",
+  },
+  {
+    id: "arena",
+    title: "The Arena",
+    pricePerHour: "850,000",
+    counter: "03/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description:
+      "Perfect for editorial shoots, interviews, and minimalist campaigns.",
+    imageUrl: "/images/rooms/arena.jpg",
+  },
+];
+
+export const FALLBACK_CONCEPT_ROOMS = [
+  {
+    id: "concept1",
+    title: "Concept room 1",
+    pricePerHour: "450,000",
+    counter: "04/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description: "Seasonal themed room for unique creative concepts.",
+    imageUrl: "/images/rooms/concept1.jpg",
+  },
+  {
+    id: "concept2",
+    title: "Concept room 2",
+    pricePerHour: "450,000",
+    counter: "05/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description: "Seasonal themed room for unique creative concepts.",
+    imageUrl: "/images/rooms/concept2.jpg",
+  },
+  {
+    id: "concept3",
+    title: "Concept room 3",
+    pricePerHour: "450,000",
+    counter: "06/06",
+    space: "125m²",
+    width: "6m",
+    ceilingHeight: "4.5m",
+    description: "Seasonal themed room for unique creative concepts.",
+    imageUrl: "/images/rooms/concept3.jpg",
+  },
+];
+
+export const FALLBACK_FULL_RENTAL = {
+  price: "2,500,000",
+  backgroundImageUrl: "/images/full-studio-bg.jpg",
+};
+
+export const FALLBACK_FACILITIES = {
+  makeupImageUrl: "/images/facilities/makeup-room.jpg",
+  loungeImageUrl: "/images/facilities/dining-lounge.jpg",
+};
+
+export const FALLBACK_EQUIPMENT = [
+  {
+    id: "godox",
+    name: "Godox Light",
+    spec: "QS 800 | QS 1200",
+    imageUrl: "/images/equipment/godox-light.jpg",
+  },
+  {
+    id: "softbox-80x120",
+    name: "2x Softbox",
+    spec: "80X120CM",
+    imageUrl: "/images/equipment/softbox-1.jpg",
+  },
+  {
+    id: "softbox-30x160",
+    name: "2x Softbox",
+    spec: "30X160CM",
+    imageUrl: "/images/equipment/softbox-2.jpg",
+  },
+  {
+    id: "parabolic",
+    name: "1x Parabolic",
+    spec: "120CM",
+    imageUrl: "/images/equipment/parabolic.jpg",
+  },
+  {
+    id: "softbox-octa",
+    name: "1x Softbox OCTA",
+    spec: "110CM",
+    imageUrl: "/images/equipment/softbox-octa.jpg",
+  },
+  {
+    id: "softbox-110",
+    name: "1x Softbox",
+    spec: "110CM",
+    imageUrl: "/images/equipment/softbox-3.jpg",
+  },
+  {
+    id: "beauty-dish",
+    name: "1x Beauty Dish",
+    spec: "60CM",
+    imageUrl: "/images/equipment/beauty-dish.jpg",
+  },
+  {
+    id: "gobo",
+    name: "1x Gobo",
+    spec: "EF-ZF3",
+    imageUrl: "/images/equipment/gobo.jpg",
+  },
+];
+
+// ============================================================================
 // Key Project Fallback Data
 // ============================================================================
 

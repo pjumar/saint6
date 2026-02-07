@@ -519,9 +519,22 @@ export async function getHomepage(locale: string = "en") {
 }
 
 export async function getStudioRentalPage(locale: string = "en") {
+  // Strapi 5 deep populate - explicit nested populate for relations with images
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: "*" },
+    stats: { populate: "*" },
+    rooms: { populate: { image: { populate: "*" } } },
+    concept_rooms: { populate: { image: { populate: "*" } } },
+    full_rental: { populate: "*" },
+    facilities: { populate: "*" },
+    equipment: { populate: { image: { populate: "*" } } },
+    faqs: { populate: "*" },
+  };
+
   return fetchStrapi<StrapiStudioRentalPage>("studio-rental-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
