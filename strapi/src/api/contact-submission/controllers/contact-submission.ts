@@ -27,7 +27,9 @@ export default factories.createCoreController(
       try {
         // Prepare email data
         const emailData = { name, email, company, message };
-        const toEmail = process.env.CONTACT_EMAIL || "saint6studios@gmail.com";
+        // TODO: restore env variable after testing
+        // const toEmail = process.env.CONTACT_EMAIL || "saint6studios@gmail.com";
+        const toEmail = "p@ccly.dev";
 
         strapi.log.info(`Attempting to send contact email to: ${toEmail}`);
 
