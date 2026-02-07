@@ -187,10 +187,6 @@
     transition: color 0.3s ease;
   }
 
-  .desktopNavWrapper .heroLinksRight:hover :global(.caption) {
-    color: var(--color-text-invert-100);
-  }
-
   .header {
     padding: 0 1.5rem;
   }
