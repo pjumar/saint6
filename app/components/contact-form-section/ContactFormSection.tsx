@@ -5,6 +5,10 @@ import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ContactFormSection.module.css";
 
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL ||
+  "https://attractive-confidence-baa5492cbd.strapiapp.com";
+
 // Reuse the ContactFormData interface from ContactSection
 export interface ContactFormData {
   name: string;
@@ -26,6 +30,7 @@ export function ContactFormSection({
 }: ContactFormSectionProps) {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -46,10 +51,10 @@ export function ContactFormSection({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setSubmitStatus("idle");
 
     // Client-side validation
     if (!formData.name || !formData.email || !formData.message) {
-      console.log("Validation failed: Required fields missing");
       setIsLoading(false);
       return;
     }
@@ -57,27 +62,42 @@ export function ContactFormSection({
     // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      console.log("Validation failed: Invalid email format");
       setIsLoading(false);
       return;
     }
 
-    console.log("Contact form submitted:", formData);
+    try {
+      const response = await fetch(`${STRAPI_URL}/api/contact-submissions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: formData,
+        }),
+      });
 
-    if (onSubmit) {
-      onSubmit(formData);
-    }
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
 
-    // Reset form after submission
-    setTimeout(() => {
+      setSubmitStatus("success");
       setFormData({
         name: "",
         email: "",
         company: "",
         message: "",
       });
+
+      if (onSubmit) {
+        onSubmit(formData);
+      }
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleChange = (
@@ -176,6 +196,16 @@ export function ContactFormSection({
                   ? (formTranslations.SENDING ?? "Sending...")
                   : (formTranslations.SUBMIT ?? "Submit")}
               </button>
+              {submitStatus === "success" && (
+                <p className={styles.successMessage}>
+                  {formTranslations.SUCCESS ?? "Thank you! Your message has been sent."}
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className={styles.errorMessage}>
+                  {formTranslations.ERROR ?? "Something went wrong. Please try again."}
+                </p>
+              )}
             </div>
           </form>
         </div>

@@ -147,6 +147,26 @@
   cursor: not-allowed;
 }
 
+.successMessage {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.875rem;
+  color: #166534;
+  background: #dcfce7;
+  border-radius: 0.25rem;
+}
+
+.errorMessage {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 0.875rem;
+  color: #991b1b;
+  background: #fee2e2;
+  border-radius: 0.25rem;
+}
+
 /* Desktop styles */
 @media (min-width: 48.0625rem) {
   .contactFormSection {
