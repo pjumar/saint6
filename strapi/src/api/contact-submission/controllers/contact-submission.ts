@@ -1,4 +1,9 @@
 import { factories } from "@strapi/strapi";
+import {
+  getTextTemplate,
+  getHtmlTemplate,
+  getSubject,
+} from "../templates/contact-email";
 
 export default factories.createCoreController(
   "api::contact-submission.contact-submission",
@@ -20,41 +25,15 @@ export default factories.createCoreController(
       let emailSent = false;
 
       try {
-        // Send email notification
+        // Prepare email data
+        const emailData = { name, email, company, message };
+
+        // Send email notification using templates
         await strapi.plugins["email"].services.email.send({
           to: process.env.CONTACT_EMAIL || "saint6studios@gmail.com",
-          subject: `Saint 6 - New business inquiry from ${name}`,
-          text: `
-New business inquiry:
-
-Name: ${name}
-Email: ${email}
-Company: ${company || "Not provided"}
-
-Message:
-${message}
-          `.trim(),
-          html: `
-<h2>New Business Inquiry</h2>
-<table style="border-collapse: collapse; width: 100%; max-width: 600px;">
-  <tr>
-    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Name</td>
-    <td style="padding: 10px; border: 1px solid #ddd;">${name}</td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Email</td>
-    <td style="padding: 10px; border: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Company</td>
-    <td style="padding: 10px; border: 1px solid #ddd;">${company || "Not provided"}</td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">Message</td>
-    <td style="padding: 10px; border: 1px solid #ddd;">${message.replace(/\n/g, "<br>")}</td>
-  </tr>
-</table>
-          `.trim(),
+          subject: getSubject(name),
+          text: getTextTemplate(emailData),
+          html: getHtmlTemplate(emailData),
         });
 
         emailSent = true;
