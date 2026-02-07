@@ -21,6 +21,12 @@ interface EventProjectGalleryProps {
   autoScrollInterval?: number;
 }
 
+interface ImageState {
+  projectIndex: number;
+  imageIndex: number;
+  key: string;
+}
+
 function formatCounter(index: number): string {
   return `${String(index + 1).padStart(2, "0")}.`;
 }
@@ -32,7 +38,10 @@ export function EventProjectGallery({
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [previousImage, setPreviousImage] = useState<ImageState | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Use refs to track current values for the interval callback
   const activeProjectIndexRef = useRef(activeProjectIndex);
@@ -49,6 +58,46 @@ export function EventProjectGallery({
 
   const activeProject = projects[activeProjectIndex];
   const activeImage = activeProject?.images[activeImageIndex];
+  const currentImageKey = `${activeProjectIndex}-${activeImageIndex}`;
+
+  // Handle crossfade transition when image changes
+  useEffect(() => {
+    // Skip on initial render
+    if (previousImage === null && !isTransitioning) {
+      setPreviousImage({
+        projectIndex: activeProjectIndex,
+        imageIndex: activeImageIndex,
+        key: currentImageKey,
+      });
+      return;
+    }
+
+    // If the image actually changed, trigger transition
+    if (previousImage && previousImage.key !== currentImageKey) {
+      setIsTransitioning(true);
+
+      // Clear any existing timeout
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+
+      // After transition completes, update previous image
+      transitionTimeoutRef.current = setTimeout(() => {
+        setPreviousImage({
+          projectIndex: activeProjectIndex,
+          imageIndex: activeImageIndex,
+          key: currentImageKey,
+        });
+        setIsTransitioning(false);
+      }, 700); // Match CSS transition duration
+    }
+
+    return () => {
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, [activeProjectIndex, activeImageIndex, currentImageKey, previousImage, isTransitioning]);
 
   // Calculate total images and current global index for navigation
   const totalImages = useMemo(
@@ -128,16 +177,28 @@ export function EventProjectGallery({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Main Image */}
+      {/* Main Image with Crossfade */}
       <div className={styles.imageContainer}>
+        {/* Previous image (stable background) */}
+        {isTransitioning && previousImage && (
+          <Image
+            key={`prev-${previousImage.key}`}
+            src={projects[previousImage.projectIndex]?.images[previousImage.imageIndex]?.url || ""}
+            alt={projects[previousImage.projectIndex]?.images[previousImage.imageIndex]?.alt || ""}
+            fill
+            sizes="100vw"
+            className={`${styles.backgroundImage} ${styles.imageBase}`}
+          />
+        )}
+        {/* Current image (fades in on top) */}
         {activeImage && (
           <Image
-            key={`${activeProjectIndex}-${activeImageIndex}`}
+            key={`current-${currentImageKey}`}
             src={activeImage.url}
             alt={activeImage.alt}
             fill
             sizes="100vw"
-            className={styles.backgroundImage}
+            className={`${styles.backgroundImage} ${isTransitioning ? styles.imageFadeIn : ""}`}
             priority
           />
         )}
