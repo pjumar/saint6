@@ -49,4 +49,28 @@ export const testimonialItems: TestimonialItem[] = [
     author_title_vi: "Trưởng nhóm Sáng tạo, Sony Vietnam",
     order: 4,
   },
+  {
+    brand_name: "VinFast",
+    brand_logo: "/images/brands/vinfast.png",
+    quote_en:
+      "Saint 6 brought our brand launch to life with stunning visuals and impeccable attention to every detail. A truly world-class production team.",
+    quote_vi:
+      "Saint 6 đã mang đến sự sống động cho buổi ra mắt thương hiệu của chúng tôi với hình ảnh tuyệt đẹp và sự chú ý hoàn hảo đến từng chi tiết. Một đội ngũ sản xuất đẳng cấp thế giới.",
+    author_name: "Pham Minh Tuan",
+    author_title_en: "Marketing Director, VinFast",
+    author_title_vi: "Giám đốc Marketing, VinFast",
+    order: 5,
+  },
+  {
+    brand_name: "Maybelline",
+    brand_logo: "/images/brands/maybelline.png",
+    quote_en:
+      "From concept to execution, Saint 6 understood our vision perfectly. The event exceeded all expectations and created lasting memories for our guests.",
+    quote_vi:
+      "Từ ý tưởng đến thực hiện, Saint 6 hiểu hoàn hảo tầm nhìn của chúng tôi. Sự kiện vượt quá mọi kỳ vọng và tạo nên những kỷ niệm đáng nhớ cho khách mời.",
+    author_name: "Nguyen Thu Hang",
+    author_title_en: "Brand Manager, Maybelline Vietnam",
+    author_title_vi: "Quản lý Thương hiệu, Maybelline Vietnam",
+    order: 6,
+  },
 ];

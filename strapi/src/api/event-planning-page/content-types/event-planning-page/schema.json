@@ -45,6 +45,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::event-project.event-project"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial-item.testimonial-item"
     }
   }
 }

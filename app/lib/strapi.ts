@@ -330,6 +330,7 @@ export interface StrapiEventPlanningPage {
   intro_2?: StrapiIntro;
   workflow?: StrapiServiceItem[];
   event_projects?: StrapiEventProject[];
+  testimonials?: StrapiTestimonialItem[];
 }
 
 export interface StrapiDecorPage {
@@ -634,6 +635,7 @@ export async function getEventPlanningPage(locale: string = "en") {
         images: { populate: "*" },
       },
     },
+    testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
   return fetchStrapi<StrapiEventPlanningPage>("event-planning-page", {

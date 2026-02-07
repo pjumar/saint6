@@ -15,6 +15,10 @@ import {
 } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import {
+  type TestimonialItem,
+  TestimonialsSection,
+} from "@/app/components/testimonials-section/TestimonialsSection";
+import {
   FALLBACK_EVENT_HERO,
   FALLBACK_EVENT_PROJECTS,
   FALLBACK_EVENT_SERVICES,
@@ -25,6 +29,7 @@ import {
   getStrapiImageUrl,
   type StrapiServiceItem,
   type StrapiEventProject,
+  type StrapiTestimonialItem,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
 import styles from "./EventPlanning.module.css";
@@ -99,6 +104,26 @@ function transformEventProjects(
       };
     })
     .filter((project) => project.images.length > 0);
+}
+
+function transformTestimonials(
+  testimonials: StrapiTestimonialItem[] | undefined
+): TestimonialItem[] {
+  if (!testimonials || testimonials.length === 0) return [];
+
+  return testimonials
+    .sort((a, b) => a.order - b.order)
+    .map((testimonial) => {
+      const logoUrl = getStrapiImageUrl(testimonial.brand_logo);
+      return {
+        id: String(testimonial.id),
+        logoUrl: logoUrl || "/images/brands/placeholder.png",
+        logoAlt: testimonial.brand_logo?.alternativeText || testimonial.brand_name || "Brand",
+        quote: testimonial.quote,
+        authorName: testimonial.author_name,
+        authorTitle: testimonial.author_title,
+      };
+    });
 }
 
 // ============================================================================
@@ -208,6 +233,16 @@ export default async function EventPlanningPage({ params }: PageProps) {
       ? FALLBACK_EVENT_PROJECTS
       : [];
 
+  // Testimonials
+  const testimonialsLabel =
+    t.EVENT_PLANNING?.TESTIMONIALS?.LABEL || "CLIENT VOICES";
+  const testimonialsTitle =
+    t.EVENT_PLANNING?.TESTIMONIALS?.TITLE ||
+    "Stories from Brands Who Trusted Us with Their Events";
+  const testimonialItems = strapiData?.testimonials
+    ? transformTestimonials(strapiData.testimonials)
+    : [];
+
   return (
     <div className={styles.eventPlanningPage}>
       {/* Hero Section */}
@@ -249,6 +284,17 @@ export default async function EventPlanningPage({ params }: PageProps) {
               <EventProjectGallery projects={eventProjects} />
             </div>
           </section>
+        )}
+
+        {/* Testimonials Section */}
+        {testimonialItems.length > 0 && (
+          <div id="testimonials">
+            <TestimonialsSection
+              label={testimonialsLabel}
+              title={testimonialsTitle}
+              items={testimonialItems}
+            />
+          </div>
         )}
 
         {/* Contact Section */}

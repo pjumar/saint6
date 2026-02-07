@@ -779,6 +779,10 @@ export interface ApiEventPlanningPageEventPlanningPage
       'oneToMany',
       'api::service-item.service-item'
     >;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial-item.testimonial-item'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
