@@ -132,7 +132,13 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
         {project.testimonial && (
           <div className={styles.testimonialContent}>
             <div className={styles.testimonialQuote}>
-              <p className={styles.quoteMark}>"</p>
+              <Image
+                src="/images/icons/quote-mark.svg"
+                alt=""
+                width={36}
+                height={32}
+                className={styles.quoteMark}
+              />
               <p className={styles.quoteText}>{project.testimonial.quote}</p>
             </div>
             <div className={styles.testimonialAuthor}>

@@ -228,13 +228,9 @@
 }
 
 .quoteMark {
-  color: var(--color-text-primary);
-  font-size: 6rem;
-  font-weight: 300;
-  height: 2.375rem;
-  letter-spacing: -0.3rem;
-  line-height: normal;
-  margin: 0;
+  width: 36px;
+  height: 32px;
+  margin-bottom: 0.5rem;
 }
 
 .quoteText {
