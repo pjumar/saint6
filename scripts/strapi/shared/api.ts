@@ -80,7 +80,11 @@ export async function findExistingImage(
 }
 
 export async function uploadImage(imagePath: string): Promise<number | null> {
-  const fileName = path.basename(imagePath);
+  // Create unique filename by including parent folder (e.g., "creative-hero-background.jpg")
+  const parts = imagePath.split("/").filter(Boolean);
+  const folder = parts.length > 2 ? parts[parts.length - 2] : "";
+  const baseName = path.basename(imagePath);
+  const fileName = folder ? `${folder}-${baseName}` : baseName;
 
   // Check cache first
   if (imageCache[imagePath]) {

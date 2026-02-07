@@ -3,6 +3,7 @@ import {
   type CreativeServiceItem,
   CreativeServicesGrid,
 } from "@/app/components/creative-services-grid/CreativeServicesGrid";
+import { DebugPanel } from "@/app/components/debug-panel/DebugPanel";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import {
   type PortfolioItem,
@@ -157,6 +158,25 @@ export default async function CreativePage({ params }: PageProps) {
   // Fetch CMS data at build time
   const strapiData = await getCreativePage(locale);
 
+  // DEBUG: Detailed logging for production debugging
+  console.log("[CreativePage] ===== START DEBUG =====");
+  console.log("[CreativePage] locale:", locale);
+  console.log("[CreativePage] NODE_ENV:", process.env.NODE_ENV);
+  console.log("[CreativePage] strapiData exists:", !!strapiData);
+  if (strapiData) {
+    console.log("[CreativePage] strapiData keys:", Object.keys(strapiData));
+    console.log("[CreativePage] hero:", strapiData.hero ? "yes" : "no");
+    console.log("[CreativePage] clients:", strapiData.clients ? "yes" : "no");
+    console.log("[CreativePage] client_logos:", strapiData.client_logos?.length ?? 0);
+    console.log("[CreativePage] services:", strapiData.services?.length ?? 0);
+    console.log("[CreativePage] intro:", strapiData.intro ? "yes" : "no");
+    console.log("[CreativePage] workflow:", strapiData.workflow?.length ?? 0);
+    console.log("[CreativePage] portfolio_settings:", strapiData.portfolio_settings ? "yes" : "no");
+    console.log("[CreativePage] portfolio_items:", strapiData.portfolio_items?.length ?? 0);
+    console.log("[CreativePage] testimonials:", strapiData.testimonials?.length ?? 0);
+  }
+  console.log("[CreativePage] ===== END DEBUG =====");
+
   // Dev fallback - use hardcoded data when Strapi is unavailable during development
   const useFallback = !strapiData && isDev;
   if (useFallback) {
@@ -266,6 +286,26 @@ export default async function CreativePage({ params }: PageProps) {
       ? FALLBACK_CREATIVE_TESTIMONIALS
       : [];
 
+  // Debug info for client-side debug panel
+  const debugInfo = {
+    page: "creative",
+    locale,
+    env: process.env.NODE_ENV || "unknown",
+    timestamp: new Date().toISOString(),
+    sections: [
+      { name: "strapiData", hasData: !!strapiData },
+      { name: "hero", hasData: !!strapiData?.hero },
+      { name: "clients", hasData: !!strapiData?.clients },
+      { name: "client_logos", hasData: (strapiData?.client_logos?.length ?? 0) > 0, count: strapiData?.client_logos?.length ?? 0 },
+      { name: "services", hasData: translatedServices.length > 0, count: translatedServices.length },
+      { name: "intro", hasData: !!strapiData?.intro },
+      { name: "workflow", hasData: translatedWorkflow.length > 0, count: translatedWorkflow.length },
+      { name: "portfolio_settings", hasData: !!strapiData?.portfolio_settings },
+      { name: "portfolio_items", hasData: portfolioItems.length > 0, count: portfolioItems.length },
+      { name: "testimonials", hasData: testimonialItems.length > 0, count: testimonialItems.length },
+    ],
+  };
+
   return (
     <div className={styles.creativePage}>
       {/* Hero Section */}
@@ -337,6 +377,9 @@ export default async function CreativePage({ params }: PageProps) {
           <ContactSection backgroundImageUrl="/images/get-in-touch-bg.jpg" />
         </div>
       </div>
+
+      {/* Debug Panel - visible with ?debug=true query param */}
+      <DebugPanel info={debugInfo} />
     </div>
   );
 }

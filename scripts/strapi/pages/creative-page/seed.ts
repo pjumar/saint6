@@ -63,7 +63,16 @@ async function seedCreativePage(): Promise<void> {
     testimonials: testimonialDocIds,
   });
 
-  // Vietnamese - only update text fields, relations shared from EN
+  // Get Vietnamese locale documentIds for relations
+  const testimonialDocIdsVi = await getCollectionDocumentIds("testimonial-items", "vi");
+  const servicesDocIdsVi = await getServiceItemDocumentIds("creative", "services", "vi");
+  const workflowDocIdsVi = await getServiceItemDocumentIds("creative", "workflow", "vi");
+  const portfolioDocIdsVi = await getPortfolioItemDocumentIds("creative", "vi");
+
+  console.log(`  VI - Testimonials: ${testimonialDocIdsVi.length}, Services: ${servicesDocIdsVi.length}`);
+  console.log(`  VI - Workflow: ${workflowDocIdsVi.length}, Portfolio: ${portfolioDocIdsVi.length}`);
+
+  // Vietnamese - update all fields including relations
   await updateSingleType(
     "creative-page",
     {
@@ -78,6 +87,7 @@ async function seedCreativePage(): Promise<void> {
           "Chúng tôi tự hào hợp tác với các thương hiệu, agency và startup hàng đầu trên toàn thế giới.",
       },
       client_logos: brandLogoDocIds, // Brand logos are not i18n
+      services: servicesDocIdsVi.length > 0 ? servicesDocIdsVi : servicesDocIds,
       intro: {
         label: "Cách Chúng Tôi Làm Việc",
         description:
@@ -85,13 +95,14 @@ async function seedCreativePage(): Promise<void> {
         cta_text: "Liên hệ ngay",
         cta_link: "#contact-form",
       },
+      workflow: workflowDocIdsVi.length > 0 ? workflowDocIdsVi : workflowDocIds,
       portfolio_settings: {
         label: "Tác Phẩm Nổi Bật",
         statement:
           "Hình ảnh cao cấp phản ánh tham vọng thương hiệu của bạn — một triển lãm của nghệ thuật và sự chú ý đến chi tiết.",
       },
-      // Note: services, workflow, portfolio_items, testimonials are i18n
-      // and only have EN locale, so we don't update them for VI
+      portfolio_items: portfolioDocIdsVi.length > 0 ? portfolioDocIdsVi : portfolioDocIds,
+      testimonials: testimonialDocIdsVi.length > 0 ? testimonialDocIdsVi : testimonialDocIds,
     },
     "vi"
   );

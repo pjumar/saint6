@@ -7,7 +7,7 @@ import styles from "./ContactFormSection.module.css";
 
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://attractive-confidence-baa5492cbd.strapiapp.com";
+  "https://saint6-strapi.ccly.dev";
 
 // Reuse the ContactFormData interface from ContactSection
 export interface ContactFormData {

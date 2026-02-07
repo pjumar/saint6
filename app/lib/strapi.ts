@@ -9,7 +9,7 @@
 
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://attractive-confidence-baa5492cbd.strapiapp.com";
+  "https://saint6-strapi.ccly.dev";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 interface StrapiResponse<T> {
@@ -424,6 +424,7 @@ async function fetchStrapi<T>(
   } = {},
 ): Promise<T | null> {
   const { populate = "*", locale = "en", revalidate = 60 } = options;
+  const DEBUG = process.env.STRAPI_DEBUG === "true";
 
   const params = new URLSearchParams();
 
@@ -446,7 +447,13 @@ async function fetchStrapi<T>(
     }
   }
 
+  if (DEBUG) {
+    console.log(`[Strapi] Fetching: ${endpoint} (locale: ${locale})`);
+    console.log(`[Strapi] URL: ${url.substring(0, 200)}...`);
+  }
+
   try {
+    const startTime = Date.now();
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
@@ -457,17 +464,25 @@ async function fetchStrapi<T>(
       next: { revalidate },
     });
 
+    const duration = Date.now() - startTime;
+
     if (!response.ok) {
       console.error(
-        `Strapi fetch error: ${response.status} ${response.statusText}`,
+        `[Strapi] ERROR: ${endpoint} - ${response.status} ${response.statusText} (${duration}ms)`,
       );
       return null;
     }
 
     const json: StrapiResponse<T> = await response.json();
+
+    if (DEBUG) {
+      console.log(`[Strapi] SUCCESS: ${endpoint} (${duration}ms)`);
+      console.log(`[Strapi] Data keys:`, json.data ? Object.keys(json.data) : "null");
+    }
+
     return json.data;
   } catch (error) {
-    console.error("Strapi fetch error:", error);
+    console.error(`[Strapi] EXCEPTION: ${endpoint}`, error);
     return null;
   }
 }
@@ -540,12 +555,13 @@ export async function getStudioRentalPage(locale: string = "en") {
 export async function getCreativePage(locale: string = "en") {
   const populateQuery = {
     hero: { populate: "*" },
+    clients: { populate: "*" },
+    client_logos: { populate: { logo: { populate: "*" } } },
     intro: { populate: "*" },
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
     portfolio_items: { populate: { image: { populate: "*" } } },
-    brand_logos: { populate: { logo: { populate: "*" } } },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -560,6 +576,7 @@ export async function getProductionPage(locale: string = "en") {
   const populateQuery = {
     hero: { populate: "*" },
     intro: { populate: "*" },
+    intro_2: { populate: "*" },
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
     key_projects: {
@@ -568,7 +585,6 @@ export async function getProductionPage(locale: string = "en") {
         gallery_images: { populate: { image: { populate: "*" } } },
       },
     },
-    testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
   return fetchStrapi<StrapiProductionPage>("production-page", {
@@ -599,15 +615,15 @@ export async function getEventPlanningPage(locale: string = "en") {
   const populateQuery = {
     hero: { populate: "*" },
     intro: { populate: "*" },
+    intro_2: { populate: "*" },
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
-    key_projects: {
+    event_projects: {
       populate: {
         main_image: { populate: "*" },
         gallery_images: { populate: { image: { populate: "*" } } },
       },
     },
-    testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
   return fetchStrapi<StrapiEventPlanningPage>("event-planning-page", {
@@ -621,10 +637,10 @@ export async function getDecorPage(locale: string = "en") {
   const populateQuery = {
     hero: { populate: "*" },
     intro: { populate: "*" },
+    intro_2: { populate: "*" },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
     portfolio_items: { populate: { image: { populate: "*" } } },
-    testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
   return fetchStrapi<StrapiDecorPage>("decor-page", {
