@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { ContactSuccessModal } from "@/app/components/contact-success-modal";
 import styles from "./ContactFormSection.module.css";
 
 const STRAPI_URL =
@@ -31,6 +32,7 @@ export function ContactFormSection({
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -82,6 +84,7 @@ export function ContactFormSection({
       }
 
       setSubmitStatus("success");
+      setShowSuccessModal(true);
       setFormData({
         name: "",
         email: "",
@@ -198,11 +201,6 @@ export function ContactFormSection({
                   ? (formTranslations.SENDING ?? "Sending...")
                   : (formTranslations.SUBMIT ?? "Submit")}
               </button>
-              {submitStatus === "success" && (
-                <p className={styles.successMessage}>
-                  {formTranslations.SUCCESS ?? "Thank you! Your message has been sent."}
-                </p>
-              )}
               {submitStatus === "error" && (
                 <p className={styles.errorMessage}>
                   {formTranslations.ERROR ?? "Something went wrong. Please try again."}
@@ -212,6 +210,13 @@ export function ContactFormSection({
           </form>
         </div>
       </div>
+
+      <ContactSuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title={formTranslations.SUCCESS_TITLE ?? "Thank you for reaching out"}
+        message={formTranslations.SUCCESS_MESSAGE ?? "Your message has been received — our team will get back to you shortly to assist with your request."}
+      />
     </section>
   );
 }

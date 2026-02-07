@@ -1,0 +1,151 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: relative;
+  background-color: #880300;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: white;
+}
+
+.decoration {
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+}
+
+.spiralImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.5;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+}
+
+.title {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: white;
+  line-height: 1.2;
+  letter-spacing: -0.72px;
+  margin: 0;
+}
+
+.message {
+  font-family: var(--font-inter), "Public Sans", Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  letter-spacing: -0.32px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    padding: 32px;
+  }
+
+  .decoration {
+    top: -40%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    aspect-ratio: 3 / 4;
+    padding: 24px;
+  }
+
+  .decoration {
+    top: -20%;
+    right: -30%;
+    width: 300px;
+    height: 300px;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}

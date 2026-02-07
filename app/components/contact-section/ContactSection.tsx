@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { ContactSuccessModal } from "@/app/components/contact-success-modal";
 import styles from "./ContactSection.module.css";
 
 const STRAPI_URL =
@@ -28,6 +29,7 @@ export function ContactSection({
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -69,6 +71,7 @@ export function ContactSection({
       }
 
       setSubmitStatus("success");
+      setShowSuccessModal(true);
       setFormData({
         name: "",
         email: "",
@@ -197,11 +200,6 @@ export function ContactSection({
                     ? t.STUDIO_RENTAL.FORM.SENDING
                     : t.STUDIO_RENTAL.FORM.SUBMIT}
                 </button>
-                {submitStatus === "success" && (
-                  <p className={styles.successMessage}>
-                    {t.STUDIO_RENTAL.FORM.SUCCESS}
-                  </p>
-                )}
                 {submitStatus === "error" && (
                   <p className={styles.errorMessage}>
                     {t.STUDIO_RENTAL.FORM.ERROR}
@@ -212,6 +210,13 @@ export function ContactSection({
           </div>
         </div>
       </div>
+
+      <ContactSuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title={t.STUDIO_RENTAL.FORM.SUCCESS_TITLE}
+        message={t.STUDIO_RENTAL.FORM.SUCCESS_MESSAGE}
+      />
     </section>
   );
 }
