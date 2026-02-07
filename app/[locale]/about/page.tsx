@@ -26,9 +26,9 @@ import {
 import {
   getAboutPage,
   getStrapiImageUrl,
+  type StrapiFounder,
   type StrapiTimelineItem,
   type StrapiValue,
-  type StrapiFounder,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
 import styles from "./About.module.css";
@@ -51,7 +51,7 @@ function transformValues(values: StrapiValue[] | undefined): ValueItem[] {
 }
 
 function transformTimeline(
-  timeline: StrapiTimelineItem[] | undefined
+  timeline: StrapiTimelineItem[] | undefined,
 ): ServiceCard[] {
   if (!timeline || timeline.length === 0) return [];
 
@@ -106,7 +106,7 @@ export default async function AboutPage({ params }: PageProps) {
   const useFallback = !strapiData && isDev;
   if (useFallback) {
     console.warn(
-      "[AboutPage] Using fallback data - Strapi CMS not available in development"
+      "[AboutPage] Using fallback data - Strapi CMS not available in development",
     );
   }
 
@@ -119,8 +119,8 @@ export default async function AboutPage({ params }: PageProps) {
     strapiData?.hero?.heading ||
     (useFallback
       ? FALLBACK_ABOUT_HERO.heading
-      : (aboutTranslations.HERO as { TAGLINE?: string })?.TAGLINE ??
-        "We Imagine. We Design. We Create.");
+      : ((aboutTranslations.HERO as { TAGLINE?: string })?.TAGLINE ??
+        "We Imagine. We Design. We Create."));
   const heroBackgroundFromCms = strapiData?.hero?.background_image
     ? getStrapiImageUrl(strapiData.hero.background_image)
     : null;
@@ -134,25 +134,25 @@ export default async function AboutPage({ params }: PageProps) {
     strapiData?.intro?.label ||
     (useFallback
       ? FALLBACK_ABOUT_INTRO.label
-      : (aboutTranslations.INTRO as { LABEL?: string })?.LABEL ?? "ABOUT US");
+      : ((aboutTranslations.INTRO as { LABEL?: string })?.LABEL ?? "ABOUT US"));
   const introHeadline =
     strapiData?.intro?.headline ||
     (useFallback
       ? FALLBACK_ABOUT_INTRO.headline
-      : (aboutTranslations.INTRO as { HEADLINE?: string })?.HEADLINE ??
-        "We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers.\nWe turn ideas into places, feelings, and memories.");
+      : ((aboutTranslations.INTRO as { HEADLINE?: string })?.HEADLINE ??
+        "We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers.\nWe turn ideas into places, feelings, and memories."));
   const introBody1 =
     strapiData?.intro?.body_paragraph_1 ||
     (useFallback
       ? FALLBACK_ABOUT_INTRO.bodyParagraph1
-      : (aboutTranslations.INTRO as { BODY_1?: string })?.BODY_1 ??
-        "Saint 6 Studios, founded by Trang Nhe Nhang, is a multi-disciplinary creative studio crafting sets, spaces, environments, and experiences.");
+      : ((aboutTranslations.INTRO as { BODY_1?: string })?.BODY_1 ??
+        "Saint 6 Studios, founded by Trang Nhe Nhang, is a multi-disciplinary creative studio crafting sets, spaces, environments, and experiences."));
   const introBody2 =
     strapiData?.intro?.body_paragraph_2 ||
     (useFallback
       ? FALLBACK_ABOUT_INTRO.bodyParagraph2
-      : (aboutTranslations.INTRO as { BODY_2?: string })?.BODY_2 ??
-        'We create work that feels alive, work that holds emotion, atmosphere, and story. For us, it\'s never "just decor." It\'s the feeling someone carries home.');
+      : ((aboutTranslations.INTRO as { BODY_2?: string })?.BODY_2 ??
+        "We create work that feels alive, work that holds emotion, atmosphere, and story. For us, it's never \"just decor.\" It's the feeling someone carries home."));
   const introImageFromCms = strapiData?.intro?.image
     ? getStrapiImageUrl(strapiData.intro.image)
     : null;
@@ -163,32 +163,34 @@ export default async function AboutPage({ params }: PageProps) {
     strapiData?.vision?.label ||
     (useFallback
       ? FALLBACK_ABOUT_VISION.label
-      : (aboutTranslations.VISION as { LABEL?: string })?.LABEL ?? "VISION");
+      : ((aboutTranslations.VISION as { LABEL?: string })?.LABEL ?? "VISION"));
   const visionStatement =
     strapiData?.vision?.statement ||
     (useFallback
       ? FALLBACK_ABOUT_VISION.statement
-      : (aboutTranslations.VISION as { STATEMENT?: string })?.STATEMENT ??
-        "To create work that is remembered through the feelings it evokes.");
+      : ((aboutTranslations.VISION as { STATEMENT?: string })?.STATEMENT ??
+        "To create work that is remembered through the feelings it evokes."));
 
   // Full-width image
   const fullWidthImageFromCms = strapiData?.full_width_image
     ? getStrapiImageUrl(strapiData.full_width_image)
     : null;
-  const fullWidthImage = fullWidthImageFromCms || FALLBACK_ABOUT_FULL_WIDTH_IMAGE;
+  const fullWidthImage =
+    fullWidthImageFromCms || FALLBACK_ABOUT_FULL_WIDTH_IMAGE;
 
   // Mission
   const missionLabel =
     strapiData?.mission?.label ||
     (useFallback
       ? FALLBACK_ABOUT_MISSION.label
-      : (aboutTranslations.MISSION as { LABEL?: string })?.LABEL ?? "MISSION");
+      : ((aboutTranslations.MISSION as { LABEL?: string })?.LABEL ??
+        "MISSION"));
   const missionStatement =
     strapiData?.mission?.statement ||
     (useFallback
       ? FALLBACK_ABOUT_MISSION.statement
-      : (aboutTranslations.MISSION as { STATEMENT?: string })?.STATEMENT ??
-        "We transform ideas, identities, and stories into visual experiences that move people.");
+      : ((aboutTranslations.MISSION as { STATEMENT?: string })?.STATEMENT ??
+        "We transform ideas, identities, and stories into visual experiences that move people."));
 
   // Values
   const valuesData = strapiData?.values
@@ -199,7 +201,8 @@ export default async function AboutPage({ params }: PageProps) {
 
   // Apply translations to values
   const translatedValues = valuesData.map((value, index) => {
-    const itemKey = `ITEM_${index + 1}` as keyof typeof aboutTranslations.VALUES;
+    const itemKey =
+      `ITEM_${index + 1}` as keyof typeof aboutTranslations.VALUES;
     const translation = (
       aboutTranslations as {
         VALUES?: Record<string, { TITLE?: string; DESCRIPTION?: string }>;
@@ -217,19 +220,22 @@ export default async function AboutPage({ params }: PageProps) {
     strapiData?.our_story?.label ||
     (useFallback
       ? FALLBACK_ABOUT_STORY.label
-      : (aboutTranslations.OUR_STORY as { LABEL?: string })?.LABEL ?? "Our Story");
+      : ((aboutTranslations.OUR_STORY as { LABEL?: string })?.LABEL ??
+        "Our Story"));
   const storyParagraph1 =
     strapiData?.our_story?.paragraph_1 ||
     (useFallback
       ? FALLBACK_ABOUT_STORY.paragraph1
-      : (aboutTranslations.OUR_STORY as { PARAGRAPH_1?: string })?.PARAGRAPH_1 ??
-        "Before Saint 6, there was Haus of Trang - where Trang learned that styling is not only about how things look, but how they make people feel.");
+      : ((aboutTranslations.OUR_STORY as { PARAGRAPH_1?: string })
+          ?.PARAGRAPH_1 ??
+        "Before Saint 6, there was Haus of Trang - where Trang learned that styling is not only about how things look, but how they make people feel."));
   const storyParagraph2 =
     strapiData?.our_story?.paragraph_2 ||
     (useFallback
       ? FALLBACK_ABOUT_STORY.paragraph2
-      : (aboutTranslations.OUR_STORY as { PARAGRAPH_2?: string })?.PARAGRAPH_2 ??
-        "That realization became the foundation of Saint 6");
+      : ((aboutTranslations.OUR_STORY as { PARAGRAPH_2?: string })
+          ?.PARAGRAPH_2 ??
+        "That realization became the foundation of Saint 6"));
 
   // Timeline
   const timelineData = strapiData?.timeline
