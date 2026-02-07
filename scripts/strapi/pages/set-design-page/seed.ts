@@ -53,7 +53,7 @@ async function seedSetDesignPage(): Promise<void> {
     testimonials: testimonialDocIds,
   });
 
-  // Vietnamese - only update text fields, relations shared from EN
+  // Vietnamese - include relations (documentIds work across locales in Strapi 5)
   await updateSingleType(
     "set-design-page",
     {
@@ -75,8 +75,9 @@ async function seedSetDesignPage(): Promise<void> {
         statement:
           "Chúng tôi tạo hình không gian vật lý phản ánh ý định sáng tạo của bạn — môi trường trở thành một phần câu chuyện của bạn",
       },
-      // Note: workflow, portfolio_items, testimonials are i18n
-      // and only have EN locale, so we don't update them for VI
+      workflow: workflowDocIds,
+      portfolio_items: portfolioDocIds,
+      testimonials: testimonialDocIds,
     },
     "vi"
   );

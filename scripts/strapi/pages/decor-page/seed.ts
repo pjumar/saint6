@@ -55,7 +55,7 @@ async function seedDecorPage(): Promise<void> {
     portfolio_items: portfolioDocIds,
   });
 
-  // Vietnamese - only update text fields, relations shared from EN
+  // Vietnamese - include relations (documentIds work across locales in Strapi 5)
   await updateSingleType(
     "decor-page",
     {
@@ -82,8 +82,8 @@ async function seedDecorPage(): Promise<void> {
         statement:
           "Mỗi dự án bắt đầu bằng một tầm nhìn. Chúng tôi mang nó vào cuộc sống — từng chi tiết một.",
       },
-      // Note: workflow, portfolio_items are i18n
-      // and only have EN locale, so we don't update them for VI
+      workflow: workflowDocIds,
+      portfolio_items: portfolioDocIds,
     },
     "vi"
   );

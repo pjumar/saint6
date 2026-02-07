@@ -27,7 +27,7 @@ function formatCounter(index: number): string {
 
 export function EventProjectGallery({
   projects,
-  autoScrollInterval = 5000,
+  autoScrollInterval = 1500,
 }: EventProjectGalleryProps) {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);

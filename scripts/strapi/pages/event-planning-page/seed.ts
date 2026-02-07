@@ -53,7 +53,7 @@ async function seedEventPlanningPage(): Promise<void> {
     testimonials: testimonialDocIds,
   });
 
-  // Vietnamese - only update text fields, relations shared from EN
+  // Vietnamese - include relations (documentIds work across locales in Strapi 5)
   await updateSingleType(
     "event-planning-page",
     {
@@ -74,8 +74,10 @@ async function seedEventPlanningPage(): Promise<void> {
         description:
           "Vượt xa địa điểm và trang trí, Saint 6 mang đến nghệ thuật trong chuyển động — sự hòa hợp hiếm có giữa tầm nhìn sáng tạo, thực hiện hoàn hảo và bầu không khí được thiết kế để để lại ấn tượng lâu dài.",
       },
-      // Note: services, workflow, event_projects are i18n
-      // and only have EN locale, so we don't update them for VI
+      services: servicesDocIds,
+      workflow: workflowDocIds,
+      event_projects: eventProjectDocIds,
+      testimonials: testimonialDocIds,
     },
     "vi"
   );
