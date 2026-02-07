@@ -57,8 +57,7 @@
   letter-spacing: -0.06rem;
   color: var(--Text-TextinvertAlpha100, #fff);
   margin: 0;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 0.75rem;
   max-width: 42rem;
 }
 
@@ -102,6 +101,7 @@
     font-size: 8rem;
     letter-spacing: -0.16rem;
     line-height: 1.1;
+    margin-top: 1rem;
     max-width: none;
   }
 
