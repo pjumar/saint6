@@ -27,16 +27,27 @@ export default factories.createCoreController(
       try {
         // Prepare email data
         const emailData = { name, email, company, message };
+        const toEmail = process.env.CONTACT_EMAIL || "saint6studios@gmail.com";
 
-        // Send email notification using templates
-        await strapi.plugins["email"].services.email.send({
-          to: process.env.CONTACT_EMAIL || "saint6studios@gmail.com",
+        strapi.log.info(`Attempting to send contact email to: ${toEmail}`);
+
+        // Send email notification using templates (Strapi 5 API)
+        const emailService = strapi.plugin("email")?.service("email");
+
+        if (!emailService) {
+          strapi.log.error("Email plugin not available - check if email provider is configured");
+          throw new Error("Email service not configured");
+        }
+
+        await emailService.send({
+          to: toEmail,
           subject: getSubject(name),
           text: getTextTemplate(emailData),
           html: getHtmlTemplate(emailData),
         });
 
         emailSent = true;
+        strapi.log.info(`Contact email sent successfully to: ${toEmail}`);
       } catch (err) {
         strapi.log.error("Failed to send contact email:", err);
       }
