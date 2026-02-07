@@ -34,6 +34,19 @@ export function EventProjectGallery({
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Use refs to track current values for the interval callback
+  const activeProjectIndexRef = useRef(activeProjectIndex);
+  const activeImageIndexRef = useRef(activeImageIndex);
+
+  // Keep refs in sync with state
+  useEffect(() => {
+    activeProjectIndexRef.current = activeProjectIndex;
+  }, [activeProjectIndex]);
+
+  useEffect(() => {
+    activeImageIndexRef.current = activeImageIndex;
+  }, [activeImageIndex]);
+
   const activeProject = projects[activeProjectIndex];
   const activeImage = activeProject?.images[activeImageIndex];
 
@@ -48,20 +61,20 @@ export function EventProjectGallery({
     if (isPaused || totalImages <= 1) return;
 
     intervalRef.current = setInterval(() => {
-      setActiveImageIndex((prevImageIndex) => {
-        const currentProject = projects[activeProjectIndex];
-        const isLastImage = prevImageIndex >= currentProject.images.length - 1;
+      const currentProjectIndex = activeProjectIndexRef.current;
+      const currentImageIndex = activeImageIndexRef.current;
+      const currentProject = projects[currentProjectIndex];
+      const isLastImage = currentImageIndex >= currentProject.images.length - 1;
 
-        if (isLastImage) {
-          // Move to next project
-          setActiveProjectIndex((prevProjectIndex) =>
-            prevProjectIndex >= projects.length - 1 ? 0 : prevProjectIndex + 1
-          );
-          return 0; // Reset to first image of next project
-        }
-
-        return prevImageIndex + 1;
-      });
+      if (isLastImage) {
+        // Move to next project
+        const nextProjectIndex =
+          currentProjectIndex >= projects.length - 1 ? 0 : currentProjectIndex + 1;
+        setActiveProjectIndex(nextProjectIndex);
+        setActiveImageIndex(0);
+      } else {
+        setActiveImageIndex(currentImageIndex + 1);
+      }
     }, autoScrollInterval);
 
     return () => {
@@ -69,7 +82,7 @@ export function EventProjectGallery({
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPaused, totalImages, autoScrollInterval, projects, activeProjectIndex]);
+  }, [isPaused, totalImages, autoScrollInterval, projects]);
 
   // Reset image index when project changes manually
   const handleProjectClick = (projectIndex: number) => {
