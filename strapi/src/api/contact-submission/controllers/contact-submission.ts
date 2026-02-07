@@ -1,5 +1,4 @@
 import { factories } from "@strapi/strapi";
-import { Resend } from "resend";
 import {
   getTextTemplate,
   getHtmlTemplate,
@@ -31,32 +30,26 @@ export default factories.createCoreController(
         // TODO: restore env variable after testing
         // const toEmail = process.env.CONTACT_EMAIL || "saint6studios@gmail.com";
         const toEmail = "p@ccly.dev";
-        const resendApiKey = process.env.RESEND_API_KEY;
-
-        if (!resendApiKey) {
-          strapi.log.error("RESEND_API_KEY not configured");
-          throw new Error("Email service not configured");
-        }
 
         strapi.log.info(`Attempting to send contact email to: ${toEmail}`);
 
-        const resend = new Resend(resendApiKey);
+        // Send email notification using templates (Strapi 5 API)
+        const emailService = strapi.plugin("email")?.service("email");
 
-        const { data, error } = await resend.emails.send({
-          from: "Saint 6 Studios <onboarding@resend.dev>", // Use verified domain in production
+        if (!emailService) {
+          strapi.log.error("Email plugin not available - check if email provider is configured");
+          throw new Error("Email service not configured");
+        }
+
+        await emailService.send({
           to: toEmail,
           subject: getSubject(name),
           text: getTextTemplate(emailData),
           html: getHtmlTemplate(emailData),
         });
 
-        if (error) {
-          strapi.log.error("Resend error:", error);
-          throw new Error(error.message);
-        }
-
         emailSent = true;
-        strapi.log.info(`Contact email sent successfully to: ${toEmail}, id: ${data?.id}`);
+        strapi.log.info(`Contact email sent successfully to: ${toEmail}`);
       } catch (err) {
         strapi.log.error("Failed to send contact email:", err);
       }
