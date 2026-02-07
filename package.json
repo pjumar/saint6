@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf .next && next build",
     "start": "next start",
+    "clean": "rm -rf .next",
     "lint": "biome check",
     "format": "biome format --write",
     "strapi:seed": "tsx scripts/seed-all.ts",
