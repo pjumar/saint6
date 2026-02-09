@@ -102,11 +102,12 @@ Plans:
 **Goal**: Final polish, social links, deployment ready
 **Depends on**: Phase 8
 **Research**: Unlikely (final touches using established patterns)
-**Plans**: 2 plans
+**Plans**: 3 plans
 
 Plans:
-- [ ] 09-01: Update social media links, final QA
-- [ ] 09-02: Performance optimization, SEO verification, deploy
+- [ ] 09-01: Code cleanup, shared transformers, OG image fix
+- [ ] 09-02: Null-image standardization, translation types, fallback split
+- [ ] 09-03: Production build verification, SEO audit, deploy prep
 
 ## Progress
 
@@ -123,10 +124,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 6. About Us & Contact          | v1.0      | 2/2            | Complete    | 2026-01-25 |
 | 7. Error Handling & Stability  | v1.1      | 3/3            | Complete    | 2026-02-03 |
 | 8. CMS Integration             | v1.1      | 4/4            | Complete    | 2026-02-07 |
-| 9. Polish & Launch             | v1.1      | 0/2            | Not started | -          |
+| 9. Polish & Launch             | v1.1      | 0/3            | Not started | -          |
 
 ---
 
 *Roadmap created: 2026-01-12*
-*Total: 9 phases, ~22 plans*
+*Total: 9 phases, 23 plans*
 *v0.2 shipped: 2026-01-24*
