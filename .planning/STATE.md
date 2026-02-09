@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-24)
 ## Current Position
 
 Phase: 9 of 9 (Polish & Launch)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-02-10 — Completed 09-01-PLAN.md
+Last activity: 2026-02-10 — Completed 09-02-PLAN.md
 
-Progress: █████████████████████████████░ 91% (21 of 23 plans complete)
+Progress: ██████████████████████████████ 96% (22 of 23 plans complete)
 
 ## Milestones
 
@@ -27,8 +27,8 @@ Progress: ███████████████████████�
 ## Performance Metrics
 
 **Velocity:**
-- Total plans executed: 21
-- Plans remaining: 2
+- Total plans executed: 22
+- Plans remaining: 1
 - Average duration: ~15 min per plan (varies by complexity)
 
 **By Phase:**
@@ -43,7 +43,7 @@ Progress: ███████████████████████�
 | 6. About Us & Contact | 2 | 2/2 | Complete (v1.0) |
 | 7. Error Handling & Stability | 3 | 3/3 | Complete |
 | 8. CMS Integration | 4 | 4/4 | Complete |
-| 9. Polish & Launch | 3 | 1/3 | In progress |
+| 9. Polish & Launch | 3 | 2/3 | In progress |
 
 ## Accumulated Context
 
@@ -61,6 +61,8 @@ Recent decisions affecting current work:
 - **ISR Pattern** (08-01): Strapi CMS data fetched at build time with 60s ISR revalidation
 - **Client Component Reuse** (08-04): ValuesGrid, ServiceCardsCarousel passed data from Server Components
 - **Shared Transformers** (09-01): Parameterized fallbackImage in transformWorkflow; used most complete transformTestimonials impl
+- **Null-Image Strategy** (09-02): Filter-out for image-primary items, empty-string for text-primary items
+- **Fallback Module Pattern** (09-02): Per-page fallback files under app/lib/fallback/ with barrel index
 
 ### Deferred Issues
 
@@ -78,20 +80,19 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 09-01-PLAN.md (Code cleanup & shared transformers)
+Stopped at: Completed 09-02-PLAN.md (Code quality standardization)
 Resume file: None
 
 **Phase 9 Progress:**
 
 - 09-01 Code cleanup & shared transformers: Complete
-- 09-02 Null-image standardization, translation types: Pending
+- 09-02 Null-image standardization, translation types, fallback split: Complete
 - 09-03 Production build verification, SEO, deploy: Pending
 
 **Next Steps:**
 
-- Execute 09-02-PLAN.md: `/gsd:execute-plan`
-- Then 09-03 (final plan before milestone complete)
+- Execute 09-03-PLAN.md: `/gsd:execute-plan` (final plan — milestone complete after this)
 
 ---
 
-*Last updated: 2026-02-10 after 09-01 execution*
+*Last updated: 2026-02-10 after 09-02 execution*

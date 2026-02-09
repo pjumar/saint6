@@ -106,7 +106,7 @@ Plans:
 
 Plans:
 - [x] 09-01: Code cleanup, shared transformers, OG image fix — completed 2026-02-10
-- [ ] 09-02: Null-image standardization, translation types, fallback split
+- [x] 09-02: Null-image standardization, translation types, fallback split — completed 2026-02-10
 - [ ] 09-03: Production build verification, SEO audit, deploy prep
 
 ## Progress
@@ -124,7 +124,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 6. About Us & Contact          | v1.0      | 2/2            | Complete    | 2026-01-25 |
 | 7. Error Handling & Stability  | v1.1      | 3/3            | Complete    | 2026-02-03 |
 | 8. CMS Integration             | v1.1      | 4/4            | Complete    | 2026-02-07 |
-| 9. Polish & Launch             | v1.1      | 1/3            | In progress | -          |
+| 9. Polish & Launch             | v1.1      | 2/3            | In progress | -          |
 
 ---
 
