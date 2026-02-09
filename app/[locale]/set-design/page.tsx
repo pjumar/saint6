@@ -9,7 +9,7 @@ import {
   FALLBACK_SET_DESIGN_PORTFOLIO,
   FALLBACK_SET_DESIGN_TESTIMONIALS,
   FALLBACK_SET_DESIGN_WORKFLOW,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import { getSetDesignPage, getStrapiImageUrl } from "@/app/lib/strapi";
 import {

@@ -17,7 +17,7 @@ import {
   FALLBACK_STUDIO_INTRO,
   FALLBACK_STUDIO_ROOMS,
   FALLBACK_STUDIO_STATS,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getStudioRentalPage,

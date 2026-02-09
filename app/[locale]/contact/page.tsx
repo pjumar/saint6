@@ -7,7 +7,7 @@ import {
   FALLBACK_CONTACT_HERO,
   FALLBACK_CONTACT_INFO,
   FALLBACK_CONTACT_MAP_IMAGE,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import { getContactPage, getStrapiImageUrl } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";

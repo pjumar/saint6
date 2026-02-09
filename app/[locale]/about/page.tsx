@@ -22,7 +22,7 @@ import {
   FALLBACK_ABOUT_TIMELINE,
   FALLBACK_ABOUT_VALUES,
   FALLBACK_ABOUT_VISION,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getAboutPage,

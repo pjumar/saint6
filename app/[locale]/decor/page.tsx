@@ -7,7 +7,7 @@ import {
   FALLBACK_DECOR_HERO,
   FALLBACK_DECOR_PORTFOLIO,
   FALLBACK_DECOR_WORKFLOW,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import { getDecorPage, getStrapiImageUrl } from "@/app/lib/strapi";
 import { transformPortfolio, transformWorkflow } from "@/app/lib/transformers";

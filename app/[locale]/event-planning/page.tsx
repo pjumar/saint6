@@ -17,7 +17,7 @@ import {
   FALLBACK_EVENT_PROJECTS,
   FALLBACK_EVENT_SERVICES,
   FALLBACK_EVENT_WORKFLOW,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getEventPlanningPage,

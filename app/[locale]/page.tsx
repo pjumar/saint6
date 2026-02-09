@@ -23,7 +23,7 @@ import {
   FALLBACK_HERO,
   FALLBACK_PROJECT_DATA,
   FALLBACK_SPACE_DATA,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getHomepage,

@@ -13,7 +13,7 @@ import {
   FALLBACK_PRODUCTION_KEY_PROJECT,
   FALLBACK_PRODUCTION_SERVICES,
   FALLBACK_PRODUCTION_WORKFLOW,
-} from "@/app/lib/fallback-data";
+} from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getProductionPage,

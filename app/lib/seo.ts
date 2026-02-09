@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FALLBACK_SEO } from "@/app/lib/fallback-data";
+import { FALLBACK_SEO } from "@/app/lib/fallback";
 import {
   getSeoMetadata,
   getStrapiImageUrl,
