@@ -1,18 +1,12 @@
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import {
-  type KeyProjectData,
-  KeyProjectSection,
-} from "@/app/components/key-project-section/KeyProjectSection";
+import { KeyProjectSection } from "@/app/components/key-project-section/KeyProjectSection";
 import {
   ProductionServiceGrid,
   type ProductionServiceItem,
 } from "@/app/components/production-service-grid/ProductionServiceGrid";
 import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
-import {
-  type ServiceCard,
-  ServiceCardsCarousel,
-} from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import { ServiceCardsCarousel } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import {
   FALLBACK_PRODUCTION_HERO,
@@ -25,8 +19,11 @@ import {
   getProductionPage,
   getStrapiImageUrl,
   type StrapiServiceItem,
-  type StrapiKeyProject,
 } from "@/app/lib/strapi";
+import {
+  transformKeyProjects,
+  transformWorkflow,
+} from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./Production.module.css";
@@ -46,11 +43,11 @@ export async function generateMetadata({
 }
 
 // ============================================================================
-// Transformer Functions - Convert Strapi data to component props
+// Transformer Functions - Page-specific transformers
 // ============================================================================
 
 function transformProductionServices(
-  services: StrapiServiceItem[] | undefined
+  services: StrapiServiceItem[] | undefined,
 ): ProductionServiceItem[] {
   if (!services || services.length === 0) return [];
 
@@ -65,81 +62,6 @@ function transformProductionServices(
         description: service.description || "",
       };
     });
-}
-
-function transformWorkflow(
-  workflow: StrapiServiceItem[] | undefined
-): ServiceCard[] {
-  if (!workflow || workflow.length === 0) return [];
-
-  return workflow
-    .sort((a, b) => a.order - b.order)
-    .map((step) => {
-      const imageUrl = getStrapiImageUrl(step.image);
-      return {
-        id: String(step.id),
-        imageUrl: imageUrl || "/images/production/workflow-placeholder.jpg",
-        counter: `${String(step.order).padStart(2, "0")}.`,
-        title: step.title,
-        description: step.description || "",
-      };
-    });
-}
-
-function transformKeyProjects(
-  projects: StrapiKeyProject[] | undefined
-): KeyProjectData[] {
-  if (!projects || projects.length === 0) return [];
-
-  const validProjects = projects.filter(
-    (p) => getStrapiImageUrl(p.main_image) !== null
-  );
-  const paddedTotal = String(validProjects.length).padStart(2, "0");
-
-  return validProjects.map((project, index) => {
-    const mainImageSrc = getStrapiImageUrl(project.main_image)!;
-    const paddedIndex = String(index + 1).padStart(2, "0");
-
-    return {
-      projectNumber: `${paddedIndex}/${paddedTotal}`,
-      title: project.title,
-      infoText: project.info_text || "",
-      team: project.team || [],
-      expertise: project.expertise || [],
-      client: project.client,
-      mainImage: {
-        src: mainImageSrc,
-        alt: project.main_image?.alternativeText || project.title,
-        width: project.main_image?.width || 440,
-        height: project.main_image?.height || 297,
-      },
-      testimonial: project.testimonial
-        ? {
-            quote: project.testimonial.quote,
-            author: project.testimonial.author,
-            role: project.testimonial.role,
-          }
-        : undefined,
-      galleryImages:
-        project.gallery_images
-          ?.map((img) => {
-            const src = getStrapiImageUrl(img.image);
-            if (!src) return null;
-            return {
-              src,
-              alt: img.alt || "",
-              width: img.image?.width || 200,
-              height: img.image?.height || 200,
-            };
-          })
-          .filter(
-            (
-              img
-            ): img is { src: string; alt: string; width: number; height: number } =>
-              img !== null
-          ) || [],
-    };
-  });
 }
 
 // ============================================================================
@@ -162,7 +84,7 @@ export default async function ProductionPage({ params }: PageProps) {
   const useFallback = !strapiData && isDev;
   if (useFallback) {
     console.warn(
-      "[ProductionPage] Using fallback data - Strapi CMS not available in development"
+      "[ProductionPage] Using fallback data - Strapi CMS not available in development",
     );
   }
 
@@ -204,7 +126,8 @@ export default async function ProductionPage({ params }: PageProps) {
 
   // Apply translations to services
   const translatedServices = productionServices.map((service, index) => {
-    const serviceKey = `CARD_${index + 1}` as keyof typeof t.PRODUCTION.SERVICES;
+    const serviceKey =
+      `CARD_${index + 1}` as keyof typeof t.PRODUCTION.SERVICES;
     const translation = t.PRODUCTION?.SERVICES?.[serviceKey];
     return {
       ...service,
@@ -225,7 +148,10 @@ export default async function ProductionPage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(strapiData.workflow)
+    ? transformWorkflow(
+        strapiData.workflow,
+        "/images/production/workflow-placeholder.jpg",
+      )
     : useFallback
       ? FALLBACK_PRODUCTION_WORKFLOW
       : [];

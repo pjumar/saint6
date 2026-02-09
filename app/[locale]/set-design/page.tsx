@@ -1,18 +1,9 @@
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import {
-  type PortfolioItem,
-  PortfolioSection,
-} from "@/app/components/portfolio-section/PortfolioSection";
-import {
-  type ServiceCard,
-  ServiceCardsCarousel,
-} from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import { PortfolioSection } from "@/app/components/portfolio-section/PortfolioSection";
+import { ServiceCardsCarousel } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import {
-  type TestimonialItem,
-  TestimonialsSection,
-} from "@/app/components/testimonials-section/TestimonialsSection";
+import { TestimonialsSection } from "@/app/components/testimonials-section/TestimonialsSection";
 import {
   FALLBACK_SET_DESIGN_HERO,
   FALLBACK_SET_DESIGN_PORTFOLIO,
@@ -20,13 +11,12 @@ import {
   FALLBACK_SET_DESIGN_WORKFLOW,
 } from "@/app/lib/fallback-data";
 import { buildPageMetadata } from "@/app/lib/seo";
+import { getSetDesignPage, getStrapiImageUrl } from "@/app/lib/strapi";
 import {
-  getSetDesignPage,
-  getStrapiImageUrl,
-  type StrapiServiceItem,
-  type StrapiPortfolioItem,
-  type StrapiTestimonialItem,
-} from "@/app/lib/strapi";
+  transformPortfolio,
+  transformTestimonials,
+  transformWorkflow,
+} from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./SetDesign.module.css";
@@ -43,73 +33,6 @@ export async function generateMetadata({
   const { locale } = await params;
   const data = await getSetDesignPage(locale);
   return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
-}
-
-// ============================================================================
-// Transformer Functions - Convert Strapi data to component props
-// ============================================================================
-
-function transformWorkflow(
-  workflow: StrapiServiceItem[] | undefined
-): ServiceCard[] {
-  if (!workflow || workflow.length === 0) return [];
-
-  return workflow
-    .sort((a, b) => a.order - b.order)
-    .map((step) => {
-      const imageUrl = getStrapiImageUrl(step.image);
-      return {
-        id: String(step.id),
-        imageUrl: imageUrl || "/images/set-design/workflow-placeholder.jpg",
-        counter: `${String(step.order).padStart(2, "0")}.`,
-        title: step.title,
-        description: step.description || "",
-      };
-    });
-}
-
-function transformPortfolio(
-  items: StrapiPortfolioItem[] | undefined
-): PortfolioItem[] {
-  if (!items || items.length === 0) return [];
-
-  const result: PortfolioItem[] = [];
-
-  items
-    .sort((a, b) => a.order - b.order)
-    .forEach((item) => {
-      const imageUrl = getStrapiImageUrl(item.image);
-      if (!imageUrl) return;
-      result.push({
-        id: String(item.id),
-        imageUrl,
-        category: item.category || "Campaign",
-        title: item.title,
-        size: item.size,
-      });
-    });
-
-  return result;
-}
-
-function transformTestimonials(
-  testimonials: StrapiTestimonialItem[] | undefined
-): TestimonialItem[] {
-  if (!testimonials || testimonials.length === 0) return [];
-
-  return testimonials
-    .sort((a, b) => a.order - b.order)
-    .map((testimonial) => {
-      const logoUrl = getStrapiImageUrl(testimonial.brand_logo);
-      return {
-        id: String(testimonial.id),
-        logoUrl: logoUrl || "/images/brands/placeholder.png",
-        logoAlt: testimonial.brand_name,
-        quote: testimonial.quote,
-        authorName: testimonial.author_name,
-        authorTitle: testimonial.author_title,
-      };
-    });
 }
 
 // ============================================================================
@@ -132,7 +55,7 @@ export default async function SetDesignPage({ params }: PageProps) {
   const useFallback = !strapiData && isDev;
   if (useFallback) {
     console.warn(
-      "[SetDesignPage] Using fallback data - Strapi CMS not available in development"
+      "[SetDesignPage] Using fallback data - Strapi CMS not available in development",
     );
   }
 
@@ -165,7 +88,10 @@ export default async function SetDesignPage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(strapiData.workflow)
+    ? transformWorkflow(
+        strapiData.workflow,
+        "/images/set-design/workflow-placeholder.jpg",
+      )
     : useFallback
       ? FALLBACK_SET_DESIGN_WORKFLOW
       : [];

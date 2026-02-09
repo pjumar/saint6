@@ -4,23 +4,14 @@ import {
   CreativeServicesGrid,
 } from "@/app/components/creative-services-grid/CreativeServicesGrid";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
-import {
-  type PortfolioItem,
-  PortfolioSection,
-} from "@/app/components/portfolio-section/PortfolioSection";
+import { PortfolioSection } from "@/app/components/portfolio-section/PortfolioSection";
 import {
   type ClientLogo,
   SelectedClientsSection,
 } from "@/app/components/selected-clients-section/SelectedClientsSection";
-import {
-  type ServiceCard,
-  ServiceCardsCarousel,
-} from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import { ServiceCardsCarousel } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import {
-  type TestimonialItem,
-  TestimonialsSection,
-} from "@/app/components/testimonials-section/TestimonialsSection";
+import { TestimonialsSection } from "@/app/components/testimonials-section/TestimonialsSection";
 import {
   FALLBACK_CREATIVE_HERO,
   FALLBACK_CREATIVE_PORTFOLIO,
@@ -33,10 +24,13 @@ import {
   getCreativePage,
   getStrapiImageUrl,
   type StrapiBrandLogo,
-  type StrapiPortfolioItem,
   type StrapiServiceItem,
-  type StrapiTestimonialItem,
 } from "@/app/lib/strapi";
+import {
+  transformPortfolio,
+  transformTestimonials,
+  transformWorkflow,
+} from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./Creative.module.css";
@@ -56,7 +50,7 @@ export async function generateMetadata({
 }
 
 // ============================================================================
-// Transformer Functions - Convert Strapi data to component props
+// Transformer Functions - Page-specific transformers
 // ============================================================================
 
 function transformCreativeServices(
@@ -73,69 +67,6 @@ function transformCreativeServices(
         imageUrl: imageUrl || "/images/creative/service-placeholder.jpg",
         title: service.title,
         description: service.description || "",
-      };
-    });
-}
-
-function transformWorkflow(
-  workflow: StrapiServiceItem[] | undefined,
-): ServiceCard[] {
-  if (!workflow || workflow.length === 0) return [];
-
-  return workflow
-    .sort((a, b) => a.order - b.order)
-    .map((step) => {
-      const imageUrl = getStrapiImageUrl(step.image);
-      return {
-        id: String(step.id),
-        imageUrl: imageUrl || "/images/creative/workflow-placeholder.jpg",
-        counter: `${String(step.order).padStart(2, "0")}.`,
-        title: step.title,
-        description: step.description || "",
-      };
-    });
-}
-
-function transformPortfolio(
-  items: StrapiPortfolioItem[] | undefined,
-): PortfolioItem[] {
-  if (!items || items.length === 0) return [];
-
-  const result: PortfolioItem[] = [];
-
-  items
-    .sort((a, b) => a.order - b.order)
-    .forEach((item) => {
-      const imageUrl = getStrapiImageUrl(item.image);
-      if (!imageUrl) return;
-      result.push({
-        id: String(item.id),
-        imageUrl,
-        category: item.category || "Campaign",
-        title: item.title,
-        size: item.size,
-      });
-    });
-
-  return result;
-}
-
-function transformTestimonials(
-  testimonials: StrapiTestimonialItem[] | undefined,
-): TestimonialItem[] {
-  if (!testimonials || testimonials.length === 0) return [];
-
-  return testimonials
-    .sort((a, b) => a.order - b.order)
-    .map((testimonial) => {
-      const logoUrl = getStrapiImageUrl(testimonial.brand_logo);
-      return {
-        id: String(testimonial.id),
-        logoUrl: logoUrl || "/images/brands/placeholder.png",
-        logoAlt: testimonial.brand_name,
-        quote: testimonial.quote,
-        authorName: testimonial.author_name,
-        authorTitle: testimonial.author_title,
       };
     });
 }
@@ -239,7 +170,10 @@ export default async function CreativePage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(strapiData.workflow)
+    ? transformWorkflow(
+        strapiData.workflow,
+        "/images/creative/workflow-placeholder.jpg",
+      )
     : useFallback
       ? FALLBACK_CREATIVE_WORKFLOW
       : [];

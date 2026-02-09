@@ -9,15 +9,9 @@ import {
   type ProductionServiceItem,
 } from "@/app/components/production-service-grid/ProductionServiceGrid";
 import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
-import {
-  type ServiceCard,
-  ServiceCardsCarousel,
-} from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
+import { ServiceCardsCarousel } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import {
-  type TestimonialItem,
-  TestimonialsSection,
-} from "@/app/components/testimonials-section/TestimonialsSection";
+import { TestimonialsSection } from "@/app/components/testimonials-section/TestimonialsSection";
 import {
   FALLBACK_EVENT_HERO,
   FALLBACK_EVENT_PROJECTS,
@@ -28,10 +22,13 @@ import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getEventPlanningPage,
   getStrapiImageUrl,
-  type StrapiServiceItem,
   type StrapiEventProject,
-  type StrapiTestimonialItem,
+  type StrapiServiceItem,
 } from "@/app/lib/strapi";
+import {
+  transformTestimonials,
+  transformWorkflow,
+} from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./EventPlanning.module.css";
@@ -51,11 +48,11 @@ export async function generateMetadata({
 }
 
 // ============================================================================
-// Transformer Functions - Convert Strapi data to component props
+// Transformer Functions - Page-specific transformers
 // ============================================================================
 
 function transformServices(
-  services: StrapiServiceItem[] | undefined
+  services: StrapiServiceItem[] | undefined,
 ): ProductionServiceItem[] {
   if (!services || services.length === 0) return [];
 
@@ -72,27 +69,8 @@ function transformServices(
     });
 }
 
-function transformWorkflow(
-  workflow: StrapiServiceItem[] | undefined
-): ServiceCard[] {
-  if (!workflow || workflow.length === 0) return [];
-
-  return workflow
-    .sort((a, b) => a.order - b.order)
-    .map((step) => {
-      const imageUrl = getStrapiImageUrl(step.image);
-      return {
-        id: String(step.id),
-        imageUrl: imageUrl || "/images/event-planning/workflow-placeholder.jpg",
-        counter: `${String(step.order).padStart(2, "0")}.`,
-        title: step.title,
-        description: step.description || "",
-      };
-    });
-}
-
 function transformEventProjects(
-  projects: StrapiEventProject[] | undefined
+  projects: StrapiEventProject[] | undefined,
 ): EventProject[] {
   if (!projects || projects.length === 0) return [];
 
@@ -122,26 +100,6 @@ function transformEventProjects(
     .filter((project) => project.images.length > 0);
 }
 
-function transformTestimonials(
-  testimonials: StrapiTestimonialItem[] | undefined
-): TestimonialItem[] {
-  if (!testimonials || testimonials.length === 0) return [];
-
-  return testimonials
-    .sort((a, b) => a.order - b.order)
-    .map((testimonial) => {
-      const logoUrl = getStrapiImageUrl(testimonial.brand_logo);
-      return {
-        id: String(testimonial.id),
-        logoUrl: logoUrl || "/images/brands/placeholder.png",
-        logoAlt: testimonial.brand_logo?.alternativeText || testimonial.brand_name || "Brand",
-        quote: testimonial.quote,
-        authorName: testimonial.author_name,
-        authorTitle: testimonial.author_title,
-      };
-    });
-}
-
 // ============================================================================
 // Page Component - Server Component with static generation
 // ============================================================================
@@ -162,7 +120,7 @@ export default async function EventPlanningPage({ params }: PageProps) {
   const useFallback = !strapiData && isDev;
   if (useFallback) {
     console.warn(
-      "[EventPlanningPage] Using fallback data - Strapi CMS not available in development"
+      "[EventPlanningPage] Using fallback data - Strapi CMS not available in development",
     );
   }
 
@@ -226,14 +184,18 @@ export default async function EventPlanningPage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(strapiData.workflow)
+    ? transformWorkflow(
+        strapiData.workflow,
+        "/images/event-planning/workflow-placeholder.jpg",
+      )
     : useFallback
       ? FALLBACK_EVENT_WORKFLOW
       : [];
 
   // Apply translations to workflow
   const translatedWorkflow = workflowSteps.map((step, index) => {
-    const stepKey = `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
+    const stepKey =
+      `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
     const translation = t.EVENT_PLANNING?.WORKFLOW?.[stepKey];
     return {
       ...step,
