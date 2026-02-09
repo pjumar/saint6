@@ -3,8 +3,9 @@
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Header } from "@/app/components/header/Header";
+import { HeroLoading } from "@/app/components/hero-loading/HeroLoading";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
@@ -43,10 +44,36 @@ export function HeroSection({
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { t, locale } = useTranslation();
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const decorativeLineRef = useRef<HTMLDivElement>(null);
   const thickLineRef = useRef<HTMLDivElement>(null);
+  const heroContentRef = useRef<HTMLDivElement>(null);
+  const heroMiddleRef = useRef<HTMLDivElement>(null);
+
+  const handleLoadingComplete = useCallback(() => {
+    setIsLoading(false);
+
+    // Animate hero content in after loading overlay disappears
+    const tl = gsap.timeline();
+    if (heroContentRef.current) {
+      tl.fromTo(
+        heroContentRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+      );
+    }
+    if (heroMiddleRef.current) {
+      tl.fromTo(
+        heroMiddleRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power2.out" },
+        "-=0.3"
+      );
+    }
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -142,8 +169,15 @@ export function HeroSection({
             fill
             className={styles.heroBackgroundImage}
             priority
+            onLoad={() => setIsImageLoaded(true)}
           />
           <div className={styles.heroOverlay} />
+          {isLoading && (
+            <HeroLoading
+              isImageLoaded={isImageLoaded}
+              onComplete={handleLoadingComplete}
+            />
+          )}
         </div>
 
         <Header
@@ -152,7 +186,11 @@ export function HeroSection({
           onMenuToggle={handleMenuToggle}
         />
 
-        <div className={styles.heroContentWrapper}>
+        <div
+          ref={heroContentRef}
+          className={styles.heroContentWrapper}
+          style={{ opacity: isLoading ? 0 : undefined }}
+        >
           {showScrollIndicator && (
             <div ref={scrollIndicatorRef} className={styles.scrollIndicator}>
               <Image
@@ -174,7 +212,11 @@ export function HeroSection({
           </div>
         </div>
 
-        <div className={styles.heroMiddleSection}>
+        <div
+          ref={heroMiddleRef}
+          className={styles.heroMiddleSection}
+          style={{ opacity: isLoading ? 0 : undefined }}
+        >
           {showDecorativeLine && (
             <div ref={decorativeLineRef} className={styles.decorativeLine}>
               <div className={styles.thinLine} />
