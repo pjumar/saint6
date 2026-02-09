@@ -75,7 +75,7 @@ function transformTimeline(
     const imageUrl = getStrapiImageUrl(item.image);
     return {
       id: item.year,
-      imageUrl: imageUrl || `/images/about-us/timeline-${item.year}.jpg`,
+      imageUrl: imageUrl || "",
       counter: item.year,
       title: "",
       description: item.description,

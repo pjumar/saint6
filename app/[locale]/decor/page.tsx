@@ -84,10 +84,7 @@ export default async function DecorationPage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(
-        strapiData.workflow,
-        "/images/decoration/workflow-placeholder.jpg",
-      )
+    ? transformWorkflow(strapiData.workflow)
     : useFallback
       ? FALLBACK_DECOR_WORKFLOW
       : [];

@@ -13,12 +13,11 @@ import {
 /**
  * Transform Strapi workflow/service-step data into ServiceCard props.
  *
- * Each service page uses a different fallback image path, so callers pass it
- * via `fallbackImage`.
+ * Workflow steps are text-primary items — they still make sense without an
+ * image, so missing images are set to `null` rather than filtering the item.
  */
 export function transformWorkflow(
   workflow: StrapiServiceItem[] | undefined,
-  fallbackImage = "/images/workflow-placeholder.jpg",
 ): ServiceCard[] {
   if (!workflow || workflow.length === 0) return [];
 
@@ -28,7 +27,7 @@ export function transformWorkflow(
       const imageUrl = getStrapiImageUrl(step.image);
       return {
         id: String(step.id),
-        imageUrl: imageUrl || fallbackImage,
+        imageUrl: imageUrl || "",
         counter: `${String(step.order).padStart(2, "0")}.`,
         title: step.title,
         description: step.description || "",
@@ -66,6 +65,9 @@ export function transformPortfolio(
 
 /**
  * Transform Strapi testimonial data into TestimonialItem props.
+ *
+ * Testimonials are text-primary — missing brand logos are set to `null`
+ * rather than filtering the entire item.
  */
 export function transformTestimonials(
   testimonials: StrapiTestimonialItem[] | undefined,
@@ -78,7 +80,7 @@ export function transformTestimonials(
       const logoUrl = getStrapiImageUrl(testimonial.brand_logo);
       return {
         id: String(testimonial.id),
-        logoUrl: logoUrl || "/images/brands/placeholder.png",
+        logoUrl: logoUrl || "",
         logoAlt:
           testimonial.brand_logo?.alternativeText ||
           testimonial.brand_name ||

@@ -55,13 +55,15 @@ function transformProductionServices(
     .sort((a, b) => a.order - b.order)
     .map((service) => {
       const imageUrl = getStrapiImageUrl(service.image);
+      if (!imageUrl) return null;
       return {
         id: String(service.id),
-        imageUrl: imageUrl || "/images/production/service-placeholder.jpg",
+        imageUrl,
         title: service.title,
         description: service.description || "",
       };
-    });
+    })
+    .filter((item): item is ProductionServiceItem => item !== null);
 }
 
 // ============================================================================
@@ -148,10 +150,7 @@ export default async function ProductionPage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(
-        strapiData.workflow,
-        "/images/production/workflow-placeholder.jpg",
-      )
+    ? transformWorkflow(strapiData.workflow)
     : useFallback
       ? FALLBACK_PRODUCTION_WORKFLOW
       : [];

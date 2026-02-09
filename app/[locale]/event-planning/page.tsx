@@ -60,13 +60,15 @@ function transformServices(
     .sort((a, b) => a.order - b.order)
     .map((service) => {
       const imageUrl = getStrapiImageUrl(service.image);
+      if (!imageUrl) return null;
       return {
         id: String(service.id),
-        imageUrl: imageUrl || "/images/event-planning/service-placeholder.jpg",
+        imageUrl,
         title: service.title,
         description: service.description || "",
       };
-    });
+    })
+    .filter((item): item is ProductionServiceItem => item !== null);
 }
 
 function transformEventProjects(
@@ -184,10 +186,7 @@ export default async function EventPlanningPage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(
-        strapiData.workflow,
-        "/images/event-planning/workflow-placeholder.jpg",
-      )
+    ? transformWorkflow(strapiData.workflow)
     : useFallback
       ? FALLBACK_EVENT_WORKFLOW
       : [];

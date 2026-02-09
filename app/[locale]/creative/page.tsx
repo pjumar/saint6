@@ -62,13 +62,15 @@ function transformCreativeServices(
     .sort((a, b) => a.order - b.order)
     .map((service) => {
       const imageUrl = getStrapiImageUrl(service.image);
+      if (!imageUrl) return null;
       return {
         id: String(service.id),
-        imageUrl: imageUrl || "/images/creative/service-placeholder.jpg",
+        imageUrl,
         title: service.title,
         description: service.description || "",
       };
-    });
+    })
+    .filter((item): item is CreativeServiceItem => item !== null);
 }
 
 function transformClientLogos(
@@ -79,13 +81,11 @@ function transformClientLogos(
   return logos
     .sort((a, b) => a.order - b.order)
     .map((logo) => {
-      const imageUrl = getStrapiImageUrl(logo.logo);
-      return {
-        src: imageUrl || "/images/brands/placeholder.png",
-        alt: logo.name,
-      };
+      const src = getStrapiImageUrl(logo.logo);
+      if (!src) return null;
+      return { src, alt: logo.name };
     })
-    .filter((logo) => logo.src !== "/images/brands/placeholder.png");
+    .filter((logo): logo is ClientLogo => logo !== null);
 }
 
 // ============================================================================
@@ -170,10 +170,7 @@ export default async function CreativePage({ params }: PageProps) {
 
   // Workflow
   const workflowSteps = strapiData?.workflow
-    ? transformWorkflow(
-        strapiData.workflow,
-        "/images/creative/workflow-placeholder.jpg",
-      )
+    ? transformWorkflow(strapiData.workflow)
     : useFallback
       ? FALLBACK_CREATIVE_WORKFLOW
       : [];
