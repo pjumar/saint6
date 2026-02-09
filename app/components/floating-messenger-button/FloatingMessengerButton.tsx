@@ -1,22 +1,17 @@
 "use client";
 
-import { getSocialLink } from "@/app/constants/social-links";
 import styles from "./FloatingMessengerButton.module.css";
+
+const MESSENGER_URL = "https://m.me/saint6studios";
 
 /**
  * Floating Messenger button - appears on all pages
  * Opens Facebook Messenger chat with Saint 6 in a new tab
  */
 export function FloatingMessengerButton() {
-  const messengerLink = getSocialLink("Messenger");
-
-  if (!messengerLink) {
-    return null;
-  }
-
   return (
     <a
-      href={messengerLink.url}
+      href={MESSENGER_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.button}
