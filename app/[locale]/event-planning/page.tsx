@@ -44,7 +44,11 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const data = await getEventPlanningPage(locale);
-  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+  return buildPageMetadata({
+    hero: data?.hero,
+    locale: locale as Locale,
+    path: "event-planning",
+  });
 }
 
 // ============================================================================

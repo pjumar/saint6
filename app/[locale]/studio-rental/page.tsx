@@ -20,11 +20,11 @@ import {
 } from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
-  getStudioRentalPage,
   getStrapiImageUrl,
-  type StrapiStudioRoom,
+  getStudioRentalPage,
   type StrapiEquipmentItem,
   type StrapiFaqItem,
+  type StrapiStudioRoom,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
@@ -41,7 +41,11 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const data = await getStudioRentalPage(locale);
-  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+  return buildPageMetadata({
+    hero: data?.hero,
+    locale: locale as Locale,
+    path: "studio-rental",
+  });
 }
 
 // ============================================================================
@@ -70,7 +74,7 @@ interface RoomData {
 function transformRooms(
   rooms: StrapiStudioRoom[] | undefined,
   startIndex: number = 0,
-  totalRooms: number = 6
+  totalRooms: number = 6,
 ): RoomData[] {
   if (!rooms || rooms.length === 0) return [];
 
@@ -125,7 +129,7 @@ interface EquipmentData {
 }
 
 function transformEquipment(
-  equipment: StrapiEquipmentItem[] | undefined
+  equipment: StrapiEquipmentItem[] | undefined,
 ): EquipmentData[] {
   if (!equipment || equipment.length === 0) return [];
 
@@ -181,7 +185,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
   const useFallback = !strapiData && isDev;
   if (useFallback) {
     console.warn(
-      "[StudioRentalPage] Using fallback data - Strapi CMS not available in development"
+      "[StudioRentalPage] Using fallback data - Strapi CMS not available in development",
     );
   }
 
@@ -244,7 +248,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
     ? transformRooms(
         strapiData.concept_rooms,
         strapiData?.rooms?.length || 0,
-        totalRooms || 6
+        totalRooms || 6,
       )
     : useFallback
       ? FALLBACK_CONCEPT_ROOMS
@@ -320,7 +324,9 @@ export default async function StudioRentalPage({ params }: PageProps) {
         </section>
 
         {/* Seasonal Concept Rooms Showcase */}
-        {conceptRooms.length > 0 && <ConceptRoomsShowcase rooms={conceptRooms} />}
+        {conceptRooms.length > 0 && (
+          <ConceptRoomsShowcase rooms={conceptRooms} />
+        )}
 
         {/* Full Studio Rental Section */}
         <section className={styles.fullWidthSection} id="full-studio">

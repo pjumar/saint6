@@ -39,7 +39,11 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const data = await getProductionPage(locale);
-  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+  return buildPageMetadata({
+    hero: data?.hero,
+    locale: locale as Locale,
+    path: "production",
+  });
 }
 
 // ============================================================================

@@ -13,12 +13,14 @@ interface PageSeoInput {
   hero?: StrapiHero;
   description?: string;
   locale: Locale;
+  path?: string;
 }
 
 export async function buildPageMetadata({
   hero,
   description,
   locale,
+  path = "",
 }: PageSeoInput): Promise<Metadata> {
   const seo = await getSeoMetadata(locale);
   const lang = locale === "vi" ? "vi" : "en";
@@ -42,9 +44,18 @@ export async function buildPageMetadata({
     ? `${SITE_URL}${imageUrl}`
     : imageUrl;
 
+  const pagePath = path ? `/${path}` : "";
+
   return {
     title: { absolute: brandedTitle },
     description: desc,
+    alternates: {
+      canonical: `${SITE_URL}/en${pagePath}`,
+      languages: {
+        en: `${SITE_URL}/en${pagePath}`,
+        vi: `${SITE_URL}/vi${pagePath}`,
+      },
+    },
     openGraph: {
       type: "website",
       locale: isVi ? "vi_VN" : "en_US",

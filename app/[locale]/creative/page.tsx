@@ -46,7 +46,11 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const data = await getCreativePage(locale);
-  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+  return buildPageMetadata({
+    hero: data?.hero,
+    locale: locale as Locale,
+    path: "creative",
+  });
 }
 
 // ============================================================================
