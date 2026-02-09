@@ -37,6 +37,7 @@ export const COLLECTIONS = [
   "faq-items",
   "portfolio-items",
   "key-projects",
+  "event-projects",
 ] as const;
 
 // Single types (pages) to work with

@@ -7,7 +7,7 @@
 import { Blob } from "node:buffer";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { STRAPI_URL, STRAPI_API_TOKEN, headers, authHeaders } from "./config";
+import { STRAPI_URL, STRAPI_API_TOKEN, headers, authHeaders, PAGES, COLLECTIONS } from "./config";
 
 // Image cache to avoid re-uploading
 const imageCache: Record<string, number> = {};
@@ -462,4 +462,57 @@ export async function getStudioRoomDocumentIdsByType(
   } catch {
     return [];
   }
+}
+
+// ============================================================================
+// Publish Utilities
+// ============================================================================
+
+async function publishEntry(
+  endpoint: string,
+  locale: string
+): Promise<boolean> {
+  try {
+    const url = `${STRAPI_URL}/api/${endpoint}${endpoint.includes("?") ? "&" : "?"}locale=${locale}&status=published`;
+    const response = await fetch(url, {
+      method: "PUT",
+      headers,
+      body: JSON.stringify({ data: {} }),
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+export async function publishAll(): Promise<void> {
+  console.log("\n=== PUBLISHING ALL CONTENT ===");
+  const locales = ["en", "vi"];
+
+  // Publish single types (pages)
+  for (const page of PAGES) {
+    for (const locale of locales) {
+      const ok = await publishEntry(page, locale);
+      console.log(`  ${page} (${locale}): ${ok ? "published" : "FAILED"}`);
+    }
+  }
+
+  // Publish collection entries
+  for (const collection of COLLECTIONS) {
+    const entries = await getCollectionEntries(collection);
+    for (const entry of entries) {
+      for (const locale of locales) {
+        const ok = await publishEntry(
+          `${collection}/${entry.documentId}`,
+          locale
+        );
+        if (!ok) {
+          console.log(`  ${collection}/${entry.documentId} (${locale}): FAILED`);
+        }
+      }
+    }
+    console.log(`  ${collection}: ${entries.length} entries published`);
+  }
+
+  console.log("Publishing complete.");
 }
