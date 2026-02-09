@@ -294,12 +294,14 @@ export default async function Home({ params }: PageProps) {
       <div className={styles.contentContainer}>
         <TrustedBySection logos={brandLogos.length > 0 ? brandLogos : undefined} />
         <GallerySection images={galleryImages.length > 0 ? galleryImages : undefined} />
-        {keyProjectsData.length > 0 && (
-          <KeyProjectSection projects={keyProjectsData} />
-        )}
-        {spaceData && (
-          <SpaceSection {...spaceData} ctaLink="/studio-rental" />
-        )}
+      </div>
+      {keyProjectsData.length > 0 && (
+        <KeyProjectSection projects={keyProjectsData} />
+      )}
+      {spaceData && (
+        <SpaceSection {...spaceData} ctaLink="/studio-rental" />
+      )}
+      <div className={styles.contentContainer}>
         {crewAreaData && <CrewAreaSection {...crewAreaData} />}
       </div>
     </div>

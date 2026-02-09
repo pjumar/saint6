@@ -201,6 +201,7 @@ export function KeyProjectSection({ projects }: KeyProjectSectionProps) {
         title={t.KEY_PROJECT.HEADING}
         textAlign="center"
         spiralPosition="center"
+        className={styles.keyProjectHeader}
       />
 
       <section className={styles.keyProjectSection}>

@@ -5,6 +5,22 @@
   flex-direction: column;
 }
 
+.keyProjectHeader {
+  min-height: 20rem;
+  width: 100%;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.keyProjectHeader h2 {
+  font-size: 3rem;
+  max-width: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}
+
 /* Add spacing and divider between consecutive projects */
 .projectItem + .projectItem {
   margin-top: 8rem;
@@ -346,6 +362,15 @@
 }
 
 @media (min-width: 48.0625rem) {
+  .keyProjectHeader {
+    min-height: 26rem;
+  }
+
+  .keyProjectHeader h2 {
+    font-size: 8rem;
+    letter-spacing: -0.16rem;
+  }
+
   .keyProjectWrapper {
     width: 100%;
     margin-top: -2rem;
