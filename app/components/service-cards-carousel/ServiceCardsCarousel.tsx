@@ -61,7 +61,7 @@ export function ServiceCardsCarousel({
 
       carousel.scrollBy({
         left: scrollAmount,
-        behavior: "smooth",
+        behavior: "auto",
       });
     };
 

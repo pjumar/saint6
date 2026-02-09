@@ -87,7 +87,7 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
 
       carousel.scrollBy({
         left: scrollAmount,
-        behavior: "smooth",
+        behavior: "auto",
       });
     };
 
