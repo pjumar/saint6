@@ -7,17 +7,13 @@
 }
 
 .logoContainer {
+  position: relative;
+  width: 7.5rem;
   height: 2.5rem;
-  display: flex;
-  align-items: center;
   margin-bottom: 1rem;
 }
 
 .logo {
-  width: auto;
-  height: auto;
-  max-height: 2.5rem;
-  max-width: 7.5rem;
   object-fit: contain;
 }
 

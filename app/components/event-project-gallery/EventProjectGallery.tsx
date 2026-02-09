@@ -21,33 +21,32 @@ interface EventProjectGalleryProps {
   autoScrollInterval?: number;
 }
 
-interface ImageState {
-  projectIndex: number;
-  imageIndex: number;
-  key: string;
-}
-
 function formatCounter(index: number): string {
   return `${String(index + 1).padStart(2, "0")}.`;
 }
 
+// Build a flat list of all images across all projects for preloading
+function flattenImages(projects: EventProject[]) {
+  return projects.flatMap((p, pi) =>
+    p.images.map((img, ii) => ({ ...img, projectIndex: pi, imageIndex: ii, key: `${pi}-${ii}` }))
+  );
+}
+
 export function EventProjectGallery({
   projects,
-  autoScrollInterval = 1500,
+  autoScrollInterval = 2000,
 }: EventProjectGalleryProps) {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [previousImage, setPreviousImage] = useState<ImageState | null>(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isManualMode, setIsManualMode] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const tabsContainerRef = useRef<HTMLDivElement | null>(null);
 
   // Use refs to track current values for the interval callback
   const activeProjectIndexRef = useRef(activeProjectIndex);
   const activeImageIndexRef = useRef(activeImageIndex);
 
-  // Keep refs in sync with state
   useEffect(() => {
     activeProjectIndexRef.current = activeProjectIndex;
   }, [activeProjectIndex]);
@@ -57,57 +56,26 @@ export function EventProjectGallery({
   }, [activeImageIndex]);
 
   const activeProject = projects[activeProjectIndex];
-  const activeImage = activeProject?.images[activeImageIndex];
   const currentImageKey = `${activeProjectIndex}-${activeImageIndex}`;
 
-  // Handle crossfade transition when image changes
+  // Flatten all images — they all stay mounted, only opacity changes
+  const allImages = useMemo(() => flattenImages(projects), [projects]);
+
+  const totalImages = allImages.length;
+
+  // Auto-scroll the tab bar on mobile when active project changes
   useEffect(() => {
-    // Skip on initial render
-    if (previousImage === null && !isTransitioning) {
-      setPreviousImage({
-        projectIndex: activeProjectIndex,
-        imageIndex: activeImageIndex,
-        key: currentImageKey,
-      });
-      return;
+    const container = tabsContainerRef.current;
+    if (!container) return;
+    const activeTab = container.children[activeProjectIndex] as HTMLElement | undefined;
+    if (activeTab) {
+      activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
     }
+  }, [activeProjectIndex]);
 
-    // If the image actually changed, trigger transition
-    if (previousImage && previousImage.key !== currentImageKey) {
-      setIsTransitioning(true);
-
-      // Clear any existing timeout
-      if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current);
-      }
-
-      // After transition completes, update previous image
-      transitionTimeoutRef.current = setTimeout(() => {
-        setPreviousImage({
-          projectIndex: activeProjectIndex,
-          imageIndex: activeImageIndex,
-          key: currentImageKey,
-        });
-        setIsTransitioning(false);
-      }, 300); // Match CSS transition duration
-    }
-
-    return () => {
-      if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current);
-      }
-    };
-  }, [activeProjectIndex, activeImageIndex, currentImageKey, previousImage, isTransitioning]);
-
-  // Calculate total images and current global index for navigation
-  const totalImages = useMemo(
-    () => projects.reduce((sum, p) => sum + p.images.length, 0),
-    [projects]
-  );
-
-  // Auto-scroll effect - advance through images, switch to next project on last image
+  // Auto-scroll effect
   useEffect(() => {
-    if (isPaused || totalImages <= 1) return;
+    if (isPaused || isManualMode || totalImages <= 1) return;
 
     intervalRef.current = setInterval(() => {
       const currentProjectIndex = activeProjectIndexRef.current;
@@ -116,7 +84,6 @@ export function EventProjectGallery({
       const isLastImage = currentImageIndex >= currentProject.images.length - 1;
 
       if (isLastImage) {
-        // Move to next project
         const nextProjectIndex =
           currentProjectIndex >= projects.length - 1 ? 0 : currentProjectIndex + 1;
         setActiveProjectIndex(nextProjectIndex);
@@ -131,20 +98,19 @@ export function EventProjectGallery({
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPaused, totalImages, autoScrollInterval, projects]);
+  }, [isPaused, isManualMode, totalImages, autoScrollInterval, projects]);
 
-  // Reset image index when project changes manually
   const handleProjectClick = (projectIndex: number) => {
+    setIsManualMode(true);
     setActiveProjectIndex(projectIndex);
     setActiveImageIndex(0);
   };
 
   const handlePrevious = () => {
+    setIsManualMode(true);
     if (activeImageIndex > 0) {
-      // Go to previous image in same project
       setActiveImageIndex((prev) => prev - 1);
     } else {
-      // Go to previous project's last image
       const prevProjectIndex =
         activeProjectIndex === 0 ? projects.length - 1 : activeProjectIndex - 1;
       setActiveProjectIndex(prevProjectIndex);
@@ -153,12 +119,11 @@ export function EventProjectGallery({
   };
 
   const handleNext = () => {
+    setIsManualMode(true);
     const currentProject = projects[activeProjectIndex];
     if (activeImageIndex < currentProject.images.length - 1) {
-      // Go to next image in same project
       setActiveImageIndex((prev) => prev + 1);
     } else {
-      // Go to next project's first image
       setActiveProjectIndex((prev) =>
         prev >= projects.length - 1 ? 0 : prev + 1
       );
@@ -166,7 +131,6 @@ export function EventProjectGallery({
     }
   };
 
-  // Calculate progress percentage for active project
   const progressPercentage = activeProject
     ? ((activeImageIndex + 1) / activeProject.images.length) * 100
     : 0;
@@ -177,31 +141,18 @@ export function EventProjectGallery({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Main Image with Crossfade */}
+      {/* All images stay mounted — active one gets opacity 1, others get opacity 0 */}
       <div className={styles.imageContainer}>
-        {/* Previous image (stable background) */}
-        {isTransitioning && previousImage && (
+        {allImages.map((img) => (
           <Image
-            key={`prev-${previousImage.key}`}
-            src={projects[previousImage.projectIndex]?.images[previousImage.imageIndex]?.url || ""}
-            alt={projects[previousImage.projectIndex]?.images[previousImage.imageIndex]?.alt || ""}
+            key={img.key}
+            src={img.url}
+            alt={img.alt}
             fill
             sizes="100vw"
-            className={`${styles.backgroundImage} ${styles.imageBase}`}
+            className={`${styles.backgroundImage} ${img.key === currentImageKey ? styles.imageActive : styles.imageInactive}`}
           />
-        )}
-        {/* Current image (fades in on top) */}
-        {activeImage && (
-          <Image
-            key={`current-${currentImageKey}`}
-            src={activeImage.url}
-            alt={activeImage.alt}
-            fill
-            sizes="100vw"
-            className={`${styles.backgroundImage} ${isTransitioning ? styles.imageFadeIn : ""}`}
-            priority
-          />
-        )}
+        ))}
       </div>
 
       {/* Navigation Arrows */}
@@ -249,7 +200,7 @@ export function EventProjectGallery({
       </button>
 
       {/* Project Tabs */}
-      <div className={styles.tabsContainer}>
+      <div ref={tabsContainerRef} className={styles.tabsContainer}>
         {projects.map((project, index) => {
           const isActive = index === activeProjectIndex;
           const tabProgressPercentage = isActive ? progressPercentage : 0;

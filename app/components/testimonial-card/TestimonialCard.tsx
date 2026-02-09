@@ -24,8 +24,8 @@ export function TestimonialCard({
         <Image
           src={logoUrl}
           alt={logoAlt}
-          width={120}
-          height={40}
+          fill
+          sizes="120px"
           className={styles.logo}
         />
       </div>
