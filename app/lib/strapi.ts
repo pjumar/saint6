@@ -514,11 +514,6 @@ export function getStrapiImageUrl(image: StrapiImage | undefined): string | null
   if (!image?.url) return null;
 
   if (image.url.startsWith("http")) {
-    // Rewrite Strapi Cloud media CDN URLs to use custom domain
-    if (image.url.includes(".media.strapiapp.com")) {
-      const path = new URL(image.url).pathname;
-      return `${STRAPI_URL}/uploads${path}`;
-    }
     return image.url;
   }
 
