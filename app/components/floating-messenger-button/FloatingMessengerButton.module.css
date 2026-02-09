@@ -5,46 +5,8 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 0;
   animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
   animation-delay: 0.5s;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.container.hidden {
-  transform: translateX(calc(50% + 1.5rem));
-}
-
-/* Close button - visible on hover, top-right of button */
-.close {
-  position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
-  width: 0.875rem;
-  height: 0.875rem;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  display: none;
-  place-items: center;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1;
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  pointer-events: none;
-}
-
-.container:hover .close {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.close:hover {
-  background: rgba(0, 0, 0, 0.8);
 }
 
 .button {
@@ -94,14 +56,6 @@
   .container {
     bottom: 2rem;
     right: 2rem;
-  }
-
-  .close {
-    display: grid;
-  }
-
-  .container.hidden {
-    transform: translateX(calc(50% + 2rem));
   }
 
   .button {

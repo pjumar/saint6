@@ -1,95 +1,27 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FloatingMessengerButton.module.css";
 
 const MESSENGER_URL = "https://m.me/saint6studios";
-const AUTO_HIDE_MS = 3000;
-const MOBILE_BREAKPOINT = 769;
+const SHOW_DELAY_MS = 5000;
 
 /**
  * Floating Messenger button - appears on all pages
  * Opens Facebook Messenger chat with Saint 6 in a new tab
  */
 export function FloatingMessengerButton() {
-  const [hidden, setHidden] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const hideTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const [visible, setVisible] = useState(false);
 
-  const startHideTimer = useCallback(() => {
-    clearTimeout(hideTimerRef.current);
-    hideTimerRef.current = setTimeout(() => setHidden(true), AUTO_HIDE_MS);
-  }, []);
-
-  const clearHideTimer = useCallback(() => {
-    clearTimeout(hideTimerRef.current);
-  }, []);
-
-  const hide = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    clearTimeout(hideTimerRef.current);
-    setHidden(true);
-  }, []);
-
-  const unhide = useCallback(() => {
-    setHidden(false);
-    startHideTimer();
-  }, [startHideTimer]);
-
-  const handleContainerClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (hidden) {
-        e.preventDefault();
-        e.stopPropagation();
-        unhide();
-      }
-    },
-    [hidden, unhide],
-  );
-
-  const handleMouseEnter = useCallback(() => {
-    if (hidden) {
-      unhide();
-    } else {
-      clearHideTimer();
-    }
-  }, [hidden, unhide, clearHideTimer]);
-
-  const handleMouseLeave = useCallback(() => {
-    if (!hidden) {
-      startHideTimer();
-    }
-  }, [hidden, startHideTimer]);
-
-  // Auto-hide on mobile after 3s
   useEffect(() => {
-    if (window.innerWidth >= MOBILE_BREAKPOINT) return;
-    const timer = setTimeout(() => setHidden(true), AUTO_HIDE_MS);
+    const timer = setTimeout(() => setVisible(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    return () => clearTimeout(hideTimerRef.current);
-  }, []);
+  if (!visible) return null;
 
   return (
-    <div
-      ref={containerRef}
-      className={`${styles.container} ${hidden ? styles.hidden : ""}`}
-      onClick={handleContainerClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <button
-        className={styles.close}
-        onClick={hide}
-        aria-label="Hide messenger button"
-      >
-        <svg viewBox="0 0 10 10" fill="none" aria-hidden="true">
-          <path d="M2.5 2.5L7.5 7.5M7.5 2.5L2.5 7.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-        </svg>
-      </button>
+    <div className={styles.container}>
       <a
         href={MESSENGER_URL}
         target="_blank"
