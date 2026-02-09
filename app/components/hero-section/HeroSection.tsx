@@ -111,6 +111,12 @@ export function HeroSection({
     )
       return;
 
+    const trackWidth = decorativeLineRef.current.offsetWidth;
+    const lineWidth = thickLineRef.current.offsetWidth;
+
+    // Set initial state: hidden to the left
+    gsap.set(thickLineRef.current, { x: -lineWidth });
+
     const tl = gsap.timeline({ repeat: -1 });
 
     // Lines appear, thick line slides from left to right
@@ -121,15 +127,15 @@ export function HeroSection({
     )
       .fromTo(
         thickLineRef.current,
-        { left: "-4rem" },
-        { left: "100%", duration: 2, ease: "power2.in" },
+        { x: -lineWidth },
+        { x: trackWidth, duration: 2, ease: "power2.in" },
         "<",
       )
       // Pause at end
       .to({}, { duration: 0.3 })
       // Reverse: thick line slides back from right to left
       .to(thickLineRef.current, {
-        left: "-4rem",
+        x: -lineWidth,
         duration: 2,
         ease: "power2.out",
       })
