@@ -524,10 +524,6 @@ export function getStrapiImageUrl(image: StrapiImage | undefined): string | null
 // Page Fetch Functions
 // ============================================================================
 
-// Use "*" for standard Strapi 4 populate (one level deep)
-// "deep" requires strapi-plugin-populate-deep which may not be installed
-const DEEP_POPULATE = "*";
-
 export async function getHomepage(locale: string = "en") {
   // Strapi 5 deep populate - use "*" to get all nested fields
   // populate: "*" alone only goes one level deep, so we need explicit nested populate
@@ -606,6 +602,8 @@ export async function getProductionPage(locale: string = "en") {
       populate: {
         main_image: { populate: "*" },
         gallery_images: { populate: { image: { populate: "*" } } },
+        team: { populate: "*" },
+        testimonial: { populate: "*" },
       },
     },
   };
@@ -674,25 +672,48 @@ export async function getDecorPage(locale: string = "en") {
 }
 
 export async function getAboutPage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    intro: { populate: { image: { populate: "*" } } },
+    vision: { populate: "*" },
+    full_width_image: { populate: "*" },
+    mission: { populate: "*" },
+    values: { populate: "*" },
+    our_story: { populate: "*" },
+    timeline: { populate: { image: { populate: "*" } } },
+    founder: { populate: { image: { populate: "*" } } },
+  };
+
   return fetchStrapi<StrapiAboutPage>("about-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
 
 export async function getContactPage(locale: string = "en") {
+  const populateQuery = {
+    hero: { populate: "*" },
+    info: { populate: "*" },
+    map_image: { populate: "*" },
+  };
+
   return fetchStrapi<StrapiContactPage>("contact-page", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }
 
 export async function getSeoMetadata(locale: string = "en") {
+  const populateQuery = {
+    og_image: { populate: "*" },
+    twitter_image: { populate: "*" },
+  };
+
   return fetchStrapi<StrapiSeoMetadata>("seo-metadata", {
     locale,
-    populate: DEEP_POPULATE,
+    populate: populateQuery,
     revalidate: 60,
   });
 }

@@ -14,7 +14,7 @@ const MOBILE_BREAKPOINT = 769;
 export function FloatingMessengerButton() {
   const [hidden, setHidden] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const hideTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const startHideTimer = useCallback(() => {
     clearTimeout(hideTimerRef.current);
