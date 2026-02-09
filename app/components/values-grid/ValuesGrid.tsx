@@ -34,13 +34,7 @@ const letterMap: Record<string, string> = {
 
 export function ValuesGrid({ values, story }: ValuesGridProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isManualScrolling, setIsManualScrolling] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<"left" | "right">(
-    "right",
-  );
   const [isDesktop, setIsDesktop] = useState(false);
-  const manualScrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   // Scroll animations
   const headerRef = useScrollAnimation<HTMLDivElement>({
@@ -70,37 +64,7 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
     return () => window.removeEventListener("resize", checkDesktop);
   }, []);
 
-  // Auto-scroll on hover (desktop only, pauses during manual scroll)
-  useEffect(() => {
-    if (!isDesktop || !isHovering || isManualScrolling || !carouselRef.current)
-      return;
-
-    const carousel = carouselRef.current;
-    const scrollSpeed = 1.5;
-
-    const animate = () => {
-      if (!carousel) return;
-
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-
-      if (scrollDirection === "right") {
-        carousel.scrollLeft += scrollSpeed;
-        if (carousel.scrollLeft >= maxScroll) {
-          setScrollDirection("left");
-        }
-      } else {
-        carousel.scrollLeft -= scrollSpeed;
-        if (carousel.scrollLeft <= 0) {
-          setScrollDirection("right");
-        }
-      }
-    };
-
-    const intervalId = setInterval(animate, 16);
-    return () => clearInterval(intervalId);
-  }, [isDesktop, isHovering, isManualScrolling, scrollDirection]);
-
-  // Native wheel event listener to prevent page scroll (desktop only)
+  // Native wheel event listener to convert vertical scroll to horizontal (desktop only)
   useEffect(() => {
     if (!isDesktop) return;
 
@@ -108,49 +72,28 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
     if (!carousel) return;
 
     const handleWheel = (e: WheelEvent) => {
-      // Calculate scroll amount and direction
       const scrollAmount =
         (Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * 2;
 
       const maxScroll = carousel.scrollWidth - carousel.clientWidth;
       const isAtStart = carousel.scrollLeft <= 0;
-      const isAtEnd = carousel.scrollLeft >= maxScroll - 1; // -1 for rounding tolerance
+      const isAtEnd = carousel.scrollLeft >= maxScroll - 1;
 
-      // Allow page scroll if at boundary and trying to scroll past it
       if ((isAtStart && scrollAmount < 0) || (isAtEnd && scrollAmount > 0)) {
-        return; // Don't prevent default, let page scroll
+        return;
       }
 
-      // Prevent page scroll when carousel can still scroll
       e.preventDefault();
 
-      // Pause auto-scroll during manual scroll
-      setIsManualScrolling(true);
-
-      // Clear previous timeout
-      if (manualScrollTimeout.current) {
-        clearTimeout(manualScrollTimeout.current);
-      }
-
-      // Convert vertical scroll to horizontal with smooth scroll
       carousel.scrollBy({
         left: scrollAmount,
         behavior: "smooth",
       });
-
-      // Resume auto-scroll after 2 seconds of no manual scrolling
-      manualScrollTimeout.current = setTimeout(() => {
-        setIsManualScrolling(false);
-      }, 2000);
     };
 
     carousel.addEventListener("wheel", handleWheel, { passive: false });
     return () => {
       carousel.removeEventListener("wheel", handleWheel);
-      // Cleanup timeout on unmount
-      if (manualScrollTimeout.current) {
-        clearTimeout(manualScrollTimeout.current);
-      }
     };
   }, [isDesktop]);
 
@@ -182,11 +125,6 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
       <div
         ref={carouselRef}
         className={styles.desktopCarousel}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => {
-          setIsHovering(false);
-          setIsManualScrolling(false);
-        }}
       >
         {values.map((value) => (
           <div key={value.id} className={styles.desktopCard}>
