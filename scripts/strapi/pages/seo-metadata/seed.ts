@@ -6,13 +6,19 @@
  * Usage: npx tsx scripts/strapi/pages/seo-metadata/seed.ts
  */
 
-import { updateSingleType } from "../../shared/api";
+import { updateSingleType, uploadImage } from "../../shared/api";
 
 async function seedSeoMetadata(): Promise<void> {
   console.log("\n Seeding SEO Metadata...");
 
+  // Upload OG and Twitter images
+  const ogImageId = await uploadImage("/og-image.jpg");
+  const twitterImageId = await uploadImage("/twitter-image.jpg");
+
   // English
   await updateSingleType("seo-metadata", {
+    og_image: ogImageId,
+    twitter_image: twitterImageId,
     site_name: "Saint 6 Studio",
     default_title:
       "Saint 6 Studio | Exclusive Production & Event Destination",
