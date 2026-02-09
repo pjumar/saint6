@@ -3,7 +3,6 @@ import {
   type CreativeServiceItem,
   CreativeServicesGrid,
 } from "@/app/components/creative-services-grid/CreativeServicesGrid";
-import { DebugPanel } from "@/app/components/debug-panel/DebugPanel";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import {
   type PortfolioItem,
@@ -34,8 +33,8 @@ import {
   getCreativePage,
   getStrapiImageUrl,
   type StrapiBrandLogo,
-  type StrapiServiceItem,
   type StrapiPortfolioItem,
+  type StrapiServiceItem,
   type StrapiTestimonialItem,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
@@ -61,7 +60,7 @@ export async function generateMetadata({
 // ============================================================================
 
 function transformCreativeServices(
-  services: StrapiServiceItem[] | undefined
+  services: StrapiServiceItem[] | undefined,
 ): CreativeServiceItem[] {
   if (!services || services.length === 0) return [];
 
@@ -79,7 +78,7 @@ function transformCreativeServices(
 }
 
 function transformWorkflow(
-  workflow: StrapiServiceItem[] | undefined
+  workflow: StrapiServiceItem[] | undefined,
 ): ServiceCard[] {
   if (!workflow || workflow.length === 0) return [];
 
@@ -98,7 +97,7 @@ function transformWorkflow(
 }
 
 function transformPortfolio(
-  items: StrapiPortfolioItem[] | undefined
+  items: StrapiPortfolioItem[] | undefined,
 ): PortfolioItem[] {
   if (!items || items.length === 0) return [];
 
@@ -122,7 +121,7 @@ function transformPortfolio(
 }
 
 function transformTestimonials(
-  testimonials: StrapiTestimonialItem[] | undefined
+  testimonials: StrapiTestimonialItem[] | undefined,
 ): TestimonialItem[] {
   if (!testimonials || testimonials.length === 0) return [];
 
@@ -142,7 +141,7 @@ function transformTestimonials(
 }
 
 function transformClientLogos(
-  logos: StrapiBrandLogo[] | undefined
+  logos: StrapiBrandLogo[] | undefined,
 ): ClientLogo[] {
   if (!logos || logos.length === 0) return [];
 
@@ -174,30 +173,11 @@ export default async function CreativePage({ params }: PageProps) {
   // Fetch CMS data at build time
   const strapiData = await getCreativePage(locale);
 
-  // DEBUG: Detailed logging for production debugging
-  console.log("[CreativePage] ===== START DEBUG =====");
-  console.log("[CreativePage] locale:", locale);
-  console.log("[CreativePage] NODE_ENV:", process.env.NODE_ENV);
-  console.log("[CreativePage] strapiData exists:", !!strapiData);
-  if (strapiData) {
-    console.log("[CreativePage] strapiData keys:", Object.keys(strapiData));
-    console.log("[CreativePage] hero:", strapiData.hero ? "yes" : "no");
-    console.log("[CreativePage] clients:", strapiData.clients ? "yes" : "no");
-    console.log("[CreativePage] client_logos:", strapiData.client_logos?.length ?? 0);
-    console.log("[CreativePage] services:", strapiData.services?.length ?? 0);
-    console.log("[CreativePage] intro:", strapiData.intro ? "yes" : "no");
-    console.log("[CreativePage] workflow:", strapiData.workflow?.length ?? 0);
-    console.log("[CreativePage] portfolio_settings:", strapiData.portfolio_settings ? "yes" : "no");
-    console.log("[CreativePage] portfolio_items:", strapiData.portfolio_items?.length ?? 0);
-    console.log("[CreativePage] testimonials:", strapiData.testimonials?.length ?? 0);
-  }
-  console.log("[CreativePage] ===== END DEBUG =====");
-
   // Dev fallback - use hardcoded data when Strapi is unavailable during development
   const useFallback = !strapiData && isDev;
   if (useFallback) {
     console.warn(
-      "[CreativePage] Using fallback data - Strapi CMS not available in development"
+      "[CreativePage] Using fallback data - Strapi CMS not available in development",
     );
   }
 
@@ -208,8 +188,8 @@ export default async function CreativePage({ params }: PageProps) {
     strapiData?.hero?.heading ||
     (useFallback
       ? FALLBACK_CREATIVE_HERO.heading
-      : t.CREATIVE?.HERO?.TAGLINE ??
-        "Creative production for brands, campaigns & products");
+      : (t.CREATIVE?.HERO?.TAGLINE ??
+        "Creative production for brands, campaigns & products"));
   const heroBackgroundFromCms = strapiData?.hero?.background_image
     ? getStrapiImageUrl(strapiData.hero.background_image)
     : null;
@@ -302,26 +282,6 @@ export default async function CreativePage({ params }: PageProps) {
       ? FALLBACK_CREATIVE_TESTIMONIALS
       : [];
 
-  // Debug info for client-side debug panel
-  const debugInfo = {
-    page: "creative",
-    locale,
-    env: process.env.NODE_ENV || "unknown",
-    timestamp: new Date().toISOString(),
-    sections: [
-      { name: "strapiData", hasData: !!strapiData },
-      { name: "hero", hasData: !!strapiData?.hero },
-      { name: "clients", hasData: !!strapiData?.clients },
-      { name: "client_logos", hasData: (strapiData?.client_logos?.length ?? 0) > 0, count: strapiData?.client_logos?.length ?? 0 },
-      { name: "services", hasData: translatedServices.length > 0, count: translatedServices.length },
-      { name: "intro", hasData: !!strapiData?.intro },
-      { name: "workflow", hasData: translatedWorkflow.length > 0, count: translatedWorkflow.length },
-      { name: "portfolio_settings", hasData: !!strapiData?.portfolio_settings },
-      { name: "portfolio_items", hasData: portfolioItems.length > 0, count: portfolioItems.length },
-      { name: "testimonials", hasData: testimonialItems.length > 0, count: testimonialItems.length },
-    ],
-  };
-
   return (
     <div className={styles.creativePage}>
       {/* Hero Section */}
@@ -393,9 +353,6 @@ export default async function CreativePage({ params }: PageProps) {
           <ContactSection backgroundImageUrl="/images/get-in-touch-bg.jpg" />
         </div>
       </div>
-
-      {/* Debug Panel - visible with ?debug=true query param */}
-      <DebugPanel info={debugInfo} />
     </div>
   );
 }
