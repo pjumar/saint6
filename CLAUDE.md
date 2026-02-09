@@ -51,7 +51,7 @@ npx tsx scripts/strapi/collections/studio-rooms/seed.ts
 Required in `.env.local`:
 ```
 STRAPI_API_TOKEN=...
-NEXT_PUBLIC_STRAPI_URL=https://saint6-strapi.ccly.dev
+NEXT_PUBLIC_STRAPI_URL=https://strapi.saint6.studio
 ```
 
 ## Component Patterns

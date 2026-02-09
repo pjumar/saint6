@@ -9,7 +9,7 @@ import { config } from "dotenv";
 config({ path: ".env.local" });
 
 export const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL || "https://saint6-strapi.ccly.dev";
+  process.env.NEXT_PUBLIC_STRAPI_URL || "https://strapi.saint6.studio";
 
 export const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 

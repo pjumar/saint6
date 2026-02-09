@@ -9,7 +9,7 @@
 
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://saint6-strapi.ccly.dev";
+  "https://strapi.saint6.studio";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 interface StrapiResponse<T> {

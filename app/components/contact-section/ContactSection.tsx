@@ -9,7 +9,7 @@ import styles from "./ContactSection.module.css";
 
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://saint6-strapi.ccly.dev";
+  "https://strapi.saint6.studio";
 
 export interface ContactSectionProps {
   backgroundImageUrl: string;

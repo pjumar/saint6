@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "*.ccly.dev",
+        hostname: "*.saint6.studio",
       },
     ],
   },
