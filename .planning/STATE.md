@@ -77,16 +77,21 @@ From CONCERNS.md:
 
 None.
 
+### Decisions (continued)
+
+- **Gallery Crossfade Pattern** (09-02-FIX): Mount all images simultaneously, toggle opacity via CSS transition instead of React mount/unmount with keyframe animation
+
 ## Session Continuity
 
 Last session: 2026-02-10
-Stopped at: Completed 09-02-PLAN.md (Code quality standardization)
+Stopped at: Completed 09-02-FIX.md (UAT fixes for gallery flash + Image warning)
 Resume file: None
 
 **Phase 9 Progress:**
 
 - 09-01 Code cleanup & shared transformers: Complete
 - 09-02 Null-image standardization, translation types, fallback split: Complete
+- 09-02-FIX UAT fixes (gallery flash, Image warning): Complete
 - 09-03 Production build verification, SEO, deploy: Pending
 
 **Next Steps:**
@@ -95,4 +100,4 @@ Resume file: None
 
 ---
 
-*Last updated: 2026-02-10 after 09-02 execution*
+*Last updated: 2026-02-10 after 09-02-FIX execution*
