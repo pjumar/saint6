@@ -91,18 +91,16 @@ function transformKeyProjects(
 ): KeyProjectData[] {
   if (!projects || projects.length === 0) return [];
 
-  const totalProjects = projects.length;
-  const paddedTotal = String(totalProjects).padStart(2, "0");
+  const validProjects = projects.filter(
+    (p) => getStrapiImageUrl(p.main_image) !== null
+  );
+  const paddedTotal = String(validProjects.length).padStart(2, "0");
 
-  const result: KeyProjectData[] = [];
-
-  projects.forEach((project, index) => {
-    const mainImageSrc = getStrapiImageUrl(project.main_image);
-    if (!mainImageSrc) return;
-
+  return validProjects.map((project, index) => {
+    const mainImageSrc = getStrapiImageUrl(project.main_image)!;
     const paddedIndex = String(index + 1).padStart(2, "0");
 
-    result.push({
+    return {
       projectNumber: `${paddedIndex}/${paddedTotal}`,
       title: project.title,
       infoText: project.info_text || "",
@@ -140,10 +138,8 @@ function transformKeyProjects(
             ): img is { src: string; alt: string; width: number; height: number } =>
               img !== null
           ) || [],
-    });
+    };
   });
-
-  return result;
 }
 
 // ============================================================================
