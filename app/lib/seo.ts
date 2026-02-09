@@ -7,6 +7,8 @@ import {
 } from "@/app/lib/strapi";
 import type { Locale } from "@/app/types";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.studio";
+
 interface PageSeoInput {
   hero?: StrapiHero;
   description?: string;
@@ -33,9 +35,12 @@ export async function buildPageMetadata({
     ? getStrapiImageUrl(hero.background_image)
     : null;
   const imageUrl =
-    heroImageUrl ||
-    getStrapiImageUrl(seo?.og_image) ||
-    FALLBACK_SEO.og_image;
+    heroImageUrl || getStrapiImageUrl(seo?.og_image) || FALLBACK_SEO.og_image;
+
+  // OG images require absolute URLs
+  const absoluteImageUrl = imageUrl.startsWith("/")
+    ? `${SITE_URL}${imageUrl}`
+    : imageUrl;
 
   return {
     title: { absolute: brandedTitle },
@@ -48,7 +53,7 @@ export async function buildPageMetadata({
       description: desc,
       images: [
         {
-          url: imageUrl,
+          url: absoluteImageUrl,
           width: 1200,
           height: 630,
           alt: brandedTitle,
@@ -59,7 +64,7 @@ export async function buildPageMetadata({
       card: "summary_large_image",
       title: brandedTitle,
       description: desc,
-      images: [imageUrl],
+      images: [absoluteImageUrl],
     },
   };
 }
