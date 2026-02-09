@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useCallback, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./GalleryModal.module.css";
 
 export interface GalleryImage {
@@ -64,7 +65,7 @@ export function GalleryModal({
 
   const currentImage = images[currentIndex];
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={onClose}>
       <div
         className={styles.modal}
@@ -133,7 +134,7 @@ export function GalleryModal({
               alt={currentImage.alt || `Gallery image ${currentIndex + 1}`}
               fill
               className={styles.image}
-              sizes="(max-width: 768px) 100vw, 80vw"
+              sizes="100vw"
               priority
             />
           </div>
@@ -193,6 +194,7 @@ export function GalleryModal({
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
