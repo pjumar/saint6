@@ -3,8 +3,8 @@
  */
 
 import type { KeyProjectData } from "@/app/components/key-project-section/KeyProjectSection";
-import type { ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import type { ProductionServiceItem } from "@/app/components/production-service-grid/ProductionServiceGrid";
+import type { ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 
 export const FALLBACK_PRODUCTION_HERO = {
   heading: "Full-Scale Production, Seamless Execution.",
@@ -117,8 +117,23 @@ export const FALLBACK_PRODUCTION_KEY_PROJECT: KeyProjectData = {
     role: "Creative Director, Giai Nhan",
   },
   galleryImages: [
-    { src: "/images/production/key-project-gallery-1.jpg", alt: "Giai Nhan Show - Gallery 1", width: 400, height: 600 },
-    { src: "/images/production/key-project-gallery-2.jpg", alt: "Giai Nhan Show - Gallery 2", width: 600, height: 400 },
-    { src: "/images/production/key-project-gallery-3.jpg", alt: "Giai Nhan Show - Gallery 3", width: 600, height: 400 },
+    {
+      src: "/images/production/key-project-gallery-1.jpg",
+      alt: "Giai Nhan Show - Gallery 1",
+      width: 400,
+      height: 600,
+    },
+    {
+      src: "/images/production/key-project-gallery-2.jpg",
+      alt: "Giai Nhan Show - Gallery 2",
+      width: 600,
+      height: 400,
+    },
+    {
+      src: "/images/production/key-project-gallery-3.jpg",
+      alt: "Giai Nhan Show - Gallery 3",
+      width: 600,
+      height: 400,
+    },
   ],
 };

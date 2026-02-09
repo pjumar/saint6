@@ -90,9 +90,18 @@ export const FALLBACK_CONCEPT_ROOMS = [
     description: "Seasonal themed room for unique creative concepts.",
     imageUrl: "/images/rooms/concept1.jpg",
     gallery: [
-      { url: "/images/gallery/gallery-10.jpg", alt: "Concept room 1 gallery 1" },
-      { url: "/images/gallery/gallery-11.jpg", alt: "Concept room 1 gallery 2" },
-      { url: "/images/gallery/gallery-12.jpg", alt: "Concept room 1 gallery 3" },
+      {
+        url: "/images/gallery/gallery-10.jpg",
+        alt: "Concept room 1 gallery 1",
+      },
+      {
+        url: "/images/gallery/gallery-11.jpg",
+        alt: "Concept room 1 gallery 2",
+      },
+      {
+        url: "/images/gallery/gallery-12.jpg",
+        alt: "Concept room 1 gallery 3",
+      },
     ],
   },
   {
@@ -106,9 +115,18 @@ export const FALLBACK_CONCEPT_ROOMS = [
     description: "Seasonal themed room for unique creative concepts.",
     imageUrl: "/images/rooms/concept2.jpg",
     gallery: [
-      { url: "/images/gallery/gallery-13.jpg", alt: "Concept room 2 gallery 1" },
-      { url: "/images/gallery/gallery-14.jpg", alt: "Concept room 2 gallery 2" },
-      { url: "/images/gallery/gallery-15.jpg", alt: "Concept room 2 gallery 3" },
+      {
+        url: "/images/gallery/gallery-13.jpg",
+        alt: "Concept room 2 gallery 1",
+      },
+      {
+        url: "/images/gallery/gallery-14.jpg",
+        alt: "Concept room 2 gallery 2",
+      },
+      {
+        url: "/images/gallery/gallery-15.jpg",
+        alt: "Concept room 2 gallery 3",
+      },
     ],
   },
   {
@@ -122,9 +140,18 @@ export const FALLBACK_CONCEPT_ROOMS = [
     description: "Seasonal themed room for unique creative concepts.",
     imageUrl: "/images/rooms/concept3.jpg",
     gallery: [
-      { url: "/images/gallery/gallery-01.jpg", alt: "Concept room 3 gallery 1" },
-      { url: "/images/gallery/gallery-04.jpg", alt: "Concept room 3 gallery 2" },
-      { url: "/images/gallery/gallery-07.jpg", alt: "Concept room 3 gallery 3" },
+      {
+        url: "/images/gallery/gallery-01.jpg",
+        alt: "Concept room 3 gallery 1",
+      },
+      {
+        url: "/images/gallery/gallery-04.jpg",
+        alt: "Concept room 3 gallery 2",
+      },
+      {
+        url: "/images/gallery/gallery-07.jpg",
+        alt: "Concept room 3 gallery 3",
+      },
     ],
   },
 ];

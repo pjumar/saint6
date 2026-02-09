@@ -22,10 +22,12 @@ export const FALLBACK_ABOUT_INTRO = {
 
 export const FALLBACK_ABOUT_VISION = {
   label: "VISION",
-  statement: "To create work that is remembered through the feelings it evokes.",
+  statement:
+    "To create work that is remembered through the feelings it evokes.",
 };
 
-export const FALLBACK_ABOUT_FULL_WIDTH_IMAGE = "/images/about-us/full-width-image.jpg";
+export const FALLBACK_ABOUT_FULL_WIDTH_IMAGE =
+  "/images/about-us/full-width-image.jpg";
 
 export const FALLBACK_ABOUT_MISSION = {
   label: "MISSION",
@@ -41,12 +43,42 @@ export interface ValueItemFallback {
 }
 
 export const FALLBACK_ABOUT_VALUES: ValueItemFallback[] = [
-  { id: "simplicity", letter: "S", title: "Simplicity", description: "Clarity reveals emotion." },
-  { id: "authenticity", letter: "A", title: "Authenticity", description: "Emotion must be real, not manufactured." },
-  { id: "intention", letter: "I", title: "Intention", description: "Every choice serves the feeling." },
-  { id: "narrative", letter: "N", title: "Narrative", description: "Everything is part of the story." },
-  { id: "trust", letter: "T", title: "Trust", description: "Art needs reliability to thrive." },
-  { id: "sixth-sense", letter: "6", title: "Sixth Sense", description: "We design for the feeling beneath the brief." },
+  {
+    id: "simplicity",
+    letter: "S",
+    title: "Simplicity",
+    description: "Clarity reveals emotion.",
+  },
+  {
+    id: "authenticity",
+    letter: "A",
+    title: "Authenticity",
+    description: "Emotion must be real, not manufactured.",
+  },
+  {
+    id: "intention",
+    letter: "I",
+    title: "Intention",
+    description: "Every choice serves the feeling.",
+  },
+  {
+    id: "narrative",
+    letter: "N",
+    title: "Narrative",
+    description: "Everything is part of the story.",
+  },
+  {
+    id: "trust",
+    letter: "T",
+    title: "Trust",
+    description: "Art needs reliability to thrive.",
+  },
+  {
+    id: "sixth-sense",
+    letter: "6",
+    title: "Sixth Sense",
+    description: "We design for the feeling beneath the brief.",
+  },
 ];
 
 export const FALLBACK_ABOUT_STORY = {
@@ -65,12 +97,54 @@ export interface TimelineItemFallback {
 }
 
 export const FALLBACK_ABOUT_TIMELINE: TimelineItemFallback[] = [
-  { id: "2021", imageUrl: "/images/about-us/timeline-2021.jpg", counter: "2021", title: "", description: "Saint 6 was founded with the belief that beauty is emotional, not ornamental." },
-  { id: "2022", imageUrl: "/images/about-us/timeline-2022.jpg", counter: "2022", title: "", description: "The first Saint 6 studio space was built \u2014 a home for creation, experimentation, and community." },
-  { id: "2023", imageUrl: "/images/about-us/timeline-2023.jpg", counter: "2023", title: "", description: "We expanded into store d\u00E9cor and spatial brand environments, shaping how customers feel inside a space." },
-  { id: "2024", imageUrl: "/images/about-us/timeline-2024.jpg", counter: "2024", title: "", description: "We began designing events and weddings, translating personal stories into atmospheres." },
-  { id: "2025", imageUrl: "/images/about-us/timeline-2025.jpg", counter: "2025", title: "", description: "We surpassed 1,000 set designs created since our founding \u2014 from intimate shoots to major brand activations." },
-  { id: "2026", imageUrl: "/images/about-us/timeline-2026.jpg", counter: "2026 (Next)", title: "", description: "We are opening a second Saint 6 location, expanding our creative capacity and community." },
+  {
+    id: "2021",
+    imageUrl: "/images/about-us/timeline-2021.jpg",
+    counter: "2021",
+    title: "",
+    description:
+      "Saint 6 was founded with the belief that beauty is emotional, not ornamental.",
+  },
+  {
+    id: "2022",
+    imageUrl: "/images/about-us/timeline-2022.jpg",
+    counter: "2022",
+    title: "",
+    description:
+      "The first Saint 6 studio space was built \u2014 a home for creation, experimentation, and community.",
+  },
+  {
+    id: "2023",
+    imageUrl: "/images/about-us/timeline-2023.jpg",
+    counter: "2023",
+    title: "",
+    description:
+      "We expanded into store d\u00E9cor and spatial brand environments, shaping how customers feel inside a space.",
+  },
+  {
+    id: "2024",
+    imageUrl: "/images/about-us/timeline-2024.jpg",
+    counter: "2024",
+    title: "",
+    description:
+      "We began designing events and weddings, translating personal stories into atmospheres.",
+  },
+  {
+    id: "2025",
+    imageUrl: "/images/about-us/timeline-2025.jpg",
+    counter: "2025",
+    title: "",
+    description:
+      "We surpassed 1,000 set designs created since our founding \u2014 from intimate shoots to major brand activations.",
+  },
+  {
+    id: "2026",
+    imageUrl: "/images/about-us/timeline-2026.jpg",
+    counter: "2026 (Next)",
+    title: "",
+    description:
+      "We are opening a second Saint 6 location, expanding our creative capacity and community.",
+  },
 ];
 
 export const FALLBACK_ABOUT_FOUNDER = {

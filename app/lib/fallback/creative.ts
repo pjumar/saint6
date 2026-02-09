@@ -3,8 +3,8 @@
  */
 
 import type { CreativeServiceItem } from "@/app/components/creative-services-grid/CreativeServicesGrid";
-import type { ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import type { PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
+import type { ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import type { TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
 
 export const FALLBACK_CREATIVE_HERO = {
@@ -82,14 +82,62 @@ export const FALLBACK_CREATIVE_WORKFLOW: ServiceCard[] = [
 ];
 
 export const FALLBACK_CREATIVE_PORTFOLIO: PortfolioItem[] = [
-  { id: "fressi-kv", imageUrl: "/images/creative/portfolio-fressi.jpg", category: "Campaign", title: "FRESSI KV", size: "large" },
-  { id: "mirinda", imageUrl: "/images/creative/portfolio-mirinda.jpg", category: "Campaign", title: "MIRINDA", size: "large" },
-  { id: "den-vau-1", imageUrl: "/images/creative/portfolio-denvau-1.jpg", category: "Campaign", title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U", size: "short" },
-  { id: "den-vau-2", imageUrl: "/images/creative/portfolio-denvau-2.jpg", category: "Campaign", title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U", size: "tall" },
-  { id: "den-vau-3", imageUrl: "/images/creative/portfolio-denvau-3.jpg", category: "Campaign", title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U", size: "tall" },
-  { id: "den-vau-4", imageUrl: "/images/creative/portfolio-denvau-4.jpg", category: "Campaign", title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U", size: "tall" },
-  { id: "den-vau-5", imageUrl: "/images/creative/portfolio-denvau-5.jpg", category: "Campaign", title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U", size: "short" },
-  { id: "yamaha", imageUrl: "/images/creative/portfolio-yamaha.jpg", category: "Campaign", title: "YAMAHA SOCIAL LAYOUT", size: "short" },
+  {
+    id: "fressi-kv",
+    imageUrl: "/images/creative/portfolio-fressi.jpg",
+    category: "Campaign",
+    title: "FRESSI KV",
+    size: "large",
+  },
+  {
+    id: "mirinda",
+    imageUrl: "/images/creative/portfolio-mirinda.jpg",
+    category: "Campaign",
+    title: "MIRINDA",
+    size: "large",
+  },
+  {
+    id: "den-vau-1",
+    imageUrl: "/images/creative/portfolio-denvau-1.jpg",
+    category: "Campaign",
+    title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U",
+    size: "short",
+  },
+  {
+    id: "den-vau-2",
+    imageUrl: "/images/creative/portfolio-denvau-2.jpg",
+    category: "Campaign",
+    title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U",
+    size: "tall",
+  },
+  {
+    id: "den-vau-3",
+    imageUrl: "/images/creative/portfolio-denvau-3.jpg",
+    category: "Campaign",
+    title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U",
+    size: "tall",
+  },
+  {
+    id: "den-vau-4",
+    imageUrl: "/images/creative/portfolio-denvau-4.jpg",
+    category: "Campaign",
+    title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U",
+    size: "tall",
+  },
+  {
+    id: "den-vau-5",
+    imageUrl: "/images/creative/portfolio-denvau-5.jpg",
+    category: "Campaign",
+    title: "MV DI\u1EC4N VI\u00CAN T\u1ED2I - \u0110\u00CAN V\u00C2U",
+    size: "short",
+  },
+  {
+    id: "yamaha",
+    imageUrl: "/images/creative/portfolio-yamaha.jpg",
+    category: "Campaign",
+    title: "YAMAHA SOCIAL LAYOUT",
+    size: "short",
+  },
 ];
 
 export const FALLBACK_CREATIVE_TESTIMONIALS: TestimonialItem[] = [
