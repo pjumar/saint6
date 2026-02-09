@@ -4,9 +4,8 @@
 }
 
 .galleryGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.5rem;
   max-width: 87rem;
   margin: 0 auto;
@@ -14,9 +13,6 @@
 }
 
 .galleryItem {
-  flex: 1 1 150px;
-  min-width: 120px;
-  max-width: 200px;
   aspect-ratio: 218.67 / 312;
   position: relative;
   overflow: hidden;
@@ -36,11 +32,5 @@
   .galleryGrid {
     gap: 1.5rem;
     padding: 0;
-  }
-
-  .galleryItem {
-    flex: 1 1 180px;
-    min-width: 150px;
-    max-width: 230px;
   }
 }
