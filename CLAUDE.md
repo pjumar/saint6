@@ -80,6 +80,10 @@ import { getStudioRentalPage } from "@/app/lib/strapi";
 const data = await getStudioRentalPage(locale);
 ```
 
+## Strict Rules
+
+- **Never add Co-Authored-By or any AI watermark to git commits.** Commit messages should look like they were written by a human developer. No attribution to Claude, AI, or any bot.
+
 ## Important Notes
 
 1. **Strapi 5 breaking changes**: Media relations use different formats for POST vs PUT. See [Strapi Seeding Guide](.claude/strapi-seeding.md).
