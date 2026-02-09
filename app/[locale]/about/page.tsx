@@ -126,17 +126,15 @@ export default async function AboutPage({ params }: PageProps) {
     );
   }
 
-  // Access translations with fallbacks
-  const aboutTranslations =
-    (t as { ABOUT_US?: Record<string, unknown> }).ABOUT_US || {};
+  // Access translations directly via typed object
+  const aboutT = t.ABOUT_US;
 
   // Hero
   const heroHeading =
     strapiData?.hero?.heading ||
     (useFallback
       ? FALLBACK_ABOUT_HERO.heading
-      : ((aboutTranslations.HERO as { TAGLINE?: string })?.TAGLINE ??
-        "We Imagine. We Design. We Create."));
+      : (aboutT.HERO.TAGLINE ?? "We Imagine. We Design. We Create."));
   const heroBackgroundFromCms = strapiData?.hero?.background_image
     ? getStrapiImageUrl(strapiData.hero.background_image)
     : null;
@@ -148,27 +146,16 @@ export default async function AboutPage({ params }: PageProps) {
   // Intro
   const introLabel =
     strapiData?.intro?.label ||
-    (useFallback
-      ? FALLBACK_ABOUT_INTRO.label
-      : ((aboutTranslations.INTRO as { LABEL?: string })?.LABEL ?? "ABOUT US"));
+    (useFallback ? FALLBACK_ABOUT_INTRO.label : aboutT.INTRO.LABEL);
   const introHeadline =
     strapiData?.intro?.headline ||
-    (useFallback
-      ? FALLBACK_ABOUT_INTRO.headline
-      : ((aboutTranslations.INTRO as { HEADLINE?: string })?.HEADLINE ??
-        "We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers.\nWe turn ideas into places, feelings, and memories."));
+    (useFallback ? FALLBACK_ABOUT_INTRO.headline : aboutT.INTRO.HEADLINE);
   const introBody1 =
     strapiData?.intro?.body_paragraph_1 ||
-    (useFallback
-      ? FALLBACK_ABOUT_INTRO.bodyParagraph1
-      : ((aboutTranslations.INTRO as { BODY_1?: string })?.BODY_1 ??
-        "Saint 6 Studios, founded by Trang Nhe Nhang, is a multi-disciplinary creative studio crafting sets, spaces, environments, and experiences."));
+    (useFallback ? FALLBACK_ABOUT_INTRO.bodyParagraph1 : aboutT.INTRO.BODY_1);
   const introBody2 =
     strapiData?.intro?.body_paragraph_2 ||
-    (useFallback
-      ? FALLBACK_ABOUT_INTRO.bodyParagraph2
-      : ((aboutTranslations.INTRO as { BODY_2?: string })?.BODY_2 ??
-        "We create work that feels alive, work that holds emotion, atmosphere, and story. For us, it's never \"just decor.\" It's the feeling someone carries home."));
+    (useFallback ? FALLBACK_ABOUT_INTRO.bodyParagraph2 : aboutT.INTRO.BODY_2);
   const introImageFromCms = strapiData?.intro?.image
     ? getStrapiImageUrl(strapiData.intro.image)
     : null;
@@ -177,15 +164,10 @@ export default async function AboutPage({ params }: PageProps) {
   // Vision
   const visionLabel =
     strapiData?.vision?.label ||
-    (useFallback
-      ? FALLBACK_ABOUT_VISION.label
-      : ((aboutTranslations.VISION as { LABEL?: string })?.LABEL ?? "VISION"));
+    (useFallback ? FALLBACK_ABOUT_VISION.label : aboutT.VISION.LABEL);
   const visionStatement =
     strapiData?.vision?.statement ||
-    (useFallback
-      ? FALLBACK_ABOUT_VISION.statement
-      : ((aboutTranslations.VISION as { STATEMENT?: string })?.STATEMENT ??
-        "To create work that is remembered through the feelings it evokes."));
+    (useFallback ? FALLBACK_ABOUT_VISION.statement : aboutT.VISION.STATEMENT);
 
   // Full-width image
   const fullWidthImageFromCms = strapiData?.full_width_image
@@ -197,16 +179,10 @@ export default async function AboutPage({ params }: PageProps) {
   // Mission
   const missionLabel =
     strapiData?.mission?.label ||
-    (useFallback
-      ? FALLBACK_ABOUT_MISSION.label
-      : ((aboutTranslations.MISSION as { LABEL?: string })?.LABEL ??
-        "MISSION"));
+    (useFallback ? FALLBACK_ABOUT_MISSION.label : aboutT.MISSION.LABEL);
   const missionStatement =
     strapiData?.mission?.statement ||
-    (useFallback
-      ? FALLBACK_ABOUT_MISSION.statement
-      : ((aboutTranslations.MISSION as { STATEMENT?: string })?.STATEMENT ??
-        "We transform ideas, identities, and stories into visual experiences that move people."));
+    (useFallback ? FALLBACK_ABOUT_MISSION.statement : aboutT.MISSION.STATEMENT);
 
   // Values
   const valuesData = strapiData?.values
@@ -215,15 +191,17 @@ export default async function AboutPage({ params }: PageProps) {
       ? FALLBACK_ABOUT_VALUES
       : [];
 
-  // Apply translations to values
+  // Apply translations to values — use a lookup array to avoid dynamic key casting
+  const valuesTranslations = [
+    aboutT.VALUES.ITEM_1,
+    aboutT.VALUES.ITEM_2,
+    aboutT.VALUES.ITEM_3,
+    aboutT.VALUES.ITEM_4,
+    aboutT.VALUES.ITEM_5,
+    aboutT.VALUES.ITEM_6,
+  ];
   const translatedValues = valuesData.map((value, index) => {
-    const itemKey =
-      `ITEM_${index + 1}` as keyof typeof aboutTranslations.VALUES;
-    const translation = (
-      aboutTranslations as {
-        VALUES?: Record<string, { TITLE?: string; DESCRIPTION?: string }>;
-      }
-    ).VALUES?.[itemKey];
+    const translation = valuesTranslations[index];
     return {
       ...value,
       title: translation?.TITLE ?? value.title,
@@ -234,24 +212,17 @@ export default async function AboutPage({ params }: PageProps) {
   // Our Story
   const storyLabel =
     strapiData?.our_story?.label ||
-    (useFallback
-      ? FALLBACK_ABOUT_STORY.label
-      : ((aboutTranslations.OUR_STORY as { LABEL?: string })?.LABEL ??
-        "Our Story"));
+    (useFallback ? FALLBACK_ABOUT_STORY.label : aboutT.OUR_STORY.LABEL);
   const storyParagraph1 =
     strapiData?.our_story?.paragraph_1 ||
     (useFallback
       ? FALLBACK_ABOUT_STORY.paragraph1
-      : ((aboutTranslations.OUR_STORY as { PARAGRAPH_1?: string })
-          ?.PARAGRAPH_1 ??
-        "Before Saint 6, there was Haus of Trang - where Trang learned that styling is not only about how things look, but how they make people feel."));
+      : aboutT.OUR_STORY.PARAGRAPH_1);
   const storyParagraph2 =
     strapiData?.our_story?.paragraph_2 ||
     (useFallback
       ? FALLBACK_ABOUT_STORY.paragraph2
-      : ((aboutTranslations.OUR_STORY as { PARAGRAPH_2?: string })
-          ?.PARAGRAPH_2 ??
-        "That realization became the foundation of Saint 6"));
+      : aboutT.OUR_STORY.PARAGRAPH_2);
 
   // Timeline
   const timelineData = strapiData?.timeline
@@ -260,19 +231,8 @@ export default async function AboutPage({ params }: PageProps) {
       ? FALLBACK_ABOUT_TIMELINE
       : [];
 
-  // Apply translations to timeline
-  const translatedTimeline = timelineData.map((item, index) => {
-    const itemKey = `ITEM_${index + 1}`;
-    const translation = (
-      aboutTranslations as {
-        TIMELINE?: Record<string, { DESCRIPTION?: string }>;
-      }
-    ).TIMELINE?.[itemKey];
-    return {
-      ...item,
-      description: translation?.DESCRIPTION ?? item.description,
-    };
-  });
+  // Timeline descriptions come from CMS data, no static translations needed
+  const translatedTimeline = timelineData;
 
   // Founder
   const founderData = strapiData?.founder
@@ -285,15 +245,9 @@ export default async function AboutPage({ params }: PageProps) {
   const translatedFounder = founderData
     ? {
         ...founderData,
-        quote:
-          (aboutTranslations.FOUNDER as { QUOTE?: string })?.QUOTE ??
-          founderData.quote,
-        name:
-          (aboutTranslations.FOUNDER as { NAME?: string })?.NAME ??
-          founderData.name,
-        title:
-          (aboutTranslations.FOUNDER as { TITLE?: string })?.TITLE ??
-          founderData.title,
+        quote: aboutT.FOUNDER.QUOTE ?? founderData.quote,
+        name: aboutT.FOUNDER.NAME ?? founderData.name,
+        title: aboutT.FOUNDER.TITLE ?? founderData.title,
       }
     : null;
 

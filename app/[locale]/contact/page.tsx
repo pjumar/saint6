@@ -52,19 +52,13 @@ export default async function ContactPage({ params }: PageProps) {
     );
   }
 
-  // Access translations with fallbacks
-  const contactTranslations =
-    (t as { CONTACT_US?: Record<string, unknown> }).CONTACT_US || {};
-  const infoTranslations =
-    (contactTranslations.INFO as Record<string, string>) || {};
+  // Access translations directly via typed object
+  const contactT = t.CONTACT_US;
 
   // Hero
   const heroHeading =
     strapiData?.hero?.heading ||
-    (useFallback
-      ? FALLBACK_CONTACT_HERO.heading
-      : (infoTranslations.HEADING ??
-        "Let's Create Something Exceptional Together"));
+    (useFallback ? FALLBACK_CONTACT_HERO.heading : contactT.INFO.HEADING);
   const heroBackgroundFromCms = strapiData?.hero?.background_image
     ? getStrapiImageUrl(strapiData.hero.background_image)
     : null;
@@ -76,35 +70,26 @@ export default async function ContactPage({ params }: PageProps) {
   // Contact Info
   const contactTitle =
     strapiData?.info?.title ||
-    (useFallback
-      ? FALLBACK_CONTACT_INFO.title
-      : (infoTranslations.TITLE ?? "Contact Us"));
+    (useFallback ? FALLBACK_CONTACT_INFO.title : contactT.INFO.TITLE);
   const contactSubheading =
     strapiData?.info?.subheading ||
-    (useFallback
-      ? FALLBACK_CONTACT_INFO.subheading
-      : (infoTranslations.SUBHEADING ??
-        "Let's Create Something Exceptional Together"));
+    (useFallback ? FALLBACK_CONTACT_INFO.subheading : contactT.INFO.SUBHEADING);
   const addressLine1 =
     strapiData?.info?.address_line_1 ||
     (useFallback
       ? FALLBACK_CONTACT_INFO.addressLine1
-      : (infoTranslations.ADDRESS_LINE1 ?? "6 Be Van Cam, Tan Kieng"));
+      : contactT.INFO.ADDRESS_LINE1);
   const addressLine2 =
     strapiData?.info?.address_line_2 ||
     (useFallback
       ? FALLBACK_CONTACT_INFO.addressLine2
-      : (infoTranslations.ADDRESS_LINE2 ?? "District 7, HCMC"));
+      : contactT.INFO.ADDRESS_LINE2);
   const contactEmail =
     strapiData?.info?.email ||
-    (useFallback
-      ? FALLBACK_CONTACT_INFO.email
-      : (infoTranslations.EMAIL ?? "Saint6studios@gmail.com"));
+    (useFallback ? FALLBACK_CONTACT_INFO.email : contactT.INFO.EMAIL);
   const contactPhone =
     strapiData?.info?.phone ||
-    (useFallback
-      ? FALLBACK_CONTACT_INFO.phone
-      : (infoTranslations.PHONE ?? "0919 403 784 - 0918 756 573"));
+    (useFallback ? FALLBACK_CONTACT_INFO.phone : contactT.INFO.PHONE);
 
   // Combine address lines
   const fullAddress = `${addressLine1}, ${addressLine2}`;
