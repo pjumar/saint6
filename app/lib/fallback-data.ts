@@ -1285,3 +1285,26 @@ export const FALLBACK_CONTACT_INFO = {
 };
 
 export const FALLBACK_CONTACT_MAP_IMAGE = "/images/contact/saint6-map.jpg";
+
+// ============================================================================
+// SEO Metadata Fallback Data
+// ============================================================================
+
+export const FALLBACK_SEO = {
+  site_name: "Saint 6 Studio",
+  title: {
+    en: "Saint 6 Studio | Exclusive Production & Event Destination",
+    vi: "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền",
+  },
+  title_template: "%s | Saint 6 Studio",
+  description: {
+    en: "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs.",
+    vi: "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn. Thuê studio, thiết kế set, dịch vụ sản xuất và giải pháp sáng tạo được điều chỉnh theo nhu cầu của bạn.",
+  },
+  keywords: {
+    en: ["studio rental", "set design", "production services", "event planning", "creative studio", "film production", "photography studio", "event venue"],
+    vi: ["thuê studio", "thiết kế set", "dịch vụ sản xuất", "tổ chức sự kiện", "studio sáng tạo", "sản xuất phim", "studio chụp ảnh", "địa điểm sự kiện"],
+  },
+  og_image: "/og-image.jpg",
+  twitter_image: "/twitter-image.jpg",
+};

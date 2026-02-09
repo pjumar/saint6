@@ -5,6 +5,8 @@ import { ErrorBoundary } from "@/app/components/error-boundary";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
+import { FALLBACK_SEO } from "@/app/lib/fallback-data";
+import { getSeoMetadata, getStrapiImageUrl } from "@/app/lib/strapi";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -37,6 +39,20 @@ export async function generateMetadata({
   const typedLocale = locale as Locale;
   const isVi = typedLocale === "vi";
 
+  const seo = await getSeoMetadata(typedLocale);
+  const lang = isVi ? "vi" : "en";
+
+  const siteName = seo?.site_name || FALLBACK_SEO.site_name;
+  const defaultTitle = seo?.default_title || FALLBACK_SEO.title[lang];
+  const titleTemplate = seo?.title_template || FALLBACK_SEO.title_template;
+  const description = seo?.description || FALLBACK_SEO.description[lang];
+  const keywords = seo?.keywords
+    ? seo.keywords.split(",").map((k) => k.trim())
+    : FALLBACK_SEO.keywords[lang];
+  const ogImageUrl = getStrapiImageUrl(seo?.og_image) || FALLBACK_SEO.og_image;
+  const twitterImageUrl =
+    getStrapiImageUrl(seo?.twitter_image) || FALLBACK_SEO.twitter_image;
+
   return {
     metadataBase: new URL(
       process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.studio",
@@ -52,55 +68,34 @@ export async function generateMetadata({
       ],
     },
     title: {
-      default: isVi
-        ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
-        : "Saint 6 Studio | Exclusive Production & Event Destination",
-      template: "%s | Saint 6 Studio",
+      default: defaultTitle,
+      template: titleTemplate,
     },
-    description: isVi
-      ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn. Thuê studio, thiết kế set, dịch vụ sản xuất và giải pháp sáng tạo được điều chỉnh theo nhu cầu của bạn."
-      : "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs.",
-    keywords: [
-      "studio rental",
-      "set design",
-      "production services",
-      "event planning",
-      "creative studio",
-      "film production",
-      "photography studio",
-      "event venue",
-    ],
-    authors: [{ name: "Saint 6 Studio" }],
-    creator: "Saint 6 Studio",
+    description,
+    keywords,
+    authors: [{ name: siteName }],
+    creator: siteName,
     openGraph: {
       type: "website",
       locale: isVi ? "vi_VN" : "en_US",
       url: `/${typedLocale}`,
-      siteName: "Saint 6 Studio",
-      title: isVi
-        ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
-        : "Saint 6 Studio | Exclusive Production & Event Destination",
-      description: isVi
-        ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn."
-        : "An exclusive destination for elevated productions, private events, and visionary experiences.",
+      siteName,
+      title: defaultTitle,
+      description,
       images: [
         {
-          url: "/og-image.jpg",
+          url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: "Saint 6 Studio",
+          alt: siteName,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: isVi
-        ? "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền"
-        : "Saint 6 Studio | Exclusive Production & Event Destination",
-      description: isVi
-        ? "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn."
-        : "An exclusive destination for elevated productions, private events, and visionary experiences.",
-      images: ["/twitter-image.jpg"],
+      title: defaultTitle,
+      description,
+      images: [twitterImageUrl],
     },
     robots: {
       index: true,

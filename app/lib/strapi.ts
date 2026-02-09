@@ -376,6 +376,17 @@ export interface StrapiContactPage {
   map_image?: StrapiImage;
 }
 
+export interface StrapiSeoMetadata {
+  id: number;
+  site_name: string;
+  default_title: string;
+  title_template?: string;
+  description: string;
+  keywords?: string;
+  og_image?: StrapiImage;
+  twitter_image?: StrapiImage;
+}
+
 // ============================================================================
 // Fetch Utility
 // ============================================================================
@@ -672,6 +683,14 @@ export async function getAboutPage(locale: string = "en") {
 
 export async function getContactPage(locale: string = "en") {
   return fetchStrapi<StrapiContactPage>("contact-page", {
+    locale,
+    populate: DEEP_POPULATE,
+    revalidate: 60,
+  });
+}
+
+export async function getSeoMetadata(locale: string = "en") {
+  return fetchStrapi<StrapiSeoMetadata>("seo-metadata", {
     locale,
     populate: DEEP_POPULATE,
     revalidate: 60,

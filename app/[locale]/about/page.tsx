@@ -23,6 +23,7 @@ import {
   FALLBACK_ABOUT_VALUES,
   FALLBACK_ABOUT_VISION,
 } from "@/app/lib/fallback-data";
+import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getAboutPage,
   getStrapiImageUrl,
@@ -31,7 +32,22 @@ import {
   type StrapiValue,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
+import type { Locale } from "@/app/types";
 import styles from "./About.module.css";
+
+// ============================================================================
+// SEO Metadata
+// ============================================================================
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const data = await getAboutPage(locale);
+  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+}
 
 // ============================================================================
 // Transformer Functions - Convert Strapi data to component props

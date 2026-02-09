@@ -19,6 +19,7 @@ import {
   FALLBACK_SET_DESIGN_TESTIMONIALS,
   FALLBACK_SET_DESIGN_WORKFLOW,
 } from "@/app/lib/fallback-data";
+import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getSetDesignPage,
   getStrapiImageUrl,
@@ -27,7 +28,22 @@ import {
   type StrapiTestimonialItem,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
+import type { Locale } from "@/app/types";
 import styles from "./SetDesign.module.css";
+
+// ============================================================================
+// SEO Metadata
+// ============================================================================
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const data = await getSetDesignPage(locale);
+  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+}
 
 // ============================================================================
 // Transformer Functions - Convert Strapi data to component props

@@ -14,6 +14,7 @@ import {
   FALLBACK_DECOR_PORTFOLIO,
   FALLBACK_DECOR_WORKFLOW,
 } from "@/app/lib/fallback-data";
+import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getDecorPage,
   getStrapiImageUrl,
@@ -21,7 +22,22 @@ import {
   type StrapiPortfolioItem,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
+import type { Locale } from "@/app/types";
 import styles from "./Decoration.module.css";
+
+// ============================================================================
+// SEO Metadata
+// ============================================================================
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const data = await getDecorPage(locale);
+  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+}
 
 // ============================================================================
 // Transformer Functions - Convert Strapi data to component props

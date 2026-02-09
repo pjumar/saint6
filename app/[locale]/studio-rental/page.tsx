@@ -18,6 +18,7 @@ import {
   FALLBACK_STUDIO_ROOMS,
   FALLBACK_STUDIO_STATS,
 } from "@/app/lib/fallback-data";
+import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getStudioRentalPage,
   getStrapiImageUrl,
@@ -26,7 +27,22 @@ import {
   type StrapiFaqItem,
 } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
+import type { Locale } from "@/app/types";
 import styles from "./StudioRental.module.css";
+
+// ============================================================================
+// SEO Metadata
+// ============================================================================
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const data = await getStudioRentalPage(locale);
+  return buildPageMetadata({ hero: data?.hero, locale: locale as Locale });
+}
 
 // ============================================================================
 // Transformer Functions - Convert Strapi data to component props
