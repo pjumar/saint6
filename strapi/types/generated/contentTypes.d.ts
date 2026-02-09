@@ -1155,6 +1155,83 @@ export interface ApiProductionPageProductionPage
   };
 }
 
+export interface ApiSeoMetadataSeoMetadata extends Struct.SingleTypeSchema {
+  collectionName: 'seo_metadatas';
+  info: {
+    description: 'Global SEO metadata for the website';
+    displayName: 'SEO Metadata';
+    pluralName: 'seo-metadatas';
+    singularName: 'seo-metadata';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    default_title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    keywords: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::seo-metadata.seo-metadata'
+    >;
+    og_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    site_name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title_template: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    twitter_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServiceItemServiceItem extends Struct.CollectionTypeSchema {
   collectionName: 'service_items';
   info: {
@@ -2017,6 +2094,7 @@ declare module '@strapi/strapi' {
       'api::key-project.key-project': ApiKeyProjectKeyProject;
       'api::portfolio-item.portfolio-item': ApiPortfolioItemPortfolioItem;
       'api::production-page.production-page': ApiProductionPageProductionPage;
+      'api::seo-metadata.seo-metadata': ApiSeoMetadataSeoMetadata;
       'api::service-item.service-item': ApiServiceItemServiceItem;
       'api::set-design-page.set-design-page': ApiSetDesignPageSetDesignPage;
       'api::studio-rental-page.studio-rental-page': ApiStudioRentalPageStudioRentalPage;
