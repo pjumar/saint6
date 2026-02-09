@@ -62,6 +62,7 @@ export function GallerySection({ images = DEFAULT_IMAGES }: GallerySectionProps)
               width={400}
               height={600}
               className={styles.galleryImage}
+              style={{ width: "100%", height: "100%" }}
               onError={() => handleImageError(image.id)}
             />
           </div>

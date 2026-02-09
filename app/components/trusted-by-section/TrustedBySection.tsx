@@ -142,7 +142,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProp
             width={logo.width}
             height={logo.height}
             className={styles.brandLogo}
-            style={hiddenLogos.has(logo.id) ? { display: "none" } : undefined}
+            style={hiddenLogos.has(logo.id) ? { display: "none", height: "auto" } : { height: "auto" }}
             onError={() => handleLogoError(logo.id)}
           />
         ))}
@@ -155,7 +155,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProp
               width={logo.width}
               height={logo.height}
               className={styles.brandLogo}
-              style={hiddenLogos.has(logo.id) ? { display: "none" } : undefined}
+              style={hiddenLogos.has(logo.id) ? { display: "none", height: "auto" } : { height: "auto" }}
               onError={() => handleLogoError(logo.id)}
             />
           ))}
