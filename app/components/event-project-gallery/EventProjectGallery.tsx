@@ -89,7 +89,7 @@ export function EventProjectGallery({
           key: currentImageKey,
         });
         setIsTransitioning(false);
-      }, 700); // Match CSS transition duration
+      }, 300); // Match CSS transition duration
     }
 
     return () => {
