@@ -40,10 +40,7 @@ export function getHtmlTemplate(data: ContactEmailData): string {
 
   const formattedMessage = escapeHtml(data.message).replace(/\n/g, "<br>");
 
-  // Saint6 logo as inline SVG for email compatibility
-  const logoSvg = `<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <text x="0" y="32" font-family="Georgia, serif" font-size="32" font-weight="300" fill="#ffffff" letter-spacing="0.1em">SAINT6</text>
-  </svg>`;
+  const logoHtml = `<span style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; font-weight: 300; color: #ffffff; letter-spacing: 0.15em;">SAINT6</span>`;
 
   return `
 <!DOCTYPE html>
@@ -59,7 +56,7 @@ export function getHtmlTemplate(data: ContactEmailData): string {
       <!-- Header with Logo -->
       <div style="background-color: #880300; padding: 40px 32px; text-align: center;">
         <div style="margin-bottom: 24px;">
-          ${logoSvg}
+          ${logoHtml}
         </div>
         <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase;">New Business Inquiry</h1>
       </div>

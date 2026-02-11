@@ -41,9 +41,7 @@ Phone: ${data.phone}`;
  * Generate HTML email content
  */
 export function getHtmlTemplate(data: BookingEmailData): string {
-  const logoSvg = `<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <text x="0" y="32" font-family="Georgia, serif" font-size="32" font-weight="300" fill="#ffffff" letter-spacing="0.1em">SAINT6</text>
-  </svg>`;
+  const logoHtml = `<span style="font-family: Georgia, 'Times New Roman', serif; font-size: 48px; font-weight: 300; color: #ffffff; letter-spacing: 0.15em;">SAINT6</span>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -55,7 +53,7 @@ export function getHtmlTemplate(data: BookingEmailData): string {
   <div style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
     <div style="background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);">
       <div style="background-color: #880300; padding: 40px 32px; text-align: center;">
-        <div style="margin-bottom: 24px;">${logoSvg}</div>
+        <div style="margin-bottom: 24px;">${logoHtml}</div>
         <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase;">New Studio Booking Request</h1>
       </div>
       <div style="padding: 40px 32px;">
