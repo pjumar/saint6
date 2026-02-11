@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { ContactSuccessModal } from "@/app/components/contact-success-modal";
 import { useScrollAnimation } from "@/app/hooks";
 import styles from "./ContactSection.module.css";
 
@@ -30,7 +29,6 @@ export function ContactSection({
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -78,7 +76,6 @@ export function ContactSection({
       }
 
       setSubmitStatus("success");
-      setShowSuccessModal(true);
       setFormData({
         name: "",
         email: "",
@@ -119,111 +116,128 @@ export function ContactSection({
       {/* Contact Card */}
       <div className={styles.cardWrapper}>
         <div className={styles.contactCard} ref={cardRef}>
-          {/* Red Header */}
-          <div className={styles.cardHeader}>
-            <div className={styles.spiralDecoration}>
-              <Image
-                src="/images/spiral_decoration.svg"
-                alt=""
-                width={360}
-                height={244}
-                className={styles.spiralImage}
-              />
+          {/* Red Header - hidden in success state */}
+          {submitStatus !== "success" && (
+            <div className={styles.cardHeader}>
+              <div className={styles.spiralDecoration}>
+                <Image
+                  src="/images/spiral_decoration.svg"
+                  alt=""
+                  width={360}
+                  height={244}
+                  className={styles.spiralImage}
+                />
+              </div>
+              <div className={styles.headerContent}>
+                <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
+                <p className={styles.cardSubtitle}>
+                  {t.STUDIO_RENTAL.FORM.SUBTITLE}
+                </p>
+              </div>
             </div>
-            <div className={styles.headerContent}>
-              <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
-              <p className={styles.cardSubtitle}>
-                {t.STUDIO_RENTAL.FORM.SUBTITLE}
-              </p>
-            </div>
-          </div>
+          )}
 
-          {/* White Form Area */}
-          <div className={styles.formContainer} suppressHydrationWarning>
-            <form className={styles.form} onSubmit={handleSubmit}>
-              <div className={styles.formGroup} suppressHydrationWarning>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder={`${t.STUDIO_RENTAL.FORM.NAME}*`}
-                  required
-                  aria-required="true"
-                />
-              </div>
-
-              <div className={styles.formGroup} suppressHydrationWarning>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder={`${t.STUDIO_RENTAL.FORM.EMAIL}*`}
-                  required
-                  aria-required="true"
-                />
-              </div>
-
-              <div className={styles.formGroup} suppressHydrationWarning>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className={styles.input}
-                  placeholder={`${t.STUDIO_RENTAL.FORM.COMPANY}*`}
-                  required
-                  aria-required="true"
-                />
-              </div>
-
-              <div className={styles.formGroup} suppressHydrationWarning>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={styles.textarea}
-                  placeholder={`${t.STUDIO_RENTAL.FORM.MESSAGE}*`}
-                  rows={3}
-                  required
-                  aria-required="true"
-                />
-              </div>
-
-              <div className={styles.submitContainer}>
-                <button
-                  type="submit"
-                  className={styles.submitButton}
-                  disabled={isLoading}
-                >
-                  {isLoading
-                    ? t.STUDIO_RENTAL.FORM.SENDING
-                    : t.STUDIO_RENTAL.FORM.SUBMIT}
-                </button>
-                {submitStatus === "error" && (
-                  <p className={styles.errorMessage}>
-                    {t.STUDIO_RENTAL.FORM.ERROR}
+          {/* Form / Success Area */}
+          <div className={submitStatus === "success" ? styles.successContainer : styles.formContainer} suppressHydrationWarning>
+            {submitStatus === "success" ? (
+              <>
+                <div className={styles.successDecoration}>
+                  <Image
+                    src="/images/spiral_decoration.svg"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className={styles.successSpiralImage}
+                  />
+                </div>
+                <div className={styles.successContent}>
+                  <h3 className={styles.successTitle}>
+                    {t.STUDIO_RENTAL.FORM.SUCCESS_TITLE}
+                  </h3>
+                  <p className={styles.successMsg}>
+                    {t.STUDIO_RENTAL.FORM.SUCCESS_MESSAGE}
                   </p>
-                )}
-              </div>
-            </form>
+                </div>
+              </>
+            ) : (
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.formGroup} suppressHydrationWarning>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder={`${t.STUDIO_RENTAL.FORM.NAME}*`}
+                    required
+                    aria-required="true"
+                  />
+                </div>
+
+                <div className={styles.formGroup} suppressHydrationWarning>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder={`${t.STUDIO_RENTAL.FORM.EMAIL}*`}
+                    required
+                    aria-required="true"
+                  />
+                </div>
+
+                <div className={styles.formGroup} suppressHydrationWarning>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className={styles.input}
+                    placeholder={`${t.STUDIO_RENTAL.FORM.COMPANY}*`}
+                    required
+                    aria-required="true"
+                  />
+                </div>
+
+                <div className={styles.formGroup} suppressHydrationWarning>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={styles.textarea}
+                    placeholder={`${t.STUDIO_RENTAL.FORM.MESSAGE}*`}
+                    rows={3}
+                    required
+                    aria-required="true"
+                  />
+                </div>
+
+                <div className={styles.submitContainer}>
+                  <button
+                    type="submit"
+                    className={styles.submitButton}
+                    disabled={isLoading}
+                  >
+                    {isLoading
+                      ? t.STUDIO_RENTAL.FORM.SENDING
+                      : t.STUDIO_RENTAL.FORM.SUBMIT}
+                  </button>
+                  {submitStatus === "error" && (
+                    <p className={styles.errorMessage}>
+                      {t.STUDIO_RENTAL.FORM.ERROR}
+                    </p>
+                  )}
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>
-
-      <ContactSuccessModal
-        isOpen={showSuccessModal}
-        onClose={() => setShowSuccessModal(false)}
-        title={t.STUDIO_RENTAL.FORM.SUCCESS_TITLE}
-        message={t.STUDIO_RENTAL.FORM.SUCCESS_MESSAGE}
-      />
     </section>
   );
 }

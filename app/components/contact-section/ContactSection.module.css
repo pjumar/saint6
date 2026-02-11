@@ -33,6 +33,7 @@
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  min-height: 30rem;
 }
 
 /* Red Header */
@@ -187,6 +188,103 @@
   text-align: center;
 }
 
+/* Inline Success State */
+.successContainer {
+  background: var(--color-primary, #880300);
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  animation: expandIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes expandIn {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 30rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.successDecoration {
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 25rem;
+  height: 25rem;
+  pointer-events: none;
+  animation: spiralSpin 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spiralSpin {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.successSpiralImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.5;
+}
+
+.successContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 25rem;
+}
+
+.successTitle {
+  font-family: var(--font-title);
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.successMsg {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin: 0;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Desktop styles */
 @media (min-width: 48.0625rem) {
   .contactSection {
@@ -223,5 +321,13 @@
 
   .form {
     gap: 1.5rem;
+  }
+
+  .successContainer {
+    padding: 3rem 2.5rem;
+  }
+
+  .successTitle {
+    font-size: 2.5rem;
   }
 }
