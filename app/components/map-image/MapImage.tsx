@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useScrollAnimation } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./MapImage.module.css";
 
 export interface MapImageProps {
@@ -37,15 +38,12 @@ export function MapImage({
 
           {/* Spiral Decoration */}
           {showSpiral && (
-            <div className={styles.spiralDecoration}>
-              <Image
-                src="/images/spiral_decoration.svg"
-                alt=""
-                width={400}
-                height={400}
-                className={styles.spiralImage}
-              />
-            </div>
+            <SpiralDecoration
+              className={styles.spiralDecoration}
+              imageClassName={styles.spiralImage}
+              width={400}
+              height={400}
+            />
           )}
 
           {/* Location Pin */}

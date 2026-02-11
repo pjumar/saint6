@@ -1,0 +1,1 @@
+export { SpiralDecoration } from "./SpiralDecoration";

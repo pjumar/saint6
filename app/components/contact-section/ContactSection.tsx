@@ -4,6 +4,7 @@ import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./ContactSection.module.css";
 
 const STRAPI_URL =
@@ -119,15 +120,12 @@ export function ContactSection({
           {/* Red Header - hidden in success state */}
           {submitStatus !== "success" && (
             <div className={styles.cardHeader}>
-              <div className={styles.spiralDecoration}>
-                <Image
-                  src="/images/spiral_decoration.svg"
-                  alt=""
-                  width={360}
-                  height={244}
-                  className={styles.spiralImage}
-                />
-              </div>
+              <SpiralDecoration
+                className={styles.spiralDecoration}
+                imageClassName={styles.spiralImage}
+                width={360}
+                height={244}
+              />
               <div className={styles.headerContent}>
                 <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
                 <p className={styles.cardSubtitle}>

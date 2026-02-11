@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollAnimation } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./ContactInfo.module.css";
 
 export interface SocialLink {
@@ -41,15 +41,12 @@ export function ContactInfo({
   return (
     <section className={styles.section}>
       {/* Spiral Decoration - Top Center */}
-      <div className={styles.spiralContainer}>
-        <Image
-          src="/images/spiral_decoration.svg"
-          alt=""
-          width={400}
-          height={400}
-          className={styles.spiralImage}
-        />
-      </div>
+      <SpiralDecoration
+        className={styles.spiralContainer}
+        imageClassName={styles.spiralImage}
+        width={400}
+        height={400}
+      />
 
       <div className={styles.container}>
         {/* Left Column: Heading + Subheading */}

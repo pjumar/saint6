@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { SOCIAL_LINKS } from "@/app/constants/social-links";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -10,7 +11,7 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        <div className={styles.footerDecoration}>
+        <SpiralDecoration className={styles.footerDecoration}>
           <Image
             src="/images/decoration-bg.svg"
             alt=""
@@ -27,7 +28,7 @@ export function Footer() {
               className={styles.footerDecorationGroup}
             />
           </div>
-        </div>
+        </SpiralDecoration>
 
         <p className={styles.contactLabel}>{t.FOOTER.CONTACT_US}</p>
 

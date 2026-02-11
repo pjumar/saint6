@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollAnimation } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./SectionHeader.module.css";
 
 export interface SectionHeaderProps {
@@ -35,16 +35,10 @@ export function SectionHeader({
         <h2 className={styles.title}>{title}</h2>
       </div>
       {spiralPosition !== "none" && (
-        <div className={`${styles.decorativeSpiral} ${spiralClass}`}>
-          <Image
-            src="/images/spiral_decoration.svg"
-            alt=""
-            width={710}
-            height={710}
-            className={styles.spiralImage}
-            aria-hidden="true"
-          />
-        </div>
+        <SpiralDecoration
+          className={`${styles.decorativeSpiral} ${spiralClass}`}
+          imageClassName={styles.spiralImage}
+        />
       )}
     </section>
   );

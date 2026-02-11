@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useScrollAnimation } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./SelectedClientsSection.module.css";
 
 export interface ClientLogo {
@@ -184,15 +185,10 @@ export function SelectedClientsSection({
         {/* Content area with text and decorative graphic */}
         <div className={styles.contentArea}>
           <p className={styles.description} ref={descriptionRef}>{description}</p>
-          <div className={styles.spiralDecoration}>
-            <Image
-              src="/images/spiral_decoration.svg"
-              alt=""
-              width={710}
-              height={710}
-              className={styles.spiralImage}
-            />
-          </div>
+          <SpiralDecoration
+            className={styles.spiralDecoration}
+            imageClassName={styles.spiralImage}
+          />
         </div>
 
         {/* Logos row */}

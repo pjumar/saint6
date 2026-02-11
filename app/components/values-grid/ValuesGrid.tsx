@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./ValuesGrid.module.css";
 
 export interface ValueItem {
@@ -101,15 +102,12 @@ export function ValuesGrid({ values, story }: ValuesGridProps) {
     <section className={styles.section}>
       {/* Header with spiral decoration and SAINT6 logo */}
       <div className={styles.header} ref={headerRef}>
-        <div className={styles.spiralContainer}>
-          <Image
-            src="/images/spiral_decoration.svg"
-            alt=""
-            width={400}
-            height={400}
-            className={styles.spiralImage}
-          />
-        </div>
+        <SpiralDecoration
+          className={styles.spiralContainer}
+          imageClassName={styles.spiralImage}
+          width={400}
+          height={400}
+        />
         <div className={styles.logoContainer}>
           <Image
             src="/assets/saint6-logo-2.svg"

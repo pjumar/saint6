@@ -166,6 +166,40 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
   return containerRef;
 }
 
+// Hook for spin-in animation on scroll
+// Animates the ref element from -180deg rotation to 0deg when it enters viewport
+export function useSpiralSpin<T extends HTMLElement>(
+  options: { duration?: number; start?: string } = {}
+) {
+  const { duration = 1.2, start = "top 85%" } = options;
+  const ref = useRef<T>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    gsap.set(el, { rotation: -180 });
+
+    const animation = gsap.to(el, {
+      rotation: 0,
+      duration,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start,
+        toggleActions: "play none none none",
+      },
+    });
+
+    return () => {
+      animation.scrollTrigger?.kill();
+      animation.kill();
+    };
+  }, [duration, start]);
+
+  return ref;
+}
+
 // Hook for grid animations with wave-like stagger from center
 export function useScrollAnimationGrid<T extends HTMLElement>(
   options: { columns?: number; duration?: number; start?: string; ease?: string } = {}

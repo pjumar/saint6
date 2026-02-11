@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./SpaceSection.module.css";
 
 export interface SpaceStat {
@@ -43,16 +44,10 @@ export function SpaceSection({
 
   return (
     <section className={styles.spaceSection}>
-      <div className={styles.decorativeSpiral}>
-        <Image
-          src="/images/spiral_decoration.svg"
-          alt=""
-          width={710}
-          height={710}
-          className={styles.spiralImage}
-          aria-hidden="true"
-        />
-      </div>
+      <SpiralDecoration
+        className={styles.decorativeSpiral}
+        imageClassName={styles.spiralImage}
+      />
 
       <div className={styles.content}>
         <p className={styles.caption}>{caption}</p>

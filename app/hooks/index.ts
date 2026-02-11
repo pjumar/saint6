@@ -4,5 +4,6 @@ export {
   useScrollAnimation,
   useScrollAnimationChildren,
   useScrollAnimationGrid,
+  useSpiralSpin,
 } from "./useScrollAnimation";
 export type { AnimationType } from "./useScrollAnimation";
