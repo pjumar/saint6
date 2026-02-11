@@ -1,14 +1,21 @@
 "use client";
 
+import type { BookingRoomData } from "@/app/components/booking-modal/BookingModal";
 import { RoomCard, type RoomCardProps } from "@/app/components/room-card/RoomCard";
 import { useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./BlankRoomsGrid.module.css";
 
 export interface BlankRoomsGridProps {
   rooms: (RoomCardProps & { id: string })[];
+  allBookingRooms?: BookingRoomData[];
+  bookingRoomIndexOffset?: number;
 }
 
-export function BlankRoomsGrid({ rooms }: BlankRoomsGridProps) {
+export function BlankRoomsGrid({
+  rooms,
+  allBookingRooms,
+  bookingRoomIndexOffset = 0,
+}: BlankRoomsGridProps) {
   const gridRef = useScrollAnimationChildren<HTMLDivElement>({
     type: "fadeUp",
     stagger: 0.12,
@@ -18,8 +25,13 @@ export function BlankRoomsGrid({ rooms }: BlankRoomsGridProps) {
 
   return (
     <div ref={gridRef} className={styles.roomGrid}>
-      {rooms.map((room) => (
-        <RoomCard key={room.id} {...room} />
+      {rooms.map((room, index) => (
+        <RoomCard
+          key={room.id}
+          {...room}
+          allBookingRooms={allBookingRooms}
+          bookingRoomIndex={bookingRoomIndexOffset + index}
+        />
       ))}
     </div>
   );

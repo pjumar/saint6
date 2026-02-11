@@ -8,6 +8,7 @@ import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { StudioStats } from "@/app/components/studio-stats/StudioStats";
+import type { BookingRoomData } from "@/app/components/booking-modal/BookingModal";
 import {
   FALLBACK_CONCEPT_ROOMS,
   FALLBACK_EQUIPMENT,
@@ -291,6 +292,18 @@ export default async function StudioRentalPage({ params }: PageProps) {
       ? FALLBACK_EQUIPMENT
       : [];
 
+  // All rooms combined for booking modal tabs
+  const allBookingRooms: BookingRoomData[] = [...studioRooms, ...conceptRooms].map((r) => ({
+    title: r.title,
+    pricePerHour: r.pricePerHour,
+    description: r.description,
+    space: r.space,
+    width: r.width,
+    ceilingHeight: r.ceilingHeight,
+    imageUrl: r.imageUrl,
+    gallery: r.gallery,
+  }));
+
   // FAQs - use CMS data if available, otherwise use translations
   const faqItems = strapiData?.faqs
     ? transformFaqs(strapiData.faqs)
@@ -319,13 +332,20 @@ export default async function StudioRentalPage({ params }: PageProps) {
               ctaText={introCtaText}
             />
             <StudioStats {...statsData} />
-            <BlankRoomsGrid rooms={studioRooms} />
+            <BlankRoomsGrid
+              rooms={studioRooms}
+              allBookingRooms={allBookingRooms}
+            />
           </div>
         </section>
 
         {/* Seasonal Concept Rooms Showcase */}
         {conceptRooms.length > 0 && (
-          <ConceptRoomsShowcase rooms={conceptRooms} />
+          <ConceptRoomsShowcase
+            rooms={conceptRooms}
+            allBookingRooms={allBookingRooms}
+            bookingRoomIndexOffset={studioRooms.length}
+          />
         )}
 
         {/* Full Studio Rental Section */}

@@ -129,6 +129,10 @@
   height: 5.6875rem; /* 91px fixed height from Figma to maintain alignment */
 }
 
+.actions {
+  margin-top: 1rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .roomCard {

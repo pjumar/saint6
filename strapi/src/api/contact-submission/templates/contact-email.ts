@@ -41,7 +41,7 @@ export function getHtmlTemplate(data: ContactEmailData): string {
   const formattedMessage = escapeHtml(data.message).replace(/\n/g, "<br>");
 
   // Saint6 logo as inline SVG for email compatibility
-  const logoSvg = `<svg width="120" height="24" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const logoSvg = `<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <text x="0" y="32" font-family="Georgia, serif" font-size="32" font-weight="300" fill="#ffffff" letter-spacing="0.1em">SAINT6</text>
   </svg>`;
 

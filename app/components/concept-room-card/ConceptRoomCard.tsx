@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { GalleryModal } from "@/app/components/gallery-modal/GalleryModal";
+import {
+  BookingModal,
+  type BookingRoomData,
+} from "@/app/components/booking-modal/BookingModal";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomCard.module.css";
 
@@ -22,6 +26,8 @@ export interface ConceptRoomCardProps {
   description: string;
   showEnterButton?: boolean;
   gallery?: GalleryImage[];
+  allBookingRooms?: BookingRoomData[];
+  bookingRoomIndex?: number;
 }
 
 export function ConceptRoomCard({
@@ -34,9 +40,12 @@ export function ConceptRoomCard({
   description,
   showEnterButton = false,
   gallery = [],
+  allBookingRooms,
+  bookingRoomIndex = 0,
 }: ConceptRoomCardProps) {
   const { t } = useTranslation();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const handleEnterRoom = () => {
     if (gallery.length > 0) {
@@ -105,7 +114,11 @@ export function ConceptRoomCard({
         <div className={styles.footer}>
           <p className={styles.description}>{description}</p>
           <div className={styles.actions}>
-            <CommonButton variant="primary" size="lg">
+            <CommonButton
+              variant="primary"
+              size="lg"
+              onClick={() => setIsBookingOpen(true)}
+            >
               {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
             </CommonButton>
             <CommonButton
@@ -125,6 +138,27 @@ export function ConceptRoomCard({
         onClose={() => setIsGalleryOpen(false)}
         images={gallery}
         title={title}
+      />
+
+      {/* Booking Modal */}
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        rooms={
+          allBookingRooms || [
+            {
+              title,
+              pricePerHour,
+              description,
+              space,
+              width,
+              ceilingHeight,
+              imageUrl,
+              gallery,
+            },
+          ]
+        }
+        initialRoomIndex={allBookingRooms ? bookingRoomIndex : 0}
       />
     </div>
   );

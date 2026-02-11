@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   animation: slideUp 0.3s ease-out;
+  pointer-events: none;
 }
 
 @keyframes slideUp {
@@ -51,6 +52,7 @@
   padding: 0.5rem;
   z-index: 10;
   transition: color 0.2s ease;
+  pointer-events: auto;
 }
 
 .closeButton:hover {
@@ -65,6 +67,7 @@
   text-align: center;
   margin: 0 0 1rem 0;
   letter-spacing: -0.02em;
+  pointer-events: auto;
 }
 
 .imageContainer {
@@ -81,6 +84,7 @@
   width: 100%;
   height: 100%;
   max-height: calc(95vh - 150px);
+  pointer-events: auto;
 }
 
 .image {
@@ -99,6 +103,7 @@
   z-index: 10;
   transition: background-color 0.2s ease;
   border-radius: 50%;
+  pointer-events: auto;
 }
 
 .navButton:hover {
@@ -120,6 +125,7 @@
   text-align: center;
   margin: 1rem 0;
   letter-spacing: 0.05em;
+  pointer-events: auto;
 }
 
 .thumbnails {
@@ -128,6 +134,7 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 0 1rem;
+  pointer-events: auto;
 }
 
 .thumbnail {

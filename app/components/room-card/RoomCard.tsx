@@ -7,6 +7,11 @@ import {
   GalleryModal,
   type GalleryImage,
 } from "@/app/components/gallery-modal/GalleryModal";
+import {
+  BookingModal,
+  type BookingRoomData,
+} from "@/app/components/booking-modal/BookingModal";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
 import styles from "./RoomCard.module.css";
 
 export interface RoomCardProps {
@@ -20,6 +25,8 @@ export interface RoomCardProps {
   description: string;
   showEnterButton?: boolean;
   gallery?: GalleryImage[];
+  allBookingRooms?: BookingRoomData[];
+  bookingRoomIndex?: number;
 }
 
 export function RoomCard({
@@ -33,9 +40,12 @@ export function RoomCard({
   description,
   showEnterButton = false,
   gallery = [],
+  allBookingRooms,
+  bookingRoomIndex = 0,
 }: RoomCardProps) {
   const { t } = useTranslation();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const hasGallery = gallery.length > 0;
 
@@ -78,6 +88,16 @@ export function RoomCard({
             </p>
             <p className={styles.description}>{description}</p>
           </div>
+
+          <div className={styles.actions}>
+            <CommonButton
+              variant="primary"
+              size="lg"
+              onClick={() => setIsBookingOpen(true)}
+            >
+              {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
+            </CommonButton>
+          </div>
         </div>
       </div>
 
@@ -89,6 +109,26 @@ export function RoomCard({
           title={title}
         />
       )}
+
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        rooms={
+          allBookingRooms || [
+            {
+              title,
+              pricePerHour,
+              description,
+              space,
+              width,
+              ceilingHeight,
+              imageUrl,
+              gallery,
+            },
+          ]
+        }
+        initialRoomIndex={allBookingRooms ? bookingRoomIndex : 0}
+      />
     </>
   );
 }

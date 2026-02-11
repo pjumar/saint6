@@ -1,0 +1,712 @@
+/* ================================ */
+/* Booking modal overlay + dialog   */
+/* ================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  background: white;
+  width: 100%;
+  max-width: 88.5rem; /* ~1416px */
+  height: 48rem; /* ~768px */
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================ */
+/* Image Panel (left 2/3)           */
+/* ================================ */
+
+.imagePanel {
+  position: relative;
+  width: 66.67%;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.roomImage {
+  object-fit: cover;
+}
+
+/* Navigation arrows */
+.imageNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 5;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.imageNav:hover {
+  opacity: 1;
+}
+
+.prevButton {
+  left: 1.125rem;
+}
+
+.nextButton {
+  right: 1.125rem;
+}
+
+/* Pagination dots */
+.pagination {
+  position: absolute;
+  bottom: 3.375rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.3125rem;
+  align-items: center;
+}
+
+.paginationDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgba(8, 7, 7, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.paginationDotActive {
+  width: 2rem;
+  height: 0.5rem;
+  background: var(--color-primary, #880300);
+}
+
+/* ================================ */
+/* Content Panel (right 1/3)        */
+/* ================================ */
+
+.contentPanel {
+  flex: 1;
+  position: relative;
+  padding: 1.5rem 3rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Close button — positioned on .modal */
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-text-primary, #231d1d);
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  opacity: 0.7;
+}
+
+.closeButtonGray {
+  color: #9c9c9c;
+  opacity: 0.4;
+}
+
+/* ================================ */
+/* STATE: DETAILS                   */
+/* ================================ */
+
+.detailsContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 5rem;
+}
+
+/* Room tabs — wrapper with scroll arrows */
+.tabsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.tabArrow {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(8, 7, 7, 0.4);
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.tabArrow:hover {
+  color: var(--color-primary, #880300);
+}
+
+.roomTabs {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  -webkit-overflow-scrolling: touch;
+}
+
+.roomTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.roomTab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: rgba(8, 7, 7, 0.4);
+  padding: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.roomTab:hover {
+  color: rgba(8, 7, 7, 0.7);
+}
+
+.roomTabActive {
+  color: var(--color-primary, #880300);
+}
+
+/* Room info */
+.roomInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.roomName {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.roomPrice {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-primary, #880300);
+  margin: 0;
+}
+
+.roomDescription {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0.5rem 0 0 0;
+  max-width: 23.5rem;
+}
+
+/* Specs grid */
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8125rem;
+}
+
+.specLabel {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: rgba(8, 7, 7, 0.4);
+}
+
+.specValue {
+  font-family: var(--font-title);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.035em;
+  color: var(--color-text-primary, #231d1d);
+}
+
+/* Details actions */
+.detailsActions {
+  margin-top: auto;
+  padding-bottom: 2rem;
+}
+
+/* ================================ */
+/* STATE: BOOKING                   */
+/* ================================ */
+
+.bookingContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+/* Back link */
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  color: var(--color-primary, #880300);
+  padding: 0;
+  margin-bottom: 2rem;
+  transition: opacity 0.2s ease;
+}
+
+.backLink:hover {
+  opacity: 0.7;
+}
+
+.backLink svg {
+  flex-shrink: 0;
+}
+
+/* Booking heading */
+.bookingHeading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0 0 1.5rem 0;
+}
+
+/* Booking form */
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+/* Input wrapper */
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0.25rem 3rem 0.25rem 1rem;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  background: white;
+  border: 1px solid rgba(8, 7, 7, 0.15);
+  border-radius: 0.25rem;
+  outline: none;
+  transition: border-color 0.2s ease, border-width 0.2s ease, padding 0.2s ease;
+}
+
+.input::placeholder {
+  color: transparent;
+  transition: color 0.15s ease;
+}
+
+.input:focus::placeholder {
+  color: rgba(8, 7, 7, 0.4);
+}
+
+.input:focus {
+  border-color: var(--color-primary, #880300);
+  border-width: 3px;
+  padding: 0.125rem 2.875rem 0.125rem 0.875rem;
+}
+
+.inputError {
+  border-color: #b91c1c;
+}
+
+/* Native date/time picker — hide browser icons, use custom ones */
+.inputNative::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.inputNative::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+/* Date range — single row container */
+.dateRangeWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  background: white;
+  border: 1px solid rgba(8, 7, 7, 0.15);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, border-width 0.2s ease;
+}
+
+.dateRangeWrapper.inputError {
+  border-color: #b91c1c;
+}
+
+.dateRangeWrapper:focus-within {
+  border-color: var(--color-primary, #880300);
+  border-width: 3px;
+}
+
+.dateRangeDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  flex: 1;
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.dateRangeValue {
+  color: var(--color-text-primary, #231d1d);
+}
+
+.dateRangePlaceholder {
+  color: rgba(8, 7, 7, 0.4);
+}
+
+.dateRangeSeparator {
+  flex-shrink: 0;
+  color: rgba(8, 7, 7, 0.4);
+  font-size: 1rem;
+}
+
+/* Always float label inside date range wrapper */
+.dateRangeWrapper > .inputLabel {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.025rem;
+  color: rgba(8, 7, 7, 0.6);
+  background: white;
+  padding: 0 0.25rem;
+  left: 0.75rem;
+}
+
+.dateRangeWrapper:focus-within > .inputLabel {
+  color: var(--color-primary, #880300);
+}
+
+/* Date range container (relative anchor for dropdown) */
+.dateRangeContainer {
+  position: relative;
+  width: 100%;
+}
+
+/* Calendar dropdown */
+.calendarDropdown {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  z-index: 50;
+  background: white;
+  border: 1px solid rgba(8, 7, 7, 0.15);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  padding: 0.25rem;
+}
+
+/* Material Design floating label */
+.inputLabel {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(8, 7, 7, 0.4);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  padding: 0;
+}
+
+/* Always float label for native date/time pickers */
+.inputNative ~ .inputLabel {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.025rem;
+  color: rgba(8, 7, 7, 0.6);
+  background: white;
+  padding: 0 0.25rem;
+  left: 0.75rem;
+}
+
+/* Float label when text input has content (unfocused) */
+.input:not(:placeholder-shown) ~ .inputLabel {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.025rem;
+  color: rgba(8, 7, 7, 0.6);
+  background: white;
+  padding: 0 0.25rem;
+  left: 0.75rem;
+}
+
+/* Float label on focus — must come last to override above */
+.input:focus ~ .inputLabel {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.025rem;
+  color: var(--color-primary, #880300);
+  background: white;
+  padding: 0 0.25rem;
+  left: 0.75rem;
+}
+
+/* Input trailing icon */
+.inputIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(8, 7, 7, 0.4);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Time row (From / To side by side) */
+.timeRow {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.timeRow .inputWrapper {
+  flex: 1;
+}
+
+/* ================================ */
+/* STATE: SUCCESS                   */
+/* ================================ */
+
+.successContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.successBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  flex: 1;
+}
+
+.successText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.successHeading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+.successMessage {
+  font-family: var(--font-body, "Public Sans", sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #231d1d);
+  margin: 0;
+}
+
+/* ================================ */
+/* RESPONSIVE - Full screen mobile  */
+/* ================================ */
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0;
+  }
+
+  .modal {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+
+  .imagePanel {
+    width: 100%;
+    height: 40vh;
+    flex-shrink: 0;
+  }
+
+  .contentPanel {
+    padding: 1.5rem;
+    flex: 1;
+    overflow-y: visible;
+  }
+
+  .detailsContent {
+    padding-top: 0;
+    height: auto;
+  }
+
+  .roomName,
+  .bookingHeading,
+  .successHeading {
+    font-size: 2rem;
+  }
+
+  .specValue {
+    font-size: 1.25rem;
+  }
+
+  .specsGrid {
+    row-gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .roomInfo {
+    margin-bottom: 1.5rem;
+  }
+
+  .detailsActions {
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .closeButton {
+    top: 0.75rem;
+    right: 0.75rem;
+    color: white;
+    opacity: 0.8;
+  }
+
+  .tabsWrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .roomTabs {
+    gap: 1.5rem;
+  }
+
+  .successBody {
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+
+  .pagination {
+    bottom: 1.5rem;
+  }
+}

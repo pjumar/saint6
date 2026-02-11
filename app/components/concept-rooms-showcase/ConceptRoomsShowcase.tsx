@@ -1,5 +1,6 @@
 "use client";
 
+import type { BookingRoomData } from "@/app/components/booking-modal/BookingModal";
 import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomCard";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
@@ -25,9 +26,15 @@ export interface ConceptRoom {
 
 export interface ConceptRoomsShowcaseProps {
   rooms: ConceptRoom[];
+  allBookingRooms?: BookingRoomData[];
+  bookingRoomIndexOffset?: number;
 }
 
-export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
+export function ConceptRoomsShowcase({
+  rooms,
+  allBookingRooms,
+  bookingRoomIndexOffset = 0,
+}: ConceptRoomsShowcaseProps) {
   const { t } = useTranslation();
   const headerRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
   const roomsGridRef = useScrollAnimationChildren<HTMLDivElement>({
@@ -64,8 +71,13 @@ export function ConceptRoomsShowcase({ rooms }: ConceptRoomsShowcaseProps) {
 
         {/* Room Cards Grid */}
         <div ref={roomsGridRef} className={styles.roomsGrid}>
-          {rooms.map((room) => (
-            <ConceptRoomCard key={room.id} {...room} />
+          {rooms.map((room, index) => (
+            <ConceptRoomCard
+              key={room.id}
+              {...room}
+              allBookingRooms={allBookingRooms}
+              bookingRoomIndex={bookingRoomIndexOffset + index}
+            />
           ))}
         </div>
       </div>

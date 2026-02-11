@@ -72,6 +72,21 @@
       "CEILING_HEIGHT": "Độ cao trần",
       "PER_HOUR": "/giờ"
     },
+    "BOOKING": {
+      "VIEW_OTHER_STUDIO": "Xem phòng khác",
+      "DATE": "Ngày",
+      "DATE_PLACEHOLDER": "DD/MM/YYYY - DD/MM/YYYY",
+      "FROM": "Từ",
+      "TO": "Đến",
+      "NAME": "Họ tên",
+      "EMAIL": "Email",
+      "PHONE": "Số điện thoại",
+      "RESERVE": "Đặt phòng này",
+      "WALL_TYPE": "Loại tường",
+      "SUCCESS_TITLE": "Yêu cầu đặt phòng đã được tiếp nhận",
+      "SUCCESS_MESSAGE": "Tin nhắn của bạn đã được tiếp nhận — đội ngũ của chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.",
+      "BACK_TO_STUDIOS": "Quay lại studio"
+    },
     "CONCEPT": {
       "SUBTITLE": "Phòng concept theo mùa",
       "TITLE": "Phòng concept theo mùa\nĐược tạo ra cho sự sáng tạo vô hạn",

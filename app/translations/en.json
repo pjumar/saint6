@@ -72,6 +72,21 @@
       "CEILING_HEIGHT": "Ceiling height",
       "PER_HOUR": "/hour"
     },
+    "BOOKING": {
+      "VIEW_OTHER_STUDIO": "View other rooms",
+      "DATE": "Date",
+      "DATE_PLACEHOLDER": "DD/MM/YYYY - DD/MM/YYYY",
+      "FROM": "From",
+      "TO": "To",
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "PHONE": "Phone number",
+      "RESERVE": "Reserve This Space",
+      "WALL_TYPE": "Wall Type",
+      "SUCCESS_TITLE": "Your Reservation Request Has Been Received",
+      "SUCCESS_MESSAGE": "Your message has been received — our team will get back to you shortly to assist with your request.",
+      "BACK_TO_STUDIOS": "Back to Studios"
+    },
     "CONCEPT": {
       "SUBTITLE": "Seasonal Concept Rooms",
       "TITLE": "Seasonal Concept Rooms\nCrafted for Limitless Creativity",
