@@ -207,7 +207,6 @@
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
-    scroll-behavior: smooth;
     padding: 6.25rem 0;
     padding-left: calc((100vw - 90rem) / 2 + 1.5rem);
     padding-right: 1.5rem;
