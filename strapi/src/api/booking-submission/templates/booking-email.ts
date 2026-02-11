@@ -1,9 +1,11 @@
-import { NextResponse } from "next/server";
+/**
+ * Email templates for booking form submissions
+ */
 
-interface BookingRequestBody {
+export interface BookingEmailData {
   roomTitle: string;
   dateFrom: string;
-  dateTo: string;
+  dateTo?: string;
   timeFrom: string;
   timeTo: string;
   name: string;
@@ -20,7 +22,25 @@ function escapeHtml(text: string): string {
     .replace(/'/g, "&#039;");
 }
 
-function buildHtmlEmail(data: BookingRequestBody): string {
+/**
+ * Generate plain text email content
+ */
+export function getTextTemplate(data: BookingEmailData): string {
+  return `New Studio Booking Request
+
+Studio: ${data.roomTitle}
+Date: ${data.dateFrom || "—"} — ${data.dateTo || "—"}
+Time: ${data.timeFrom || "—"} — ${data.timeTo || "—"}
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}`;
+}
+
+/**
+ * Generate HTML email content
+ */
+export function getHtmlTemplate(data: BookingEmailData): string {
   const logoSvg = `<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <text x="0" y="32" font-family="Georgia, serif" font-size="32" font-weight="300" fill="#ffffff" letter-spacing="0.1em">SAINT6</text>
   </svg>`;
@@ -87,79 +107,9 @@ function buildHtmlEmail(data: BookingRequestBody): string {
 </html>`;
 }
 
-function buildTextEmail(data: BookingRequestBody): string {
-  return `New Studio Booking Request
-
-Studio: ${data.roomTitle}
-Date: ${data.dateFrom || "—"} — ${data.dateTo || "—"}
-Time: ${data.timeFrom || "—"} — ${data.timeTo || "—"}
-
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone}`;
-}
-
-export async function POST(request: Request) {
-  try {
-    const body: BookingRequestBody = await request.json();
-
-    if (!body.name || !body.email || !body.phone) {
-      return NextResponse.json(
-        { error: "Name, email, and phone are required" },
-        { status: 400 }
-      );
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
-      return NextResponse.json(
-        { error: "Invalid email format" },
-        { status: 400 }
-      );
-    }
-
-    const resendApiKey = process.env.RESEND_API_KEY;
-    if (!resendApiKey) {
-      console.error("RESEND_API_KEY not configured");
-      return NextResponse.json(
-        { error: "Email service not configured" },
-        { status: 500 }
-      );
-    }
-
-    const toEmail = process.env.BOOKING_EMAIL || process.env.CONTACT_EMAIL || "Saint6studios@gmail.com";
-    const fromEmail = process.env.EMAIL_FROM || "Saint6 Studios <noreply@ccly.dev>";
-
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: toEmail,
-        subject: `Saint 6 — Booking request: ${body.roomTitle} from ${body.name}`,
-        text: buildTextEmail(body),
-        html: buildHtmlEmail(body),
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Resend API error:", errorData);
-      return NextResponse.json(
-        { error: "Failed to send email" },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Booking submission error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
-  }
+/**
+ * Get the email subject line
+ */
+export function getSubject(roomTitle: string, name: string): string {
+  return `Saint 6 — Booking request: ${roomTitle} from ${name}`;
 }

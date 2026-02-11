@@ -16,6 +16,9 @@ import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { Calendar } from "@/app/components/ui/calendar";
 import styles from "./BookingModal.module.css";
 
+const STRAPI_URL =
+  process.env.NEXT_PUBLIC_STRAPI_URL || "https://strapi.saint6.studio";
+
 export interface BookingRoomData {
   title: string;
   pricePerHour: string;
@@ -191,20 +194,22 @@ export function BookingModal({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/booking", {
+      const response = await fetch(`${STRAPI_URL}/api/booking-submissions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          roomTitle: room.title,
-          dateFrom: dateRange?.from
-            ? format(dateRange.from, "dd/MM/yyyy")
-            : "",
-          dateTo: dateRange?.to ? format(dateRange.to, "dd/MM/yyyy") : "",
-          timeFrom: formData.timeFrom,
-          timeTo: formData.timeTo,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
+          data: {
+            roomTitle: room.title,
+            dateFrom: dateRange?.from
+              ? format(dateRange.from, "dd/MM/yyyy")
+              : "",
+            dateTo: dateRange?.to ? format(dateRange.to, "dd/MM/yyyy") : "",
+            timeFrom: formData.timeFrom,
+            timeTo: formData.timeTo,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+          },
         }),
       });
 
@@ -215,7 +220,6 @@ export function BookingModal({
       setModalState("success");
     } catch (error) {
       console.error("Booking submission error:", error);
-      setModalState("success");
     } finally {
       setIsSubmitting(false);
     }

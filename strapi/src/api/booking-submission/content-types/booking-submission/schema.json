@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "booking_submissions",
+  "info": {
+    "singularName": "booking-submission",
+    "pluralName": "booking-submissions",
+    "displayName": "Booking Submission",
+    "description": "Studio booking requests from the website"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "roomTitle": {
+      "type": "string",
+      "required": true
+    },
+    "dateFrom": {
+      "type": "string",
+      "required": true
+    },
+    "dateTo": {
+      "type": "string"
+    },
+    "timeFrom": {
+      "type": "string",
+      "required": true
+    },
+    "timeTo": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "emailSent": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

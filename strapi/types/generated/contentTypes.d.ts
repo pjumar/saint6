@@ -476,6 +476,44 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiBookingSubmissionBookingSubmission
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'booking_submissions';
+  info: {
+    description: 'Studio booking requests from the website';
+    displayName: 'Booking Submission';
+    pluralName: 'booking-submissions';
+    singularName: 'booking-submission';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dateFrom: Schema.Attribute.String & Schema.Attribute.Required;
+    dateTo: Schema.Attribute.String;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    emailSent: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::booking-submission.booking-submission'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    roomTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    timeFrom: Schema.Attribute.String & Schema.Attribute.Required;
+    timeTo: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBrandLogoBrandLogo extends Struct.CollectionTypeSchema {
   collectionName: 'brand_logos';
   info: {
@@ -2081,6 +2119,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::booking-submission.booking-submission': ApiBookingSubmissionBookingSubmission;
       'api::brand-logo.brand-logo': ApiBrandLogoBrandLogo;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::contact-submission.contact-submission': ApiContactSubmissionContactSubmission;
