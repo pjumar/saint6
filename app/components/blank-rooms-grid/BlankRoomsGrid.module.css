@@ -4,9 +4,15 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 1rem;
   margin: 0 -1.5rem;
   width: calc(100% + 3rem);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.roomGrid::-webkit-scrollbar {
+  display: none;
 }
 
 .roomGrid > * {

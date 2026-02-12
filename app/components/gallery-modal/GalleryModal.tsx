@@ -72,6 +72,7 @@ export function GalleryModal({
         role="dialog"
         aria-modal="true"
         aria-label={title || "Image gallery"}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button

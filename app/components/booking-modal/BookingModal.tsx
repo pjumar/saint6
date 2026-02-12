@@ -87,6 +87,9 @@ function ClockIcon({ time = "16:00" }: { time?: string }) {
   );
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\+?[\d\s\-().]{7,}$/;
+
 function getFilteredTimeSlots(
   field: "from" | "to",
   dateFrom: Date | undefined,
@@ -147,6 +150,18 @@ export function BookingModal({
     email: "",
     phone: "",
   });
+  const [fieldErrors, setFieldErrors] = useState({ email: false, phone: false });
+
+  // Debounced regex validation for email and phone
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFieldErrors({
+        email: formData.email.length > 0 && !EMAIL_REGEX.test(formData.email),
+        phone: formData.phone.length > 0 && !PHONE_REGEX.test(formData.phone),
+      });
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [formData.email, formData.phone]);
 
   const room = rooms[selectedRoomIndex];
   const images =
@@ -175,6 +190,8 @@ export function BookingModal({
         email: "",
         phone: "",
       });
+      setFieldErrors({ email: false, phone: false });
+      setShowErrors(false);
     }
   }, [isOpen, initialRoomIndex]);
 
@@ -187,13 +204,23 @@ export function BookingModal({
 
   useEffect(() => {
     if (isOpen) {
+      const scrollY = window.scrollY;
       document.addEventListener("keydown", handleKeyDown);
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
       document.body.style.overflow = "hidden";
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
   }, [isOpen, handleKeyDown]);
 
   // Close calendar on click outside
@@ -355,13 +382,19 @@ export function BookingModal({
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone || !dateRange?.from || !formData.timeFrom || !formData.timeTo) {
+    const isValid =
+      formData.name &&
+      EMAIL_REGEX.test(formData.email) &&
+      PHONE_REGEX.test(formData.phone) &&
+      dateRange?.from &&
+      formData.timeFrom &&
+      formData.timeTo;
+    if (!isValid) {
       setShowErrors(true);
       return;
     }
 
     setIsSubmitting(true);
-
     try {
       const response = await fetch(`${STRAPI_URL}/api/booking-submissions`, {
         method: "POST",
@@ -369,9 +402,7 @@ export function BookingModal({
         body: JSON.stringify({
           data: {
             roomTitle: room.title,
-            dateFrom: dateRange?.from
-              ? format(dateRange.from, "dd/MM/yyyy")
-              : "",
+            dateFrom: dateRange?.from ? format(dateRange.from, "dd/MM/yyyy") : "",
             dateTo: dateRange?.to ? format(dateRange.to, "dd/MM/yyyy") : "",
             timeFrom: formData.timeFrom,
             timeTo: formData.timeTo,
@@ -381,11 +412,7 @@ export function BookingModal({
           },
         }),
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit booking");
-      }
-
+      if (!response.ok) throw new Error("Failed to submit booking");
       setModalState("success");
     } catch (error) {
       console.error("Booking submission error:", error);
@@ -582,7 +609,7 @@ export function BookingModal({
             <div className={styles.detailsActions}>
               <CommonButton
                 variant="primary"
-                size="lg"
+                size="md"
                 onClick={() => setModalState("booking")}
               >
                 {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
@@ -829,7 +856,7 @@ export function BookingModal({
                   value={formData.email}
                   onChange={handleChange}
                   placeholder=" "
-                  className={`${styles.input} ${showErrors && !formData.email ? styles.inputError : ""}`}
+                  className={`${styles.input} ${fieldErrors.email || (showErrors && !EMAIL_REGEX.test(formData.email)) ? styles.inputError : ""}`}
                   required
                 />
                 <label className={styles.inputLabel}>
@@ -845,7 +872,7 @@ export function BookingModal({
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder=" "
-                  className={`${styles.input} ${showErrors && !formData.phone ? styles.inputError : ""}`}
+                  className={`${styles.input} ${fieldErrors.phone || (showErrors && !PHONE_REGEX.test(formData.phone)) ? styles.inputError : ""}`}
                   required
                 />
                 <label className={styles.inputLabel}>
@@ -857,12 +884,18 @@ export function BookingModal({
               <CommonButton
                 type="submit"
                 variant="primary"
-                size="lg"
+                size="md"
                 disabled={isSubmitting}
+                className={styles.submitButton}
               >
-                {isSubmitting
-                  ? t.STUDIO_RENTAL.FORM.SENDING
-                  : t.STUDIO_RENTAL.BOOKING.RESERVE}
+                <span style={{ visibility: isSubmitting ? "hidden" : "visible" }}>
+                  {t.STUDIO_RENTAL.BOOKING.RESERVE}
+                </span>
+                {isSubmitting && (
+                  <span className={styles.submitSpinner}>
+                    {t.STUDIO_RENTAL.FORM.SENDING}
+                  </span>
+                )}
               </CommonButton>
             </form>
           </div>
