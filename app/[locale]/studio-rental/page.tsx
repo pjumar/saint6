@@ -312,6 +312,11 @@ export default async function StudioRentalPage({ params }: PageProps) {
       width: "",
       ceilingHeight: "",
       imageUrl: fullRentalBg,
+      gallery: [...studioRooms, ...conceptRooms].flatMap((r) =>
+        r.gallery && r.gallery.length > 0
+          ? r.gallery
+          : [{ url: r.imageUrl, alt: r.title }]
+      ),
     },
   ];
 

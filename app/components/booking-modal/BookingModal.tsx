@@ -143,6 +143,7 @@ export function BookingModal({
   const timeFromRef = useRef<HTMLDivElement>(null);
   const timeToRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
+  const imageThumbnailsRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     timeFrom: "",
     timeTo: "",
@@ -285,6 +286,13 @@ export function BookingModal({
       tabs.removeEventListener("scroll", updateTabArrows);
     };
   }, [isOpen, modalState, updateTabArrows]);
+
+  // Scroll active image thumbnail into view
+  useEffect(() => {
+    const container = imageThumbnailsRef.current;
+    const thumb = container?.children[currentImageIndex] as HTMLElement | undefined;
+    if (thumb) thumb.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+  }, [currentImageIndex]);
 
   const scrollTabs = (direction: "left" | "right") => {
     const tabs = tabsRef.current;
@@ -495,19 +503,28 @@ export function BookingModal({
         )}
 
         {images.length > 1 && (
-          <div className={styles.pagination}>
-            {images.map((_, index) => (
-              <button
-                key={index}
-                className={`${styles.paginationDot} ${
-                  index === currentImageIndex
-                    ? styles.paginationDotActive
-                    : ""
-                }`}
-                onClick={() => setCurrentImageIndex(index)}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
+          <div className={styles.imageFooter}>
+            <div className={styles.imageCounter}>
+              {String(currentImageIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+            </div>
+            <div className={styles.imageThumbnails} ref={imageThumbnailsRef}>
+              {images.map((img, index) => (
+                <button
+                  key={index}
+                  className={`${styles.imageThumbnail} ${index === currentImageIndex ? styles.imageThumbnailActive : ""}`}
+                  onClick={() => setCurrentImageIndex(index)}
+                  aria-label={`Go to image ${index + 1}`}
+                >
+                  <Image
+                    src={img.url}
+                    alt=""
+                    fill
+                    className={styles.imageThumbnailImg}
+                    sizes="60px"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </div>

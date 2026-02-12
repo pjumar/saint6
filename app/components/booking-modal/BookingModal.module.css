@@ -88,31 +88,66 @@
   right: 1.125rem;
 }
 
-/* Pagination dots */
-.pagination {
+/* Image footer (counter + thumbnails) */
+.imageFooter {
   position: absolute;
-  bottom: 3.375rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  gap: 0.3125rem;
+  flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
 }
 
-.paginationDot {
-  width: 0.5rem;
-  height: 0.5rem;
-  background: rgba(8, 7, 7, 0.1);
-  border: none;
+.imageCounter {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.imageThumbnails {
+  display: flex;
+  gap: 0.375rem;
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.imageThumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.imageThumbnail {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
   cursor: pointer;
   padding: 0;
-  transition: all 0.2s ease;
+  background: transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
 }
 
-.paginationDotActive {
-  width: 2rem;
-  height: 0.5rem;
-  background: var(--color-primary, #880300);
+.imageThumbnail:hover {
+  opacity: 1;
+}
+
+.imageThumbnailActive {
+  border-color: white;
+  opacity: 1;
+}
+
+.imageThumbnailImg {
+  object-fit: cover;
 }
 
 /* ================================ */
@@ -827,7 +862,8 @@
     padding-top: 0;
   }
 
-  .pagination {
-    bottom: 1.5rem;
+  .imageThumbnail {
+    width: 36px;
+    height: 36px;
   }
 }
