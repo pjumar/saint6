@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import {
+  BookingModal,
+  type BookingRoomData,
+} from "@/app/components/booking-modal/BookingModal";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation } from "@/app/hooks";
 import styles from "./FullRentalCard.module.css";
@@ -9,11 +14,15 @@ import styles from "./FullRentalCard.module.css";
 export interface FullRentalCardProps {
   price: string;
   backgroundImageUrl: string;
+  allBookingRooms?: BookingRoomData[];
+  bookingRoomIndex?: number;
 }
 
 export function FullRentalCard({
   price,
   backgroundImageUrl,
+  allBookingRooms,
+  bookingRoomIndex = 0,
 }: FullRentalCardProps) {
   const { t } = useTranslation();
   const introRef = useScrollAnimation<HTMLDivElement>({ type: "fadeLeft" });
@@ -21,6 +30,7 @@ export function FullRentalCard({
     type: "fadeUp",
     delay: 0.2,
   });
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <div className={styles.section}>
@@ -56,7 +66,11 @@ export function FullRentalCard({
               {t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}
             </p>
             <div className={styles.actions}>
-              <CommonButton variant="primary" size="lg">
+              <CommonButton
+                variant="primary"
+                size="lg"
+                onClick={() => setIsBookingOpen(true)}
+              >
                 {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
               </CommonButton>
               <CommonButton variant="outline" size="lg">
@@ -66,6 +80,13 @@ export function FullRentalCard({
           </div>
         </div>
       </div>
+
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        rooms={allBookingRooms || []}
+        initialRoomIndex={allBookingRooms ? bookingRoomIndex : 0}
+      />
     </div>
   );
 }

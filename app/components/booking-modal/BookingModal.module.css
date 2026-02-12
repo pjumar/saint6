@@ -224,7 +224,8 @@
   color: rgba(8, 7, 7, 0.7);
 }
 
-.roomTabActive {
+.roomTabActive,
+.roomTabActive:hover {
   color: var(--color-primary, #880300);
 }
 

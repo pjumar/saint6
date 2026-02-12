@@ -265,6 +265,11 @@ export function BookingModal({
     if (!isOpen) return;
     const tabs = tabsRef.current;
     if (!tabs) return;
+    // Scroll active tab into view
+    const activeTab = tabs.children[selectedRoomIndex] as HTMLElement | undefined;
+    if (activeTab) {
+      activeTab.scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
     updateTabArrows();
     const handleWheel = (e: WheelEvent) => {
       if (tabs.scrollWidth <= tabs.clientWidth) return;
@@ -336,6 +341,9 @@ export function BookingModal({
   const handleRoomTabClick = (index: number) => {
     setSelectedRoomIndex(index);
     setCurrentImageIndex(0);
+    const tabs = tabsRef.current;
+    const tab = tabs?.children[index] as HTMLElement | undefined;
+    if (tab) tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -578,24 +586,30 @@ export function BookingModal({
             </div>
 
             <div className={styles.specsGrid}>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>
-                  {t.STUDIO_RENTAL.ROOMS.SPACE}
-                </span>
-                <span className={styles.specValue}>{room.space}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>
-                  {t.STUDIO_RENTAL.ROOMS.WIDTH}
-                </span>
-                <span className={styles.specValue}>{room.width}</span>
-              </div>
-              <div className={styles.specItem}>
-                <span className={styles.specLabel}>
-                  {t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
-                </span>
-                <span className={styles.specValue}>{room.ceilingHeight}</span>
-              </div>
+              {room.space && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>
+                    {t.STUDIO_RENTAL.ROOMS.SPACE}
+                  </span>
+                  <span className={styles.specValue}>{room.space}</span>
+                </div>
+              )}
+              {room.width && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>
+                    {t.STUDIO_RENTAL.ROOMS.WIDTH}
+                  </span>
+                  <span className={styles.specValue}>{room.width}</span>
+                </div>
+              )}
+              {room.ceilingHeight && (
+                <div className={styles.specItem}>
+                  <span className={styles.specLabel}>
+                    {t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
+                  </span>
+                  <span className={styles.specValue}>{room.ceilingHeight}</span>
+                </div>
+              )}
               {room.wallType && (
                 <div className={styles.specItem}>
                   <span className={styles.specLabel}>

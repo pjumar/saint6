@@ -293,16 +293,27 @@ export default async function StudioRentalPage({ params }: PageProps) {
       : [];
 
   // All rooms combined for booking modal tabs
-  const allBookingRooms: BookingRoomData[] = [...studioRooms, ...conceptRooms].map((r) => ({
-    title: r.title,
-    pricePerHour: r.pricePerHour,
-    description: r.description,
-    space: r.space,
-    width: r.width,
-    ceilingHeight: r.ceilingHeight,
-    imageUrl: r.imageUrl,
-    gallery: r.gallery,
-  }));
+  const allBookingRooms: BookingRoomData[] = [
+    ...[...studioRooms, ...conceptRooms].map((r) => ({
+      title: r.title,
+      pricePerHour: r.pricePerHour,
+      description: r.description,
+      space: r.space,
+      width: r.width,
+      ceilingHeight: r.ceilingHeight,
+      imageUrl: r.imageUrl,
+      gallery: r.gallery,
+    })),
+    {
+      title: t.STUDIO_RENTAL.FULL_RENTAL.ROOM_NAME,
+      pricePerHour: fullRentalPrice,
+      description: t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION,
+      space: "900m²",
+      width: "",
+      ceilingHeight: "",
+      imageUrl: fullRentalBg,
+    },
+  ];
 
   // FAQs - use CMS data if available, otherwise use translations
   const faqItems = strapiData?.faqs
@@ -353,6 +364,8 @@ export default async function StudioRentalPage({ params }: PageProps) {
           <FullRentalCard
             price={fullRentalPrice}
             backgroundImageUrl={fullRentalBg}
+            allBookingRooms={allBookingRooms}
+            bookingRoomIndex={allBookingRooms.length - 1}
           />
         </section>
 
