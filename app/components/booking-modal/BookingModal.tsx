@@ -9,7 +9,7 @@ import {
   useRef,
 } from "react";
 import { createPortal } from "react-dom";
-import { format, startOfToday } from "date-fns";
+import { format, startOfTomorrow } from "date-fns";
 import type { DateRange } from "react-day-picker";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
@@ -387,14 +387,45 @@ export function BookingModal({
     setIsCalendarOpen(false);
   };
 
-  // Scroll dropdown to selected item when it opens
-  const scrollDropdownToSelected = useCallback((el: HTMLDivElement | null) => {
+  // Time dropdown scroll arrows
+  const timeDropdownRef = useRef<HTMLDivElement>(null);
+  const [timeDropdownArrows, setTimeDropdownArrows] = useState({ up: false, down: false });
+
+  const updateTimeDropdownArrows = useCallback(() => {
+    const el = timeDropdownRef.current;
+    if (!el) return;
+    setTimeDropdownArrows({
+      up: el.scrollTop > 1,
+      down: el.scrollTop + el.clientHeight < el.scrollHeight - 1,
+    });
+  }, []);
+
+  const timeDropdownCallbackRef = useCallback((el: HTMLDivElement | null) => {
+    timeDropdownRef.current = el;
     if (!el) return;
     const selected = el.querySelector("[data-selected='true']");
-    if (selected) {
-      selected.scrollIntoView({ block: "nearest" });
-    }
+    const target = selected || el.querySelector("[data-time='12:00']");
+    if (target) target.scrollIntoView({ block: "center" });
+    requestAnimationFrame(() => {
+      setTimeDropdownArrows({
+        up: el.scrollTop > 1,
+        down: el.scrollTop + el.clientHeight < el.scrollHeight - 1,
+      });
+    });
   }, []);
+
+  useEffect(() => {
+    const el = timeDropdownRef.current;
+    if (!el || !openTimePicker) return;
+    el.addEventListener("scroll", updateTimeDropdownArrows);
+    return () => el.removeEventListener("scroll", updateTimeDropdownArrows);
+  }, [openTimePicker, updateTimeDropdownArrows]);
+
+  const scrollTimeDropdown = (direction: "up" | "down") => {
+    const el = timeDropdownRef.current;
+    if (!el) return;
+    el.scrollBy({ top: direction === "up" ? -100 : 100, behavior: "smooth" });
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -766,8 +797,8 @@ export function BookingModal({
                       selected={dateRange}
                       onSelect={handleDateSelect}
                       numberOfMonths={1}
-                      disabled={{ before: startOfToday() }}
-                      startMonth={startOfToday()}
+                      disabled={{ before: startOfTomorrow() }}
+                      startMonth={startOfTomorrow()}
                     />
                   </div>
                 )}
@@ -795,26 +826,39 @@ export function BookingModal({
                     <ClockIcon time={formData.timeFrom || undefined} />
                   </span>
                   {openTimePicker === "from" && (
-                    <div
-                      className={styles.timePickerDropdown}
-                      ref={scrollDropdownToSelected}
-                    >
-                      {getFilteredTimeSlots(
-                        "from",
-                        dateRange?.from,
-                        dateRange?.to,
-                        formData.timeFrom
-                      ).map((slot) => (
-                        <button
-                          key={slot}
-                          type="button"
-                          className={`${styles.timePickerOption} ${formData.timeFrom === slot ? styles.timePickerOptionSelected : ""}`}
-                          data-selected={formData.timeFrom === slot}
-                          onClick={() => handleTimeSelect("from", slot)}
-                        >
-                          {slot}
+                    <div className={styles.timePickerDropdownWrapper}>
+                      {timeDropdownArrows.up && (
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowUp}`} onClick={() => scrollTimeDropdown("up")}>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 10L8 6L12 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </button>
-                      ))}
+                      )}
+                      <div
+                        className={styles.timePickerDropdown}
+                        ref={timeDropdownCallbackRef}
+                      >
+                        {getFilteredTimeSlots(
+                          "from",
+                          dateRange?.from,
+                          dateRange?.to,
+                          formData.timeFrom
+                        ).map((slot) => (
+                          <button
+                            key={slot}
+                            type="button"
+                            className={`${styles.timePickerOption} ${formData.timeFrom === slot ? styles.timePickerOptionSelected : ""}`}
+                            data-selected={formData.timeFrom === slot}
+                            data-time={slot}
+                            onClick={() => handleTimeSelect("from", slot)}
+                          >
+                            {slot}
+                          </button>
+                        ))}
+                      </div>
+                      {timeDropdownArrows.down && (
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowDown}`} onClick={() => scrollTimeDropdown("down")}>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>
@@ -838,26 +882,39 @@ export function BookingModal({
                     <ClockIcon time={formData.timeTo || undefined} />
                   </span>
                   {openTimePicker === "to" && (
-                    <div
-                      className={styles.timePickerDropdown}
-                      ref={scrollDropdownToSelected}
-                    >
-                      {getFilteredTimeSlots(
-                        "to",
-                        dateRange?.from,
-                        dateRange?.to,
-                        formData.timeFrom
-                      ).map((slot) => (
-                        <button
-                          key={slot}
-                          type="button"
-                          className={`${styles.timePickerOption} ${formData.timeTo === slot ? styles.timePickerOptionSelected : ""}`}
-                          data-selected={formData.timeTo === slot}
-                          onClick={() => handleTimeSelect("to", slot)}
-                        >
-                          {slot}
+                    <div className={styles.timePickerDropdownWrapper}>
+                      {timeDropdownArrows.up && (
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowUp}`} onClick={() => scrollTimeDropdown("up")}>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 10L8 6L12 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </button>
-                      ))}
+                      )}
+                      <div
+                        className={styles.timePickerDropdown}
+                        ref={timeDropdownCallbackRef}
+                      >
+                        {getFilteredTimeSlots(
+                          "to",
+                          dateRange?.from,
+                          dateRange?.to,
+                          formData.timeFrom
+                        ).map((slot) => (
+                          <button
+                            key={slot}
+                            type="button"
+                            className={`${styles.timePickerOption} ${formData.timeTo === slot ? styles.timePickerOptionSelected : ""}`}
+                            data-selected={formData.timeTo === slot}
+                            data-time={slot}
+                            onClick={() => handleTimeSelect("to", slot)}
+                          >
+                            {slot}
+                          </button>
+                        ))}
+                      </div>
+                      {timeDropdownArrows.down && (
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowDown}`} onClick={() => scrollTimeDropdown("down")}>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>
