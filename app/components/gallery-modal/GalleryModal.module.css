@@ -131,16 +131,22 @@
 .thumbnails {
   display: flex;
   gap: 0.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   pointer-events: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.thumbnails::-webkit-scrollbar {
+  display: none;
 }
 
 .thumbnail {
   position: relative;
   width: 60px;
   height: 60px;
+  flex-shrink: 0;
   border: 2px solid transparent;
   border-radius: 4px;
   overflow: hidden;
@@ -166,7 +172,8 @@
 
 @media (max-width: 768px) {
   .modal {
-    max-height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     padding: 0;
   }
 
@@ -176,7 +183,7 @@
   }
 
   .imageWrapper {
-    max-height: calc(100vh - 200px);
+    max-height: calc(100dvh - 200px);
   }
 
   .navButton {

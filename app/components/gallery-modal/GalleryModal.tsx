@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useCallback, useState } from "react";
+import { useEffect, useCallback, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styles from "./GalleryModal.module.css";
 
@@ -26,6 +26,7 @@ export function GalleryModal({
   initialIndex = 0,
 }: GalleryModalProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const thumbnailsRef = useRef<HTMLDivElement>(null);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -60,6 +61,13 @@ export function GalleryModal({
       document.body.style.overflow = "";
     };
   }, [isOpen, handleKeyDown, initialIndex]);
+
+  // Scroll active thumbnail into view
+  useEffect(() => {
+    const container = thumbnailsRef.current;
+    const thumb = container?.children[currentIndex] as HTMLElement | undefined;
+    if (thumb) thumb.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+  }, [currentIndex]);
 
   if (!isOpen || images.length === 0) return null;
 
@@ -174,7 +182,7 @@ export function GalleryModal({
 
         {/* Thumbnail strip */}
         {images.length > 1 && (
-          <div className={styles.thumbnails}>
+          <div className={styles.thumbnails} ref={thumbnailsRef}>
             {images.map((image, index) => (
               <button
                 key={index}
