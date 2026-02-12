@@ -1,12 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import {
   BookingModal,
   type BookingRoomData,
 } from "@/app/components/booking-modal/BookingModal";
+import {
+  GalleryModal,
+  type GalleryImage,
+} from "@/app/components/gallery-modal/GalleryModal";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation } from "@/app/hooks";
 import styles from "./FullRentalCard.module.css";
@@ -31,6 +35,23 @@ export function FullRentalCard({
     delay: 0.2,
   });
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+  // Collect all images from all rooms for the gallery
+  const allGalleryImages: GalleryImage[] = useMemo(() => {
+    if (!allBookingRooms) return [];
+    const images: GalleryImage[] = [];
+    for (const room of allBookingRooms) {
+      if (room.gallery && room.gallery.length > 0) {
+        for (const img of room.gallery) {
+          images.push({ url: img.url, alt: img.alt || room.title });
+        }
+      } else if (room.imageUrl) {
+        images.push({ url: room.imageUrl, alt: room.title });
+      }
+    }
+    return images;
+  }, [allBookingRooms]);
 
   return (
     <div className={styles.section}>
@@ -73,7 +94,11 @@ export function FullRentalCard({
               >
                 {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
               </CommonButton>
-              <CommonButton variant="outline" size="lg">
+              <CommonButton
+                variant="outline"
+                size="lg"
+                onClick={() => setIsGalleryOpen(true)}
+              >
                 {t.STUDIO_RENTAL.ROOMS.GALLERY}
               </CommonButton>
             </div>
@@ -87,6 +112,15 @@ export function FullRentalCard({
         rooms={allBookingRooms || []}
         initialRoomIndex={allBookingRooms ? bookingRoomIndex : 0}
       />
+
+      {allGalleryImages.length > 0 && (
+        <GalleryModal
+          isOpen={isGalleryOpen}
+          onClose={() => setIsGalleryOpen(false)}
+          images={allGalleryImages}
+          title={t.STUDIO_RENTAL.FULL_RENTAL.ROOM_NAME}
+        />
+      )}
     </div>
   );
 }
