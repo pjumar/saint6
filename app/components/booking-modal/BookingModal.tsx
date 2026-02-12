@@ -9,7 +9,7 @@ import {
   useRef,
 } from "react";
 import { createPortal } from "react-dom";
-import { format } from "date-fns";
+import { format, startOfToday } from "date-fns";
 import type { DateRange } from "react-day-picker";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
@@ -40,6 +40,86 @@ export interface BookingModalProps {
 
 type ModalState = "details" | "booking" | "success";
 
+// Generate 30-minute time slots: 00:00, 00:30, 01:00, ..., 23:30
+const ALL_TIME_SLOTS: string[] = [];
+for (let h = 0; h < 24; h++) {
+  for (let m = 0; m < 60; m += 30) {
+    ALL_TIME_SLOTS.push(
+      `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`
+    );
+  }
+}
+
+function timeToMinutes(time: string): number {
+  const [h, m] = time.split(":").map(Number);
+  return h * 60 + m;
+}
+
+function ClockIcon({ time = "16:00" }: { time?: string }) {
+  const [h, m] = time.split(":").map(Number);
+  const hourAngle = ((h % 12) / 12) * 360 + (m / 60) * 30;
+  const minuteAngle = (m / 60) * 360;
+
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+      <line
+        x1="12"
+        y1="12"
+        x2="12"
+        y2="8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        transform={`rotate(${hourAngle}, 12, 12)`}
+      />
+      <line
+        x1="12"
+        y1="12"
+        x2="12"
+        y2="6.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        transform={`rotate(${minuteAngle}, 12, 12)`}
+      />
+    </svg>
+  );
+}
+
+function getFilteredTimeSlots(
+  field: "from" | "to",
+  dateFrom: Date | undefined,
+  dateTo: Date | undefined,
+  timeFrom: string
+): string[] {
+  let slots = ALL_TIME_SLOTS;
+  const now = new Date();
+  const todayStr = now.toDateString();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  if (field === "from") {
+    // If from date is today, remove past time slots
+    if (dateFrom && dateFrom.toDateString() === todayStr) {
+      slots = slots.filter((s) => timeToMinutes(s) > currentMinutes);
+    }
+  } else {
+    // If to date is today, remove past time slots
+    if (dateTo && dateTo.toDateString() === todayStr) {
+      slots = slots.filter((s) => timeToMinutes(s) > currentMinutes);
+    }
+    // If same day, to time must be after from time
+    const isSameDay =
+      dateFrom && dateTo && dateFrom.toDateString() === dateTo.toDateString();
+    if (isSameDay && timeFrom) {
+      const fromMinutes = timeToMinutes(timeFrom);
+      slots = slots.filter((s) => timeToMinutes(s) > fromMinutes);
+    }
+  }
+
+  return slots;
+}
+
 export function BookingModal({
   isOpen,
   onClose,
@@ -55,7 +135,10 @@ export function BookingModal({
   const [showErrors, setShowErrors] = useState(false);
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [openTimePicker, setOpenTimePicker] = useState<"from" | "to" | null>(null);
   const calendarRef = useRef<HTMLDivElement>(null);
+  const timeFromRef = useRef<HTMLDivElement>(null);
+  const timeToRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     timeFrom: "",
@@ -83,6 +166,8 @@ export function BookingModal({
       setSelectedRoomIndex(initialRoomIndex);
       setCurrentImageIndex(0);
       setDateRange(undefined);
+      setIsCalendarOpen(false);
+      setOpenTimePicker(null);
       setFormData({
         timeFrom: "",
         timeTo: "",
@@ -122,6 +207,19 @@ export function BookingModal({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isCalendarOpen]);
+
+  // Close time picker on click outside
+  useEffect(() => {
+    if (!openTimePicker) return;
+    const ref = openTimePicker === "from" ? timeFromRef : timeToRef;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpenTimePicker(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [openTimePicker]);
 
   // Tab scroll arrows visibility
   const [tabArrows, setTabArrows] = useState({ left: false, right: false });
@@ -164,6 +262,40 @@ export function BookingModal({
 
   const handleDateSelect = (range: DateRange | undefined) => {
     setDateRange(range);
+
+    // Clear times that become invalid with the new date selection
+    if (range?.from) {
+      const todayStr = new Date().toDateString();
+      const isFromToday = range.from.toDateString() === todayStr;
+
+      setFormData((prev) => {
+        const updated = { ...prev };
+
+        // If from date is today, check if timeFrom is still valid
+        if (isFromToday && prev.timeFrom) {
+          const now = new Date();
+          const currentMinutes = now.getHours() * 60 + now.getMinutes();
+          if (timeToMinutes(prev.timeFrom) <= currentMinutes) {
+            updated.timeFrom = "";
+            updated.timeTo = "";
+          }
+        }
+
+        // If same day, check if timeTo is still valid
+        if (range.from && range.to) {
+          const isSameDay =
+            range.from.toDateString() === range.to.toDateString();
+          if (isSameDay && updated.timeFrom && prev.timeTo) {
+            if (timeToMinutes(prev.timeTo) <= timeToMinutes(updated.timeFrom)) {
+              updated.timeTo = "";
+            }
+          }
+        }
+
+        return updated;
+      });
+    }
+
     // Auto-close when a full range is selected (from and to are different days)
     if (
       range?.from &&
@@ -183,6 +315,43 @@ export function BookingModal({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleTimeSelect = (field: "from" | "to", value: string) => {
+    setFormData((prev) => {
+      const updated = {
+        ...prev,
+        [field === "from" ? "timeFrom" : "timeTo"]: value,
+      };
+
+      // If setting "from" time, clear "to" if it becomes invalid on same day
+      if (field === "from" && updated.timeTo) {
+        const isSameDay =
+          dateRange?.from &&
+          dateRange?.to &&
+          dateRange.from.toDateString() === dateRange.to.toDateString();
+        if (isSameDay && timeToMinutes(updated.timeTo) <= timeToMinutes(value)) {
+          updated.timeTo = "";
+        }
+      }
+
+      return updated;
+    });
+    setOpenTimePicker(null);
+  };
+
+  const handleTimePickerToggle = (field: "from" | "to") => {
+    setOpenTimePicker((prev) => (prev === field ? null : field));
+    setIsCalendarOpen(false);
+  };
+
+  // Scroll dropdown to selected item when it opens
+  const scrollDropdownToSelected = useCallback((el: HTMLDivElement | null) => {
+    if (!el) return;
+    const selected = el.querySelector("[data-selected='true']");
+    if (selected) {
+      selected.scrollIntoView({ block: "nearest" });
+    }
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -457,7 +626,10 @@ export function BookingModal({
                 <button
                   type="button"
                   className={`${styles.dateRangeWrapper} ${showErrors && !dateRange?.from ? styles.inputError : ""}`}
-                  onClick={() => setIsCalendarOpen((prev) => !prev)}
+                  onClick={() => {
+                    setIsCalendarOpen((prev) => !prev);
+                    setOpenTimePicker(null);
+                  }}
                 >
                   <span className={styles.dateRangeDisplay}>
                     {dateRange?.from ? (
@@ -536,6 +708,8 @@ export function BookingModal({
                       selected={dateRange}
                       onSelect={handleDateSelect}
                       numberOfMonths={1}
+                      disabled={{ before: startOfToday() }}
+                      startMonth={startOfToday()}
                     />
                   </div>
                 )}
@@ -543,75 +717,91 @@ export function BookingModal({
 
               {/* Time fields */}
               <div className={styles.timeRow}>
-                <div className={styles.inputWrapper}>
-                  <input
-                    type="time"
-                    name="timeFrom"
-                    value={formData.timeFrom}
-                    onChange={handleChange}
-                    className={`${styles.input} ${styles.inputNative} ${showErrors && !formData.timeFrom ? styles.inputError : ""}`}
+                <div className={styles.timePickerContainer} ref={timeFromRef}>
+                  <button
+                    type="button"
+                    className={`${styles.timePickerButton} ${openTimePicker === "from" ? styles.timePickerButtonOpen : ""} ${showErrors && !formData.timeFrom ? styles.inputError : ""}`}
+                    onClick={() => handleTimePickerToggle("from")}
                     aria-label={t.STUDIO_RENTAL.BOOKING.FROM}
-                  />
+                  >
+                    {formData.timeFrom || (
+                      <span className={styles.timePickerPlaceholder}>
+                        --:--
+                      </span>
+                    )}
+                  </button>
                   <label className={styles.inputLabel}>
                     {t.STUDIO_RENTAL.BOOKING.FROM}*
                   </label>
                   <span className={styles.inputIcon}>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="9"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <path
-                        d="M12 7V12L15 15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    <ClockIcon time={formData.timeFrom || undefined} />
                   </span>
+                  {openTimePicker === "from" && (
+                    <div
+                      className={styles.timePickerDropdown}
+                      ref={scrollDropdownToSelected}
+                    >
+                      {getFilteredTimeSlots(
+                        "from",
+                        dateRange?.from,
+                        dateRange?.to,
+                        formData.timeFrom
+                      ).map((slot) => (
+                        <button
+                          key={slot}
+                          type="button"
+                          className={`${styles.timePickerOption} ${formData.timeFrom === slot ? styles.timePickerOptionSelected : ""}`}
+                          data-selected={formData.timeFrom === slot}
+                          onClick={() => handleTimeSelect("from", slot)}
+                        >
+                          {slot}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className={styles.inputWrapper}>
-                  <input
-                    type="time"
-                    name="timeTo"
-                    value={formData.timeTo}
-                    onChange={handleChange}
-                    className={`${styles.input} ${styles.inputNative} ${showErrors && !formData.timeTo ? styles.inputError : ""}`}
+                <div className={styles.timePickerContainer} ref={timeToRef}>
+                  <button
+                    type="button"
+                    className={`${styles.timePickerButton} ${openTimePicker === "to" ? styles.timePickerButtonOpen : ""} ${showErrors && !formData.timeTo ? styles.inputError : ""}`}
+                    onClick={() => handleTimePickerToggle("to")}
                     aria-label={t.STUDIO_RENTAL.BOOKING.TO}
-                  />
+                  >
+                    {formData.timeTo || (
+                      <span className={styles.timePickerPlaceholder}>
+                        --:--
+                      </span>
+                    )}
+                  </button>
                   <label className={styles.inputLabel}>
                     {t.STUDIO_RENTAL.BOOKING.TO}*
                   </label>
                   <span className={styles.inputIcon}>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="9"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <path
-                        d="M12 7V12L15 15"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    <ClockIcon time={formData.timeTo || undefined} />
                   </span>
+                  {openTimePicker === "to" && (
+                    <div
+                      className={styles.timePickerDropdown}
+                      ref={scrollDropdownToSelected}
+                    >
+                      {getFilteredTimeSlots(
+                        "to",
+                        dateRange?.from,
+                        dateRange?.to,
+                        formData.timeFrom
+                      ).map((slot) => (
+                        <button
+                          key={slot}
+                          type="button"
+                          className={`${styles.timePickerOption} ${formData.timeTo === slot ? styles.timePickerOptionSelected : ""}`}
+                          data-selected={formData.timeTo === slot}
+                          onClick={() => handleTimeSelect("to", slot)}
+                        >
+                          {slot}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
