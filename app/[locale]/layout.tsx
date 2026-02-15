@@ -57,6 +57,7 @@ export async function generateMetadata({
     metadataBase: new URL(
       process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.studio",
     ),
+    manifest: "/site.webmanifest",
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
