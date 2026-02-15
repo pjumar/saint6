@@ -89,7 +89,7 @@ export const FALLBACK_SEO = {
     en: "Saint 6 Studio | Exclusive Production & Event Destination",
     vi: "Saint 6 Studio | \u0110i\u1EC3m \u0110\u1EBFn S\u1EA3n Xu\u1EA5t & S\u1EF1 Ki\u1EC7n \u0110\u1ED9c Quy\u1EC1n",
   },
-  title_template: "%s | Saint 6 Studio",
+  title_template: "Saint 6 Studio | %s",
   description: {
     en: "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs.",
     vi: "M\u1ED9t \u0111i\u1EC3m \u0111\u1EBFn \u0111\u1ED9c quy\u1EC1n cho c\u00E1c s\u1EA3n xu\u1EA5t cao c\u1EA5p, s\u1EF1 ki\u1EC7n ri\u00EAng t\u01B0 v\u00E0 tr\u1EA3i nghi\u1EC7m t\u1EA7m nh\u00ECn. Thu\u00EA studio, thi\u1EBFt k\u1EBF set, d\u1ECBch v\u1EE5 s\u1EA3n xu\u1EA5t v\u00E0 gi\u1EA3i ph\u00E1p s\u00E1ng t\u1EA1o \u0111\u01B0\u1EE3c \u0111i\u1EC1u ch\u1EC9nh theo nhu c\u1EA7u c\u1EE7a b\u1EA1n.",

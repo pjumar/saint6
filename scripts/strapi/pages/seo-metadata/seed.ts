@@ -22,7 +22,7 @@ async function seedSeoMetadata(): Promise<void> {
     site_name: "Saint 6 Studio",
     default_title:
       "Saint 6 Studio | Exclusive Production & Event Destination",
-    title_template: "%s | Saint 6 Studio",
+    title_template: "Saint 6 Studio | %s",
     description:
       "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs.",
     keywords:

@@ -29,7 +29,7 @@ export async function buildPageMetadata({
   const siteName = seo?.site_name || FALLBACK_SEO.site_name;
   const heroHeading = hero?.heading;
   const brandedTitle = heroHeading
-    ? `${heroHeading} | ${siteName}`
+    ? `${siteName} | ${heroHeading}`
     : FALLBACK_SEO.title[lang];
   const desc =
     description || seo?.description || FALLBACK_SEO.description[lang];
