@@ -19,10 +19,10 @@ async function seedSeoMetadata(): Promise<void> {
   await updateSingleType("seo-metadata", {
     og_image: ogImageId,
     twitter_image: twitterImageId,
-    site_name: "Saint 6 Studio",
+    site_name: "Saint 6 Studios",
     default_title:
-      "Saint 6 Studio | Exclusive Production & Event Destination",
-    title_template: "Saint 6 Studio | %s",
+      "Saint 6 Studios | Exclusive Production & Event Destination",
+    title_template: "Saint 6 Studios | %s",
     description:
       "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs.",
     keywords:
@@ -34,7 +34,7 @@ async function seedSeoMetadata(): Promise<void> {
     "seo-metadata",
     {
       default_title:
-        "Saint 6 Studio | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền",
+        "Saint 6 Studios | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền",
       description:
         "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn. Thuê studio, thiết kế set, dịch vụ sản xuất và giải pháp sáng tạo được điều chỉnh theo nhu cầu của bạn.",
       keywords:

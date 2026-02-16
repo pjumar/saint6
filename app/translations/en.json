@@ -40,7 +40,7 @@
     "HEADING": "An exclusive destination for elevated productions, private events, and visionary experiences tailored to your every need"
   },
   "METADATA": {
-    "TITLE": "Saint 6 Studio | Exclusive Production & Event Destination",
+    "TITLE": "Saint 6 Studios | Exclusive Production & Event Destination",
     "DESCRIPTION": "An exclusive destination for elevated productions, private events, and visionary experiences. Studio rental, set design, production services, and creative solutions tailored to your needs."
   },
   "STUDIO_RENTAL": {
@@ -48,7 +48,7 @@
       "TAGLINE": "Your creative playground"
     },
     "META": {
-      "TITLE": "Saint 6 Studio | Studio Rental",
+      "TITLE": "Saint 6 Studios | Studio Rental",
       "DESCRIPTION": "Rent our professional studio spaces for your creative projects. The Loft, The Studio, The Arena, and seasonal concept rooms available for photoshoots, productions, and events."
     },
     "INTRO": {
@@ -150,7 +150,7 @@
       "TAGLINE": "From Moodboard to Build — Complete Set Design for Visual Storytelling"
     },
     "META": {
-      "TITLE": "Saint 6 Studio | Set Design",
+      "TITLE": "Saint 6 Studios | Set Design",
       "DESCRIPTION": "Professional set design services from concept to construction. We transform creative direction into production-ready environments for campaigns, music videos, and visual storytelling."
     },
     "INTRO": {
@@ -198,7 +198,7 @@
       "TAGLINE": "Full-Scale Production, Seamless Execution."
     },
     "META": {
-      "TITLE": "Saint 6 Studio | Production",
+      "TITLE": "Saint 6 Studios | Production",
       "DESCRIPTION": "Full-scale production services from concept to final delivery. Campaign production, photography, film production, equipment rental, and post-production coordination."
     },
     "INTRO": {
@@ -266,7 +266,7 @@
       "TAGLINE": "Curated Experiences, Designed to Inspire."
     },
     "META": {
-      "TITLE": "Saint 6 Studio | Event Planning",
+      "TITLE": "Saint 6 Studios | Event Planning",
       "DESCRIPTION": "Full-service event planning from concept to execution. Product launches, fashion shows, private dinners, and corporate celebrations designed to inspire."
     },
     "INTRO": {
@@ -332,7 +332,7 @@
     },
     "TESTIMONIALS": {
       "LABEL": "VOICES BEHIND THE LENS",
-      "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
+      "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studios."
     }
   },
   "DECORATION": {
@@ -340,7 +340,7 @@
       "TAGLINE": "From flagship stores to private villas — we design and decorate spaces that tell a story."
     },
     "META": {
-      "TITLE": "Saint 6 Studio | Decoration",
+      "TITLE": "Saint 6 Studios | Decoration",
       "DESCRIPTION": "Professional decoration services for fashion stores, restaurants, and private villas. We design and decorate spaces that tell a story."
     },
     "INTRO": {
@@ -380,7 +380,7 @@
       "TAGLINE": "Creative production for brands, campaigns & products"
     },
     "META": {
-      "TITLE": "Saint 6 Studio | Creative",
+      "TITLE": "Saint 6 Studios | Creative",
       "DESCRIPTION": "Full-service creative production for brands, campaigns, and products. From advertising campaigns to product shoots, we bring your vision to life."
     },
     "CLIENTS": {
@@ -434,12 +434,12 @@
     },
     "TESTIMONIALS": {
       "LABEL": "Voices Behind the Lens",
-      "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studio."
+      "TITLE": "Real experiences from creative professionals who've brought their vision to life at Saint 6 Studios."
     }
   },
   "ABOUT_US": {
     "META": {
-      "TITLE": "Saint 6 Studio | About Us",
+      "TITLE": "Saint 6 Studios | About Us",
       "DESCRIPTION": "We are a studio of artists, builders, stylists, dreamers, problem solvers, and storytellers. We turn ideas into places, feelings, and memories."
     },
     "HERO": {
@@ -525,8 +525,8 @@
   },
   "CONTACT_US": {
     "META": {
-      "TITLE": "Saint 6 Studio | Contact",
-      "DESCRIPTION": "Get in touch with Saint 6 Studio. Contact us for studio rental, set design, production services, event planning, and creative solutions."
+      "TITLE": "Saint 6 Studios | Contact",
+      "DESCRIPTION": "Get in touch with Saint 6 Studios. Contact us for studio rental, set design, production services, event planning, and creative solutions."
     },
     "HERO": {
       "TAGLINE": "Let's Connect"
