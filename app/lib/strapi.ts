@@ -3,7 +3,8 @@
 // ============================================================================
 // This module fetches data from Strapi CMS using Incremental Static Regeneration (ISR).
 // - Data is fetched at BUILD TIME and baked into static HTML
-// - Pages are revalidated every 60 seconds (configurable per endpoint)
+// - Pages are revalidated every 300 seconds (configurable per endpoint)
+// - On fetch failure, throws so Next.js ISR keeps serving the stale cached version
 // - No runtime CMS dependency for serving pages
 // - Set revalidate: false for pure static generation (no automatic updates)
 
@@ -395,7 +396,7 @@ export interface StrapiSeoMetadata {
  * Fetches data from Strapi CMS with Next.js ISR caching.
  *
  * Caching Strategy:
- * - revalidate: 60 (default) - Pages revalidated every 60 seconds (ISR)
+ * - revalidate: 300 (default) - Pages revalidated every 300 seconds (ISR)
  * - revalidate: false - Pure static, never revalidated automatically
  * - revalidate: 0 - No caching, always fetch fresh (not recommended for production)
  *
@@ -446,7 +447,7 @@ async function fetchStrapi<T>(
     revalidate?: number | false;
   } = {},
 ): Promise<T | null> {
-  const { populate = "*", locale = "en", revalidate = 60 } = options;
+  const { populate = "*", locale = "en", revalidate = 300 } = options;
   const DEBUG = process.env.STRAPI_DEBUG === "true";
 
   const params = new URLSearchParams();
@@ -490,9 +491,11 @@ async function fetchStrapi<T>(
     const duration = Date.now() - startTime;
 
     if (!response.ok) {
-      console.error(
-        `[Strapi] ERROR: ${endpoint} - ${response.status} ${response.statusText} (${duration}ms)`,
-      );
+      const msg = `[Strapi] ERROR: ${endpoint} - ${response.status} ${response.statusText} (${duration}ms)`;
+      console.error(msg);
+      // In production, throw so Next.js ISR keeps serving the stale cached version.
+      // In development, return null so page-level fallbacks work.
+      if (process.env.NODE_ENV === "production") throw new Error(msg);
       return null;
     }
 
@@ -506,6 +509,7 @@ async function fetchStrapi<T>(
     return json.data;
   } catch (error) {
     console.error(`[Strapi] EXCEPTION: ${endpoint}`, error);
+    if (process.env.NODE_ENV === "production") throw error;
     return null;
   }
 }
@@ -546,7 +550,7 @@ export async function getHomepage(locale: string = "en") {
   return fetchStrapi<StrapiHomepage>("homepage", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -567,7 +571,7 @@ export async function getStudioRentalPage(locale: string = "en") {
   return fetchStrapi<StrapiStudioRentalPage>("studio-rental-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -587,7 +591,7 @@ export async function getCreativePage(locale: string = "en") {
   return fetchStrapi<StrapiCreativePage>("creative-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -611,7 +615,7 @@ export async function getProductionPage(locale: string = "en") {
   return fetchStrapi<StrapiProductionPage>("production-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -628,7 +632,7 @@ export async function getSetDesignPage(locale: string = "en") {
   return fetchStrapi<StrapiSetDesignPage>("set-design-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -650,7 +654,7 @@ export async function getEventPlanningPage(locale: string = "en") {
   return fetchStrapi<StrapiEventPlanningPage>("event-planning-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -667,7 +671,7 @@ export async function getDecorPage(locale: string = "en") {
   return fetchStrapi<StrapiDecorPage>("decor-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -687,7 +691,7 @@ export async function getAboutPage(locale: string = "en") {
   return fetchStrapi<StrapiAboutPage>("about-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -701,7 +705,7 @@ export async function getContactPage(locale: string = "en") {
   return fetchStrapi<StrapiContactPage>("contact-page", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -714,7 +718,7 @@ export async function getSeoMetadata(locale: string = "en") {
   return fetchStrapi<StrapiSeoMetadata>("seo-metadata", {
     locale,
     populate: populateQuery,
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
@@ -733,7 +737,7 @@ export async function getKeyProjects(locale: string = "en") {
   return fetchStrapi<StrapiKeyProject[]>("key-projects", {
     locale,
     populate: ["main_image", "gallery_images.image", "team", "testimonial"],
-    revalidate: 60,
+    revalidate: 300,
   });
 }
 
