@@ -4,6 +4,7 @@ export default [
   {
     name: "strapi::security",
     config: {
+      crossOriginEmbedderPolicy: false,
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
@@ -14,6 +15,7 @@ export default [
             "blob:",
             "market-assets.strapi.io",
             "*.strapiapp.com",
+            "*.media.strapiapp.com",
             "strapi.saint6.studio",
           ],
           "media-src": [
@@ -22,6 +24,7 @@ export default [
             "blob:",
             "market-assets.strapi.io",
             "*.strapiapp.com",
+            "*.media.strapiapp.com",
             "strapi.saint6.studio",
           ],
         },
