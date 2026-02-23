@@ -297,5 +297,21 @@ export default {
       },
     },
   },
-  bootstrap() {},
+  bootstrap() {
+    // Fix tainted canvas error when cropping images served from Strapi Cloud CDN.
+    // Strapi's image cropper doesn't set crossOrigin on <img> elements, so the
+    // browser taints the canvas when drawing cross-origin images.
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node instanceof HTMLImageElement) {
+            if (node.src && !node.src.startsWith(window.location.origin) && !node.crossOrigin) {
+              node.crossOrigin = "anonymous";
+            }
+          }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  },
 };
