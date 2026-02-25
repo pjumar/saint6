@@ -5,8 +5,8 @@ import { ErrorBoundary } from "@/app/components/error-boundary";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
-import { FALLBACK_SEO } from "@/app/lib/fallback";
-import { getSeoMetadata, getStrapiImageUrl } from "@/app/lib/strapi";
+import { FALLBACK_FOOTER, FALLBACK_SEO, FALLBACK_SOCIAL_LINKS } from "@/app/lib/fallback";
+import { getFooter, getSeoMetadata, getSocialLinks, getStrapiImageUrl } from "@/app/lib/strapi";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -126,6 +126,25 @@ export default async function LocaleLayout({
   const { locale } = await params;
   const typedLocale = locale as Locale;
 
+  const isDev = process.env.NODE_ENV === "development";
+  const [footerData, socialData] = await Promise.all([
+    getFooter(typedLocale),
+    getSocialLinks(typedLocale),
+  ]);
+  const useFallback = !footerData && !socialData && isDev;
+
+  const socialLinks = socialData
+    ? [
+        socialData.facebook_url && { platform: "Facebook", url: socialData.facebook_url, label: socialData.facebook_label || "FACEBOOK" },
+        socialData.instagram_url && { platform: "Instagram", url: socialData.instagram_url, label: socialData.instagram_label || "INSTAGRAM" },
+        socialData.tiktok_url && { platform: "TikTok", url: socialData.tiktok_url, label: socialData.tiktok_label || "TIKTOK" },
+      ].filter((link): link is { platform: string; url: string; label: string } => Boolean(link))
+    : useFallback
+      ? FALLBACK_SOCIAL_LINKS
+      : undefined;
+
+  const footer = footerData || (useFallback ? FALLBACK_FOOTER : null);
+
   return (
     <html lang={typedLocale}>
       <body
@@ -135,7 +154,13 @@ export default async function LocaleLayout({
         <ErrorBoundary>
           <TranslationProvider locale={typedLocale}>
             {children}
-            <Footer />
+            <Footer
+              contactLabel={footer?.contact_label || undefined}
+              address={footer?.address || undefined}
+              email={footer?.email || undefined}
+              phone={footer?.phone || undefined}
+              socialLinks={socialLinks && socialLinks.length > 0 ? socialLinks : undefined}
+            />
             <FloatingMessengerButton />
           </TranslationProvider>
         </ErrorBoundary>

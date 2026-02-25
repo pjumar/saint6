@@ -6,8 +6,25 @@ import { useTranslation } from "@/app/contexts/TranslationContext";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./Footer.module.css";
 
-export function Footer() {
+interface FooterProps {
+  contactLabel?: string;
+  address?: string;
+  email?: string;
+  phone?: string;
+  socialLinks?: {
+    platform: string;
+    url: string;
+    label: string;
+  }[];
+}
+
+export function Footer({ contactLabel, address, email, phone, socialLinks }: FooterProps) {
   const { t } = useTranslation();
+
+  const links = socialLinks && socialLinks.length > 0
+    ? socialLinks
+    : SOCIAL_LINKS;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
@@ -30,7 +47,7 @@ export function Footer() {
           </div>
         </SpiralDecoration>
 
-        <p className={styles.contactLabel}>{t.FOOTER.CONTACT_US}</p>
+        <p className={styles.contactLabel}>{contactLabel || t.FOOTER.CONTACT_US}</p>
 
         <div className={styles.logoWrapper}>
           <Image
@@ -43,15 +60,15 @@ export function Footer() {
         </div>
 
         <div className={styles.contactInfo}>
-          <p className={styles.contactText}>{t.FOOTER.ADDRESS}</p>
-          <p className={styles.contactText}>{t.FOOTER.EMAIL}</p>
-          <p className={styles.contactText}>{t.FOOTER.PHONE}</p>
+          <p className={styles.contactText}>{address || t.FOOTER.ADDRESS}</p>
+          <p className={styles.contactText}>{email || t.FOOTER.EMAIL}</p>
+          <p className={styles.contactText}>{phone || t.FOOTER.PHONE}</p>
         </div>
 
         <div className={styles.footerLine} />
 
         <div className={styles.socialLinks}>
-          {SOCIAL_LINKS.map((link) => (
+          {links.map((link) => (
             <a
               key={link.platform}
               href={link.url}

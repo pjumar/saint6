@@ -52,6 +52,8 @@ export const PAGES = [
   "event-planning-page",
   "decor-page",
   "seo-metadata",
+  "footer",
+  "social-link",
 ] as const;
 
 export type CollectionType = (typeof COLLECTIONS)[number];

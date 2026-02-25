@@ -391,6 +391,24 @@ export interface StrapiSeoMetadata {
   twitter_image?: StrapiImage;
 }
 
+export interface StrapiFooter {
+  id: number;
+  contact_label?: string;
+  address?: string;
+  email?: string;
+  phone?: string;
+}
+
+export interface StrapiSocialLink {
+  id: number;
+  facebook_url?: string;
+  facebook_label?: string;
+  instagram_url?: string;
+  instagram_label?: string;
+  tiktok_url?: string;
+  tiktok_label?: string;
+}
+
 // ============================================================================
 // Fetch Utility
 // ============================================================================
@@ -816,4 +834,18 @@ export async function getServiceItems(
     return filtered.sort((a, b) => a.order - b.order);
   }
   return items;
+}
+
+export async function getFooter(locale: string = "en") {
+  return fetchStrapi<StrapiFooter>("footer", {
+    locale,
+    revalidate: 300,
+  });
+}
+
+export async function getSocialLinks(locale: string = "en") {
+  return fetchStrapi<StrapiSocialLink>("social-link", {
+    locale,
+    revalidate: 300,
+  });
 }

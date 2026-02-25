@@ -16,6 +16,8 @@ export {
   FALLBACK_ABOUT_VALUES,
   FALLBACK_ABOUT_VISION,
 } from "./about";
+// Footer & Social Links
+export { FALLBACK_FOOTER, FALLBACK_SOCIAL_LINKS } from "./footer";
 // Contact
 export {
   FALLBACK_CONTACT_HERO,
