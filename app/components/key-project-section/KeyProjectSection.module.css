@@ -217,7 +217,7 @@
 .mainImage {
   height: 100%;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: center top;
   width: 100%;
 }
 

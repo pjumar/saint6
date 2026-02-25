@@ -53,7 +53,9 @@ export function LanguageSelector({
         <div className={styles.dropdownBridge} />
       )}
       {isOpen && (
-        <div className={styles.languageDropdown}>
+        <div
+          className={`${styles.languageDropdown} ${variant === "menu" ? styles.languageDropdownUp : ""}`}
+        >
           <Link
             href={switchLocale(pathname || `/${locale}`, "en")}
             className={styles.languageOption}

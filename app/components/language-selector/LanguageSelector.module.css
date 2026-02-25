@@ -97,3 +97,10 @@
     no-repeat center;
   mask-size: contain;
 }
+
+.languageDropdownUp {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
