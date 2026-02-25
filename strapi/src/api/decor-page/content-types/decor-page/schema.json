@@ -19,12 +19,22 @@
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "intro": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.intro"
+      "component": "shared.intro",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "workflow": {
       "type": "relation",
@@ -34,12 +44,22 @@
     "intro_2": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.intro"
+      "component": "shared.intro",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "portfolio_settings": {
       "type": "component",
       "repeatable": false,
-      "component": "portfolio.settings"
+      "component": "portfolio.settings",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "portfolio_items": {
       "type": "relation",

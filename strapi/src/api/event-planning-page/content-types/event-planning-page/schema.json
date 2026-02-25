@@ -19,12 +19,22 @@
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "intro": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.intro"
+      "component": "shared.intro",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "services": {
       "type": "relation",
@@ -34,7 +44,12 @@
     "intro_2": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.intro"
+      "component": "shared.intro",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "workflow": {
       "type": "relation",

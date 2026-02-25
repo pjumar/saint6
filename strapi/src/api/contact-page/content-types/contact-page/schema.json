@@ -19,12 +19,22 @@
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "info": {
       "type": "component",
       "repeatable": false,
-      "component": "contact.info"
+      "component": "contact.info",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "map_image": {
       "type": "media",

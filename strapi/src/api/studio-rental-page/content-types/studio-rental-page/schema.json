@@ -19,17 +19,32 @@
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "intro": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.intro"
+      "component": "shared.intro",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "stats": {
       "type": "component",
       "repeatable": false,
-      "component": "studio.stats"
+      "component": "studio.stats",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "rooms": {
       "type": "relation",
@@ -44,12 +59,22 @@
     "full_rental": {
       "type": "component",
       "repeatable": false,
-      "component": "studio.full-rental"
+      "component": "studio.full-rental",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "facilities": {
       "type": "component",
       "repeatable": false,
-      "component": "studio.facilities"
+      "component": "studio.facilities",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "equipment": {
       "type": "relation",

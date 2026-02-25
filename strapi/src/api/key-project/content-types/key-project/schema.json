@@ -57,7 +57,12 @@
     "team": {
       "type": "component",
       "repeatable": true,
-      "component": "project.team-member"
+      "component": "project.team-member",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "main_image": {
       "type": "media",
@@ -78,7 +83,12 @@
     "testimonial": {
       "type": "component",
       "repeatable": false,
-      "component": "project.testimonial"
+      "component": "project.testimonial",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "is_featured": {
       "type": "boolean",

@@ -19,7 +19,12 @@
     "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "brand_logos": {
       "type": "relation",
@@ -39,12 +44,22 @@
     "space_section": {
       "type": "component",
       "repeatable": false,
-      "component": "homepage.space-section"
+      "component": "homepage.space-section",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "crew_area": {
       "type": "component",
       "repeatable": false,
-      "component": "homepage.crew-area"
+      "component": "homepage.crew-area",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
