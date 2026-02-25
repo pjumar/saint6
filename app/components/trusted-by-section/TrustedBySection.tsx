@@ -17,6 +17,8 @@ export interface BrandLogo {
 
 interface TrustedBySectionProps {
   logos?: BrandLogo[];
+  tagline?: string;
+  heading?: string;
 }
 
 // Default fallback logos
@@ -32,7 +34,7 @@ const DEFAULT_LOGOS: BrandLogo[] = [
   { id: "9", src: "/images/brands/maybelline.png", alt: "Maybelline New York", width: 130, height: 35 },
 ];
 
-export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProps) {
+export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: TrustedBySectionProps) {
   const { t } = useTranslation();
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
@@ -129,9 +131,9 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS }: TrustedBySectionProp
     <section className={styles.trustedBy}>
       <div ref={headingRef} className={styles.trustedByContent}>
         <p className="caption" style={{ color: "var(--color-primary)" }}>
-          {t.TRUSTED_BY.CAPTION}
+          {tagline || t.TRUSTED_BY.CAPTION}
         </p>
-        <h2 className="heading-desktop">{t.TRUSTED_BY.HEADING}</h2>
+        <h2 className="heading-desktop">{heading || t.TRUSTED_BY.HEADING}</h2>
       </div>
       <div className={styles.brandLogos} ref={logosRef}>
         {logos.map((logo) => (

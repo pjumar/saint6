@@ -288,6 +288,8 @@ export interface StrapiHomepage {
   key_projects?: StrapiKeyProject[];
   space_section?: StrapiSpaceSection;
   crew_area?: StrapiCrewArea;
+  trusted_tagline?: string;
+  trusted_heading?: string;
 }
 
 export interface StrapiStudioRentalPage {

@@ -238,6 +238,8 @@ export default async function Home({ params }: PageProps) {
       <div className={styles.contentContainer}>
         <TrustedBySection
           logos={brandLogos.length > 0 ? brandLogos : undefined}
+          tagline={strapiData?.trusted_tagline || undefined}
+          heading={strapiData?.trusted_heading || undefined}
         />
         <GallerySection
           images={galleryImages.length > 0 ? galleryImages : undefined}
