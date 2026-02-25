@@ -26,6 +26,22 @@
         }
       }
     },
+    "trusted_tagline": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "trusted_heading": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "brand_logos": {
       "type": "relation",
       "relation": "oneToMany",
@@ -55,22 +71,6 @@
       "type": "component",
       "repeatable": false,
       "component": "homepage.crew-area",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "trusted_tagline": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "trusted_heading": {
-      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
