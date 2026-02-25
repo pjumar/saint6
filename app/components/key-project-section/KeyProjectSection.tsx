@@ -26,6 +26,7 @@ export interface KeyProjectData {
   projectNumber: string;
   title: string;
   infoText: string;
+  infoTextSecondary?: string;
   team: ProjectTeamMember[];
   expertise: string[];
   client: string;
@@ -141,7 +142,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
 
         <div className={styles.infoTextSection}>
           <div className={styles.infoLabel}>{t.KEY_PROJECT.INFO}</div>
-          <p className={styles.infoText}>{project.infoText}</p>
+          <p className={styles.infoText}>{project.infoTextSecondary || project.infoText}</p>
         </div>
 
         {project.testimonial && (

@@ -99,6 +99,7 @@ export interface StrapiKeyProject {
   project_number: string;
   client: string;
   info_text?: string;
+  info_text_secondary?: string;
   expertise?: string[];
   team?: { role: string; name: string }[];
   main_image: StrapiImage;
