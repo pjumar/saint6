@@ -23,8 +23,8 @@
     "TIKTOK": "TIKTOK"
   },
   "KEY_PROJECT": {
-    "CAPTION": "Những điểm nổi bật từ những hành trình đã định hình nghề thủ công của chúng tôi.",
-    "HEADING": "Dự Án Chính",
+    "CAPTION": "Những dự án nổi bật trong hành trình tạo nên giá trị và niềm tin của khách hàng dành cho SAINT 6.",
+    "HEADING": "Dự Án Nổi Bật",
     "PROJECT_NO": "DỰ ÁN",
     "INFO": "THÔNG TIN",
     "EKIP": "ĐỘI NGŨ",
@@ -37,7 +37,7 @@
   },
   "TRUSTED_BY": {
     "CAPTION": "ĐƯỢC TIN TƯỞNG BỞI CÁC THƯƠNG HIỆU VÀ NGHỆ SĨ HÀNG ĐẦU",
-    "HEADING": "Một điểm đến độc quyền cho các sản xuất cao cấp, sự kiện riêng tư và trải nghiệm tầm nhìn được điều chỉnh theo mọi nhu cầu của bạn"
+    "HEADING": "Một điểm đến độc quyền cho các sản xuất chất lượng, sự kiện riêng tư và những trải nghiệm khác biệt được thiết kế riêng theo mọi nhu cầu của bạn."
   },
   "METADATA": {
     "TITLE": "Saint 6 Studios | Điểm Đến Sản Xuất & Sự Kiện Độc Quyền",
@@ -233,8 +233,8 @@
       }
     },
     "KEY_PROJECT": {
-      "SUBTITLE": "Những điểm nổi bật từ những hành trình đã định hình nghề thủ công của chúng tôi.",
-      "TITLE": "Dự Án Chính",
+      "SUBTITLE": "Những dự án nổi bật trong hành trình tạo nên giá trị và niềm tin của khách hàng dành cho SAINT 6.",
+      "TITLE": "Dự Án Nổi Bật",
       "WAY_TITLE": "Phong Cách Sáng Tạo Saint 6",
       "WAY_DESCRIPTION": "Chúng tôi tin vào sự sáng tạo có cấu trúc — một quy trình tôn trọng tầm nhìn của bạn đồng thời mang chuyên môn của chúng tôi vào từng chi tiết."
     },
