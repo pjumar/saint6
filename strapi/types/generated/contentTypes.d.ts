@@ -450,29 +450,69 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    founder: Schema.Attribute.Component<'about.founder', false>;
+    founder: Schema.Attribute.Component<'about.founder', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     full_width_image: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
         };
       }>;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'about.intro', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'about.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::about-page.about-page'
     >;
-    mission: Schema.Attribute.Component<'about.highlight-band', false>;
-    our_story: Schema.Attribute.Component<'about.story', false>;
+    mission: Schema.Attribute.Component<'about.highlight-band', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    our_story: Schema.Attribute.Component<'about.story', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    timeline: Schema.Attribute.Component<'about.timeline-item', true>;
+    timeline: Schema.Attribute.Component<'about.timeline-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    values: Schema.Attribute.Component<'about.value', true>;
-    vision: Schema.Attribute.Component<'about.highlight-band', false>;
+    values: Schema.Attribute.Component<'about.value', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    vision: Schema.Attribute.Component<'about.highlight-band', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -565,8 +605,18 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    info: Schema.Attribute.Component<'contact.info', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    info: Schema.Attribute.Component<'contact.info', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -640,12 +690,27 @@ export interface ApiCreativePageCreativePage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::brand-logo.brand-logo'
     >;
-    clients: Schema.Attribute.Component<'shared.clients-section', false>;
+    clients: Schema.Attribute.Component<'shared.clients-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'shared.intro', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -655,7 +720,15 @@ export interface ApiCreativePageCreativePage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::portfolio-item.portfolio-item'
     >;
-    portfolio_settings: Schema.Attribute.Component<'portfolio.settings', false>;
+    portfolio_settings: Schema.Attribute.Component<
+      'portfolio.settings',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     services: Schema.Attribute.Relation<
       'oneToMany',
@@ -695,9 +768,24 @@ export interface ApiDecorPageDecorPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'shared.intro', false>;
-    intro_2: Schema.Attribute.Component<'shared.intro', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro_2: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -707,7 +795,15 @@ export interface ApiDecorPageDecorPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::portfolio-item.portfolio-item'
     >;
-    portfolio_settings: Schema.Attribute.Component<'portfolio.settings', false>;
+    portfolio_settings: Schema.Attribute.Component<
+      'portfolio.settings',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -804,9 +900,24 @@ export interface ApiEventPlanningPageEventPlanningPage
       'oneToMany',
       'api::event-project.event-project'
     >;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'shared.intro', false>;
-    intro_2: Schema.Attribute.Component<'shared.intro', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro_2: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -952,6 +1063,59 @@ export interface ApiFaqItemFaqItem extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    description: 'Footer content';
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    address: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contact_label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
+    phone: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
@@ -976,9 +1140,19 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    crew_area: Schema.Attribute.Component<'homepage.crew-area', false>;
+    crew_area: Schema.Attribute.Component<'homepage.crew-area', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     gallery_images: Schema.Attribute.Component<'shared.gallery-image', true>;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     key_projects: Schema.Attribute.Relation<
       'oneToMany',
       'api::key-project.key-project'
@@ -989,7 +1163,24 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'api::homepage.homepage'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    space_section: Schema.Attribute.Component<'homepage.space-section', false>;
+    space_section: Schema.Attribute.Component<'homepage.space-section', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    trusted_heading: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    trusted_tagline: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1036,6 +1227,12 @@ export interface ApiKeyProjectKeyProject extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    info_text_secondary: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     is_featured: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1057,8 +1254,18 @@ export interface ApiKeyProjectKeyProject extends Struct.CollectionTypeSchema {
       }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    team: Schema.Attribute.Component<'project.team-member', true>;
-    testimonial: Schema.Attribute.Component<'project.testimonial', false>;
+    team: Schema.Attribute.Component<'project.team-member', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    testimonial: Schema.Attribute.Component<'project.testimonial', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1166,9 +1373,24 @@ export interface ApiProductionPageProductionPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'shared.intro', false>;
-    intro_2: Schema.Attribute.Component<'shared.intro', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro_2: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     key_projects: Schema.Attribute.Relation<
       'oneToMany',
       'api::key-project.key-project'
@@ -1362,8 +1584,18 @@ export interface ApiSetDesignPageSetDesignPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'shared.intro', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1373,7 +1605,15 @@ export interface ApiSetDesignPageSetDesignPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::portfolio-item.portfolio-item'
     >;
-    portfolio_settings: Schema.Attribute.Component<'portfolio.settings', false>;
+    portfolio_settings: Schema.Attribute.Component<
+      'portfolio.settings',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     testimonials: Schema.Attribute.Relation<
       'oneToMany',
@@ -1386,6 +1626,74 @@ export interface ApiSetDesignPageSetDesignPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::service-item.service-item'
     >;
+  };
+}
+
+export interface ApiSocialLinkSocialLink extends Struct.SingleTypeSchema {
+  collectionName: 'social_links';
+  info: {
+    description: 'Social media links';
+    displayName: 'Social Links';
+    pluralName: 'social-links';
+    singularName: 'social-link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    facebook_label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    facebook_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    instagram_label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    instagram_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-link.social-link'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    tiktok_label: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tiktok_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1418,11 +1726,31 @@ export interface ApiStudioRentalPageStudioRentalPage
       'oneToMany',
       'api::equipment-item.equipment-item'
     >;
-    facilities: Schema.Attribute.Component<'studio.facilities', false>;
+    facilities: Schema.Attribute.Component<'studio.facilities', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq-item.faq-item'>;
-    full_rental: Schema.Attribute.Component<'studio.full-rental', false>;
-    hero: Schema.Attribute.Component<'shared.hero', false>;
-    intro: Schema.Attribute.Component<'shared.intro', false>;
+    full_rental: Schema.Attribute.Component<'studio.full-rental', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hero: Schema.Attribute.Component<'shared.hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    intro: Schema.Attribute.Component<'shared.intro', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1433,7 +1761,12 @@ export interface ApiStudioRentalPageStudioRentalPage
       'oneToMany',
       'api::studio-room.studio-room'
     >;
-    stats: Schema.Attribute.Component<'studio.stats', false>;
+    stats: Schema.Attribute.Component<'studio.stats', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2129,6 +2462,7 @@ declare module '@strapi/strapi' {
       'api::event-planning-page.event-planning-page': ApiEventPlanningPageEventPlanningPage;
       'api::event-project.event-project': ApiEventProjectEventProject;
       'api::faq-item.faq-item': ApiFaqItemFaqItem;
+      'api::footer.footer': ApiFooterFooter;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::key-project.key-project': ApiKeyProjectKeyProject;
       'api::portfolio-item.portfolio-item': ApiPortfolioItemPortfolioItem;
@@ -2136,6 +2470,7 @@ declare module '@strapi/strapi' {
       'api::seo-metadata.seo-metadata': ApiSeoMetadataSeoMetadata;
       'api::service-item.service-item': ApiServiceItemServiceItem;
       'api::set-design-page.set-design-page': ApiSetDesignPageSetDesignPage;
+      'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::studio-rental-page.studio-rental-page': ApiStudioRentalPageStudioRentalPage;
       'api::studio-room.studio-room': ApiStudioRoomStudioRoom;
       'api::testimonial-item.testimonial-item': ApiTestimonialItemTestimonialItem;
