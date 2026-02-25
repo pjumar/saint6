@@ -21,16 +21,20 @@ export function proxy(request: NextRequest) {
   return NextResponse.redirect(request.nextUrl);
 }
 
-function getLocale(request: NextRequest): string | undefined {
+function getLocale(request: NextRequest): string {
   const acceptLanguage = request.headers.get("accept-language");
-  if (acceptLanguage) {
-    for (const locale of locales) {
-      if (acceptLanguage.includes(locale)) {
-        return locale;
-      }
-    }
-  }
-  return defaultLocale;
+  if (!acceptLanguage) return defaultLocale;
+
+  const preferred = acceptLanguage
+    .split(",")
+    .map((lang) => {
+      const [code, q] = lang.trim().split(";q=");
+      return { code: code.split("-")[0].toLowerCase(), q: q ? parseFloat(q) : 1 };
+    })
+    .sort((a, b) => b.q - a.q)
+    .find((lang) => locales.includes(lang.code));
+
+  return preferred?.code || defaultLocale;
 }
 
 export const config = {
