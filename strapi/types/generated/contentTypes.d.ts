@@ -1227,12 +1227,6 @@ export interface ApiKeyProjectKeyProject extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    info_text_secondary: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     is_featured: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

@@ -115,7 +115,6 @@ export function transformKeyProjects(
       projectNumber: `${paddedIndex}/${paddedTotal}`,
       title: project.title,
       infoText: project.info_text || "",
-      infoTextSecondary: project.info_text_secondary || undefined,
       team: project.team || [],
       expertise: project.expertise || [],
       client: project.client,

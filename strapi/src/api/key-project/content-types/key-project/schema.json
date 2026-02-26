@@ -46,14 +46,6 @@
         }
       }
     },
-    "info_text_secondary": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "expertise": {
       "type": "json",
       "pluginOptions": {
