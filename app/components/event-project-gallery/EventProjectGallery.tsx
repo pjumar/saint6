@@ -64,12 +64,14 @@ export function EventProjectGallery({
   const totalImages = allImages.length;
 
   // Auto-scroll the tab bar on mobile when active project changes
+  // Use manual scrollLeft instead of scrollIntoView to avoid scrolling the whole page
   useEffect(() => {
     const container = tabsContainerRef.current;
     if (!container) return;
     const activeTab = container.children[activeProjectIndex] as HTMLElement | undefined;
     if (activeTab) {
-      activeTab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+      const scrollTarget = activeTab.offsetLeft - container.offsetLeft;
+      container.scrollTo({ left: scrollTarget, behavior: "smooth" });
     }
   }, [activeProjectIndex]);
 
