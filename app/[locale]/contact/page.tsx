@@ -138,7 +138,7 @@ export default async function ContactPage({ params }: PageProps) {
       </section>
 
       {/* 4. Contact Form Section - Background image with overlaid form card */}
-      <ContactSection backgroundImageUrl="/images/get-in-touch-bg.jpg" />
+      <ContactSection backgroundImageUrl="/images/contact-section-bg.webp" />
     </div>
   );
 }

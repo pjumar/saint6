@@ -187,7 +187,7 @@ export default async function SetDesignPage({ params }: PageProps) {
 
         {/* Contact Section */}
         <div className={styles.contactSectionWrapper} id="contact-form">
-          <ContactSection backgroundImageUrl="/images/get-in-touch-bg.jpg" />
+          <ContactSection backgroundImageUrl="/images/contact-section-bg.webp" />
         </div>
       </div>
     </div>

@@ -325,7 +325,7 @@ export default async function AboutPage({ params }: PageProps) {
 
         {/* 10. Contact Section */}
         <div className={styles.contactSectionWrapper}>
-          <ContactSection backgroundImageUrl="/images/get-in-touch-bg.jpg" />
+          <ContactSection backgroundImageUrl="/images/contact-section-bg.webp" />
         </div>
       </div>
     </div>
