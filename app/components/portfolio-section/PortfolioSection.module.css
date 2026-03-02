@@ -38,7 +38,7 @@
 
 .masonryGrid > * {
   break-inside: avoid;
-  margin-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 /* Tablet and Desktop */
@@ -66,6 +66,6 @@
   }
 
   .masonryGrid > * {
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 }
