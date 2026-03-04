@@ -48,12 +48,17 @@ export interface FaqItem {
   order: number;
 }
 
+export type AspectRatioEnum =
+  | "w2_h3" | "w2_h5" | "w3_h2" | "w3_h4" | "w3_h5"
+  | "w4_h3" | "w4_h5" | "w5_h4" | "w5_h7" | "w7_h9"
+  | "w9_h16" | "w16_h9";
+
 export interface PortfolioItem {
   title: string;
   category: string;
   category_vi: string;
   image: string;
-  size: "large" | "short" | "tall";
+  aspectRatio: AspectRatioEnum;
   page: "creative" | "set-design" | "decor";
   order: number;
 }

@@ -9,6 +9,7 @@ import {
   type StrapiServiceItem,
   type StrapiTestimonialItem,
 } from "@/app/lib/strapi";
+import { aspectRatioToCss } from "@/app/lib/utils";
 
 /**
  * Transform Strapi workflow/service-step data into ServiceCard props.
@@ -56,7 +57,7 @@ export function transformPortfolio(
         imageUrl,
         category: item.category || "Campaign",
         title: item.title,
-        size: item.size,
+        aspectRatio: aspectRatioToCss(item.aspectRatio),
       });
     });
 

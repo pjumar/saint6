@@ -44,10 +44,11 @@
         }
       }
     },
-    "size": {
+    "aspectRatio": {
       "type": "enumeration",
-      "enum": ["large", "tall", "short"],
-      "default": "large",
+      "enum": ["w2_h3", "w2_h5", "w3_h2", "w3_h4", "w3_h5", "w4_h3", "w4_h5", "w5_h4", "w5_h7", "w7_h9", "w9_h16", "w16_h9"],
+      "required": true,
+      "default": "w2_h3",
       "pluginOptions": {
         "i18n": {
           "localized": false

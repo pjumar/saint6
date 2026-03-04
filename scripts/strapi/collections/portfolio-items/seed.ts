@@ -21,7 +21,7 @@ async function seedPortfolioItems(): Promise<number[]> {
       title: item.title,
       category: item.category,
       image: imageId,
-      size: item.size,
+      aspectRatio: item.aspectRatio,
       page: item.page,
       order: item.order,
     });

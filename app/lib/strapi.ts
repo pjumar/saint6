@@ -158,7 +158,7 @@ export interface StrapiPortfolioItem {
   title: string;
   category?: string;
   image: StrapiImage;
-  size: "large" | "tall" | "short";
+  aspectRatio?: string;
   page?: "creative" | "set-design" | "decor";
   order: number;
 }

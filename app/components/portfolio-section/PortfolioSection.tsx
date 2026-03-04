@@ -11,9 +11,9 @@ import {
 } from "@/app/hooks";
 import styles from "./PortfolioSection.module.css";
 
-export interface PortfolioItem extends Omit<PortfolioCardProps, "imageHeight"> {
+export interface PortfolioItem extends PortfolioCardProps {
   id: string;
-  size?: "large" | "short" | "tall"; // Optional, not used with Pinterest-style
+  aspectRatio?: string;
 }
 
 export interface PortfolioSectionProps {
@@ -22,10 +22,6 @@ export interface PortfolioSectionProps {
   items: PortfolioItem[];
   gridClassName?: string;
 }
-
-// Desktop masonry pattern (3 columns, CSS columns flow down each column):
-// Column 1: short, tall | Column 2: tall, short | Column 3: tall, short
-const DESKTOP_ASPECT_RATIOS = ["3/2", "3/4", "3/4", "3/2", "3/4", "3/2"];
 
 export function PortfolioSection({
   label,
@@ -72,25 +68,23 @@ export function PortfolioSection({
                     imageUrl={item.imageUrl}
                     category={item.category}
                     title={item.title}
-                    aspectRatio="3/2"
+                    aspectRatio={item.aspectRatio || "3/2"}
                   />
                 </div>
               ))}
             </div>
           )}
 
-          {/* Masonry Grid - Random on mobile, fixed pattern on desktop */}
+          {/* Masonry Grid */}
           {masonryItems.length > 0 && (
             <div className={styles.masonryGrid} ref={masonryRef}>
-              {masonryItems.map((item, index) => (
+              {masonryItems.map((item) => (
                 <PortfolioCard
                   key={item.id}
                   imageUrl={item.imageUrl}
                   category={item.category}
                   title={item.title}
-                  desktopAspectRatio={
-                    DESKTOP_ASPECT_RATIOS[index % DESKTOP_ASPECT_RATIOS.length]
-                  }
+                  aspectRatio={item.aspectRatio || "3/2"}
                 />
               ))}
             </div>

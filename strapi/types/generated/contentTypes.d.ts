@@ -1291,6 +1291,29 @@ export interface ApiPortfolioItemPortfolioItem
     };
   };
   attributes: {
+    aspectRatio: Schema.Attribute.Enumeration<
+      [
+        'w2_h3',
+        'w2_h5',
+        'w3_h2',
+        'w3_h4',
+        'w3_h5',
+        'w4_h3',
+        'w4_h5',
+        'w5_h4',
+        'w5_h7',
+        'w7_h9',
+        'w9_h16',
+        'w16_h9',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'w2_h3'>;
     category: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1326,13 +1349,6 @@ export interface ApiPortfolioItemPortfolioItem
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    size: Schema.Attribute.Enumeration<['large', 'tall', 'short']> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'large'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
