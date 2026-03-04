@@ -68,7 +68,7 @@ export function PortfolioSection({
                     imageUrl={item.imageUrl}
                     category={item.category}
                     title={item.title}
-                    aspectRatio={item.aspectRatio || "3/2"}
+                    aspectRatio="3/2"
                   />
                 </div>
               ))}
