@@ -91,15 +91,23 @@ export function SelectedClientsSection({
     const logosContainer = logosRef.current;
     if (!logosContainer) return;
 
-    const checkMobile = () => window.innerWidth <= 48 * 16;
-
-    if (!checkMobile()) return;
-
-    const scrollWidth = logosContainer.scrollWidth;
-    const halfScrollWidth = scrollWidth / 2;
     const scrollSpeed = 30;
 
+    const checkOverflow = () => {
+      const contentWidth = logosContainer.scrollWidth / 2;
+      const containerWidth = logosContainer.clientWidth;
+      return contentWidth > containerWidth;
+    };
+
     const animate = () => {
+      if (!checkOverflow()) {
+        logosContainer.classList.add(styles.noOverflow);
+        return;
+      }
+
+      logosContainer.classList.remove(styles.noOverflow);
+      const halfScrollWidth = logosContainer.scrollWidth / 2;
+
       gsap.set(logosContainer, { scrollLeft: 0 });
 
       const timeline = gsap.timeline({
@@ -119,8 +127,10 @@ export function SelectedClientsSection({
     };
 
     const preventScroll = (e: Event) => {
-      e.preventDefault();
-      e.stopPropagation();
+      if (checkOverflow()) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     };
 
     logosContainer.addEventListener("wheel", preventScroll, { passive: false });
@@ -134,33 +144,13 @@ export function SelectedClientsSection({
     animate();
 
     const handleResize = () => {
-      const isMobile = checkMobile();
-
       if (animationRef.current) {
         animationRef.current.kill();
         animationRef.current = null;
       }
 
-      if (!isMobile) {
-        logosContainer.scrollLeft = 0;
-        return;
-      }
-
-      const newScrollWidth = logosContainer.scrollWidth;
-      const newHalfScrollWidth = newScrollWidth / 2;
-      gsap.set(logosContainer, { scrollLeft: 0 });
-      const timeline = gsap.timeline({
-        repeat: -1,
-        onRepeat: () => {
-          logosContainer.scrollLeft = 0;
-        },
-      });
-      timeline.to(logosContainer, {
-        scrollLeft: newHalfScrollWidth,
-        duration: newHalfScrollWidth / scrollSpeed,
-        ease: "none",
-      });
-      animationRef.current = timeline;
+      logosContainer.scrollLeft = 0;
+      animate();
     };
 
     window.addEventListener("resize", handleResize);

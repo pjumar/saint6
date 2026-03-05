@@ -72,10 +72,19 @@
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: auto;
   padding-bottom: 1rem;
   position: relative;
   z-index: 1;
+  pointer-events: none;
+}
+
+.logosContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
@@ -87,6 +96,18 @@
 }
 
 .logosDuplicate {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-shrink: 0;
+}
+
+/* When logos fit without overflow, center them and hide duplicate */
+.noOverflow {
+  justify-content: center;
+}
+
+.noOverflow .logosDuplicate {
   display: none;
 }
 
@@ -116,19 +137,9 @@
 
   .logosContainer {
     gap: 2rem;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    touch-action: none;
-  }
-
-  .logosContainer::-webkit-scrollbar {
-    display: none;
   }
 
   .logosDuplicate {
-    display: flex;
-    align-items: center;
     gap: 2rem;
   }
 
