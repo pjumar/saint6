@@ -22,7 +22,7 @@
 
 @media (min-width: 48.0625rem) {
   .backgroundImage {
-    object-position: top center;
+    object-position: bottom left;
   }
 }
 
