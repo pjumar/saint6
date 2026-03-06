@@ -1,3 +1,5 @@
+import { MAX_UPLOAD_SIZE_MB, MAX_UPLOAD_SIZE_BYTES } from "../src/constants";
+
 export default [
   "strapi::logger",
   "strapi::errors",
@@ -34,14 +36,15 @@ export default [
   "strapi::cors",
   "strapi::poweredBy",
   "strapi::query",
+  "global::upload-size-limit",
   {
     name: "strapi::body",
     config: {
-      formLimit: "5mb",
-      jsonLimit: "5mb",
-      textLimit: "5mb",
+      formLimit: `${MAX_UPLOAD_SIZE_MB}mb`,
+      jsonLimit: `${MAX_UPLOAD_SIZE_MB}mb`,
+      textLimit: `${MAX_UPLOAD_SIZE_MB}mb`,
       formidable: {
-        maxFileSize: 5 * 1024 * 1024, // 5mb
+        maxFileSize: MAX_UPLOAD_SIZE_BYTES,
       },
     },
   },
