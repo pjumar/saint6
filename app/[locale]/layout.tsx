@@ -3,7 +3,6 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
 import "@/app/globals.css";
 import { ErrorBoundary } from "@/app/components/error-boundary";
-import { FacebookPixel } from "@/app/components/facebook-pixel";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
@@ -155,7 +154,6 @@ export default async function LocaleLayout({
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
       >
-        <FacebookPixel />
         <ErrorBoundary>
           <TranslationProvider locale={typedLocale}>
             {children}
