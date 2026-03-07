@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { FacebookPixel } from "@next/third-parties/facebook";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
+import Script from "next/script";
 import "@/app/globals.css";
 import { ErrorBoundary } from "@/app/components/error-boundary";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
@@ -9,6 +9,7 @@ import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
 import { FALLBACK_FOOTER, FALLBACK_SEO, FALLBACK_SOCIAL_LINKS } from "@/app/lib/fallback";
 import { getFooter, getSeoMetadata, getSocialLinks, getStrapiImageUrl } from "@/app/lib/strapi";
+import { FB_PIXEL_ID, GTM_ID } from "@/app/lib/constants";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -149,12 +150,34 @@ export default async function LocaleLayout({
 
   return (
     <html lang={typedLocale}>
-      <GoogleTagManager gtmId="GTM-WMSWCSQ9" />
-      <FacebookPixel fbPixelId="1212673647702213" />
+      <GoogleTagManager gtmId={GTM_ID} />
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
       >
+        <Script id="fb-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '${FB_PIXEL_ID}');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
         <ErrorBoundary>
           <TranslationProvider locale={typedLocale}>
             {children}
