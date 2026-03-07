@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FacebookPixel } from "@next/third-parties/facebook";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
 import "@/app/globals.css";
@@ -149,6 +150,7 @@ export default async function LocaleLayout({
   return (
     <html lang={typedLocale}>
       <GoogleTagManager gtmId="GTM-WMSWCSQ9" />
+      <FacebookPixel fbPixelId="1212673647702213" />
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
