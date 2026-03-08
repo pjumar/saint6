@@ -137,7 +137,6 @@
   max-width: 100%;
   overflow-x: auto;
   pointer-events: auto;
-  cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
