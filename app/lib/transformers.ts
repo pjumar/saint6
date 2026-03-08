@@ -45,21 +45,50 @@ export function transformPortfolio(
 ): PortfolioItem[] {
   if (!items || items.length === 0) return [];
 
+  console.log("[transformPortfolio] Raw items from Strapi:", items.map((item) => ({
+    id: item.id,
+    title: item.title,
+    order: item.order,
+    createdAt: item.createdAt,
+    updatedAt: item.updatedAt,
+  })));
+
   const result: PortfolioItem[] = [];
 
-  items
-    .sort((a, b) => a.order - b.order)
-    .forEach((item) => {
-      const imageUrl = getStrapiImageUrl(item.image);
-      if (!imageUrl) return;
-      result.push({
-        id: String(item.id),
-        imageUrl,
-        category: item.category || "Campaign",
-        title: item.title,
-        aspectRatio: aspectRatioToCss(item.aspectRatio),
-      });
+  const sorted = [...items].sort((a, b) => {
+    const aOrder = a.order || null;
+    const bOrder = b.order || null;
+    // Items with order come first, sorted ascending
+    if (aOrder !== null && bOrder !== null) return aOrder - bOrder;
+    if (aOrder !== null) return -1;
+    if (bOrder !== null) return 1;
+    // No order: sort by updatedAt or createdAt, newest first
+    const aDate = a.updatedAt || a.createdAt || "";
+    const bDate = b.updatedAt || b.createdAt || "";
+    return bDate.localeCompare(aDate);
+  });
+
+  console.log("[transformPortfolio] Sorted order:", sorted.map((item) => ({
+    id: item.id,
+    title: item.title,
+    order: item.order,
+    date: item.updatedAt || item.createdAt || "none",
+  })));
+
+  sorted.forEach((item) => {
+    const imageUrl = getStrapiImageUrl(item.image);
+    if (!imageUrl) {
+      console.log(`[transformPortfolio] Skipping item "${item.title}" (id: ${item.id}) — no valid image`);
+      return;
+    }
+    result.push({
+      id: String(item.id),
+      imageUrl,
+      category: item.category || "Campaign",
+      title: item.title,
+      aspectRatio: aspectRatioToCss(item.aspectRatio),
     });
+  });
 
   return result;
 }

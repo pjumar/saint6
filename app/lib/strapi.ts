@@ -160,7 +160,9 @@ export interface StrapiPortfolioItem {
   image: StrapiImage;
   aspectRatio?: string;
   page?: "creative" | "set-design" | "decor";
-  order: number;
+  order?: number;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface StrapiTestimonialItem {
