@@ -128,12 +128,19 @@
   pointer-events: auto;
 }
 
+.thumbnailsWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  pointer-events: auto;
+}
+
 .thumbnails {
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  pointer-events: auto;
   overflow-x: auto;
+  max-width: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
