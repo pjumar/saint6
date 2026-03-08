@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { switchLocale } from "@/app/lib/navigation";
 import styles from "./LanguageSelector.module.css";
@@ -17,8 +17,20 @@ export function LanguageSelector({
   className,
 }: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { locale, language } = useTranslation();
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (!isOpen || variant !== "menu") return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, variant]);
 
   const handleLanguageSelect = (_newLocale: "en" | "vi") => {
     setIsOpen(false);
@@ -37,6 +49,7 @@ export function LanguageSelector({
 
   return (
     <div
+      ref={containerRef}
       className={`${styles.hoverContainer} ${className || ""}`}
       onMouseEnter={() => variant === "default" && setIsOpen(true)}
       onMouseLeave={() => variant === "default" && setIsOpen(false)}
