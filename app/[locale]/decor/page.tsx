@@ -51,11 +51,6 @@ export default async function DecorationPage({ params }: PageProps) {
 
   // Dev fallback - use hardcoded data when Strapi is unavailable during development
   const useFallback = !strapiData && isDev;
-  if (useFallback) {
-    console.warn(
-      "[DecorationPage] Using fallback data - Strapi CMS not available in development",
-    );
-  }
 
   // Transform Strapi data to component props (or use fallbacks)
 
