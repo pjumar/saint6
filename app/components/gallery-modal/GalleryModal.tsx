@@ -69,6 +69,41 @@ export function GalleryModal({
     if (thumb) thumb.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
   }, [currentIndex]);
 
+  // Drag-to-scroll for thumbnails
+  useEffect(() => {
+    const el = thumbnailsRef.current;
+    if (!el) return;
+
+    let isDown = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    const onMouseDown = (e: MouseEvent) => {
+      isDown = true;
+      startX = e.pageX;
+      scrollStart = el.scrollLeft;
+      el.style.cursor = "grabbing";
+    };
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      el.scrollLeft = scrollStart - (e.pageX - startX);
+    };
+    const onMouseUp = () => {
+      isDown = false;
+      el.style.cursor = "";
+    };
+
+    el.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    return () => {
+      el.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, [isOpen]);
+
   if (!isOpen || images.length === 0) return null;
 
   const currentImage = images[currentIndex];
