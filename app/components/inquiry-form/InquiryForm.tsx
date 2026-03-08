@@ -32,7 +32,6 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
 
     // Client-side validation
     if (!formData.name || !formData.email || !formData.message) {
-      console.log("Validation failed: Required fields missing");
       setIsLoading(false);
       return;
     }
@@ -40,13 +39,9 @@ export function InquiryForm({ onSubmit }: InquiryFormProps) {
     // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      console.log("Validation failed: Invalid email format");
       setIsLoading(false);
       return;
     }
-
-    // Simulate form submission (no backend yet)
-    console.log("Form submitted:", formData);
 
     if (onSubmit) {
       onSubmit(formData);

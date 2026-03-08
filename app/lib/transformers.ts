@@ -45,14 +45,6 @@ export function transformPortfolio(
 ): PortfolioItem[] {
   if (!items || items.length === 0) return [];
 
-  console.log("[transformPortfolio] Raw items from Strapi:", items.map((item) => ({
-    id: item.id,
-    title: item.title,
-    order: item.order,
-    createdAt: item.createdAt,
-    updatedAt: item.updatedAt,
-  })));
-
   const result: PortfolioItem[] = [];
 
   const sorted = [...items].sort((a, b) => {
@@ -68,17 +60,9 @@ export function transformPortfolio(
     return bDate.localeCompare(aDate);
   });
 
-  console.log("[transformPortfolio] Sorted order:", sorted.map((item) => ({
-    id: item.id,
-    title: item.title,
-    order: item.order,
-    date: item.updatedAt || item.createdAt || "none",
-  })));
-
   sorted.forEach((item) => {
     const imageUrl = getStrapiImageUrl(item.image);
     if (!imageUrl) {
-      console.log(`[transformPortfolio] Skipping item "${item.title}" (id: ${item.id}) — no valid image`);
       return;
     }
     result.push({
