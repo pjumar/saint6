@@ -128,19 +128,15 @@
   pointer-events: auto;
 }
 
-.thumbnailsWrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
-  pointer-events: auto;
-}
-
 .thumbnails {
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 100%;
   overflow-x: auto;
+  pointer-events: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }

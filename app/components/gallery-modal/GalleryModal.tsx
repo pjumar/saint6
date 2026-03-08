@@ -182,25 +182,23 @@ export function GalleryModal({
 
         {/* Thumbnail strip */}
         {images.length > 1 && (
-          <div className={styles.thumbnailsWrapper}>
-            <div className={styles.thumbnails} ref={thumbnailsRef}>
-              {images.map((image, index) => (
-                <button
-                  key={index}
-                  className={`${styles.thumbnail} ${index === currentIndex ? styles.thumbnailActive : ""}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Go to image ${index + 1}`}
-                >
-                  <Image
-                    src={image.url}
-                    alt=""
-                    fill
-                    className={styles.thumbnailImage}
-                    sizes="80px"
-                  />
-                </button>
-              ))}
-            </div>
+          <div className={styles.thumbnails} ref={thumbnailsRef}>
+            {images.map((image, index) => (
+              <button
+                key={index}
+                className={`${styles.thumbnail} ${index === currentIndex ? styles.thumbnailActive : ""}`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to image ${index + 1}`}
+              >
+                <Image
+                  src={image.url}
+                  alt=""
+                  fill
+                  className={styles.thumbnailImage}
+                  sizes="80px"
+                />
+              </button>
+            ))}
           </div>
         )}
       </div>
