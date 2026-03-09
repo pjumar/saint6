@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { DeferredGTM } from "@/app/components/deferred-gtm/DeferredGTM";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
 import "@/app/globals.css";
 import { ErrorBoundary } from "@/app/components/error-boundary";
@@ -149,7 +149,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={typedLocale}>
-      <GoogleTagManager gtmId={GTM_ID} />
+      <DeferredGTM gtmId={GTM_ID} />
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
