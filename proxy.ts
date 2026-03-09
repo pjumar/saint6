@@ -2,7 +2,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 const locales = ["en", "vi"];
-const defaultLocale = "en";
+const defaultLocale = "vi";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
