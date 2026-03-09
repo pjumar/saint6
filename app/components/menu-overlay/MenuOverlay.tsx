@@ -56,7 +56,6 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
             alt="Saint 6 Studio"
             width={171}
             height={36}
-            priority
           />
         </div>
         <HamburgerMenu

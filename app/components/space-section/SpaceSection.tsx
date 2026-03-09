@@ -92,6 +92,7 @@ export function SpaceSection({
                 src={image.src}
                 alt={image.alt}
                 fill
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className={styles.galleryImage}
               />
             </div>

@@ -56,21 +56,13 @@ export function HeroSection({
   const handleLoadingComplete = useCallback(() => {
     setIsLoading(false);
 
-    // Animate hero content in after loading overlay disappears
+    // Only animate the middle section (social links etc.) — heading is always visible for LCP
     const tl = gsap.timeline();
-    if (heroContentRef.current) {
-      tl.fromTo(
-        heroContentRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-      );
-    }
     if (heroMiddleRef.current) {
       tl.fromTo(
         heroMiddleRef.current,
         { opacity: 0 },
         { opacity: 1, duration: 0.5, ease: "power2.out" },
-        "-=0.3"
       );
     }
   }, []);
@@ -111,45 +103,53 @@ export function HeroSection({
     )
       return;
 
-    const trackWidth = decorativeLineRef.current.offsetWidth;
-    const lineWidth = thickLineRef.current.offsetWidth;
+    const decorativeLine = decorativeLineRef.current;
+    const thickLine = thickLineRef.current;
 
-    // Set initial state: hidden to the left
-    gsap.set(thickLineRef.current, { x: -lineWidth });
+    // Defer layout read to avoid forced reflow during render
+    let tl: gsap.core.Timeline;
+    const rafId = requestAnimationFrame(() => {
+      const trackWidth = decorativeLine.offsetWidth;
+      const lineWidth = thickLine.offsetWidth;
 
-    const tl = gsap.timeline({ repeat: -1 });
+      // Set initial state: hidden to the left
+      gsap.set(thickLine, { x: -lineWidth });
 
-    // Lines appear, thick line slides from left to right
-    tl.fromTo(
-      decorativeLineRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power1.out" },
-    )
-      .fromTo(
-        thickLineRef.current,
-        { x: -lineWidth },
-        { x: trackWidth, duration: 2, ease: "power2.in" },
-        "<",
+      tl = gsap.timeline({ repeat: -1 });
+
+      // Lines appear, thick line slides from left to right
+      tl.fromTo(
+        decorativeLine,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power1.out" },
       )
-      // Pause at end
-      .to({}, { duration: 0.3 })
-      // Reverse: thick line slides back from right to left
-      .to(thickLineRef.current, {
-        x: -lineWidth,
-        duration: 2,
-        ease: "power2.out",
-      })
-      // Fade out
-      .to(decorativeLineRef.current, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power1.in",
-      })
-      // Pause before restart
-      .to({}, { duration: 0.5 });
+        .fromTo(
+          thickLine,
+          { x: -lineWidth },
+          { x: trackWidth, duration: 2, ease: "power2.in" },
+          "<",
+        )
+        // Pause at end
+        .to({}, { duration: 0.3 })
+        // Reverse: thick line slides back from right to left
+        .to(thickLine, {
+          x: -lineWidth,
+          duration: 2,
+          ease: "power2.out",
+        })
+        // Fade out
+        .to(decorativeLine, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power1.in",
+        })
+        // Pause before restart
+        .to({}, { duration: 0.5 });
+    });
 
     return () => {
-      tl.kill();
+      cancelAnimationFrame(rafId);
+      tl?.kill();
     };
   }, [showDecorativeLine]);
 
@@ -173,6 +173,7 @@ export function HeroSection({
             src={backgroundImage}
             alt={backgroundAlt}
             fill
+            sizes="100vw"
             className={styles.heroBackgroundImage}
             priority
             onLoad={() => setIsImageLoaded(true)}
@@ -195,7 +196,6 @@ export function HeroSection({
         <div
           ref={heroContentRef}
           className={styles.heroContentWrapper}
-          style={{ opacity: isLoading ? 0 : undefined }}
         >
           {showScrollIndicator && (
             <div ref={scrollIndicatorRef} className={styles.scrollIndicator}>

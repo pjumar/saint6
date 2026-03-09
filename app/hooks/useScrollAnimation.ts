@@ -1,11 +1,4 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export type AnimationType =
   | "fadeUp"
@@ -26,7 +19,7 @@ interface UseScrollAnimationOptions {
   once?: boolean;
 }
 
-const animations: Record<AnimationType, gsap.TweenVars> = {
+const animations: Record<AnimationType, Record<string, number>> = {
   fadeUp: {
     opacity: 0,
     y: 60,
@@ -59,8 +52,8 @@ const animations: Record<AnimationType, gsap.TweenVars> = {
 };
 
 // Helper to compute target values from "from" state
-const getToVars = (fromVars: gsap.TweenVars): gsap.TweenVars => {
-  const toVars: gsap.TweenVars = {};
+const getToVars = (fromVars: Record<string, number>): Record<string, number> => {
+  const toVars: Record<string, number> = {};
   for (const key of Object.keys(fromVars)) {
     if (key === "opacity") toVars[key] = 1;
     else if (key === "scale") toVars[key] = 1;
@@ -69,6 +62,16 @@ const getToVars = (fromVars: gsap.TweenVars): gsap.TweenVars => {
   return toVars;
 };
 
+// Lazy-load GSAP + ScrollTrigger to keep them out of the initial bundle
+async function loadGsap() {
+  const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+    import("gsap"),
+    import("gsap/ScrollTrigger"),
+  ]);
+  gsap.registerPlugin(ScrollTrigger);
+  return gsap;
+}
+
 export function useScrollAnimation<T extends HTMLElement>(
   options: UseScrollAnimationOptions = {}
 ) {
@@ -76,7 +79,6 @@ export function useScrollAnimation<T extends HTMLElement>(
     type = "fadeUp",
     duration = 0.8,
     delay = 0,
-    stagger = 0,
     start = "top 85%",
     ease = "power3.out",
     once = true,
@@ -88,27 +90,32 @@ export function useScrollAnimation<T extends HTMLElement>(
     const element = elementRef.current;
     if (!element) return;
 
-    const fromVars = animations[type];
+    let animation: gsap.core.Tween;
+    let cancelled = false;
 
-    // Set initial state
-    gsap.set(element, fromVars);
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
 
-    // Create scroll trigger animation
-    const animation = gsap.to(element, {
-      ...getToVars(fromVars),
-      duration,
-      delay,
-      ease,
-      scrollTrigger: {
-        trigger: element,
-        start,
-        toggleActions: once ? "play none none none" : "play reverse play reverse",
-      },
+      const fromVars = animations[type];
+      gsap.set(element, fromVars);
+
+      animation = gsap.to(element, {
+        ...getToVars(fromVars),
+        duration,
+        delay,
+        ease,
+        scrollTrigger: {
+          trigger: element,
+          start,
+          toggleActions: once ? "play none none none" : "play reverse play reverse",
+        },
+      });
     });
 
     return () => {
-      animation.scrollTrigger?.kill();
-      animation.kill();
+      cancelled = true;
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
     };
   }, [type, duration, delay, start, ease, once]);
 
@@ -138,28 +145,33 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
     const children = container.children;
     if (!children.length) return;
 
-    const fromVars = animations[type];
+    let animation: gsap.core.Tween;
+    let cancelled = false;
 
-    // Set initial state for all children
-    gsap.set(children, fromVars);
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
 
-    // Create scroll trigger animation with stagger
-    const animation = gsap.to(children, {
-      ...getToVars(fromVars),
-      duration,
-      delay,
-      stagger,
-      ease,
-      scrollTrigger: {
-        trigger: container,
-        start,
-        toggleActions: once ? "play none none none" : "play reverse play reverse",
-      },
+      const fromVars = animations[type];
+      gsap.set(children, fromVars);
+
+      animation = gsap.to(children, {
+        ...getToVars(fromVars),
+        duration,
+        delay,
+        stagger,
+        ease,
+        scrollTrigger: {
+          trigger: container,
+          start,
+          toggleActions: once ? "play none none none" : "play reverse play reverse",
+        },
+      });
     });
 
     return () => {
-      animation.scrollTrigger?.kill();
-      animation.kill();
+      cancelled = true;
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
     };
   }, [type, duration, delay, stagger, start, ease, once]);
 
@@ -167,7 +179,6 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
 }
 
 // Hook for spin-in animation on scroll
-// Animates the ref element from -180deg rotation to 0deg when it enters viewport
 export function useSpiralSpin<T extends HTMLElement>(
   options: { duration?: number; start?: string } = {}
 ) {
@@ -178,22 +189,30 @@ export function useSpiralSpin<T extends HTMLElement>(
     const el = ref.current;
     if (!el) return;
 
-    gsap.set(el, { rotation: -180 });
+    let animation: gsap.core.Tween;
+    let cancelled = false;
 
-    const animation = gsap.to(el, {
-      rotation: 0,
-      duration,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: el,
-        start,
-        toggleActions: "play none none none",
-      },
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
+
+      gsap.set(el, { rotation: -180 });
+
+      animation = gsap.to(el, {
+        rotation: 0,
+        duration,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start,
+          toggleActions: "play none none none",
+        },
+      });
     });
 
     return () => {
-      animation.scrollTrigger?.kill();
-      animation.kill();
+      cancelled = true;
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
     };
   }, [duration, start]);
 
@@ -214,34 +233,40 @@ export function useScrollAnimationGrid<T extends HTMLElement>(
     const children = Array.from(container.children) as HTMLElement[];
     if (!children.length) return;
 
-    // Set initial state - gentler values for smoother animation
-    gsap.set(children, {
-      opacity: 0,
-      scale: 0.95,
-      y: 40,
-    });
+    let animation: gsap.core.Tween;
+    let cancelled = false;
 
-    // Stagger from top-left for natural reading flow
-    const animation = gsap.to(children, {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      duration,
-      ease,
-      stagger: {
-        amount: 0.6,
-        from: "start",
-      },
-      scrollTrigger: {
-        trigger: container,
-        start,
-        toggleActions: "play none none none",
-      },
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
+
+      gsap.set(children, {
+        opacity: 0,
+        scale: 0.95,
+        y: 40,
+      });
+
+      animation = gsap.to(children, {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration,
+        ease,
+        stagger: {
+          amount: 0.6,
+          from: "start",
+        },
+        scrollTrigger: {
+          trigger: container,
+          start,
+          toggleActions: "play none none none",
+        },
+      });
     });
 
     return () => {
-      animation.scrollTrigger?.kill();
-      animation.kill();
+      cancelled = true;
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
     };
   }, [columns, duration, start]);
 

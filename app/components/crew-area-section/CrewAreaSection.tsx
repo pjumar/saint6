@@ -61,6 +61,7 @@ export function CrewAreaSection({
               src={mainImage.src}
               alt={mainImage.alt}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.image}
             />
           </div>
@@ -72,6 +73,7 @@ export function CrewAreaSection({
                   src={secondaryImage1.src}
                   alt={secondaryImage1.alt}
                   fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className={styles.image}
                 />
               </div>
@@ -82,6 +84,7 @@ export function CrewAreaSection({
                   src={secondaryImage2.src}
                   alt={secondaryImage2.alt}
                   fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className={styles.image}
                 />
               </div>

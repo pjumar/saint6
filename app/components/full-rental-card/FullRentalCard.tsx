@@ -60,6 +60,7 @@ export function FullRentalCard({
           src={backgroundImageUrl}
           alt="Full Studio Rental"
           fill
+          sizes="100vw"
           className={styles.backgroundImage}
         />
         <div className={styles.overlay} />

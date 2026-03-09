@@ -31,6 +31,7 @@ export function PortfolioCard({
           src={imageUrl}
           alt={title}
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           className={styles.portfolioImage}
         />
       </div>

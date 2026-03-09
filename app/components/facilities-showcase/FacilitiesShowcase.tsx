@@ -39,6 +39,7 @@ export function FacilitiesShowcase({
               src={loungeImageUrl}
               alt={t.STUDIO_RENTAL.FACILITIES.DINING_LOUNGE}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.loungeImage}
             />
           </div>
@@ -55,6 +56,7 @@ export function FacilitiesShowcase({
             src={makeupImageUrl}
             alt={t.STUDIO_RENTAL.FACILITIES.MAKEUP_ROOM}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={styles.makeupImage}
           />
         </div>

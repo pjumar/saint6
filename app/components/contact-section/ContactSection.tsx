@@ -110,6 +110,7 @@ export function ContactSection({
           src={backgroundImageUrl}
           alt="Contact background"
           fill
+          sizes="100vw"
           className={styles.backgroundImage}
         />
       </div>

@@ -53,6 +53,7 @@ export function EquipmentGrid({
                 src={backgroundColorsImage}
                 alt="Background Colors"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className={styles.backgroundColorsImage}
               />
             </div>
