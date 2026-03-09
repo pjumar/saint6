@@ -129,6 +129,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
             alt={project.mainImage.alt}
             width={project.mainImage.width}
             height={project.mainImage.height}
+            sizes="(max-width: 768px) 100vw, 75vw"
             className={styles.mainImage}
             onError={handleMainImageError}
           />
@@ -172,6 +173,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
                   alt={image.alt}
                   width={image.width}
                   height={image.height}
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className={styles.galleryImage}
                   onError={() => handleGalleryError(image.src)}
                 />

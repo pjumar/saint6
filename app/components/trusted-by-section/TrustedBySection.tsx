@@ -143,6 +143,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: Tr
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
+            sizes="120px"
             className={styles.brandLogo}
             style={hiddenLogos.has(logo.id) ? { display: "none" } : undefined}
             onError={() => handleLogoError(logo.id)}
@@ -156,6 +157,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: Tr
               alt={logo.alt}
               width={logo.width}
               height={logo.height}
+              sizes="120px"
               className={styles.brandLogo}
               style={hiddenLogos.has(logo.id) ? { display: "none" } : undefined}
               onError={() => handleLogoError(logo.id)}
