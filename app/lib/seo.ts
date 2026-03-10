@@ -7,7 +7,7 @@ import {
 } from "@/app/lib/strapi";
 import type { Locale } from "@/app/types";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://saint6.studio";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.saint6.studio";
 
 interface PageSeoInput {
   hero?: StrapiHero;

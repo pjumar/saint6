@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://saint6.studio";
+const BASE_URL = "https://www.saint6.studio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ["en", "vi"];
