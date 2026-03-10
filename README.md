@@ -93,15 +93,43 @@ saint6/
 │   │   ├── header/
 │   │   ├── footer/
 │   │   ├── hero-section/
+│   │   ├── studio-hero-section/
 │   │   ├── gallery-section/
-│   │   ├── contact-form-section/
+│   │   ├── gallery-modal/
+│   │   ├── section-header/
+│   │   ├── service-cards-carousel/
+│   │   ├── contact-section/
+│   │   ├── booking-modal/
+│   │   ├── inquiry-form/
+│   │   ├── portfolio-section/
+│   │   ├── testimonials-section/
+│   │   ├── faq-accordion/
+│   │   ├── production-workflow/
+│   │   ├── equipment-grid/
+│   │   ├── facilities-showcase/
+│   │   ├── concept-rooms-showcase/
+│   │   ├── key-project-section/
 │   │   └── ...
 │   ├── lib/
 │   │   ├── strapi.ts            # Strapi API integration
 │   │   ├── translations.ts      # Server-side translations
 │   │   ├── seo.ts               # SEO metadata builder
-│   │   ├── fallback-data.ts     # Fallback data when CMS unavailable
-│   │   └── utils.ts
+│   │   ├── transformers.ts      # Data transformation utilities
+│   │   ├── navigation.ts        # Navigation configuration
+│   │   ├── constants.ts         # App constants
+│   │   ├── utils.ts
+│   │   └── fallback/            # Fallback data when CMS unavailable
+│   │       ├── homepage.ts
+│   │       ├── about.ts
+│   │       ├── contact.ts
+│   │       ├── creative.ts
+│   │       ├── production.ts
+│   │       ├── set-design.ts
+│   │       ├── event-planning.ts
+│   │       ├── decor.ts
+│   │       ├── studio-rental.ts
+│   │       ├── footer.ts
+│   │       └── index.ts
 │   ├── contexts/
 │   │   └── TranslationContext.tsx
 │   ├── hooks/                   # Custom React hooks
@@ -129,9 +157,9 @@ The CMS manages all dynamic content. Strapi is deployed separately on Strapi Clo
 
 ### Content Types
 
-**Single Types (Pages):** Homepage, Studio Rental, Creative, Production, Set Design, Event Planning, Decor, About, Contact, SEO Metadata
+**Single Types (Pages):** Homepage, Studio Rental, Creative, Production, Set Design, Event Planning, Decor, About, Contact, SEO Metadata, Footer, Social Link
 
-**Collection Types:** Brand Logos, Key Projects, Studio Rooms, Event Projects, Equipment Items, FAQ Items, Portfolio Items, Testimonial Items, Service Items, Contact Submissions
+**Collection Types:** Brand Logos, Key Projects, Studio Rooms, Event Projects, Equipment Items, FAQ Items, Portfolio Items, Testimonial Items, Service Items, Contact Submissions, Booking Submissions
 
 All content types support both EN and VI locales.
 
