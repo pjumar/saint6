@@ -61,7 +61,7 @@ export function GallerySection({ images = DEFAULT_IMAGES }: GallerySectionProps)
               alt={image.alt}
               fill
               sizes="(max-width: 768px) 50vw, 20vw"
-              className={styles.galleryImage}
+              style={{ objectFit: "cover" }}
               onError={() => handleImageError(image.id)}
             />
           </div>
