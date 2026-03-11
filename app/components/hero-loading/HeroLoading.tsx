@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { loadGsap } from "@/app/lib/gsap";
 import styles from "./HeroLoading.module.css";
 
@@ -13,9 +13,9 @@ export function HeroLoading({ isImageLoaded, onComplete }: HeroLoadingProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const sPathRef = useRef<SVGPathElement>(null);
   const sixPathRef = useRef<SVGPathElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const hasExited = useRef(false);
   const loopTlRef = useRef<gsap.core.Timeline | null>(null);
+  const hasExited = useRef(false);
+  const [exiting, setExiting] = useState(false);
 
   // Looping stroke draw-on / draw-off animation
   useEffect(() => {
@@ -86,49 +86,29 @@ export function HeroLoading({ isImageLoaded, onComplete }: HeroLoadingProps) {
     };
   }, []);
 
-  // Exit animation when image is loaded
+  // Exit with CSS animation when image is loaded
   useEffect(() => {
     if (!isImageLoaded || hasExited.current) return;
     hasExited.current = true;
 
     if (loopTlRef.current) loopTlRef.current.kill();
+    setExiting(true);
+  }, [isImageLoaded]);
 
-    let tl: gsap.core.Timeline;
-    let cancelled = false;
-
-    loadGsap().then((gsap) => {
-      if (cancelled) return;
-
-      tl = gsap.timeline({ onComplete });
-
-      tl.to(svgRef.current, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power2.in",
-      });
-
-      tl.to(
-        overlayRef.current,
-        {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "-=0.2",
-      );
-    });
-
-    return () => {
-      cancelled = true;
-      tl?.kill();
-    };
-  }, [isImageLoaded, onComplete]);
+  const handleAnimationEnd = (e: React.AnimationEvent) => {
+    // Only respond to the overlay fade-out, not the logo shrink
+    if (e.target === overlayRef.current) {
+      onComplete();
+    }
+  };
 
   return (
-    <div ref={overlayRef} className={styles.overlay}>
+    <div
+      ref={overlayRef}
+      className={`${styles.overlay}${exiting ? ` ${styles.exiting}` : ""}`}
+      onAnimationEnd={handleAnimationEnd}
+    >
       <svg
-        ref={svgRef}
         className={styles.logo}
         viewBox="0 0 54 39"
         fill="none"

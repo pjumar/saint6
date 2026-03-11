@@ -13,7 +13,28 @@
   );
 }
 
+.overlay.exiting {
+  animation: overlayFadeOut 0.5s ease-in-out forwards;
+}
+
+.overlay.exiting .logo {
+  animation: logoShrink 0.4s ease-in forwards;
+}
+
 .logo {
   width: 5rem;
   height: auto;
+}
+
+@keyframes overlayFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes logoShrink {
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
 }
