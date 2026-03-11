@@ -1,6 +1,5 @@
 "use client";
 
-import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -10,6 +9,7 @@ import { LanguageSelector } from "@/app/components/language-selector/LanguageSel
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { loadGsap } from "@/app/lib/gsap";
 import styles from "./HeroSection.module.css";
 
 interface HeroSectionProps {
@@ -56,15 +56,16 @@ export function HeroSection({
   const handleLoadingComplete = useCallback(() => {
     setIsLoading(false);
 
-    // Only animate the middle section (social links etc.) — heading is always visible for LCP
-    const tl = gsap.timeline();
-    if (heroMiddleRef.current) {
-      tl.fromTo(
-        heroMiddleRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5, ease: "power2.out" },
-      );
-    }
+    loadGsap().then((gsap) => {
+      const tl = gsap.timeline();
+      if (heroMiddleRef.current) {
+        tl.fromTo(
+          heroMiddleRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5, ease: "power2.out" },
+        );
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -82,16 +83,24 @@ export function HeroSection({
   useEffect(() => {
     if (!showScrollIndicator || !scrollIndicatorRef.current) return;
 
-    const animation = gsap.to(scrollIndicatorRef.current, {
-      y: -8,
-      duration: 0.8,
-      ease: "power1.inOut",
-      repeat: -1,
-      yoyo: true,
+    let animation: gsap.core.Tween;
+    let cancelled = false;
+    const el = scrollIndicatorRef.current;
+
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
+      animation = gsap.to(el, {
+        y: -8,
+        duration: 0.8,
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
     });
 
     return () => {
-      animation.kill();
+      cancelled = true;
+      animation?.kill();
     };
   }, [showScrollIndicator]);
 
@@ -106,48 +115,50 @@ export function HeroSection({
     const decorativeLine = decorativeLineRef.current;
     const thickLine = thickLineRef.current;
 
-    // Defer layout read to avoid forced reflow during render
     let tl: gsap.core.Timeline;
+    let cancelled = false;
+
+    // Defer layout read to avoid forced reflow during render
     const rafId = requestAnimationFrame(() => {
+      if (cancelled) return;
       const trackWidth = decorativeLine.offsetWidth;
       const lineWidth = thickLine.offsetWidth;
 
-      // Set initial state: hidden to the left
-      gsap.set(thickLine, { x: -lineWidth });
+      loadGsap().then((gsap) => {
+        if (cancelled) return;
 
-      tl = gsap.timeline({ repeat: -1 });
+        gsap.set(thickLine, { x: -lineWidth });
 
-      // Lines appear, thick line slides from left to right
-      tl.fromTo(
-        decorativeLine,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5, ease: "power1.out" },
-      )
-        .fromTo(
-          thickLine,
-          { x: -lineWidth },
-          { x: trackWidth, duration: 2, ease: "power2.in" },
-          "<",
+        tl = gsap.timeline({ repeat: -1 });
+
+        tl.fromTo(
+          decorativeLine,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5, ease: "power1.out" },
         )
-        // Pause at end
-        .to({}, { duration: 0.3 })
-        // Reverse: thick line slides back from right to left
-        .to(thickLine, {
-          x: -lineWidth,
-          duration: 2,
-          ease: "power2.out",
-        })
-        // Fade out
-        .to(decorativeLine, {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power1.in",
-        })
-        // Pause before restart
-        .to({}, { duration: 0.5 });
+          .fromTo(
+            thickLine,
+            { x: -lineWidth },
+            { x: trackWidth, duration: 2, ease: "power2.in" },
+            "<",
+          )
+          .to({}, { duration: 0.3 })
+          .to(thickLine, {
+            x: -lineWidth,
+            duration: 2,
+            ease: "power2.out",
+          })
+          .to(decorativeLine, {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power1.in",
+          })
+          .to({}, { duration: 0.5 });
+      });
     });
 
     return () => {
+      cancelled = true;
       cancelAnimationFrame(rafId);
       tl?.kill();
     };
@@ -193,10 +204,7 @@ export function HeroSection({
           onMenuToggle={handleMenuToggle}
         />
 
-        <div
-          ref={heroContentRef}
-          className={styles.heroContentWrapper}
-        >
+        <div ref={heroContentRef} className={styles.heroContentWrapper}>
           {showScrollIndicator && (
             <div ref={scrollIndicatorRef} className={styles.scrollIndicator}>
               <Image

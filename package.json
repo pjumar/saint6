@@ -29,6 +29,14 @@
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.4.0"
   },
+  "browserslist": [
+    "chrome >= 92",
+    "edge >= 92",
+    "firefox >= 90",
+    "safari >= 15.4",
+    "ios_saf >= 15.4",
+    "opera >= 78"
+  ],
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
     "@tailwindcss/postcss": "^4",

@@ -1,7 +1,7 @@
 "use client";
 
-import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { loadGsap } from "@/app/lib/gsap";
 import styles from "./HeroLoading.module.css";
 
 interface HeroLoadingProps {
@@ -23,64 +23,66 @@ export function HeroLoading({ isImageLoaded, onComplete }: HeroLoadingProps) {
     const sixPath = sixPathRef.current;
     if (!sPath || !sixPath) return;
 
-    const sLength = sPath.getTotalLength();
-    const sixLength = sixPath.getTotalLength();
+    let cancelled = false;
 
-    // Set initial state: invisible strokes
-    gsap.set(sPath, {
-      strokeDasharray: sLength,
-      strokeDashoffset: sLength,
-    });
-    gsap.set(sixPath, {
-      strokeDasharray: sixLength,
-      strokeDashoffset: sixLength,
-    });
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
 
-    const tl = gsap.timeline({ repeat: -1 });
-    loopTlRef.current = tl;
+      const sLength = sPath.getTotalLength();
+      const sixLength = sixPath.getTotalLength();
 
-    // Draw S stroke
-    tl.to(sPath, {
-      strokeDashoffset: 0,
-      duration: 1,
-      ease: "power2.inOut",
-    });
-
-    // Draw 6 stroke (overlapping slightly)
-    tl.to(
-      sixPath,
-      {
-        strokeDashoffset: 0,
-        duration: 1.2,
-        ease: "power2.inOut",
-      },
-      "-=0.5"
-    );
-
-    // Reverse draw: erase 6 then S
-    tl.to(
-      sixPath,
-      {
-        strokeDashoffset: sixLength,
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      "-=0.3"
-    );
-
-    tl.to(
-      sPath,
-      {
+      gsap.set(sPath, {
+        strokeDasharray: sLength,
         strokeDashoffset: sLength,
+      });
+      gsap.set(sixPath, {
+        strokeDasharray: sixLength,
+        strokeDashoffset: sixLength,
+      });
+
+      const tl = gsap.timeline({ repeat: -1 });
+      loopTlRef.current = tl;
+
+      tl.to(sPath, {
+        strokeDashoffset: 0,
         duration: 1,
         ease: "power2.inOut",
-      },
-      "-=0.5"
-    );
+      });
 
+      tl.to(
+        sixPath,
+        {
+          strokeDashoffset: 0,
+          duration: 1.2,
+          ease: "power2.inOut",
+        },
+        "-=0.5",
+      );
+
+      tl.to(
+        sixPath,
+        {
+          strokeDashoffset: sixLength,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "-=0.3",
+      );
+
+      tl.to(
+        sPath,
+        {
+          strokeDashoffset: sLength,
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        "-=0.5",
+      );
+    });
 
     return () => {
-      tl.kill();
+      cancelled = true;
+      loopTlRef.current?.kill();
     };
   }, []);
 
@@ -89,34 +91,37 @@ export function HeroLoading({ isImageLoaded, onComplete }: HeroLoadingProps) {
     if (!isImageLoaded || hasExited.current) return;
     hasExited.current = true;
 
-    // Stop the loop
     if (loopTlRef.current) loopTlRef.current.kill();
 
-    const tl = gsap.timeline({
-      onComplete,
-    });
+    let tl: gsap.core.Timeline;
+    let cancelled = false;
 
-    // Scale down and fade out the SVG
-    tl.to(svgRef.current, {
-      scale: 0.8,
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.in",
-    });
+    loadGsap().then((gsap) => {
+      if (cancelled) return;
 
-    // Fade out overlay
-    tl.to(
-      overlayRef.current,
-      {
+      tl = gsap.timeline({ onComplete });
+
+      tl.to(svgRef.current, {
+        scale: 0.8,
         opacity: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-      },
-      "-=0.2"
-    );
+        duration: 0.4,
+        ease: "power2.in",
+      });
+
+      tl.to(
+        overlayRef.current,
+        {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        "-=0.2",
+      );
+    });
 
     return () => {
-      tl.kill();
+      cancelled = true;
+      tl?.kill();
     };
   }, [isImageLoaded, onComplete]);
 
@@ -128,7 +133,9 @@ export function HeroLoading({ isImageLoaded, onComplete }: HeroLoadingProps) {
         viewBox="0 0 54 39"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-label="Loading"
       >
+        <title>Loading</title>
         {/* S */}
         <path
           ref={sPathRef}

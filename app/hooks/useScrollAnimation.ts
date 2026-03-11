@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { loadGsapWithScrollTrigger } from "@/app/lib/gsap";
 
 export type AnimationType =
   | "fadeUp"
@@ -52,7 +53,9 @@ const animations: Record<AnimationType, Record<string, number>> = {
 };
 
 // Helper to compute target values from "from" state
-const getToVars = (fromVars: Record<string, number>): Record<string, number> => {
+const getToVars = (
+  fromVars: Record<string, number>,
+): Record<string, number> => {
   const toVars: Record<string, number> = {};
   for (const key of Object.keys(fromVars)) {
     if (key === "opacity") toVars[key] = 1;
@@ -62,18 +65,10 @@ const getToVars = (fromVars: Record<string, number>): Record<string, number> => 
   return toVars;
 };
 
-// Lazy-load GSAP + ScrollTrigger to keep them out of the initial bundle
-async function loadGsap() {
-  const [{ gsap }, { ScrollTrigger }] = await Promise.all([
-    import("gsap"),
-    import("gsap/ScrollTrigger"),
-  ]);
-  gsap.registerPlugin(ScrollTrigger);
-  return gsap;
-}
+const loadGsap = loadGsapWithScrollTrigger;
 
 export function useScrollAnimation<T extends HTMLElement>(
-  options: UseScrollAnimationOptions = {}
+  options: UseScrollAnimationOptions = {},
 ) {
   const {
     type = "fadeUp",
@@ -107,7 +102,9 @@ export function useScrollAnimation<T extends HTMLElement>(
         scrollTrigger: {
           trigger: element,
           start,
-          toggleActions: once ? "play none none none" : "play reverse play reverse",
+          toggleActions: once
+            ? "play none none none"
+            : "play reverse play reverse",
         },
       });
     });
@@ -124,7 +121,7 @@ export function useScrollAnimation<T extends HTMLElement>(
 
 // Hook for animating multiple children with stagger
 export function useScrollAnimationChildren<T extends HTMLElement>(
-  options: UseScrollAnimationOptions = {}
+  options: UseScrollAnimationOptions = {},
 ) {
   const {
     type = "fadeUp",
@@ -163,7 +160,9 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
         scrollTrigger: {
           trigger: container,
           start,
-          toggleActions: once ? "play none none none" : "play reverse play reverse",
+          toggleActions: once
+            ? "play none none none"
+            : "play reverse play reverse",
         },
       });
     });
@@ -180,7 +179,7 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
 
 // Hook for spin-in animation on scroll
 export function useSpiralSpin<T extends HTMLElement>(
-  options: { duration?: number; start?: string } = {}
+  options: { duration?: number; start?: string } = {},
 ) {
   const { duration = 1.2, start = "top 85%" } = options;
   const ref = useRef<T>(null);
@@ -221,9 +220,14 @@ export function useSpiralSpin<T extends HTMLElement>(
 
 // Hook for grid animations with wave-like stagger from center
 export function useScrollAnimationGrid<T extends HTMLElement>(
-  options: { columns?: number; duration?: number; start?: string; ease?: string } = {}
+  options: {
+    columns?: number;
+    duration?: number;
+    start?: string;
+    ease?: string;
+  } = {},
 ) {
-  const { columns = 5, duration = 0.9, start = "top 85%", ease = "power2.out" } = options;
+  const { duration = 0.9, start = "top 85%", ease = "power2.out" } = options;
   const containerRef = useRef<T>(null);
 
   useEffect(() => {
@@ -268,7 +272,7 @@ export function useScrollAnimationGrid<T extends HTMLElement>(
       animation?.scrollTrigger?.kill();
       animation?.kill();
     };
-  }, [columns, duration, start]);
+  }, [duration, start, ease]);
 
   return containerRef;
 }

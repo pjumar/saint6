@@ -1,10 +1,10 @@
 "use client";
 
-import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation } from "@/app/hooks";
+import { loadGsap } from "@/app/lib/gsap";
 import styles from "./TrustedBySection.module.css";
 
 export interface BrandLogo {
@@ -23,18 +23,76 @@ interface TrustedBySectionProps {
 
 // Default fallback logos
 const DEFAULT_LOGOS: BrandLogo[] = [
-  { id: "1", src: "/images/brands/lenskart.png", alt: "Lenskart", width: 138, height: 40 },
-  { id: "2", src: "/images/brands/lofficiel.png", alt: "L'Officiel", width: 170, height: 35 },
-  { id: "3", src: "/images/brands/vinamilk.png", alt: "Vinamilk", width: 98, height: 32 },
-  { id: "4", src: "/images/brands/sony.png", alt: "Sony", width: 114, height: 20 },
-  { id: "5", src: "/images/brands/vinfast.png", alt: "VinFast", width: 128, height: 32 },
-  { id: "6", src: "/images/brands/miss-cosmo.png", alt: "Miss Cosmo", width: 120, height: 35 },
-  { id: "7", src: "/images/brands/harpers-bazaar.png", alt: "Harper's Bazaar", width: 140, height: 30 },
-  { id: "8", src: "/images/brands/highlands-coffee.png", alt: "Highlands Coffee", width: 100, height: 40 },
-  { id: "9", src: "/images/brands/maybelline.png", alt: "Maybelline New York", width: 130, height: 35 },
+  {
+    id: "1",
+    src: "/images/brands/lenskart.png",
+    alt: "Lenskart",
+    width: 138,
+    height: 40,
+  },
+  {
+    id: "2",
+    src: "/images/brands/lofficiel.png",
+    alt: "L'Officiel",
+    width: 170,
+    height: 35,
+  },
+  {
+    id: "3",
+    src: "/images/brands/vinamilk.png",
+    alt: "Vinamilk",
+    width: 98,
+    height: 32,
+  },
+  {
+    id: "4",
+    src: "/images/brands/sony.png",
+    alt: "Sony",
+    width: 114,
+    height: 20,
+  },
+  {
+    id: "5",
+    src: "/images/brands/vinfast.png",
+    alt: "VinFast",
+    width: 128,
+    height: 32,
+  },
+  {
+    id: "6",
+    src: "/images/brands/miss-cosmo.png",
+    alt: "Miss Cosmo",
+    width: 120,
+    height: 35,
+  },
+  {
+    id: "7",
+    src: "/images/brands/harpers-bazaar.png",
+    alt: "Harper's Bazaar",
+    width: 140,
+    height: 30,
+  },
+  {
+    id: "8",
+    src: "/images/brands/highlands-coffee.png",
+    alt: "Highlands Coffee",
+    width: 100,
+    height: 40,
+  },
+  {
+    id: "9",
+    src: "/images/brands/maybelline.png",
+    alt: "Maybelline New York",
+    width: 130,
+    height: 35,
+  },
 ];
 
-export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: TrustedBySectionProps) {
+export function TrustedBySection({
+  logos = DEFAULT_LOGOS,
+  tagline,
+  heading,
+}: TrustedBySectionProps) {
   const { t } = useTranslation();
   const logosRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Timeline | null>(null);
@@ -46,17 +104,18 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: Tr
     if (!logosContainer) return;
 
     const scrollSpeed = 30;
+    let cancelled = false;
 
     const checkOverflow = () => {
-      // Check if content width exceeds container width
-      const contentWidth = logosContainer.scrollWidth / 2; // Divide by 2 because duplicate is included
+      const contentWidth = logosContainer.scrollWidth / 2;
       const containerWidth = logosContainer.clientWidth;
       return contentWidth > containerWidth;
     };
 
+    let gsapInstance: Awaited<ReturnType<typeof loadGsap>> | null = null;
+
     const animate = () => {
-      if (!checkOverflow()) {
-        // No overflow, no animation needed
+      if (!gsapInstance || !checkOverflow()) {
         logosContainer.classList.add(styles.noOverflow);
         return;
       }
@@ -64,9 +123,9 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: Tr
       logosContainer.classList.remove(styles.noOverflow);
       const halfScrollWidth = logosContainer.scrollWidth / 2;
 
-      gsap.set(logosContainer, { scrollLeft: 0 });
+      gsapInstance.set(logosContainer, { scrollLeft: 0 });
 
-      const timeline = gsap.timeline({
+      const timeline = gsapInstance.timeline({
         repeat: -1,
         onRepeat: () => {
           logosContainer.scrollLeft = 0;
@@ -97,8 +156,11 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: Tr
       passive: false,
     });
 
-    // Initial animation
-    animate();
+    loadGsap().then((g) => {
+      if (cancelled) return;
+      gsapInstance = g;
+      animate();
+    });
 
     const handleResize = () => {
       if (animationRef.current) {
@@ -113,6 +175,7 @@ export function TrustedBySection({ logos = DEFAULT_LOGOS, tagline, heading }: Tr
     window.addEventListener("resize", handleResize);
 
     return () => {
+      cancelled = true;
       if (animationRef.current) {
         animationRef.current.kill();
       }

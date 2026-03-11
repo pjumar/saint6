@@ -1,14 +1,14 @@
 "use client";
 
-import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { loadGsap } from "@/app/lib/gsap";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
@@ -19,39 +19,48 @@ interface HeaderProps {
 
 export function Header({
   isMenuOpen,
-  isClosing = false,
+  isClosing: _isClosing = false,
   onMenuToggle,
 }: HeaderProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
   const thickLineRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
   const animationsRef = useRef<Map<string, gsap.core.Timeline>>(new Map());
+  const gsapRef = useRef<Awaited<ReturnType<typeof loadGsap>> | null>(null);
 
-  const navItems = [
-    { label: t.NAVIGATION.STUDIO_RENTAL, href: `/${locale}/studio-rental` },
-    { label: t.NAVIGATION.SET_DESIGN, href: `/${locale}/set-design` },
-    { label: t.NAVIGATION.PRODUCTION, href: `/${locale}/production` },
-    { label: t.NAVIGATION.EVENT_PLANNING, href: `/${locale}/event-planning` },
-    { label: t.NAVIGATION.DECOR, href: `/${locale}/decor` },
-    { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
-  ];
+  useEffect(() => {
+    loadGsap().then((g) => {
+      gsapRef.current = g;
+    });
+  }, []);
+
+  const navItems = useMemo(
+    () => [
+      { label: t.NAVIGATION.STUDIO_RENTAL, href: `/${locale}/studio-rental` },
+      { label: t.NAVIGATION.SET_DESIGN, href: `/${locale}/set-design` },
+      { label: t.NAVIGATION.PRODUCTION, href: `/${locale}/production` },
+      { label: t.NAVIGATION.EVENT_PLANNING, href: `/${locale}/event-planning` },
+      { label: t.NAVIGATION.DECOR, href: `/${locale}/decor` },
+      { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
+    ],
+    [t, locale],
+  );
 
   const handleMouseEnter = useCallback(
     (href: string) => {
-      // Don't animate if this is the active item
       if (pathname === href) return;
+      const g = gsapRef.current;
+      if (!g) return;
 
       const thickLine = thickLineRefs.current.get(href);
       if (!thickLine) return;
 
-      // Kill any existing animation for this item
       const existingAnim = animationsRef.current.get(href);
       if (existingAnim) {
         existingAnim.kill();
       }
 
-      // Animate thick line from left to right (fast)
-      const tl = gsap.timeline();
+      const tl = g.timeline();
       animationsRef.current.set(href, tl);
 
       tl.fromTo(
@@ -65,8 +74,9 @@ export function Header({
 
   const handleMouseLeave = useCallback(
     (href: string) => {
-      // Don't animate if this is the active item
       if (pathname === href) return;
+      const g = gsapRef.current;
+      if (!g) return;
 
       const anim = animationsRef.current.get(href);
       if (anim) {
@@ -76,8 +86,7 @@ export function Header({
 
       const thickLine = thickLineRefs.current.get(href);
       if (thickLine) {
-        // Animate back to left before disappearing
-        gsap.to(thickLine, {
+        g.to(thickLine, {
           left: 0,
           duration: 0.25,
           ease: "power1.in",
@@ -89,16 +98,17 @@ export function Header({
 
   // Set active nav item thick line to end position (no animation)
   useEffect(() => {
-    // Small delay to ensure refs are set
     const timer = setTimeout(() => {
+      const g = gsapRef.current;
+      if (!g) return;
+
       const activeHref = navItems.find((item) => pathname === item.href)?.href;
       if (!activeHref) return;
 
       const thickLine = thickLineRefs.current.get(activeHref);
       if (!thickLine) return;
 
-      // Set directly to end position without animation
-      gsap.set(thickLine, { left: "calc(100% - 1.0625rem)" });
+      g.set(thickLine, { left: "calc(100% - 1.0625rem)" });
     }, 50);
 
     return () => clearTimeout(timer);

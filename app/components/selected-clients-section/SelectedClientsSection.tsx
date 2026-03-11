@@ -1,10 +1,10 @@
 "use client";
 
-import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { useScrollAnimation } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
+import { useScrollAnimation } from "@/app/hooks";
+import { loadGsap } from "@/app/lib/gsap";
 import styles from "./SelectedClientsSection.module.css";
 
 export interface ClientLogo {
@@ -52,7 +52,12 @@ const DEFAULT_LOGOS: ClientLogo[] = [
     width: 93,
     height: 46,
   },
-  { src: "/images/brands/harpers-bazaar.png", alt: "Harper's Bazaar", width: 89, height: 50 },
+  {
+    src: "/images/brands/harpers-bazaar.png",
+    alt: "Harper's Bazaar",
+    width: 89,
+    height: 50,
+  },
   {
     src: "/images/brands/highlands-coffee.png",
     alt: "Highlands Coffee",
@@ -92,6 +97,7 @@ export function SelectedClientsSection({
     if (!logosContainer) return;
 
     const scrollSpeed = 30;
+    let cancelled = false;
 
     const checkOverflow = () => {
       const contentWidth = logosContainer.scrollWidth / 2;
@@ -99,8 +105,10 @@ export function SelectedClientsSection({
       return contentWidth > containerWidth;
     };
 
+    let gsapInstance: Awaited<ReturnType<typeof loadGsap>> | null = null;
+
     const animate = () => {
-      if (!checkOverflow()) {
+      if (!gsapInstance || !checkOverflow()) {
         logosContainer.classList.add(styles.noOverflow);
         return;
       }
@@ -108,9 +116,9 @@ export function SelectedClientsSection({
       logosContainer.classList.remove(styles.noOverflow);
       const halfScrollWidth = logosContainer.scrollWidth / 2;
 
-      gsap.set(logosContainer, { scrollLeft: 0 });
+      gsapInstance.set(logosContainer, { scrollLeft: 0 });
 
-      const timeline = gsap.timeline({
+      const timeline = gsapInstance.timeline({
         repeat: -1,
         onRepeat: () => {
           logosContainer.scrollLeft = 0;
@@ -141,7 +149,11 @@ export function SelectedClientsSection({
       passive: false,
     });
 
-    animate();
+    loadGsap().then((g) => {
+      if (cancelled) return;
+      gsapInstance = g;
+      animate();
+    });
 
     const handleResize = () => {
       if (animationRef.current) {
@@ -156,6 +168,7 @@ export function SelectedClientsSection({
     window.addEventListener("resize", handleResize);
 
     return () => {
+      cancelled = true;
       if (animationRef.current) {
         animationRef.current.kill();
       }
@@ -170,11 +183,15 @@ export function SelectedClientsSection({
     <section className={styles.selectedClients}>
       <div className={styles.container}>
         {/* Label */}
-        <p className={styles.label} ref={labelRef}>{label}</p>
+        <p className={styles.label} ref={labelRef}>
+          {label}
+        </p>
 
         {/* Content area with text and decorative graphic */}
         <div className={styles.contentArea}>
-          <p className={styles.description} ref={descriptionRef}>{description}</p>
+          <p className={styles.description} ref={descriptionRef}>
+            {description}
+          </p>
           <SpiralDecoration
             className={styles.spiralDecoration}
             imageClassName={styles.spiralImage}
@@ -183,9 +200,9 @@ export function SelectedClientsSection({
 
         {/* Logos row */}
         <div className={styles.logosContainer} ref={logosRef}>
-          {clientLogos.map((logo, index) => (
+          {clientLogos.map((logo) => (
             <Image
-              key={`logo-${index}`}
+              key={logo.src}
               src={logo.src}
               alt={logo.alt}
               width={logo.width ?? 120}
@@ -195,9 +212,9 @@ export function SelectedClientsSection({
           ))}
           {/* Duplicate for mobile scroll animation */}
           <div className={styles.logosDuplicate}>
-            {clientLogos.map((logo, index) => (
+            {clientLogos.map((logo) => (
               <Image
-                key={`logo-dup-${index}`}
+                key={`dup-${logo.src}`}
                 src={logo.src}
                 alt={logo.alt}
                 width={logo.width ?? 120}
