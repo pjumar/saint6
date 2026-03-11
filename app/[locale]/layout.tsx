@@ -156,7 +156,7 @@ export default async function LocaleLayout({
       >
         <ErrorBoundary>
           <TranslationProvider locale={typedLocale}>
-            {children}
+            <main>{children}</main>
             <Footer
               contactLabel={footer?.contact_label || undefined}
               address={footer?.address || undefined}
