@@ -50,7 +50,7 @@ export async function buildPageMetadata({
     title: { absolute: brandedTitle },
     description: desc,
     alternates: {
-      canonical: `${SITE_URL}/en${pagePath}`,
+      canonical: `${SITE_URL}/${locale}${pagePath}`,
       languages: {
         en: `${SITE_URL}/en${pagePath}`,
         vi: `${SITE_URL}/vi${pagePath}`,
