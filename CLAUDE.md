@@ -93,7 +93,7 @@ const data = await getStudioRentalPage(locale);
 
 3. **Relations**: Use `documentId` (not `id`) for relations in Strapi 5.
 
-4. **ISG Pattern**: Pages use Incremental Static Generation with 60-second revalidation.
+4. **ISR Pattern**: Pages use Incremental Static Regeneration with 300-second (5 min) revalidation via the Strapi fetch utility.
 
 5. **Relations are NOT shared between locales**: When seeding single types (pages), relations must be explicitly included for BOTH EN and VI locales. Relations are not automatically inherited from EN to VI. The same `documentId` values work across locales, so you can reuse them:
 

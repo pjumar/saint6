@@ -214,7 +214,7 @@ Responsive typography classes defined in `globals.css` — mobile-first, scaling
 
 ## Caching
 
-Pages use Incremental Static Regeneration (ISR) with 60-second revalidation.
+Pages use Incremental Static Regeneration (ISR) with 300-second (5 min) revalidation.
 
 ## License
 
