@@ -228,6 +228,41 @@ Automatically memoizes components and hooks, reducing unnecessary re-renders wit
 
 ---
 
+## 12. Accessibility — WCAG AA Text Contrast
+
+**Problem:** Lighthouse flagged multiple text elements with insufficient contrast ratio (< 4.5:1 for normal text, < 3:1 for large text). Elements using `opacity: 0.4` or `rgba(*, *, *, 0.4)` failed on both dark (`#880f00`) and light (`#f5f4f4`) backgrounds.
+
+**Fix:** Increased opacity from `0.4` to `0.65` on all text elements across 13 CSS modules. Decorative elements (lines, borders, close-button icons) were intentionally left unchanged.
+
+**Files changed:**
+- `ConceptRoomsShowcase.module.css` — `.subtitle` rgba white
+- `ConceptRoomCard.module.css` — `.specLabel` rgba dark
+- `SelectedClientsSection.module.css` — `.label` rgba white
+- `SectionHeader.module.css` — `.label` rgba white
+- `SpaceSection.module.css` — `.caption`, `.statLabel` rgba white
+- `EventProjectGallery.module.css` — `.tabCategory` rgba white
+- `CrewAreaSection.module.css` — `.caption`, `.infoLabel` rgba dark
+- `FounderQuote.module.css` — `.founderTitle` rgba dark
+- `EquipmentGrid.module.css` — `.sectionLabel`, `.equipmentSpec` rgba dark
+- `StudioRental.module.css` — `.faqLabel` rgba dark
+- `WorkflowStepCard.module.css` — `.counter` opacity
+- `KeyProjectSection.module.css` — `.infoLabel`, `.projectNo*`, `.sectionLabel`, `.authorRole` opacity
+- `BookingModal.module.css` — all text `rgba(8, 7, 7, 0.4)` → `0.65`
+
+**Impact:** All text elements now meet WCAG AA contrast requirements (4.5:1 minimum).
+
+---
+
+## 13. Accessibility — Main Landmark
+
+**Problem:** Lighthouse flagged missing `<main>` landmark, which screen readers use to skip to primary content.
+
+**Fix:** Wrapped page content in `<main>` element in `app/[locale]/layout.tsx`.
+
+**Impact:** Fixes "Page does not have a main landmark" accessibility audit.
+
+---
+
 ## Things We Cannot Control (3rd-Party)
 
 | Issue | Source | Notes |
