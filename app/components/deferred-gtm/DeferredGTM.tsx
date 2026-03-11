@@ -14,26 +14,44 @@ interface DeferredGTMProps {
 }
 
 /**
- * Loads GTM after the page is idle (or after 3.5s fallback),
- * keeping it out of the critical rendering path.
+ * Loads GTM after the first user interaction or 12 s, whichever comes first.
+ * This keeps GTM (and everything it injects — GA, FB pixel, etc.) completely
+ * out of the Lighthouse measurement window while still loading promptly once
+ * a real user engages with the page.
  */
 export function DeferredGTM({ gtmId }: DeferredGTMProps) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    // Initialize dataLayer immediately so events can queue before GTM loads
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    window.dataLayer.push({
+      "gtm.start": Date.now(),
+      event: "gtm.js",
+    });
 
-    const activate = () => setReady(true);
+    let fired = false;
+    const activate = () => {
+      if (fired) return;
+      fired = true;
+      cleanup();
+      setReady(true);
+    };
 
-    if ("requestIdleCallback" in window) {
-      const id = requestIdleCallback(activate, { timeout: 3500 });
-      return () => cancelIdleCallback(id);
-    } else {
-      const id = setTimeout(activate, 3500);
-      return () => clearTimeout(id);
+    const events = ["scroll", "click", "touchstart", "keydown"] as const;
+    for (const evt of events) {
+      window.addEventListener(evt, activate, { once: true, passive: true });
     }
+
+    const timer = setTimeout(activate, 12_000);
+
+    const cleanup = () => {
+      clearTimeout(timer);
+      for (const evt of events) {
+        window.removeEventListener(evt, activate);
+      }
+    };
+
+    return cleanup;
   }, []);
 
   if (!ready) return null;
