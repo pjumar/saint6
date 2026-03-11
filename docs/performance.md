@@ -1,16 +1,16 @@
-# Performance & Lighthouse Optimizations
+# Next.js Performance & Lighthouse Playbook
 
-All performance optimizations applied to the Saint6 Studio website, ordered by impact.
+Reusable patterns for scoring 90+ on Lighthouse Performance and Accessibility in Next.js (App Router) projects.
 
 ---
 
 ## 1. Remove Next.js Built-in Polyfills
 
-**Problem:** Next.js ships ~13.7 KiB of polyfills for APIs all modern browsers support: `Array.prototype.at`, `.flat`, `.flatMap`, `Object.fromEntries`, `Object.hasOwn`, `String.prototype.trimEnd/trimStart`.
+Next.js ships ~13.7 KiB of polyfills (`Array.prototype.at`, `.flat`, `.flatMap`, `Object.fromEntries`, `Object.hasOwn`, `String.prototype.trimEnd/trimStart`) that all modern browsers already support.
 
-**Why `browserslist` doesn't work:** Next.js SWC/Turbopack ignores the `browserslist` field in `package.json` for JS compilation. Only the Turbopack resolve alias approach works.
+**Why `browserslist` doesn't work:** Next.js SWC/Turbopack ignores `browserslist` in `package.json` for JS compilation.
 
-**Fix:** Alias the polyfill module to an empty file via Turbopack config.
+**Fix:** Alias the polyfill module to an empty file via Turbopack config:
 
 ```ts
 // next.config.ts
@@ -22,21 +22,17 @@ turbopack: {
 },
 ```
 
-`app/lib/modern-polyfill.js` is an intentionally empty file.
+Create an empty `app/lib/modern-polyfill.js` file.
 
-**Impact:** ~13.7 KiB JS reduction. Eliminates "Legacy JavaScript" Lighthouse warning for 1st-party code.
-
-**Caveat:** Relies on Next.js internals. Verify after major Next.js upgrades.
+**Caveat:** Relies on Next.js internals — verify after major upgrades.
 
 **Reference:** https://github.com/vercel/next.js/discussions/64330
 
 ---
 
-## 2. Inline CSS to Eliminate Render-Blocking Stylesheets
+## 2. Inline CSS
 
-**Problem:** 3 CSS chunks (23.2 KiB total) blocked initial render, delaying LCP by up to 1,200 ms.
-
-**Fix:** Enable `experimental.inlineCss` to embed CSS directly into HTML `<style>` tags.
+CSS chunks block initial render, delaying LCP. Next.js can embed CSS directly into HTML `<style>` tags:
 
 ```ts
 // next.config.ts
@@ -45,264 +41,238 @@ experimental: {
 },
 ```
 
-**Impact:** Eliminates CSS render-blocking waterfall. Styles arrive with HTML so the browser renders immediately.
-
-**Trade-off:** Slightly increases HTML size (TTFB), negligible with Tailwind's atomic CSS.
+Eliminates the CSS render-blocking waterfall. Slightly increases HTML size, negligible in practice.
 
 **Reference:** https://nextjs.org/docs/app/api-reference/config/next-config-js/inlineCss
 
 ---
 
-## 3. Lazy-Load GSAP via Dynamic Imports
+## 3. Lazy-Load Animation Libraries (GSAP, Framer Motion, etc.)
 
-**Problem:** 5 components statically imported GSAP (`import gsap from "gsap"`), pulling ~69 KiB into the initial bundle. GSAP is only used in `useEffect` hooks and event callbacks (post-render).
+Animation libraries are only needed post-render (in `useEffect` or callbacks), so they should never be in the initial bundle.
 
-**Fix:** Created shared singleton loaders in `app/lib/gsap.ts`:
-
-- `loadGsap()` — lazy-loads GSAP core
-- `loadGsapWithScrollTrigger()` — lazy-loads GSAP + ScrollTrigger plugin
-
-Converted all static imports to dynamic:
-
-- `Header.tsx` — gsap ref for hover animations
-- `HeroLoading.tsx` — SVG stroke draw-on animations
-- `HeroSection.tsx` — scroll indicator, decorative line
-- `SelectedClientsSection.tsx` — logo scroll marquee
-- `TrustedBySection.tsx` — logo scroll marquee
-
-The `useScrollAnimation` hook (and related hooks) also uses the shared loader.
-
-**Pattern:**
+**Pattern:** Create shared singleton loaders to avoid duplicate imports:
 
 ```ts
-import { loadGsap } from "@/app/lib/gsap";
+// app/lib/gsap.ts
+let gsapPromise: Promise<typeof import("gsap").gsap> | null = null;
 
+export function loadGsap() {
+  if (!gsapPromise) {
+    gsapPromise = import("gsap").then((m) => m.gsap ?? m.default);
+  }
+  return gsapPromise;
+}
+
+export function loadGsapWithScrollTrigger() {
+  // similar pattern — registers plugin once
+}
+```
+
+**Usage in components:**
+
+```ts
 useEffect(() => {
   let cancelled = false;
   loadGsap().then((gsap) => {
     if (cancelled) return;
-    // use gsap here
+    // use gsap
   });
   return () => { cancelled = true; };
 }, []);
 ```
 
-**Impact:** ~69 KiB deferred from initial bundle to on-demand loading.
+Applies to any heavy client-only library: GSAP, Three.js, Lottie, chart libraries, etc.
 
 ---
 
-## 4. Defer GTM Until User Interaction
+## 4. Defer GTM / Analytics Until User Interaction
 
-**Problem:** Google Tag Manager (429 KiB) + Facebook Pixel (94 KiB) loaded within 3.5s — inside Lighthouse's ~10s measurement window. Inflated JS execution time, unused JS, and legacy JS scores.
+GTM + tracking pixels (often 500+ KiB combined) inflate JS execution time, unused JS, and legacy JS scores when loaded inside Lighthouse's ~10s measurement window.
 
-**Fix:** `DeferredGTM` component (`app/components/deferred-gtm/DeferredGTM.tsx`) loads GTM on **first user interaction** or after **12 seconds**, whichever comes first.
+**Fix:** Load on first user interaction or after a fallback timeout:
 
 ```tsx
 const events = ["scroll", "click", "touchstart", "keydown"] as const;
 for (const evt of events) {
   window.addEventListener(evt, activate, { once: true, passive: true });
 }
-const timer = setTimeout(activate, 12_000);
+const timer = setTimeout(activate, 12_000); // fallback
 ```
 
-`dataLayer` is initialized immediately so events queue before GTM loads — no tracking data is lost.
+Initialize `dataLayer` immediately so events queue before GTM loads — no tracking data is lost.
 
-**Impact:** ~523 KiB of 3rd-party JS pushed outside Lighthouse measurement window.
-
-**Trade-off:** Analytics start slightly later for passive viewers. 12s fallback ensures GTM always loads.
-
-**History:** Originally used `requestIdleCallback` with 3.5s timeout, upgraded to interaction-based deferral.
+**Trade-off:** Analytics start slightly later for passive viewers.
 
 ---
 
-## 5. LCP Optimization — Show Hero Content Immediately
+## 5. LCP — Show Hero Content Immediately
 
-**Problem:** The hero `<h1>` was hidden behind a loading overlay, delaying Largest Contentful Paint until the overlay animation completed.
+If LCP content (hero heading, hero image) is hidden behind a loading animation, LCP is delayed until the animation completes.
 
-**Fix:** Show the hero heading immediately (visible from first paint). Only animate the secondary content (social links, decorative elements) after loading completes.
+**Fix:** Keep the LCP element visible from first paint. Only animate secondary/decorative content after loading:
 
 ```tsx
-// HeroSection.tsx — heading is always visible
-<h1 className={`heading-mobile heading-desktop ${styles.heroHeading}`}>
-  {heading}
-</h1>
-
-// Only the middle section fades in after loading
-<div ref={heroMiddleRef} style={{ opacity: isLoading ? 0 : undefined }}>
-  {/* social links, decorative line, etc. */}
+<h1>{heading}</h1> {/* always visible */}
+<div style={{ opacity: isLoading ? 0 : undefined }}>
+  {/* secondary content fades in */}
 </div>
 ```
 
-**Impact:** Direct improvement to LCP — the largest text element is painted on first render.
-
 ---
 
-## 6. Responsive Image `sizes` Attributes
+## 6. Responsive Image `sizes`
 
-**Problem:** Without `sizes` attributes, the browser downloads the largest image variant for all viewport widths, wasting bandwidth on mobile.
+Without `sizes`, the browser downloads the largest image variant for all viewports.
 
-**Fix:** Added `sizes` props to `<Image>` components throughout the site:
-
-- Hero background: `sizes="100vw"`
-- Portfolio cards, gallery images: viewport-appropriate sizes
-- Brand logos: `sizes="120px"`
-- Key project images, facilities: responsive breakpoint sizes
-
-**Impact:** Reduces image download sizes, especially on mobile. Lighthouse "Improve image delivery" improvement.
-
----
-
-## 7. Forced Reflow Prevention
-
-**Problem:** Reading layout properties (`offsetWidth`) during render causes forced reflows (layout thrashing).
-
-**Fix:** Wrapped layout reads in `requestAnimationFrame` callbacks to defer them until after the browser has completed its layout pass.
+**Guidelines:**
+- Full-width images: `sizes="100vw"`
+- Grid cards: `sizes="(min-width: 768px) 33vw, 100vw"`
+- Fixed-size elements (logos, icons): `sizes="120px"`
+- Above-the-fold images: add `priority` prop
 
 ```tsx
-// HeroSection.tsx — decorative line animation
+<Image src={src} alt={alt} fill sizes="(min-width: 768px) 50vw, 100vw" />
+```
+
+---
+
+## 7. Avoid Forced Reflows
+
+Reading layout properties (`offsetWidth`, `getBoundingClientRect`) during render causes layout thrashing.
+
+**Fix:** Defer layout reads to `requestAnimationFrame`:
+
+```ts
 const rafId = requestAnimationFrame(() => {
-  const trackWidth = decorativeLine.offsetWidth;
-  const lineWidth = thickLine.offsetWidth;
-  // animate with these values
+  const width = element.offsetWidth;
+  // animate with this value
+});
+return () => cancelAnimationFrame(rafId);
+```
+
+---
+
+## 8. Font Loading
+
+Use `next/font/google` or `next/font/local` for automatic self-hosting, preloading, and subsetting:
+
+```ts
+import { Public_Sans } from "next/font/google";
+
+const publicSans = Public_Sans({
+  subsets: ["latin"],
+  display: "swap", // text visible immediately with fallback
+  weight: ["400", "500"],
 });
 ```
 
-**Impact:** Reduced forced reflow time in Lighthouse diagnostics.
-
----
-
-## 8. Font Loading Strategy
-
-Next.js `next/font/google` automatically:
-
-- Self-hosts Google Fonts (no external requests to fonts.googleapis.com)
-- Adds `<link rel="preload">` tags in HTML `<head>`
-- Generates optimized font subsets
-
-Fonts in `app/[locale]/layout.tsx`:
-
-| Font | Weights | Usage |
-|------|---------|-------|
-| Public Sans | 400, 500 | Body text |
-| JetBrains Mono | 700 | Monospace accents |
-| Saira Condensed | 300, 400 | Headings |
-
-All use `display: "swap"` (text visible immediately with fallback font) and `subsets: ["latin"]` (smaller font files).
+Key settings:
+- `display: "swap"` — prevents invisible text during font load
+- `subsets: ["latin"]` — reduces font file size
+- Load only the weights you use
 
 ---
 
 ## 9. Image Priority Hints
 
-The `priority` prop on Next.js `<Image>` adds `fetchpriority="high"` and preloads the image. Used only for above-the-fold images:
+The `priority` prop on Next.js `<Image>` adds `fetchpriority="high"` and preloads the image. Use only for above-the-fold images:
 
-- Hero background image (`HeroSection.tsx`)
-- Site logo in header (`Header.tsx`)
+```tsx
+<Image src={heroImg} alt="Hero" priority sizes="100vw" />
+```
 
-Non-critical images (below fold, modals) omit `priority` so they lazy-load by default.
+All other images lazy-load by default.
 
 ---
 
-## 10. Incremental Static Regeneration (ISR)
+## 10. ISR / Static Generation
 
-Pages use ISR with 300-second revalidation (5 minutes) via the Strapi fetch utility:
+Pre-render pages at build time with background revalidation for fast TTFB:
 
 ```ts
-// app/lib/strapi.ts
-const { revalidate = 300 } = options;
-fetch(url, { next: { revalidate } });
+fetch(url, { next: { revalidate: 300 } }); // 5 minutes
 ```
 
-Pages are pre-rendered at build time and revalidated in the background, ensuring fast TTFB while keeping content fresh.
+Or use `generateStaticParams` for dynamic routes.
 
 ---
 
 ## 11. React Compiler
 
-Enabled in `next.config.ts`:
-
 ```ts
+// next.config.ts
 reactCompiler: true,
 ```
 
-Automatically memoizes components and hooks, reducing unnecessary re-renders without manual `useMemo`/`useCallback` annotations.
+Automatically memoizes components and hooks, eliminating manual `useMemo`/`useCallback`.
 
 ---
 
-## 12. Accessibility — WCAG AA Text Contrast
+## 12. WCAG AA Text Contrast
 
-**Problem:** Lighthouse flagged multiple text elements with insufficient contrast ratio (< 4.5:1 for normal text, < 3:1 for large text). Elements using `opacity: 0.4` or `rgba(*, *, *, 0.4)` failed on both dark (`#880f00`) and light (`#f5f4f4`) backgrounds.
+Lighthouse flags text with contrast ratio below 4.5:1 (normal text) or 3:1 (large text).
 
-**Fix:** Increased opacity from `0.4` to `0.65` on all text elements across 13 CSS modules. Decorative elements (lines, borders, close-button icons) were intentionally left unchanged.
+**Common culprit:** `opacity: 0.4` or `rgba(*, *, *, 0.4)` on label/caption text.
 
-**Files changed:**
-- `ConceptRoomsShowcase.module.css` — `.subtitle` rgba white
-- `ConceptRoomCard.module.css` — `.specLabel` rgba dark
-- `SelectedClientsSection.module.css` — `.label` rgba white
-- `SectionHeader.module.css` — `.label` rgba white
-- `SpaceSection.module.css` — `.caption`, `.statLabel` rgba white
-- `EventProjectGallery.module.css` — `.tabCategory` rgba white
-- `CrewAreaSection.module.css` — `.caption`, `.infoLabel` rgba dark
-- `FounderQuote.module.css` — `.founderTitle` rgba dark
-- `EquipmentGrid.module.css` — `.sectionLabel`, `.equipmentSpec` rgba dark
-- `StudioRental.module.css` — `.faqLabel` rgba dark
-- `WorkflowStepCard.module.css` — `.counter` opacity
-- `KeyProjectSection.module.css` — `.infoLabel`, `.projectNo*`, `.sectionLabel`, `.authorRole` opacity
-- `BookingModal.module.css` — all text `rgba(8, 7, 7, 0.4)` → `0.65`
+**Fix:** Increase to `opacity: 0.65` — this passes on both light (`#f5f4f4`) and dark (`#880f00`) backgrounds.
 
-**Impact:** All text elements now meet WCAG AA contrast requirements (4.5:1 minimum).
+**What to change:**
+- Labels, captions, subtitles, counters, spec text — any text using low opacity
+- `opacity` property on text elements
+- `rgba()` alpha channel on `color` values
+
+**What to leave alone:**
+- Decorative lines, borders, dividers
+- Icon buttons (close buttons, arrows)
+- Background overlays
 
 ---
 
-## 13. Accessibility — Main Landmark
+## 13. Main Landmark
 
-**Problem:** Lighthouse flagged missing `<main>` landmark, which screen readers use to skip to primary content.
+Lighthouse flags "Page does not have a main landmark" if content isn't wrapped in `<main>`.
 
-**Fix:** Wrapped page content in `<main>` element in `app/[locale]/layout.tsx`.
+```tsx
+// layout.tsx
+<body>
+  <Header />
+  <main>{children}</main>
+  <Footer />
+</body>
+```
 
-**Impact:** Fixes "Page does not have a main landmark" accessibility audit.
-
----
-
-## Things We Cannot Control (3rd-Party)
-
-| Issue | Source | Notes |
-|-------|--------|-------|
-| Legacy JavaScript (~12.5 KiB) | Facebook `fbevents.js` | Ships its own polyfills |
-| Cache lifetimes (~122 KiB) | Facebook/GTM | They set their own cache headers |
-| JS execution time (~580 ms) | GTM scripts | Mitigated by deferral (#4) |
-| Unused JS (~206 KiB) | GTM + Facebook | 3rd-party bundles, can't tree-shake |
+Screen readers use this to skip navigation and jump to content.
 
 ---
 
-## Config Summary
+## 3rd-Party Limitations
 
-### `next.config.ts`
+Issues you can mitigate but not eliminate:
+
+| Issue | Source | Mitigation |
+|-------|--------|------------|
+| Legacy JavaScript | Facebook `fbevents.js`, older SDKs | Defer loading (#4) |
+| Short cache lifetimes | Facebook/GTM set their own headers | None |
+| JS execution time | GTM scripts | Defer loading (#4) |
+| Unused JS | 3rd-party bundles | Can't tree-shake, defer instead |
+
+---
+
+## Quick Config Reference
 
 ```ts
+// next.config.ts
 const nextConfig: NextConfig = {
   experimental: {
-    inlineCss: true,               // #2 — inline CSS
+    inlineCss: true,
   },
   turbopack: {
-    resolveAlias: {                // #1 — remove polyfills
+    resolveAlias: {
       "../build/polyfills/polyfill-module": "./app/lib/modern-polyfill.js",
       "next/dist/build/polyfills/polyfill-module": "./app/lib/modern-polyfill.js",
     },
   },
-  reactCompiler: true,             // #11 — auto-memoization
-  images: {
-    remotePatterns: [/* ... */],
-  },
+  reactCompiler: true,
 };
 ```
-
-### Key Files
-
-| File | Optimization |
-|------|-------------|
-| `next.config.ts` | Polyfill removal, inline CSS, React Compiler |
-| `app/lib/gsap.ts` | Shared GSAP lazy loaders |
-| `app/lib/modern-polyfill.js` | Empty polyfill replacement |
-| `app/components/deferred-gtm/DeferredGTM.tsx` | Interaction-based GTM deferral |
-| `app/[locale]/layout.tsx` | Font config, display swap |
-| `app/hooks/useScrollAnimation.ts` | Lazy GSAP + ScrollTrigger |
