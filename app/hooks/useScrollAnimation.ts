@@ -245,13 +245,11 @@ export function useScrollAnimationGrid<T extends HTMLElement>(
 
       gsap.set(children, {
         opacity: 0,
-        scale: 0.95,
         y: 40,
       });
 
       animation = gsap.to(children, {
         opacity: 1,
-        scale: 1,
         y: 0,
         duration,
         ease,
