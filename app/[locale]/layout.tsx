@@ -13,21 +13,21 @@ import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["400", "500"],
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["700"],
   display: "swap",
 });
 
 const sairaCondensed = Saira_Condensed({
   variable: "--font-saira-condensed",
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   weight: ["300", "400"],
   display: "swap",
 });
