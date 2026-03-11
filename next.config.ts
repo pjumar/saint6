@@ -4,6 +4,13 @@ const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,
   },
+  turbopack: {
+    resolveAlias: {
+      "../build/polyfills/polyfill-module": "./app/lib/modern-polyfill.js",
+      "next/dist/build/polyfills/polyfill-module":
+        "./app/lib/modern-polyfill.js",
+    },
+  },
   reactCompiler: true,
   images: {
     remotePatterns: [
