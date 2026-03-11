@@ -135,7 +135,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.125rem; /* 2px tracking from Figma */
-  color: rgba(8, 7, 7, 0.4); /* Text/TextTertiary 40% from Figma */
+  color: rgba(8, 7, 7, 0.65);
   white-space: nowrap; /* Prevent line breaks */
 }
 

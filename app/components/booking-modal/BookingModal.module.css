@@ -213,7 +213,7 @@
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-size: 0.75rem;
   font-weight: 700;
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
   padding: 0;
   transition: color 0.2s ease;
 }
@@ -248,7 +248,7 @@
   line-height: 1.1;
   letter-spacing: 0.125rem;
   text-transform: uppercase;
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
   padding: 0;
   white-space: nowrap;
   flex-shrink: 0;
@@ -324,7 +324,7 @@
   line-height: 1.1;
   letter-spacing: 0.125rem;
   text-transform: uppercase;
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
 }
 
 .specValue {
@@ -430,7 +430,7 @@
 }
 
 .input:focus::placeholder {
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
 }
 
 .input:focus {
@@ -497,12 +497,12 @@
 }
 
 .dateRangePlaceholder {
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
 }
 
 .dateRangeSeparator {
   flex-shrink: 0;
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
   font-size: 1rem;
 }
 
@@ -552,7 +552,7 @@
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
   pointer-events: none;
   transition: all 0.2s ease;
   background: transparent;
@@ -601,7 +601,7 @@
   right: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -656,7 +656,7 @@
 }
 
 .timePickerPlaceholder {
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
 }
 
 /* Always float label for custom time picker */
@@ -705,7 +705,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  color: rgba(8, 7, 7, 0.4);
+  color: rgba(8, 7, 7, 0.65);
   transition: color 0.2s ease;
 }
 
