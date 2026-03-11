@@ -26,7 +26,7 @@ This is the Saint6 Studio website - a Next.js 15 application with Strapi CMS bac
 ## Key Documentation
 
 - [Strapi Seeding Guide](.claude/strapi-seeding.md) - Patterns for seeding CMS data
-- [Performance & Lighthouse](.claude/performance.md) - All performance optimizations and Lighthouse fixes
+- [Performance & Lighthouse](docs/performance.md) - All performance optimizations and Lighthouse fixes
 
 ## Development Commands
 
