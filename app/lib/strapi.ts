@@ -536,14 +536,30 @@ async function fetchStrapi<T>(
   }
 }
 
+const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL;
+
 export function getStrapiImageUrl(image: StrapiImage | undefined): string | null {
   if (!image?.url) return null;
 
-  if (image.url.startsWith("http")) {
-    return image.url;
+  let url = image.url;
+
+  if (!url.startsWith("http")) {
+    url = `${STRAPI_URL}${url}`;
   }
 
-  return `${STRAPI_URL}${image.url}`;
+  // Rewrite Strapi media URLs to CDN
+  if (CDN_URL) {
+    try {
+      const parsed = new URL(url);
+      if (parsed.hostname.endsWith(".strapiapp.com")) {
+        return `${CDN_URL}${parsed.pathname}`;
+      }
+    } catch {
+      // Invalid URL, return as-is
+    }
+  }
+
+  return url;
 }
 
 // ============================================================================

@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.saint6.studio",
       },
+      {
+        protocol: "https",
+        hostname: "*.b-cdn.net",
+      },
     ],
   },
 };
