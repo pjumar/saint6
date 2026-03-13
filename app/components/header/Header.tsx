@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
@@ -24,6 +24,7 @@ export function Header({
 }: HeaderProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
+  const router = useRouter();
   const thickLineRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
   const animationsRef = useRef<Map<string, gsap.core.Timeline>>(new Map());
   const gsapRef = useRef<Awaited<ReturnType<typeof loadGsap>> | null>(null);
@@ -45,6 +46,24 @@ export function Header({
     ],
     [t, locale],
   );
+
+  // Prefetch all nav routes after page load for faster navigation
+  useEffect(() => {
+    const onLoad = () => {
+      navItems.forEach((item) => {
+        router.prefetch(item.href);
+      });
+      router.prefetch(`/${locale}/contact`);
+      router.prefetch(`/${locale}/about`);
+    };
+
+    if (document.readyState === "complete") {
+      onLoad();
+    } else {
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    }
+  }, [navItems, router, locale]);
 
   const handleMouseEnter = useCallback(
     (href: string) => {
