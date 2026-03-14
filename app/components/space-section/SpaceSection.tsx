@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
@@ -88,11 +88,11 @@ export function SpaceSection({
         <div ref={galleryRef} className={styles.galleryGrid}>
           {galleryImages.slice(0, 4).map((image, index) => (
             <div key={index} className={styles.galleryItem}>
-              <Image
+              <ProgressiveImage
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 768px) 45vw, 23vw"
                 className={styles.galleryImage}
               />
             </div>

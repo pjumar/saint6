@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./AboutIntro.module.css";
 
@@ -59,7 +59,7 @@ export function AboutIntro({
             </div>
 
             <div ref={imageRef} className={styles.imageWrapper}>
-              <Image
+              <ProgressiveImage
                 src={imageUrl}
                 alt={imageAlt}
                 fill

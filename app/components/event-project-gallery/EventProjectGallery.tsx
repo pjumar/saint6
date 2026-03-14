@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./EventProjectGallery.module.css";
 
 export interface EventProjectImage {
@@ -146,7 +146,7 @@ export function EventProjectGallery({
       {/* All images stay mounted — active one gets opacity 1, others get opacity 0 */}
       <div className={styles.imageContainer}>
         {allImages.map((img) => (
-          <Image
+          <ProgressiveImage
             key={img.key}
             src={img.url}
             alt={img.alt}

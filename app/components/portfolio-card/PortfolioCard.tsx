@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./PortfolioCard.module.css";
 
 export interface PortfolioCardProps {
@@ -27,7 +27,7 @@ export function PortfolioCard({
           } as React.CSSProperties
         }
       >
-        <Image
+        <ProgressiveImage
           src={imageUrl}
           alt={title}
           fill

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./CrewAreaSection.module.css";
 
@@ -57,11 +57,11 @@ export function CrewAreaSection({
 
         <div className={styles.rightColumn}>
           <div ref={mainImageRef} className={styles.mainImageWrapper}>
-            <Image
+            <ProgressiveImage
               src={mainImage.src}
               alt={mainImage.alt}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 25vw"
               className={styles.image}
             />
           </div>
@@ -69,22 +69,22 @@ export function CrewAreaSection({
           <div ref={secondaryImagesRef} className={styles.secondaryImages}>
             {secondaryImage1 && (
               <div className={styles.secondaryImageWrapper}>
-                <Image
+                <ProgressiveImage
                   src={secondaryImage1.src}
                   alt={secondaryImage1.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                   className={styles.image}
                 />
               </div>
             )}
             {secondaryImage2 && (
               <div className={styles.secondaryImageWrapper}>
-                <Image
+                <ProgressiveImage
                   src={secondaryImage2.src}
                   alt={secondaryImage2.alt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                   className={styles.image}
                 />
               </div>

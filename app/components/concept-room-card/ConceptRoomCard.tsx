@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { GalleryModal } from "@/app/components/gallery-modal/GalleryModal";
 import {
@@ -57,11 +57,12 @@ export function ConceptRoomCard({
     <div className={styles.conceptCard}>
       {/* Arch-shaped Image Container */}
       <div className={styles.imageContainer}>
-        <Image
+        <ProgressiveImage
           src={imageUrl}
           alt={title}
           width={449}
           height={449}
+          sizes="(max-width: 768px) 100vw, 449px"
           className={styles.roomImage}
         />
         {showEnterButton && gallery.length > 0 && (

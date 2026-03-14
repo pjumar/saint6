@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./EquipmentGrid.module.css";
@@ -49,11 +49,11 @@ export function EquipmentGrid({
         {backgroundColorsImage && (
           <div ref={bgColorsRef} className={styles.backgroundColorsCard}>
             <div className={styles.backgroundColorsImageContainer}>
-              <Image
+              <ProgressiveImage
                 src={backgroundColorsImage}
                 alt="Background Colors"
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 768px) 100vw, 680px"
                 className={styles.backgroundColorsImage}
               />
             </div>
@@ -73,11 +73,12 @@ export function EquipmentGrid({
           {items.map((item) => (
             <div key={item.id} className={styles.equipmentCard}>
               <div className={styles.imageContainer}>
-                <Image
+                <ProgressiveImage
                   src={item.imageUrl}
                   alt={item.name}
                   width={200}
                   height={200}
+                  sizes="(max-width: 768px) 45vw, 200px"
                   className={styles.equipmentImage}
                 />
               </div>

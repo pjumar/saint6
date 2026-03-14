@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Header } from "@/app/components/header/Header";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
@@ -148,21 +149,13 @@ export function HeroSection({
     <>
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
-          {placeholderImage && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={placeholderImage}
-              alt=""
-              className={styles.heroPlaceholder}
-              aria-hidden="true"
-            />
-          )}
-          <Image
+          <ProgressiveImage
             src={backgroundImage}
             alt={backgroundAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"
             className={styles.heroBackgroundImage}
+            placeholderSrc={placeholderImage}
             priority
           />
           <div className={styles.heroOverlay} />

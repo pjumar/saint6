@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./TestimonialCard.module.css";
 
 export interface TestimonialCardProps {
@@ -21,7 +21,7 @@ export function TestimonialCard({
   return (
     <div className={styles.testimonialCard}>
       <div className={styles.logoContainer}>
-        <Image
+        <ProgressiveImage
           src={logoUrl}
           alt={logoAlt}
           fill

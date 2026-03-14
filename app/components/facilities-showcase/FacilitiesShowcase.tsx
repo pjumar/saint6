@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./FacilitiesShowcase.module.css";
@@ -35,7 +36,7 @@ export function FacilitiesShowcase({
             {t.STUDIO_RENTAL.FACILITIES.DINING_LABEL}
           </p>
           <div className={styles.loungeImageContainer}>
-            <Image
+            <ProgressiveImage
               src={loungeImageUrl}
               alt={t.STUDIO_RENTAL.FACILITIES.DINING_LOUNGE}
               fill
@@ -52,7 +53,7 @@ export function FacilitiesShowcase({
           {t.STUDIO_RENTAL.FACILITIES.MAKEUP_LABEL}
         </p>
         <div className={styles.makeupImageContainer}>
-          <Image
+          <ProgressiveImage
             src={makeupImageUrl}
             alt={t.STUDIO_RENTAL.FACILITIES.MAKEUP_ROOM}
             fill

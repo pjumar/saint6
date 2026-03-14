@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useScrollAnimationGrid } from "@/app/hooks";
 import styles from "./GallerySection.module.css";
 
@@ -56,11 +56,11 @@ export function GallerySection({ images = DEFAULT_IMAGES }: GallerySectionProps)
       <div ref={gridRef} className={styles.galleryGrid}>
         {images.map((image) => (
           <div key={image.id} className={styles.galleryItem}>
-            <Image
+            <ProgressiveImage
               src={getImageSrc(image)}
               alt={image.alt}
               fill
-              sizes="(max-width: 768px) 50vw, 20vw"
+              sizes="20vw"
               style={{ objectFit: "cover" }}
               onError={() => handleImageError(image.id)}
             />

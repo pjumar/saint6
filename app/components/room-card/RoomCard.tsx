@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import {
   GalleryModal,
@@ -54,11 +54,12 @@ export function RoomCard({
       <div className={styles.roomCard}>
         {/* Room Image */}
         <div className={styles.imageContainer}>
-          <Image
+          <ProgressiveImage
             src={imageUrl}
             alt={title}
             width={449}
             height={596}
+            sizes="(max-width: 768px) 100vw, 449px"
             className={styles.roomImage}
           />
           {showEnterButton && hasGallery && (

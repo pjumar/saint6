@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useScrollAnimation } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./MapImage.module.css";
@@ -28,12 +28,12 @@ export function MapImage({
     <section className={styles.section}>
       <div className={styles.container}>
         <div ref={mapRef} className={styles.mapImage}>
-          <Image
+          <ProgressiveImage
             src={imageUrl}
             alt={alt}
             fill
             className={styles.image}
-            sizes="100vw"
+            sizes="(max-width: 1440px) 100vw, 1440px"
           />
 
           {/* Spiral Decoration */}
