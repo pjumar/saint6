@@ -17,12 +17,12 @@
 
 .backgroundImage {
   object-fit: cover;
-  object-position: center;
+  object-position: left center;
 }
 
 @media (min-width: 48.0625rem) {
   .backgroundImage {
-    object-position: center;
+    object-position: left center;
   }
 }
 
