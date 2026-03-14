@@ -111,7 +111,8 @@ export function ContactSection({
           src={backgroundImageUrl}
           alt="Contact background"
           fill
-          sizes="(max-width: 1440px) 100vw, 1440px"
+          sizes="100vw"
+          quality={90}
           className={styles.backgroundImage}
         />
       </div>

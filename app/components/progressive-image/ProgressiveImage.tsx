@@ -72,9 +72,6 @@ export function ProgressiveImage({
 
   const wrapperStyle: React.CSSProperties = {
     ...containerStyle,
-    ...(!fill && width && height
-      ? { width, height, display: "inline-block" }
-      : undefined),
   };
 
   return (
