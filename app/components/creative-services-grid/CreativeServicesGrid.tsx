@@ -37,7 +37,7 @@ export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
         {items.map((item) => (
           <div key={item.id} className={styles.card}>
             <div className={styles.textContent}>
-              <h3 className={styles.title}>{item.title}</h3>
+              <h2 className={styles.title}>{item.title}</h2>
               <p className={styles.description}>{item.description}</p>
             </div>
             <div className={styles.imageContainer}>
@@ -58,7 +58,7 @@ export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
         <div ref={textRowRef} className={styles.textRow}>
           {items.map((item) => (
             <div key={item.id} className={styles.textContent}>
-              <h3 className={styles.title}>{item.title}</h3>
+              <h2 className={styles.title}>{item.title}</h2>
               <p className={styles.description}>{item.description}</p>
             </div>
           ))}
