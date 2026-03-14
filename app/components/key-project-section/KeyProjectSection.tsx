@@ -128,8 +128,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
           <ProgressiveImage
             src={getMainImageSrc()}
             alt={project.mainImage.alt}
-            width={project.mainImage.width}
-            height={project.mainImage.height}
+            fill
             sizes="(max-width: 768px) 100vw, 75vw"
             className={styles.mainImage}
             onError={handleMainImageError}
@@ -172,8 +171,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
                 <ProgressiveImage
                   src={getGalleryImageSrc(image)}
                   alt={image.alt}
-                  width={image.width}
-                  height={image.height}
+                  fill
                   sizes="(max-width: 768px) 50vw, 25vw"
                   className={styles.galleryImage}
                   onError={() => handleGalleryError(image.src)}

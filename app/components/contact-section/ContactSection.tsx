@@ -112,7 +112,8 @@ export function ContactSection({
           alt="Contact background"
           fill
           sizes="100vw"
-          quality={90}
+          quality={100}
+          unoptimized
           className={styles.backgroundImage}
         />
       </div>
