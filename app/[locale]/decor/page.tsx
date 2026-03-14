@@ -41,6 +41,10 @@ interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "vi" }];
+}
+
 export default async function DecorationPage({ params }: PageProps) {
   const { locale } = await params;
   const t = getTranslations(locale);

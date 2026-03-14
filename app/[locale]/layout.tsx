@@ -149,6 +149,16 @@ export default async function LocaleLayout({
 
   return (
     <html lang={typedLocale}>
+      <head>
+        <link rel="preconnect" href="https://strapi.saint6.studio" />
+        <link rel="dns-prefetch" href="https://strapi.saint6.studio" />
+        {process.env.NEXT_PUBLIC_CDN_URL && (
+          <>
+            <link rel="preconnect" href={process.env.NEXT_PUBLIC_CDN_URL} />
+            <link rel="dns-prefetch" href={process.env.NEXT_PUBLIC_CDN_URL} />
+          </>
+        )}
+      </head>
       <DeferredGTM gtmId={GTM_ID} />
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
