@@ -28,6 +28,7 @@ import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getHomepage,
   getStrapiImageUrl,
+  getStrapiThumbnailUrl,
   type StrapiBrandLogo,
   type StrapiCrewArea,
   type StrapiGalleryImage,
@@ -229,6 +230,9 @@ export default async function Home({ params }: PageProps) {
   const heroBackground = heroBackgroundFromCms || FALLBACK_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   return (
     <div className={styles.homepage}>
@@ -236,6 +240,7 @@ export default async function Home({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />

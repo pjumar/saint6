@@ -22,6 +22,7 @@ import {
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getStrapiImageUrl,
+  getStrapiThumbnailUrl,
   getStudioRentalPage,
   type StrapiEquipmentItem,
   type StrapiFaqItem,
@@ -207,6 +208,9 @@ export default async function StudioRentalPage({ params }: PageProps) {
     heroBackgroundFromCms || FALLBACK_STUDIO_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_STUDIO_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   // Intro
   const introTitle =
@@ -340,6 +344,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
       />
 
       <div className={styles.contentContainer}>

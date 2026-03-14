@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Header } from "@/app/components/header/Header";
-import { HeroLoading } from "@/app/components/hero-loading/HeroLoading";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
@@ -13,25 +12,11 @@ import { loadGsap } from "@/app/lib/gsap";
 import styles from "./HeroSection.module.css";
 
 interface HeroSectionProps {
-  /**
-   * Main heading text for the hero section
-   */
   heading: string;
-  /**
-   * Path to the background image
-   */
   backgroundImage: string;
-  /**
-   * Alt text for the background image
-   */
   backgroundAlt?: string;
-  /**
-   * Whether to show the scroll indicator (default: false)
-   */
+  placeholderImage?: string | null;
   showScrollIndicator?: boolean;
-  /**
-   * Whether to show the decorative line (default: false)
-   */
   showDecorativeLine?: boolean;
 }
 
@@ -39,34 +24,17 @@ export function HeroSection({
   heading,
   backgroundImage,
   backgroundAlt = "Hero background",
+  placeholderImage,
   showScrollIndicator = false,
   showDecorativeLine = false,
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const { t, locale } = useTranslation();
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
   const decorativeLineRef = useRef<HTMLDivElement>(null);
   const thickLineRef = useRef<HTMLDivElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
-  const heroMiddleRef = useRef<HTMLDivElement>(null);
-
-  const handleLoadingComplete = useCallback(() => {
-    setIsLoading(false);
-
-    loadGsap().then((gsap) => {
-      const tl = gsap.timeline();
-      if (heroMiddleRef.current) {
-        tl.fromTo(
-          heroMiddleRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.5, ease: "power2.out" },
-        );
-      }
-    });
-  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -180,22 +148,24 @@ export function HeroSection({
     <>
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
+          {placeholderImage && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={placeholderImage}
+              alt=""
+              className={styles.heroPlaceholder}
+              aria-hidden="true"
+            />
+          )}
           <Image
             src={backgroundImage}
             alt={backgroundAlt}
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"
             className={styles.heroBackgroundImage}
             priority
-            onLoad={() => setIsImageLoaded(true)}
           />
           <div className={styles.heroOverlay} />
-          {isLoading && (
-            <HeroLoading
-              isImageLoaded={isImageLoaded}
-              onComplete={handleLoadingComplete}
-            />
-          )}
         </div>
 
         <Header
@@ -226,11 +196,7 @@ export function HeroSection({
           </div>
         </div>
 
-        <div
-          ref={heroMiddleRef}
-          className={styles.heroMiddleSection}
-          style={{ opacity: isLoading ? 0 : undefined }}
-        >
+        <div className={styles.heroMiddleSection}>
           {showDecorativeLine && (
             <div ref={decorativeLineRef} className={styles.decorativeLine}>
               <div className={styles.thinLine} />

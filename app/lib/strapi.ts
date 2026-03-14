@@ -562,6 +562,31 @@ export function getStrapiImageUrl(image: StrapiImage | undefined): string | null
   return url;
 }
 
+export function getStrapiThumbnailUrl(
+  image: StrapiImage | undefined,
+): string | null {
+  const thumbUrl = image?.formats?.thumbnail?.url || image?.formats?.small?.url;
+  if (!thumbUrl) return null;
+
+  let url = thumbUrl;
+  if (!url.startsWith("http")) {
+    url = `${STRAPI_URL}${url}`;
+  }
+
+  if (CDN_URL) {
+    try {
+      const parsed = new URL(url);
+      if (parsed.hostname.endsWith(".strapiapp.com")) {
+        return `${CDN_URL}${parsed.pathname}`;
+      }
+    } catch {
+      // Invalid URL, return as-is
+    }
+  }
+
+  return url;
+}
+
 // ============================================================================
 // Page Fetch Functions
 // ============================================================================

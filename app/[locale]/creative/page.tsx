@@ -23,6 +23,7 @@ import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getCreativePage,
   getStrapiImageUrl,
+  getStrapiThumbnailUrl,
   type StrapiBrandLogo,
   type StrapiServiceItem,
 } from "@/app/lib/strapi";
@@ -136,6 +137,9 @@ export default async function CreativePage({ params }: PageProps) {
     heroBackgroundFromCms || FALLBACK_CREATIVE_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_CREATIVE_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   // Clients section
   const clientsLabel =
@@ -228,6 +232,7 @@ export default async function CreativePage({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />

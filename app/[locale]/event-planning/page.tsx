@@ -22,6 +22,7 @@ import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getEventPlanningPage,
   getStrapiImageUrl,
+  getStrapiThumbnailUrl,
   type StrapiEventProject,
   type StrapiServiceItem,
 } from "@/app/lib/strapi";
@@ -150,6 +151,9 @@ export default async function EventPlanningPage({ params }: PageProps) {
     heroBackgroundFromCms || FALLBACK_EVENT_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_EVENT_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   // Intro
   const introLabel =
@@ -235,6 +239,7 @@ export default async function EventPlanningPage({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />

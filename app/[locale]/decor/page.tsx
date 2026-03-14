@@ -9,7 +9,7 @@ import {
   FALLBACK_DECOR_WORKFLOW,
 } from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
-import { getDecorPage, getStrapiImageUrl } from "@/app/lib/strapi";
+import { getDecorPage, getStrapiImageUrl, getStrapiThumbnailUrl } from "@/app/lib/strapi";
 import { transformPortfolio, transformWorkflow } from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
@@ -77,6 +77,9 @@ export default async function DecorationPage({ params }: PageProps) {
     heroBackgroundFromCms || FALLBACK_DECOR_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_DECOR_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   // Intro
   const introLabel =
@@ -130,6 +133,7 @@ export default async function DecorationPage({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />

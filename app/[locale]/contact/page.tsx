@@ -9,7 +9,7 @@ import {
   FALLBACK_CONTACT_MAP_IMAGE,
 } from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
-import { getContactPage, getStrapiImageUrl } from "@/app/lib/strapi";
+import { getContactPage, getStrapiImageUrl, getStrapiThumbnailUrl } from "@/app/lib/strapi";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./Contact.module.css";
@@ -74,6 +74,9 @@ export default async function ContactPage({ params }: PageProps) {
     heroBackgroundFromCms || FALLBACK_CONTACT_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_CONTACT_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   // Contact Info
   const contactTitle =
@@ -115,6 +118,7 @@ export default async function ContactPage({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />

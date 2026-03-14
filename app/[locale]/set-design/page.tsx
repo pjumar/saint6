@@ -11,7 +11,7 @@ import {
   FALLBACK_SET_DESIGN_WORKFLOW,
 } from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
-import { getSetDesignPage, getStrapiImageUrl } from "@/app/lib/strapi";
+import { getSetDesignPage, getStrapiImageUrl, getStrapiThumbnailUrl } from "@/app/lib/strapi";
 import {
   transformPortfolio,
   transformTestimonials,
@@ -83,6 +83,9 @@ export default async function SetDesignPage({ params }: PageProps) {
     heroBackgroundFromCms || FALLBACK_SET_DESIGN_HERO.backgroundImage;
   const heroBackgroundAlt =
     strapiData?.hero?.background_alt || FALLBACK_SET_DESIGN_HERO.backgroundAlt;
+  const heroPlaceholder = getStrapiThumbnailUrl(
+    strapiData?.hero?.background_image,
+  );
 
   // Intro
   const introTitle =
@@ -146,6 +149,7 @@ export default async function SetDesignPage({ params }: PageProps) {
         heading={heroHeading}
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
+        placeholderImage={heroPlaceholder}
         showScrollIndicator={true}
         showDecorativeLine={true}
       />

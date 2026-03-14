@@ -106,27 +106,73 @@ Initialize `dataLayer` immediately so events queue before GTM loads — no track
 
 ---
 
-## 5. LCP — Show Hero Content Immediately
+## 5. LCP — Progressive Hero Image Loading
 
-If LCP content (hero heading, hero image) is hidden behind a loading animation, LCP is delayed until the animation completes.
+If LCP content is hidden behind a loading animation, LCP is delayed until the animation completes. Additionally, serving a full-size hero image to mobile devices wastes bandwidth.
 
-**Fix:** Keep the LCP element visible from first paint. Only animate secondary/decorative content after loading:
+**Fix:** Use progressive loading with Strapi's responsive image formats:
+
+1. **Remove loading gates** — show hero content (heading, nav) immediately at FCP
+2. **Use a blurred thumbnail placeholder** — Strapi auto-generates `thumbnail` (~245px) and `small` (~500px) formats. Show the smallest one with a CSS blur while the full image loads:
 
 ```tsx
-<h1>{heading}</h1> {/* always visible */}
-<div style={{ opacity: isLoading ? 0 : undefined }}>
-  {/* secondary content fades in */}
-</div>
+// Placeholder: blurred thumbnail from Strapi formats
+{placeholderImage && (
+  <img
+    src={placeholderImage}
+    alt=""
+    className={styles.heroPlaceholder}
+    aria-hidden="true"
+  />
+)}
+// Full image loads on top
+<Image src={backgroundImage} alt={alt} fill priority
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"
+/>
 ```
+
+```css
+.heroPlaceholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1); /* prevents blur edges from showing */
+}
+```
+
+**Get the thumbnail URL from Strapi formats:**
+
+```ts
+export function getStrapiThumbnailUrl(image: StrapiImage | undefined): string | null {
+  const thumbUrl = image?.formats?.thumbnail?.url || image?.formats?.small?.url;
+  // ... apply CDN rewrite same as getStrapiImageUrl
+}
+```
+
+**Reference:** [Strapi + Next.js Performance](https://strapi.io/blog/performance-mistakes-strapi-nextjs-apps)
 
 ---
 
-## 6. Responsive Image `sizes`
+## 6. Responsive Image `sizes` & `deviceSizes`
 
-Without `sizes`, the browser downloads the largest image variant for all viewports.
+Without `sizes`, the browser downloads the largest image variant for all viewports. Without custom `deviceSizes`, Next.js generates images up to 3840px which is overkill.
+
+**Config:**
+
+```ts
+// next.config.ts
+images: {
+  deviceSizes: [640, 750, 828, 1080, 1200, 1440], // cap at site max-width
+  imageSizes: [16, 32, 48, 64, 96, 128, 256],
+},
+```
 
 **Guidelines:**
-- Full-width images: `sizes="100vw"`
+
+- Full-width hero: `sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"`
 - Grid cards: `sizes="(min-width: 768px) 33vw, 100vw"`
 - Fixed-size elements (logos, icons): `sizes="120px"`
 - Above-the-fold images: add `priority` prop
@@ -186,15 +232,32 @@ All other images lazy-load by default.
 
 ---
 
-## 10. ISR / Static Generation
+## 10. ISR / Static Generation + Cache Warming
 
 Pre-render pages at build time with background revalidation for fast TTFB:
 
 ```ts
-fetch(url, { next: { revalidate: 300 } }); // 5 minutes
+fetch(url, { next: { revalidate: 600 } }); // 10 minutes
 ```
 
-Or use `generateStaticParams` for dynamic routes.
+Use `generateStaticParams` in every page file (not just layout) to ensure all locale variants are pre-built at deploy time:
+
+```ts
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "vi" }];
+}
+```
+
+**Cache warming cron:** Pair ISR with a warmup endpoint that hits all pages on a schedule shorter than `revalidate`, so the edge cache is always warm:
+
+```ts
+// vercel.json
+{ "crons": [{ "path": "/api/warmup", "schedule": "*/8 * * * *" }] }
+```
+
+The warmup endpoint fetches all page URLs (locales x routes) to trigger ISR regeneration before real users hit a cold cache. Protect with `CRON_SECRET` env var.
+
+**Preconnect hints:** Add `<link rel="preconnect">` and `<link rel="dns-prefetch">` for external origins (CMS, CDN) in the root layout `<head>` to save ~100-200ms on first connection.
 
 ---
 
@@ -274,5 +337,9 @@ const nextConfig: NextConfig = {
     },
   },
   reactCompiler: true,
+  images: {
+    deviceSizes: [640, 750, 828, 1080, 1200, 1440],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+  },
 };
 ```
