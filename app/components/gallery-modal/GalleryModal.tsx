@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useCallback, useRef, useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { createPortal } from "react-dom";
 import styles from "./GalleryModal.module.css";
 
@@ -152,7 +153,7 @@ export function GalleryModal({
 
           {/* Image */}
           <div className={styles.imageWrapper}>
-            <Image
+            <ProgressiveImage
               src={currentImage.url}
               alt={currentImage.alt || `Gallery image ${currentIndex + 1}`}
               fill

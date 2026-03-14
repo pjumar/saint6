@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./WorkflowStepCard.module.css";
 
 export interface WorkflowStepCardProps {
@@ -35,7 +35,7 @@ export function WorkflowStepCard({
       className={`${styles.card} ${styles[variant]} ${layoutClass} ${className}`}
     >
       <div className={styles.imageContainer}>
-        <Image
+        <ProgressiveImage
           src={imageUrl}
           alt={title || counter}
           fill

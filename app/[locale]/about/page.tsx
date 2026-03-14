@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { AboutIntro } from "@/app/components/about-intro/AboutIntro";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { FounderQuote } from "@/app/components/founder-quote/FounderQuote";
@@ -290,12 +290,12 @@ export default async function AboutPage({ params }: PageProps) {
 
         {/* 4. Full-width image */}
         <div className={styles.fullWidthImage}>
-          <Image
+          <ProgressiveImage
             src={fullWidthImage}
             alt="Saint 6 Studio work"
             fill
             className={styles.fullWidthImageImg}
-            sizes="100vw"
+            sizes="(max-width: 1440px) 100vw, 1440px"
           />
         </div>
 

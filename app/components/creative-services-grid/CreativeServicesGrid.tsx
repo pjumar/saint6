@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./CreativeServicesGrid.module.css";
 
@@ -41,7 +41,7 @@ export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
               <p className={styles.description}>{item.description}</p>
             </div>
             <div className={styles.imageContainer}>
-              <Image
+              <ProgressiveImage
                 src={item.imageUrl}
                 alt={item.title}
                 fill
@@ -66,7 +66,7 @@ export function CreativeServicesGrid({ items }: CreativeServicesGridProps) {
         <div ref={imageRowRef} className={styles.imageRow}>
           {items.map((item) => (
             <div key={item.id} className={styles.imageContainer}>
-              <Image
+              <ProgressiveImage
                 src={item.imageUrl}
                 alt={item.title}
                 fill

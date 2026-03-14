@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import {
@@ -124,7 +125,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
 
       <div className={styles.contentGrid}>
         <div ref={mainImageRef} className={styles.mainImageContainer}>
-          <Image
+          <ProgressiveImage
             src={getMainImageSrc()}
             alt={project.mainImage.alt}
             width={project.mainImage.width}
@@ -168,7 +169,7 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
           <div ref={galleryRef} className={styles.galleryGrid}>
             {project.galleryImages.slice(0, 3).map((image, index) => (
               <div key={image.src} className={styles[`galleryImage${index + 1}`]}>
-                <Image
+                <ProgressiveImage
                   src={getGalleryImageSrc(image)}
                   alt={image.alt}
                   width={image.width}

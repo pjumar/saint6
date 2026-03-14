@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useMemo, useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import {
   BookingModal,
@@ -56,11 +56,11 @@ export function FullRentalCard({
   return (
     <div className={styles.section}>
       <div className={styles.backgroundContainer}>
-        <Image
+        <ProgressiveImage
           src={backgroundImageUrl}
           alt="Full Studio Rental"
           fill
-          sizes="100vw"
+          sizes="(max-width: 1440px) 100vw, 1440px"
           className={styles.backgroundImage}
         />
         <div className={styles.overlay} />

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./ProjectGallery.module.css";
 
 export interface ProjectGalleryImage {
@@ -46,11 +46,12 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
             key={index}
             className={styles[`image${index + 1}`] || styles.image}
           >
-            <Image
+            <ProgressiveImage
               src={image.src}
               alt={image.alt}
               width={image.width}
               height={image.height}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className={styles.galleryImage}
             />
           </div>

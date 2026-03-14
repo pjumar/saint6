@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { type FormEvent, useState } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
@@ -106,11 +107,11 @@ export function ContactSection({
     <section className={styles.contactSection}>
       {/* Background Image */}
       <div className={styles.backgroundContainer}>
-        <Image
+        <ProgressiveImage
           src={backgroundImageUrl}
           alt="Contact background"
           fill
-          sizes="100vw"
+          sizes="(max-width: 1440px) 100vw, 1440px"
           className={styles.backgroundImage}
         />
       </div>

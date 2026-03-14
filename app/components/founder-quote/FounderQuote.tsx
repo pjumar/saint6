@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useScrollAnimation } from "@/app/hooks";
 import styles from "./FounderQuote.module.css";
 
@@ -50,7 +50,7 @@ export function FounderQuote({
           </div>
         </div>
         <div className={styles.imageWrapper} ref={imageRef}>
-          <Image
+          <ProgressiveImage
             src={imageUrl}
             alt={`${name}, ${title}`}
             fill

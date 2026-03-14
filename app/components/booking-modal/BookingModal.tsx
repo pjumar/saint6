@@ -8,6 +8,7 @@ import {
   useCallback,
   useRef,
 } from "react";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { createPortal } from "react-dom";
 import { format, startOfTomorrow } from "date-fns";
 import type { DateRange } from "react-day-picker";
@@ -483,7 +484,7 @@ export function BookingModal({
       >
       {/* Image Panel */}
       <div className={styles.imagePanel}>
-        <Image
+        <ProgressiveImage
           src={currentImage.url}
           alt={currentImage.alt || room.title}
           fill
