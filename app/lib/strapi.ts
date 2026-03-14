@@ -3,7 +3,7 @@
 // ============================================================================
 // This module fetches data from Strapi CMS using Incremental Static Regeneration (ISR).
 // - Data is fetched at BUILD TIME and baked into static HTML
-// - Pages are revalidated every 600 seconds (configurable per endpoint)
+// - Pages are revalidated every 3600 seconds (configurable per endpoint)
 // - On fetch failure, throws so Next.js ISR keeps serving the stale cached version
 // - No runtime CMS dependency for serving pages
 // - Set revalidate: false for pure static generation (no automatic updates)
@@ -418,7 +418,7 @@ export interface StrapiSocialLink {
  * Fetches data from Strapi CMS with Next.js ISR caching.
  *
  * Caching Strategy:
- * - revalidate: 300 (default) - Pages revalidated every 600 seconds (ISR)
+ * - revalidate: 3600 (default) - Pages revalidated every 1 hour (ISR)
  * - revalidate: false - Pure static, never revalidated automatically
  * - revalidate: 0 - No caching, always fetch fresh (not recommended for production)
  *
@@ -469,7 +469,7 @@ async function fetchStrapi<T>(
     revalidate?: number | false;
   } = {},
 ): Promise<T | null> {
-  const { populate = "*", locale = "en", revalidate = 600 } = options;
+  const { populate = "*", locale = "en", revalidate = 3600 } = options;
   const DEBUG = process.env.STRAPI_DEBUG === "true";
 
   const params = new URLSearchParams();
@@ -613,7 +613,7 @@ export async function getHomepage(locale: string = "en") {
   return fetchStrapi<StrapiHomepage>("homepage", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -634,7 +634,7 @@ export async function getStudioRentalPage(locale: string = "en") {
   return fetchStrapi<StrapiStudioRentalPage>("studio-rental-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -654,7 +654,7 @@ export async function getCreativePage(locale: string = "en") {
   return fetchStrapi<StrapiCreativePage>("creative-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -678,7 +678,7 @@ export async function getProductionPage(locale: string = "en") {
   return fetchStrapi<StrapiProductionPage>("production-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -695,7 +695,7 @@ export async function getSetDesignPage(locale: string = "en") {
   return fetchStrapi<StrapiSetDesignPage>("set-design-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -717,7 +717,7 @@ export async function getEventPlanningPage(locale: string = "en") {
   return fetchStrapi<StrapiEventPlanningPage>("event-planning-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -734,7 +734,7 @@ export async function getDecorPage(locale: string = "en") {
   return fetchStrapi<StrapiDecorPage>("decor-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -754,7 +754,7 @@ export async function getAboutPage(locale: string = "en") {
   return fetchStrapi<StrapiAboutPage>("about-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -768,7 +768,7 @@ export async function getContactPage(locale: string = "en") {
   return fetchStrapi<StrapiContactPage>("contact-page", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -781,7 +781,7 @@ export async function getSeoMetadata(locale: string = "en") {
   return fetchStrapi<StrapiSeoMetadata>("seo-metadata", {
     locale,
     populate: populateQuery,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -792,7 +792,7 @@ export async function getSeoMetadata(locale: string = "en") {
 export async function getBrandLogos() {
   return fetchStrapi<StrapiBrandLogo[]>("brand-logos", {
     populate: ["logo"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -800,7 +800,7 @@ export async function getKeyProjects(locale: string = "en") {
   return fetchStrapi<StrapiKeyProject[]>("key-projects", {
     locale,
     populate: ["main_image", "gallery_images.image", "team", "testimonial"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -812,7 +812,7 @@ export async function getFeaturedProject(locale: string = "en") {
 export async function getStudioRooms(type?: "blank" | "concept") {
   const rooms = await fetchStrapi<StrapiStudioRoom[]>("studio-rooms", {
     populate: ["image", "gallery"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 
   if (type && rooms) {
@@ -824,13 +824,13 @@ export async function getStudioRooms(type?: "blank" | "concept") {
 export async function getEquipmentItems() {
   return fetchStrapi<StrapiEquipmentItem[]>("equipment-items", {
     populate: ["image"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
 export async function getFaqItems(category?: string) {
   const items = await fetchStrapi<StrapiFaqItem[]>("faq-items", {
-    revalidate: 600,
+    revalidate: 3600,
   });
 
   if (category && items) {
@@ -844,7 +844,7 @@ export async function getPortfolioItems(
 ) {
   const items = await fetchStrapi<StrapiPortfolioItem[]>("portfolio-items", {
     populate: ["image"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 
   if (page && items) {
@@ -856,7 +856,7 @@ export async function getPortfolioItems(
 export async function getTestimonialItems() {
   return fetchStrapi<StrapiTestimonialItem[]>("testimonial-items", {
     populate: ["brand_logo"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
@@ -866,7 +866,7 @@ export async function getServiceItems(
 ) {
   const items = await fetchStrapi<StrapiServiceItem[]>("service-items", {
     populate: ["image"],
-    revalidate: 600,
+    revalidate: 3600,
   });
 
   if (items) {
@@ -881,13 +881,13 @@ export async function getServiceItems(
 export async function getFooter(locale: string = "en") {
   return fetchStrapi<StrapiFooter>("footer", {
     locale,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
 
 export async function getSocialLinks(locale: string = "en") {
   return fetchStrapi<StrapiSocialLink>("social-link", {
     locale,
-    revalidate: 600,
+    revalidate: 3600,
   });
 }
