@@ -174,17 +174,19 @@ export default async function EventPlanningPage({ params }: PageProps) {
       ? FALLBACK_EVENT_SERVICES
       : [];
 
-  // Apply translations to services
-  const translatedServices = eventServices.map((service, index) => {
-    const serviceKey =
-      `CARD_${index + 1}` as keyof typeof t.EVENT_PLANNING.SERVICES;
-    const translation = t.EVENT_PLANNING?.SERVICES?.[serviceKey];
-    return {
-      ...service,
-      title: translation?.TITLE ?? service.title,
-      description: translation?.DESCRIPTION ?? service.description,
-    };
-  });
+  // Apply translations as fallback for services (CMS data takes priority)
+  const translatedServices = strapiData?.services
+    ? eventServices
+    : eventServices.map((service, index) => {
+        const serviceKey =
+          `CARD_${index + 1}` as keyof typeof t.EVENT_PLANNING.SERVICES;
+        const translation = t.EVENT_PLANNING?.SERVICES?.[serviceKey];
+        return {
+          ...service,
+          title: translation?.TITLE ?? service.title,
+          description: translation?.DESCRIPTION ?? service.description,
+        };
+      });
 
   // Quote intro (intro_2)
   const quoteLabel =
@@ -203,17 +205,19 @@ export default async function EventPlanningPage({ params }: PageProps) {
       ? FALLBACK_EVENT_WORKFLOW
       : [];
 
-  // Apply translations to workflow
-  const translatedWorkflow = workflowSteps.map((step, index) => {
-    const stepKey =
-      `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
-    const translation = t.EVENT_PLANNING?.WORKFLOW?.[stepKey];
-    return {
-      ...step,
-      title: translation?.TITLE ?? step.title,
-      description: translation?.DESCRIPTION ?? step.description,
-    };
-  });
+  // Apply translations as fallback for workflow (CMS data takes priority)
+  const translatedWorkflow = strapiData?.workflow
+    ? workflowSteps
+    : workflowSteps.map((step, index) => {
+        const stepKey =
+          `STEP_${index + 1}` as keyof typeof t.EVENT_PLANNING.WORKFLOW;
+        const translation = t.EVENT_PLANNING?.WORKFLOW?.[stepKey];
+        return {
+          ...step,
+          title: translation?.TITLE ?? step.title,
+          description: translation?.DESCRIPTION ?? step.description,
+        };
+      });
 
   // Event Projects
   const eventProjects = strapiData?.event_projects

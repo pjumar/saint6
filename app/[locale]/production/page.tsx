@@ -167,16 +167,18 @@ export default async function ProductionPage({ params }: PageProps) {
       ? FALLBACK_PRODUCTION_WORKFLOW
       : [];
 
-  // Apply translations to workflow
-  const translatedWorkflow = workflowSteps.map((step, index) => {
-    const stepKey = `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
-    const translation = t.PRODUCTION?.WORKFLOW?.[stepKey];
-    return {
-      ...step,
-      title: translation?.TITLE ?? step.title,
-      description: translation?.DESCRIPTION ?? step.description,
-    };
-  });
+  // Apply translations as fallback for workflow (CMS data takes priority)
+  const translatedWorkflow = strapiData?.workflow
+    ? workflowSteps
+    : workflowSteps.map((step, index) => {
+        const stepKey = `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
+        const translation = t.PRODUCTION?.WORKFLOW?.[stepKey];
+        return {
+          ...step,
+          title: translation?.TITLE ?? step.title,
+          description: translation?.DESCRIPTION ?? step.description,
+        };
+      });
 
   // Key Projects
   const keyProjects = strapiData?.key_projects

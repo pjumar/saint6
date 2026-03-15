@@ -100,16 +100,18 @@ export default async function DecorationPage({ params }: PageProps) {
       ? FALLBACK_DECOR_WORKFLOW
       : [];
 
-  // Apply translations to workflow
-  const translatedWorkflow = workflowSteps.map((step, index) => {
-    const cardKey = `CARD_${index + 1}` as keyof typeof t.DECORATION.SERVICES;
-    const translation = t.DECORATION?.SERVICES?.[cardKey];
-    return {
-      ...step,
-      title: translation?.TITLE ?? step.title,
-      description: translation?.DESCRIPTION ?? step.description,
-    };
-  });
+  // Apply translations as fallback for workflow (CMS data takes priority)
+  const translatedWorkflow = strapiData?.workflow
+    ? workflowSteps
+    : workflowSteps.map((step, index) => {
+        const cardKey = `CARD_${index + 1}` as keyof typeof t.DECORATION.SERVICES;
+        const translation = t.DECORATION?.SERVICES?.[cardKey];
+        return {
+          ...step,
+          title: translation?.TITLE ?? step.title,
+          description: translation?.DESCRIPTION ?? step.description,
+        };
+      });
 
   // Portfolio
   const portfolioLabel =

@@ -159,16 +159,18 @@ export default async function CreativePage({ params }: PageProps) {
       ? FALLBACK_CREATIVE_SERVICES
       : [];
 
-  // Apply translations to services
-  const translatedServices = creativeServices.map((service, index) => {
-    const cardKey = `CARD_${index + 1}` as keyof typeof t.CREATIVE.SERVICES;
-    const translation = t.CREATIVE?.SERVICES?.[cardKey];
-    return {
-      ...service,
-      title: translation?.TITLE ?? service.title,
-      description: translation?.DESCRIPTION ?? service.description,
-    };
-  });
+  // Apply translations as fallback for services (CMS data takes priority)
+  const translatedServices = strapiData?.services
+    ? creativeServices
+    : creativeServices.map((service, index) => {
+        const cardKey = `CARD_${index + 1}` as keyof typeof t.CREATIVE.SERVICES;
+        const translation = t.CREATIVE?.SERVICES?.[cardKey];
+        return {
+          ...service,
+          title: translation?.TITLE ?? service.title,
+          description: translation?.DESCRIPTION ?? service.description,
+        };
+      });
 
   // Intro (How We Work)
   const introLabel =
@@ -187,16 +189,18 @@ export default async function CreativePage({ params }: PageProps) {
       ? FALLBACK_CREATIVE_WORKFLOW
       : [];
 
-  // Apply translations to workflow
-  const translatedWorkflow = workflowSteps.map((step, index) => {
-    const stepKey = `STEP_${index + 1}` as keyof typeof t.CREATIVE.WORKFLOW;
-    const translation = t.CREATIVE?.WORKFLOW?.[stepKey];
-    return {
-      ...step,
-      title: translation?.TITLE ?? step.title,
-      description: translation?.DESCRIPTION ?? step.description,
-    };
-  });
+  // Apply translations as fallback for workflow (CMS data takes priority)
+  const translatedWorkflow = strapiData?.workflow
+    ? workflowSteps
+    : workflowSteps.map((step, index) => {
+        const stepKey = `STEP_${index + 1}` as keyof typeof t.CREATIVE.WORKFLOW;
+        const translation = t.CREATIVE?.WORKFLOW?.[stepKey];
+        return {
+          ...step,
+          title: translation?.TITLE ?? step.title,
+          description: translation?.DESCRIPTION ?? step.description,
+        };
+      });
 
   // Portfolio
   const portfolioLabel =

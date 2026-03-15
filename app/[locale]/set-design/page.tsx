@@ -104,16 +104,18 @@ export default async function SetDesignPage({ params }: PageProps) {
       ? FALLBACK_SET_DESIGN_WORKFLOW
       : [];
 
-  // Apply translations to workflow
-  const translatedWorkflow = workflowSteps.map((step, index) => {
-    const cardKey = `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
-    const translation = t.SET_DESIGN?.SERVICES?.[cardKey];
-    return {
-      ...step,
-      title: translation?.TITLE ?? step.title,
-      description: translation?.DESCRIPTION ?? step.description,
-    };
-  });
+  // Apply translations as fallback for workflow (CMS data takes priority)
+  const translatedWorkflow = strapiData?.workflow
+    ? workflowSteps
+    : workflowSteps.map((step, index) => {
+        const cardKey = `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
+        const translation = t.SET_DESIGN?.SERVICES?.[cardKey];
+        return {
+          ...step,
+          title: translation?.TITLE ?? step.title,
+          description: translation?.DESCRIPTION ?? step.description,
+        };
+      });
 
   // Portfolio
   const portfolioLabel =
