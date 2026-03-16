@@ -152,7 +152,8 @@ export function EventProjectGallery({
             alt={img.alt}
             fill
             sizes="100vw"
-            className={`${styles.backgroundImage} ${img.key === currentImageKey ? styles.imageActive : styles.imageInactive}`}
+            className={styles.backgroundImage}
+            containerClassName={`${styles.imageWrapper} ${img.key === currentImageKey ? styles.imageActive : styles.imageInactive}`}
           />
         ))}
       </div>

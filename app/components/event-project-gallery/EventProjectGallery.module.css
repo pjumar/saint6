@@ -15,10 +15,15 @@
   overflow: hidden;
 }
 
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .backgroundImage {
   object-fit: cover;
   object-position: top center;
-  transition: opacity 0.3s ease-in-out;
 }
 
 /* All images are always mounted; active one is visible, others are hidden */
