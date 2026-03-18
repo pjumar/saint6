@@ -4,7 +4,7 @@ import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { useScrollAnimation, useUtmParams, getTrafficSource } from "@/app/hooks";
+import { useScrollAnimation, useUtmParams, getTrafficSource, clearUtmCookie } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./ContactSection.module.css";
 
@@ -104,6 +104,7 @@ export function ContactSection({
         contact_company: formData.company,
       });
 
+      clearUtmCookie();
       setSubmitStatus("success");
       setFormData({
         name: "",

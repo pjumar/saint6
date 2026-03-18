@@ -53,6 +53,14 @@ export function useUtmParams(): UtmParams {
 }
 
 /**
+ * Clear the UTM cookie after a successful form submission
+ * so future visits get fresh attribution.
+ */
+export function clearUtmCookie(): void {
+  document.cookie = `${COOKIE_NAME}=; path=/; max-age=0`;
+}
+
+/**
  * Get the traffic source label from UTM params.
  */
 export function getTrafficSource(params: UtmParams): string {

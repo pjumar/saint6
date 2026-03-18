@@ -13,7 +13,7 @@ import { createPortal } from "react-dom";
 import { format, startOfTomorrow } from "date-fns";
 import type { DateRange } from "react-day-picker";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { useUtmParams, getTrafficSource } from "@/app/hooks";
+import { useUtmParams, getTrafficSource, clearUtmCookie } from "@/app/hooks";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { Calendar } from "@/app/components/ui/calendar";
 import styles from "./BookingModal.module.css";
@@ -488,6 +488,7 @@ export function BookingModal({
         contact_email: formData.email,
       });
 
+      clearUtmCookie();
       setModalState("success");
     } catch (error) {
       console.error("Booking submission error:", error);
