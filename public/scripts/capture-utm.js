@@ -37,12 +37,13 @@
       sessionStorage.setItem("saint6_landing_page", location.pathname);
     }
 
-    // Debug mode — add ?utm_debug=1 to any URL to see captured params
-    if (search.get("utm_debug")) {
-      console.group("[UTM Capture Debug]");
-      console.log("URL search:", location.search);
-      console.log("Captured:", found ? captured : "(none — no UTM params in URL)");
-      console.log("Stored:", sessionStorage.getItem(STORAGE_KEY) || "(empty)");
+    // Always log UTM capture results to console
+    var stored = sessionStorage.getItem(STORAGE_KEY);
+    if (found || stored) {
+      console.group("[UTM Tracking]");
+      console.log("URL params:", location.search || "(none)");
+      if (found) console.log("Captured now:", captured);
+      if (stored) console.log("Stored in session:", JSON.parse(stored));
       console.log("Landing page:", sessionStorage.getItem("saint6_landing_page"));
       console.groupEnd();
     }
