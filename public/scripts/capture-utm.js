@@ -13,9 +13,6 @@
       "gbraid",
     ];
 
-    // Already captured from a previous page in this session
-    if (sessionStorage.getItem(STORAGE_KEY)) return;
-
     var search = new URLSearchParams(location.search);
     var captured = {};
     var found = false;
@@ -28,7 +25,10 @@
       }
     }
 
-    if (found) {
+    var alreadyStored = sessionStorage.getItem(STORAGE_KEY);
+
+    // Only save if we found new params and nothing stored yet
+    if (found && !alreadyStored) {
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(captured));
     }
 
@@ -37,16 +37,14 @@
       sessionStorage.setItem("saint6_landing_page", location.pathname);
     }
 
-    // Always log UTM capture results to console
-    var stored = sessionStorage.getItem(STORAGE_KEY);
-    if (found || stored) {
-      console.group("[UTM Tracking]");
-      console.log("URL params:", location.search || "(none)");
-      if (found) console.log("Captured now:", captured);
-      if (stored) console.log("Stored in session:", JSON.parse(stored));
-      console.log("Landing page:", sessionStorage.getItem("saint6_landing_page"));
-      console.groupEnd();
-    }
+    // Always log — helps debug whether params arrive or get stripped
+    console.group("[UTM Tracking]");
+    console.log("Full URL:", location.href);
+    console.log("Search params:", location.search || "(empty)");
+    console.log("Params found in URL:", found ? captured : "(none)");
+    console.log("Stored in session:", alreadyStored ? JSON.parse(alreadyStored) : "(empty)");
+    console.log("Landing page:", sessionStorage.getItem("saint6_landing_page"));
+    console.groupEnd();
   } catch (e) {
     // Silently fail — don't break the page
   }
