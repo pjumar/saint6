@@ -4,6 +4,46 @@ import { NextResponse } from "next/server";
 const locales = ["en", "vi"];
 const defaultLocale = "vi";
 
+const TRACKING_PARAMS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "gclid",
+  "gad_source",
+  "gad_campaignid",
+  "gbraid",
+];
+
+const UTM_COOKIE = "saint6_utm_params";
+
+function captureUtmParams(request: NextRequest, response: NextResponse): void {
+  if (request.cookies.get(UTM_COOKIE)) return;
+
+  const captured: Record<string, string> = {};
+  let found = false;
+
+  for (const param of TRACKING_PARAMS) {
+    const value = request.nextUrl.searchParams.get(param);
+    if (value) {
+      captured[param] = value;
+      found = true;
+    }
+  }
+
+  if (found) {
+    captured._landing = request.nextUrl.pathname;
+    response.cookies.set(UTM_COOKIE, JSON.stringify(captured), {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30, // 30 days
+      httpOnly: false, // JS needs to read it
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+    });
+  }
+}
+
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -12,13 +52,17 @@ export function proxy(request: NextRequest) {
   );
 
   if (pathnameHasLocale) {
-    return NextResponse.next();
+    const response = NextResponse.next();
+    captureUtmParams(request, response);
+    return response;
   }
 
   const locale = getLocale(request) || defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
 
-  return NextResponse.redirect(request.nextUrl);
+  const response = NextResponse.redirect(request.nextUrl);
+  captureUtmParams(request, response);
+  return response;
 }
 
 function getLocale(request: NextRequest): string {
