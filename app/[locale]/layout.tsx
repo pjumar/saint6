@@ -151,7 +151,7 @@ export default async function LocaleLayout({
   return (
     <html lang={typedLocale}>
       <head>
-        {/* Capture UTM/gclid params ASAP before browser clears them after redirect */}
+        {/* Capture UTM params from URL into sessionStorage before React hydrates */}
         <Script src="/scripts/capture-utm.js" strategy="beforeInteractive" />
         <link rel="preconnect" href="https://strapi.saint6.studio" />
         <link rel="dns-prefetch" href="https://strapi.saint6.studio" />

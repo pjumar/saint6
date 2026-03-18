@@ -2,50 +2,34 @@
 
 import { useEffect, useState } from "react";
 
-const COOKIE_NAME = "saint6_utm_params";
+const STORAGE_KEY = "saint6_utm_params";
 
-const UTM_KEYS = [
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_content",
-  "utm_term",
-  "gclid",
-  "gad_source",
-  "gad_campaignid",
-  "gbraid",
-] as const;
-
-export type UtmParams = Partial<Record<(typeof UTM_KEYS)[number], string>> & {
+export type UtmParams = {
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
   _landing?: string;
 };
 
-function parseCookie(name: string): UtmParams | null {
-  try {
-    const match = document.cookie.match(
-      new RegExp("(?:^|; )" + name + "=([^;]*)")
-    );
-    if (match) {
-      return JSON.parse(decodeURIComponent(match[1]));
-    }
-  } catch {
-    // Invalid cookie data
-  }
-  return null;
-}
-
 /**
- * Reads UTM and Google Ads params from cookie set by middleware.
- * The middleware captures params server-side at the edge before
- * browsers can strip them (Safari ITP, Firefox ETP, Chrome privacy).
+ * Reads UTM params from sessionStorage.
+ * Params are captured by an inline script in <head> on landing.
+ * UTM params (utm_source, utm_medium, etc.) are NOT stripped by browsers,
+ * so client-side capture is reliable.
  */
 export function useUtmParams(): UtmParams {
   const [params, setParams] = useState<UtmParams>({});
 
   useEffect(() => {
-    const fromCookie = parseCookie(COOKIE_NAME);
-    if (fromCookie) {
-      setParams(fromCookie);
+    try {
+      const stored = sessionStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        setParams(JSON.parse(stored));
+      }
+    } catch {
+      // Invalid data
     }
   }, []);
 
@@ -53,18 +37,17 @@ export function useUtmParams(): UtmParams {
 }
 
 /**
- * Clear the UTM cookie after a successful form submission
+ * Clear UTM data after a successful form submission
  * so future visits get fresh attribution.
  */
-export function clearUtmCookie(): void {
-  document.cookie = `${COOKIE_NAME}=; path=/; max-age=0`;
+export function clearUtmParams(): void {
+  sessionStorage.removeItem(STORAGE_KEY);
 }
 
 /**
  * Get the traffic source label from UTM params.
  */
 export function getTrafficSource(params: UtmParams): string {
-  if (params.gclid) return "google_ads";
   if (params.utm_source) return params.utm_source;
   return "organic";
 }

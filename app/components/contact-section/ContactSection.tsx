@@ -4,7 +4,7 @@ import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { useScrollAnimation, useUtmParams, getTrafficSource, clearUtmCookie } from "@/app/hooks";
+import { useScrollAnimation, useUtmParams, getTrafficSource, clearUtmParams } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./ContactSection.module.css";
 
@@ -74,8 +74,6 @@ export function ContactSection({
           data: {
             ...formData,
             trafficSource,
-            gclid: utmParams.gclid || null,
-            gadCampaignId: utmParams.gad_campaignid || null,
             utmSource: utmParams.utm_source || null,
             utmMedium: utmParams.utm_medium || null,
             utmCampaign: utmParams.utm_campaign || null,
@@ -94,8 +92,6 @@ export function ContactSection({
         event: "contact_form_submit",
         form_name: "contact",
         traffic_source: trafficSource,
-        gclid: utmParams.gclid || undefined,
-        gad_campaignid: utmParams.gad_campaignid || undefined,
         utm_source: utmParams.utm_source || undefined,
         utm_medium: utmParams.utm_medium || undefined,
         utm_campaign: utmParams.utm_campaign || undefined,
@@ -104,7 +100,7 @@ export function ContactSection({
         contact_company: formData.company,
       });
 
-      clearUtmCookie();
+      clearUtmParams();
       setSubmitStatus("success");
       setFormData({
         name: "",

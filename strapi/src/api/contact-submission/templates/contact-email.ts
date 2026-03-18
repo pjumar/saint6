@@ -8,8 +8,9 @@ export interface ContactEmailData {
   company?: string;
   message: string;
   trafficSource?: string;
-  gclid?: string;
-  gadCampaignId?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
   landingPage?: string;
 }
 
@@ -17,7 +18,8 @@ export interface ContactEmailData {
  * Generate plain text email content
  */
 export function getTextTemplate(data: ContactEmailData): string {
-  const source = data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic";
+  const sourceParts = [data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ");
+  const source = sourceParts || "organic";
   return `
 New business inquiry:
 
@@ -97,7 +99,7 @@ export function getHtmlTemplate(data: ContactEmailData): string {
         <div style="margin-bottom: 32px;">
           <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Traffic Source</div>
-            <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml([data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
           </div>
         </div>
 

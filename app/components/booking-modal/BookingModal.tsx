@@ -13,7 +13,7 @@ import { createPortal } from "react-dom";
 import { format, startOfTomorrow } from "date-fns";
 import type { DateRange } from "react-day-picker";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { useUtmParams, getTrafficSource, clearUtmCookie } from "@/app/hooks";
+import { useUtmParams, getTrafficSource, clearUtmParams } from "@/app/hooks";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { Calendar } from "@/app/components/ui/calendar";
 import styles from "./BookingModal.module.css";
@@ -461,8 +461,6 @@ export function BookingModal({
             email: formData.email,
             phone: formData.phone,
             trafficSource,
-            gclid: utmParams.gclid || null,
-            gadCampaignId: utmParams.gad_campaignid || null,
             utmSource: utmParams.utm_source || null,
             utmMedium: utmParams.utm_medium || null,
             utmCampaign: utmParams.utm_campaign || null,
@@ -478,8 +476,6 @@ export function BookingModal({
         event: "booking_form_submit",
         form_name: "booking",
         traffic_source: trafficSource,
-        gclid: utmParams.gclid || undefined,
-        gad_campaignid: utmParams.gad_campaignid || undefined,
         utm_source: utmParams.utm_source || undefined,
         utm_medium: utmParams.utm_medium || undefined,
         utm_campaign: utmParams.utm_campaign || undefined,
@@ -488,7 +484,7 @@ export function BookingModal({
         contact_email: formData.email,
       });
 
-      clearUtmCookie();
+      clearUtmParams();
       setModalState("success");
     } catch (error) {
       console.error("Booking submission error:", error);

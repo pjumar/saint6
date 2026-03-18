@@ -1,25 +1,43 @@
 (function () {
   try {
-    // Read UTM params from server-set cookie (middleware captures them at the edge)
-    var match = document.cookie.match(/(?:^|; )saint6_utm_params=([^;]*)/);
-    var params = match ? JSON.parse(decodeURIComponent(match[1])) : null;
+    var STORAGE_KEY = "saint6_utm_params";
+    var PARAMS = [
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content",
+      "utm_term",
+    ];
 
-    // Also check URL as fallback (works when browser doesn't strip params)
-    var PARAMS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","gclid","gad_source","gad_campaignid","gbraid","s6clid","s6cid"];
+    // Already captured from a previous page in this session
+    if (sessionStorage.getItem(STORAGE_KEY)) return;
+
     var search = new URLSearchParams(location.search);
-    var urlParams = {};
-    var foundInUrl = false;
+    var captured = {};
+    var found = false;
+
     for (var i = 0; i < PARAMS.length; i++) {
-      var v = search.get(PARAMS[i]);
-      if (v) { urlParams[PARAMS[i]] = v; foundInUrl = true; }
+      var value = search.get(PARAMS[i]);
+      if (value) {
+        captured[PARAMS[i]] = value;
+        found = true;
+      }
     }
 
-    console.group("[UTM Tracking]");
-    console.log("URL:", location.href);
-    console.log("Params in URL:", foundInUrl ? urlParams : "(none)");
-    console.log("Params in cookie:", params || "(none)");
-    console.log("Source:", params && params.gclid ? "google_ads" : params && params.utm_source ? params.utm_source : "organic");
-    console.groupEnd();
+    if (found) {
+      captured._landing = location.pathname;
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(captured));
+    }
+
+    // Always log when params are present
+    var stored = sessionStorage.getItem(STORAGE_KEY);
+    if (found || stored) {
+      console.group("[UTM Tracking]");
+      console.log("URL:", location.href);
+      if (found) console.log("Captured now:", captured);
+      if (stored) console.log("Stored in session:", JSON.parse(stored));
+      console.groupEnd();
+    }
   } catch (e) {
     // Silently fail
   }

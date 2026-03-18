@@ -10,7 +10,7 @@ export default factories.createCoreController(
   "api::contact-submission.contact-submission",
   ({ strapi }) => ({
     async create(ctx) {
-      const { name, email, company, message, trafficSource, gclid, gadCampaignId, utmSource, utmMedium, utmCampaign, landingPage } = ctx.request.body.data || ctx.request.body;
+      const { name, email, company, message, trafficSource, utmSource, utmMedium, utmCampaign, landingPage } = ctx.request.body.data || ctx.request.body;
 
       // Validate required fields
       if (!name || !email || !message) {
@@ -27,7 +27,7 @@ export default factories.createCoreController(
 
       try {
         // Prepare email data
-        const emailData = { name, email, company, message, trafficSource, gclid, gadCampaignId, landingPage };
+        const emailData = { name, email, company, message, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
         const toEmail = process.env.CONTACT_EMAIL || "p@ccly.dev";
         const resendApiKey = process.env.RESEND_API_KEY;
 
@@ -71,8 +71,6 @@ export default factories.createCoreController(
             message,
             emailSent,
             trafficSource: trafficSource || "organic",
-            gclid: gclid || null,
-            gadCampaignId: gadCampaignId || null,
             utmSource: utmSource || null,
             utmMedium: utmMedium || null,
             utmCampaign: utmCampaign || null,

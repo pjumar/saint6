@@ -49,12 +49,6 @@
     "trafficSource": {
       "type": "string"
     },
-    "gclid": {
-      "type": "string"
-    },
-    "gadCampaignId": {
-      "type": "string"
-    },
     "utmSource": {
       "type": "string"
     },

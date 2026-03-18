@@ -12,8 +12,9 @@ export interface BookingEmailData {
   email: string;
   phone: string;
   trafficSource?: string;
-  gclid?: string;
-  gadCampaignId?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
   landingPage?: string;
 }
 
@@ -30,7 +31,7 @@ function escapeHtml(text: string): string {
  * Generate plain text email content
  */
 export function getTextTemplate(data: BookingEmailData): string {
-  const source = data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic";
+  const source = [data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || "organic";
   return `New Studio Booking Request
 
 Studio: ${data.roomTitle}
@@ -97,7 +98,7 @@ export function getHtmlTemplate(data: BookingEmailData): string {
           </div>
           <div style="padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Traffic Source</div>
-            <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml([data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
           </div>
         </div>
         <div style="margin-top: 32px; text-align: center;">
