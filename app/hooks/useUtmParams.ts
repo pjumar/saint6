@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const UTM_STORAGE_KEY = "saint6_utm_params";
+const COOKIE_NAME = "saint6_utm_params";
 
 const UTM_KEYS = [
   "utm_source",
@@ -16,25 +16,36 @@ const UTM_KEYS = [
   "gbraid",
 ] as const;
 
-export type UtmParams = Partial<Record<(typeof UTM_KEYS)[number], string>>;
+export type UtmParams = Partial<Record<(typeof UTM_KEYS)[number], string>> & {
+  _landing?: string;
+};
+
+function parseCookie(name: string): UtmParams | null {
+  try {
+    const match = document.cookie.match(
+      new RegExp("(?:^|; )" + name + "=([^;]*)")
+    );
+    if (match) {
+      return JSON.parse(decodeURIComponent(match[1]));
+    }
+  } catch {
+    // Invalid cookie data
+  }
+  return null;
+}
 
 /**
- * Reads UTM and Google Ads params from sessionStorage.
- * The params are captured by an inline <script> in layout.tsx
- * that runs before React hydrates — this ensures params are
- * captured even if the browser strips them from the URL after redirect.
+ * Reads UTM and Google Ads params from cookie set by middleware.
+ * The middleware captures params server-side at the edge before
+ * browsers can strip them (Safari ITP, Firefox ETP, Chrome privacy).
  */
 export function useUtmParams(): UtmParams {
   const [params, setParams] = useState<UtmParams>({});
 
   useEffect(() => {
-    const stored = sessionStorage.getItem(UTM_STORAGE_KEY);
-    if (stored) {
-      try {
-        setParams(JSON.parse(stored));
-      } catch {
-        // Corrupted data, ignore
-      }
+    const fromCookie = parseCookie(COOKIE_NAME);
+    if (fromCookie) {
+      setParams(fromCookie);
     }
   }, []);
 

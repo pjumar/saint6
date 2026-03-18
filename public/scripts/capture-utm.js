@@ -1,51 +1,26 @@
 (function () {
   try {
-    var STORAGE_KEY = "saint6_utm_params";
-    var PARAMS = [
-      "utm_source",
-      "utm_medium",
-      "utm_campaign",
-      "utm_content",
-      "utm_term",
-      "gclid",
-      "gad_source",
-      "gad_campaignid",
-      "gbraid",
-    ];
+    // Read UTM params from server-set cookie (middleware captures them at the edge)
+    var match = document.cookie.match(/(?:^|; )saint6_utm_params=([^;]*)/);
+    var params = match ? JSON.parse(decodeURIComponent(match[1])) : null;
 
+    // Also check URL as fallback (works when browser doesn't strip params)
+    var PARAMS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","gclid","gad_source","gad_campaignid","gbraid"];
     var search = new URLSearchParams(location.search);
-    var captured = {};
-    var found = false;
-
+    var urlParams = {};
+    var foundInUrl = false;
     for (var i = 0; i < PARAMS.length; i++) {
-      var value = search.get(PARAMS[i]);
-      if (value) {
-        captured[PARAMS[i]] = value;
-        found = true;
-      }
+      var v = search.get(PARAMS[i]);
+      if (v) { urlParams[PARAMS[i]] = v; foundInUrl = true; }
     }
 
-    var alreadyStored = sessionStorage.getItem(STORAGE_KEY);
-
-    // Only save if we found new params and nothing stored yet
-    if (found && !alreadyStored) {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(captured));
-    }
-
-    // Store landing page on first visit
-    if (!sessionStorage.getItem("saint6_landing_page")) {
-      sessionStorage.setItem("saint6_landing_page", location.pathname);
-    }
-
-    // Always log — helps debug whether params arrive or get stripped
     console.group("[UTM Tracking]");
-    console.log("Full URL:", location.href);
-    console.log("Search params:", location.search || "(empty)");
-    console.log("Params found in URL:", found ? captured : "(none)");
-    console.log("Stored in session:", alreadyStored ? JSON.parse(alreadyStored) : "(empty)");
-    console.log("Landing page:", sessionStorage.getItem("saint6_landing_page"));
+    console.log("URL:", location.href);
+    console.log("Params in URL:", foundInUrl ? urlParams : "(none)");
+    console.log("Params in cookie:", params || "(none)");
+    console.log("Source:", params && params.gclid ? "google_ads" : params && params.utm_source ? params.utm_source : "organic");
     console.groupEnd();
   } catch (e) {
-    // Silently fail — don't break the page
+    // Silently fail
   }
 })();

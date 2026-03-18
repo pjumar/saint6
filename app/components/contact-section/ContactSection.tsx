@@ -79,7 +79,7 @@ export function ContactSection({
             utmSource: utmParams.utm_source || null,
             utmMedium: utmParams.utm_medium || null,
             utmCampaign: utmParams.utm_campaign || null,
-            landingPage: sessionStorage.getItem("saint6_landing_page") || window.location.pathname,
+            landingPage: utmParams._landing || window.location.pathname,
           },
         }),
       });
