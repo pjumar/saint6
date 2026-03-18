@@ -14,9 +14,19 @@ const TRACKING_PARAMS = [
   "gad_source",
   "gad_campaignid",
   "gbraid",
+  // Custom aliases — browsers strip known names (gclid, fbclid) but not custom ones.
+  // Set Final URL Suffix in Google Ads: s6clid={gclid}&s6cid={campaignid}
+  "s6clid",
+  "s6cid",
 ];
 
 const UTM_COOKIE = "saint6_utm_params";
+
+// Map custom param aliases back to standard names
+const PARAM_ALIASES: Record<string, string> = {
+  s6clid: "gclid",
+  s6cid: "gad_campaignid",
+};
 
 function captureUtmParams(request: NextRequest, response: NextResponse): void {
   if (request.cookies.get(UTM_COOKIE)) return;
@@ -27,7 +37,11 @@ function captureUtmParams(request: NextRequest, response: NextResponse): void {
   for (const param of TRACKING_PARAMS) {
     const value = request.nextUrl.searchParams.get(param);
     if (value) {
-      captured[param] = value;
+      const key = PARAM_ALIASES[param] || param;
+      // Don't overwrite standard param with alias if both present
+      if (!captured[key]) {
+        captured[key] = value;
+      }
       found = true;
     }
   }

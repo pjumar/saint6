@@ -5,7 +5,7 @@
     var params = match ? JSON.parse(decodeURIComponent(match[1])) : null;
 
     // Also check URL as fallback (works when browser doesn't strip params)
-    var PARAMS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","gclid","gad_source","gad_campaignid","gbraid"];
+    var PARAMS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","gclid","gad_source","gad_campaignid","gbraid","s6clid","s6cid"];
     var search = new URLSearchParams(location.search);
     var urlParams = {};
     var foundInUrl = false;
