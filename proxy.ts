@@ -36,7 +36,7 @@ function captureUtmParams(request: NextRequest, response: NextResponse): void {
     captured._landing = request.nextUrl.pathname;
     response.cookies.set(UTM_COOKIE, JSON.stringify(captured), {
       path: "/",
-      maxAge: 60 * 60 * 24 * 30, // 30 days
+      maxAge: 60 * 60, // 1 hour
       httpOnly: false, // JS needs to read it
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
