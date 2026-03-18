@@ -13,6 +13,7 @@ import { createPortal } from "react-dom";
 import { format, startOfTomorrow } from "date-fns";
 import type { DateRange } from "react-day-picker";
 import { useTranslation } from "@/app/contexts/TranslationContext";
+import { useUtmParams, getTrafficSource } from "@/app/hooks";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { Calendar } from "@/app/components/ui/calendar";
 import styles from "./BookingModal.module.css";
@@ -131,6 +132,7 @@ export function BookingModal({
   initialRoomIndex = 0,
 }: BookingModalProps) {
   const { t } = useTranslation();
+  const utmParams = useUtmParams();
   const [modalState, setModalState] = useState<ModalState>("details");
   const [selectedRoomIndex, setSelectedRoomIndex] = useState(initialRoomIndex);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -444,6 +446,7 @@ export function BookingModal({
 
     setIsSubmitting(true);
     try {
+      const trafficSource = getTrafficSource(utmParams);
       const response = await fetch(`${STRAPI_URL}/api/booking-submissions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -457,10 +460,34 @@ export function BookingModal({
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
+            trafficSource,
+            gclid: utmParams.gclid || null,
+            gadCampaignId: utmParams.gad_campaignid || null,
+            utmSource: utmParams.utm_source || null,
+            utmMedium: utmParams.utm_medium || null,
+            utmCampaign: utmParams.utm_campaign || null,
+            landingPage: sessionStorage.getItem("saint6_landing_page") || window.location.pathname,
           },
         }),
       });
       if (!response.ok) throw new Error("Failed to submit booking");
+
+      // Push conversion event to GTM dataLayer
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "booking_form_submit",
+        form_name: "booking",
+        traffic_source: trafficSource,
+        gclid: utmParams.gclid || undefined,
+        gad_campaignid: utmParams.gad_campaignid || undefined,
+        utm_source: utmParams.utm_source || undefined,
+        utm_medium: utmParams.utm_medium || undefined,
+        utm_campaign: utmParams.utm_campaign || undefined,
+        booking_room: room.title,
+        contact_name: formData.name,
+        contact_email: formData.email,
+      });
+
       setModalState("success");
     } catch (error) {
       console.error("Booking submission error:", error);

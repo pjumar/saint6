@@ -11,6 +11,10 @@ export interface BookingEmailData {
   name: string;
   email: string;
   phone: string;
+  trafficSource?: string;
+  gclid?: string;
+  gadCampaignId?: string;
+  landingPage?: string;
 }
 
 function escapeHtml(text: string): string {
@@ -26,6 +30,7 @@ function escapeHtml(text: string): string {
  * Generate plain text email content
  */
 export function getTextTemplate(data: BookingEmailData): string {
+  const source = data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic";
   return `New Studio Booking Request
 
 Studio: ${data.roomTitle}
@@ -34,7 +39,10 @@ Time: ${data.timeFrom || "—"} — ${data.timeTo || "—"}
 
 Name: ${data.name}
 Email: ${data.email}
-Phone: ${data.phone}`;
+Phone: ${data.phone}
+
+Source: ${source}
+Landing Page: ${data.landingPage || "—"}`;
 }
 
 /**
@@ -83,9 +91,13 @@ export function getHtmlTemplate(data: BookingEmailData): string {
               <a href="mailto:${escapeHtml(data.email)}" style="color: #880300; text-decoration: none;">${escapeHtml(data.email)}</a>
             </div>
           </div>
-          <div style="padding: 16px 0;">
+          <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Phone</div>
             <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.phone)}</div>
+          </div>
+          <div style="padding: 16px 0;">
+            <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Traffic Source</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
           </div>
         </div>
         <div style="margin-top: 32px; text-align: center;">

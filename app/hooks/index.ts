@@ -7,3 +7,5 @@ export {
   useSpiralSpin,
 } from "./useScrollAnimation";
 export type { AnimationType } from "./useScrollAnimation";
+export { useUtmParams, getTrafficSource } from "./useUtmParams";
+export type { UtmParams } from "./useUtmParams";

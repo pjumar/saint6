@@ -4,7 +4,7 @@ import Image from "next/image";
 import { type FormEvent, useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { useScrollAnimation } from "@/app/hooks";
+import { useScrollAnimation, useUtmParams, getTrafficSource } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./ContactSection.module.css";
 
@@ -29,6 +29,7 @@ export function ContactSection({
   onSubmit,
 }: ContactSectionProps) {
   const { t } = useTranslation();
+  const utmParams = useUtmParams();
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [formData, setFormData] = useState<ContactFormData>({
@@ -63,19 +64,45 @@ export function ContactSection({
     }
 
     try {
+      const trafficSource = getTrafficSource(utmParams);
       const response = await fetch(`${STRAPI_URL}/api/contact-submissions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: formData,
+          data: {
+            ...formData,
+            trafficSource,
+            gclid: utmParams.gclid || null,
+            gadCampaignId: utmParams.gad_campaignid || null,
+            utmSource: utmParams.utm_source || null,
+            utmMedium: utmParams.utm_medium || null,
+            utmCampaign: utmParams.utm_campaign || null,
+            landingPage: sessionStorage.getItem("saint6_landing_page") || window.location.pathname,
+          },
         }),
       });
 
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
+
+      // Push conversion event to GTM dataLayer
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "contact_form_submit",
+        form_name: "contact",
+        traffic_source: trafficSource,
+        gclid: utmParams.gclid || undefined,
+        gad_campaignid: utmParams.gad_campaignid || undefined,
+        utm_source: utmParams.utm_source || undefined,
+        utm_medium: utmParams.utm_medium || undefined,
+        utm_campaign: utmParams.utm_campaign || undefined,
+        contact_name: formData.name,
+        contact_email: formData.email,
+        contact_company: formData.company,
+      });
 
       setSubmitStatus("success");
       setFormData({

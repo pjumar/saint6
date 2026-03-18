@@ -9,6 +9,7 @@ import { TranslationProvider } from "@/app/contexts/TranslationContext";
 import { FALLBACK_FOOTER, FALLBACK_SEO, FALLBACK_SOCIAL_LINKS } from "@/app/lib/fallback";
 import { getFooter, getSeoMetadata, getSocialLinks, getStrapiImageUrl } from "@/app/lib/strapi";
 import { GTM_ID } from "@/app/lib/constants";
+import Script from "next/script";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -150,6 +151,8 @@ export default async function LocaleLayout({
   return (
     <html lang={typedLocale}>
       <head>
+        {/* Capture UTM/gclid params ASAP before browser clears them after redirect */}
+        <Script src="/scripts/capture-utm.js" strategy="beforeInteractive" />
         <link rel="preconnect" href="https://strapi.saint6.studio" />
         <link rel="dns-prefetch" href="https://strapi.saint6.studio" />
         {process.env.NEXT_PUBLIC_CDN_URL && (

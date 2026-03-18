@@ -45,6 +45,27 @@
     "emailSent": {
       "type": "boolean",
       "default": false
+    },
+    "trafficSource": {
+      "type": "string"
+    },
+    "gclid": {
+      "type": "string"
+    },
+    "gadCampaignId": {
+      "type": "string"
+    },
+    "utmSource": {
+      "type": "string"
+    },
+    "utmMedium": {
+      "type": "string"
+    },
+    "utmCampaign": {
+      "type": "string"
+    },
+    "landingPage": {
+      "type": "string"
     }
   }
 }

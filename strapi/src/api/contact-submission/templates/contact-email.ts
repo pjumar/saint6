@@ -7,18 +7,25 @@ export interface ContactEmailData {
   email: string;
   company?: string;
   message: string;
+  trafficSource?: string;
+  gclid?: string;
+  gadCampaignId?: string;
+  landingPage?: string;
 }
 
 /**
  * Generate plain text email content
  */
 export function getTextTemplate(data: ContactEmailData): string {
+  const source = data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic";
   return `
 New business inquiry:
 
 Name: ${data.name}
 Email: ${data.email}
 Company: ${data.company || "Not provided"}
+Source: ${source}
+Landing Page: ${data.landingPage || "—"}
 
 Message:
 ${data.message}
@@ -83,6 +90,14 @@ export function getHtmlTemplate(data: ContactEmailData): string {
           <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Company</div>
             <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.company || "—")}</div>
+          </div>
+        </div>
+
+        <!-- Traffic Source -->
+        <div style="margin-bottom: 32px;">
+          <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
+            <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Traffic Source</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.trafficSource === "google_ads" ? `Google Ads (Campaign: ${data.gadCampaignId || "unknown"})` : data.trafficSource || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
           </div>
         </div>
 
