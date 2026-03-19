@@ -74,7 +74,7 @@ export default factories.createCoreController(
             name,
             email,
             phone,
-            estimatedBudget: estimatedBudget || null,
+            estimatedBudget: estimatedBudget != null ? estimatedBudget : null,
             emailSent,
             trafficSource: trafficSource || "organic",
             utmSource: utmSource || null,

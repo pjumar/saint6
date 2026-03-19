@@ -458,6 +458,7 @@ export function BookingModal({
       const hoursPerDay = (toMinutes - fromMinutes) / 60;
       const totalHours = dayCount * hoursPerDay;
       const estimatedBudget = Math.round(priceNum * totalHours);
+      console.log("[Budget]", { raw: room.pricePerHour, priceNum, dayCount, hoursPerDay, totalHours, estimatedBudget });
 
       const response = await fetch(`${STRAPI_URL}/api/booking-submissions`, {
         method: "POST",
