@@ -449,16 +449,18 @@ export function BookingModal({
       const trafficSource = getTrafficSource(utmParams);
 
       // Calculate estimated budget: pricePerHour × total hours
+      // Build start/end timestamps and compute continuous hours
       const priceNum = Number(room.pricePerHour.replace(/[^0-9]/g, "")) || 0;
-      const fromMinutes = timeToMinutes(formData.timeFrom);
-      const toMinutes = timeToMinutes(formData.timeTo);
       const dateFrom = dateRange!.from!;
       const dateTo = dateRange?.to || dateFrom;
-      const dayCount = Math.max(1, Math.round((dateTo.getTime() - dateFrom.getTime()) / (1000 * 60 * 60 * 24)) + 1);
-      const hoursPerDay = (toMinutes - fromMinutes) / 60;
-      const totalHours = dayCount * hoursPerDay;
+      const [startH, startM] = formData.timeFrom.split(":").map(Number);
+      const [endH, endM] = formData.timeTo.split(":").map(Number);
+      const start = new Date(dateFrom);
+      start.setHours(startH, startM, 0, 0);
+      const end = new Date(dateTo);
+      end.setHours(endH, endM, 0, 0);
+      const totalHours = Math.max(0, (end.getTime() - start.getTime()) / (1000 * 60 * 60));
       const estimatedBudget = Math.round(priceNum * totalHours);
-      console.log("[Budget]", { raw: room.pricePerHour, priceNum, dayCount, hoursPerDay, totalHours, estimatedBudget });
 
       const response = await fetch(`${STRAPI_URL}/api/booking-submissions`, {
         method: "POST",
