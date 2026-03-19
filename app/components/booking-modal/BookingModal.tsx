@@ -447,6 +447,18 @@ export function BookingModal({
     setIsSubmitting(true);
     try {
       const trafficSource = getTrafficSource(utmParams);
+
+      // Calculate estimated budget: pricePerHour × total hours
+      const priceNum = Number(room.pricePerHour.replace(/[^0-9]/g, "")) || 0;
+      const fromMinutes = timeToMinutes(formData.timeFrom);
+      const toMinutes = timeToMinutes(formData.timeTo);
+      const dateFrom = dateRange!.from!;
+      const dateTo = dateRange?.to || dateFrom;
+      const dayCount = Math.max(1, Math.round((dateTo.getTime() - dateFrom.getTime()) / (1000 * 60 * 60 * 24)) + 1);
+      const hoursPerDay = (toMinutes - fromMinutes) / 60;
+      const totalHours = dayCount * hoursPerDay;
+      const estimatedBudget = Math.round(priceNum * totalHours);
+
       const response = await fetch(`${STRAPI_URL}/api/booking-submissions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -460,6 +472,7 @@ export function BookingModal({
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
+            estimatedBudget,
             trafficSource,
             utmSource: utmParams.utm_source || null,
             utmMedium: utmParams.utm_medium || null,
@@ -480,6 +493,7 @@ export function BookingModal({
         utm_medium: utmParams.utm_medium || undefined,
         utm_campaign: utmParams.utm_campaign || undefined,
         booking_room: room.title,
+        estimated_budget: estimatedBudget,
         contact_name: formData.name,
         contact_email: formData.email,
       });

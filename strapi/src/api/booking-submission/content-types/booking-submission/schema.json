@@ -42,6 +42,9 @@
       "type": "string",
       "required": true
     },
+    "estimatedBudget": {
+      "type": "integer"
+    },
     "emailSent": {
       "type": "boolean",
       "default": false

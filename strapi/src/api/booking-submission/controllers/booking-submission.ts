@@ -10,7 +10,7 @@ export default factories.createCoreController(
   "api::booking-submission.booking-submission",
   ({ strapi }) => ({
     async create(ctx) {
-      const { roomTitle, dateFrom, dateTo, timeFrom, timeTo, name, email, phone, trafficSource, utmSource, utmMedium, utmCampaign, landingPage } =
+      const { roomTitle, dateFrom, dateTo, timeFrom, timeTo, name, email, phone, estimatedBudget, trafficSource, utmSource, utmMedium, utmCampaign, landingPage } =
         ctx.request.body.data || ctx.request.body;
 
       // Validate required fields
@@ -27,7 +27,7 @@ export default factories.createCoreController(
       let emailSent = false;
 
       try {
-        const emailData = { roomTitle, dateFrom, dateTo, timeFrom, timeTo, name, email, phone, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
+        const emailData = { roomTitle, dateFrom, dateTo, timeFrom, timeTo, name, email, phone, estimatedBudget, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
         const toEmail =
           process.env.BOOKING_EMAIL || process.env.CONTACT_EMAIL || "Saint6studios@gmail.com";
         const resendApiKey = process.env.RESEND_API_KEY;
@@ -74,6 +74,7 @@ export default factories.createCoreController(
             name,
             email,
             phone,
+            estimatedBudget: estimatedBudget || null,
             emailSent,
             trafficSource: trafficSource || "organic",
             utmSource: utmSource || null,

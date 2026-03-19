@@ -11,6 +11,7 @@ export interface BookingEmailData {
   name: string;
   email: string;
   phone: string;
+  estimatedBudget?: number;
   trafficSource?: string;
   utmSource?: string;
   utmMedium?: string;
@@ -41,7 +42,7 @@ Time: ${data.timeFrom || "—"} — ${data.timeTo || "—"}
 Name: ${data.name}
 Email: ${data.email}
 Phone: ${data.phone}
-
+${data.estimatedBudget ? `Estimated Budget: ${data.estimatedBudget.toLocaleString("vi-VN")}đ` : ""}
 Source: ${source}
 Landing Page: ${data.landingPage || "—"}`;
 }
@@ -81,7 +82,11 @@ export function getHtmlTemplate(data: BookingEmailData): string {
           <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Time</div>
             <div style="color: #231d1d; font-size: 16px;">${escapeHtml(data.timeFrom || "—")} — ${escapeHtml(data.timeTo || "—")}</div>
-          </div>
+          </div>${data.estimatedBudget ? `
+          <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
+            <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Estimated Budget</div>
+            <div style="color: #880300; font-size: 18px; font-weight: 500;">${data.estimatedBudget.toLocaleString("vi-VN")}đ</div>
+          </div>` : ""}
           <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Name</div>
             <div style="color: #231d1d; font-size: 16px; font-weight: 500;">${escapeHtml(data.name)}</div>
