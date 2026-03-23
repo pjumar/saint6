@@ -59,6 +59,7 @@
   transition: color 0.3s ease;
   position: relative;
   white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .navIndicator {
@@ -129,6 +130,7 @@
 .heroLinks :global(.caption) {
   font-size: 0.625rem;
   letter-spacing: 0.125rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .heroLinks a {

@@ -15,6 +15,7 @@
 .menuSocialLinks a {
   text-decoration: none;
   transition: color 0.3s ease;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .socialLinks a:hover,

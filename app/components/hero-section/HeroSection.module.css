@@ -119,6 +119,7 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .heroMiddleSection {
@@ -157,12 +158,14 @@
 .heroLinks :global(.caption) {
   font-size: 0.625rem;
   letter-spacing: 0.125rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .scrollIndicator {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .scrollIcon {
