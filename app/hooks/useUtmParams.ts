@@ -10,6 +10,12 @@ export type UtmParams = {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
+  gclid?: string;
+  dclid?: string;
+  gbraid?: string;
+  wbraid?: string;
+  gad_source?: string;
+  gad_campaignid?: string;
   _landing?: string;
 };
 
@@ -48,6 +54,9 @@ export function clearUtmParams(): void {
  * Get the traffic source label from UTM params.
  */
 export function getTrafficSource(params: UtmParams): string {
+  if (params.gclid || params.dclid || params.gbraid || params.wbraid) {
+    return "google_ads";
+  }
   if (params.utm_source) return params.utm_source;
   return "organic";
 }

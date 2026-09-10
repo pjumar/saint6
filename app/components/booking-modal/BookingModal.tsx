@@ -1,21 +1,22 @@
 "use client";
 
+import { format, startOfTomorrow } from "date-fns";
 import Image from "next/image";
 import {
   type FormEvent,
-  useState,
-  useEffect,
   useCallback,
+  useEffect,
   useRef,
+  useState,
 } from "react";
-import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
-import { createPortal } from "react-dom";
-import { format, startOfTomorrow } from "date-fns";
 import type { DateRange } from "react-day-picker";
-import { useTranslation } from "@/app/contexts/TranslationContext";
-import { useUtmParams, getTrafficSource, clearUtmParams } from "@/app/hooks";
+import { createPortal } from "react-dom";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { Calendar } from "@/app/components/ui/calendar";
+import { useTranslation } from "@/app/contexts/TranslationContext";
+import { clearUtmParams, getTrafficSource, useUtmParams } from "@/app/hooks";
+import { reportGoogleAdsConversion } from "@/app/lib/google-ads";
 import styles from "./BookingModal.module.css";
 
 const STRAPI_URL =
@@ -486,6 +487,14 @@ export function BookingModal({
       });
       if (!response.ok) throw new Error("Failed to submit booking");
 
+      let enquiryId: string | number | undefined;
+      try {
+        const result: { data?: { id?: string | number } } = await response.json();
+        enquiryId = result.data?.id;
+      } catch {
+        // A malformed tracking identifier must not hide a successful enquiry.
+      }
+
       // Push conversion event to GTM dataLayer
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
@@ -500,6 +509,8 @@ export function BookingModal({
         contact_name: formData.name,
         contact_email: formData.email,
       });
+
+      if (enquiryId != null) reportGoogleAdsConversion(enquiryId);
 
       clearUtmParams();
       setModalState("success");

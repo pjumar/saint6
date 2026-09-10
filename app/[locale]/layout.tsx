@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { DeferredGTM } from "@/app/components/deferred-gtm/DeferredGTM";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
+import Script from "next/script";
+import { DeferredGTM } from "@/app/components/deferred-gtm/DeferredGTM";
 import "@/app/globals.css";
 import { ErrorBoundary } from "@/app/components/error-boundary";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
+import { GOOGLE_ADS_ID, GTM_ID } from "@/app/lib/constants";
 import { FALLBACK_FOOTER, FALLBACK_SEO, FALLBACK_SOCIAL_LINKS } from "@/app/lib/fallback";
 import { getFooter, getSeoMetadata, getSocialLinks, getStrapiImageUrl } from "@/app/lib/strapi";
-import { GTM_ID } from "@/app/lib/constants";
-import Script from "next/script";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -162,7 +162,7 @@ export default async function LocaleLayout({
           </>
         )}
       </head>
-      <DeferredGTM gtmId={GTM_ID} />
+      <DeferredGTM gtmId={GTM_ID} googleAdsId={GOOGLE_ADS_ID} />
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
