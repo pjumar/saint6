@@ -505,8 +505,6 @@ export function BookingModal({
         utm_campaign: utmParams.utm_campaign || undefined,
         booking_room: room.title,
         estimated_budget: estimatedBudget,
-        contact_name: formData.name,
-        contact_email: formData.email,
         transaction_id:
           enquiryId != null ? `booking-${enquiryId}` : undefined,
         value: 1,

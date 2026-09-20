@@ -103,9 +103,6 @@ export function ContactSection({
         utm_source: utmParams.utm_source || undefined,
         utm_medium: utmParams.utm_medium || undefined,
         utm_campaign: utmParams.utm_campaign || undefined,
-        contact_name: formData.name,
-        contact_email: formData.email,
-        contact_company: formData.company,
         transaction_id:
           enquiryId != null ? `contact-${enquiryId}` : undefined,
         value: 1,
