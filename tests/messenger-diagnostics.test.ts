@@ -53,3 +53,30 @@ test("diagnoses skipped notifications without recording personal identifiers or 
   ])
     assert.equal(JSON.stringify(result).includes(value), false);
 });
+
+test("distinguishes missing and seconds timestamps without logging timestamp values", () => {
+  const now = 1_790_000_000_000;
+  const result = summarizeMessengerEnvelope(
+    {
+      entry: [
+        {
+          id: "123",
+          time: now,
+          messaging: [
+            { timestamp: 0 },
+            { timestamp: now / 1000 },
+            { timestamp: now - 31 * 86400000 },
+          ],
+        },
+      ],
+    },
+    "123",
+    now,
+  );
+  assert.equal(result.expiredTimes, 3);
+  assert.equal(result.zeroTimes, 1);
+  assert.equal(result.currentSecondsTimes, 1);
+  assert.equal(result.validEntryTimes, 1);
+  assert.equal(JSON.stringify(result).includes(String(now)), false);
+  assert.equal(JSON.stringify(result).includes(String(now / 1000)), false);
+});
