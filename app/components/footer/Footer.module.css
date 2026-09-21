@@ -144,6 +144,24 @@
   color: var(--color-text-invert-100);
 }
 
+.privacyLinks {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.privacyLinks a {
+  color: rgba(255, 255, 255, 0.85);
+  text-underline-offset: 0.15rem;
+}
+
 @media (min-width: 48.0625rem) {
   .footer {
     min-height: 47.625rem;
