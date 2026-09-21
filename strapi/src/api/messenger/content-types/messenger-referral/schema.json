@@ -1,0 +1,15 @@
+{
+  "kind": "collectionType",
+  "collectionName": "messenger_referrals",
+  "info": {
+    "singularName": "messenger-referral",
+    "pluralName": "messenger-referrals",
+    "displayName": "Messenger website visits"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "ref": { "type": "string", "required": true, "unique": true },
+    "attribution": { "type": "json", "required": true },
+    "expiresAt": { "type": "datetime", "required": true }
+  }
+}
