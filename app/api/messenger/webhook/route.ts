@@ -1,3 +1,4 @@
+import { summarizeMessengerEnvelope } from "@/app/lib/messenger/diagnostics";
 import {
   messengerStore,
   readLimitedBody,
@@ -60,11 +61,14 @@ export async function POST(request: Request) {
   }
   let signals: ReturnType<typeof extractSignals>;
   try {
-    signals = extractSignals(
-      JSON.parse(Buffer.from(raw).toString("utf8")),
-      pageId,
-      hashSecret,
-    );
+    const payload: unknown = JSON.parse(Buffer.from(raw).toString("utf8"));
+    signals = extractSignals(payload, pageId, hashSecret);
+    if (signals.length === 0) {
+      console.info(
+        "messenger_webhook_ignored",
+        summarizeMessengerEnvelope(payload, pageId),
+      );
+    }
   } catch {
     return new Response(null, { status: 400 });
   }
