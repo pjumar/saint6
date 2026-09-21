@@ -34,6 +34,9 @@ export function summarizeMessengerEnvelope(
     invalidTimes: 0,
     expiredTimes: 0,
     futureTimes: 0,
+    zeroTimes: 0,
+    currentSecondsTimes: 0,
+    validEntryTimes: 0,
     messages: 0,
     messageIds: 0,
     textMessages: 0,
@@ -57,6 +60,13 @@ export function summarizeMessengerEnvelope(
     )
       pageIds.add(entry.id);
     if (entry.id === pageId) counts.matchingPages++;
+    if (
+      typeof entry.time === "number" &&
+      Number.isSafeInteger(entry.time) &&
+      entry.time >= now - RETENTION_MS &&
+      entry.time <= now + 300000
+    )
+      counts.validEntryTimes++;
     const messaging = Array.isArray(entry.messaging) ? entry.messaging : [];
     const standby = Array.isArray(entry.standby) ? entry.standby : [];
     const changes = Array.isArray(entry.changes) ? entry.changes : [];
@@ -77,6 +87,14 @@ export function summarizeMessengerEnvelope(
       if (sender === pageId) counts.selfSenders++;
       if (object(event.recipient).id === pageId) counts.matchingRecipients++;
       const time = event.timestamp;
+      if (time === 0) counts.zeroTimes++;
+      if (
+        typeof time === "number" &&
+        Number.isSafeInteger(time) &&
+        time * 1000 >= now - RETENTION_MS &&
+        time * 1000 <= now + 300000
+      )
+        counts.currentSecondsTimes++;
       if (typeof time !== "number" || !Number.isSafeInteger(time))
         counts.invalidTimes++;
       else if (time < now - RETENTION_MS) counts.expiredTimes++;
