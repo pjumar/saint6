@@ -43,6 +43,7 @@
 
 .zaloButton {
   background: #005bd3;
+  justify-content: center;
 }
 
 .button:active {
