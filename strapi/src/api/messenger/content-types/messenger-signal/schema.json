@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "messenger_signals",
+  "info": {
+    "singularName": "messenger-signal",
+    "pluralName": "messenger-signals",
+    "displayName": "Messenger tracking signals"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "eventKey": { "type": "string", "required": true, "unique": true },
+    "senderKey": { "type": "string", "required": true },
+    "kind": {
+      "type": "enumeration",
+      "enum": ["referral", "message"],
+      "required": true
+    },
+    "occurredAt": { "type": "datetime", "required": true },
+    "ref": { "type": "string" }
+  }
+}

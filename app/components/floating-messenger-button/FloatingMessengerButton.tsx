@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { prepareMessengerLink } from "@/app/lib/messenger/client";
 import styles from "./FloatingMessengerButton.module.css";
 
 const MESSENGER_URL = "https://m.me/saint6studios";
@@ -12,23 +13,36 @@ const SHOW_DELAY_MS = 5000;
  */
 export function FloatingMessengerButton() {
   const [visible, setVisible] = useState(false);
+  const [messengerUrl, setMessengerUrl] = useState(MESSENGER_URL);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!visible) return;
+    let active = true;
+    void prepareMessengerLink().then((url) => {
+      if (active) setMessengerUrl(url);
+    });
+    return () => {
+      active = false;
+    };
+  }, [visible]);
+
   if (!visible) return null;
 
   return (
     <div className={styles.container}>
       <a
-        href={MESSENGER_URL}
+        href={messengerUrl}
         target="_blank"
         rel="noopener noreferrer"
         className={styles.button}
         aria-label="Chat with us on Messenger"
       >
+        <span className="sr-only">Chat with us on Messenger</span>
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
