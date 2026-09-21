@@ -40,10 +40,6 @@
   margin: 1.5rem 0;
 }
 
-.desktopNavWrapper .heroLinks {
-  display: none;
-}
-
 .desktopNavItem {
   display: flex;
   align-items: center;
@@ -52,14 +48,14 @@
   font-size: 1.75rem;
   line-height: 1.5;
   letter-spacing: -0.035rem;
-  font-weight: 300;
-  color: var(--color-text-invert-40);
+  font-weight: 400;
+  color: var(--color-text-invert-100);
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s ease;
   position: relative;
   white-space: nowrap;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .navIndicator {
@@ -104,6 +100,7 @@
 }
 
 .desktopNavItem:hover .navIndicator,
+.desktopNavItem:focus-visible .navIndicator,
 .desktopNavItemActive .navIndicator {
   opacity: 1;
 }
@@ -113,6 +110,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.desktopNavWrapper .heroLinks {
+  display: none;
 }
 
 .heroLinksLeft {
@@ -130,7 +131,7 @@
 .heroLinks :global(.caption) {
   font-size: 0.625rem;
   letter-spacing: 0.125rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .heroLinks a {
@@ -140,13 +141,20 @@
 
 .heroLinks a:hover {
   color: var(--color-text-invert-100);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.header a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+  border-radius: 2px;
 }
 
 @media (min-width: 48.0625rem) {
   .desktopNavWrapper {
     display: flex;
     flex-direction: column;
-    width: auto;
     right: auto;
     left: 1.5rem;
     width: calc(100% - 3rem);
@@ -172,20 +180,22 @@
     margin-top: 0;
   }
 
-  .desktopNavWrapper .heroLinks a {
-    color: var(--color-text-invert-40);
+  .heroLinksLeft > a,
+  .heroLinksRight > a {
+    color: var(--color-text-invert-100);
   }
 
-  .desktopNavWrapper .heroLinks a:hover {
+  .heroLinksLeft > a:hover,
+  .heroLinksRight > a:hover {
     color: var(--color-text-invert-100);
   }
 
   .desktopNavWrapper .heroLinks :global(.caption) {
-    color: var(--color-text-invert-40);
+    color: var(--color-text-invert-100);
   }
 
   .desktopNavWrapper .heroLinksRight :global(.caption) {
-    color: var(--color-text-invert-40);
+    color: var(--color-text-invert-100);
     transition: color 0.3s ease;
   }
 

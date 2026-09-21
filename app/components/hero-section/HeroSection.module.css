@@ -34,8 +34,16 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: var(--color-overlay-dark);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.18) 25%,
+    rgba(0, 0, 0, 0.58) 50%,
+    rgba(0, 0, 0, 0.25) 70%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
   z-index: 1;
+  pointer-events: none;
 }
 
 .decorativeLine {
@@ -158,7 +166,18 @@
 .heroLinks :global(.caption) {
   font-size: 0.625rem;
   letter-spacing: 0.125rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.heroLinks a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.heroLinks a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
 }
 
 .scrollIndicator {
@@ -173,6 +192,16 @@
 }
 
 @media (min-width: 48.0625rem) {
+  .heroOverlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.12) 25%,
+        rgba(0, 0, 0, 0.32) 55%,
+        rgba(0, 0, 0, 0.68) 100%
+      ), linear-gradient(0deg, rgba(0, 0, 0, 0.32), transparent 45%);
+  }
+
   .hero {
     height: 48.125rem;
     width: 100%;
