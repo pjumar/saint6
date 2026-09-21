@@ -1,6 +1,6 @@
 # Messenger message attribution
 
-Status: implementation prepared; not enabled for public visitors. Meta app **Saint6 Messenger Attribution**, ID `1612647403841382`, belongs to business `525053939501454`. The only intended Page is **SAINT 6 STUDIOS**, ID `103955275891976`.
+Status: existing-conversation test passed (one real message matched to its website campaign); not enabled for public visitors. See [publication notes](messenger-publication.md) for the current Meta release route and remaining checks. Meta app **Saint6 Messenger Attribution**, ID `1612647403841382`, belongs to business `525053939501454`. The only intended Page is **SAINT 6 STUDIOS**, ID `103955275891976`.
 
 ## What counts
 
@@ -37,7 +37,7 @@ No access token or secret belongs in Git, public variables, GTM, browser links o
 3. After authorization to grant the app Page messaging access, configure `https://www.saint6.studio/api/messenger/webhook` and the verify token. Subscribe `messages`, `messaging_postbacks`, `messaging_referrals`, and `standby` for the Saint 6 Page. Standby covers incoming messages while Business Suite or the existing AI responder handles the conversation.
 4. Configure/verify the Get Started button needed for new-conversation referrals. Verify conversation routing with Business Suite before changing any routing preference. The receiver accepts both normal messaging and standby notifications, deduplicating identical events. If routing is configured, subscribe to standby notifications so Business Suite can retain conversation control; never make this tracking app the default responder. Do not introduce automated outbound replies without approval.
 5. With explicit permission to send test messages, test an existing conversation and a new conversation with app-role test accounts. Confirm one lead each in the private report, zero leads for opening alone, and continued normal replies in Business Suite. Test supported mobile and desktop flows.
-6. Complete Meta App Review/Advanced Access for real visitors. The business currently appears unverified. Provide the app’s privacy/data-deletion information and any verification Meta requests; do not claim public readiness before approval.
+6. Complete the current Meta use-case app's publication requirements, including privacy and deletion information. Its newer guide provides an own-business publishing route; Tech Provider enrollment is for access to other business portfolios. Verify incoming events from a non-role account after publication and resolve any remaining review/access requirement before public rollout. Do not assume publication alone proves access to real visitor events.
 7. Enable public tracking only after successful end-to-end validation and approval. The existing GA4 outbound click URL gains `?ref=...`; reports should match the Messenger URL prefix/domain instead of exact equality with the old bare URL.
 
 ## Reporting and limits

@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import { SOCIAL_LINKS } from "@/app/constants/social-links";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./Footer.module.css";
 
 interface FooterProps {
@@ -18,12 +18,17 @@ interface FooterProps {
   }[];
 }
 
-export function Footer({ contactLabel, address, email, phone, socialLinks }: FooterProps) {
-  const { t } = useTranslation();
+export function Footer({
+  contactLabel,
+  address,
+  email,
+  phone,
+  socialLinks,
+}: FooterProps) {
+  const { t, locale } = useTranslation();
 
-  const links = socialLinks && socialLinks.length > 0
-    ? socialLinks
-    : SOCIAL_LINKS;
+  const links =
+    socialLinks && socialLinks.length > 0 ? socialLinks : SOCIAL_LINKS;
 
   return (
     <footer className={styles.footer}>
@@ -47,7 +52,9 @@ export function Footer({ contactLabel, address, email, phone, socialLinks }: Foo
           </div>
         </SpiralDecoration>
 
-        <p className={styles.contactLabel}>{contactLabel || t.FOOTER.CONTACT_US}</p>
+        <p className={styles.contactLabel}>
+          {contactLabel || t.FOOTER.CONTACT_US}
+        </p>
 
         <div className={styles.logoWrapper}>
           <Image
@@ -79,6 +86,18 @@ export function Footer({ contactLabel, address, email, phone, socialLinks }: Foo
               {link.label}
             </a>
           ))}
+        </div>
+        <div className={styles.privacyLinks}>
+          <a
+            href={`/messenger-privacy.html${locale === "vi" ? "#vietnamese" : ""}`}
+          >
+            {locale === "vi" ? "Quyền riêng tư Messenger" : "Messenger privacy"}
+          </a>
+          <a
+            href={`/messenger-data-deletion.html${locale === "vi" ? "#vietnamese" : ""}`}
+          >
+            {locale === "vi" ? "Xóa dữ liệu theo dõi" : "Delete tracking data"}
+          </a>
         </div>
       </div>
     </footer>

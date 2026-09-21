@@ -114,7 +114,7 @@ try {
     .query("api::messenger.messenger-referral")
     .findOne({ where: { ref } });
   assert.equal(savedVisit.attribution.email, undefined);
-  const reportPath = `/report?from=${encodeURIComponent(new Date(now - 1000).toISOString())}&to=${encodeURIComponent(new Date(now + 10000).toISOString())}`;
+  const reportPath = `/report?from=${encodeURIComponent(new Date(now - 1000).toISOString())}&to=${encodeURIComponent(new Date(now + 120000).toISOString())}`;
   async function report() {
     const result = await fetch(`${base}${reportPath}`, {
       headers: { Authorization: `Bearer ${secret}` },
@@ -130,8 +130,63 @@ try {
   app = undefined;
   await start();
   assert.deepEqual(await report(), before);
+
+  // Rehearse a verified person's deletion in this disposable database only.
+  // A different person's campaign must remain in the regenerated report.
+  const controlVisitResponse = await post("referrals", {
+    attribution: { utm_source: "google", utm_campaign: "deletion-control" },
+  });
+  assert.equal(controlVisitResponse.status, 200);
+  const { ref: controlRef } = await controlVisitResponse.json();
+  const controlTime = Date.now();
+  assert.equal(
+    (
+      await post("signals", {
+        signals: [
+          {
+            eventKey: "5".repeat(64),
+            senderKey: "9".repeat(64),
+            kind: "referral",
+            ref: controlRef,
+            occurredAt: controlTime,
+          },
+          {
+            eventKey: "6".repeat(64),
+            senderKey: "9".repeat(64),
+            kind: "message",
+            occurredAt: controlTime + 1,
+          },
+        ],
+      })
+    ).status,
+    200,
+  );
+  assert.equal((await report()).confirmedLeads, 2);
+  await app.db
+    .query("api::messenger.messenger-signal")
+    .deleteMany({ where: { senderKey } });
+  await app.db
+    .query("api::messenger.messenger-referral")
+    .deleteMany({ where: { ref } });
+  assert.equal(
+    await app.db
+      .query("api::messenger.messenger-signal")
+      .count({ where: { senderKey } }),
+    0,
+  );
+  assert.equal(
+    await app.db
+      .query("api::messenger.messenger-referral")
+      .count({ where: { ref } }),
+    0,
+  );
+  const afterDeletion = await report();
+  assert.equal(afterDeletion.confirmedLeads, 1);
+  assert.equal(afterDeletion.uniquePeople, 1);
+  assert.equal(afterDeletion.campaigns.length, 1);
+  assert.equal(afterDeletion.campaigns[0].campaign, "deletion-control");
   console.log(
-    "PASS: protected routes, durable storage, concurrent duplicate delivery, out-of-order matching, private campaign report, persistence after restart.",
+    "PASS: protected routes, durable storage, concurrent duplicate delivery, out-of-order matching, private campaign report, persistence after restart, isolated deletion with unrelated records preserved.",
   );
 } finally {
   if (app) await app.destroy();
