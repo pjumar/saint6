@@ -1,3 +1,4 @@
+import { summarizeMessengerEnvelope } from "@/app/lib/messenger/diagnostics";
 import {
   messengerStore,
   readLimitedBody,
@@ -85,4 +86,3 @@ export async function POST(request: Request) {
     return new Response(null, { status: 503 });
   }
 }
-import { summarizeMessengerEnvelope } from "@/app/lib/messenger/diagnostics";
