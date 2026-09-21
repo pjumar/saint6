@@ -99,6 +99,11 @@ export function Footer({
           </div>
           <div className={styles.privacyLinks}>
             <a
+              href={`/website-privacy.html${locale === "vi" ? "#vietnamese" : ""}`}
+            >
+              {locale === "vi" ? "Quyền riêng tư website" : "Website privacy"}
+            </a>
+            <a
               href={`/messenger-privacy.html${locale === "vi" ? "#vietnamese" : ""}`}
             >
               {locale === "vi"
