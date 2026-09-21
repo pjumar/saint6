@@ -72,8 +72,6 @@ export function Footer({
           <p className={styles.contactText}>{phone || t.FOOTER.PHONE}</p>
         </div>
 
-        <div className={styles.footerLine} />
-
         <div className={styles.socialLinks}>
           {links.map((link) => (
             <a
@@ -87,17 +85,34 @@ export function Footer({
             </a>
           ))}
         </div>
-        <div className={styles.privacyLinks}>
-          <a
-            href={`/messenger-privacy.html${locale === "vi" ? "#vietnamese" : ""}`}
-          >
-            {locale === "vi" ? "Quyền riêng tư Messenger" : "Messenger privacy"}
-          </a>
-          <a
-            href={`/messenger-data-deletion.html${locale === "vi" ? "#vietnamese" : ""}`}
-          >
-            {locale === "vi" ? "Xóa dữ liệu theo dõi" : "Delete tracking data"}
-          </a>
+        <div className={styles.footerBottom}>
+          <div className={styles.companyInfo}>
+            <p className={styles.companyName}>Cong Ty TNHH Haus Of Trang</p>
+            <p>{locale === "vi" ? "Mã số thuế" : "Tax code"}: 0316839345</p>
+            <p>
+              <span className={styles.registeredLabel}>
+                {locale === "vi" ? "Địa chỉ đăng ký" : "Registered address"}:{" "}
+              </span>
+              12/2A-12/2B Tran Xuan Soan Street, Tan Kieng Ward, District 7, Ho
+              Chi Minh City, Vietnam
+            </p>
+          </div>
+          <div className={styles.privacyLinks}>
+            <a
+              href={`/messenger-privacy.html${locale === "vi" ? "#vietnamese" : ""}`}
+            >
+              {locale === "vi"
+                ? "Quyền riêng tư Messenger"
+                : "Messenger privacy"}
+            </a>
+            <a
+              href={`/messenger-data-deletion.html${locale === "vi" ? "#vietnamese" : ""}`}
+            >
+              {locale === "vi"
+                ? "Xóa dữ liệu theo dõi"
+                : "Delete tracking data"}
+            </a>
+          </div>
         </div>
       </div>
     </footer>
