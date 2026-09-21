@@ -63,8 +63,13 @@ export function extractSignals(
   const signals = new Map<string, MessengerSignal>();
   for (const item of root.entry) {
     const entry = record(item);
-    if (entry.id !== pageId || !Array.isArray(entry.messaging)) continue;
-    for (const item of entry.messaging) {
+    if (entry.id !== pageId) continue;
+    // Business Suite can retain conversation control while this app observes.
+    const events = [
+      ...(Array.isArray(entry.messaging) ? entry.messaging : []),
+      ...(Array.isArray(entry.standby) ? entry.standby : []),
+    ];
+    for (const item of events) {
       const event = record(item);
       const sender = record(event.sender).id;
       const recipient = record(event.recipient).id;

@@ -110,6 +110,34 @@ test("discards message contents, raw person IDs and attachment URLs", () => {
   }
 });
 
+test("attributes standby messages while Business Suite controls the conversation", () => {
+  const message = event(
+    { message: { mid: "incoming", text: "hello" } },
+    now + 1,
+  );
+  const result = extractSignals(
+    {
+      object: "page",
+      entry: [
+        {
+          id: pageId,
+          messaging: [message],
+          standby: [
+            event({ referral }),
+            message,
+            event({ message: { mid: "staff", text: "reply", is_echo: true } }),
+          ],
+        },
+      ],
+    },
+    pageId,
+    secret,
+    now,
+  );
+  assert.equal(result.length, 2);
+  assert.equal(attributeMessages([visit], result).length, 1);
+});
+
 test("an attachment is an incoming message; duplicate delivery is one lead", () => {
   const message = event(
     { message: { mid: "photo", attachments: [{ type: "image" }] } },
