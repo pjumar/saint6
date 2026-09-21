@@ -23,6 +23,10 @@ export function summarizeMessengerEnvelope(
     matchingPages: 0,
     messaging: 0,
     standby: 0,
+    changes: 0,
+    changedMessages: 0,
+    changedReferrals: 0,
+    changedPostbacks: 0,
     validSenders: 0,
     selfSenders: 0,
     matchingRecipients: 0,
@@ -55,6 +59,14 @@ export function summarizeMessengerEnvelope(
     if (entry.id === pageId) counts.matchingPages++;
     const messaging = Array.isArray(entry.messaging) ? entry.messaging : [];
     const standby = Array.isArray(entry.standby) ? entry.standby : [];
+    const changes = Array.isArray(entry.changes) ? entry.changes : [];
+    counts.changes += changes.length;
+    for (const item of changes) {
+      const change = object(item);
+      if (change.field === "messages") counts.changedMessages++;
+      if (change.field === "messaging_referrals") counts.changedReferrals++;
+      if (change.field === "messaging_postbacks") counts.changedPostbacks++;
+    }
     counts.messaging += messaging.length;
     counts.standby += standby.length;
     for (const item of [...messaging, ...standby]) {
