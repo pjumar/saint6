@@ -5,6 +5,7 @@ import {
   attributeMessages,
   extractSignals,
   type MessengerSignal,
+  messengerEventTime,
   type Referral,
   verifyMetaSignature,
 } from "../strapi/src/api/messenger/lib/protocol";
@@ -33,6 +34,57 @@ const visit: Referral = {
 };
 const signals = (events: unknown[]) =>
   extractSignals(envelope(events), pageId, secret, now);
+
+test("normalizes current Meta seconds without accepting stale, future or malformed times", () => {
+  assert.equal(messengerEventTime(now, now), now);
+  assert.equal(messengerEventTime(now / 1000, now), now);
+  for (const value of [
+    0,
+    -1,
+    NaN,
+    Infinity,
+    String(now),
+    now + 0.5,
+    now - 31 * 86400000,
+    (now - 31 * 86400000) / 1000,
+    now + 300001,
+    now / 1000 + 301,
+  ])
+    assert.equal(messengerEventTime(value, now), null);
+});
+
+test("matches a seconds referral with a millisecond standby message and deduplicates replay", () => {
+  const payload = {
+    object: "page",
+    entry: [
+      {
+        id: pageId,
+        messaging: [event({ referral }, now / 1000)],
+        standby: [
+          event(
+            { message: { mid: "real-standby-message", text: "enquiry" } },
+            now + 1000,
+          ),
+        ],
+      },
+    ],
+  };
+  const first = extractSignals(payload, pageId, secret, now + 1000);
+  const replay = extractSignals(payload, pageId, secret, now + 2000);
+  assert.equal(first.length, 2);
+  assert.deepEqual(first, replay);
+  const leads = attributeMessages([visit], [...first, ...replay]);
+  assert.equal(leads.length, 1);
+  assert.equal(leads[0].attribution.utm_campaign, "studio");
+  assert.equal(leads[0].occurredAt, now + 1000);
+  assert.deepEqual(
+    attributeMessages(
+      [visit],
+      first.filter((s) => s.kind === "referral"),
+    ),
+    [],
+  );
+});
 
 test("authenticates original bytes and rejects tampering or missing signatures", () => {
   const raw = Buffer.from('{"text":"\\u00e4 hello"}');

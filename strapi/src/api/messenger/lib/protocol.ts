@@ -4,6 +4,19 @@ export const REF_PATTERN = /^s6_[a-f0-9]{32}$/;
 export const RETENTION_MS = 30 * 24 * 60 * 60 * 1000;
 export const ATTRIBUTION_MS = 7 * 24 * 60 * 60 * 1000;
 
+/** Meta can send referral times in Unix seconds and message times in milliseconds. */
+export function messengerEventTime(
+  value: unknown,
+  now = Date.now(),
+): number | null {
+  if (typeof value !== "number" || !Number.isSafeInteger(value) || value <= 0)
+    return null;
+  const time = value < 100_000_000_000 ? value * 1000 : value;
+  return time >= now - RETENTION_MS && time <= now + 5 * 60 * 1000
+    ? time
+    : null;
+}
+
 export type MessengerSignal = {
   eventKey: string;
   senderKey: string;
@@ -73,16 +86,13 @@ export function extractSignals(
       const event = record(item);
       const sender = record(event.sender).id;
       const recipient = record(event.recipient).id;
-      const time = event.timestamp;
+      const time = messengerEventTime(event.timestamp, now);
       if (
         typeof sender !== "string" ||
         !/^\d{1,40}$/.test(sender) ||
         sender === pageId ||
         recipient !== pageId ||
-        typeof time !== "number" ||
-        !Number.isSafeInteger(time) ||
-        time < now - RETENTION_MS ||
-        time > now + 5 * 60 * 1000
+        time === null
       )
         continue;
       const senderKey = hash(`sender:${pageId}:${sender}`);

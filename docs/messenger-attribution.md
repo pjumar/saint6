@@ -34,13 +34,15 @@ No access token or secret belongs in Git, public variables, GTM, browser links o
 
 1. Confirm the Strapi repository connection, deployment branch `main`, base directory `strapi`, existing version 5.38.0, and an available backup. Deploy the two additive collection types and protected endpoints.
 2. Deploy the frontend with tracking mode `test`. Visit a URL with `messenger_tracking_test=1` and clearly labelled test campaign parameters. Other visitors retain the ordinary link.
-3. After authorization to grant the app Page messaging access, configure `https://www.saint6.studio/api/messenger/webhook` and the verify token. Subscribe only `messages`, `messaging_postbacks`, and `messaging_referrals` for the Saint 6 Page.
+3. After authorization to grant the app Page messaging access, configure `https://www.saint6.studio/api/messenger/webhook` and the verify token. Subscribe `messages`, `messaging_postbacks`, `messaging_referrals`, and `standby` for the Saint 6 Page. Standby covers incoming messages while Business Suite or the existing AI responder handles the conversation.
 4. Configure/verify the Get Started button needed for new-conversation referrals. Verify conversation routing with Business Suite before changing any routing preference. The receiver accepts both normal messaging and standby notifications, deduplicating identical events. If routing is configured, subscribe to standby notifications so Business Suite can retain conversation control; never make this tracking app the default responder. Do not introduce automated outbound replies without approval.
 5. With explicit permission to send test messages, test an existing conversation and a new conversation with app-role test accounts. Confirm one lead each in the private report, zero leads for opening alone, and continued normal replies in Business Suite. Test supported mobile and desktop flows.
 6. Complete Meta App Review/Advanced Access for real visitors. The business currently appears unverified. Provide the app’s privacy/data-deletion information and any verification Meta requests; do not claim public readiness before approval.
 7. Enable public tracking only after successful end-to-end validation and approval. The existing GA4 outbound click URL gains `?ref=...`; reports should match the Messenger URL prefix/domain instead of exact equality with the old bare URL.
 
 ## Reporting and limits
+
+Real Meta referrals observed on 2026-09-21 used Unix seconds, while the message contract uses milliseconds. The receiver accepts both units, normalizes to milliseconds before hashing and storage, and retains the same 30-day age and five-minute future bounds. No fallback to receipt time is used. Diagnostic counters contain no message content or person identifiers.
 
 The private Strapi endpoint `GET /api/messenger/report?from=<ISO timestamp>&to=<ISO timestamp>` requires `Authorization: Bearer <MESSENGER_BRIDGE_SECRET>`. It returns confirmed leads and distinct people by source, medium, campaign name and Google campaign ID, plus a deduplicated overall total. Dates use a start-inclusive/end-exclusive window.
 
