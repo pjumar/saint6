@@ -54,6 +54,12 @@ export default async function StylingProjectPage({ params }: Props) {
   const { projects, project, locale } = await content(params);
   const vi = locale === "vi";
   const videoId = youtubeVideoId(project.video_url);
+  const videoPoster =
+    project.gallery.find(({ image }) => image.width / image.height >= 1.4)
+      ?.image || project.cover;
+  const gallery = videoId
+    ? project.gallery.filter(({ image }) => image.url !== videoPoster.url)
+    : project.gallery;
   const index = projects.findIndex((item) => item.slug === project.slug);
   const related = [
     projects[(index + 1) % projects.length],
@@ -156,30 +162,28 @@ export default async function StylingProjectPage({ params }: Props) {
             videoId={videoId}
             title={project.title}
             locale={locale}
-            poster={
-              project.gallery.find(
-                ({ image }) => image.width / image.height >= 1.4,
-              )?.image || project.cover
-            }
+            poster={videoPoster}
           />
         )}
-        <section
-          className={`${styles.container} ${styles.gallery}`}
-          aria-label={vi ? "Hình ảnh dự án" : "Project gallery"}
-        >
-          {project.gallery.map(({ image, alt }) => (
-            <figure key={image.url}>
-              <Image
-                src={image.url}
-                alt={alt || image.alternativeText}
-                width={image.width}
-                height={image.height}
-                sizes="(max-width: 600px) 100vw, 50vw"
-                style={{ maxWidth: image.width }}
-              />
-            </figure>
-          ))}
-        </section>
+        {gallery.length > 0 && (
+          <section
+            className={`${styles.container} ${styles.gallery}`}
+            aria-label={vi ? "Hình ảnh dự án" : "Project gallery"}
+          >
+            {gallery.map(({ image, alt }) => (
+              <figure key={image.url}>
+                <Image
+                  src={image.url}
+                  alt={alt || image.alternativeText}
+                  width={image.width}
+                  height={image.height}
+                  sizes="(max-width: 600px) 100vw, 50vw"
+                  style={{ maxWidth: image.width }}
+                />
+              </figure>
+            ))}
+          </section>
+        )}
         <section
           className={`${styles.container} ${styles.credits}`}
           aria-labelledby="project-credits"

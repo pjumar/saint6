@@ -78,3 +78,5 @@ The founder portrait is the owner-selected ELLE Decoration image, stored locally
 Brand logos retain their original artwork. Optional `logo_view_box` frames unused canvas, while `display_width` sets the optical size in rem; both are editable on each CMS client component. The portfolio CTA no longer includes a count. Explore the work smoothly scrolls to the project grid, with an instant-scroll reduced-motion alternative and a normal anchor fallback.
 
 Projects with a recognized YouTube URL display a responsive film section after the introduction and before the gallery. The self-hosted project poster loads first; the YouTube privacy-enhanced player is created only after an explicit Play click. Playback was verified with the Đen Vâu film. An ordinary YouTube link remains available for unavailable or embedding-restricted videos. The CMS video URL supports standard watch, share, shorts and embed URLs. No new analytics event is added.
+
+The selected film poster is omitted from the still-image gallery to avoid repeating the same image. If it was the project’s only still, the empty gallery section is omitted; additional distinct photographs remain.
