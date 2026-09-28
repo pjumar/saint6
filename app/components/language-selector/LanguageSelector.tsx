@@ -87,7 +87,7 @@ export function LanguageSelector({
         type="button"
         className={containerClass}
         onClick={handleClick}
-        aria-label={locale === "vi" ? "Chọn ngôn ngữ" : "Choose language"}
+        aria-label={`${language} — ${locale === "vi" ? "Chọn ngôn ngữ" : "Choose language"}`}
         aria-expanded={isOpen}
         aria-controls={dropdownId}
       >
