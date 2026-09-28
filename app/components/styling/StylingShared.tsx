@@ -20,21 +20,31 @@ export function Paragraphs({ text }: { text: string }) {
 export function ProjectCard({
   project,
   locale,
+  imageSizes = "(max-width: 600px) 100vw, 50vw",
+  priority = false,
 }: {
   project: StylingProject;
   locale: StylingLocale;
+  imageSizes?: string;
+  priority?: boolean;
 }) {
   return (
     <Link
       className={styles.projectCard}
       href={`/${locale}/styling/${project.slug}`}
     >
-      <div className={styles.cardImage}>
+      <div
+        className={styles.cardImage}
+        style={{
+          aspectRatio: `${project.cover.width} / ${project.cover.height}`,
+        }}
+      >
         <Image
           src={project.cover.url}
           alt={project.cover.alternativeText}
           fill
-          sizes="(max-width: 600px) 100vw, 50vw"
+          sizes={imageSizes}
+          priority={priority}
         />
       </div>
       <div className={styles.cardInfo}>

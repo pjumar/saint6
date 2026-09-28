@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import styles from "@/app/components/styling/Styling.module.css";
+import { StylingHero } from "@/app/components/styling/StylingHero";
 import {
   Paragraphs,
   ProjectCard,
@@ -58,6 +60,7 @@ export default async function StylingPage({ params }: Props) {
         heading={page.hero_heading}
         backgroundImage={page.hero_image.url}
         backgroundAlt={page.hero_image.alternativeText}
+        backgroundContent={<StylingHero page={page} />}
         showScrollIndicator
       />
       <section
@@ -96,6 +99,36 @@ export default async function StylingPage({ params }: Props) {
           ))}
         </div>
       </section>
+      {!!page.clients?.length && (
+        <section
+          id="styling-brands"
+          className={`${styles.container} ${styles.clients}`}
+          aria-label={page.clients_title}
+        >
+          <p className={styles.label}>{page.clients_title}</p>
+          <div className={styles.clientLogos}>
+            {page.clients.map((client) => (
+              <Link
+                key={client.name}
+                href={`/${locale}/styling/projects?q=${encodeURIComponent(client.name)}#portfolio-results`}
+                aria-label={`${client.name} — ${vi ? "xem dự án" : "view projects"}`}
+              >
+                <Image
+                  src={client.logo.url}
+                  alt={client.name}
+                  width={client.logo.width}
+                  height={client.logo.height}
+                  style={
+                    client.logo.width / client.logo.height < 1.5
+                      ? { transform: "scale(2.5)" }
+                      : undefined
+                  }
+                />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
       <div id="selected-work" className={styles.anchor}>
         <SectionHeader
           label={page.portfolio_label}
@@ -106,13 +139,27 @@ export default async function StylingPage({ params }: Props) {
         <div className={styles.container}>
           <p className={styles.portfolioNote}>{page.portfolio_note}</p>
           <div className={styles.projectGrid}>
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.slug}
-                project={project}
-                locale={locale}
-              />
-            ))}
+            {projects
+              .filter((project) => project.featured)
+              .slice(0, 6)
+              .map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  locale={locale}
+                />
+              ))}
+          </div>
+          <div className={styles.archiveCta}>
+            <Link
+              href={`/${locale}/styling/projects`}
+              className={styles.button}
+            >
+              {vi
+                ? `Khám phá tất cả ${projects.length} dự án`
+                : `Explore all ${projects.length} projects`}{" "}
+              <span aria-hidden="true">↗</span>
+            </Link>
           </div>
         </div>
       </section>

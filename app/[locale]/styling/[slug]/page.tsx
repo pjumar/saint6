@@ -116,6 +116,22 @@ export default async function StylingProjectPage({ params }: Props) {
         heading={project.title}
         backgroundImage={project.cover.url}
         backgroundAlt={project.cover.alternativeText}
+        backgroundContent={
+          <div className={styles.projectHeroImage}>
+            <Image
+              src={project.cover.url}
+              alt={project.cover.alternativeText}
+              width={project.cover.width}
+              height={project.cover.height}
+              sizes="(max-width: 768px) 100vw, 65vw"
+              priority
+              style={{
+                maxWidth: project.cover.width,
+                maxHeight: project.cover.height,
+              }}
+            />
+          </div>
+        }
         imageFit="contain"
         showScrollIndicator
       />
@@ -158,6 +174,7 @@ export default async function StylingProjectPage({ params }: Props) {
               width={image.width}
               height={image.height}
               sizes="(max-width: 600px) 100vw, 50vw"
+              style={{ maxWidth: image.width }}
             />
           </figure>
         ))}
@@ -214,7 +231,7 @@ export default async function StylingProjectPage({ params }: Props) {
               {vi ? "Khám phá thêm" : "More perspectives"}
             </h2>
             <Link
-              href={`/${locale}/styling#selected-work`}
+              href={`/${locale}/styling/projects`}
               className={styles.textLink}
             >
               {vi ? "Tất cả dự án" : "All styling projects"} ↗

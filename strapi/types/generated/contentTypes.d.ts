@@ -1984,6 +1984,18 @@ export interface ApiStylingPageStylingPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    clients: Schema.Attribute.Component<'styling.client', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    clients_title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     contact_text: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -2055,6 +2067,24 @@ export interface ApiStylingPageStylingPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    hero_mobile_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    hero_panels: Schema.Attribute.Component<'styling.hero-panel', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
     intro_label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -2181,6 +2211,10 @@ export interface ApiStylingProjectStylingProject
           localized: true;
         };
       }>;
+    category_key: Schema.Attribute.Enumeration<
+      ['commercial', 'celebrity', 'editorial', 'lookbook', 'music', 'personal']
+    > &
+      Schema.Attribute.Required;
     cover: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -2203,6 +2237,7 @@ export interface ApiStylingProjectStylingProject
           localized: true;
         };
       }>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     gallery: Schema.Attribute.Component<'styling.gallery-image', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

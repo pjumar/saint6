@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_styling_clients",
+  "info": {
+    "displayName": "Styling client"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "required": true
+    },
+    "source_url": {
+      "type": "string"
+    }
+  }
+}

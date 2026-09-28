@@ -311,10 +311,8 @@
   }
 }
 
-/* Keep tall project covers intact on desktop; mobile uses the familiar full hero. */
-@media (min-width: 48.0625rem) {
-  .portfolioImage {
-    object-fit: contain;
-    object-position: center;
-  }
+/* Project photographs retain their composition at every screen width. */
+.portfolioImage {
+  object-fit: contain;
+  object-position: center;
 }

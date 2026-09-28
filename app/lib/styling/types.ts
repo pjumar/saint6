@@ -9,10 +9,23 @@ export interface StylingBlock {
   title: string;
   text: string;
 }
+export interface StylingHeroPanel {
+  image: StylingImage;
+  alt: string;
+}
+export interface StylingClient {
+  name: string;
+  logo: StylingImage;
+  source_url: string;
+}
 export interface StylingPage {
   hero_heading: string;
   hero_image: StylingImage;
   hero_alt?: string;
+  hero_panels?: StylingHeroPanel[];
+  hero_mobile_image?: StylingImage | null;
+  clients_title?: string;
+  clients?: StylingClient[];
   intro_label: string;
   intro_title: string;
   intro_text: string;
@@ -37,6 +50,8 @@ export interface StylingProject {
   slug: string;
   title: string;
   category: string;
+  category_key?: string;
+  featured?: boolean;
   summary: string;
   body: string;
   cover: StylingImage;

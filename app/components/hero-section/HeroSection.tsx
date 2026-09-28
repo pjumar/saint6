@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Header } from "@/app/components/header/Header";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
@@ -20,6 +20,7 @@ interface HeroSectionProps {
   showScrollIndicator?: boolean;
   showDecorativeLine?: boolean;
   imageFit?: "cover" | "contain";
+  backgroundContent?: ReactNode;
 }
 
 export function HeroSection({
@@ -30,6 +31,7 @@ export function HeroSection({
   showScrollIndicator = false,
   showDecorativeLine = false,
   imageFit = "cover",
+  backgroundContent,
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -151,15 +153,17 @@ export function HeroSection({
     <>
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
-          <ProgressiveImage
-            src={backgroundImage}
-            alt={backgroundAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"
-            className={`${styles.heroBackgroundImage} ${imageFit === "contain" ? styles.portfolioImage : ""}`}
-            placeholderSrc={placeholderImage}
-            priority
-          />
+          {backgroundContent || (
+            <ProgressiveImage
+              src={backgroundImage}
+              alt={backgroundAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"
+              className={`${styles.heroBackgroundImage} ${imageFit === "contain" ? styles.portfolioImage : ""}`}
+              placeholderSrc={placeholderImage}
+              priority
+            />
+          )}
           <div className={styles.heroOverlay} />
         </div>
 

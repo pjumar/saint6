@@ -84,7 +84,9 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -141,6 +143,22 @@
           "localized": true
         }
       }
+    },
+    "category_key": {
+      "type": "enumeration",
+      "enum": [
+        "commercial",
+        "celebrity",
+        "editorial",
+        "lookbook",
+        "music",
+        "personal"
+      ],
+      "required": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

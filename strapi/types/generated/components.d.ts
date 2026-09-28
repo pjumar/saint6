@@ -303,6 +303,18 @@ export interface StudioStats extends Struct.ComponentSchema {
   };
 }
 
+export interface StylingClient extends Struct.ComponentSchema {
+  collectionName: 'components_styling_clients';
+  info: {
+    displayName: 'Styling client';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    source_url: Schema.Attribute.String;
+  };
+}
+
 export interface StylingCredit extends Struct.ComponentSchema {
   collectionName: 'components_styling_credits';
   info: {
@@ -318,6 +330,17 @@ export interface StylingGalleryImage extends Struct.ComponentSchema {
   collectionName: 'components_styling_gallery_images';
   info: {
     displayName: 'Styling Gallery Image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface StylingHeroPanel extends Struct.ComponentSchema {
+  collectionName: 'components_styling_hero_panels';
+  info: {
+    displayName: 'Styling hero-panel';
   };
   attributes: {
     alt: Schema.Attribute.String & Schema.Attribute.Required;
@@ -361,8 +384,10 @@ declare module '@strapi/strapi' {
       'studio.facilities': StudioFacilities;
       'studio.full-rental': StudioFullRental;
       'studio.stats': StudioStats;
+      'styling.client': StylingClient;
       'styling.credit': StylingCredit;
       'styling.gallery-image': StylingGalleryImage;
+      'styling.hero-panel': StylingHeroPanel;
       'styling.text-block': StylingTextBlock;
     }
   }

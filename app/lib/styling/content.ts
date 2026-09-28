@@ -43,24 +43,43 @@ export const getStylingContent = cache(
         throw new Error(`Styling CMS request failed (${response.status})`);
       return response.json();
     }
+    const projectParams = {
+      "populate[cover]": "true",
+      "populate[gallery][populate][image]": "true",
+      "populate[credits]": "true",
+      "sort[0]": "sort_order:asc",
+      "sort[1]": "slug:asc",
+      "pagination[pageSize]": "100",
+    };
     const [pageResult, projectResult] = await Promise.all([
       read("styling-page", {
         "populate[hero_image]": "true",
+        "populate[hero_mobile_image]": "true",
+        "populate[hero_panels][populate][image]": "true",
+        "populate[clients][populate][logo]": "true",
         "populate[services]": "true",
         "populate[process]": "true",
         "populate[faqs]": "true",
       }),
-      read("styling-projects", {
-        "populate[cover]": "true",
-        "populate[gallery][populate][image]": "true",
-        "populate[credits]": "true",
-        "sort[0]": "sort_order:asc",
-        "sort[1]": "slug:asc",
-        "pagination[pageSize]": "100",
-      }),
+      read("styling-projects", { ...projectParams, "pagination[page]": "1" }),
     ]);
     const page: StylingContent["page"] = pageResult.data;
-    const projects: StylingContent["projects"] = projectResult.data;
+    const projects: StylingContent["projects"] = [
+      ...(projectResult.data || []),
+    ];
+    for (
+      let nextPage = 2;
+      nextPage <= (projectResult.meta?.pagination?.pageCount || 1);
+      nextPage++
+    ) {
+      const next = await read("styling-projects", {
+        ...projectParams,
+        "pagination[page]": String(nextPage),
+      });
+      if (!Array.isArray(next.data) || !next.data.length)
+        throw new Error("Incomplete styling project pagination");
+      projects.push(...next.data);
+    }
     if (
       !page?.hero_heading ||
       !page.intro_title ||
@@ -72,10 +91,21 @@ export const getStylingContent = cache(
       throw new Error(`Incomplete published styling content for ${locale}`);
     }
     if (projectResult.meta?.pagination?.total > projects.length)
-      throw new Error("Styling project pagination needs extending");
+      throw new Error("Incomplete styling project pagination");
     return {
       page: {
         ...page,
+        hero_panels: page.hero_panels?.map((panel) => ({
+          ...panel,
+          image: media(panel.image, origin),
+        })),
+        hero_mobile_image: page.hero_mobile_image
+          ? media(page.hero_mobile_image, origin)
+          : null,
+        clients: page.clients?.map((client) => ({
+          ...client,
+          logo: media(client.logo, origin),
+        })),
         hero_image: {
           ...media(page.hero_image, origin),
           alternativeText: page.hero_alt || page.hero_image.alternativeText,

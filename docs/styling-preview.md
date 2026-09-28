@@ -4,24 +4,24 @@
 
 Preview branch `codex/styling-preview`. No production deployment, live CMS migration, new tracking destination, enquiry submission or message sent.
 
-English and Vietnamese service pages at `/{locale}/styling`, plus eight project pages at `/{locale}/styling/{slug}`. Uses Saint 6’s existing fonts, header, navigation, hero, red section header, neutral backgrounds and footer. The homepage hero is Minh Triệu & Kỳ Duyên at the Lê Thanh Hoà fashion show. All styling credits name **Trần Hoài Trang** personally. The legal company name in the existing footer remains correct and unchanged.
+English and Vietnamese service pages at `/{locale}/styling`, plus 227 project pages and a searchable, paginated archive at `/{locale}/styling/{slug}`. Uses Saint 6’s existing fonts, header, navigation, hero, red section header, neutral backgrounds and footer. The main hero is a responsive three-panel composition of Kỳ Duyên in Dior, Đen Vâu and My Truth in Denim. Mobile uses a separate portrait image. Minh Triệu projects remain in the archive, but never in the main hero. All styling credits name **Trần Hoài Trang** personally. The legal company name in the existing footer remains correct and unchanged.
 
 The project descriptions are new editorial summaries of the source imagery, not claims about campaign results. Original collaboration credits and source URLs are retained. The source site’s placeholder 1970 dates are deliberately omitted. Realme was excluded because its source lists a different stylist.
 
 ## Content and assets
 
-- `app/lib/styling/seed.json`: bilingual review copy and 8 projects.
+- `app/lib/styling/seed.json`: bilingual review copy and 227 projects.
 - `docs/styling-sources.json`: source pages, source credits and image provenance.
-- `public/images/styling/`: 43 optimized WebP images fetched from Trang’s portfolio; no runtime hotlinking.
+- `public/images/styling/`: optimized WebP images fetched from Trang’s portfolio; no runtime hotlinking.
 - `docs/styling-copy.md`: readable English and Vietnamese draft.
 
 The preview uses the seed copy while the existing CMS stays untouched. The real CMS read path has also been tested against an isolated local Strapi instance with both languages, media uploads, gallery components and publication states.
 
 ## Strapi editor structure
 
-**Styling Page** is a localized single type: hero image and localized alt text, introduction, four repeatable service blocks, portfolio heading, stylist profile, repeatable process steps, FAQs, enquiry heading and SEO fields.
+**Styling Page** is a localized single type: hero image, mobile image, repeatable hero panels, brand-logo list and localized alt text, introduction, four repeatable service blocks, portfolio heading, stylist profile, repeatable process steps, FAQs, enquiry heading and SEO fields.
 
-**Styling Project** is a localized collection: shared slug, title, category, summary, body paragraphs, cover and localized alt text, repeatable gallery images and alt text, role/name credits, original source URL, optional video URL, order and SEO fields. English and Vietnamese share the same document ID and slug. New projects appear automatically in the page listing; publish both languages before adding a project to avoid an untranslated destination.
+**Styling Project** is a localized collection: shared slug, title, category, filter category, featured toggle, summary, body paragraphs, cover and localized alt text, repeatable gallery images and alt text, role/name credits, original source URL, optional video URL, order and SEO fields. English and Vietnamese share the same document ID and slug. New projects appear automatically in the paginated archive; featured projects are shown on the service page (up to six); publish both languages before adding a project to avoid an untranslated destination.
 
 Keep `slug` unique across projects and stable after launch. Changing an existing public slug will require a redirect. The frontend reads published content only and revalidates every five minutes. CMS errors throw rather than silently restoring the review copy.
 
@@ -33,7 +33,7 @@ From the repo root, using the Node version matching the installed Strapi native 
 node scripts/styling/seed-local.cjs --generate-types --serve
 ```
 
-This script forces an isolated SQLite database under `strapi/.tmp/styling-preview`, creates separate local secrets, binds to `127.0.0.1:1346`, disables the retention cron and imports only missing styling content. Rerunning does not overwrite editorial changes. It does not load the production `.env` or access Strapi Cloud. Uploaded local files and secrets remain gitignored. The optional `--generate-types` refreshes Strapi’s schema typings. Do not transfer this isolated database over the real CMS: it contains no existing business content.
+This script forces an isolated SQLite database under `strapi/.tmp/styling-preview-archive`, creates separate local secrets, binds to `127.0.0.1:1346`, disables the retention cron and imports only missing styling content. Rerunning does not overwrite editorial changes. `--refresh-preview` explicitly refreshes this isolated local styling dataset from the reviewed seed; it is never a production import command. It does not load the production `.env` or access Strapi Cloud. Uploaded local files and secrets remain gitignored. The optional `--generate-types` refreshes Strapi’s schema typings. Do not transfer this isolated database over the real CMS: it contains no existing business content.
 
 For a staging CMS, deploy these schema additions to that environment, import the reviewed copy/media there and give the frontend token read-only access to the two new types. Set:
 
@@ -50,7 +50,7 @@ The URL/token overrides are optional: without them the reader uses the project�
 1. Approve the page design, copy, project selection and image reuse.
 2. Back up the existing CMS and deploy the additive schema changes separately. Import the reviewed images and both localized versions **without replacing the current database**; do not overwrite existing styling entries on retries.
 3. Grant the existing frontend server token read access to Styling Page and Styling Project. Keep create/update/delete permissions out of the frontend token.
-4. Set `STYLING_CONTENT_SOURCE=cms` in the production frontend. Verify that all eight projects, both languages, images, alt text and credits are published in Strapi.
+4. Set `STYLING_CONTENT_SOURCE=cms` in the production frontend. Verify that all 227 projects, both languages, images, alt text and credits are published in Strapi.
 5. Only then set server-side `STYLING_PUBLIC_ENABLED=true` and deploy the approved frontend.
 
 Until that explicit production switch, the new routes return 404 in Vercel Production, the navigation link stays hidden and the sitemap excludes Styling. Public launch also refuses seed content: it requires CMS mode. Preview deployments have `X-Robots-Tag: noindex, nofollow` and new routes have noindex metadata.
@@ -58,3 +58,15 @@ Until that explicit production switch, the new routes return 404 in Vercel Produ
 SEO includes unique page titles/descriptions, canonical URLs, EN/VI/x-default alternatives, correct Open Graph URLs/images, Service / CreativeWork / BreadcrumbList structured data, server-rendered project links and the production sitemap integration. No invented dates, awards or review ratings.
 
 The enquiry section links to the existing contact page and to Messenger/Zalo. Messenger reuses the existing referral helper and its feature flag. Zalo emits the existing `zalo_click` event with `styling_enquiry` placement. No new message-sent conversion is claimed.
+
+## Expanded archive review
+
+228 source projects were inventoried across all five source index pages. **227 are included**. Realme 8 Pro is excluded at the owner’s explicit request because the source credits Vu Anh Le as stylist. The source’s placeholder dates and filler photography explanations were not copied. Older archive copy is intentionally concise and editable; the featured projects have individual editorial descriptions.
+
+`/{locale}/styling/projects` supports six category filters, accent-insensitive name/brand search and 18 projects per page. Filters and pagination use server-rendered links/GET forms, so the archive remains usable without JavaScript. Search results are noindex; clean archive/category/pagination URLs have their own canonical and language alternates. CMS reads traverse every API page and never truncate at 100 projects.
+
+Project cards use each image’s natural aspect ratio. Project heroes and galleries preserve complete images, and detail images are bounded by their native dimensions. Pantene uses its original portrait campaign image instead of an enlarged film thumbnail. No source image is artificially upscaled during asset preparation.
+
+Twelve official logo assets are documented in `docs/styling-brand-sources.json`. “Selected brands in Trang’s portfolio” encompasses campaign, editorial and celebrity styling; it does not assert twelve direct client contracts. Each logo opens the matching project search. La Habana is retained as an editorial title; its source lists BCBG, FCUK, DKNY, Maschio, Jessie Dolls and Fragile Spine as clothing brands, so no unrelated La Habana logo is used.
+
+`docs/styling-archive-sources.json` records the full portfolio inventory and selected-image provenance. The original eight-project source audit remains available in `docs/styling-sources.json`. The live Strapi database and production frontend remain untouched.
