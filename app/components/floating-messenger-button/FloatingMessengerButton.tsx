@@ -32,14 +32,15 @@ export function FloatingMessengerButton() {
     };
   }, [pathname]);
 
-  const trackZaloClick = () => {
+  const trackContactClick = (channel: "messenger" | "zalo") => {
     if (!isProductionSite) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "zalo_click",
-      contact_channel: "zalo",
+      event: `${channel}_click`,
+      contact_channel: channel,
       contact_placement: "floating_button",
-      link_url: ZALO_URL,
+      // Report only the public destination, never the private attribution ref.
+      link_url: channel === "zalo" ? ZALO_URL : MESSENGER_URL,
       page_path: pathname,
       language: locale,
     });
@@ -55,6 +56,7 @@ export function FloatingMessengerButton() {
         target="_blank"
         rel="noopener noreferrer"
         className={styles.button}
+        onClick={() => trackContactClick("messenger")}
         aria-label={
           isVi ? "Nhắn tin qua Messenger" : "Chat with us on Messenger"
         }
@@ -75,7 +77,7 @@ export function FloatingMessengerButton() {
         rel="noopener noreferrer"
         className={`${styles.button} ${styles.zaloButton}`}
         aria-label={isVi ? "Nhắn tin qua Zalo" : "Chat with us on Zalo"}
-        onClick={trackZaloClick}
+        onClick={() => trackContactClick("zalo")}
       >
         <svg
           viewBox="0 0 24 24"
