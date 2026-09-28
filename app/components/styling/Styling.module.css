@@ -2,6 +2,15 @@
   background: #fff;
   color: var(--color-text-primary, #231d1d);
 }
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .container {
   width: 100%;
   max-width: 90rem;

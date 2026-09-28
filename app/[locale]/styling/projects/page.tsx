@@ -124,6 +124,9 @@ export default async function StylingPortfolio(props: Props) {
           id="portfolio-results"
           aria-label={vi ? "Các dự án styling" : "Styling projects"}
         >
+          <h2 className={styles.visuallyHidden}>
+            {vi ? "Các dự án styling" : "Styling projects"}
+          </h2>
           <div className={styles.archiveControls}>
             <nav
               className={styles.filters}

@@ -14,7 +14,7 @@ The hosted Vercel review preview still uses the approved seed dataset until a ho
 
 ## Project fields
 
-- **Slug:** lowercase words and hyphens. Shared between languages; unique across different projects. Once published it is locked, including after unpublishing. Create new work with a new entry and a new slug. Do not rename existing URLs casually.
+- **Slug:** lowercase words and hyphens. Shared between languages; unique across different projects. `projects` is reserved for the portfolio page. Once published it is locked, including after unpublishing. Create new work with a new entry and a new slug. Do not rename existing URLs casually.
 - **Category key:** the archive filter. **Category:** its translated label. Lower **Sort order** appears first; **Featured** includes the project in the first six selected works.
 - **Cover / gallery:** use sharp originals. Supply useful localized descriptions. Drag gallery entries to reorder. The film poster is omitted from the gallery to avoid duplication. Check both mobile and desktop composition after replacement.
 - **Video URL:** an optional HTTPS YouTube watch, share, Shorts or embed URL. The player only loads after Play; an external YouTube link is always available. Embedding restrictions are controlled by the video owner.

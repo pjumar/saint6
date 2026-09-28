@@ -54,6 +54,7 @@ export function HeroSection({
   }, [isMenuOpen]);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!showScrollIndicator || !scrollIndicatorRef.current) return;
 
     let animation: gsap.core.Tween;
@@ -78,6 +79,7 @@ export function HeroSection({
   }, [showScrollIndicator]);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (
       !showDecorativeLine ||
       !decorativeLineRef.current ||

@@ -196,3 +196,10 @@
   position: relative;
   padding-top: 1rem;
 }
+@media (prefers-reduced-motion: reduce) {
+  .menuOverlay,
+  .menuOverlay.menuOverlayClosing {
+    animation: none;
+    opacity: 1;
+  }
+}

@@ -46,6 +46,7 @@ async function run() {
     assert.equal((await find('vi')).summary,'Nội dung tiếng Việt');
     ok('Publish updates copy, cover, sharing image and gallery order without changing Vietnamese');
     await assert.rejects(docs.create({locale:'en',data}),/already uses this URL/);
+    await assert.rejects(docs.create({locale:'en',data:{...data,slug:'projects'}}),/reserved for the portfolio/);
     await assert.rejects(docs.update({documentId:draft.documentId,locale:'en',data:{slug:`${slug}-renamed`}}),/already been published/);
     await assert.rejects(docs.update({documentId:draft.documentId,locale:'en',data:{video_url:'https://youtube.com.evil.test/watch?v=12345678901'}}),/valid HTTPS YouTube/);
     await docs.update({documentId:draft.documentId,locale:'en',data:{video_url:'https://youtu.be/dQw4w9WgXcQ'}});

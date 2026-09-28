@@ -67,6 +67,11 @@ export function registerStylingValidation(strapi: Core.Strapi) {
             "Use a project URL with lowercase letters, numbers and hyphens.",
           );
         }
+        if (slug === "projects") {
+          throw new errors.ValidationError(
+            "The URL 'projects' is reserved for the portfolio. Choose a different project slug.",
+          );
+        }
         const locked =
           entries.find((entry) => entry.locked_slug)?.locked_slug ||
           entries.find((entry) => entry.publishedAt)?.slug;
@@ -89,7 +94,8 @@ export function registerStylingValidation(strapi: Core.Strapi) {
             "Another project already uses this URL. Choose a different slug, or switch language on the existing project to add its translation.",
           );
         const video =
-          params.data && Object.getOwnPropertyDescriptor(params.data, "video_url")
+          params.data &&
+          Object.getOwnPropertyDescriptor(params.data, "video_url")
             ? params.data.video_url
             : current?.video_url;
         if (!validVideo(video))
