@@ -8,7 +8,9 @@
       "width": 800,
       "height": 176,
       "alternativeText": "Dior"
-    }
+    },
+    "logo_view_box": "0 0 800 176",
+    "display_width": 11
   },
   {
     "name": "Louis Vuitton",
@@ -19,7 +21,9 @@
       "width": 800,
       "height": 600,
       "alternativeText": "Louis Vuitton"
-    }
+    },
+    "logo_view_box": "15 259 770 82",
+    "display_width": 12
   },
   {
     "name": "Calvin Klein",
@@ -30,7 +34,9 @@
       "width": 948,
       "height": 150,
       "alternativeText": "Calvin Klein"
-    }
+    },
+    "logo_view_box": "0 0 948 150",
+    "display_width": 11
   },
   {
     "name": "Tung Vu",
@@ -41,7 +47,9 @@
       "width": 1024,
       "height": 147,
       "alternativeText": "Tung Vu"
-    }
+    },
+    "logo_view_box": "7 0 1012 147",
+    "display_width": 11.5
   },
   {
     "name": "Samsung",
@@ -52,7 +60,9 @@
       "width": 130,
       "height": 29,
       "alternativeText": "Samsung"
-    }
+    },
+    "logo_view_box": "0 0 130 29",
+    "display_width": 9.5
   },
   {
     "name": "Yamaha",
@@ -63,7 +73,9 @@
       "width": 636,
       "height": 218,
       "alternativeText": "Yamaha"
-    }
+    },
+    "logo_view_box": "0 0 636 218",
+    "display_width": 8.5
   },
   {
     "name": "Honda",
@@ -74,7 +86,9 @@
       "width": 5667,
       "height": 522,
       "alternativeText": "Honda"
-    }
+    },
+    "logo_view_box": "0 0 2250 522",
+    "display_width": 12
   },
   {
     "name": "CITIZEN",
@@ -85,7 +99,9 @@
       "width": 333,
       "height": 61,
       "alternativeText": "CITIZEN"
-    }
+    },
+    "logo_view_box": "0 0 333 61",
+    "display_width": 10
   },
   {
     "name": "Dove",
@@ -96,7 +112,9 @@
       "width": 480,
       "height": 480,
       "alternativeText": "Dove"
-    }
+    },
+    "logo_view_box": "27 148 429 183",
+    "display_width": 7
   },
   {
     "name": "Pantene",
@@ -107,7 +125,9 @@
       "width": 191,
       "height": 35,
       "alternativeText": "Pantene"
-    }
+    },
+    "logo_view_box": "0 0 191 35",
+    "display_width": 9.5
   },
   {
     "name": "Prudential",
@@ -118,7 +138,9 @@
       "width": 160,
       "height": 28,
       "alternativeText": "Prudential"
-    }
+    },
+    "logo_view_box": "0 0 160 28",
+    "display_width": 11
   },
   {
     "name": "Lazada",
@@ -129,6 +151,8 @@
       "width": 344,
       "height": 108,
       "alternativeText": "Lazada"
-    }
+    },
+    "logo_view_box": "0 18 344 73",
+    "display_width": 9.5
   }
 ]

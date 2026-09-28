@@ -309,7 +309,17 @@ export interface StylingClient extends Struct.ComponentSchema {
     displayName: 'Styling client';
   };
   attributes: {
+    display_width: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 16;
+          min: 4;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<11>;
     logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    logo_view_box: Schema.Attribute.String;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     source_url: Schema.Attribute.String;
   };

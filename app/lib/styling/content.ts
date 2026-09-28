@@ -54,6 +54,7 @@ export const getStylingContent = cache(
     const [pageResult, projectResult] = await Promise.all([
       read("styling-page", {
         "populate[hero_image]": "true",
+        "populate[founder_image]": "true",
         "populate[hero_mobile_image]": "true",
         "populate[hero_panels][populate][image]": "true",
         "populate[clients][populate][logo]": "true",
@@ -95,6 +96,9 @@ export const getStylingContent = cache(
     return {
       page: {
         ...page,
+        founder_image: page.founder_image
+          ? media(page.founder_image, origin)
+          : null,
         hero_panels: page.hero_panels?.map((panel) => ({
           ...panel,
           image: media(panel.image, origin),

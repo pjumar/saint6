@@ -51,10 +51,10 @@ export async function generateMetadata(props: Props) {
   const meta = stylingMetadata(
     data.locale,
     path,
-    `${vi ? "Portfolio Styling" : "Styling Portfolio"} · Trần Hoài Trang | Saint 6`,
+    `${vi ? "Portfolio Styling" : "Our Styling Portfolio"} | Saint 6`,
     vi
-      ? "Khám phá các dự án styling của Trần Hoài Trang: quảng cáo, nghệ sĩ, thời trang và âm nhạc."
-      : "Explore Trần Hoài Trang’s styling portfolio across advertising, celebrity, fashion and music.",
+      ? "Khám phá portfolio styling của chúng tôi tại Saint 6: quảng cáo, nghệ sĩ, thời trang và âm nhạc. Styling bởi Trần Hoài Trang."
+      : "Explore our styling portfolio at Saint 6 across advertising, celebrity, fashion and music. Styling by Trần Hoài Trang.",
     data.pageContent.hero_image,
   );
   if (data.query) meta.robots = { index: false, follow: stylingIsPublic };
@@ -104,7 +104,7 @@ export default async function StylingPortfolio(props: Props) {
       </div>
       <section className={`${styles.container} ${styles.archiveHeading}`}>
         <p className={styles.label}>
-          TRẦN HOÀI TRANG / {vi ? "CÁC DỰ ÁN" : "THE PORTFOLIO"}
+          SAINT 6 / {vi ? "PORTFOLIO CỦA CHÚNG TÔI" : "OUR PORTFOLIO"}
         </p>
         <h1>
           {vi

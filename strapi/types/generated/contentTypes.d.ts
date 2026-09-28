@@ -2026,6 +2026,12 @@ export interface ApiStylingPageStylingPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    founder_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     founder_label: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

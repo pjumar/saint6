@@ -19,7 +19,7 @@ The preview uses the seed copy while the existing CMS stays untouched. The real 
 
 ## Strapi editor structure
 
-**Styling Page** is a localized single type: hero image, mobile image, repeatable hero panels, brand-logo list and localized alt text, introduction, four repeatable service blocks, portfolio heading, stylist profile, repeatable process steps, FAQs, enquiry heading and SEO fields.
+**Styling Page** is a localized single type: hero image, mobile image, repeatable hero panels, brand-logo list and localized alt text, introduction, four repeatable service blocks, portfolio heading, founder profile with editable portrait, repeatable process steps, FAQs, enquiry heading and SEO fields.
 
 **Styling Project** is a localized collection: shared slug, title, category, filter category, featured toggle, summary, body paragraphs, cover and localized alt text, repeatable gallery images and alt text, role/name credits, original source URL, optional video URL, order and SEO fields. English and Vietnamese share the same document ID and slug. New projects appear automatically in the paginated archive; featured projects are shown on the service page (up to six); publish both languages before adding a project to avoid an untranslated destination.
 
@@ -57,7 +57,7 @@ Until that explicit production switch, the new routes return 404 in Vercel Produ
 
 SEO includes unique page titles/descriptions, canonical URLs, EN/VI/x-default alternatives, correct Open Graph URLs/images, Service / CreativeWork / BreadcrumbList structured data, server-rendered project links and the production sitemap integration. No invented dates, awards or review ratings.
 
-The enquiry section links to the existing contact page and to Messenger/Zalo. Messenger reuses the existing referral helper and its feature flag. Zalo emits the existing `zalo_click` event with `styling_enquiry` placement. No new message-sent conversion is claimed.
+The main Styling page reuses the existing service-page contact form, including its Strapi submission and success-only conversion event. It was checked without creating a live enquiry. Project detail pages retain a contact-page link. Duplicate inline Messenger/Zalo links are removed; the shared floating buttons remain.
 
 ## Expanded archive review
 
@@ -67,6 +67,12 @@ The enquiry section links to the existing contact page and to Messenger/Zalo. Me
 
 Project cards use each image’s natural aspect ratio. Project heroes and galleries preserve complete images, and detail images are bounded by their native dimensions. Pantene uses its original portrait campaign image instead of an enlarged film thumbnail. No source image is artificially upscaled during asset preparation.
 
-Twelve official logo assets are documented in `docs/styling-brand-sources.json`. “Selected brands in Trang’s portfolio” encompasses campaign, editorial and celebrity styling; it does not assert twelve direct client contracts. Each logo opens the matching project search. La Habana is retained as an editorial title; its source lists BCBG, FCUK, DKNY, Maschio, Jessie Dolls and Fragile Spine as clothing brands, so no unrelated La Habana logo is used.
+Twelve official logo assets are documented in `docs/styling-brand-sources.json`. “Selected brands in our portfolio” encompasses campaign, editorial and celebrity styling; it does not assert twelve direct client contracts. Each logo opens the matching project search. La Habana is retained as an editorial title; its source lists BCBG, FCUK, DKNY, Maschio, Jessie Dolls and Fragile Spine as clothing brands, so no unrelated La Habana logo is used.
 
 `docs/styling-archive-sources.json` records the full portfolio inventory and selected-image provenance. The original eight-project source audit remains available in `docs/styling-sources.json`. The live Strapi database and production frontend remain untouched.
+
+## Preview refinements
+
+The founder portrait is the owner-selected ELLE Decoration image, stored locally at `public/images/styling/tran-hoai-trang-elle.webp`. Source: https://cdn.elledecoration.vn/Ooe1mG7BhlhsaU4VsF1uJPIpsUEvXXN1vmX5wqs8QXw/rs:fit:1280:0/quality:82/2023/07/IMG_9506tnt.jpg@webp
+
+Brand logos retain their original artwork. Optional `logo_view_box` frames unused canvas, while `display_width` sets the optical size in rem; both are editable on each CMS client component. The portfolio CTA no longer includes a count. Explore the work smoothly scrolls to the project grid, with an instant-scroll reduced-motion alternative and a normal anchor fallback.

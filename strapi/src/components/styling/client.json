@@ -18,6 +18,16 @@
     },
     "source_url": {
       "type": "string"
+    },
+    "logo_view_box": {
+      "type": "string",
+      "regex": "^\\d+(?:\\.\\d+)? \\d+(?:\\.\\d+)? \\d+(?:\\.\\d+)? \\d+(?:\\.\\d+)?$"
+    },
+    "display_width": {
+      "type": "decimal",
+      "min": 4,
+      "max": 16,
+      "default": 11
     }
   }
 }

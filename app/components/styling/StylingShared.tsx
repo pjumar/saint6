@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import type {
   StylingLocale,
   StylingPage,
   StylingProject,
 } from "@/app/lib/styling/types";
 import styles from "./Styling.module.css";
-import { StylingContactLinks } from "./StylingContactLinks";
 
 export function Paragraphs({ text }: { text: string }) {
   return (
@@ -35,9 +35,12 @@ export function ProjectCard({
     >
       <div
         className={styles.cardImage}
-        style={{
-          aspectRatio: `${project.cover.width} / ${project.cover.height}`,
-        }}
+        style={
+          {
+            aspectRatio: `${project.cover.width} / ${project.cover.height}`,
+            "--card-ratio": project.cover.width / project.cover.height,
+          } as CSSProperties
+        }
       >
         <Image
           src={project.cover.url}
@@ -83,7 +86,6 @@ export function StylingEnquiry({
             {vi ? "Gửi yêu cầu" : "Send your brief"}
             <span aria-hidden="true">↗</span>
           </Link>
-          <StylingContactLinks locale={locale} />
         </div>
       </div>
     </section>

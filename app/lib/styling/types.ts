@@ -17,6 +17,8 @@ export interface StylingClient {
   name: string;
   logo: StylingImage;
   source_url: string;
+  logo_view_box?: string;
+  display_width?: number;
 }
 export interface StylingPage {
   hero_heading: string;
@@ -37,6 +39,7 @@ export interface StylingPage {
   founder_label: string;
   founder_title: string;
   founder_text: string;
+  founder_image?: StylingImage | null;
   process_title: string;
   process: StylingBlock[];
   faq_title: string;

@@ -12,11 +12,11 @@ Styling brings the person, the clothes and the story into focus. Led by Trần H
 
 From a single look to a complete visual direction, we shape an approach around your brief, your identity and where the image will live.
 
-A few perspectives from Trần Hoài Trang’s portfolio. Discover the complete collection by brand, artist or category.
+A selection of our work across campaigns, music, fashion and personal styling.
 
 Trần Hoài Trang
 
-Trang’s portfolio moves between commercial campaigns, celebrity portraits, fashion collections and personal moments. Her work brings clothing, accessories and setting into conversation, with the person wearing the look always at its centre.
+Trần Hoài Trang is the founder of Saint 6 and the stylist behind this body of work. Her practice spans commercial campaigns, celebrity portraits, fashion collections and personal styling, with the person wearing the look always at its centre.
 
 At Saint 6, styling can be part of your wider production or a service in its own right. Tell us what you are making, and we will help define the styling support it needs.
 
@@ -91,7 +91,7 @@ Brand campaign by Trần Hoài Trang.
 
 TVC Mirinda – Vị Soda Kem Việt Quất.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production House: DABE Production; Model Casting: Thailand
 
@@ -124,7 +124,7 @@ Personal styling by Trần Hoài Trang.
 
 DOANH NHÂN NGUYỄN QUỐC CƯỜNG.
 
-A project from Trần Hoài Trang’s personal styling portfolio. Explore the selected imagery and project credits below.
+A personal styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -135,7 +135,7 @@ Personal styling by Trần Hoài Trang.
 
 KHOẢNH KHẮC TUYỆT VỜI – CHỊ ĐÀM THU TRANG.
 
-A project from Trần Hoài Trang’s personal styling portfolio. Explore the selected imagery and project credits below.
+A personal styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -146,7 +146,7 @@ Celebrity styling by Trần Hoài Trang.
 
 MẠC TRUNG KIÊN.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -168,7 +168,7 @@ Personal styling by Trần Hoài Trang.
 
 ANH CHỊ ĐÀM THU TRANG – NGUYỄN QUỐC CƯỜNG.
 
-A project from Trần Hoài Trang’s personal styling portfolio. Explore the selected imagery and project credits below.
+A personal styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -179,7 +179,7 @@ Celebrity styling by Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -190,7 +190,7 @@ Music & film by Trần Hoài Trang.
 
 CHỈ MUỐN BÊN EM LÚC NÀY – The Records #3 | GIGI HƯƠNG GIANG COVER.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Lyric: JiKi X; Record: To Bo, Nguyễn Duy Anh – AN Productions; Mix& Master: Đông Phong; Arranger: Nguyễn Anh Vũ; Project Manager: Linh Nguyễn – Tuấn Hải; Director: Hoàng Long – Phạm Ngọc Long; Producer: Văn Ngọc Sâm; Production Designer: Hồ Phú Vinh; D.O.P – Camop: Phạm Ngọc Long; Focus Puller: Bảo Nguyễn; Photography: LongBui Hoang; Assistant Camera: Tee; Hair & Make up: Phương Si; Editor: Pham Ngoc Long; Motion Graphic: Phú Hồng Trần; Costume: The A Studio; Trio Ji; Chim Yến; Stylist Assistant: Khanh Lê
 
@@ -201,7 +201,7 @@ Music & film by Trần Hoài Trang.
 
 MV TÌM HÀNH TINH KHÁC – VŨ CÁT TƯỜNG.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -212,7 +212,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – FLORAL.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up & hais: Quí Đoàn, Eric; Photography: Hậu Lê
 
@@ -234,7 +234,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HOA HẬU PHƯƠNG LÊ – ÁO DÀI.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Mr AT; Make up & Hair: Quí Đoàn + Eric Nguyễn
 
@@ -245,7 +245,7 @@ Celebrity styling by Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – FILM.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Phạm Ngọc Long
 
@@ -256,7 +256,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – GOLF.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -267,7 +267,7 @@ Brand campaign by Trần Hoài Trang.
 
 DANH HÀI XUÂN BẮC x VINSHOP.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Xuân Bắc; Client: Vinshop; Production House: MMG Production; Photography: Minh Mì Gói
 
@@ -278,7 +278,7 @@ Brand campaign by Trần Hoài Trang.
 
 SAMSUNG – TRƯƠNG THẾ VINH & THUÝ NGÂN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: SAMSUNG; Production House: VAIB
 
@@ -289,7 +289,7 @@ Brand campaign by Trần Hoài Trang.
 
 OMO KV TẾT 2021.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: OMO; Production House: VAIB
 
@@ -300,7 +300,7 @@ Music & film by Trần Hoài Trang.
 
 YUNO BIGBOI X VŨ PHỤNG TIÊN X EMMA X TRÀ XANH KHÔNG ĐỘ – QUỐC TẾ DỌN NHÀ (OFFICIAL MV TẾT 2021).
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: TRÀ XANH KHÔNG ĐỘ; Talent: YUNO BIGBOI, EMMA, PHỤNG TIÊN
 
@@ -311,7 +311,7 @@ Brand campaign by Trần Hoài Trang.
 
 Làm sao để #Tết_Mở_Lòng? | Lipton x Kawaii Tuấn Anh | Phim Tết 2021.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: LIPTON; Production House: AlIEN; Director: KAWAII
 
@@ -322,7 +322,7 @@ Brand campaign by Trần Hoài Trang.
 
 NGHỆ SĨ QUANG TRUNG – THẦN TÀI XANH – ĐIỆN MÁY XANH.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: ĐIỆN MÁY XANH; Production house: MAY
 
@@ -333,7 +333,7 @@ Brand campaign by Trần Hoài Trang.
 
 MÓN QUÀ TẶNG CHA – TVC TRÀ THANH NHIỆT DR.THANH TẾT 2021.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: DR THANH
 
@@ -344,7 +344,7 @@ Music & film by Trần Hoài Trang.
 
 MV CẢ NƯỚC DU XUÂN – VIETTRAVEL.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: VietTravel
 
@@ -355,7 +355,7 @@ Brand campaign by Trần Hoài Trang.
 
 LAN NGỌC – CHÂU BÙI – SONG LUÂN | OMACHI.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: Omachi; Production House: Sudest
 
@@ -366,7 +366,7 @@ Brand campaign by Trần Hoài Trang.
 
 CHÂU BÙI – OMACHI KHOAI TÂY NGHIỀN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: Omachi; Starring: Châu Bùi
 
@@ -377,7 +377,7 @@ Brand campaign by Trần Hoài Trang.
 
 LAN NGỌC – CHIN SU.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: Chinsu; Production House: Sudest
 
@@ -388,7 +388,7 @@ Brand campaign by Trần Hoài Trang.
 
 QUẢNG CÁO MOMO LẮC XÌ 2021.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production House: Alien Media; Starring: Bùi Công Nam
 
@@ -399,7 +399,7 @@ Music & film by Trần Hoài Trang.
 
 BB TRẦN – HẢI TRIỀU – NGỌC PHƯỚC | MV CHỊU THÌ CHỊU KHÔNG CHỊU THÌ CHỊU.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: NEW CHOICE
 
@@ -410,7 +410,7 @@ Brand campaign by Trần Hoài Trang.
 
 OMACHI – NINH DƯƠNG LAN NGỌC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production House: Sudest
 
@@ -421,7 +421,7 @@ Brand campaign by Trần Hoài Trang.
 
 FRESSI KV.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: Fressi; Agency: TBWA; Production House: StarVN; Photography: Chanh Studio
 
@@ -432,7 +432,7 @@ Brand campaign by Trần Hoài Trang.
 
 Hoa Hậu Phương Lê – Cho Nami.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -443,7 +443,7 @@ Brand campaign by Trần Hoài Trang.
 
 Hoiana Hotel and Suites TVC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production House: MOTT VISUALS
 
@@ -454,7 +454,7 @@ Brand campaign by Trần Hoài Trang.
 
 OEXPO – HELLY TỐNG.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PH: Zoom Media – Mer Production; Starring: Helly Tống; Make up: Kyo Phan
 
@@ -465,7 +465,7 @@ Brand campaign by Trần Hoài Trang.
 
 MOMO TVC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PH: ALIEN MEDIA
 
@@ -476,7 +476,7 @@ Brand campaign by Trần Hoài Trang.
 
 SHOPEE 7/7.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Talent: SGO48; PH: XC Production
 
@@ -498,7 +498,7 @@ Celebrity styling by Trần Hoài Trang.
 
 ELLY TRẦN.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up: Hiwon; Photography: Kushin Kyo
 
@@ -509,7 +509,7 @@ Brand campaign by Trần Hoài Trang.
 
 YAMAHA SOCIAL LAYOUT.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Ducngo; Art director: Vi Ly; Producer: Dany Pham; Model: ViNguyen DuongMinhNgoc
 
@@ -520,7 +520,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Ca sĩ Thuỳ Chi.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up: Duy Anh; clothings: Chloe Design, Nguyễn Minh Công
 
@@ -531,7 +531,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – STREET STYLE.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Make up: Xi Quan Le; In: Công Trí, Bottega, Versace
 
@@ -542,7 +542,7 @@ Celebrity styling by Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC – BNW.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Make up: Xi Quan Le
 
@@ -553,7 +553,7 @@ Celebrity styling by Trần Hoài Trang.
 
 QUANG ĐẠI.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Chàng thơ của Chang: Trần Quang Đại; In: Lương Việt Thảo, Magnus; Make up: Vuong Khiem
 
@@ -564,7 +564,7 @@ Music & film by Trần Hoài Trang.
 
 MV CHO TAO ĐI – WOWY x YANBI x DANCER MIA.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; MV Executive Producer: Wowy Vietnam Co.,Ltd; Director: Khương Vũ – Chaidao; DOP: Hải Bắc – LumiGrade team; Camera: Jimmy Cat – LumiGrade team; Camera 2: Phú Quang; Equipment: LumiGrade team; Lighting: Cinelight; Colorist: Bùi Công Anh; Photography: Met Phan, Tri Truong; Teaser: Raffael Ng; Producer: Sory Le, Chin Chan; Clothes: Hiep Henry, Chloe Design, Lordy, Louis Huỳnh, Up BH; Make-up: Thảo Nhi; Catering: Kim Thoa; Set Design: Sory Le; Supporting run set: Lê Hoàng, Trung Doan, Nguyễn Hùng, Việt Anh, Đức Minh, Quang Dương, Nguyễn Minh, Hồ Việ; Stylist Assistant On Set: Catherine Ng
 
@@ -575,7 +575,7 @@ Music & film by Trần Hoài Trang.
 
 WOWY x DẾ CHOẮT | SỐNG GẮT | OFFICIAL MV.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Song written and Performed: Wowy x Dế Choắt; Title Designed: Wowy; Director: Khương Vũ; Music Producer: Phạm Hải Âu; Mixing Assistant: Hà Quốc Hoàng; Mix & Master: Emcee Dan; Studio: FLY HIGH; Assistant Director: Dương Bảo Anh; Director of Photography: Dương Thái Anh; Gaffer: Trần Ngọc Lâm; Creative Director: Vương Nguyễn; Art Director: Vũ Thiên; Music Video Production: Star VN; Equipment Rental: Star VN; Executive Producer: Thanh Đặng; Producer: Hưng Hoàng; Production Assistant: Bá Diên, Huỳnh Phạm Mỹ Hiền, Nguyễn Minh Hoàng Trần Trung Tín
 
@@ -586,7 +586,7 @@ Music & film by Trần Hoài Trang.
 
 K-ATM | RIGHT x LONA x HIPZ | OFFICIAL MUSIC VIDEO.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Executive Producer: Tam Meo; Assistance: Thanh Dy, Viet Thai; Music Executive Producer: Right; Music Producer: Hipz Người Việt Bay; Performed: Right; Composer: Right; Recording Engineer: Enkey; Mixing & Mastering Engineer: Enkey; Recorded At: One Hunnid Studio; Starring: Lona; Producer: Mojo [Hillus]; Director: Thoc [Hillus]; D.O.P: BomB reezy [Hillus]; Post Production Manager: Marshallibu [Hillus]; Editor: TLit [Hillus]; Color Grading: BomBreezy [Hillus]; Production Designer: Hillus; Stylist assistant: Phương Khanh
 
@@ -597,7 +597,7 @@ Music & film by Trần Hoài Trang.
 
 MV LOST – OBITO.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Producer executive: Tam Meo; Assistance: Thanh Dy , Viet Thai; Composer: Obito; Record: Tuấn Kare; Producer: Dbaola; Mix & Mastered: 2S Studio , Austin & Felix Voon; Producer: Mojo [hillus]; Director: Thoc [hillus]; D.O.P: BomB reezy [hillus]; Post Production Manager: Marshallibu [hillus]; Color Grading: BomBreezy [hillus]; Production Designer: Mojo [hillus]; Art Director & Story Boards: XXX Cương [hillus]; Props Master: Teo Detail [hillus]; BTS: TLit [hillus]; SP Record: Seachains; SP MV: C’Six, White Ape, Xolit, Wavy, Freaky, Seachains, Phu Nho, Billy, Hillus
 
@@ -608,7 +608,7 @@ Music & film by Trần Hoài Trang.
 
 MV Em bé – AMEE ft KARIK x BAEMIN.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production House: ViewFinder; Clients: Baemin
 
@@ -619,7 +619,7 @@ Brand campaign by Trần Hoài Trang.
 
 CASPER KV.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clients: CASPER VIETNAM; PH: VAIB
 
@@ -630,7 +630,7 @@ Brand campaign by Trần Hoài Trang.
 
 PRUDENTIAL CAMPAIGN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: Prudential; PH: VAIB
 
@@ -641,7 +641,7 @@ Music & film by Trần Hoài Trang.
 
 MV ANH LÀ THẾ GIỚI CỦA AI – ANNIE (LipB) Ft CODT (Uni5).
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Executive Producer: Ông Cao Thắng; Composer: Lương Bảo Duy; Music Arranger: Nemo Trần Huy Hùng; Mix & Master: Bùi Duy Ngọc; Artist & Project Manager: Phương Real; Assitant: Vũ Đạt; Production house: 7Arts; Director: Phan Lên; Creative Director: Thang Huy Vo; Producer: Nguyễn Hiếu; Director of Photography: Ha Hoang; Camera operator: Kog Minh (f.n.p); Focus Puller: Minh Nhí; 1st Ad: Phạm Nguyễn Bảo Hoàng; Assitant Producer: Kim Ngan Truong – Vo Huu Phuoc; Art Director: Sun Le; Props team: Nguyen Phuong; Stylist Assistant: Lê Hồng Phương Khanh
 
@@ -652,7 +652,7 @@ Brand campaign by Trần Hoài Trang.
 
 YAMAHA NEW ME DISCOVER.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: NINH DƯƠNG LAN NGỌC, LÊ XUÂN TIỀN, ISAAC, AMEE, KHẢ NGÂN, KIỀU MINH TUẤN; PH: Viewfinder; Posing Direction: Trần Hoài Trang (Trang Nhẹ Nhàng)
 
@@ -663,7 +663,7 @@ Brand campaign by Trần Hoài Trang.
 
 YAMAHA NVX 155 – ISSAC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production House: Viewfinder
 
@@ -674,7 +674,7 @@ Brand campaign by Trần Hoài Trang.
 
 PIZZA HUT TVC x TRANG HÝ.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clients: PIZZA HUT; KOLS: Trang Hí
 
@@ -685,7 +685,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – SUIT UP.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: Vương Huy; Clothings: HOBB Design, DIOR
 
@@ -696,7 +696,7 @@ Music & film by Trần Hoài Trang.
 
 MV TOẢ SÁNG VIỆT NAM : MIU LÊ – BÙI CÔNG NAM – GDUCKY.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -707,7 +707,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN x DIOR – PREFALL 21.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy Juno; Make up: Xi Quan Le
 
@@ -718,7 +718,7 @@ Celebrity styling by Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – 1 TRIỆU NĂM ÁNH SÁNG EP.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: TangTang; Make up: Anh Tùng Châu
 
@@ -729,7 +729,7 @@ Celebrity styling by Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC x LOUIS VUITTON.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothings: LouisVuittonVN LAM GIA KHANG Giastudis; Accessories: LouisVuitton DramaQueenVN; Photography: Huỳnh Trí Nghĩa; Make up: Quí Đoàn; Hair: Eric Nguyễn; Set design: Lý Bình Sơn
 
@@ -740,7 +740,7 @@ Celebrity styling by Trần Hoài Trang.
 
 OSAD.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Milor Tran
 
@@ -751,7 +751,7 @@ Celebrity styling by Trần Hoài Trang.
 
 CA SĨ OSAD.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Tùng Lâm (Tung Salie); Clothings: La lune, Trendiano, Burberry, Chritian Louboutin, Dior, Masman
 
@@ -762,7 +762,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 JUNO – WE ARE YOUNG CAMPAIGN.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothings: Up to seconds …
 
@@ -773,7 +773,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 LEONARDO BAG.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothings: OWL – ZARA – H&M
 
@@ -784,7 +784,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 JUNO – POLKA DOT COLLECTION.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -795,7 +795,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 WALK OF FAME – XITA HOLIDAY.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -806,7 +806,7 @@ Brand campaign by Trần Hoài Trang.
 
 KV MOMO.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rin Trần
 
@@ -817,7 +817,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 ANCCI EYEWEAR.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rin Trần
 
@@ -828,7 +828,7 @@ Brand campaign by Trần Hoài Trang.
 
 HOA HẬU HHEN NIE – for ORIFLAME.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: RIN TRẦN; Clothings: Everluxe
 
@@ -839,7 +839,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 MIDU – for LALLA.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Hồ Quốc Hoàng
 
@@ -850,7 +850,7 @@ Brand campaign by Trần Hoài Trang.
 
 HONDA – ĐEN VÂU.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -861,7 +861,7 @@ Brand campaign by Trần Hoài Trang.
 
 TRÚC NHÂN – LÀM GÓI ĐỠ THÈM.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -872,7 +872,7 @@ Music & film by Trần Hoài Trang.
 
 MV ĐỒNG CHIẾN – PUBG MOBLIE – PHAN ANN ft ZOMBIE.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; DIRECTOR: WILLIAM
 
@@ -883,7 +883,7 @@ Brand campaign by Trần Hoài Trang.
 
 KV YAMAHA MOTOR VIETNAM.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; AGENCY: VIEWFINDER; PHOTO: TANGTANG
 
@@ -894,7 +894,7 @@ Celebrity styling by Trần Hoài Trang.
 
 LỀU PHƯƠNG ANH.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: LE THIEN VIEN; Dress: HOANG TONY
 
@@ -905,7 +905,7 @@ Brand campaign by Trần Hoài Trang.
 
 DOVE VIETNAM – KHÁNH LINH.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; MAKE UP: HOANG VINH
 
@@ -916,7 +916,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 GUY LAROCHE PARIS – CAMPAIGN.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: CHANH NGUYEN; MAKE UP: DINH TRAN
 
@@ -927,7 +927,7 @@ Brand campaign by Trần Hoài Trang.
 
 VINAMILK.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: 102 PRODUCTION
 
@@ -938,7 +938,7 @@ Brand campaign by Trần Hoài Trang.
 
 SENKA.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO & PRODUCTION: 102 PRODUCTION; CLOTHINGS: LANE JT, EVELUXE
 
@@ -949,7 +949,7 @@ Music & film by Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – INNER ME ALBUM.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: BOBBY NGUYEN; CLOTHINGS: CHANEL, DATT
 
@@ -960,7 +960,7 @@ Celebrity styling by Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: RIN TRẦN; DRESS: LÊ THANH HOÀ, HACHIC; MAKE UP: KUNY
 
@@ -971,7 +971,7 @@ Celebrity styling by Trần Hoài Trang.
 
 QUANG ĐẠI x CALVIN KLEIN.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: KYANH TRAN
 
@@ -982,7 +982,7 @@ Music & film by Trần Hoài Trang.
 
 CHI DÂN – COVER ALBUM – ĐỢI THÊM BAO LÂU.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothings: SWE; Photography: Juno
 
@@ -993,7 +993,7 @@ Music & film by Trần Hoài Trang.
 
 BEROCCA – MV 2 GIỜ CHIỀU – ISSAC, LOU HOÀNG, ONLY C.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Agency: Carnival; Production: Hasaibros; Line Prod: Booncha Studio; Director: Như Trang; Assistant Director: Andy Chang; Director of Photography: Anh Duong (Tút); Production Designer: Anh Phuong Duong Fosha; Writter: Only C – Nguyễn Phúc Thiện; Composer: Justin TechN9; Record Studio: OnlyC Studio; Mix & Master: Only C; Executive Producer: Viet Duc Duong & Thiết Vũ; Producer: Paul Vĩ Minh; Production Manager: Tram T N Pham; Production Assistant: Duu Quân; Cam Operator: Phước Hậu; Focus Puller Cam A: Long Focus; Hair stylist & make up: Lâm Nguyễn team & Trang Emj team
 
@@ -1004,7 +1004,7 @@ Music & film by Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC – TMV NGỌC DUNG.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; DRESS: LE THANH HOA, HACHIC, TAN LE; MAKE UP: KUNY LEE; PHOTO: RIN TRAN
 
@@ -1015,7 +1015,7 @@ Brand campaign by Trần Hoài Trang.
 
 ADS – POND’S.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: POND’S; Agency: Ogilvy T&A; Production House: WEME; Art: Ly Sei, Tea Nguyen; Set Design: WEME; Photography: Hoàng Hồ; D.I: Anh Le; Model: Phương Uyên, Huỳnh Như; Makeup: Dương Hữu Nghĩa; Assistant: Nguyên Hồng, Linh Phan, Ngô Bằng, Tee Ngô, Hà Lưu
 
@@ -1026,7 +1026,7 @@ Celebrity styling by Trần Hoài Trang.
 
 THUÝ DIỄM.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1037,7 +1037,7 @@ Brand campaign by Trần Hoài Trang.
 
 DIỄN VIÊN TRÚC ANH – APRIL SKIN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: CHANH NGUYỄN; MAKE UP: ĐINH TRẦN; CLOTHING: ELISE, HACHIC
 
@@ -1048,7 +1048,7 @@ Music & film by Trần Hoài Trang.
 
 THIỀU BẢO TRANG – MV LALALA YÊU.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Dress: DangVy LinhLe NguyenYenVi; Photography: nguyễn Du; Make up: Quí Đoàn
 
@@ -1059,7 +1059,7 @@ Music & film by Trần Hoài Trang.
 
 EMMA NHẤT KHANH – MV YOUR SMILE.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Trang phục: SEEN, Van Pham, Onon Made, Eleven Studios, Magnus; Make up: Trần Như; Photography: nguyễn Du
 
@@ -1070,7 +1070,7 @@ Celebrity styling by Trần Hoài Trang.
 
 LÂM VỸ DẠ.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up: Khoa Lê; Photography: Linh Phạm
 
@@ -1081,7 +1081,7 @@ Brand campaign by Trần Hoài Trang.
 
 SAMSUNG GALAXY NOTE 10 – LAN NGỌC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1092,7 +1092,7 @@ Brand campaign by Trần Hoài Trang.
 
 KV – HIGHLAND COFFEE.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1103,7 +1103,7 @@ Brand campaign by Trần Hoài Trang.
 
 NGÔ THANH VÂN – VINFAST – CHIM ƯNG ĐEN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; ĐẠO DIỄN: HÀM TRẦN
 
@@ -1114,7 +1114,7 @@ Brand campaign by Trần Hoài Trang.
 
 ĐEN VÂU – KV HONDA.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1125,7 +1125,7 @@ Brand campaign by Trần Hoài Trang.
 
 TRẤN THÀNH – TCV 30s – LAZADA.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1136,7 +1136,7 @@ Brand campaign by Trần Hoài Trang.
 
 CHI PU – LAZADA.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1147,7 +1147,7 @@ Brand campaign by Trần Hoài Trang.
 
 TRẤN THÀNH – TVC LAZADA.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1158,7 +1158,7 @@ Brand campaign by Trần Hoài Trang.
 
 KV XÚC XÍCH PONNIE.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: 229 Production
 
@@ -1169,7 +1169,7 @@ Brand campaign by Trần Hoài Trang.
 
 YAMAHA – NINH DƯƠNG LAN NGỌC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Make up: Xi Quan Lê; Clothings: XITA; Accessories: DRAMAQUEEN
 
@@ -1180,7 +1180,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 ĐÀO MINH NHẬT – SUMMER CAMPAIGN.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Đàm Gia Bảo; Model: Quỳnh Anh – Emma Le
 
@@ -1191,7 +1191,7 @@ Celebrity styling by Trần Hoài Trang.
 
 CHI DÂN – STREET STYLE.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Clothings: Tredx DolceandGabbana Magnus Dior Louisvuitton
 
@@ -1202,7 +1202,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 LALLA LOOKBOOK – MIDU.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Midu; Photography: Ho Quoc Hoang
 
@@ -1213,7 +1213,7 @@ Brand campaign by Trần Hoài Trang.
 
 VINID.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: VinID; Photograph & Retouch: Minh Mi Goi; Producer: Mai Xuan Tien; Lighting: anh Hong Duc Pham; Set Design: chị Nina; Makeup: Le Xuan Thao & Thư; DI Artist: Đại Big Light; Producer Assistant: Hoàng Nguyên; Photographer Assistant: Vu Le Quang Truong
 
@@ -1224,7 +1224,7 @@ Brand campaign by Trần Hoài Trang.
 
 AJINOMOTO TVC – QUANG ĐẠI.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1235,7 +1235,7 @@ Brand campaign by Trần Hoài Trang.
 
 ACECOOK – Mì CayKay – BB TRẦN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1246,7 +1246,7 @@ Music & film by Trần Hoài Trang.
 
 PHƯƠNG LY – BIORE MV – SHINE IT NOW.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up: Quý Đoàn; Hair: ERIC
 
@@ -1257,7 +1257,7 @@ Brand campaign by Trần Hoài Trang.
 
 TVC – DOVE.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Director: David Rechtman; MUA: Eric Nguyễn Huỳnh Thanh Trúc Tài Phạm; Hair stylist: Ruby Nguyễn Nhất Linh Pom Charles
 
@@ -1268,7 +1268,7 @@ Fashion editorial by Trần Hoài Trang.
 
 ĐẸP MAGAZINE JAN 2020.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Producer: Khanh Tung Vu; Photography: Vinh Luu; Model: Dương Tú Bình Anthony Hoàng; Make up: Xi Quan Lê; Brand: Balmain DolceandGabbana
 
@@ -1279,7 +1279,7 @@ Fashion editorial by Trần Hoài Trang.
 
 ALSO JOURNAL MAGAZINE – Fashion editorial.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Model: Ho Thu Anh; Hair: and Make Up Xi Quan Le; Producer: Tee Truong; Clothings: Nguyễn Hoàng Tú, Khoi Nguyen, Aeie studio
 
@@ -1290,7 +1290,7 @@ Celebrity styling by Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC STREETSTYLE.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Lan Ngọc in: Công Trí, Louis Vuitton
 
@@ -1301,7 +1301,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 ELISE Campaign – TÚ HẢO –  DƯƠNG MINH NGỌC – VI NGUYỄN.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Produce and Photo: 102 production
 
@@ -1312,7 +1312,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Diễn Viên Khả Như.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Luha; Clothing: Vananhscarlet
 
@@ -1323,7 +1323,7 @@ Brand campaign by Trần Hoài Trang.
 
 CHÂU BÙI – CHANGE.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1334,7 +1334,7 @@ Celebrity styling by Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – DÕI THEO.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1345,7 +1345,7 @@ Music & film by Trần Hoài Trang.
 
 MV Có Người – Vũ Cát Tường.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothings: Lưu Ngọc Kim Khanh, Art Store, MAS
 
@@ -1356,7 +1356,7 @@ Music & film by Trần Hoài Trang.
 
 MV MIDU – ANH NGHĨ ANH LÀ AI.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Costume: Lê Thanh Hoà, Trần Hùng, Lưu Ngọc kim khanh, Tăng Thành Công, Steffani, Hồ Hoàng Ca Dao, Can De Blanc, Art store luxury vest, Meuw menswear, Daphale, Chloe Design, Poxi, Amon avis footwear.
 
@@ -1367,7 +1367,7 @@ Music & film by Trần Hoài Trang.
 
 CHI PU x KOTEX – TVC MV – NGÀY MÁT XANH KHÔNG PHẢI DO ANH.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Chân thành cảm ơn các NTK và nhãn hàng: RIN by CHUNG THANH PHONG; Assistant: An Việt Linh; Client: KOTEX; Agency: The Purpose Group; CD: Tran Anh Duc; Production house: Children Of
 
@@ -1378,7 +1378,7 @@ Celebrity styling by Trần Hoài Trang.
 
 QUARANTINE – NHẬT KÝ CÁCH LY Ở NHÀ – TRẦN QUANG ĐẠI.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Tran Quang Dai; Photography: Kyanh Tran; Make up: Sam Cao; Clothing: MoschinoVN Bonmua YSL Bonjour DAS MonMuseeSg
 
@@ -1389,7 +1389,7 @@ Brand campaign by Trần Hoài Trang.
 
 DIANA – Key Visual – TVC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: From Thailand; Model: Thailand Model Agency
 
@@ -1400,7 +1400,7 @@ Brand campaign by Trần Hoài Trang.
 
 A Hau DUONG TU ANH.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Gương mặt đại diện thương hiệu: Á Hậu Dương Tú Anh; Photography: BobbyNguyen; Make up and hair: Phuc Nghia, Cuong Vo
 
@@ -1411,7 +1411,7 @@ Brand campaign by Trần Hoài Trang.
 
 Whisper Vietnam.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Client: Whisper Vietnam; Agency: Dentsu Redder; Production House: ALIEN MEDIA; Director: Nguyễn Tuấn Anh; Executive Producer: Nguyễn Vĩnh Duy; Producer: Nguyễn Khang; DOP: Hải Nguyễn Đức; Actress: CARA; Account & Post Producer: Vân Nguyễn; Visual Artist: Tran Thi; 1st AD: Luk Hồ Hải My; Editor & Colograding: Tieu Pham; Focus Puller: Dương Bon; Production Assistant: Nhật Quyên; Master Props: Tuấn Thanh Nguyễn; Accountant: Huỳnh Như; Visualizer: Yên Khê
 
@@ -1422,7 +1422,7 @@ Fashion editorial by Trần Hoài Trang.
 
 DEP MAG.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vinh Luu; Model: Lê Huỳnh Thuý Ngân; Producer: Chí Văn
 
@@ -1433,7 +1433,7 @@ Celebrity styling by Trần Hoài Trang.
 
 QUANG DAI in VERSACE.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; MUA: Sam Cao
 
@@ -1444,7 +1444,7 @@ Brand campaign by Trần Hoài Trang.
 
 IBASIC Campaign.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; Film: Bully Media
 
@@ -1455,7 +1455,7 @@ Fashion editorial by Trần Hoài Trang.
 
 DEP MAGAZINE.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up: Xi Quan Lê
 
@@ -1466,7 +1466,7 @@ Celebrity styling by Trần Hoài Trang.
 
 ELLY TRAN.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: MilorTran; Make up: Hiwon; Elly in: lordy latui candeblanc fendi ysl louboutin
 
@@ -1477,7 +1477,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 XITA SUMMER CAMPAIGN.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; producer: / Minh; model: / Pham Dinh Minh Trieu – Thuỳ Trang – Dương Ngọc Khả Trang – Hằng Nguyễn – Cù Ngọc Qúy; retouch: / Nguyễn Trường
 
@@ -1488,7 +1488,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Minh Trieu – Noix De Coco Campaign.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Minh Triệu; Fashion: Noix de Coco; Photography: Le Thien Vien; Make up: Triệu Hải
 
@@ -1499,7 +1499,7 @@ Brand campaign by Trần Hoài Trang.
 
 TECHCOMBANK ADS.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Agency: Redder; Client: Techcombank; Foto: Vinh Luu; Producer: Nhi Huynh; Talent: Ninh Duong Lan Ngoc, Thuy Hanh, Huynh Lap; Retoucher: Anh Le
 
@@ -1510,7 +1510,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 HELLY TONG for Everlux.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production: 102production; Foto: Vinh Luu; Producer: Nhi Huynh; MUA: Xi Quan Le
 
@@ -1521,7 +1521,7 @@ Brand campaign by Trần Hoài Trang.
 
 VASCARA CAMPAIGN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Foto: Phan Vo; Art: Vinh Luu; Producer: Nhii Hùynh; Set design: Lâm Minh Trung; Retouch: Anh Le; Hair&Makeup: Team Xi Quan Lê; Model: Tay Model Agency and Elite Model Agency
 
@@ -1532,7 +1532,7 @@ Brand campaign by Trần Hoài Trang.
 
 TRESemme – Cuoc chien spotlight.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Tresemmé contest: “Beautiful hair under all spotlight – Tóc đẹp dưới mọi ánh đèn” for this Christmas holiday.; Production: 102 Production; Agency: Ogilvy Vietnam; Photography: Luu Moc Vinh; Lighting: Hong Duc Pham; Set design: Lam Minh Trung; Retouch: Anh Le; Makeup & Hair: Team Xi Quan Le
 
@@ -1543,7 +1543,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Spring Muse.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Make up: XiQuanLe
 
@@ -1554,7 +1554,7 @@ Brand campaign by Trần Hoài Trang.
 
 Leflair’s Women Campaign.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production: 102 Production; Creative Direction: Nguyễn Minh Đức Billy; Art Director/ Phtographer: Vinh Luu; Producer: Nhii Hùynh; Clothings: Wephobia Dsquared Zara christianlouboutin AEIE; Hair & Make-up: Xi Quan Lê; Filming: Lâm Đạo Đạo Tân Dương; Set design: Lâm Minh Trung
 
@@ -1565,7 +1565,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Chàng thơ – Quang Đại.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1576,7 +1576,7 @@ Celebrity styling by Trần Hoài Trang.
 
 QUANG ĐẠI – CHÂU BÙI.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1587,7 +1587,7 @@ Celebrity styling by Trần Hoài Trang.
 
 1 ngày rong ruổi với Đại.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1598,7 +1598,7 @@ Brand campaign by Trần Hoài Trang.
 
 Viettel TVC 30s.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1609,7 +1609,7 @@ Brand campaign by Trần Hoài Trang.
 
 SAMSUNG GALAXY S9 – NINH DUONG LAN NGOC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1620,7 +1620,7 @@ Brand campaign by Trần Hoài Trang.
 
 TVC YOMOST.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1631,7 +1631,7 @@ Brand campaign by Trần Hoài Trang.
 
 CASTROL TVC TẾT 2018 – Kiều Minh Tuấn.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1642,7 +1642,7 @@ Brand campaign by Trần Hoài Trang.
 
 VIRAL – VIVO SMARTPHONE.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1653,7 +1653,7 @@ Brand campaign by Trần Hoài Trang.
 
 VIRAL CLIP – SONY.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Talent: Mai Tài Phến
 
@@ -1664,7 +1664,7 @@ Brand campaign by Trần Hoài Trang.
 
 BÍCH PHƯƠNG – LY CÀ PHÊ SỮA THÍNH.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1675,7 +1675,7 @@ Brand campaign by Trần Hoài Trang.
 
 ĐAN TRƯỜNG – CHÍ TÀI – PHƯƠNG THANH – THANH THẢO | NƯỚC TƯƠNG NAM DƯƠNG ADS.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production house: Roco Media
 
@@ -1686,7 +1686,7 @@ Celebrity styling by Trần Hoài Trang.
 
 ANOTHER NHÃ PHƯƠNG.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production house: 102 Production; Clothing: CAN DE BLANC VIETNAM, I SEE IT FIRST, WEPHOBIA, SUBTLE&SIMPLE
 
@@ -1697,7 +1697,7 @@ Brand campaign by Trần Hoài Trang.
 
 LEFLAIR – SHOPPING BATTLE CAMPAIGN.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Model: Nguyễn Trang, Kim, Ryan; MUA: Xi Quan Lê; Retouch: Anh Le
 
@@ -1708,7 +1708,7 @@ Brand campaign by Trần Hoài Trang.
 
 BEER BECK’S ICE ADS.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production house: ALIEN MEDIA; Photography: Kyanh
 
@@ -1719,7 +1719,7 @@ Fashion editorial by Trần Hoài Trang.
 
 ELLE – DISCO GIRL.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Production: 102; Editor: ThuyTrang
 
@@ -1730,7 +1730,7 @@ Fashion editorial by Trần Hoài Trang.
 
 ELLE – MORE WOMEN.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Art Director: DungYoko; Producer and Editor: Thuy Trang; Photography: Maika; Make up: Dinh Tran
 
@@ -1741,7 +1741,7 @@ Brand campaign by Trần Hoài Trang.
 
 SAMSUNG | PHUONG LY – VUONG ANH.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Phuong Ly & Vuong Anh; Agency: Golden; Make up: Thanh Phong
 
@@ -1752,7 +1752,7 @@ Fashion editorial by Trần Hoài Trang.
 
 ELLE Vietnam – Issue Nov.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Editor: ThuyTrang; Photography: HaKino; Model: ChaMi; Make up and Hair: DinhTran; Clothings: Chanel Hermes TruongThanhLong LamGiaKhang
 
@@ -1763,7 +1763,7 @@ Celebrity styling by Trần Hoài Trang.
 
 MC DANG QUYNH CHI – GIRL NIGHT OUT.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: MCDangQuynhChi; Photography: HauLe; Clothings: MoschinoVietnam LoveMoschino CanDeBlanc LeLucas Chanel Valentino Bonmua
 
@@ -1774,7 +1774,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Jessie Dolls Campaign in Taiwan.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Producer: VuHero; MUA: Daisy; Photography: Montino; Model: Miranda from StormModel; Location: Taipei – Taiwan; Supporter: HeuNguyen
 
@@ -1785,7 +1785,7 @@ Brand campaign by Trần Hoài Trang.
 
 Fashion film – FETE EN BLANC.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1796,7 +1796,7 @@ Brand campaign by Trần Hoài Trang.
 
 Fashion Film – Chau Bui – I Know Her.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -1807,7 +1807,7 @@ Brand campaign by Trần Hoài Trang.
 
 Royal Sweetheart.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Bobby Ng
 
@@ -1818,7 +1818,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Ninh Duong Lan Ngoc – The Muse.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Lee Nguyen; Make up: Kuny Lee; Clothing: Lam Gia Khang, Chaddie, Ha Nhat Tien, Christian Louboutin, Nguyen Minh Cong
 
@@ -1829,7 +1829,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Summer Viber – Can de blanc.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Model: Tú Hảo, Teela; Photography: Dao Nhat Tan
 
@@ -1840,7 +1840,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Si Thanh – Hao Dong.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Cumfoto; Clothing: Tường, OnonMade
 
@@ -1851,7 +1851,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Actor DIEU NHI.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; Make up: Kuny Lee; Clothing: SHE by Hoa Nguyen, Rue The Chats, Le Lucas
 
@@ -1862,7 +1862,7 @@ Fashion editorial by Trần Hoài Trang.
 
 HWP Magazine.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Producer: Phan Cac Truc; Photography: Kyanh; Make up: Vien Duong; Model: Huong Ly, Mark
 
@@ -1873,7 +1873,7 @@ Brand campaign by Trần Hoài Trang.
 
 Team Lan Khue Campaign.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: RinTran
 
@@ -1884,7 +1884,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Singer MIA.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Dao Nhat Tan; Clothing: Nha Kho Li Ti, Christian Louboutin
 
@@ -1895,7 +1895,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Singer TRONIE.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Dao Nhat Tan; Clothing: Adidas Orginal, 5Theway, 90s vibers
 
@@ -1906,7 +1906,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Street style: Sĩ Thanh – Hạo Đông.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Trinh Kim Dien; Clothing: Topshop, Gucci
 
@@ -1917,7 +1917,7 @@ Music & film by Trần Hoài Trang.
 
 Poster film “Doi cho ta bao lan doi muoi”.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Tung Chu; Clothing: Magonn, After Bath, …
 
@@ -1928,7 +1928,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Kim Ly – Aristino Campaign 2017.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Manh Bi; Make up: Xi Quan
 
@@ -1939,7 +1939,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Van Shi – Singer.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rin Tran; Make up: Thanh Phong; Clothing: OnonMade
 
@@ -1950,7 +1950,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Miss Universal Pham Huong – Travellive.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Creative: Phan Các Trúc; MUA: Vien Duong; Clothings: Just cavalli, Christian Louboutin, Furla, Charles and keith, Carolina Herrera, La Perla; Location: Marina Bay Sands – Singapore
 
@@ -1961,7 +1961,7 @@ Celebrity styling by Trần Hoài Trang.
 
 MC NGUYEN DO QUYNH CHI.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: DAO NHAT TAN; Clothing: LADYN, MAXLEE
 
@@ -1972,7 +1972,7 @@ Celebrity styling by Trần Hoài Trang.
 
 SĨ THANH.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Bếp; Clothing: Teribee, DII, Saigonese
 
@@ -1983,7 +1983,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Á Hậu Lệ Hằng.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Nal Chau; Producer: Duy Dang
 
@@ -1994,7 +1994,7 @@ Brand campaign by Trần Hoài Trang.
 
 HNOSS PREMIUM COLLECTION.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Concept/Creative: Rossie; Fashion design team: Nấm,; Fashion film: ZORBA; Photography: Kỳ Anh; Makeup: Xi Quan Le; Layout: Lê Minh; Models: Polina
 
@@ -2005,7 +2005,7 @@ Brand campaign by Trần Hoài Trang.
 
 101 EYEWEAR – PRINT ADS.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Producer: Ngan Nguyen; Make up: Vin; Photography: Ha Nguyen; Lighting: Hong Duc Pham
 
@@ -2016,7 +2016,7 @@ Brand campaign by Trần Hoài Trang.
 
 Can De Blanc – Angle among us.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photo and Video: BobbyNguyen Team
 
@@ -2027,7 +2027,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Travellive Magazine – Ho Vinh Khoa.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Hồ Vĩnh Khoa; Creative Producer: Phan Các Trúc; Photography: Kyanh Tran; MUA: Quân Hoàng Nguyễn (Ruan Dang); Fashion: Kenzo
 
@@ -2038,7 +2038,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Samsung – Ket Noi Yeu Thuong.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Thien Minh
 
@@ -2049,7 +2049,7 @@ Brand campaign by Trần Hoài Trang.
 
 PHAN ANH – NUTRIBOOST.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Ambassador: Phan Anh; Agency: Square
 
@@ -2060,7 +2060,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 MC Quynh Chi x Mai Tien Dung Streetstyle.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothing: Bonmua (Valentino, Moschino), Resa, JimmyChoo, Giuseppe Zanotti, Three Floor, Versus, Max&Co; Photography: Chanh Nguyen
 
@@ -2071,7 +2071,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Ninh Duong Lan Ngoc – Street Style.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Trinh Kim Dien; Clothing: C’est la V, Six 21, Jimmy Choo, Resa
 
@@ -2082,7 +2082,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Tú Vi – Văn Anh – Băng Di – Quỳnh Anh Shyn.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Lê Tú Vi, Quỳnh Anh Shyn, Băng Di, Lê Văn Anh; Photography: Rin Trần; Clothing: Topshop, Oasis, Warehouse, Truong Thanh Truc
 
@@ -2093,7 +2093,7 @@ Fashion editorial by Trần Hoài Trang.
 
 TREND & STYLE – HTV7.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; Producer: Mai Nguyen; Designer: Nguyen Hoang Tu, Thu Madelin, Truong Thanh Truc, Trang Khieu, Maison An Dinh, Mia Nguyen, Mi Duz, Kim Tr, Tom Trandt, Anh Tuyet, Ngo Thai Bao Loan, Vu ta Linh.
 
@@ -2104,7 +2104,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Phi Phuong Anh – Elle Girls.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothing: Kenzo, Topshop, Louboutin, Pedro
 
@@ -2115,7 +2115,7 @@ Fashion editorial by Trần Hoài Trang.
 
 L’amour – Tú Vi & Văn Anh.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Tú Vi, Văn Anh; Photography: Tùng Chu; Make up: Xi Quan; Clothing: Topshop, Everluxe, Trương Thanh Trúc, Dizaii
 
@@ -2126,7 +2126,7 @@ Brand campaign by Trần Hoài Trang.
 
 CADIE MỘC TRÀ – BITIS.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Talent: Cadie Mộc Trà, Bé Đông Nghi; Clothing: Gap Kid Vietnam; Make up: Ric Màu; Production: 102
 
@@ -2137,7 +2137,7 @@ Celebrity styling by Trần Hoài Trang.
 
 B Trần.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothing: Masman; Photography: KinhOtrong
 
@@ -2148,7 +2148,7 @@ Celebrity styling by Trần Hoài Trang.
 
 HUYME.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: KinhOtrong
 
@@ -2159,7 +2159,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Sĩ Thanh – Hạo Đông.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Cumfoto; Clothing: Yuboutique Troys FloralPunk Elpis
 
@@ -2170,7 +2170,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Olympics 1 9 6 8 – HỒ VĨNH KHOA.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2181,7 +2181,7 @@ Fashion editorial by Trần Hoài Trang.
 
 TROPICAL FRUIT.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: DucAnhBui; Model: Teala; Bikini: Topshop, Juni’s House
 
@@ -2192,7 +2192,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Hiếu Nguyễn.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Clothings: Bonjours, DW, Dsquared, Rayban; Photography: Alex Cui Dũn
 
@@ -2203,7 +2203,7 @@ Fashion editorial by Trần Hoài Trang.
 
 Chà Mi in AnyArena.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: SebastianGraetz; MUA: VinNguyễn; Graphic: Thanh Duong; Clothings: Madamm, ISeeItFirst
 
@@ -2214,7 +2214,7 @@ Fashion editorial by Trần Hoài Trang.
 
 THE OTHER GAL – MAI NGÔ.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Ali; Make up: TriTran; Clothing: So&So by Hoàng Xuân Sơn
 
@@ -2225,7 +2225,7 @@ Fashion editorial by Trần Hoài Trang.
 
 [ LA HABANA ] Minh Triệu – Hồ Vĩnh Khoa.
 
-A project from Trần Hoài Trang’s fashion editorial portfolio. Explore the selected imagery and project credits below.
+A fashion editorial project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: HoVinhKhoa MinhTrieu; Photography: TriNghia; Make up: BaoBao; Producer: Maxwell; Clothings: BCBG FCUK DKNY Maschio JessieDolls FragileSpine
 
@@ -2236,7 +2236,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 DIỄM MY X MARC.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Producer: LeHang; Photography: Zuki
 
@@ -2247,7 +2247,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 WAREHOUSE VIETNAM.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Daonhattan; Make up: TranNhu; Model: NganPhan; Accessory: Accessories
 
@@ -2258,7 +2258,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 OASIS VIETNAM.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: DaoNhatTan; Model: HaTruc
 
@@ -2269,7 +2269,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 KIM LÝ.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: LeThienVien
 
@@ -2280,7 +2280,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Magoon Design.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Model: Hằng Nguyễn, Lê Thanh Thảo; Producer: TeeTruong 102production; Photography: Vinhluu
 
@@ -2291,7 +2291,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Hnoss x Liêu Hà Trinh.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: VinhLuu; Producer: TeeTruong 102production; Assistant: NhiHuynh; Accessories: NhaKhoLiTi FloralPunk SGBB
 
@@ -2302,7 +2302,7 @@ Music & film by Trần Hoài Trang.
 
 MV – I Need Your Love – Sĩ Thanh.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Director: Cumfoto; Make up: Nhat Sunny; Post Production: Mr. Blue; Clothing: PAT by Pham Anh Tuan | Troy’s | Yu Boutique | Mama virus | Cotton Mouth
 
@@ -2313,7 +2313,7 @@ Brand campaign by Trần Hoài Trang.
 
 Q Mobile – Ngo Kien Huy & Si Thanh.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2324,7 +2324,7 @@ Music & film by Trần Hoài Trang.
 
 Den Ben Em (Be The One) – Vu Thao My ft. Lan Vy.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2335,7 +2335,7 @@ Celebrity styling by Trần Hoài Trang.
 
 INTRO YEN TRANG THE REMIX 2017.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2346,7 +2346,7 @@ Celebrity styling by Trần Hoài Trang.
 
 Castrol – TVC Quang cao Tet Viet 2017 – Truong Giang.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2357,7 +2357,7 @@ Music & film by Trần Hoài Trang.
 
 MV – Mỹ Tâm – Em Thì Không.
 
-A project from Trần Hoài Trang’s music & film portfolio. Explore the selected imagery and project credits below.
+A music & film project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Composer: MICHEL MALLORY; Vietnamese Lyrics: CHAU DANG KHOA; Music Arrangement: TAM VINH; Mix & Mastering: PHAM TUAN; Rapper: KARIK; Director: KAWAII NGUYEN TUAN ANH; Line Producer: NGUYEN KHANG; Script Writer: MY TAM – MINH CHAU; Actor: LE BUU DA – JUNI – GIA KINH; DOP: TRAN NGOC KHUYEN; Editor & Color Grading: BRIAN NGUYEN; VFX: SIDERVN; Make up & Hair: HO KHANH; Costume: VATANIKA – ELISABETTA FRANCHI – HUTU BY MICAE VU – LY GIAM TIEN – SUIT STUDIO; Dancers: MTE CREW
 
@@ -2368,7 +2368,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 [Tinfour] Holiday party.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Model: HangNguyen; Photography: NalChau; Lighting: HongDucPham
 
@@ -2379,7 +2379,7 @@ Celebrity styling by Trần Hoài Trang.
 
 [Ninh Duong Lan Ngoc] Street Style.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: TrinhKimDien; Make up: KunyLee; Clothing: Kenzo LamGiaKhang  FloralPunk Madamn Salvatore NemoMamaShoes
 
@@ -2390,7 +2390,7 @@ Brand campaign by Trần Hoài Trang.
 
 VERA Calendar – MINH TÚ.
 
-A project from Trần Hoài Trang’s brand campaign portfolio. Explore the selected imagery and project credits below.
+A brand campaign project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rintran; Starring: MinhTu; Model: NgocMint; Producer: Veraekip; Make up & Hair: LeTuanNguyen LanHuongVo
 
@@ -2401,7 +2401,7 @@ Celebrity styling by Trần Hoài Trang.
 
 [Ninh Duong Lan Ngoc] Winter Vibes.
 
-A project from Trần Hoài Trang’s celebrity styling portfolio. Explore the selected imagery and project credits below.
+A celebrity styling project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang; Starring: Ninh Dương Lan Ngọc; Photography: Kinh O Trong; Make up: Kunny Le; Clothing: Xita, Zara, Coast
 
@@ -2412,7 +2412,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 TROY.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2423,7 +2423,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 THE COSMO.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2434,7 +2434,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 Ninomaxx campaign.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2445,7 +2445,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 MARC FASHION VN – Summer Traveller.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2456,7 +2456,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 MARC FASHION VN – Positive vibes.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2467,7 +2467,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 MARC FASHION VN – Day Dreams.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2478,7 +2478,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 JUNI HOUSE – The Iconic.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2489,7 +2489,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 JUNI HOUSE – Boho chic.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2500,7 +2500,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 I SEE IT FIRST.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2511,7 +2511,7 @@ Lookbook & fashion by Trần Hoài Trang.
 
 CECI CELA.
 
-A project from Trần Hoài Trang’s lookbook & fashion portfolio. Explore the selected imagery and project credits below.
+A lookbook & fashion project from our portfolio. Explore the selected imagery and project credits below.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2527,11 +2527,11 @@ Styling kết nối con người, trang phục và câu chuyện hình ảnh. V�
 
 Từ một bộ trang phục đến định hướng hình ảnh cho cả dự án, chúng tôi bắt đầu từ yêu cầu, cá tính và mục đích sử dụng hình ảnh của bạn.
 
-Một vài góc nhìn từ portfolio của Trần Hoài Trang. Khám phá toàn bộ dự án theo thương hiệu, nghệ sĩ hoặc thể loại.
+Những dự án tiêu biểu của chúng tôi trong quảng cáo, âm nhạc, thời trang và styling cá nhân.
 
 Trần Hoài Trang
 
-Portfolio của Trang trải dài từ chiến dịch quảng cáo, chân dung nghệ sĩ và bộ sưu tập thời trang đến những khoảnh khắc cá nhân. Trang phục, phụ kiện và bối cảnh được kết nối, với người mặc luôn là trung tâm của mỗi diện mạo.
+Trần Hoài Trang là nhà sáng lập Saint 6 và stylist đứng sau các dự án này. Công việc của Trang trải dài từ chiến dịch quảng cáo, chân dung nghệ sĩ và bộ sưu tập thời trang đến styling cá nhân, với người mặc luôn là trung tâm của mỗi diện mạo.
 
 Tại Saint 6, bạn có thể đặt dịch vụ styling riêng hoặc kết hợp trong một dự án sản xuất hình ảnh. Hãy chia sẻ ý tưởng để chúng tôi cùng xác định phần hỗ trợ phù hợp.
 
@@ -2606,7 +2606,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TVC Mirinda – Vị Soda Kem Việt Quất.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production House: DABE Production; Model Casting: Thailand
 
@@ -2639,7 +2639,7 @@ Styling cá nhân bởi Trần Hoài Trang.
 
 DOANH NHÂN NGUYỄN QUỐC CƯỜNG.
 
-Dự án trong portfolio styling cá nhân của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling cá nhân trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -2650,7 +2650,7 @@ Styling cá nhân bởi Trần Hoài Trang.
 
 KHOẢNH KHẮC TUYỆT VỜI – CHỊ ĐÀM THU TRANG.
 
-Dự án trong portfolio styling cá nhân của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling cá nhân trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -2661,7 +2661,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 MẠC TRUNG KIÊN.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -2683,7 +2683,7 @@ Styling cá nhân bởi Trần Hoài Trang.
 
 ANH CHỊ ĐÀM THU TRANG – NGUYỄN QUỐC CƯỜNG.
 
-Dự án trong portfolio styling cá nhân của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling cá nhân trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -2694,7 +2694,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -2705,7 +2705,7 @@ Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
 CHỈ MUỐN BÊN EM LÚC NÀY – The Records #3 | GIGI HƯƠNG GIANG COVER.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Lyric: JiKi X; Record: To Bo, Nguyễn Duy Anh – AN Productions; Mix& Master: Đông Phong; Arranger: Nguyễn Anh Vũ; Project Manager: Linh Nguyễn – Tuấn Hải; Director: Hoàng Long – Phạm Ngọc Long; Producer: Văn Ngọc Sâm; Production Designer: Hồ Phú Vinh; D.O.P – Camop: Phạm Ngọc Long; Focus Puller: Bảo Nguyễn; Photography: LongBui Hoang; Assistant Camera: Tee; Hair & Make up: Phương Si; Editor: Pham Ngoc Long; Motion Graphic: Phú Hồng Trần; Costume: The A Studio; Trio Ji; Chim Yến; Stylist Assistant: Khanh Lê
 
@@ -2716,7 +2716,7 @@ Credits: Styling: Trần Hoài Trang; Lyric: JiKi X; Record: To Bo, Nguyễn Duy
 
 MV TÌM HÀNH TINH KHÁC – VŨ CÁT TƯỜNG.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2727,7 +2727,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – FLORAL.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up & hais: Quí Đoàn, Eric; Photography: Hậu Lê
 
@@ -2749,7 +2749,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HOA HẬU PHƯƠNG LÊ – ÁO DÀI.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Mr AT; Make up & Hair: Quí Đoàn + Eric Nguyễn
 
@@ -2760,7 +2760,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – FILM.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Phạm Ngọc Long
 
@@ -2771,7 +2771,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – GOLF.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy
 
@@ -2782,7 +2782,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 DANH HÀI XUÂN BẮC x VINSHOP.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Xuân Bắc; Client: Vinshop; Production House: MMG Production; Photography: Minh Mì Gói
 
@@ -2793,7 +2793,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 SAMSUNG – TRƯƠNG THẾ VINH & THUÝ NGÂN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: SAMSUNG; Production House: VAIB
 
@@ -2804,7 +2804,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 OMO KV TẾT 2021.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: OMO; Production House: VAIB
 
@@ -2815,7 +2815,7 @@ Credits: Styling: Trần Hoài Trang; Client: OMO; Production House: VAIB
 
 YUNO BIGBOI X VŨ PHỤNG TIÊN X EMMA X TRÀ XANH KHÔNG ĐỘ – QUỐC TẾ DỌN NHÀ (OFFICIAL MV TẾT 2021).
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: TRÀ XANH KHÔNG ĐỘ; Talent: YUNO BIGBOI, EMMA, PHỤNG TIÊN
 
@@ -2826,7 +2826,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Làm sao để #Tết_Mở_Lòng? | Lipton x Kawaii Tuấn Anh | Phim Tết 2021.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: LIPTON; Production House: AlIEN; Director: KAWAII
 
@@ -2837,7 +2837,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 NGHỆ SĨ QUANG TRUNG – THẦN TÀI XANH – ĐIỆN MÁY XANH.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: ĐIỆN MÁY XANH; Production house: MAY
 
@@ -2848,7 +2848,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 MÓN QUÀ TẶNG CHA – TVC TRÀ THANH NHIỆT DR.THANH TẾT 2021.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: DR THANH
 
@@ -2859,7 +2859,7 @@ Credits: Styling: Trần Hoài Trang; Client: DR THANH
 
 MV CẢ NƯỚC DU XUÂN – VIETTRAVEL.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: VietTravel
 
@@ -2870,7 +2870,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 LAN NGỌC – CHÂU BÙI – SONG LUÂN | OMACHI.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: Omachi; Production House: Sudest
 
@@ -2881,7 +2881,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 CHÂU BÙI – OMACHI KHOAI TÂY NGHIỀN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: Omachi; Starring: Châu Bùi
 
@@ -2892,7 +2892,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 LAN NGỌC – CHIN SU.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: Chinsu; Production House: Sudest
 
@@ -2903,7 +2903,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 QUẢNG CÁO MOMO LẮC XÌ 2021.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production House: Alien Media; Starring: Bùi Công Nam
 
@@ -2914,7 +2914,7 @@ Credits: Styling: Trần Hoài Trang; Production House: Alien Media; Starring: B
 
 BB TRẦN – HẢI TRIỀU – NGỌC PHƯỚC | MV CHỊU THÌ CHỊU KHÔNG CHỊU THÌ CHỊU.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: NEW CHOICE
 
@@ -2925,7 +2925,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 OMACHI – NINH DƯƠNG LAN NGỌC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production House: Sudest
 
@@ -2936,7 +2936,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 FRESSI KV.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: Fressi; Agency: TBWA; Production House: StarVN; Photography: Chanh Studio
 
@@ -2947,7 +2947,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Hoa Hậu Phương Lê – Cho Nami.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -2958,7 +2958,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Hoiana Hotel and Suites TVC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production House: MOTT VISUALS
 
@@ -2969,7 +2969,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 OEXPO – HELLY TỐNG.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PH: Zoom Media – Mer Production; Starring: Helly Tống; Make up: Kyo Phan
 
@@ -2980,7 +2980,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 MOMO TVC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PH: ALIEN MEDIA
 
@@ -2991,7 +2991,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 SHOPEE 7/7.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Talent: SGO48; PH: XC Production
 
@@ -3013,7 +3013,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 ELLY TRẦN.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up: Hiwon; Photography: Kushin Kyo
 
@@ -3024,7 +3024,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 YAMAHA SOCIAL LAYOUT.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Ducngo; Art director: Vi Ly; Producer: Dany Pham; Model: ViNguyen DuongMinhNgoc
 
@@ -3035,7 +3035,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Ca sĩ Thuỳ Chi.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up: Duy Anh; clothings: Chloe Design, Nguyễn Minh Công
 
@@ -3046,7 +3046,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – STREET STYLE.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Make up: Xi Quan Le; In: Công Trí, Bottega, Versace
 
@@ -3057,7 +3057,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC – BNW.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Make up: Xi Quan Le
 
@@ -3068,7 +3068,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 QUANG ĐẠI.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Chàng thơ của Chang: Trần Quang Đại; In: Lương Việt Thảo, Magnus; Make up: Vuong Khiem
 
@@ -3079,7 +3079,7 @@ Credits: Styling: Trần Hoài Trang; Chàng thơ của Chang: Trần Quang Đ�
 
 MV CHO TAO ĐI – WOWY x YANBI x DANCER MIA.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; MV Executive Producer: Wowy Vietnam Co.,Ltd; Director: Khương Vũ – Chaidao; DOP: Hải Bắc – LumiGrade team; Camera: Jimmy Cat – LumiGrade team; Camera 2: Phú Quang; Equipment: LumiGrade team; Lighting: Cinelight; Colorist: Bùi Công Anh; Photography: Met Phan, Tri Truong; Teaser: Raffael Ng; Producer: Sory Le, Chin Chan; Clothes: Hiep Henry, Chloe Design, Lordy, Louis Huỳnh, Up BH; Make-up: Thảo Nhi; Catering: Kim Thoa; Set Design: Sory Le; Supporting run set: Lê Hoàng, Trung Doan, Nguyễn Hùng, Việt Anh, Đức Minh, Quang Dương, Nguyễn Minh, Hồ Việ; Stylist Assistant On Set: Catherine Ng
 
@@ -3090,7 +3090,7 @@ Credits: Styling: Trần Hoài Trang; MV Executive Producer: Wowy Vietnam Co.,Lt
 
 WOWY x DẾ CHOẮT | SỐNG GẮT | OFFICIAL MV.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Song written and Performed: Wowy x Dế Choắt; Title Designed: Wowy; Director: Khương Vũ; Music Producer: Phạm Hải Âu; Mixing Assistant: Hà Quốc Hoàng; Mix & Master: Emcee Dan; Studio: FLY HIGH; Assistant Director: Dương Bảo Anh; Director of Photography: Dương Thái Anh; Gaffer: Trần Ngọc Lâm; Creative Director: Vương Nguyễn; Art Director: Vũ Thiên; Music Video Production: Star VN; Equipment Rental: Star VN; Executive Producer: Thanh Đặng; Producer: Hưng Hoàng; Production Assistant: Bá Diên, Huỳnh Phạm Mỹ Hiền, Nguyễn Minh Hoàng Trần Trung Tín
 
@@ -3101,7 +3101,7 @@ Credits: Styling: Trần Hoài Trang; Song written and Performed: Wowy x Dế Ch
 
 K-ATM | RIGHT x LONA x HIPZ | OFFICIAL MUSIC VIDEO.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Executive Producer: Tam Meo; Assistance: Thanh Dy, Viet Thai; Music Executive Producer: Right; Music Producer: Hipz Người Việt Bay; Performed: Right; Composer: Right; Recording Engineer: Enkey; Mixing & Mastering Engineer: Enkey; Recorded At: One Hunnid Studio; Starring: Lona; Producer: Mojo [Hillus]; Director: Thoc [Hillus]; D.O.P: BomB reezy [Hillus]; Post Production Manager: Marshallibu [Hillus]; Editor: TLit [Hillus]; Color Grading: BomBreezy [Hillus]; Production Designer: Hillus; Stylist assistant: Phương Khanh
 
@@ -3112,7 +3112,7 @@ Credits: Styling: Trần Hoài Trang; Executive Producer: Tam Meo; Assistance: T
 
 MV LOST – OBITO.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Producer executive: Tam Meo; Assistance: Thanh Dy , Viet Thai; Composer: Obito; Record: Tuấn Kare; Producer: Dbaola; Mix & Mastered: 2S Studio , Austin & Felix Voon; Producer: Mojo [hillus]; Director: Thoc [hillus]; D.O.P: BomB reezy [hillus]; Post Production Manager: Marshallibu [hillus]; Color Grading: BomBreezy [hillus]; Production Designer: Mojo [hillus]; Art Director & Story Boards: XXX Cương [hillus]; Props Master: Teo Detail [hillus]; BTS: TLit [hillus]; SP Record: Seachains; SP MV: C’Six, White Ape, Xolit, Wavy, Freaky, Seachains, Phu Nho, Billy, Hillus
 
@@ -3123,7 +3123,7 @@ Credits: Styling: Trần Hoài Trang; Producer executive: Tam Meo; Assistance: T
 
 MV Em bé – AMEE ft KARIK x BAEMIN.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production House: ViewFinder; Clients: Baemin
 
@@ -3134,7 +3134,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 CASPER KV.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clients: CASPER VIETNAM; PH: VAIB
 
@@ -3145,7 +3145,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 PRUDENTIAL CAMPAIGN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: Prudential; PH: VAIB
 
@@ -3156,7 +3156,7 @@ Credits: Styling: Trần Hoài Trang; Client: Prudential; PH: VAIB
 
 MV ANH LÀ THẾ GIỚI CỦA AI – ANNIE (LipB) Ft CODT (Uni5).
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Executive Producer: Ông Cao Thắng; Composer: Lương Bảo Duy; Music Arranger: Nemo Trần Huy Hùng; Mix & Master: Bùi Duy Ngọc; Artist & Project Manager: Phương Real; Assitant: Vũ Đạt; Production house: 7Arts; Director: Phan Lên; Creative Director: Thang Huy Vo; Producer: Nguyễn Hiếu; Director of Photography: Ha Hoang; Camera operator: Kog Minh (f.n.p); Focus Puller: Minh Nhí; 1st Ad: Phạm Nguyễn Bảo Hoàng; Assitant Producer: Kim Ngan Truong – Vo Huu Phuoc; Art Director: Sun Le; Props team: Nguyen Phuong; Stylist Assistant: Lê Hồng Phương Khanh
 
@@ -3167,7 +3167,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 YAMAHA NEW ME DISCOVER.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: NINH DƯƠNG LAN NGỌC, LÊ XUÂN TIỀN, ISAAC, AMEE, KHẢ NGÂN, KIỀU MINH TUẤN; PH: Viewfinder; Posing Direction: Trần Hoài Trang (Trang Nhẹ Nhàng)
 
@@ -3178,7 +3178,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 YAMAHA NVX 155 – ISSAC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production House: Viewfinder
 
@@ -3189,7 +3189,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 PIZZA HUT TVC x TRANG HÝ.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clients: PIZZA HUT; KOLS: Trang Hí
 
@@ -3200,7 +3200,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN – SUIT UP.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: Vương Huy; Clothings: HOBB Design, DIOR
 
@@ -3211,7 +3211,7 @@ Credits: Styling: Trần Hoài Trang; PHOTO: Vương Huy; Clothings: HOBB Design
 
 MV TOẢ SÁNG VIỆT NAM : MIU LÊ – BÙI CÔNG NAM – GDUCKY.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3222,7 +3222,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HOA HẬU KỲ DUYÊN x DIOR – PREFALL 21.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy Juno; Make up: Xi Quan Le
 
@@ -3233,7 +3233,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – 1 TRIỆU NĂM ÁNH SÁNG EP.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: TangTang; Make up: Anh Tùng Châu
 
@@ -3244,7 +3244,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC x LOUIS VUITTON.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothings: LouisVuittonVN LAM GIA KHANG Giastudis; Accessories: LouisVuitton DramaQueenVN; Photography: Huỳnh Trí Nghĩa; Make up: Quí Đoàn; Hair: Eric Nguyễn; Set design: Lý Bình Sơn
 
@@ -3255,7 +3255,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 OSAD.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Milor Tran
 
@@ -3266,7 +3266,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 CA SĨ OSAD.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Tùng Lâm (Tung Salie); Clothings: La lune, Trendiano, Burberry, Chritian Louboutin, Dior, Masman
 
@@ -3277,7 +3277,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 JUNO – WE ARE YOUNG CAMPAIGN.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothings: Up to seconds …
 
@@ -3288,7 +3288,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 LEONARDO BAG.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothings: OWL – ZARA – H&M
 
@@ -3299,7 +3299,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 JUNO – POLKA DOT COLLECTION.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3310,7 +3310,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 WALK OF FAME – XITA HOLIDAY.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3321,7 +3321,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 KV MOMO.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rin Trần
 
@@ -3332,7 +3332,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 ANCCI EYEWEAR.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rin Trần
 
@@ -3343,7 +3343,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 HOA HẬU HHEN NIE – for ORIFLAME.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: RIN TRẦN; Clothings: Everluxe
 
@@ -3354,7 +3354,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 MIDU – for LALLA.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Hồ Quốc Hoàng
 
@@ -3365,7 +3365,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 HONDA – ĐEN VÂU.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3376,7 +3376,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TRÚC NHÂN – LÀM GÓI ĐỠ THÈM.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3387,7 +3387,7 @@ Credits: Styling: Trần Hoài Trang
 
 MV ĐỒNG CHIẾN – PUBG MOBLIE – PHAN ANN ft ZOMBIE.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; DIRECTOR: WILLIAM
 
@@ -3398,7 +3398,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 KV YAMAHA MOTOR VIETNAM.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; AGENCY: VIEWFINDER; PHOTO: TANGTANG
 
@@ -3409,7 +3409,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 LỀU PHƯƠNG ANH.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: LE THIEN VIEN; Dress: HOANG TONY
 
@@ -3420,7 +3420,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 DOVE VIETNAM – KHÁNH LINH.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; MAKE UP: HOANG VINH
 
@@ -3431,7 +3431,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 GUY LAROCHE PARIS – CAMPAIGN.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: CHANH NGUYEN; MAKE UP: DINH TRAN
 
@@ -3442,7 +3442,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 VINAMILK.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: 102 PRODUCTION
 
@@ -3453,7 +3453,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 SENKA.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO & PRODUCTION: 102 PRODUCTION; CLOTHINGS: LANE JT, EVELUXE
 
@@ -3464,7 +3464,7 @@ Credits: Styling: Trần Hoài Trang; PHOTO & PRODUCTION: 102 PRODUCTION; CLOTHI
 
 VŨ CÁT TƯỜNG – INNER ME ALBUM.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: BOBBY NGUYEN; CLOTHINGS: CHANEL, DATT
 
@@ -3475,7 +3475,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: RIN TRẦN; DRESS: LÊ THANH HOÀ, HACHIC; MAKE UP: KUNY
 
@@ -3486,7 +3486,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 QUANG ĐẠI x CALVIN KLEIN.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: KYANH TRAN
 
@@ -3497,7 +3497,7 @@ Credits: Styling: Trần Hoài Trang; PHOTO: KYANH TRAN
 
 CHI DÂN – COVER ALBUM – ĐỢI THÊM BAO LÂU.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothings: SWE; Photography: Juno
 
@@ -3508,7 +3508,7 @@ Credits: Styling: Trần Hoài Trang; Clothings: SWE; Photography: Juno
 
 BEROCCA – MV 2 GIỜ CHIỀU – ISSAC, LOU HOÀNG, ONLY C.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Agency: Carnival; Production: Hasaibros; Line Prod: Booncha Studio; Director: Như Trang; Assistant Director: Andy Chang; Director of Photography: Anh Duong (Tút); Production Designer: Anh Phuong Duong Fosha; Writter: Only C – Nguyễn Phúc Thiện; Composer: Justin TechN9; Record Studio: OnlyC Studio; Mix & Master: Only C; Executive Producer: Viet Duc Duong & Thiết Vũ; Producer: Paul Vĩ Minh; Production Manager: Tram T N Pham; Production Assistant: Duu Quân; Cam Operator: Phước Hậu; Focus Puller Cam A: Long Focus; Hair stylist & make up: Lâm Nguyễn team & Trang Emj team
 
@@ -3519,7 +3519,7 @@ Credits: Styling: Trần Hoài Trang; Agency: Carnival; Production: Hasaibros; L
 
 NINH DƯƠNG LAN NGỌC – TMV NGỌC DUNG.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; DRESS: LE THANH HOA, HACHIC, TAN LE; MAKE UP: KUNY LEE; PHOTO: RIN TRAN
 
@@ -3530,7 +3530,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 ADS – POND’S.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: POND’S; Agency: Ogilvy T&A; Production House: WEME; Art: Ly Sei, Tea Nguyen; Set Design: WEME; Photography: Hoàng Hồ; D.I: Anh Le; Model: Phương Uyên, Huỳnh Như; Makeup: Dương Hữu Nghĩa; Assistant: Nguyên Hồng, Linh Phan, Ngô Bằng, Tee Ngô, Hà Lưu
 
@@ -3541,7 +3541,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 THUÝ DIỄM.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3552,7 +3552,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 DIỄN VIÊN TRÚC ANH – APRIL SKIN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; PHOTO: CHANH NGUYỄN; MAKE UP: ĐINH TRẦN; CLOTHING: ELISE, HACHIC
 
@@ -3563,7 +3563,7 @@ Credits: Styling: Trần Hoài Trang; PHOTO: CHANH NGUYỄN; MAKE UP: ĐINH TR�
 
 THIỀU BẢO TRANG – MV LALALA YÊU.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Dress: DangVy LinhLe NguyenYenVi; Photography: nguyễn Du; Make up: Quí Đoàn
 
@@ -3574,7 +3574,7 @@ Credits: Styling: Trần Hoài Trang; Dress: DangVy LinhLe NguyenYenVi; Photogra
 
 EMMA NHẤT KHANH – MV YOUR SMILE.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Trang phục: SEEN, Van Pham, Onon Made, Eleven Studios, Magnus; Make up: Trần Như; Photography: nguyễn Du
 
@@ -3585,7 +3585,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 LÂM VỸ DẠ.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up: Khoa Lê; Photography: Linh Phạm
 
@@ -3596,7 +3596,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 SAMSUNG GALAXY NOTE 10 – LAN NGỌC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3607,7 +3607,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 KV – HIGHLAND COFFEE.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3618,7 +3618,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 NGÔ THANH VÂN – VINFAST – CHIM ƯNG ĐEN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; ĐẠO DIỄN: HÀM TRẦN
 
@@ -3629,7 +3629,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 ĐEN VÂU – KV HONDA.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3640,7 +3640,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TRẤN THÀNH – TCV 30s – LAZADA.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3651,7 +3651,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 CHI PU – LAZADA.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3662,7 +3662,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TRẤN THÀNH – TVC LAZADA.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3673,7 +3673,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 KV XÚC XÍCH PONNIE.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: 229 Production
 
@@ -3684,7 +3684,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 YAMAHA – NINH DƯƠNG LAN NGỌC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Make up: Xi Quan Lê; Clothings: XITA; Accessories: DRAMAQUEEN
 
@@ -3695,7 +3695,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 ĐÀO MINH NHẬT – SUMMER CAMPAIGN.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Đàm Gia Bảo; Model: Quỳnh Anh – Emma Le
 
@@ -3706,7 +3706,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 CHI DÂN – STREET STYLE.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vương Huy; Clothings: Tredx DolceandGabbana Magnus Dior Louisvuitton
 
@@ -3717,7 +3717,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 LALLA LOOKBOOK – MIDU.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Midu; Photography: Ho Quoc Hoang
 
@@ -3728,7 +3728,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 VINID.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: VinID; Photograph & Retouch: Minh Mi Goi; Producer: Mai Xuan Tien; Lighting: anh Hong Duc Pham; Set Design: chị Nina; Makeup: Le Xuan Thao & Thư; DI Artist: Đại Big Light; Producer Assistant: Hoàng Nguyên; Photographer Assistant: Vu Le Quang Truong
 
@@ -3739,7 +3739,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 AJINOMOTO TVC – QUANG ĐẠI.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3750,7 +3750,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 ACECOOK – Mì CayKay – BB TRẦN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3761,7 +3761,7 @@ Credits: Styling: Trần Hoài Trang
 
 PHƯƠNG LY – BIORE MV – SHINE IT NOW.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up: Quý Đoàn; Hair: ERIC
 
@@ -3772,7 +3772,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TVC – DOVE.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Director: David Rechtman; MUA: Eric Nguyễn Huỳnh Thanh Trúc Tài Phạm; Hair stylist: Ruby Nguyễn Nhất Linh Pom Charles
 
@@ -3783,7 +3783,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 ĐẸP MAGAZINE JAN 2020.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Producer: Khanh Tung Vu; Photography: Vinh Luu; Model: Dương Tú Bình Anthony Hoàng; Make up: Xi Quan Lê; Brand: Balmain DolceandGabbana
 
@@ -3794,7 +3794,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 ALSO JOURNAL MAGAZINE – Fashion editorial.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Model: Ho Thu Anh; Hair: and Make Up Xi Quan Le; Producer: Tee Truong; Clothings: Nguyễn Hoàng Tú, Khoi Nguyen, Aeie studio
 
@@ -3805,7 +3805,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 NINH DƯƠNG LAN NGỌC STREETSTYLE.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Lan Ngọc in: Công Trí, Louis Vuitton
 
@@ -3816,7 +3816,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 ELISE Campaign – TÚ HẢO –  DƯƠNG MINH NGỌC – VI NGUYỄN.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Produce and Photo: 102 production
 
@@ -3827,7 +3827,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Diễn Viên Khả Như.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Luha; Clothing: Vananhscarlet
 
@@ -3838,7 +3838,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 CHÂU BÙI – CHANGE.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3849,7 +3849,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 VŨ CÁT TƯỜNG – DÕI THEO.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -3860,7 +3860,7 @@ Credits: Styling: Trần Hoài Trang
 
 MV Có Người – Vũ Cát Tường.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothings: Lưu Ngọc Kim Khanh, Art Store, MAS
 
@@ -3871,7 +3871,7 @@ Credits: Styling: Trần Hoài Trang; Clothings: Lưu Ngọc Kim Khanh, Art Stor
 
 MV MIDU – ANH NGHĨ ANH LÀ AI.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Costume: Lê Thanh Hoà, Trần Hùng, Lưu Ngọc kim khanh, Tăng Thành Công, Steffani, Hồ Hoàng Ca Dao, Can De Blanc, Art store luxury vest, Meuw menswear, Daphale, Chloe Design, Poxi, Amon avis footwear.
 
@@ -3882,7 +3882,7 @@ Credits: Styling: Trần Hoài Trang; Costume: Lê Thanh Hoà, Trần Hùng, Lư
 
 CHI PU x KOTEX – TVC MV – NGÀY MÁT XANH KHÔNG PHẢI DO ANH.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Chân thành cảm ơn các NTK và nhãn hàng: RIN by CHUNG THANH PHONG; Assistant: An Việt Linh; Client: KOTEX; Agency: The Purpose Group; CD: Tran Anh Duc; Production house: Children Of
 
@@ -3893,7 +3893,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 QUARANTINE – NHẬT KÝ CÁCH LY Ở NHÀ – TRẦN QUANG ĐẠI.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Tran Quang Dai; Photography: Kyanh Tran; Make up: Sam Cao; Clothing: MoschinoVN Bonmua YSL Bonjour DAS MonMuseeSg
 
@@ -3904,7 +3904,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 DIANA – Key Visual – TVC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: From Thailand; Model: Thailand Model Agency
 
@@ -3915,7 +3915,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 A Hau DUONG TU ANH.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Gương mặt đại diện thương hiệu: Á Hậu Dương Tú Anh; Photography: BobbyNguyen; Make up and hair: Phuc Nghia, Cuong Vo
 
@@ -3926,7 +3926,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Whisper Vietnam.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Client: Whisper Vietnam; Agency: Dentsu Redder; Production House: ALIEN MEDIA; Director: Nguyễn Tuấn Anh; Executive Producer: Nguyễn Vĩnh Duy; Producer: Nguyễn Khang; DOP: Hải Nguyễn Đức; Actress: CARA; Account & Post Producer: Vân Nguyễn; Visual Artist: Tran Thi; 1st AD: Luk Hồ Hải My; Editor & Colograding: Tieu Pham; Focus Puller: Dương Bon; Production Assistant: Nhật Quyên; Master Props: Tuấn Thanh Nguyễn; Accountant: Huỳnh Như; Visualizer: Yên Khê
 
@@ -3937,7 +3937,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 DEP MAG.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Vinh Luu; Model: Lê Huỳnh Thuý Ngân; Producer: Chí Văn
 
@@ -3948,7 +3948,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 QUANG DAI in VERSACE.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; MUA: Sam Cao
 
@@ -3959,7 +3959,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 IBASIC Campaign.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; Film: Bully Media
 
@@ -3970,7 +3970,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 DEP MAGAZINE.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up: Xi Quan Lê
 
@@ -3981,7 +3981,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 ELLY TRAN.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: MilorTran; Make up: Hiwon; Elly in: lordy latui candeblanc fendi ysl louboutin
 
@@ -3992,7 +3992,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 XITA SUMMER CAMPAIGN.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; producer: / Minh; model: / Pham Dinh Minh Trieu – Thuỳ Trang – Dương Ngọc Khả Trang – Hằng Nguyễn – Cù Ngọc Qúy; retouch: / Nguyễn Trường
 
@@ -4003,7 +4003,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Minh Trieu – Noix De Coco Campaign.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Minh Triệu; Fashion: Noix de Coco; Photography: Le Thien Vien; Make up: Triệu Hải
 
@@ -4014,7 +4014,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TECHCOMBANK ADS.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Agency: Redder; Client: Techcombank; Foto: Vinh Luu; Producer: Nhi Huynh; Talent: Ninh Duong Lan Ngoc, Thuy Hanh, Huynh Lap; Retoucher: Anh Le
 
@@ -4025,7 +4025,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 HELLY TONG for Everlux.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production: 102production; Foto: Vinh Luu; Producer: Nhi Huynh; MUA: Xi Quan Le
 
@@ -4036,7 +4036,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 VASCARA CAMPAIGN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Foto: Phan Vo; Art: Vinh Luu; Producer: Nhii Hùynh; Set design: Lâm Minh Trung; Retouch: Anh Le; Hair&Makeup: Team Xi Quan Lê; Model: Tay Model Agency and Elite Model Agency
 
@@ -4047,7 +4047,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TRESemme – Cuoc chien spotlight.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Tresemmé contest: “Beautiful hair under all spotlight – Tóc đẹp dưới mọi ánh đèn” for this Christmas holiday.; Production: 102 Production; Agency: Ogilvy Vietnam; Photography: Luu Moc Vinh; Lighting: Hong Duc Pham; Set design: Lam Minh Trung; Retouch: Anh Le; Makeup & Hair: Team Xi Quan Le
 
@@ -4058,7 +4058,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Spring Muse.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Make up: XiQuanLe
 
@@ -4069,7 +4069,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Leflair’s Women Campaign.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production: 102 Production; Creative Direction: Nguyễn Minh Đức Billy; Art Director/ Phtographer: Vinh Luu; Producer: Nhii Hùynh; Clothings: Wephobia Dsquared Zara christianlouboutin AEIE; Hair & Make-up: Xi Quan Lê; Filming: Lâm Đạo Đạo Tân Dương; Set design: Lâm Minh Trung
 
@@ -4080,7 +4080,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Chàng thơ – Quang Đại.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4091,7 +4091,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 QUANG ĐẠI – CHÂU BÙI.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4102,7 +4102,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 1 ngày rong ruổi với Đại.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4113,7 +4113,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Viettel TVC 30s.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4124,7 +4124,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 SAMSUNG GALAXY S9 – NINH DUONG LAN NGOC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4135,7 +4135,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 TVC YOMOST.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4146,7 +4146,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 CASTROL TVC TẾT 2018 – Kiều Minh Tuấn.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4157,7 +4157,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 VIRAL – VIVO SMARTPHONE.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4168,7 +4168,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 VIRAL CLIP – SONY.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Talent: Mai Tài Phến
 
@@ -4179,7 +4179,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 BÍCH PHƯƠNG – LY CÀ PHÊ SỮA THÍNH.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4190,7 +4190,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 ĐAN TRƯỜNG – CHÍ TÀI – PHƯƠNG THANH – THANH THẢO | NƯỚC TƯƠNG NAM DƯƠNG ADS.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production house: Roco Media
 
@@ -4201,7 +4201,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 ANOTHER NHÃ PHƯƠNG.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production house: 102 Production; Clothing: CAN DE BLANC VIETNAM, I SEE IT FIRST, WEPHOBIA, SUBTLE&SIMPLE
 
@@ -4212,7 +4212,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 LEFLAIR – SHOPPING BATTLE CAMPAIGN.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Model: Nguyễn Trang, Kim, Ryan; MUA: Xi Quan Lê; Retouch: Anh Le
 
@@ -4223,7 +4223,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 BEER BECK’S ICE ADS.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production house: ALIEN MEDIA; Photography: Kyanh
 
@@ -4234,7 +4234,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 ELLE – DISCO GIRL.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Production: 102; Editor: ThuyTrang
 
@@ -4245,7 +4245,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 ELLE – MORE WOMEN.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Art Director: DungYoko; Producer and Editor: Thuy Trang; Photography: Maika; Make up: Dinh Tran
 
@@ -4256,7 +4256,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 SAMSUNG | PHUONG LY – VUONG ANH.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Phuong Ly & Vuong Anh; Agency: Golden; Make up: Thanh Phong
 
@@ -4267,7 +4267,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 ELLE Vietnam – Issue Nov.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Editor: ThuyTrang; Photography: HaKino; Model: ChaMi; Make up and Hair: DinhTran; Clothings: Chanel Hermes TruongThanhLong LamGiaKhang
 
@@ -4278,7 +4278,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 MC DANG QUYNH CHI – GIRL NIGHT OUT.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: MCDangQuynhChi; Photography: HauLe; Clothings: MoschinoVietnam LoveMoschino CanDeBlanc LeLucas Chanel Valentino Bonmua
 
@@ -4289,7 +4289,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Jessie Dolls Campaign in Taiwan.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Producer: VuHero; MUA: Daisy; Photography: Montino; Model: Miranda from StormModel; Location: Taipei – Taiwan; Supporter: HeuNguyen
 
@@ -4300,7 +4300,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Fashion film – FETE EN BLANC.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4311,7 +4311,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Fashion Film – Chau Bui – I Know Her.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4322,7 +4322,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Royal Sweetheart.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Bobby Ng
 
@@ -4333,7 +4333,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Ninh Duong Lan Ngoc – The Muse.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Lee Nguyen; Make up: Kuny Lee; Clothing: Lam Gia Khang, Chaddie, Ha Nhat Tien, Christian Louboutin, Nguyen Minh Cong
 
@@ -4344,7 +4344,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Summer Viber – Can de blanc.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Model: Tú Hảo, Teela; Photography: Dao Nhat Tan
 
@@ -4355,7 +4355,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Si Thanh – Hao Dong.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Cumfoto; Clothing: Tường, OnonMade
 
@@ -4366,7 +4366,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Actor DIEU NHI.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; Make up: Kuny Lee; Clothing: SHE by Hoa Nguyen, Rue The Chats, Le Lucas
 
@@ -4377,7 +4377,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 HWP Magazine.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Producer: Phan Cac Truc; Photography: Kyanh; Make up: Vien Duong; Model: Huong Ly, Mark
 
@@ -4388,7 +4388,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Team Lan Khue Campaign.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: RinTran
 
@@ -4399,7 +4399,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Singer MIA.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Dao Nhat Tan; Clothing: Nha Kho Li Ti, Christian Louboutin
 
@@ -4410,7 +4410,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Singer TRONIE.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Dao Nhat Tan; Clothing: Adidas Orginal, 5Theway, 90s vibers
 
@@ -4421,7 +4421,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Street style: Sĩ Thanh – Hạo Đông.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Trinh Kim Dien; Clothing: Topshop, Gucci
 
@@ -4432,7 +4432,7 @@ Credits: Styling: Trần Hoài Trang; Photography: Trinh Kim Dien; Clothing: Top
 
 Poster film “Doi cho ta bao lan doi muoi”.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Tung Chu; Clothing: Magonn, After Bath, …
 
@@ -4443,7 +4443,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Kim Ly – Aristino Campaign 2017.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Manh Bi; Make up: Xi Quan
 
@@ -4454,7 +4454,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Van Shi – Singer.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rin Tran; Make up: Thanh Phong; Clothing: OnonMade
 
@@ -4465,7 +4465,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Miss Universal Pham Huong – Travellive.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Creative: Phan Các Trúc; MUA: Vien Duong; Clothings: Just cavalli, Christian Louboutin, Furla, Charles and keith, Carolina Herrera, La Perla; Location: Marina Bay Sands – Singapore
 
@@ -4476,7 +4476,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 MC NGUYEN DO QUYNH CHI.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: DAO NHAT TAN; Clothing: LADYN, MAXLEE
 
@@ -4487,7 +4487,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 SĨ THANH.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Bếp; Clothing: Teribee, DII, Saigonese
 
@@ -4498,7 +4498,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Á Hậu Lệ Hằng.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Nal Chau; Producer: Duy Dang
 
@@ -4509,7 +4509,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 HNOSS PREMIUM COLLECTION.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Concept/Creative: Rossie; Fashion design team: Nấm,; Fashion film: ZORBA; Photography: Kỳ Anh; Makeup: Xi Quan Le; Layout: Lê Minh; Models: Polina
 
@@ -4520,7 +4520,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 101 EYEWEAR – PRINT ADS.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Producer: Ngan Nguyen; Make up: Vin; Photography: Ha Nguyen; Lighting: Hong Duc Pham
 
@@ -4531,7 +4531,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Can De Blanc – Angle among us.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photo and Video: BobbyNguyen Team
 
@@ -4542,7 +4542,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Travellive Magazine – Ho Vinh Khoa.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Hồ Vĩnh Khoa; Creative Producer: Phan Các Trúc; Photography: Kyanh Tran; MUA: Quân Hoàng Nguyễn (Ruan Dang); Fashion: Kenzo
 
@@ -4553,7 +4553,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Samsung – Ket Noi Yeu Thuong.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Thien Minh
 
@@ -4564,7 +4564,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 PHAN ANH – NUTRIBOOST.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Ambassador: Phan Anh; Agency: Square
 
@@ -4575,7 +4575,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 MC Quynh Chi x Mai Tien Dung Streetstyle.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothing: Bonmua (Valentino, Moschino), Resa, JimmyChoo, Giuseppe Zanotti, Three Floor, Versus, Max&Co; Photography: Chanh Nguyen
 
@@ -4586,7 +4586,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Ninh Duong Lan Ngoc – Street Style.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Trinh Kim Dien; Clothing: C’est la V, Six 21, Jimmy Choo, Resa
 
@@ -4597,7 +4597,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Tú Vi – Văn Anh – Băng Di – Quỳnh Anh Shyn.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Lê Tú Vi, Quỳnh Anh Shyn, Băng Di, Lê Văn Anh; Photography: Rin Trần; Clothing: Topshop, Oasis, Warehouse, Truong Thanh Truc
 
@@ -4608,7 +4608,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 TREND & STYLE – HTV7.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Kyanh; Producer: Mai Nguyen; Designer: Nguyen Hoang Tu, Thu Madelin, Truong Thanh Truc, Trang Khieu, Maison An Dinh, Mia Nguyen, Mi Duz, Kim Tr, Tom Trandt, Anh Tuyet, Ngo Thai Bao Loan, Vu ta Linh.
 
@@ -4619,7 +4619,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Phi Phuong Anh – Elle Girls.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothing: Kenzo, Topshop, Louboutin, Pedro
 
@@ -4630,7 +4630,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 L’amour – Tú Vi & Văn Anh.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Tú Vi, Văn Anh; Photography: Tùng Chu; Make up: Xi Quan; Clothing: Topshop, Everluxe, Trương Thanh Trúc, Dizaii
 
@@ -4641,7 +4641,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 CADIE MỘC TRÀ – BITIS.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Talent: Cadie Mộc Trà, Bé Đông Nghi; Clothing: Gap Kid Vietnam; Make up: Ric Màu; Production: 102
 
@@ -4652,7 +4652,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 B Trần.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothing: Masman; Photography: KinhOtrong
 
@@ -4663,7 +4663,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 HUYME.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: KinhOtrong
 
@@ -4674,7 +4674,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Sĩ Thanh – Hạo Đông.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Cumfoto; Clothing: Yuboutique Troys FloralPunk Elpis
 
@@ -4685,7 +4685,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Olympics 1 9 6 8 – HỒ VĨNH KHOA.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4696,7 +4696,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 TROPICAL FRUIT.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: DucAnhBui; Model: Teala; Bikini: Topshop, Juni’s House
 
@@ -4707,7 +4707,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Hiếu Nguyễn.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Clothings: Bonjours, DW, Dsquared, Rayban; Photography: Alex Cui Dũn
 
@@ -4718,7 +4718,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 Chà Mi in AnyArena.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: SebastianGraetz; MUA: VinNguyễn; Graphic: Thanh Duong; Clothings: Madamm, ISeeItFirst
 
@@ -4729,7 +4729,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 THE OTHER GAL – MAI NGÔ.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Ali; Make up: TriTran; Clothing: So&So by Hoàng Xuân Sơn
 
@@ -4740,7 +4740,7 @@ Thời trang biên tập bởi Trần Hoài Trang.
 
 [ LA HABANA ] Minh Triệu – Hồ Vĩnh Khoa.
 
-Dự án trong portfolio thời trang biên tập của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án thời trang biên tập trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: HoVinhKhoa MinhTrieu; Photography: TriNghia; Make up: BaoBao; Producer: Maxwell; Clothings: BCBG FCUK DKNY Maschio JessieDolls FragileSpine
 
@@ -4751,7 +4751,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 DIỄM MY X MARC.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Producer: LeHang; Photography: Zuki
 
@@ -4762,7 +4762,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 WAREHOUSE VIETNAM.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Daonhattan; Make up: TranNhu; Model: NganPhan; Accessory: Accessories
 
@@ -4773,7 +4773,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 OASIS VIETNAM.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: DaoNhatTan; Model: HaTruc
 
@@ -4784,7 +4784,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 KIM LÝ.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: LeThienVien
 
@@ -4795,7 +4795,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Magoon Design.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Model: Hằng Nguyễn, Lê Thanh Thảo; Producer: TeeTruong 102production; Photography: Vinhluu
 
@@ -4806,7 +4806,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Hnoss x Liêu Hà Trinh.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: VinhLuu; Producer: TeeTruong 102production; Assistant: NhiHuynh; Accessories: NhaKhoLiTi FloralPunk SGBB
 
@@ -4817,7 +4817,7 @@ Credits: Styling: Trần Hoài Trang; Photography: VinhLuu; Producer: TeeTruong 
 
 MV – I Need Your Love – Sĩ Thanh.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Director: Cumfoto; Make up: Nhat Sunny; Post Production: Mr. Blue; Clothing: PAT by Pham Anh Tuan | Troy’s | Yu Boutique | Mama virus | Cotton Mouth
 
@@ -4828,7 +4828,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 Q Mobile – Ngo Kien Huy & Si Thanh.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4839,7 +4839,7 @@ Credits: Styling: Trần Hoài Trang
 
 Den Ben Em (Be The One) – Vu Thao My ft. Lan Vy.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4850,7 +4850,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 INTRO YEN TRANG THE REMIX 2017.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4861,7 +4861,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 Castrol – TVC Quang cao Tet Viet 2017 – Truong Giang.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4872,7 +4872,7 @@ Credits: Styling: Trần Hoài Trang
 
 MV – Mỹ Tâm – Em Thì Không.
 
-Dự án trong portfolio âm nhạc & phim của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án âm nhạc & phim trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Composer: MICHEL MALLORY; Vietnamese Lyrics: CHAU DANG KHOA; Music Arrangement: TAM VINH; Mix & Mastering: PHAM TUAN; Rapper: KARIK; Director: KAWAII NGUYEN TUAN ANH; Line Producer: NGUYEN KHANG; Script Writer: MY TAM – MINH CHAU; Actor: LE BUU DA – JUNI – GIA KINH; DOP: TRAN NGOC KHUYEN; Editor & Color Grading: BRIAN NGUYEN; VFX: SIDERVN; Make up & Hair: HO KHANH; Costume: VATANIKA – ELISABETTA FRANCHI – HUTU BY MICAE VU – LY GIAM TIEN – SUIT STUDIO; Dancers: MTE CREW
 
@@ -4883,7 +4883,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 [Tinfour] Holiday party.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Model: HangNguyen; Photography: NalChau; Lighting: HongDucPham
 
@@ -4894,7 +4894,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 [Ninh Duong Lan Ngoc] Street Style.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: TrinhKimDien; Make up: KunyLee; Clothing: Kenzo LamGiaKhang  FloralPunk Madamn Salvatore NemoMamaShoes
 
@@ -4905,7 +4905,7 @@ Chiến dịch thương hiệu bởi Trần Hoài Trang.
 
 VERA Calendar – MINH TÚ.
 
-Dự án trong portfolio chiến dịch thương hiệu của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án chiến dịch thương hiệu trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Photography: Rintran; Starring: MinhTu; Model: NgocMint; Producer: Veraekip; Make up & Hair: LeTuanNguyen LanHuongVo
 
@@ -4916,7 +4916,7 @@ Styling nghệ sĩ bởi Trần Hoài Trang.
 
 [Ninh Duong Lan Ngoc] Winter Vibes.
 
-Dự án trong portfolio styling nghệ sĩ của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án styling nghệ sĩ trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang; Starring: Ninh Dương Lan Ngọc; Photography: Kinh O Trong; Make up: Kunny Le; Clothing: Xita, Zara, Coast
 
@@ -4927,7 +4927,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 TROY.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4938,7 +4938,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 THE COSMO.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4949,7 +4949,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 Ninomaxx campaign.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4960,7 +4960,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 MARC FASHION VN – Summer Traveller.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4971,7 +4971,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 MARC FASHION VN – Positive vibes.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4982,7 +4982,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 MARC FASHION VN – Day Dreams.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -4993,7 +4993,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 JUNI HOUSE – The Iconic.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -5004,7 +5004,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 JUNI HOUSE – Boho chic.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -5015,7 +5015,7 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 I SEE IT FIRST.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang
 
@@ -5026,6 +5026,6 @@ Lookbook & thời trang bởi Trần Hoài Trang.
 
 CECI CELA.
 
-Dự án trong portfolio lookbook & thời trang của Trần Hoài Trang. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
+Dự án lookbook & thời trang trong portfolio của chúng tôi. Khám phá những hình ảnh được chọn và thông tin ê-kíp bên dưới.
 
 Credits: Styling: Trần Hoài Trang

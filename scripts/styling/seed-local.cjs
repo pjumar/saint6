@@ -49,7 +49,7 @@ async function run() {
       const existing = await app.documents(uid).findFirst({locale});
       if (!existing || process.argv.includes('--refresh-preview')) {
         const page = seed.pages[locale];
-        const data = {...page, hero_image: await image(page.hero_image), hero_mobile_image: page.hero_mobile_image ? await image(page.hero_mobile_image) : null, hero_panels: await Promise.all((page.hero_panels || []).map(async panel => ({...panel, image:await image(panel.image)}))), clients:await Promise.all((page.clients || []).map(async client => ({...client, logo:await image(client.logo)})))};
+        const data = {...page, founder_image: page.founder_image ? await image(page.founder_image) : null, hero_image: await image(page.hero_image), hero_mobile_image: page.hero_mobile_image ? await image(page.hero_mobile_image) : null, hero_panels: await Promise.all((page.hero_panels || []).map(async panel => ({...panel, image:await image(panel.image)}))), clients:await Promise.all((page.clients || []).map(async client => ({...client, logo:await image(client.logo)})))};
         const base = existing || (locale === 'vi' ? await app.documents(uid).findFirst({locale:'en'}) : null);
         if (base) await app.documents(uid).update({documentId:base.documentId,locale,data,status:'published'});
         else await app.documents(uid).create({locale,data,status:'published'});
