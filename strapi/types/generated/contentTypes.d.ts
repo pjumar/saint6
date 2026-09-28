@@ -1719,6 +1719,80 @@ export interface ApiSetDesignPageSetDesignPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSharedContactSharedContact extends Struct.SingleTypeSchema {
+  collectionName: 'shared_contact_sections';
+  info: {
+    description: 'The introduction, team photograph and compact form header used across service pages. Publish English and Vietnamese separately.';
+    displayName: 'Shared Contact Section';
+    pluralName: 'shared-contacts';
+    singularName: 'shared-contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    form_subtitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    form_title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heading: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image_alt: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::shared-contact.shared-contact'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSocialLinkSocialLink extends Struct.SingleTypeSchema {
   collectionName: 'social_links';
   info: {
@@ -1996,20 +2070,6 @@ export interface ApiStylingPageStylingPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    contact_text: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    contact_title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2179,6 +2239,18 @@ export interface ApiStylingPageStylingPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    social_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    social_image_alt: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2255,6 +2327,16 @@ export interface ApiStylingProjectStylingProject
       'oneToMany',
       'api::styling-project.styling-project'
     >;
+    locked_slug: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        'content-manager': {
+          visible: false;
+        };
+        'content-type-builder': {
+          visible: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     seo_description: Schema.Attribute.Text &
       Schema.Attribute.Required &
@@ -2277,6 +2359,18 @@ export interface ApiStylingProjectStylingProject
           localized: false;
         };
       }>;
+    social_image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    social_image_alt: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     sort_order: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
@@ -2286,7 +2380,6 @@ export interface ApiStylingProjectStylingProject
       > &
       Schema.Attribute.DefaultTo<0>;
     source_url: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2913,6 +3006,7 @@ declare module '@strapi/strapi' {
       'api::seo-metadata.seo-metadata': ApiSeoMetadataSeoMetadata;
       'api::service-item.service-item': ApiServiceItemServiceItem;
       'api::set-design-page.set-design-page': ApiSetDesignPageSetDesignPage;
+      'api::shared-contact.shared-contact': ApiSharedContactSharedContact;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::studio-rental-page.studio-rental-page': ApiStudioRentalPageStudioRentalPage;
       'api::studio-room.studio-room': ApiStudioRoomStudioRoom;

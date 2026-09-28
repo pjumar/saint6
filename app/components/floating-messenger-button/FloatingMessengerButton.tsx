@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { prepareMessengerLink } from "@/app/lib/messenger/client";
+import { isProductionSite } from "@/app/lib/form-submissions";
 import styles from "./FloatingMessengerButton.module.css";
 
 const MESSENGER_URL = "https://m.me/saint6studios";
@@ -32,6 +33,7 @@ export function FloatingMessengerButton() {
   }, [pathname]);
 
   const trackZaloClick = () => {
+    if (!isProductionSite) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "zalo_click",

@@ -21,6 +21,8 @@ export interface StylingClient {
   display_width?: number;
 }
 export interface StylingPage {
+  social_image?: StylingImage | null;
+  social_image_alt?: string;
   hero_heading: string;
   hero_image: StylingImage;
   hero_alt?: string;
@@ -44,12 +46,12 @@ export interface StylingPage {
   process: StylingBlock[];
   faq_title: string;
   faqs: StylingBlock[];
-  contact_title: string;
-  contact_text: string;
   seo_title: string;
   seo_description: string;
 }
 export interface StylingProject {
+  social_image?: StylingImage | null;
+  social_image_alt?: string;
   slug: string;
   title: string;
   category: string;
@@ -61,12 +63,20 @@ export interface StylingProject {
   cover_alt?: string;
   gallery: { image: StylingImage; alt: string }[];
   credits: { role: string; name: string }[];
-  source_url: string;
+  source_url?: string;
   video_url?: string | null;
   sort_order: number;
   seo_title: string;
   seo_description: string;
   updatedAt?: string;
+}
+export interface SharedContactContent {
+  heading: string;
+  text: string;
+  image: StylingImage;
+  image_alt: string;
+  form_title: string;
+  form_subtitle: string;
 }
 export interface StylingContent {
   page: StylingPage;

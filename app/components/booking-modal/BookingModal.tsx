@@ -16,6 +16,7 @@ import { ProgressiveImage } from "@/app/components/progressive-image/Progressive
 import { Calendar } from "@/app/components/ui/calendar";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { clearUtmParams, getTrafficSource, useUtmParams } from "@/app/hooks";
+import { formSubmissionsEnabled, submissionData, trackFormConversion, previewFormNotice } from "@/app/lib/form-submissions";
 import styles from "./BookingModal.module.css";
 
 const STRAPI_URL =
@@ -131,7 +132,11 @@ export function BookingModal({
   rooms,
   initialRoomIndex = 0,
 }: BookingModalProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const pending = useRef(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const [submitError, setSubmitError] = useState(false);
+  const previewNotice = previewFormNotice(locale);
   const utmParams = useUtmParams();
   const [modalState, setModalState] = useState<ModalState>("details");
   const [selectedRoomIndex, setSelectedRoomIndex] = useState(initialRoomIndex);
@@ -196,18 +201,29 @@ export function BookingModal({
       });
       setFieldErrors({ email: false, phone: false });
       setShowErrors(false);
+      setSubmitError(false);
     }
   }, [isOpen, initialRoomIndex]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      if (e.key === "Tab" && dialogRef.current) {
+        const items = [...dialogRef.current.querySelectorAll<HTMLElement>('button:not(:disabled), input:not(:disabled), a[href], [tabindex="0"]')].filter(el => el.getClientRects().length > 0);
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!first) return;
+        if (e.shiftKey && (document.activeElement === first || !dialogRef.current.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && (document.activeElement === last || !dialogRef.current.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+      }
     },
     [onClose]
   );
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && mounted) {
+      const restoreFocus = document.activeElement as HTMLElement | null;
+      dialogRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close"]')?.focus();
       const scrollY = window.scrollY;
       document.addEventListener("keydown", handleKeyDown);
       document.body.style.position = "fixed";
@@ -223,9 +239,10 @@ export function BookingModal({
         document.body.style.right = "";
         document.body.style.overflow = "";
         window.scrollTo(0, scrollY);
+        restoreFocus?.focus({ preventScroll: true });
       };
     }
-  }, [isOpen, handleKeyDown]);
+  }, [isOpen, handleKeyDown, mounted]);
 
   // Close calendar on click outside
   useEffect(() => {
@@ -432,6 +449,8 @@ export function BookingModal({
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (pending.current || !formSubmissionsEnabled) return;
+    setSubmitError(false);
     const isValid =
       formData.name &&
       EMAIL_REGEX.test(formData.email) &&
@@ -444,6 +463,8 @@ export function BookingModal({
       return;
     }
 
+    setShowErrors(false);
+    pending.current = true;
     setIsSubmitting(true);
     try {
       const trafficSource = getTrafficSource(utmParams);
@@ -466,7 +487,7 @@ export function BookingModal({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          data: {
+          data: submissionData({
             roomTitle: room.title,
             dateFrom: dateRange?.from ? format(dateRange.from, "dd/MM/yyyy") : "",
             dateTo: dateRange?.to ? format(dateRange.to, "dd/MM/yyyy") : "",
@@ -481,7 +502,7 @@ export function BookingModal({
             utmMedium: utmParams.utm_medium || null,
             utmCampaign: utmParams.utm_campaign || null,
             landingPage: utmParams._landing || window.location.pathname,
-          },
+          }),
         }),
       });
       if (!response.ok) throw new Error("Failed to submit booking");
@@ -495,8 +516,7 @@ export function BookingModal({
       }
 
       // Push conversion event to GTM dataLayer
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      trackFormConversion({
         event: "booking_form_submit",
         form_name: "booking",
         traffic_source: trafficSource,
@@ -515,7 +535,9 @@ export function BookingModal({
       setModalState("success");
     } catch (error) {
       console.error("Booking submission error:", error);
+      setSubmitError(true);
     } finally {
+      pending.current = false;
       setIsSubmitting(false);
     }
   };
@@ -528,6 +550,7 @@ export function BookingModal({
     <div className={styles.overlay} onClick={onClose}>
       <div
         className={styles.modal}
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-label={t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
@@ -760,8 +783,10 @@ export function BookingModal({
             <form
               className={styles.bookingForm}
               onSubmit={handleSubmit}
+              aria-busy={isSubmitting}
               noValidate
             >
+              {previewNotice && <p role="note">{previewNotice}</p>}
               {/* Date range picker */}
               <div className={styles.dateRangeContainer} ref={calendarRef}>
                 <button
@@ -880,7 +905,7 @@ export function BookingModal({
                   {openTimePicker === "from" && (
                     <div className={styles.timePickerDropdownWrapper}>
                       {timeDropdownArrows.up && (
-                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowUp}`} onClick={() => scrollTimeDropdown("up")}>
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowUp}`} aria-label={locale === "vi" ? "Cuộn giờ lên" : "Scroll times up"} onClick={() => scrollTimeDropdown("up")}>
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 10L8 6L12 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </button>
                       )}
@@ -907,7 +932,7 @@ export function BookingModal({
                         ))}
                       </div>
                       {timeDropdownArrows.down && (
-                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowDown}`} onClick={() => scrollTimeDropdown("down")}>
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowDown}`} aria-label={locale === "vi" ? "Cuộn giờ xuống" : "Scroll times down"} onClick={() => scrollTimeDropdown("down")}>
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </button>
                       )}
@@ -936,7 +961,7 @@ export function BookingModal({
                   {openTimePicker === "to" && (
                     <div className={styles.timePickerDropdownWrapper}>
                       {timeDropdownArrows.up && (
-                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowUp}`} onClick={() => scrollTimeDropdown("up")}>
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowUp}`} aria-label={locale === "vi" ? "Cuộn giờ lên" : "Scroll times up"} onClick={() => scrollTimeDropdown("up")}>
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 10L8 6L12 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </button>
                       )}
@@ -963,7 +988,7 @@ export function BookingModal({
                         ))}
                       </div>
                       {timeDropdownArrows.down && (
-                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowDown}`} onClick={() => scrollTimeDropdown("down")}>
+                        <button type="button" className={`${styles.timeDropdownArrow} ${styles.timeDropdownArrowDown}`} aria-label={locale === "vi" ? "Cuộn giờ xuống" : "Scroll times down"} onClick={() => scrollTimeDropdown("down")}>
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         </button>
                       )}
@@ -977,6 +1002,8 @@ export function BookingModal({
                 <input
                   type="text"
                   name="name"
+                  aria-invalid={showErrors && !formData.name}
+                  aria-label={t.STUDIO_RENTAL.BOOKING.NAME}
                   value={formData.name}
                   onChange={handleChange}
                   placeholder=" "
@@ -993,6 +1020,8 @@ export function BookingModal({
                 <input
                   type="email"
                   name="email"
+                  aria-invalid={fieldErrors.email || (showErrors && !EMAIL_REGEX.test(formData.email))}
+                  aria-label={t.STUDIO_RENTAL.BOOKING.EMAIL}
                   value={formData.email}
                   onChange={handleChange}
                   placeholder=" "
@@ -1009,6 +1038,8 @@ export function BookingModal({
                 <input
                   type="tel"
                   name="phone"
+                  aria-invalid={fieldErrors.phone || (showErrors && !PHONE_REGEX.test(formData.phone))}
+                  aria-label={t.STUDIO_RENTAL.BOOKING.PHONE}
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder=" "
@@ -1020,12 +1051,14 @@ export function BookingModal({
                 </label>
               </div>
 
+              {submitError && <p role="alert">{t.STUDIO_RENTAL.FORM.ERROR}</p>}
+              {showErrors && <p role="alert">{locale === "vi" ? "Vui lòng kiểm tra ngày, giờ và thông tin liên hệ." : "Please check the dates, times and contact details."}</p>}
               {/* Submit */}
               <CommonButton
                 type="submit"
                 variant="primary"
                 size="md"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !formSubmissionsEnabled}
                 className={styles.submitButton}
               >
                 <span style={{ visibility: isSubmitting ? "hidden" : "visible" }}>
@@ -1045,7 +1078,7 @@ export function BookingModal({
         {/* STATE: SUCCESS       */}
         {/* ==================== */}
         {modalState === "success" && (
-          <div className={styles.successContent}>
+          <div className={styles.successContent} role="status" aria-live="polite">
             <div className={styles.successBody}>
               <div className={styles.successText}>
                 <h2 className={styles.successHeading}>

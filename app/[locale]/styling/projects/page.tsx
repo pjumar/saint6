@@ -5,7 +5,8 @@ import { ContactSection } from "@/app/components/contact-section/ContactSection"
 import styles from "@/app/components/styling/Styling.module.css";
 import { ProjectCard } from "@/app/components/styling/StylingShared";
 import {
-  getStylingContent,
+  getStylingPage,
+  getStylingProjectSummaries,
   stylingEnabled,
   stylingIsPublic,
 } from "@/app/lib/styling/content";
@@ -30,7 +31,10 @@ async function content({ params, searchParams }: Props) {
     ? single("category")
     : "";
   const query = single("q").trim().slice(0, 120);
-  const { page: pageContent, projects } = await getStylingContent(locale);
+  const [pageContent, projects] = await Promise.all([
+    getStylingPage(locale),
+    getStylingProjectSummaries(locale),
+  ]);
   return {
     locale,
     pageContent,
@@ -46,14 +50,22 @@ export async function generateMetadata(props: Props) {
   const path = portfolioHref(data.locale, data.category, data.query, data.page)
     .replace(`/${data.locale}/styling`, "")
     .split("#")[0];
+  const categoryLabel =
+    portfolioCategories[data.category as keyof typeof portfolioCategories]?.[
+      data.locale
+    ];
+  const pageLabel =
+    data.page > 1 ? ` · ${vi ? "Trang" : "Page"} ${data.page}` : "";
   const meta = stylingMetadata(
     data.locale,
     path,
-    `${vi ? "Portfolio Styling" : "Our Styling Portfolio"} | Saint 6`,
+    `${categoryLabel || (vi ? "Portfolio Styling" : "Our Styling Portfolio")}${pageLabel} | Saint 6`,
     vi
-      ? "Khám phá portfolio styling của chúng tôi tại Saint 6: quảng cáo, nghệ sĩ, thời trang và âm nhạc. Styling bởi Trần Hoài Trang."
-      : "Explore our styling portfolio at Saint 6 across advertising, celebrity, fashion and music. Styling by Trần Hoài Trang.",
+      ? `${categoryLabel ? `${categoryLabel}: ` : ""}Khám phá portfolio styling của chúng tôi tại Saint 6. Styling bởi Trần Hoài Trang.${data.page > 1 ? ` Trang ${data.page}.` : ""}`
+      : `${categoryLabel ? `${categoryLabel}: ` : ""}Explore our styling portfolio at Saint 6 across advertising, celebrity, fashion and music. Styling by Trần Hoài Trang.${data.page > 1 ? ` Page ${data.page}.` : ""}`,
     data.pageContent.hero_image,
+    data.pageContent.social_image,
+    data.pageContent.social_image_alt,
   );
   if (data.query) meta.robots = { index: false, follow: stylingIsPublic };
   return meta;

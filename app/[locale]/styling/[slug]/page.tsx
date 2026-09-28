@@ -11,7 +11,8 @@ import {
 } from "@/app/components/styling/StylingShared";
 import { StylingVideo } from "@/app/components/styling/StylingVideo";
 import {
-  getStylingContent,
+  getStylingProject,
+  getStylingProjectSummaries,
   stylingEnabled,
   stylingOrigin,
 } from "@/app/lib/styling/content";
@@ -24,7 +25,7 @@ export async function generateStaticParams() {
   if (!stylingEnabled) return [];
   const entries = await Promise.all(
     (["en", "vi"] as const).map(async (locale) =>
-      (await getStylingContent(locale)).projects.map(({ slug }) => ({
+      (await getStylingProjectSummaries(locale)).map(({ slug }) => ({
         locale,
         slug,
       })),
@@ -35,10 +36,12 @@ export async function generateStaticParams() {
 async function content(params: Props["params"]) {
   const { locale, slug } = await params;
   if (!stylingEnabled || (locale !== "en" && locale !== "vi")) notFound();
-  const data = await getStylingContent(locale);
-  const project = data.projects.find((item) => item.slug === slug);
+  const [projects, project] = await Promise.all([
+    getStylingProjectSummaries(locale),
+    getStylingProject(locale, slug),
+  ]);
   if (!project) notFound();
-  return { ...data, locale, project } as const;
+  return { projects, locale, project } as const;
 }
 export async function generateMetadata({ params }: Props) {
   const { locale, project } = await content(params);
@@ -48,6 +51,8 @@ export async function generateMetadata({ params }: Props) {
     project.seo_title,
     project.seo_description,
     project.cover,
+    project.social_image,
+    project.social_image_alt,
   );
 }
 export default async function StylingProjectPage({ params }: Props) {
@@ -61,14 +66,14 @@ export default async function StylingProjectPage({ params }: Props) {
     ? project.gallery.filter(({ image }) => image.url !== videoPoster.url)
     : project.gallery;
   const index = projects.findIndex((item) => item.slug === project.slug);
-  const related = [
+  const related = projects.length ? [
     projects[(index + 1) % projects.length],
     projects[(index + 2) % projects.length],
   ].filter(
     (item, n, all) =>
       item.slug !== project.slug &&
       all.findIndex((p) => p.slug === item.slug) === n,
-  );
+  ) : [];
   const url = `${stylingOrigin}/${locale}/styling/${project.slug}`;
   return (
     <>

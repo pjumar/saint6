@@ -70,8 +70,6 @@
           "text": "These depend on your brief. We will agree sourcing, fittings, support and any clothing or accessory costs with you before confirming the scope."
         }
       ],
-      "contact_title": "Let’s find your direction.",
-      "contact_text": "A campaign, a collection, an occasion—or something entirely your own. Tell us what you have in mind.",
       "seo_title": "Fashion, Commercial & Personal Styling in Ho Chi Minh City | Saint 6",
       "seo_description": "Styling by Trần Hoài Trang at Saint 6, Ho Chi Minh City. Explore fashion campaigns, celebrity looks, lookbooks and personal styling, and discuss your next project.",
       "hero_alt": "Kỳ Duyên in Dior — styling by Trần Hoài Trang",
@@ -334,8 +332,6 @@
           "text": "Phạm vi phụ thuộc vào từng yêu cầu. Chúng tôi sẽ thống nhất việc tìm trang phục, thử đồ, hỗ trợ và các chi phí liên quan trước khi xác nhận dự án."
         }
       ],
-      "contact_title": "Cùng tìm hướng đi cho hình ảnh của bạn.",
-      "contact_text": "Một chiến dịch, bộ sưu tập, dịp đặc biệt hay câu chuyện rất riêng. Hãy chia sẻ ý tưởng với chúng tôi.",
       "seo_title": "Styling Thời Trang, Quảng Cáo & Cá Nhân tại TP.HCM | Saint 6",
       "seo_description": "Dịch vụ styling bởi Trần Hoài Trang tại Saint 6, TP.HCM. Khám phá chiến dịch thời trang, hình ảnh nghệ sĩ, lookbook và styling cá nhân.",
       "hero_alt": "Kỳ Duyên in Dior — styling by Trần Hoài Trang",
@@ -1784,8 +1780,8 @@
         "source_url": "https://tranhoaitrang.com/default-slug/ninh-duong-lan-ngoc-2/",
         "video_url": null,
         "sort_order": 30,
-        "seo_title": "NINH DƯƠNG LAN NGỌC · Styling | Saint 6",
-        "seo_description": "NINH DƯƠNG LAN NGỌC. Celebrity styling by Trần Hoài Trang."
+        "seo_title": "Ninh Dương Lan Ngọc × Vương Huy · Styling | Saint 6",
+        "seo_description": "Ninh Dương Lan Ngọc photographed by Vương Huy, with styling by Trần Hoài Trang. Discover the project at Saint 6."
       },
       {
         "slug": "chi-muon-ben-em-luc-nay-the-records-3-gigi-huong-giang-cover",
@@ -7104,8 +7100,8 @@
         "source_url": "https://tranhoaitrang.com/default-slug/ninh-duong-lan-ngoc/",
         "video_url": null,
         "sort_order": 105,
-        "seo_title": "NINH DƯƠNG LAN NGỌC · Styling | Saint 6",
-        "seo_description": "NINH DƯƠNG LAN NGỌC. Celebrity styling by Trần Hoài Trang."
+        "seo_title": "Ninh Dương Lan Ngọc × Rin Trần · Styling | Saint 6",
+        "seo_description": "Ninh Dương Lan Ngọc photographed by Rin Trần, with styling by Trần Hoài Trang. Discover the project at Saint 6."
       },
       {
         "slug": "quang-dai-x-calvin-klein",
@@ -19523,8 +19519,8 @@
         "source_url": "https://tranhoaitrang.com/default-slug/ninh-duong-lan-ngoc-2/",
         "video_url": null,
         "sort_order": 30,
-        "seo_title": "NINH DƯƠNG LAN NGỌC · Styling | Saint 6",
-        "seo_description": "NINH DƯƠNG LAN NGỌC. Styling nghệ sĩ bởi Trần Hoài Trang."
+        "seo_title": "Ninh Dương Lan Ngọc × Vương Huy · Styling | Saint 6",
+        "seo_description": "Ninh Dương Lan Ngọc qua ống kính Vương Huy, styling bởi Trần Hoài Trang. Khám phá dự án tại Saint 6."
       },
       {
         "slug": "chi-muon-ben-em-luc-nay-the-records-3-gigi-huong-giang-cover",
@@ -24843,8 +24839,8 @@
         "source_url": "https://tranhoaitrang.com/default-slug/ninh-duong-lan-ngoc/",
         "video_url": null,
         "sort_order": 105,
-        "seo_title": "NINH DƯƠNG LAN NGỌC · Styling | Saint 6",
-        "seo_description": "NINH DƯƠNG LAN NGỌC. Styling nghệ sĩ bởi Trần Hoài Trang."
+        "seo_title": "Ninh Dương Lan Ngọc × Rin Trần · Styling | Saint 6",
+        "seo_description": "Ninh Dương Lan Ngọc qua ống kính Rin Trần, styling bởi Trần Hoài Trang. Khám phá dự án tại Saint 6."
       },
       {
         "slug": "quang-dai-x-calvin-klein",
@@ -36008,5 +36004,33 @@
         "seo_description": "CECI CELA. Lookbook & thời trang bởi Trần Hoài Trang."
       }
     ]
+  },
+  "contactSections": {
+    "en": {
+      "heading": "Let’s find your direction.",
+      "text": "A campaign, a collection, an occasion—or something entirely your own. From studio rental and set design to production, styling, event planning and creative direction, tell us what you have in mind. We’ll help bring it together.",
+      "form_title": "Get in touch",
+      "form_subtitle": "Let's Build Something Beautiful",
+      "image_alt": "The Saint 6 Studios team",
+      "image": {
+        "url": "/images/contact-section-bg.webp",
+        "width": 3402,
+        "height": 2195,
+        "alternativeText": "The Saint 6 Studios team"
+      }
+    },
+    "vi": {
+      "heading": "Cùng tìm hướng đi cho ý tưởng của bạn.",
+      "text": "Một chiến dịch, bộ sưu tập, sự kiện hay câu chuyện rất riêng. Từ thuê studio, thiết kế bối cảnh đến sản xuất, styling, tổ chức sự kiện và định hướng sáng tạo, hãy chia sẻ ý tưởng với chúng tôi để cùng hiện thực hóa.",
+      "form_title": "Liên hệ",
+      "form_subtitle": "Cùng Xây Dựng Điều Tuyệt Vời",
+      "image_alt": "Đội ngũ Saint 6 Studios",
+      "image": {
+        "url": "/images/contact-section-bg.webp",
+        "width": 3402,
+        "height": 2195,
+        "alternativeText": "The Saint 6 Studios team"
+      }
+    }
   }
 }

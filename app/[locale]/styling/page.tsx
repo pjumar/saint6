@@ -12,7 +12,8 @@ import {
 } from "@/app/components/styling/StylingShared";
 import { StylingWorkLink } from "@/app/components/styling/StylingWorkLink";
 import {
-  getStylingContent,
+  getStylingPage,
+  getStylingProjectSummaries,
   stylingEnabled,
   stylingOrigin,
 } from "@/app/lib/styling/content";
@@ -23,7 +24,11 @@ export const revalidate = 300;
 async function content(params: Props["params"]) {
   const { locale } = await params;
   if (!stylingEnabled || (locale !== "en" && locale !== "vi")) notFound();
-  return { locale, ...(await getStylingContent(locale)) } as const;
+  const [page, projects] = await Promise.all([
+    getStylingPage(locale),
+    getStylingProjectSummaries(locale),
+  ]);
+  return { locale, page, projects } as const;
 }
 export async function generateMetadata({ params }: Props) {
   const { locale, page } = await content(params);
@@ -33,6 +38,8 @@ export async function generateMetadata({ params }: Props) {
     page.seo_title,
     page.seo_description,
     page.hero_image,
+    page.social_image,
+    page.social_image_alt,
   );
 }
 export default async function StylingPage({ params }: Props) {

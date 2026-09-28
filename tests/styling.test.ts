@@ -2,7 +2,12 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
-import { getStylingContent } from "../app/lib/styling/content";
+import {
+  getSharedContactContent,
+  getStylingContent,
+  getStylingProject,
+  getStylingProjectSummaries,
+} from "../app/lib/styling/content";
 import seed from "../app/lib/styling/seed.json";
 import { stylingMetadata } from "../app/lib/styling/seo";
 
@@ -181,4 +186,101 @@ test("CMS reads all pages rather than truncating a portfolio at 100 projects", a
     if (previous === undefined) delete process.env.STYLING_CONTENT_SOURCE;
     else process.env.STYLING_CONTENT_SOURCE = previous;
   }
+});
+
+test("listing queries exclude galleries; individual projects fetch their own complete record", async () => {
+  const before = process.env.STYLING_CONTENT_SOURCE;
+  const originalFetch = globalThis.fetch;
+  process.env.STYLING_CONTENT_SOURCE = "cms";
+  const urls: URL[] = [];
+  globalThis.fetch = async (input) => {
+    const url = new URL(String(input));
+    urls.push(url);
+    if (url.pathname.endsWith("shared-contact"))
+      return Response.json({ data: seed.contactSections.vi });
+    return Response.json({
+      data: [seed.projects.en[0]],
+      meta: { pagination: { total: 1 } },
+    });
+  };
+  try {
+    await getStylingProjectSummaries("en");
+    await getStylingProject("en", seed.projects.en[0].slug);
+    const contact = await getSharedContactContent("vi");
+    assert.equal(
+      urls[0].searchParams.has("populate[gallery][populate][image]"),
+      false,
+    );
+    assert.equal(
+      urls[1].searchParams.get("filters[slug][$eq]"),
+      seed.projects.en[0].slug,
+    );
+    assert.equal(urls[1].searchParams.get("populate[social_image]"), "true");
+    assert.equal(contact.heading, seed.contactSections.vi.heading);
+    assert.ok(contact.image.url.startsWith("https://"));
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (before === undefined) delete process.env.STYLING_CONTENT_SOURCE;
+    else process.env.STYLING_CONTENT_SOURCE = before;
+  }
+});
+
+test("every project has distinct localized SEO titles; social overrides retain their dimensions", () => {
+  for (const locale of ["en", "vi"] as const) {
+    assert.equal(
+      new Set(seed.projects[locale].map((p) => p.seo_title)).size,
+      seed.projects[locale].length,
+    );
+  }
+  const project = seed.projects.en[0];
+  const custom = {
+    url: "https://strapi.saint6.studio/uploads/custom.jpg",
+    width: 1200,
+    height: 630,
+    alternativeText: "Custom artwork",
+  };
+  const meta = stylingMetadata(
+    "en",
+    `/${project.slug}`,
+    project.seo_title,
+    project.seo_description,
+    project.cover,
+    custom,
+    "Custom English description",
+  );
+  const image = (
+    meta.openGraph as {
+      images: Array<{
+        url: string;
+        width: number;
+        height: number;
+        alt: string;
+      }>;
+    }
+  ).images[0];
+  assert.deepEqual(image, {
+    url: custom.url,
+    width: 1200,
+    height: 630,
+    alt: "Custom English description",
+  });
+  const fallback = stylingMetadata(
+    "en",
+    `/${project.slug}`,
+    project.seo_title,
+    project.seo_description,
+    project.cover,
+  );
+  const fallbackImage = (
+    fallback.openGraph as {
+      images: Array<{ url: string; width: number; height: number }>;
+    }
+  ).images[0];
+  assert.equal(fallbackImage.width, 1200);
+  assert.equal(fallbackImage.height, 630);
+  assert.ok(
+    fallbackImage.url.includes(
+      `/api/styling/social?locale=en&slug=${project.slug}`,
+    ),
+  );
 });

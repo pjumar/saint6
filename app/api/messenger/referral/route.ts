@@ -9,6 +9,7 @@ import { REF_PATTERN } from "@/strapi/src/api/messenger/lib/protocol";
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  if (process.env.VERCEL_ENV === "preview") return new Response(null, { status: 404 });
   const mode = trackingMode();
   if (mode === "off") return new Response(null, { status: 404 });
   const origin = request.headers.get("origin");

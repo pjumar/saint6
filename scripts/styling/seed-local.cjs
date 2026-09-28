@@ -18,9 +18,19 @@ const { createStrapi, compileStrapi } = require(path.join(appDir, 'node_modules/
 const seed = require(path.join(root, 'app/lib/styling/seed.json'));
 async function run() {
   const context = await compileStrapi({ appDir, ignoreDiagnostics: true });
-  const app = createStrapi({...context, serveAdminPanel: false});
+  const app = createStrapi({...context, serveAdminPanel: process.argv.includes("--editor")});
   await app.load();
   app.cron.destroy();
+  if (process.argv.includes('--editor')) {
+    const credentialsFile = path.join(localDir, 'editor.private.json');
+    if (!fs.existsSync(credentialsFile)) {
+      const role = await app.db.query('admin::role').findOne({where:{code:'strapi-super-admin'}});
+      const credentials = {email:'local-styling-qa@example.invalid',password:crypto.randomBytes(24).toString('base64url')+'!Aa9'};
+      await app.admin.services.user.create({...credentials,firstname:'Local',lastname:'Styling QA',isActive:true,roles:[role.id]});
+      fs.writeFileSync(credentialsFile,JSON.stringify(credentials),{mode:0o600});
+    }
+    console.log('Local editor enabled at http://127.0.0.1:1346/admin; credentials remain in the ignored local preview directory.');
+  }
   // Explicitly excluded on review; this script is hard-bound to the isolated preview DB.
   const excluded = await app.documents('api::styling-project.styling-project').findFirst({filters:{slug:'real-me-8-pro-isaac-amee'}});
   if (excluded) await app.documents('api::styling-project.styling-project').delete({documentId:excluded.documentId,locale:'*'});
@@ -45,6 +55,15 @@ async function run() {
       return existing.id;
     }
     for (const locale of ['en','vi']) {
+      const contactUid = 'api::shared-contact.shared-contact';
+      const currentContact = await app.documents(contactUid).findFirst({locale});
+      if (!currentContact || process.argv.includes('--refresh-preview')) {
+        const contact = seed.contactSections[locale];
+        const data = {...contact,image:await image(contact.image)};
+        const baseContact = currentContact || (locale === 'vi' ? await app.documents(contactUid).findFirst({locale:'en'}) : null);
+        if (baseContact) await app.documents(contactUid).update({documentId:baseContact.documentId,locale,data,status:'published'});
+        else await app.documents(contactUid).create({locale,data,status:'published'});
+      }
       const uid = 'api::styling-page.styling-page';
       const existing = await app.documents(uid).findFirst({locale});
       if (!existing || process.argv.includes('--refresh-preview')) {
@@ -66,7 +85,7 @@ async function run() {
     }
     // Read-only anonymous access on this isolated local database, for preview testing.
     const role = await app.db.query('plugin::users-permissions.role').findOne({where:{type:'public'}});
-    for (const action of ['api::styling-page.styling-page.find','api::styling-project.styling-project.find','api::styling-project.styling-project.findOne']) {
+    for (const action of ['api::shared-contact.shared-contact.find','api::styling-page.styling-page.find','api::styling-project.styling-project.find','api::styling-project.styling-project.findOne']) {
       if (!await app.db.query('plugin::users-permissions.permission').findOne({where:{action,role:role.id}})) await app.db.query('plugin::users-permissions.permission').create({data:{action,role:role.id}});
     }
     for (const locale of ['en','vi']) {

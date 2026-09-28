@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { stylingIsPublic, stylingOrigin } from "./content";
+import { stylingIsPublic, stylingOrigin, stylingShareOrigin } from "./content";
 import type { StylingImage, StylingLocale } from "./types";
 
 export function stylingMetadata(
@@ -8,9 +8,18 @@ export function stylingMetadata(
   title: string,
   description: string,
   image: StylingImage,
+  socialImage?: StylingImage | null,
+  socialAlt?: string,
 ): Metadata {
   const url = `${stylingOrigin}/${locale}/styling${path}`;
-  const imageUrl = new URL(image.url, stylingOrigin).href;
+  const slug = path.split("?")[0].slice(1);
+  const cardQuery = new URLSearchParams({
+    locale,
+    ...(slug && slug !== "projects" ? { slug } : {}),
+  });
+  const imageUrl = socialImage
+    ? new URL(socialImage.url, stylingShareOrigin).href
+    : `${stylingShareOrigin}/api/styling/social?${cardQuery}`;
   return {
     title: { absolute: title },
     description,
@@ -27,15 +36,18 @@ export function stylingMetadata(
       type: "website",
       title,
       description,
-      url,
+      url: `${stylingShareOrigin}/${locale}/styling${path}`,
       siteName: "Saint 6 Studio",
       locale: locale === "vi" ? "vi_VN" : "en_US",
       images: [
         {
           url: imageUrl,
-          width: image.width,
-          height: image.height,
-          alt: image.alternativeText,
+          width: socialImage?.width || 1200,
+          height: socialImage?.height || 630,
+          alt:
+            socialAlt ||
+            socialImage?.alternativeText ||
+            `${title} — ${image.alternativeText}`,
         },
       ],
     },

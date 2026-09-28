@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getStylingContent, stylingIsPublic } from "@/app/lib/styling/content";
+import { getStylingProjectSummaries, stylingIsPublic } from "@/app/lib/styling/content";
 
 const BASE_URL = "https://www.saint6.studio";
 
@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (!stylingIsPublic) return existing;
   const styling = await Promise.all(
     (["en", "vi"] as const).map(async (locale) => {
-      const { projects } = await getStylingContent(locale);
+      const projects = await getStylingProjectSummaries(locale);
       return [
         "",
         "/projects",

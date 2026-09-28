@@ -1,4 +1,6 @@
 import type { Core } from "@strapi/strapi";
+import { configureStylingEditor } from "./lib/styling-editor";
+import { registerStylingValidation } from "./lib/styling-validation";
 
 export default {
   /**
@@ -7,7 +9,9 @@ export default {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register({ strapi }: { strapi: Core.Strapi }) {
+    registerStylingValidation(strapi);
+  },
 
   /**
    * An asynchronous bootstrap function that runs before
@@ -17,6 +21,7 @@ export default {
    * run jobs, or perform some special logic.
    */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    await configureStylingEditor(strapi);
     // Add Vietnamese locale if it doesn't exist
     const localeService = strapi.plugin("i18n")?.service("locales");
 

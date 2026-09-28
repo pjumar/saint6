@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useState, useRef, useId } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation, useUtmParams, getTrafficSource, clearUtmParams } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
+import { formSubmissionsEnabled, submissionData, trackFormConversion, previewFormNotice } from "@/app/lib/form-submissions";
 import styles from "./ContactSection.module.css";
 
 const STRAPI_URL =
@@ -28,7 +29,10 @@ export function ContactSection({
   backgroundImageUrl,
   onSubmit,
 }: ContactSectionProps) {
-  const { t } = useTranslation();
+  const { t, locale, contactContent } = useTranslation();
+  const pending = useRef(false);
+  const formId = useId();
+  const previewNotice = previewFormNotice(locale);
   const utmParams = useUtmParams();
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
@@ -47,11 +51,14 @@ export function ContactSection({
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (pending.current || !formSubmissionsEnabled) return;
+    pending.current = true;
     setIsLoading(true);
     setSubmitStatus("idle");
 
     // Client-side validation
     if (!formData.name || !formData.email || !formData.company || !formData.message) {
+      pending.current = false;
       setIsLoading(false);
       return;
     }
@@ -59,6 +66,7 @@ export function ContactSection({
     // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
+      pending.current = false;
       setIsLoading(false);
       return;
     }
@@ -71,14 +79,14 @@ export function ContactSection({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: {
+          data: submissionData({
             ...formData,
             trafficSource,
             utmSource: utmParams.utm_source || null,
             utmMedium: utmParams.utm_medium || null,
             utmCampaign: utmParams.utm_campaign || null,
             landingPage: utmParams._landing || window.location.pathname,
-          },
+          }),
         }),
       });
 
@@ -95,8 +103,7 @@ export function ContactSection({
       }
 
       // Push conversion event to GTM dataLayer
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      trackFormConversion({
         event: "contact_form_submit",
         form_name: "contact",
         traffic_source: trafficSource,
@@ -125,6 +132,7 @@ export function ContactSection({
       console.error("Contact form submission error:", error);
       setSubmitStatus("error");
     } finally {
+      pending.current = false;
       setIsLoading(false);
     }
   };
@@ -139,17 +147,16 @@ export function ContactSection({
   return (
     <section className={styles.contactSection}>
       <div className={styles.contactIntro}>
-        <h2>{t.CONTACT_ENQUIRY.TITLE}</h2>
-        <p>{t.CONTACT_ENQUIRY.TEXT}</p>
+        <h2>{contactContent?.heading || t.CONTACT_ENQUIRY.TITLE}</h2>
+        <p>{contactContent?.text || t.CONTACT_ENQUIRY.TEXT}</p>
       </div>
       {/* Background Image */}
       <div className={styles.backgroundContainer}>
         <ProgressiveImage
-          src={backgroundImageUrl}
-          alt="Contact background"
+          src={contactContent?.image.url || backgroundImageUrl}
+          alt={contactContent?.image_alt || (locale === "vi" ? "Đội ngũ Saint 6 Studios" : "The Saint 6 Studios team")}
           fill
           sizes="100vw"
-          quality={100}
           unoptimized
           className={styles.backgroundImage}
         />
@@ -168,9 +175,9 @@ export function ContactSection({
                 height={244}
               />
               <div className={styles.headerContent}>
-                <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
+                <h2 className={styles.cardTitle}>{contactContent?.form_title || t.STUDIO_RENTAL.FORM.TITLE}</h2>
                 <p className={styles.cardSubtitle}>
-                  {t.STUDIO_RENTAL.FORM.SUBTITLE}
+                  {contactContent?.form_subtitle || t.STUDIO_RENTAL.FORM.SUBTITLE}
                 </p>
               </div>
             </div>
@@ -189,7 +196,7 @@ export function ContactSection({
                     className={styles.successSpiralImage}
                   />
                 </div>
-                <div className={styles.successContent}>
+                <div className={styles.successContent} role="status" aria-live="polite">
                   <h3 className={styles.successTitle}>
                     {t.STUDIO_RENTAL.FORM.SUCCESS_TITLE}
                   </h3>
@@ -199,11 +206,13 @@ export function ContactSection({
                 </div>
               </>
             ) : (
-              <form className={styles.form} onSubmit={handleSubmit}>
+              <form className={styles.form} onSubmit={handleSubmit} aria-busy={isLoading}>
+                {previewNotice && <p role="note">{previewNotice}</p>}
                 <div className={styles.formGroup} suppressHydrationWarning>
                   <input
                     type="text"
-                    id="name"
+                    id={`${formId}-name`}
+                    aria-label={t.STUDIO_RENTAL.FORM.NAME}
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -217,7 +226,8 @@ export function ContactSection({
                 <div className={styles.formGroup} suppressHydrationWarning>
                   <input
                     type="email"
-                    id="email"
+                    id={`${formId}-email`}
+                    aria-label={t.STUDIO_RENTAL.FORM.EMAIL}
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -231,7 +241,8 @@ export function ContactSection({
                 <div className={styles.formGroup} suppressHydrationWarning>
                   <input
                     type="text"
-                    id="company"
+                    id={`${formId}-company`}
+                    aria-label={t.STUDIO_RENTAL.FORM.COMPANY}
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
@@ -244,7 +255,8 @@ export function ContactSection({
 
                 <div className={styles.formGroup} suppressHydrationWarning>
                   <textarea
-                    id="message"
+                    id={`${formId}-message`}
+                    aria-label={t.STUDIO_RENTAL.FORM.MESSAGE}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -260,14 +272,14 @@ export function ContactSection({
                   <button
                     type="submit"
                     className={styles.submitButton}
-                    disabled={isLoading}
+                    disabled={isLoading || !formSubmissionsEnabled}
                   >
                     {isLoading
                       ? t.STUDIO_RENTAL.FORM.SENDING
                       : t.STUDIO_RENTAL.FORM.SUBMIT}
                   </button>
                   {submitStatus === "error" && (
-                    <p className={styles.errorMessage}>
+                    <p className={styles.errorMessage} role="alert">
                       {t.STUDIO_RENTAL.FORM.ERROR}
                     </p>
                   )}
