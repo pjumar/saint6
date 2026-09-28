@@ -138,6 +138,10 @@ export function ContactSection({
 
   return (
     <section className={styles.contactSection}>
+      <div className={styles.contactIntro}>
+        <h2>{t.CONTACT_ENQUIRY.TITLE}</h2>
+        <p>{t.CONTACT_ENQUIRY.TEXT}</p>
+      </div>
       {/* Background Image */}
       <div className={styles.backgroundContainer}>
         <ProgressiveImage
@@ -164,9 +168,9 @@ export function ContactSection({
                 height={244}
               />
               <div className={styles.headerContent}>
-                <h2 className={styles.cardTitle}>{t.CONTACT_ENQUIRY.TITLE}</h2>
+                <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
                 <p className={styles.cardSubtitle}>
-                  {t.CONTACT_ENQUIRY.TEXT}
+                  {t.STUDIO_RENTAL.FORM.SUBTITLE}
                 </p>
               </div>
             </div>

@@ -57,7 +57,7 @@ Until that explicit production switch, the new routes return 404 in Vercel Produ
 
 SEO includes unique page titles/descriptions, canonical URLs, EN/VI/x-default alternatives, correct Open Graph URLs/images, Service / CreativeWork / BreadcrumbList structured data, server-rendered project links and the production sitemap integration. No invented dates, awards or review ratings.
 
-The Styling service, archive and project detail pages reuse the existing service-page contact form, including its Strapi submission and success-only conversion event. It was checked without creating a live enquiry. The shared form header now uses the approved expanded service introduction in both languages; the lower company footer remains unchanged. Duplicate inline Messenger/Zalo links are removed; the shared floating buttons remain.
+The Styling service, archive and project detail pages reuse the existing service-page contact form, including its Strapi submission and success-only conversion event. It was checked without creating a live enquiry. The approved service introduction sits above the team photo, separate from the compact form header, in both languages. On mobile it precedes the photo. The lower company footer remains unchanged. Duplicate inline Messenger/Zalo links are removed; the shared floating buttons remain.
 
 ## Expanded archive review
 
