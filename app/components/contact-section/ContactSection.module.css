@@ -42,6 +42,24 @@
   object-position: left center;
 }
 
+@media (max-width: 63.9375rem) {
+  .backgroundContainer::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 35%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary, #880f00),
+      rgba(136, 15, 0, 0.7) 25%,
+      rgba(136, 15, 0, 0.2) 65%,
+      rgba(136, 15, 0, 0)
+    );
+  }
+}
+
 @media (min-width: 64rem) {
   .backgroundImage {
     object-position: left center;

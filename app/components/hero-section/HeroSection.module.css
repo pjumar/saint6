@@ -190,14 +190,34 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-@media (max-width: 48.0625rem) {
+@media (max-width: 48rem) {
+  .heroContentWrapper {
+    bottom: calc(
+      8rem +
+      env(safe-area-inset-bottom, 0px) +
+      max(0px, 37.5rem - 100dvh)
+    );
+  }
+
+  .heroContent {
+    bottom: 1.5rem;
+  }
+
   .scrollIndicator {
-    align-self: flex-start;
-    max-width: calc(100% - 8rem);
+    align-self: center;
+    justify-content: center;
+    max-width: 100%;
+    text-align: center;
   }
 
   .scrollIndicator :global(.caption) {
     line-height: 1.5;
+  }
+}
+
+@media (max-width: 48rem) and (max-height: 44rem) {
+  .heroMiddleSection {
+    top: 38%;
   }
 }
 
