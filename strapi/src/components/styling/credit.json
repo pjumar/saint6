@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_styling_credits",
+  "info": {
+    "displayName": "Styling Credit"
+  },
+  "options": {},
+  "attributes": {
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

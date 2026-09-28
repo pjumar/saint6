@@ -303,6 +303,39 @@ export interface StudioStats extends Struct.ComponentSchema {
   };
 }
 
+export interface StylingCredit extends Struct.ComponentSchema {
+  collectionName: 'components_styling_credits';
+  info: {
+    displayName: 'Styling Credit';
+  };
+  attributes: {
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface StylingGalleryImage extends Struct.ComponentSchema {
+  collectionName: 'components_styling_gallery_images';
+  info: {
+    displayName: 'Styling Gallery Image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface StylingTextBlock extends Struct.ComponentSchema {
+  collectionName: 'components_styling_text_blocks';
+  info: {
+    displayName: 'Styling Text Block';
+  };
+  attributes: {
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -328,6 +361,9 @@ declare module '@strapi/strapi' {
       'studio.facilities': StudioFacilities;
       'studio.full-rental': StudioFullRental;
       'studio.stats': StudioStats;
+      'styling.credit': StylingCredit;
+      'styling.gallery-image': StylingGalleryImage;
+      'styling.text-block': StylingTextBlock;
     }
   }
 }

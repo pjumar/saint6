@@ -1,6 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_STYLING_ENABLED:
+      process.env.VERCEL_ENV !== "production" ||
+      process.env.STYLING_PUBLIC_ENABLED === "true"
+        ? "true"
+        : "false",
+  },
+  async headers() {
+    return process.env.VERCEL_ENV === "preview"
+      ? [
+          {
+            source: "/:path*",
+            headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+          },
+        ]
+      : [];
+  },
   experimental: {
     inlineCss: true,
   },

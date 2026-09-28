@@ -310,3 +310,11 @@
     margin-left: -80rem;
   }
 }
+
+/* Keep tall project covers intact on desktop; mobile uses the familiar full hero. */
+@media (min-width: 48.0625rem) {
+  .portfolioImage {
+    object-fit: contain;
+    object-position: center;
+  }
+}

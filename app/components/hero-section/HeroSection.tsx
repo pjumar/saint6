@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Header } from "@/app/components/header/Header";
-import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { SocialLinks } from "@/app/components/social-links/SocialLinks";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { loadGsap } from "@/app/lib/gsap";
@@ -19,6 +19,7 @@ interface HeroSectionProps {
   placeholderImage?: string | null;
   showScrollIndicator?: boolean;
   showDecorativeLine?: boolean;
+  imageFit?: "cover" | "contain";
 }
 
 export function HeroSection({
@@ -28,6 +29,7 @@ export function HeroSection({
   placeholderImage,
   showScrollIndicator = false,
   showDecorativeLine = false,
+  imageFit = "cover",
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -154,7 +156,7 @@ export function HeroSection({
             alt={backgroundAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1440px"
-            className={styles.heroBackgroundImage}
+            className={`${styles.heroBackgroundImage} ${imageFit === "contain" ? styles.portfolioImage : ""}`}
             placeholderSrc={placeholderImage}
             priority
           />

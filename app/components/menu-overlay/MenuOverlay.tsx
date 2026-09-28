@@ -24,11 +24,14 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
     { label: t.NAVIGATION.EVENT_PLANNING, href: `/${locale}/event-planning` },
     { label: t.NAVIGATION.DECOR, href: `/${locale}/decor` },
     { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
+    ...(process.env.NEXT_PUBLIC_STYLING_ENABLED === "true"
+      ? [{ label: t.NAVIGATION.STYLING, href: `/${locale}/styling` }]
+      : []),
   ];
 
   return (
     <div
-      className={`${styles.menuOverlay} ${isClosing ? styles.menuOverlayClosing : ""}`}
+      className={`${styles.menuOverlay} ${process.env.NEXT_PUBLIC_STYLING_ENABLED === "true" ? styles.expandedMenu : ""} ${isClosing ? styles.menuOverlayClosing : ""}`}
     >
       <div className={styles.menuBackground} />
       <div className={styles.menuDecoration}>

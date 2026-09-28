@@ -1,0 +1,1584 @@
+{
+  "pages": {
+    "en": {
+      "hero_heading": "Styling.\nFor the image you want to create.",
+      "hero_image": {
+        "url": "/images/styling/le-thanh-hoa-fashion-show-02.webp",
+        "width": 1600,
+        "height": 1066,
+        "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang"
+      },
+      "intro_label": "STYLING AT SAINT 6",
+      "intro_title": "A point of view.\nIn every look.",
+      "intro_text": "Styling brings the person, the clothes and the story into focus. Led by Trần Hoài Trang, our styling service works across fashion campaigns, advertising, celebrity appearances and personal wardrobes.\n\nFrom a single look to a complete visual direction, we shape an approach around your brief, your identity and where the image will live.",
+      "services_title": "From campaign to personal style.",
+      "services": [
+        {
+          "title": "Fashion & commercial",
+          "text": "Styling for advertising, campaign imagery and brand films. We consider the product, audience and visual direction together, so every look belongs to the same story."
+        },
+        {
+          "title": "Lookbooks & collections",
+          "text": "Outfit and accessory combinations for designers, fashion labels and stores. Styling that brings out a collection’s proportions, textures and character."
+        },
+        {
+          "title": "Celebrity & editorial",
+          "text": "Looks for portraits, editorial shoots, events and public appearances. A clear visual identity with room for personality and expression."
+        },
+        {
+          "title": "Personal styling",
+          "text": "A considered approach to dressing for your own life: a special occasion, a portrait session or a new direction for your wardrobe. We begin with what feels like you."
+        }
+      ],
+      "portfolio_label": "SELECTED WORK",
+      "portfolio_title": "Different briefs.\nA distinctive eye.",
+      "portfolio_note": "A selection from Trần Hoài Trang’s styling portfolio. Original collaborators are credited on each project.",
+      "founder_label": "THE STYLIST",
+      "founder_title": "Trần Hoài Trang",
+      "founder_text": "Trang’s portfolio moves between commercial campaigns, celebrity portraits, fashion collections and personal moments. Her work brings clothing, accessories and setting into conversation, with the person wearing the look always at its centre.\n\nAt Saint 6, styling can be part of your wider production or a service in its own right. Tell us what you are making, and we will help define the styling support it needs.",
+      "process_title": "From first conversation to final look.",
+      "process": [
+        {
+          "title": "01 / The brief",
+          "text": "Share your idea, references, timing and intended use. For personal styling, tell us about the occasion and how you want to feel."
+        },
+        {
+          "title": "02 / The direction",
+          "text": "We agree the styling direction and scope, then plan looks, clothing and accessories around the brief."
+        },
+        {
+          "title": "03 / The details",
+          "text": "Fittings, combinations and final adjustments bring the direction together. On-set or event support is agreed as part of your project."
+        }
+      ],
+      "faq_title": "A few things to know.",
+      "faqs": [
+        {
+          "title": "Can I book styling without a studio or production?",
+          "text": "Yes. Styling can be discussed as a standalone service or alongside Saint 6’s studio, set design and production services."
+        },
+        {
+          "title": "Do you offer personal styling?",
+          "text": "Yes. We welcome enquiries for personal wardrobes, special occasions and portrait sessions as well as commercial projects."
+        },
+        {
+          "title": "What should I send in my enquiry?",
+          "text": "A short brief, reference images, your preferred dates and an indication of budget are a helpful starting point. For a shoot, include the number of looks and where the images will be used."
+        },
+        {
+          "title": "Are clothing, fittings and on-set support included?",
+          "text": "These depend on your brief. We will agree sourcing, fittings, support and any clothing or accessory costs with you before confirming the scope."
+        }
+      ],
+      "contact_title": "Let’s find your direction.",
+      "contact_text": "A campaign, a collection, an occasion—or something entirely your own. Tell us what you have in mind.",
+      "seo_title": "Fashion, Commercial & Personal Styling in Ho Chi Minh City | Saint 6",
+      "seo_description": "Styling by Trần Hoài Trang at Saint 6, Ho Chi Minh City. Explore fashion campaigns, celebrity looks, lookbooks and personal styling, and discuss your next project.",
+      "hero_alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang"
+    },
+    "vi": {
+      "hero_heading": "Styling.\nĐịnh hình phong cách, kể câu chuyện riêng.",
+      "hero_image": {
+        "url": "/images/styling/le-thanh-hoa-fashion-show-02.webp",
+        "width": 1600,
+        "height": 1066,
+        "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang"
+      },
+      "intro_label": "STYLING TẠI SAINT 6",
+      "intro_title": "Một góc nhìn riêng.\nTrong từng diện mạo.",
+      "intro_text": "Styling kết nối con người, trang phục và câu chuyện hình ảnh. Với định hướng của Trần Hoài Trang, dịch vụ styling tại Saint 6 dành cho chiến dịch thời trang, quảng cáo, nghệ sĩ và phong cách cá nhân.\n\nTừ một bộ trang phục đến định hướng hình ảnh cho cả dự án, chúng tôi bắt đầu từ yêu cầu, cá tính và mục đích sử dụng hình ảnh của bạn.",
+      "services_title": "Từ chiến dịch đến phong cách cá nhân.",
+      "services": [
+        {
+          "title": "Thời trang & quảng cáo",
+          "text": "Styling cho hình ảnh chiến dịch, quảng cáo và phim thương hiệu. Sản phẩm, khách hàng và định hướng hình ảnh được cân nhắc cùng nhau để mỗi diện mạo cùng kể một câu chuyện."
+        },
+        {
+          "title": "Lookbook & bộ sưu tập",
+          "text": "Phối trang phục và phụ kiện cho nhà thiết kế, thương hiệu và cửa hàng thời trang. Tôn lên phom dáng, chất liệu và tinh thần của từng bộ sưu tập."
+        },
+        {
+          "title": "Nghệ sĩ & editorial",
+          "text": "Styling cho ảnh chân dung, bộ ảnh thời trang, sự kiện và các lần xuất hiện trước công chúng. Định hình diện mạo rõ nét mà vẫn giữ cá tính riêng."
+        },
+        {
+          "title": "Styling cá nhân",
+          "text": "Lựa chọn cách ăn mặc phù hợp với cuộc sống của bạn: một dịp đặc biệt, buổi chụp chân dung hay định hướng mới cho tủ đồ. Khởi đầu luôn là chính bạn."
+        }
+      ],
+      "portfolio_label": "DỰ ÁN TIÊU BIỂU",
+      "portfolio_title": "Nhiều câu chuyện.\nMột góc nhìn riêng.",
+      "portfolio_note": "Một số dự án trong portfolio styling của Trần Hoài Trang. Thông tin ê-kíp được ghi nhận tại từng dự án.",
+      "founder_label": "STYLIST",
+      "founder_title": "Trần Hoài Trang",
+      "founder_text": "Portfolio của Trang trải dài từ chiến dịch quảng cáo, chân dung nghệ sĩ và bộ sưu tập thời trang đến những khoảnh khắc cá nhân. Trang phục, phụ kiện và bối cảnh được kết nối, với người mặc luôn là trung tâm của mỗi diện mạo.\n\nTại Saint 6, bạn có thể đặt dịch vụ styling riêng hoặc kết hợp trong một dự án sản xuất hình ảnh. Hãy chia sẻ ý tưởng để chúng tôi cùng xác định phần hỗ trợ phù hợp.",
+      "process_title": "Từ cuộc trò chuyện đến diện mạo hoàn chỉnh.",
+      "process": [
+        {
+          "title": "01 / Chia sẻ yêu cầu",
+          "text": "Gửi ý tưởng, hình ảnh tham khảo, thời gian và mục đích sử dụng. Với styling cá nhân, hãy chia sẻ về dịp đặc biệt và cảm giác bạn muốn thể hiện."
+        },
+        {
+          "title": "02 / Thống nhất định hướng",
+          "text": "Cùng xác định phong cách và phạm vi công việc, sau đó lên phương án trang phục, phụ kiện và từng diện mạo."
+        },
+        {
+          "title": "03 / Hoàn thiện chi tiết",
+          "text": "Thử đồ, phối hợp và điều chỉnh để hoàn thiện định hướng. Việc hỗ trợ tại buổi chụp hoặc sự kiện sẽ được thống nhất theo từng dự án."
+        }
+      ],
+      "faq_title": "Một vài điều bạn có thể muốn biết.",
+      "faqs": [
+        {
+          "title": "Có thể chỉ đặt dịch vụ styling không?",
+          "text": "Có. Bạn có thể trao đổi về dịch vụ styling riêng hoặc kết hợp với studio, thiết kế bối cảnh và sản xuất của Saint 6."
+        },
+        {
+          "title": "Saint 6 có nhận styling cá nhân không?",
+          "text": "Có. Bên cạnh dự án thương mại, chúng tôi nhận tư vấn styling cho tủ đồ cá nhân, dịp đặc biệt và buổi chụp chân dung."
+        },
+        {
+          "title": "Tôi nên gửi những thông tin gì?",
+          "text": "Hãy bắt đầu với yêu cầu ngắn gọn, hình ảnh tham khảo, thời gian dự kiến và ngân sách. Với buổi chụp, vui lòng cho biết số lượng trang phục và mục đích sử dụng hình ảnh."
+        },
+        {
+          "title": "Trang phục, thử đồ và hỗ trợ tại buổi chụp có nằm trong dịch vụ không?",
+          "text": "Phạm vi phụ thuộc vào từng yêu cầu. Chúng tôi sẽ thống nhất việc tìm trang phục, thử đồ, hỗ trợ và các chi phí liên quan trước khi xác nhận dự án."
+        }
+      ],
+      "contact_title": "Cùng tìm hướng đi cho hình ảnh của bạn.",
+      "contact_text": "Một chiến dịch, bộ sưu tập, dịp đặc biệt hay câu chuyện rất riêng. Hãy chia sẻ ý tưởng với chúng tôi.",
+      "seo_title": "Styling Thời Trang, Quảng Cáo & Cá Nhân tại TP.HCM | Saint 6",
+      "seo_description": "Dịch vụ styling bởi Trần Hoài Trang tại Saint 6, TP.HCM. Khám phá chiến dịch thời trang, hình ảnh nghệ sĩ, lookbook và styling cá nhân.",
+      "hero_alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang"
+    }
+  },
+  "projects": {
+    "en": [
+      {
+        "slug": "ninh-duong-lan-ngoc",
+        "title": "Ninh Dương Lan Ngọc",
+        "category": "Celebrity portraits",
+        "summary": "Colour, movement and a confident silhouette.",
+        "body": "A portrait series built around expressive colour and sculptural shapes. Flowing blue fabric creates movement across a clean studio setting, while vivid red looks bring a different energy to the same subject.\n\nThe selected images show how styling can change the mood of a portrait through silhouette, drape and contrast.",
+        "cover": {
+          "url": "/images/styling/ninh-duong-lan-ngoc-02.webp",
+          "width": 1195,
+          "height": 1600,
+          "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-02.webp",
+              "width": 1195,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-03.webp",
+              "width": 1170,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-04.webp",
+              "width": 1173,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-05.webp",
+              "width": 1177,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-06.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-07.webp",
+              "width": 1600,
+              "height": 1169,
+              "alternativeText": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Concept & styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Vương Huy"
+          },
+          {
+            "role": "Makeup",
+            "name": "Xi Quan Le"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/ninh-duong-lan-ngoc-photoshoot/",
+        "video_url": null,
+        "sort_order": 0,
+        "seo_title": "Ninh Dương Lan Ngọc | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "Colour, movement and a confident silhouette. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Ninh Dương Lan Ngọc — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "le-thanh-hoa-fashion-show",
+        "title": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà",
+        "category": "Celebrity & event",
+        "summary": "A shared palette. Two individual looks.",
+        "body": "Yellow dresses, sculptural hats and carefully chosen accessories connect Minh Triệu and Kỳ Duyên’s looks at the Lê Thanh Hoà fashion show. The bright resort setting becomes part of the visual story.\n\nStyling gives the pair a cohesive presence while allowing the proportions and details of each look to stand on their own.",
+        "cover": {
+          "url": "/images/styling/le-thanh-hoa-fashion-show-02.webp",
+          "width": 1600,
+          "height": 1066,
+          "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-02.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-03.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-04.webp",
+              "width": 1067,
+              "height": 1600,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-05.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-06.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-07.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Nguyễn Thành"
+          },
+          {
+            "role": "Dresses",
+            "name": "Lê Thanh Hoà"
+          },
+          {
+            "role": "Shoes",
+            "name": "Trinie"
+          },
+          {
+            "role": "Accessories",
+            "name": "KA.f by V · Trần Quốc Dũng"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/minh-trieu-ky-duyen-le-thanh-hoa-fashion-show/",
+        "video_url": null,
+        "sort_order": 1,
+        "seo_title": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "A shared palette. Two individual looks. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "tung-vu-bridal",
+        "title": "Tung Vu · Bridal",
+        "category": "Fashion & bridal",
+        "summary": "Romantic silhouettes, considered in every detail.",
+        "body": "A bridal campaign for Tung Vu, photographed at Jardin de Rom. Bridal silhouettes and delicate accessories sit within a green, natural setting, keeping the focus on the dresses and the person wearing them.\n\nThe gallery follows the relationship between garment, gesture and surroundings—a fashion story with an intimate feel.",
+        "cover": {
+          "url": "/images/styling/tung-vu-bridal-02.webp",
+          "width": 1065,
+          "height": 1600,
+          "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-02.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Tung Vu · Bridal — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-03.webp",
+              "width": 1600,
+              "height": 1091,
+              "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Tung Vu · Bridal — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-04.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Tung Vu · Bridal — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-05.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Tung Vu · Bridal — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-06.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Tung Vu · Bridal — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-07.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Tung Vu · Bridal — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Joyce Nguyen"
+          },
+          {
+            "role": "Model",
+            "name": "Palina Yang"
+          },
+          {
+            "role": "Makeup",
+            "name": "Thắng Trần"
+          },
+          {
+            "role": "Hair",
+            "name": "Bale Hữu Tường"
+          },
+          {
+            "role": "Accessories",
+            "name": "KA.f by V"
+          },
+          {
+            "role": "Location",
+            "name": "Jardin de Rom"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/tung-vu-wedding-campaign/",
+        "video_url": null,
+        "sort_order": 2,
+        "seo_title": "Tung Vu · Bridal | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "Romantic silhouettes, considered in every detail. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Tung Vu · Bridal — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "citizen-quang-dai",
+        "title": "Citizen · Trần Quang Đại",
+        "category": "Commercial campaign",
+        "summary": "A precise, understated approach to a watch campaign.",
+        "body": "Trần Quang Đại’s Citizen imagery pairs tailored clothing with a restrained palette. The styling leaves space for the watch, using clean lines and subtle contrasts to support the product.\n\nA study in how a complete look can frame a small, significant detail.",
+        "cover": {
+          "url": "/images/styling/citizen-quang-dai-02.webp",
+          "width": 1200,
+          "height": 1200,
+          "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-02.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-03.webp",
+              "width": 804,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-04.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-05.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-06.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-07.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Tang Tang"
+          },
+          {
+            "role": "Retouch",
+            "name": "Lâm Minh Khang"
+          },
+          {
+            "role": "Brand",
+            "name": "Citizen"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/tran-quang-dai-citizen-watch/",
+        "video_url": null,
+        "sort_order": 3,
+        "seo_title": "Citizen · Trần Quang Đại | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "A precise, understated approach to a watch campaign. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Citizen · Trần Quang Đại — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "up-to-seconds",
+        "title": "Up To Seconds · Ninh Dương Lan Ngọc",
+        "category": "Lookbook & campaign",
+        "summary": "A collection brought to life through character.",
+        "body": "A campaign for Up To Seconds featuring Ninh Dương Lan Ngọc. Burgundy, red and black looks move between tailoring and softer evening silhouettes, with a consistent setting bringing the collection together.\n\nConcept and styling connect individual outfits into a recognisable visual direction while letting the clothes remain the focus.",
+        "cover": {
+          "url": "/images/styling/up-to-seconds-04.webp",
+          "width": 1000,
+          "height": 1500,
+          "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-02.webp",
+              "width": 900,
+              "height": 598,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-03.webp",
+              "width": 1000,
+              "height": 1500,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-04.webp",
+              "width": 1000,
+              "height": 1500,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-05.webp",
+              "width": 900,
+              "height": 598,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-06.webp",
+              "width": 1500,
+              "height": 997,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-07.webp",
+              "width": 1500,
+              "height": 997,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Concept & styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Mon Trần"
+          },
+          {
+            "role": "Talent",
+            "name": "Ninh Dương Lan Ngọc"
+          },
+          {
+            "role": "Brand",
+            "name": "Up To Seconds"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/lan-ngoc-campaign-for-up-to-seconds/",
+        "video_url": null,
+        "sort_order": 4,
+        "seo_title": "Up To Seconds · Ninh Dương Lan Ngọc | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "A collection brought to life through character. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Up To Seconds · Ninh Dương Lan Ngọc — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "ky-duyen-street-style",
+        "title": "Kỳ Duyên · Street Style",
+        "category": "Celebrity & everyday",
+        "summary": "Everyday pieces, with a clear point of view.",
+        "body": "A street-style series with Kỳ Duyên, built around a light palette, relaxed layers and statement accessories. The urban setting gives the looks a sense of everyday movement.\n\nThe styling balances ease and intention, showing how proportion and accessories can give familiar pieces a distinctive identity.",
+        "cover": {
+          "url": "/images/styling/ky-duyen-street-style-02.webp",
+          "width": 1066,
+          "height": 1600,
+          "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-02.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-03.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-04.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-05.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-06.webp",
+              "width": 1131,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-07.webp",
+              "width": 1064,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Vương Huy"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/hoa-hau-ky-duyen-street-style-2/",
+        "video_url": null,
+        "sort_order": 5,
+        "seo_title": "Kỳ Duyên · Street Style | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "Everyday pieces, with a clear point of view. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Kỳ Duyên · Street Style — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "pantene-kha-ngan",
+        "title": "Pantene · Khả Ngân",
+        "category": "Advertising film",
+        "summary": "Styling as part of a moving brand story.",
+        "body": "Khả Ngân appears in Pantene’s anti-hair-fall commercial. Styling is one part of a collaborative film production, working alongside hair, makeup, cinematography and art direction.\n\nWatch the original film to see the wardrobe in motion and in the context of the finished advertisement.",
+        "cover": {
+          "url": "/images/styling/pantene-kha-ngan-01.webp",
+          "width": 1024,
+          "height": 560,
+          "alternativeText": "Pantene · Khả Ngân — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/pantene-kha-ngan-01.webp",
+              "width": 1024,
+              "height": 560,
+              "alternativeText": "Pantene · Khả Ngân — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Pantene · Khả Ngân — styled by Trần Hoài Trang · 1"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Makeup",
+            "name": "Dương Hữu Nghĩa"
+          },
+          {
+            "role": "Hair",
+            "name": "Sopha Kamponwan · Sammy P Ratana"
+          },
+          {
+            "role": "Production",
+            "name": "Flex Films"
+          },
+          {
+            "role": "Director",
+            "name": "Arthur Valverde"
+          },
+          {
+            "role": "Cinematography",
+            "name": "Mate Toth Widamon HCA, DLA"
+          },
+          {
+            "role": "Art",
+            "name": "Fosha Zyong"
+          },
+          {
+            "role": "Post-production",
+            "name": "OMG, Bangkok"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/kha-ngan-tvc-pantene-ngan-rung-toc/",
+        "video_url": "https://www.youtube.com/watch?v=hi4PxquRQfE",
+        "sort_order": 6,
+        "seo_title": "Pantene · Khả Ngân | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "Styling as part of a moving brand story. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Pantene · Khả Ngân — styled by Trần Hoài Trang"
+      },
+      {
+        "slug": "beautiful-moments",
+        "title": "Beautiful Moments",
+        "category": "Personal portraits",
+        "summary": "An intimate moment, styled to feel natural.",
+        "body": "Personal portraits of Đàm Thu Trang and Nguyễn Quốc Cường, photographed by Vương Huy. Relaxed clothing and complementary colours keep the attention on the people and their connection.\n\nA quieter side of styling: creating a considered look without losing the ease of a personal moment.",
+        "cover": {
+          "url": "/images/styling/beautiful-moments-02.webp",
+          "width": 1600,
+          "height": 1103,
+          "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-02.webp",
+              "width": 1600,
+              "height": 1103,
+              "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang · 1"
+            },
+            "alt": "Beautiful Moments — styled by Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-03.webp",
+              "width": 1600,
+              "height": 1209,
+              "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang · 2"
+            },
+            "alt": "Beautiful Moments — styled by Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-04.webp",
+              "width": 1600,
+              "height": 1209,
+              "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang · 3"
+            },
+            "alt": "Beautiful Moments — styled by Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-05.webp",
+              "width": 1242,
+              "height": 1600,
+              "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang · 4"
+            },
+            "alt": "Beautiful Moments — styled by Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-06.webp",
+              "width": 1600,
+              "height": 1125,
+              "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang · 5"
+            },
+            "alt": "Beautiful Moments — styled by Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-07.webp",
+              "width": 1600,
+              "height": 1072,
+              "alternativeText": "Beautiful Moments — styled by Trần Hoài Trang · 6"
+            },
+            "alt": "Beautiful Moments — styled by Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Photography",
+            "name": "Vương Huy"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/beautiful-moments-anh-cuong-chi-trang/",
+        "video_url": null,
+        "sort_order": 7,
+        "seo_title": "Beautiful Moments | Styling by Trần Hoài Trang | Saint 6",
+        "seo_description": "An intimate moment, styled to feel natural. Explore this styling project by Trần Hoài Trang at Saint 6.",
+        "cover_alt": "Beautiful Moments — styled by Trần Hoài Trang"
+      }
+    ],
+    "vi": [
+      {
+        "slug": "ninh-duong-lan-ngoc",
+        "title": "Ninh Dương Lan Ngọc",
+        "category": "Chân dung nghệ sĩ",
+        "summary": "Sắc màu, chuyển động và đường nét tự tin.",
+        "body": "Bộ ảnh chân dung khai thác sắc màu và đường nét giàu biểu cảm. Dải lụa xanh tạo chuyển động trong bối cảnh studio tối giản, trong khi các thiết kế đỏ mang đến một sắc thái khác cho cùng nhân vật.\n\nNhững hình ảnh được chọn cho thấy cách phom dáng, độ rủ và tương phản có thể thay đổi cảm xúc của một bộ ảnh.",
+        "cover": {
+          "url": "/images/styling/ninh-duong-lan-ngoc-02.webp",
+          "width": 1195,
+          "height": 1600,
+          "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-02.webp",
+              "width": 1195,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-03.webp",
+              "width": 1170,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-04.webp",
+              "width": 1173,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-05.webp",
+              "width": 1177,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-06.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ninh-duong-lan-ngoc-07.webp",
+              "width": 1600,
+              "height": 1169,
+              "alternativeText": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Ý tưởng & styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Vương Huy"
+          },
+          {
+            "role": "Trang điểm",
+            "name": "Xi Quan Le"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/ninh-duong-lan-ngoc-photoshoot/",
+        "video_url": null,
+        "sort_order": 0,
+        "seo_title": "Ninh Dương Lan Ngọc | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Sắc màu, chuyển động và đường nét tự tin. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "le-thanh-hoa-fashion-show",
+        "title": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà",
+        "category": "Nghệ sĩ & sự kiện",
+        "summary": "Cùng bảng màu. Hai cá tính riêng.",
+        "body": "Trang phục vàng, mũ rộng vành và phụ kiện kết nối diện mạo của Minh Triệu và Kỳ Duyên tại show thời trang Lê Thanh Hoà. Bối cảnh khu nghỉ dưỡng đầy nắng trở thành một phần của câu chuyện hình ảnh.\n\nStyling tạo sự đồng điệu cho hai nhân vật, đồng thời giữ nét riêng trong phom dáng và chi tiết của từng bộ trang phục.",
+        "cover": {
+          "url": "/images/styling/le-thanh-hoa-fashion-show-02.webp",
+          "width": 1600,
+          "height": 1066,
+          "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-02.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-03.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-04.webp",
+              "width": 1067,
+              "height": 1600,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-05.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-06.webp",
+              "width": 1600,
+              "height": 1066,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/le-thanh-hoa-fashion-show-07.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Nguyễn Thành"
+          },
+          {
+            "role": "Trang phục",
+            "name": "Lê Thanh Hoà"
+          },
+          {
+            "role": "Giày",
+            "name": "Trinie"
+          },
+          {
+            "role": "Phụ kiện",
+            "name": "KA.f by V · Trần Quốc Dũng"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/minh-trieu-ky-duyen-le-thanh-hoa-fashion-show/",
+        "video_url": null,
+        "sort_order": 1,
+        "seo_title": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Cùng bảng màu. Hai cá tính riêng. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Minh Triệu & Kỳ Duyên · Lê Thanh Hoà — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "tung-vu-bridal",
+        "title": "Tung Vu · Bridal",
+        "category": "Thời trang & bridal",
+        "summary": "Phom dáng lãng mạn, chỉn chu từng chi tiết.",
+        "body": "Chiến dịch thời trang cưới của Tung Vu được chụp tại Jardin de Rom. Phom dáng váy cưới và phụ kiện tinh tế đặt trong không gian xanh, hướng sự chú ý vào trang phục và người mặc.\n\nBộ ảnh ghi lại sự kết nối giữa trang phục, cử chỉ và bối cảnh, tạo nên một câu chuyện thời trang gần gũi.",
+        "cover": {
+          "url": "/images/styling/tung-vu-bridal-02.webp",
+          "width": 1065,
+          "height": 1600,
+          "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-02.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-03.webp",
+              "width": 1600,
+              "height": 1091,
+              "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-04.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-05.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-06.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/tung-vu-bridal-07.webp",
+              "width": 1065,
+              "height": 1600,
+              "alternativeText": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Joyce Nguyen"
+          },
+          {
+            "role": "Người mẫu",
+            "name": "Palina Yang"
+          },
+          {
+            "role": "Trang điểm",
+            "name": "Thắng Trần"
+          },
+          {
+            "role": "Làm tóc",
+            "name": "Bale Hữu Tường"
+          },
+          {
+            "role": "Phụ kiện",
+            "name": "KA.f by V"
+          },
+          {
+            "role": "Địa điểm",
+            "name": "Jardin de Rom"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/tung-vu-wedding-campaign/",
+        "video_url": null,
+        "sort_order": 2,
+        "seo_title": "Tung Vu · Bridal | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Phom dáng lãng mạn, chỉn chu từng chi tiết. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Tung Vu · Bridal — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "citizen-quang-dai",
+        "title": "Citizen · Trần Quang Đại",
+        "category": "Chiến dịch quảng cáo",
+        "summary": "Tinh gọn và chỉn chu cho chiến dịch đồng hồ.",
+        "body": "Bộ ảnh Citizen của Trần Quang Đại kết hợp trang phục chỉn chu với bảng màu tiết chế. Đường nét gọn gàng và tương phản nhẹ tạo khoảng trống để chiếc đồng hồ trở thành điểm nhấn.\n\nMột cách tiếp cận cho thấy tổng thể trang phục có thể làm nổi bật một chi tiết nhỏ nhưng quan trọng.",
+        "cover": {
+          "url": "/images/styling/citizen-quang-dai-02.webp",
+          "width": 1200,
+          "height": 1200,
+          "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-02.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-03.webp",
+              "width": 804,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-04.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-05.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-06.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/citizen-quang-dai-07.webp",
+              "width": 1200,
+              "height": 1200,
+              "alternativeText": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Tang Tang"
+          },
+          {
+            "role": "Hậu kỳ ảnh",
+            "name": "Lâm Minh Khang"
+          },
+          {
+            "role": "Thương hiệu",
+            "name": "Citizen"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/tran-quang-dai-citizen-watch/",
+        "video_url": null,
+        "sort_order": 3,
+        "seo_title": "Citizen · Trần Quang Đại | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Tinh gọn và chỉn chu cho chiến dịch đồng hồ. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Citizen · Trần Quang Đại — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "up-to-seconds",
+        "title": "Up To Seconds · Ninh Dương Lan Ngọc",
+        "category": "Lookbook & chiến dịch",
+        "summary": "Thổi sức sống vào bộ sưu tập qua cá tính.",
+        "body": "Chiến dịch Up To Seconds với Ninh Dương Lan Ngọc kết hợp các thiết kế đỏ burgundy, đỏ và đen, từ phom dáng chỉn chu đến trang phục dạ tiệc mềm mại. Bối cảnh nhất quán kết nối các thiết kế trong bộ sưu tập.\n\nÝ tưởng và styling đưa từng bộ trang phục vào một định hướng hình ảnh chung, đồng thời giữ sự tập trung vào thiết kế.",
+        "cover": {
+          "url": "/images/styling/up-to-seconds-04.webp",
+          "width": 1000,
+          "height": 1500,
+          "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-02.webp",
+              "width": 900,
+              "height": 598,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-03.webp",
+              "width": 1000,
+              "height": 1500,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-04.webp",
+              "width": 1000,
+              "height": 1500,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-05.webp",
+              "width": 900,
+              "height": 598,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-06.webp",
+              "width": 1500,
+              "height": 997,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/up-to-seconds-07.webp",
+              "width": 1500,
+              "height": 997,
+              "alternativeText": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Ý tưởng & styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Mon Trần"
+          },
+          {
+            "role": "Nhân vật",
+            "name": "Ninh Dương Lan Ngọc"
+          },
+          {
+            "role": "Thương hiệu",
+            "name": "Up To Seconds"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/lan-ngoc-campaign-for-up-to-seconds/",
+        "video_url": null,
+        "sort_order": 4,
+        "seo_title": "Up To Seconds · Ninh Dương Lan Ngọc | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Thổi sức sống vào bộ sưu tập qua cá tính. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Up To Seconds · Ninh Dương Lan Ngọc — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "ky-duyen-street-style",
+        "title": "Kỳ Duyên · Street Style",
+        "category": "Nghệ sĩ & phong cách thường ngày",
+        "summary": "Trang phục thường ngày, góc nhìn riêng.",
+        "body": "Bộ ảnh street style cùng Kỳ Duyên sử dụng bảng màu sáng, cách phối lớp thoải mái và phụ kiện nổi bật. Bối cảnh thành phố mang đến cảm giác chuyển động đời thường.\n\nStyling cân bằng sự tự nhiên và chủ đích, cho thấy tỷ lệ trang phục và phụ kiện có thể tạo bản sắc cho những món đồ quen thuộc.",
+        "cover": {
+          "url": "/images/styling/ky-duyen-street-style-02.webp",
+          "width": 1066,
+          "height": 1600,
+          "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-02.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-03.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-04.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-05.webp",
+              "width": 1066,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-06.webp",
+              "width": 1131,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/ky-duyen-street-style-07.webp",
+              "width": 1064,
+              "height": 1600,
+              "alternativeText": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Vương Huy"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/hoa-hau-ky-duyen-street-style-2/",
+        "video_url": null,
+        "sort_order": 5,
+        "seo_title": "Kỳ Duyên · Street Style | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Trang phục thường ngày, góc nhìn riêng. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Kỳ Duyên · Street Style — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "pantene-kha-ngan",
+        "title": "Pantene · Khả Ngân",
+        "category": "Phim quảng cáo",
+        "summary": "Styling trong câu chuyện thương hiệu chuyển động.",
+        "body": "Khả Ngân xuất hiện trong phim quảng cáo Pantene ngăn rụng tóc. Styling là một phần của quá trình sản xuất cùng ê-kíp làm tóc, trang điểm, quay phim và mỹ thuật.\n\nXem phim gốc để thấy trang phục trong chuyển động và trong tổng thể của sản phẩm quảng cáo hoàn chỉnh.",
+        "cover": {
+          "url": "/images/styling/pantene-kha-ngan-01.webp",
+          "width": 1024,
+          "height": 560,
+          "alternativeText": "Pantene · Khả Ngân — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/pantene-kha-ngan-01.webp",
+              "width": 1024,
+              "height": 560,
+              "alternativeText": "Pantene · Khả Ngân — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Pantene · Khả Ngân — styling bởi Trần Hoài Trang · 1"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Trang điểm",
+            "name": "Dương Hữu Nghĩa"
+          },
+          {
+            "role": "Làm tóc",
+            "name": "Sopha Kamponwan · Sammy P Ratana"
+          },
+          {
+            "role": "Sản xuất",
+            "name": "Flex Films"
+          },
+          {
+            "role": "Đạo diễn",
+            "name": "Arthur Valverde"
+          },
+          {
+            "role": "Quay phim",
+            "name": "Mate Toth Widamon HCA, DLA"
+          },
+          {
+            "role": "Mỹ thuật",
+            "name": "Fosha Zyong"
+          },
+          {
+            "role": "Hậu kỳ",
+            "name": "OMG, Bangkok"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/kha-ngan-tvc-pantene-ngan-rung-toc/",
+        "video_url": "https://www.youtube.com/watch?v=hi4PxquRQfE",
+        "sort_order": 6,
+        "seo_title": "Pantene · Khả Ngân | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Styling trong câu chuyện thương hiệu chuyển động. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Pantene · Khả Ngân — styling bởi Trần Hoài Trang"
+      },
+      {
+        "slug": "beautiful-moments",
+        "title": "Beautiful Moments",
+        "category": "Chân dung cá nhân",
+        "summary": "Khoảnh khắc riêng, diện mạo tự nhiên.",
+        "body": "Bộ ảnh chân dung Đàm Thu Trang và Nguyễn Quốc Cường qua ống kính Vương Huy. Trang phục thoải mái và màu sắc hài hòa hướng sự chú ý vào nhân vật và sự gắn kết giữa họ.\n\nMột khía cạnh nhẹ nhàng của styling: chuẩn bị diện mạo chỉn chu mà vẫn giữ sự tự nhiên của khoảnh khắc cá nhân.",
+        "cover": {
+          "url": "/images/styling/beautiful-moments-02.webp",
+          "width": 1600,
+          "height": 1103,
+          "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang"
+        },
+        "gallery": [
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-02.webp",
+              "width": 1600,
+              "height": 1103,
+              "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang · 1"
+            },
+            "alt": "Beautiful Moments — styling bởi Trần Hoài Trang · 1"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-03.webp",
+              "width": 1600,
+              "height": 1209,
+              "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang · 2"
+            },
+            "alt": "Beautiful Moments — styling bởi Trần Hoài Trang · 2"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-04.webp",
+              "width": 1600,
+              "height": 1209,
+              "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang · 3"
+            },
+            "alt": "Beautiful Moments — styling bởi Trần Hoài Trang · 3"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-05.webp",
+              "width": 1242,
+              "height": 1600,
+              "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang · 4"
+            },
+            "alt": "Beautiful Moments — styling bởi Trần Hoài Trang · 4"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-06.webp",
+              "width": 1600,
+              "height": 1125,
+              "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang · 5"
+            },
+            "alt": "Beautiful Moments — styling bởi Trần Hoài Trang · 5"
+          },
+          {
+            "image": {
+              "url": "/images/styling/beautiful-moments-07.webp",
+              "width": 1600,
+              "height": 1072,
+              "alternativeText": "Beautiful Moments — styling bởi Trần Hoài Trang · 6"
+            },
+            "alt": "Beautiful Moments — styling bởi Trần Hoài Trang · 6"
+          }
+        ],
+        "credits": [
+          {
+            "role": "Styling",
+            "name": "Trần Hoài Trang"
+          },
+          {
+            "role": "Nhiếp ảnh",
+            "name": "Vương Huy"
+          }
+        ],
+        "source_url": "https://tranhoaitrang.com/default-slug/beautiful-moments-anh-cuong-chi-trang/",
+        "video_url": null,
+        "sort_order": 7,
+        "seo_title": "Beautiful Moments | Styling Trần Hoài Trang | Saint 6",
+        "seo_description": "Khoảnh khắc riêng, diện mạo tự nhiên. Khám phá dự án styling của Trần Hoài Trang tại Saint 6.",
+        "cover_alt": "Beautiful Moments — styling bởi Trần Hoài Trang"
+      }
+    ]
+  }
+}
