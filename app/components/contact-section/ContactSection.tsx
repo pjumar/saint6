@@ -164,9 +164,9 @@ export function ContactSection({
                 height={244}
               />
               <div className={styles.headerContent}>
-                <h2 className={styles.cardTitle}>{t.STUDIO_RENTAL.FORM.TITLE}</h2>
+                <h2 className={styles.cardTitle}>{t.CONTACT_ENQUIRY.TITLE}</h2>
                 <p className={styles.cardSubtitle}>
-                  {t.STUDIO_RENTAL.FORM.SUBTITLE}
+                  {t.CONTACT_ENQUIRY.TEXT}
                 </p>
               </div>
             </div>

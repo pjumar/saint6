@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import type {
-  StylingLocale,
-  StylingPage,
-  StylingProject,
-} from "@/app/lib/styling/types";
+import type { StylingLocale, StylingProject } from "@/app/lib/styling/types";
 import styles from "./Styling.module.css";
 
 export function Paragraphs({ text }: { text: string }) {
@@ -59,35 +55,5 @@ export function ProjectCard({
         <p>{project.summary}</p>
       </div>
     </Link>
-  );
-}
-export function StylingEnquiry({
-  page,
-  locale,
-}: {
-  page: StylingPage;
-  locale: StylingLocale;
-}) {
-  const vi = locale === "vi";
-  return (
-    <section
-      className={styles.enquiry}
-      id="enquiry"
-      aria-labelledby="styling-enquiry-heading"
-    >
-      <div className={styles.container}>
-        <p className={styles.label}>
-          {vi ? "BẮT ĐẦU CUỘC TRÒ CHUYỆN" : "START A CONVERSATION"}
-        </p>
-        <h2 id="styling-enquiry-heading">{page.contact_title}</h2>
-        <p>{page.contact_text}</p>
-        <div className={styles.actions}>
-          <Link href={`/${locale}/contact`} className={styles.button}>
-            {vi ? "Gửi yêu cầu" : "Send your brief"}
-            <span aria-hidden="true">↗</span>
-          </Link>
-        </div>
-      </div>
-    </section>
   );
 }

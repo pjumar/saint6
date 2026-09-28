@@ -560,5 +560,9 @@
       "SUCCESS_MESSAGE": "Your message has been received — our team will get back to you shortly to assist with your request.",
       "ERROR": "Something went wrong. Please try again."
     }
+  },
+  "CONTACT_ENQUIRY": {
+    "TITLE": "Let’s find your direction.",
+    "TEXT": "A campaign, a collection, an occasion—or something entirely your own. From studio rental and set design to production, styling, event planning and creative direction, tell us what you have in mind. We’ll help bring it together."
   }
 }

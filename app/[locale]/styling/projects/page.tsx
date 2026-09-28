@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import styles from "@/app/components/styling/Styling.module.css";
-import {
-  ProjectCard,
-  StylingEnquiry,
-} from "@/app/components/styling/StylingShared";
+import { ProjectCard } from "@/app/components/styling/StylingShared";
 import {
   getStylingContent,
   stylingEnabled,
@@ -61,17 +59,8 @@ export async function generateMetadata(props: Props) {
   return meta;
 }
 export default async function StylingPortfolio(props: Props) {
-  const {
-    locale,
-    pageContent,
-    all,
-    category,
-    query,
-    projects,
-    total,
-    totalPages,
-    page,
-  } = await content(props);
+  const { locale, all, category, query, projects, total, totalPages, page } =
+    await content(props);
   const vi = locale === "vi";
   const href = (nextPage: number) =>
     portfolioHref(locale, category, query, nextPage);
@@ -79,160 +68,164 @@ export default async function StylingPortfolio(props: Props) {
     .filter((n) => n >= 1 && n <= totalPages)
     .sort((a, b) => a - b);
   return (
-    <div className={styles.page}>
-      <div className={styles.archiveBar}>
-        <div className={styles.container}>
-          <Link href={`/${locale}`} aria-label="Saint 6">
-            <Image
-              src="/assets/saint6-logo.svg"
-              alt="Saint 6"
-              width={96}
-              height={48}
-              style={{ width: 96, height: "auto" }}
-            />
-          </Link>
-          <Link href={`/${locale}/styling`}>
-            ← {vi ? "DỊCH VỤ STYLING" : "STYLING AT SAINT 6"}
-          </Link>
-          <Link
-            href={portfolioHref(vi ? "en" : "vi", category, query, page)}
-            hrefLang={vi ? "en" : "vi"}
-          >
-            {vi ? "EN" : "VI"}
-          </Link>
-        </div>
-      </div>
-      <section className={`${styles.container} ${styles.archiveHeading}`}>
-        <p className={styles.label}>
-          SAINT 6 / {vi ? "PORTFOLIO CỦA CHÚNG TÔI" : "OUR PORTFOLIO"}
-        </p>
-        <h1>
-          {vi
-            ? "Mỗi hình ảnh, một câu chuyện."
-            : "Every image, a different story."}
-        </h1>
-        <p>
-          {vi
-            ? "Từ chiến dịch thương hiệu và lookbook đến nghệ sĩ, âm nhạc và những dấu ấn cá nhân. Khám phá các dự án qua từng góc nhìn."
-            : "Brand campaigns, lookbooks, artists, music and personal expression. Explore the work, one perspective at a time."}
-        </p>
-      </section>
-      <section
-        className={styles.container}
-        id="portfolio-results"
-        aria-label={vi ? "Các dự án styling" : "Styling projects"}
-      >
-        <div className={styles.archiveControls}>
-          <nav
-            className={styles.filters}
-            aria-label={vi ? "Thể loại dự án" : "Project categories"}
-          >
-            <Link
-              href={portfolioHref(locale, "", query)}
-              aria-current={!category ? "page" : undefined}
-            >
-              {vi ? "Tất cả" : "All work"} ({all.length})
-            </Link>
-            {Object.entries(portfolioCategories).map(([key, label]) => (
-              <Link
-                key={key}
-                href={portfolioHref(locale, key, query)}
-                aria-current={category === key ? "page" : undefined}
-              >
-                {label[locale]}
-              </Link>
-            ))}
-          </nav>
-          <form
-            className={styles.search}
-            action={`/${locale}/styling/projects#portfolio-results`}
-            method="get"
-          >
-            {category && (
-              <input type="hidden" name="category" value={category} />
-            )}
-            <input
-              name="q"
-              type="search"
-              defaultValue={query}
-              maxLength={120}
-              aria-label={
-                vi
-                  ? "Tìm theo tên, nghệ sĩ, thương hiệu"
-                  : "Search projects, artists or brands"
-              }
-              placeholder={
-                vi
-                  ? "Tìm tên, nghệ sĩ, thương hiệu"
-                  : "Project, artist or brand"
-              }
-            />
-            <button type="submit">{vi ? "Tìm" : "Search"}</button>
-          </form>
-        </div>
-        <p className={styles.portfolioNote}>
-          {total} {vi ? "dự án" : "projects"} · {vi ? "Trang" : "Page"} {page}/
-          {totalPages}
-          {query && (
-            <>
-              {" "}
-              · “{query}” ·{" "}
-              <Link href={portfolioHref(locale, category)}>
-                {vi ? "Xóa tìm kiếm" : "Clear search"}
-              </Link>
-            </>
-          )}
-        </p>
-        {projects.length ? (
-          <div className={styles.archiveGrid}>
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={project.slug}
-                project={project}
-                locale={locale}
-                priority={index === 0}
-                imageSizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+    <>
+      <div className={styles.page}>
+        <div className={styles.archiveBar}>
+          <div className={styles.container}>
+            <Link href={`/${locale}`} aria-label="Saint 6">
+              <Image
+                src="/assets/saint6-logo.svg"
+                alt="Saint 6"
+                width={96}
+                height={48}
+                style={{ width: 96, height: "auto" }}
               />
-            ))}
+            </Link>
+            <Link href={`/${locale}/styling`}>
+              ← {vi ? "DỊCH VỤ STYLING" : "STYLING AT SAINT 6"}
+            </Link>
+            <Link
+              href={portfolioHref(vi ? "en" : "vi", category, query, page)}
+              hrefLang={vi ? "en" : "vi"}
+            >
+              {vi ? "EN" : "VI"}
+            </Link>
           </div>
-        ) : (
+        </div>
+        <section className={`${styles.container} ${styles.archiveHeading}`}>
+          <p className={styles.label}>
+            SAINT 6 / {vi ? "PORTFOLIO CỦA CHÚNG TÔI" : "OUR PORTFOLIO"}
+          </p>
+          <h1>
+            {vi
+              ? "Mỗi hình ảnh, một câu chuyện."
+              : "Every image, a different story."}
+          </h1>
           <p>
             {vi
-              ? "Không tìm thấy dự án phù hợp. Hãy thử tên khác hoặc chọn tất cả dự án."
-              : "No matching projects. Try another name or choose all work."}
+              ? "Từ chiến dịch thương hiệu và lookbook đến nghệ sĩ, âm nhạc và những dấu ấn cá nhân. Khám phá các dự án qua từng góc nhìn."
+              : "Brand campaigns, lookbooks, artists, music and personal expression. Explore the work, one perspective at a time."}
           </p>
-        )}
-        <nav
-          className={styles.pagination}
-          aria-label={vi ? "Phân trang dự án" : "Portfolio pagination"}
+        </section>
+        <section
+          className={styles.container}
+          id="portfolio-results"
+          aria-label={vi ? "Các dự án styling" : "Styling projects"}
         >
-          {page > 1 && (
-            <Link href={href(page - 1)} rel="prev">
-              ← {vi ? "Trước" : "Previous"}
-            </Link>
-          )}
-          {pages.map((n, i) => (
-            <span key={n}>
-              {i > 0 && n - pages[i - 1] > 1 && (
-                <span aria-hidden="true">…</span>
-              )}
+          <div className={styles.archiveControls}>
+            <nav
+              className={styles.filters}
+              aria-label={vi ? "Thể loại dự án" : "Project categories"}
+            >
               <Link
-                href={href(n)}
-                aria-current={page === n ? "page" : undefined}
-                aria-label={`${vi ? "Trang" : "Page"} ${n}`}
+                href={portfolioHref(locale, "", query)}
+                aria-current={!category ? "page" : undefined}
               >
-                {n}
+                {vi ? "Tất cả" : "All work"} ({all.length})
               </Link>
-            </span>
-          ))}
-          {page < totalPages && (
-            <Link href={href(page + 1)} rel="next">
-              {vi ? "Tiếp" : "Next"} →
-            </Link>
+              {Object.entries(portfolioCategories).map(([key, label]) => (
+                <Link
+                  key={key}
+                  href={portfolioHref(locale, key, query)}
+                  aria-current={category === key ? "page" : undefined}
+                >
+                  {label[locale]}
+                </Link>
+              ))}
+            </nav>
+            <form
+              className={styles.search}
+              action={`/${locale}/styling/projects#portfolio-results`}
+              method="get"
+            >
+              {category && (
+                <input type="hidden" name="category" value={category} />
+              )}
+              <input
+                name="q"
+                type="search"
+                defaultValue={query}
+                maxLength={120}
+                aria-label={
+                  vi
+                    ? "Tìm theo tên, nghệ sĩ, thương hiệu"
+                    : "Search projects, artists or brands"
+                }
+                placeholder={
+                  vi
+                    ? "Tìm tên, nghệ sĩ, thương hiệu"
+                    : "Project, artist or brand"
+                }
+              />
+              <button type="submit">{vi ? "Tìm" : "Search"}</button>
+            </form>
+          </div>
+          <p className={styles.portfolioNote}>
+            {total} {vi ? "dự án" : "projects"} · {vi ? "Trang" : "Page"} {page}
+            /{totalPages}
+            {query && (
+              <>
+                {" "}
+                · “{query}” ·{" "}
+                <Link href={portfolioHref(locale, category)}>
+                  {vi ? "Xóa tìm kiếm" : "Clear search"}
+                </Link>
+              </>
+            )}
+          </p>
+          {projects.length ? (
+            <div className={styles.archiveGrid}>
+              {projects.map((project, index) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  locale={locale}
+                  priority={index === 0}
+                  imageSizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                />
+              ))}
+            </div>
+          ) : (
+            <p>
+              {vi
+                ? "Không tìm thấy dự án phù hợp. Hãy thử tên khác hoặc chọn tất cả dự án."
+                : "No matching projects. Try another name or choose all work."}
+            </p>
           )}
-        </nav>
-      </section>
-      <StylingEnquiry page={pageContent} locale={locale} />
-    </div>
+          <nav
+            className={styles.pagination}
+            aria-label={vi ? "Phân trang dự án" : "Portfolio pagination"}
+          >
+            {page > 1 && (
+              <Link href={href(page - 1)} rel="prev">
+                ← {vi ? "Trước" : "Previous"}
+              </Link>
+            )}
+            {pages.map((n, i) => (
+              <span key={n}>
+                {i > 0 && n - pages[i - 1] > 1 && (
+                  <span aria-hidden="true">…</span>
+                )}
+                <Link
+                  href={href(n)}
+                  aria-current={page === n ? "page" : undefined}
+                  aria-label={`${vi ? "Trang" : "Page"} ${n}`}
+                >
+                  {n}
+                </Link>
+              </span>
+            ))}
+            {page < totalPages && (
+              <Link href={href(page + 1)} rel="next">
+                {vi ? "Tiếp" : "Next"} →
+              </Link>
+            )}
+          </nav>
+        </section>
+      </div>
+      <div className={styles.contactForm} id="enquiry">
+        <ContactSection backgroundImageUrl="/images/contact-section-bg.webp" />
+      </div>
+    </>
   );
 }
