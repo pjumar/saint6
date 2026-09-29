@@ -2,21 +2,13 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { ImageResponse } from "next/og";
 import sharp from "sharp";
-import {
-  getStylingPage,
-  getStylingProject,
-  stylingEnabled,
-} from "@/app/lib/styling/content";
+import { getStylingPage, getStylingProject } from "@/app/lib/styling/content";
 
-export const runtime = "nodejs";
-
-export async function GET(request: Request) {
-  if (!stylingEnabled) return new Response(null, { status: 404 });
-  const query = new URL(request.url).searchParams;
-  const locale = query.get("locale") || "en";
-  const slug = query.get("slug");
-  if (locale !== "en" && locale !== "vi")
-    return new Response(null, { status: 404 });
+// Used by the static image route during the build and background revalidation.
+export async function renderStylingSocialImage(
+  locale: "en" | "vi",
+  slug: string | null,
+) {
   const project = slug ? await getStylingProject(locale, slug) : null;
   if (slug && !project) return new Response(null, { status: 404 });
   const page = project ? null : await getStylingPage(locale);
@@ -60,7 +52,8 @@ export async function GET(request: Request) {
       signal: AbortSignal.timeout(8000),
       next: { revalidate: 300, tags: ["styling"] },
     });
-    if (!response.ok) return new Response(null, { status: 502 });
+    if (!response.ok)
+      throw new Error(`Social image fetch failed (${response.status})`);
     bytes = Buffer.from(await response.arrayBuffer());
     if (bytes.length > 20 * 1024 * 1024)
       return new Response(null, { status: 422 });

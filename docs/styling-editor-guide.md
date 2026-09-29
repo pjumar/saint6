@@ -25,6 +25,11 @@ The hosted Vercel review preview still uses the approved seed dataset until a ho
 
 Custom social artwork is used as uploaded; its aspect ratio is not silently altered. Preview the card before publishing. The automatic card is always 1200 × 630.
 
+Automatic sharing cards for both languages and all published projects are pre-rendered during deployment at `/api/styling/social/{locale}/{slug}.png` (`_service.png` for the service and archive). They are cached and revalidated in the background after five minutes, matching the CMS content cache. Projects published after deployment generate their image on the first image request and cache it thereafter; open the image before sharing a newly published project, or redeploy to pre-render it. A failed image refresh keeps the previous successful cached image. Existing query-based image URLs redirect to the cached route. CMS social-image overrides still take precedence.
+
+CSS remains in external stylesheets so sharing metadata is near the beginning of the HTML. After a production build, run `node scripts/styling/verify-social-build.mjs` to check early metadata, pre-rendered PNGs, dimensions and revalidation. A successful Facebook debugger preview does not verify Messenger: retest a fresh paste on the actual phone after deployment.
+
+
 ## Local verification
 
 Use Node 24 on this Mac, matching SQLite's native binding:

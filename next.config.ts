@@ -3,7 +3,7 @@ import seed from "./app/lib/styling/seed.json";
 
 const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
-    "/api/styling/social": [
+    "/api/styling/social/*/*": [
       "./public/fonts/saira-condensed/*.ttf",
       "./public/assets/saint6-logo.svg",
       ...new Set([
@@ -34,9 +34,7 @@ const nextConfig: NextConfig = {
         ]
       : [];
   },
-  experimental: {
-    inlineCss: true,
-  },
+  // Keep CSS external so link-preview metadata appears near the start of HTML.
   turbopack: {
     resolveAlias: {
       "../build/polyfills/polyfill-module": "./app/lib/modern-polyfill.js",

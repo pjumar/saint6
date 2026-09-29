@@ -15,17 +15,15 @@ export function stylingMetadata(
   const url = `${stylingOrigin}/${locale}/styling${path}`;
   const slug = path.split("?")[0].slice(1);
   const cardQuery = new URLSearchParams({
-    locale,
-    ...(slug && slug !== "projects" ? { slug } : {}),
     // A new image URL lets sharing services refresh changed copy or artwork.
-    v: `2-${createHash("sha256")
+    v: `3-${createHash("sha256")
       .update(JSON.stringify([title, description, image.url]))
       .digest("hex")
       .slice(0, 12)}`,
   });
   const imageUrl = socialImage
     ? new URL(socialImage.url, stylingShareOrigin).href
-    : `${stylingShareOrigin}/api/styling/social?${cardQuery}`;
+    : `${stylingShareOrigin}/api/styling/social/${locale}/${slug && slug !== "projects" ? slug : "_service"}.png?${cardQuery}`;
   return {
     title: { absolute: title },
     description,
