@@ -34,6 +34,13 @@ export async function GET(request: Request) {
       "public/fonts/saira-condensed/SairaCondensed-Regular.ttf",
     ),
   );
+  const logo = await sharp(
+    await readFile(path.join(process.cwd(), "public/assets/saint6-logo.svg")),
+    { density: 144 },
+  )
+    .resize(285, 60)
+    .png()
+    .toBuffer();
   // Only approved content supplies image URLs; the request cannot choose a fetch target.
   let bytes: Buffer;
   if (photo.url.startsWith("/images/")) {
@@ -61,10 +68,12 @@ export async function GET(request: Request) {
   // ImageResponse accepts PNG/JPEG; CMS and preview originals can be WebP.
   const photoPng = await sharp(bytes)
     .rotate()
-    .resize(780, 630, { fit: "inside", withoutEnlargement: true })
+    .resize(720, 630, { fit: "inside", withoutEnlargement: true })
     .png()
     .toBuffer({ resolveWithObject: true });
   const photoUrl = `data:image/png;base64,${photoPng.data.toString("base64")}`;
+  // Give unused portrait-image space to the red text panel, retaining the full photo.
+  const photoWidth = photoPng.info.width;
   return new ImageResponse(
     <div
       style={{
@@ -78,19 +87,35 @@ export async function GET(request: Request) {
     >
       <div
         style={{
-          width: 420,
-          padding: "44px 40px",
+          width: 1200 - photoWidth,
+          height: 630,
+          position: "relative",
+          flexShrink: 0,
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex", fontSize: 36, letterSpacing: 5 }}>
-          SAINT 6 STUDIOS
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        {/* biome-ignore lint/performance/noImgElement: ImageResponse renders the brand logo into the sharing image. */}
+        <img
+          src={`data:image/png;base64,${logo.toString("base64")}`}
+          alt="Saint 6 Studios"
+          width={285}
+          height={60}
+          style={{ position: "absolute", top: 48, left: 48 }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 154,
+            left: 48,
+            width: 1200 - photoWidth - 96,
+            height: 340,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           <div
-            style={{ fontSize: title.length > 55 ? 38 : 52, lineHeight: 1.08 }}
+            style={{ fontSize: title.length > 55 ? 42 : 60, lineHeight: 1.08 }}
           >
             {title.slice(0, 150)}
           </div>
@@ -98,16 +123,27 @@ export async function GET(request: Request) {
             {category}
           </div>
         </div>
-        <div style={{ display: "flex", fontSize: 24 }}>
+        <div
+          style={{
+            position: "absolute",
+            left: 48,
+            bottom: 48,
+            display: "flex",
+            fontSize: 24,
+            color: "white",
+            width: 300,
+            height: 32,
+          }}
+        >
           saint6.studio / styling
         </div>
       </div>
       <div
         style={{
-          width: 780,
+          width: photoWidth,
           height: 630,
+          flexShrink: 0,
           display: "flex",
-          background: "#191717",
           justifyContent: "center",
           alignItems: "center",
         }}

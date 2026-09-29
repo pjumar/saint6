@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import type { Metadata } from "next";
 import { stylingIsPublic, stylingOrigin, stylingShareOrigin } from "./content";
 import type { StylingImage, StylingLocale } from "./types";
@@ -16,6 +17,11 @@ export function stylingMetadata(
   const cardQuery = new URLSearchParams({
     locale,
     ...(slug && slug !== "projects" ? { slug } : {}),
+    // A new image URL lets sharing services refresh changed copy or artwork.
+    v: `2-${createHash("sha256")
+      .update(JSON.stringify([title, description, image.url]))
+      .digest("hex")
+      .slice(0, 12)}`,
   });
   const imageUrl = socialImage
     ? new URL(socialImage.url, stylingShareOrigin).href
@@ -42,6 +48,7 @@ export function stylingMetadata(
       images: [
         {
           url: imageUrl,
+          ...(!socialImage ? { type: "image/png" } : {}),
           width: socialImage?.width || 1200,
           height: socialImage?.height || 630,
           alt:
