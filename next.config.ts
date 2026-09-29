@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/styling/social": [
       "./public/fonts/saira-condensed/*.ttf",
+      "./public/assets/saint6-logo.svg",
       ...new Set([
         ...seed.projects.en.map((p) => `./public${p.cover.url}`),
         ...Object.values(seed.pages).map((p) => `./public${p.hero_image.url}`),
