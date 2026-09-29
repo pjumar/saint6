@@ -280,7 +280,7 @@ test("every project has distinct localized SEO titles; social overrides retain t
   assert.equal(fallbackImage.height, 630);
   assert.ok(
     fallbackImage.url.includes(
-      `/api/styling/social?locale=en&slug=${project.slug}`,
+      `/api/styling/social/en/${project.slug}.png?v=3-`,
     ),
   );
 });
