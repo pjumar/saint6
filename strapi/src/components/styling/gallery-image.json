@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_styling_gallery_images",
+  "info": {
+    "displayName": "Styling Gallery Image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "alt": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

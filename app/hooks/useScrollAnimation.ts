@@ -82,6 +82,7 @@ export function useScrollAnimation<T extends HTMLElement>(
   const elementRef = useRef<T>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const element = elementRef.current;
     if (!element) return;
 
@@ -136,6 +137,7 @@ export function useScrollAnimationChildren<T extends HTMLElement>(
   const containerRef = useRef<T>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const container = containerRef.current;
     if (!container) return;
 
@@ -185,6 +187,7 @@ export function useSpiralSpin<T extends HTMLElement>(
   const ref = useRef<T>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const el = ref.current;
     if (!el) return;
 
@@ -231,6 +234,7 @@ export function useScrollAnimationGrid<T extends HTMLElement>(
   const containerRef = useRef<T>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const container = containerRef.current;
     if (!container) return;
 

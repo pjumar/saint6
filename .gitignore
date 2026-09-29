@@ -50,3 +50,6 @@ next-env.d.ts
 .cursor/
 .gemini/
 skills/
+
+# local package-manager cache
+.pnpm-store/

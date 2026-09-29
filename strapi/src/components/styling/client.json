@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_styling_clients",
+  "info": {
+    "displayName": "Styling client"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "required": true
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "logo_view_box": {
+      "type": "string",
+      "regex": "^\\d+(?:\\.\\d+)? \\d+(?:\\.\\d+)? \\d+(?:\\.\\d+)? \\d+(?:\\.\\d+)?$"
+    },
+    "display_width": {
+      "type": "decimal",
+      "min": 4,
+      "max": 16,
+      "default": 11
+    }
+  }
+}

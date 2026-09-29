@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_styling_text_blocks",
+  "info": {
+    "displayName": "Styling Text Block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

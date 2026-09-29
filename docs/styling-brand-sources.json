@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Dior",
+    "source_url": "https://www.lvmh.com/en/our-maisons/fashion-leather-good/christian-dior",
+    "asset_source": "https://images.prismic.io/lvmh-com/e4481d11-8ec7-4d0a-8a30-a7ad2835ce07_Logo.png?auto=compress,format&w=800",
+    "logo": {
+      "url": "/images/styling/clients/dior-official.png",
+      "width": 800,
+      "height": 176,
+      "alternativeText": "Dior"
+    },
+    "logo_view_box": "0 0 800 176",
+    "display_width": 11
+  },
+  {
+    "name": "Louis Vuitton",
+    "source_url": "https://www.lvmh.com/en/our-maisons/fashion-leather-good/louis-vuitton",
+    "asset_source": "https://images.prismic.io/lvmh-com/be559d38-19f5-49d0-817d-72a95cfe1c69_Logo_Louis_Vuitton.png?auto=compress,format&w=800",
+    "logo": {
+      "url": "/images/styling/clients/louis-vuitton-official.png",
+      "width": 800,
+      "height": 600,
+      "alternativeText": "Louis Vuitton"
+    },
+    "logo_view_box": "15 259 770 82",
+    "display_width": 12
+  },
+  {
+    "name": "Calvin Klein",
+    "source_url": "https://www.calvinklein.com.hk/en/home",
+    "asset_source": "https://www.calvinklein.com.hk/on/demandware.static/-/Library-Sites-calvin-klein-shared-library/default/dw65bf7326/header/full-logo.svg",
+    "logo": {
+      "url": "/images/styling/clients/calvin-klein.svg",
+      "width": 948,
+      "height": 150,
+      "alternativeText": "Calvin Klein"
+    },
+    "logo_view_box": "0 0 948 150",
+    "display_width": 11
+  },
+  {
+    "name": "Tung Vu",
+    "source_url": "https://tungvuatelier.com/",
+    "asset_source": "https://tungvuatelier.com/wp-content/uploads/2025/07/logotungvu-1-1024x147.jpg",
+    "logo": {
+      "url": "/images/styling/clients/tung-vu.jpg",
+      "width": 1024,
+      "height": 147,
+      "alternativeText": "Tung Vu"
+    },
+    "logo_view_box": "7 0 1012 147",
+    "display_width": 11.5
+  },
+  {
+    "name": "Samsung",
+    "source_url": "https://www.samsung.com/vn/",
+    "asset_source": "https://www.samsung.com/vn/#header-logo",
+    "logo": {
+      "url": "/images/styling/clients/samsung.svg",
+      "width": 130,
+      "height": 29,
+      "alternativeText": "Samsung"
+    },
+    "logo_view_box": "0 0 130 29",
+    "display_width": 9.5
+  },
+  {
+    "name": "Yamaha",
+    "source_url": "https://yamaha-motor.com.vn/",
+    "asset_source": "https://yamaha-motor.com.vn/wp/wp-content/themes/yamaha/assets/img/share/logo.png?v=1.2.24",
+    "logo": {
+      "url": "/images/styling/clients/yamaha.png",
+      "width": 636,
+      "height": 218,
+      "alternativeText": "Yamaha"
+    },
+    "logo_view_box": "0 0 636 218",
+    "display_width": 8.5
+  },
+  {
+    "name": "Honda",
+    "source_url": "https://www.honda.com.vn/",
+    "asset_source": "https://www.honda.com.vn/images/logo_honda_v1.png?v=20260928",
+    "logo": {
+      "url": "/images/styling/clients/honda.png",
+      "width": 5667,
+      "height": 522,
+      "alternativeText": "Honda"
+    },
+    "logo_view_box": "0 0 2250 522",
+    "display_width": 12
+  },
+  {
+    "name": "CITIZEN",
+    "source_url": "https://www.citizenwatch-global.com/",
+    "asset_source": "https://www.citizenwatch-global.com/cms/global/img/usr/header/sitelogo.svg?240607",
+    "logo": {
+      "url": "/images/styling/clients/citizen.svg",
+      "width": 333,
+      "height": 61,
+      "alternativeText": "CITIZEN"
+    },
+    "logo_view_box": "0 0 333 61",
+    "display_width": 10
+  },
+  {
+    "name": "Dove",
+    "source_url": "https://www.unilever.com/brands/beauty-wellbeing/dove/",
+    "asset_source": "https://www.unilever.com/content-images/92ui5egz/production/31ede91fba0d37ba4097099380ddf098c12c22d1-1080x1080.jpg?w=480&auto=format",
+    "logo": {
+      "url": "/images/styling/clients/dove-official.jpg",
+      "width": 480,
+      "height": 480,
+      "alternativeText": "Dove"
+    },
+    "logo_view_box": "27 148 429 183",
+    "display_width": 7
+  },
+  {
+    "name": "Pantene",
+    "source_url": "https://pantene.com/en-us",
+    "asset_source": "https://pantene.com/cdn/shop/files/Pantene_Black.svg?v=1785846041&width=320",
+    "logo": {
+      "url": "/images/styling/clients/pantene.svg",
+      "width": 191,
+      "height": 35,
+      "alternativeText": "Pantene"
+    },
+    "logo_view_box": "0 0 191 35",
+    "display_width": 9.5
+  },
+  {
+    "name": "Prudential",
+    "source_url": "https://www.prudential.com.vn/vi/",
+    "asset_source": "https://www.prudential.com.vn/content/dam/prudential-aem-lbu/pva/vi_VN/hinh-anh/icon/Prudential-Logo.svg",
+    "logo": {
+      "url": "/images/styling/clients/prudential.svg",
+      "width": 160,
+      "height": 28,
+      "alternativeText": "Prudential"
+    },
+    "logo_view_box": "0 0 160 28",
+    "display_width": 11
+  },
+  {
+    "name": "Lazada",
+    "source_url": "https://www.lazada.com/en/",
+    "asset_source": "https://img.lazcdn.com/g/tps/images/ims-web/TB1T7K2d8Cw3KVjSZFuXXcAOpXa.png",
+    "logo": {
+      "url": "/images/styling/clients/lazada.png",
+      "width": 344,
+      "height": 108,
+      "alternativeText": "Lazada"
+    },
+    "logo_view_box": "0 18 344 73",
+    "display_width": 9.5
+  }
+]

@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { createContext, type ReactNode, useContext } from "react";
+import type { SharedContactContent } from "@/app/lib/styling/types";
 import enTranslations from "@/app/translations/en.json";
 import viTranslations from "@/app/translations/vi.json";
 import type { Locale } from "@/app/types";
@@ -14,6 +15,7 @@ interface TranslationContextType {
   locale: Locale;
   language: Language;
   t: Translations;
+  contactContent?: SharedContactContent;
 }
 
 const TranslationContext = createContext<TranslationContextType | undefined>(
@@ -23,9 +25,11 @@ const TranslationContext = createContext<TranslationContextType | undefined>(
 export function TranslationProvider({
   children,
   locale: initialLocale,
+  contactContent,
 }: {
   children: ReactNode;
   locale: Locale;
+  contactContent?: SharedContactContent;
 }) {
   const params = useParams();
   const locale = (params?.locale as Locale) || initialLocale || "en";
@@ -34,7 +38,9 @@ export function TranslationProvider({
     locale === "vi" ? viTranslations : enTranslations;
 
   return (
-    <TranslationContext.Provider value={{ locale, language, t: translations }}>
+    <TranslationContext.Provider
+      value={{ locale, language, t: translations, contactContent }}
+    >
       {children}
     </TranslationContext.Provider>
   );

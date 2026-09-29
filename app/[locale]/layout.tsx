@@ -10,6 +10,7 @@ import { TranslationProvider } from "@/app/contexts/TranslationContext";
 import { GTM_ID } from "@/app/lib/constants";
 import { FALLBACK_FOOTER, FALLBACK_SEO, FALLBACK_SOCIAL_LINKS } from "@/app/lib/fallback";
 import { getFooter, getSeoMetadata, getSocialLinks, getStrapiImageUrl } from "@/app/lib/strapi";
+import { getSharedContactContent, stylingEnabled } from "@/app/lib/styling/content";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -130,9 +131,13 @@ export default async function LocaleLayout({
   const typedLocale = locale as Locale;
 
   const isDev = process.env.NODE_ENV === "development";
-  const [footerData, socialData] = await Promise.all([
+  const [footerData, socialData, contactContent] = await Promise.all([
     getFooter(typedLocale),
     getSocialLinks(typedLocale),
+    stylingEnabled ? getSharedContactContent(typedLocale).catch(() => {
+      console.warn("Shared CMS contact section unavailable; using the existing localized contact section.");
+      return undefined;
+    }) : undefined,
   ]);
   const useFallback = !footerData && !socialData && isDev;
 
@@ -162,13 +167,14 @@ export default async function LocaleLayout({
           </>
         )}
       </head>
-      <DeferredGTM gtmId={GTM_ID} />
+
       <body
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
       >
+        {process.env.VERCEL_ENV === "production" && <DeferredGTM gtmId={GTM_ID} />}
         <ErrorBoundary>
-          <TranslationProvider locale={typedLocale}>
+          <TranslationProvider locale={typedLocale} contactContent={contactContent}>
             <main>{children}</main>
             <Footer
               contactLabel={footer?.contact_label || undefined}

@@ -11,7 +11,8 @@
     "DECOR": "TRANG TRÍ",
     "CREATIVE": "SÁNG TẠO",
     "CONTACT": "LIÊN HỆ",
-    "ABOUT_US": "Giới thiệu"
+    "ABOUT_US": "Giới thiệu",
+    "STYLING": "Styling"
   },
   "FOOTER": {
     "CONTACT_US": "LIÊN HỆ VỚI CHÚNG TÔI",
@@ -143,6 +144,20 @@
       "TITLE": "THIẾT BỊ CHIẾU SÁNG",
       "HEADING": "Thiết Lập Chiếu Sáng và Rigging Tiên Tiến để Hoàn Thiện Mọi Chi Tiết trong Sản Xuất của Bạn",
       "BACKGROUND_COLORS": "13x Màu Nền"
+    },
+    "OPTIONS": {
+      "LABEL": "Tìm không gian phù hợp",
+      "ROOMS": "Khám phá các phòng",
+      "WORKSHOPS": "Workshop & sự kiện thương hiệu",
+      "AVAILABILITY": "Hỏi lịch trống"
+    },
+    "WORKSHOPS": {
+      "LABEL": "Workshop & sự kiện thương hiệu",
+      "TITLE": "Không gian linh hoạt cho buổi gặp gỡ của bạn.",
+      "DESCRIPTION": "Tổ chức workshop, buổi sáng tạo hoặc giới thiệu thương hiệu tại Saint 6, TP.HCM. Chọn một phòng hoặc trao đổi phương án thuê không gian lớn hơn cho sự kiện.",
+      "FACILITIES": "Khám phá các phòng trống, phòng concept, khu vực makeup và lounge. Đội ngũ sẽ cùng bạn xem xét cách bố trí, không gian chuẩn bị và thiết bị cần thiết.",
+      "BRIEF": "Chia sẻ ngày tổ chức, số khách, cách bố trí chỗ ngồi và thời gian setup. Chúng tôi sẽ xác nhận sức chứa phù hợp, lịch trống, hạng mục đi kèm và báo giá riêng.",
+      "CTA": "Trao đổi về workshop"
     }
   },
   "SET_DESIGN": {
@@ -559,5 +574,9 @@
       "SUCCESS_MESSAGE": "Tin nhắn của bạn đã được gửi — đội ngũ của chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.",
       "ERROR": "Đã xảy ra lỗi. Vui lòng thử lại."
     }
+  },
+  "CONTACT_ENQUIRY": {
+    "TITLE": "Cùng tìm hướng đi cho ý tưởng của bạn.",
+    "TEXT": "Một chiến dịch, bộ sưu tập, sự kiện hay câu chuyện rất riêng. Từ thuê studio, thiết kế bối cảnh đến sản xuất, styling, tổ chức sự kiện và định hướng sáng tạo, hãy chia sẻ ý tưởng với chúng tôi để cùng hiện thực hóa."
   }
 }

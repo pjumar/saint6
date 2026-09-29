@@ -43,6 +43,9 @@ export function Header({
       { label: t.NAVIGATION.EVENT_PLANNING, href: `/${locale}/event-planning` },
       { label: t.NAVIGATION.DECOR, href: `/${locale}/decor` },
       { label: t.NAVIGATION.CREATIVE, href: `/${locale}/creative` },
+      ...(process.env.NEXT_PUBLIC_STYLING_ENABLED === "true"
+        ? [{ label: t.NAVIGATION.STYLING, href: `/${locale}/styling` }]
+        : []),
     ],
     [t, locale],
   );

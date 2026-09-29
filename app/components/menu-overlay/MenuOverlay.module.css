@@ -181,3 +181,25 @@
     display: none;
   }
 }
+
+/* The seventh service needs room on short mobile viewports. */
+.expandedMenu .menuNav {
+  position: relative;
+  top: auto;
+  transform: none;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+  gap: 1rem;
+}
+
+.expandedMenu .menuFooter {
+  position: relative;
+  padding-top: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menuOverlay,
+  .menuOverlay.menuOverlayClosing {
+    animation: none;
+    opacity: 1;
+  }
+}

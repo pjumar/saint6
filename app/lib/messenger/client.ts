@@ -1,3 +1,4 @@
+import { isProductionSite } from "@/app/lib/form-submissions";
 import { sanitizeAttribution } from "@/strapi/src/api/messenger/lib/attribution";
 
 const STORAGE_KEY = "saint6_messenger_referral";
@@ -6,6 +7,7 @@ let pending: Promise<string> | undefined;
 
 /** Prepare an opaque reference; the normal Messenger link survives every failure. */
 export function prepareMessengerLink(): Promise<string> {
+  if (!isProductionSite) return Promise.resolve(BASE_URL);
   if (pending) return pending;
   pending = prepare()
     .catch(() => BASE_URL)
