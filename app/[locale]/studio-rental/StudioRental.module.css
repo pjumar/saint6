@@ -13,6 +13,45 @@
   padding: 0;
 }
 
+.serviceLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.serviceLinks a {
+  color: var(--color-primary, #880300);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.serviceLinks a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
+.anchorTarget {
+  scroll-margin-top: 2rem;
+}
+
+.workshopDetails {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 65rem;
+  margin: 0 auto;
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+.workshopDetails p { margin: 0; }
+
+@media (min-width: 48.0625rem) {
+  .workshopDetails { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+}
+
 .section {
   width: 100%;
   padding: 8rem 1.5rem;

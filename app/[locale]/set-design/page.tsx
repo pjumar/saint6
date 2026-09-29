@@ -164,6 +164,7 @@ export default async function SetDesignPage({ params }: PageProps) {
               title={introTitle}
               description={introDescription}
               ctaText={introCta}
+              ctaLink={strapiData?.intro?.cta_link || "#contact-form"}
             />
             {translatedWorkflow.length > 0 && (
               <div id="services">

@@ -355,12 +355,20 @@ export default async function StudioRentalPage({ params }: PageProps) {
               title={introTitle}
               description={introDescription}
               ctaText={introCtaText}
+              ctaLink={strapiData?.intro?.cta_link || "#contact-form"}
             />
+            <nav className={styles.serviceLinks} aria-label={t.STUDIO_RENTAL.OPTIONS.LABEL}>
+              <a href="#rooms">{t.STUDIO_RENTAL.OPTIONS.ROOMS}</a>
+              <a href="#workshops">{t.STUDIO_RENTAL.OPTIONS.WORKSHOPS}</a>
+              <a href="#contact-form">{t.STUDIO_RENTAL.OPTIONS.AVAILABILITY}</a>
+            </nav>
             <StudioStats {...statsData} />
-            <BlankRoomsGrid
-              rooms={studioRooms}
-              allBookingRooms={allBookingRooms}
-            />
+            <div id="rooms" className={styles.anchorTarget}>
+              <BlankRoomsGrid
+                rooms={studioRooms}
+                allBookingRooms={allBookingRooms}
+              />
+            </div>
           </div>
         </section>
 
@@ -372,6 +380,22 @@ export default async function StudioRentalPage({ params }: PageProps) {
             bookingRoomIndexOffset={studioRooms.length}
           />
         )}
+
+        <section className={styles.section} id="workshops">
+          <div className={styles.sectionInner}>
+            <StudioIntro
+              title={t.STUDIO_RENTAL.WORKSHOPS.LABEL}
+              description={t.STUDIO_RENTAL.WORKSHOPS.TITLE}
+              ctaText={t.STUDIO_RENTAL.WORKSHOPS.CTA}
+              ctaLink="#contact-form"
+            />
+            <div className={styles.workshopDetails}>
+              <p>{t.STUDIO_RENTAL.WORKSHOPS.DESCRIPTION}</p>
+              <p>{t.STUDIO_RENTAL.WORKSHOPS.FACILITIES}</p>
+              <p>{t.STUDIO_RENTAL.WORKSHOPS.BRIEF}</p>
+            </div>
+          </div>
+        </section>
 
         {/* Full Studio Rental Section */}
         <section className={styles.fullWidthSection} id="full-studio">

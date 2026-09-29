@@ -144,6 +144,20 @@
       "TITLE": "LIGHTING EQUIPMENT",
       "HEADING": "Advanced Lighting and Rigging Setups to Perfect Every Detail of Your Production",
       "BACKGROUND_COLORS": "13x Background Color"
+    },
+    "OPTIONS": {
+      "LABEL": "Find your studio space",
+      "ROOMS": "Explore the rooms",
+      "WORKSHOPS": "Workshops & brand events",
+      "AVAILABILITY": "Enquire about availability"
+    },
+    "WORKSHOPS": {
+      "LABEL": "Workshops & brand events",
+      "TITLE": "A flexible setting for your next gathering.",
+      "DESCRIPTION": "Bring your workshop, creative session or brand presentation to Saint 6 in Ho Chi Minh City. Choose a room or discuss a larger studio booking around your event.",
+      "FACILITIES": "Explore our blank and concept rooms, makeup facilities and lounge. We’ll help you consider the layout, preparation space and equipment your event needs.",
+      "BRIEF": "Share your date, guest count, seating plan and setup time. Our team will confirm suitable capacity, availability, inclusions and a tailored quote.",
+      "CTA": "Discuss your workshop"
     }
   },
   "SET_DESIGN": {

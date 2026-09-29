@@ -144,6 +144,20 @@
       "TITLE": "THIẾT BỊ CHIẾU SÁNG",
       "HEADING": "Thiết Lập Chiếu Sáng và Rigging Tiên Tiến để Hoàn Thiện Mọi Chi Tiết trong Sản Xuất của Bạn",
       "BACKGROUND_COLORS": "13x Màu Nền"
+    },
+    "OPTIONS": {
+      "LABEL": "Tìm không gian phù hợp",
+      "ROOMS": "Khám phá các phòng",
+      "WORKSHOPS": "Workshop & sự kiện thương hiệu",
+      "AVAILABILITY": "Hỏi lịch trống"
+    },
+    "WORKSHOPS": {
+      "LABEL": "Workshop & sự kiện thương hiệu",
+      "TITLE": "Không gian linh hoạt cho buổi gặp gỡ của bạn.",
+      "DESCRIPTION": "Tổ chức workshop, buổi sáng tạo hoặc giới thiệu thương hiệu tại Saint 6, TP.HCM. Chọn một phòng hoặc trao đổi phương án thuê không gian lớn hơn cho sự kiện.",
+      "FACILITIES": "Khám phá các phòng trống, phòng concept, khu vực makeup và lounge. Đội ngũ sẽ cùng bạn xem xét cách bố trí, không gian chuẩn bị và thiết bị cần thiết.",
+      "BRIEF": "Chia sẻ ngày tổ chức, số khách, cách bố trí chỗ ngồi và thời gian setup. Chúng tôi sẽ xác nhận sức chứa phù hợp, lịch trống, hạng mục đi kèm và báo giá riêng.",
+      "CTA": "Trao đổi về workshop"
     }
   },
   "SET_DESIGN": {
