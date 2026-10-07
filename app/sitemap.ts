@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
-import { getStylingProjectSummaries, stylingIsPublic } from "@/app/lib/styling/content";
+import {
+  getStylingProjectSummaries,
+  stylingIsPublic,
+} from "@/app/lib/styling/content";
 
 const BASE_URL = "https://www.saint6.studio";
 
@@ -20,7 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const existing: MetadataRoute.Sitemap = locales.flatMap((locale) =>
     routes.map((route) => ({
       url: `${BASE_URL}/${locale}${route}`,
-      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/en${route}`,
+          vi: `${BASE_URL}/vi${route}`,
+        },
+      },
       changeFrequency: "weekly" as const,
       priority: route === "" ? 1 : 0.8,
     })),

@@ -1,4 +1,3 @@
-import { getDiscoveryPage } from "@/app/lib/studio-discovery/content";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { KeyProjectSection } from "@/app/components/key-project-section/KeyProjectSection";
@@ -9,6 +8,10 @@ import {
 import { QuoteIntro } from "@/app/components/quote-intro/QuoteIntro";
 import { ServiceCardsCarousel } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
+import {
+  BusinessStructuredData,
+  serviceStructuredData,
+} from "@/app/lib/business-seo";
 import {
   FALLBACK_PRODUCTION_HERO,
   FALLBACK_PRODUCTION_KEY_PROJECT,
@@ -22,6 +25,7 @@ import {
   getStrapiThumbnailUrl,
   type StrapiServiceItem,
 } from "@/app/lib/strapi";
+import { getDiscoveryPage } from "@/app/lib/studio-discovery/content";
 import {
   transformKeyProjects,
   transformWorkflow,
@@ -194,6 +198,15 @@ export default async function ProductionPage({ params }: PageProps) {
 
   return (
     <div className={styles.productionPage}>
+      <BusinessStructuredData
+        value={serviceStructuredData({
+          locale: locale as Locale,
+          path: "production",
+          name: heroHeading,
+          description: introDescription,
+          imageUrl: heroBackground,
+        })}
+      />
       {/* Hero Section */}
       <HeroSection
         heading={heroHeading}
