@@ -409,7 +409,11 @@ export default async function StudioRentalPage({ params }: PageProps) {
 
         <StudioFloorplan content={discovery.floorplan} />
 
-        <section className={styles.section} id="workshops" tabIndex={-1}>
+        <section
+          className={`${styles.section} ${styles.workshopsSection}`}
+          id="workshops"
+          tabIndex={-1}
+        >
           <div className={styles.sectionInner}>
             <StudioIntro
               title={discovery.workshops.label}

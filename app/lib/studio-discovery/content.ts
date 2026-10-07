@@ -31,6 +31,7 @@ export const getStudioDiscovery = cache(
       "populate[pages]": "true",
       "populate[navigation_links]": "true",
       "populate[floorplan][populate][image]": "true",
+      "populate[floorplan][populate][access_image]": "true",
       "populate[room_summaries]": "true",
       "populate[spec_labels]": "true",
       "populate[stats_labels]": "true",
@@ -50,6 +51,7 @@ export const getStudioDiscovery = cache(
     if (
       !data?.pages?.length ||
       !data.floorplan?.image?.url ||
+      !data.floorplan?.access_image?.url ||
       !data.spec_labels ||
       !data.stats_labels ||
       !data.room_summaries ||
@@ -81,6 +83,10 @@ export const getStudioDiscovery = cache(
         image: {
           ...data.floorplan.image,
           url: new URL(data.floorplan.image.url, origin).href,
+        },
+        access_image: {
+          ...data.floorplan.access_image,
+          url: new URL(data.floorplan.access_image.url, origin).href,
         },
       },
     };

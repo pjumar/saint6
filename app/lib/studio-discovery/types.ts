@@ -19,6 +19,11 @@ export interface StudioDiscovery {
     image: StrapiImage;
     image_alt: string;
     enlarge_label: string;
+    access_label: string;
+    access_heading: string;
+    access_description: string;
+    access_image: StrapiImage;
+    access_image_alt: string;
   };
   room_summaries: {
     area_sqm: number;

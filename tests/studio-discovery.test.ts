@@ -51,10 +51,20 @@ test("published CMS content uses its own credentials and populated localized med
     );
     assert.equal(calls[0].authorization, null);
     assert.equal(
+      calls[0].url.searchParams.get(
+        "populate[floorplan][populate][access_image]",
+      ),
+      "true",
+    );
+    assert.equal(
       content.floorplan.image.url,
       "https://staging.example.invalid/uploads/map.webp",
     );
     assert.equal(content.pages[0].seo_title, seed.vi.pages[0].seo_title);
+    assert.equal(
+      content.floorplan.access_image.url,
+      "https://staging.example.invalid/images/studio-rental/truck-access.webp",
+    );
   } finally {
     globalThis.fetch = fetch;
     for (const name of [

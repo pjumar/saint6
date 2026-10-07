@@ -38,33 +38,43 @@ async function run() {
     );
     return;
   }
-  const name = "saint6-floorplan.webp";
-  const query = new URLSearchParams({ "filters[name][$eq]": name });
-  const existing = await request(`upload/files?${query}`);
-  let imageId = existing[0]?.id;
-  if (!imageId) {
-    const filepath = path.resolve(
-      __dirname,
-      "../../public/images/studio-rental/floorplan.webp",
-    );
-    const form = new FormData();
-    form.append(
-      "files",
-      new Blob([fs.readFileSync(filepath)], { type: "image/webp" }),
-      name,
-    );
-    form.append(
-      "fileInfo",
-      JSON.stringify({ name, alternativeText: seed.en.floorplan.image_alt }),
-    );
-    const uploaded = await request("upload", { method: "POST", body: form });
-    imageId = uploaded[0]?.id;
-    if (!imageId) throw new Error("Floorplan upload did not return an image");
+  async function uploadImage(name, relativePath, alternativeText) {
+    const query = new URLSearchParams({ "filters[name][$eq]": name });
+    const existing = await request(`upload/files?${query}`);
+    let imageId = existing[0]?.id;
+    if (!imageId) {
+      const filepath = path.resolve(__dirname, relativePath);
+      const form = new FormData();
+      form.append(
+        "files",
+        new Blob([fs.readFileSync(filepath)], { type: "image/webp" }),
+        name,
+      );
+      form.append("fileInfo", JSON.stringify({ name, alternativeText }));
+      const uploaded = await request("upload", { method: "POST", body: form });
+      imageId = uploaded[0]?.id;
+      if (!imageId) throw new Error("Floorplan upload did not return an image");
+    }
+    return imageId;
   }
+  const imageId = await uploadImage(
+    "saint6-floorplan.webp",
+    "../../public/images/studio-rental/floorplan.webp",
+    seed.en.floorplan.image_alt,
+  );
+  const accessImageId = await uploadImage(
+    "saint6-truck-access.webp",
+    "../../public/images/studio-rental/truck-access.webp",
+    seed.en.floorplan.access_image_alt,
+  );
   for (const locale of missing) {
     const data = {
       ...seed[locale],
-      floorplan: { ...seed[locale].floorplan, image: imageId },
+      floorplan: {
+        ...seed[locale].floorplan,
+        image: imageId,
+        access_image: accessImageId,
+      },
     };
     await request(`studio-discovery?locale=${locale}&status=draft`, {
       method: "PUT",

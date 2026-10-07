@@ -78,6 +78,18 @@
   gap: 4rem;
 }
 
+.workshopsSection {
+  padding-top: 2rem;
+}
+
+.workshopsSection .sectionInner {
+  gap: 2.5rem;
+}
+
+.workshopsSection .sectionInner > :first-child {
+  padding-top: 0;
+}
+
 .section:nth-child(odd) {
   background: #ffffff;
 }
@@ -209,6 +221,10 @@
 
   .section:first-child {
     padding-top: 0;
+  }
+
+  .workshopsSection {
+    padding-top: 3rem;
   }
 
   .sectionInner {

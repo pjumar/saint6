@@ -29,6 +29,28 @@
       "multiple": false,
       "required": true,
       "allowedTypes": ["images"]
+    },
+    "access_label": {
+      "type": "string",
+      "required": true
+    },
+    "access_heading": {
+      "type": "string",
+      "required": true
+    },
+    "access_image_alt": {
+      "type": "string",
+      "required": true
+    },
+    "access_description": {
+      "type": "text",
+      "required": true
+    },
+    "access_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
     }
   }
 }

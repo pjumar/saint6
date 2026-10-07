@@ -102,6 +102,11 @@ export interface DiscoveryFloorplan extends Struct.ComponentSchema {
     displayName: 'Floorplan';
   };
   attributes: {
+    access_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    access_heading: Schema.Attribute.String & Schema.Attribute.Required;
+    access_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    access_image_alt: Schema.Attribute.String & Schema.Attribute.Required;
+    access_label: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     enlarge_label: Schema.Attribute.String & Schema.Attribute.Required;
     heading: Schema.Attribute.String & Schema.Attribute.Required;

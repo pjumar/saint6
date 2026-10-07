@@ -40,6 +40,21 @@ export function StudioFloorplan({ content }: StudioFloorplanProps) {
             <span className={styles.enlarge}>{content.enlarge_label} ↗</span>
           </a>
         </figure>
+        <div className={styles.access}>
+          <div className={styles.accessCopy}>
+            <p className={styles.label}>{content.access_label}</p>
+            <h3 className={styles.accessHeading}>{content.access_heading}</h3>
+            <p className={styles.description}>{content.access_description}</p>
+          </div>
+          <Image
+            src={content.access_image.url}
+            alt={content.access_image_alt}
+            width={content.access_image.width || 1920}
+            height={content.access_image.height || 1440}
+            sizes="(min-width: 48rem) 60vw, 100vw"
+            className={styles.image}
+          />
+        </div>
       </div>
     </section>
   );

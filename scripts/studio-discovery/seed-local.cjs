@@ -54,37 +54,50 @@ async function run() {
   app.cron.destroy();
   let serving = false;
   try {
-    const name = "saint6-floorplan.webp";
-    let image = await app.db
-      .query("plugin::upload.file")
-      .findOne({ where: { name } });
-    if (!image) {
-      const filepath = path.join(
-        root,
-        "public/images/studio-rental/floorplan.webp",
-      );
-      [image] = await app
-        .plugin("upload")
-        .service("upload")
-        .upload({
-          data: {
-            fileInfo: { name, alternativeText: seed.en.floorplan.image_alt },
-          },
-          files: {
-            filepath,
-            originalFilename: name,
-            mimetype: "image/webp",
-            size: fs.statSync(filepath).size,
-          },
-        });
+    async function uploadImage(name, relativePath, alternativeText) {
+      let image = await app.db
+        .query("plugin::upload.file")
+        .findOne({ where: { name } });
+      if (!image) {
+        const filepath = path.join(root, relativePath);
+        [image] = await app
+          .plugin("upload")
+          .service("upload")
+          .upload({
+            data: {
+              fileInfo: { name, alternativeText },
+            },
+            files: {
+              filepath,
+              originalFilename: name,
+              mimetype: "image/webp",
+              size: fs.statSync(filepath).size,
+            },
+          });
+      }
+      return image;
     }
+    const image = await uploadImage(
+      "saint6-floorplan.webp",
+      "public/images/studio-rental/floorplan.webp",
+      seed.en.floorplan.image_alt,
+    );
+    const accessImage = await uploadImage(
+      "saint6-truck-access.webp",
+      "public/images/studio-rental/truck-access.webp",
+      seed.en.floorplan.access_image_alt,
+    );
     const docs = app.documents(uid);
     for (const locale of ["en", "vi"]) {
       const current = await docs.findFirst({ locale });
       if (!current || process.argv.includes("--refresh-preview")) {
         const data = {
           ...seed[locale],
-          floorplan: { ...seed[locale].floorplan, image: image.id },
+          floorplan: {
+            ...seed[locale].floorplan,
+            image: image.id,
+            access_image: accessImage.id,
+          },
         };
         const base =
           current ||
@@ -115,7 +128,7 @@ async function run() {
     const populate = {
       pages: true,
       navigation_links: true,
-      floorplan: { populate: { image: true } },
+      floorplan: { populate: { image: true, access_image: true } },
       room_summaries: true,
       spec_labels: true,
       stats_labels: true,
@@ -129,6 +142,7 @@ async function run() {
       });
       assert.equal(published.pages.length, 9);
       assert.ok(published.floorplan.image.url);
+      assert.ok(published.floorplan.access_image.url);
       assert.equal(published.navigation_links.length, 4);
       assert.equal(published.room_summaries[0].area_sqm, 125);
       console.log(
