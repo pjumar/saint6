@@ -7,10 +7,28 @@ import { ErrorBoundary } from "@/app/components/error-boundary";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
+import {
+  BusinessStructuredData,
+  businessStructuredData,
+} from "@/app/lib/business-seo";
 import { GTM_ID } from "@/app/lib/constants";
-import { FALLBACK_FOOTER, FALLBACK_SEO, FALLBACK_SOCIAL_LINKS } from "@/app/lib/fallback";
-import { getFooter, getSeoMetadata, getSocialLinks, getStrapiImageUrl } from "@/app/lib/strapi";
-import { getSharedContactContent, stylingEnabled } from "@/app/lib/styling/content";
+import {
+  FALLBACK_FOOTER,
+  FALLBACK_SEO,
+  FALLBACK_SOCIAL_LINKS,
+} from "@/app/lib/fallback";
+import {
+  getContactPage,
+  getFooter,
+  getSeoMetadata,
+  getSocialLinks,
+  getStrapiImageUrl,
+} from "@/app/lib/strapi";
+import { getDiscoveryPage } from "@/app/lib/studio-discovery/content";
+import {
+  getSharedContactContent,
+  stylingEnabled,
+} from "@/app/lib/styling/content";
 import type { Locale } from "@/app/types";
 
 const publicSans = Public_Sans({
@@ -62,6 +80,10 @@ export async function generateMetadata({
       process.env.NEXT_PUBLIC_SITE_URL || "https://www.saint6.studio",
     ),
     manifest: "/site.webmanifest",
+    verification: {
+      // Public ownership proof for the Saint6 Bing Webmaster Tools property.
+      other: { "msvalidate.01": "71C945178EA8F83DE49EC80EB0F3BA20" },
+    },
     icons: {
       icon: [
         { url: "/favicon.ico", sizes: "any" },
@@ -131,22 +153,45 @@ export default async function LocaleLayout({
   const typedLocale = locale as Locale;
 
   const isDev = process.env.NODE_ENV === "development";
-  const [footerData, socialData, contactContent] = await Promise.all([
-    getFooter(typedLocale),
-    getSocialLinks(typedLocale),
-    stylingEnabled ? getSharedContactContent(typedLocale).catch(() => {
-      console.warn("Shared CMS contact section unavailable; using the existing localized contact section.");
-      return undefined;
-    }) : undefined,
-  ]);
+  const [footerData, socialData, contactContent, seo, contactPage, homeCopy] =
+    await Promise.all([
+      getFooter(typedLocale),
+      getSocialLinks(typedLocale),
+      stylingEnabled
+        ? getSharedContactContent(typedLocale).catch(() => {
+            console.warn(
+              "Shared CMS contact section unavailable; using the existing localized contact section.",
+            );
+            return undefined;
+          })
+        : undefined,
+      getSeoMetadata(typedLocale),
+      getContactPage(typedLocale),
+      getDiscoveryPage(typedLocale),
+    ]);
   const useFallback = !footerData && !socialData && isDev;
 
   const socialLinks = socialData
     ? [
-        socialData.facebook_url && { platform: "Facebook", url: socialData.facebook_url, label: socialData.facebook_label || "FACEBOOK" },
-        socialData.instagram_url && { platform: "Instagram", url: socialData.instagram_url, label: socialData.instagram_label || "INSTAGRAM" },
-        socialData.tiktok_url && { platform: "TikTok", url: socialData.tiktok_url, label: socialData.tiktok_label || "TIKTOK" },
-      ].filter((link): link is { platform: string; url: string; label: string } => Boolean(link))
+        socialData.facebook_url && {
+          platform: "Facebook",
+          url: socialData.facebook_url,
+          label: socialData.facebook_label || "FACEBOOK",
+        },
+        socialData.instagram_url && {
+          platform: "Instagram",
+          url: socialData.instagram_url,
+          label: socialData.instagram_label || "INSTAGRAM",
+        },
+        socialData.tiktok_url && {
+          platform: "TikTok",
+          url: socialData.tiktok_url,
+          label: socialData.tiktok_label || "TIKTOK",
+        },
+      ].filter(
+        (link): link is { platform: string; url: string; label: string } =>
+          Boolean(link),
+      )
     : useFallback
       ? FALLBACK_SOCIAL_LINKS
       : undefined;
@@ -156,6 +201,16 @@ export default async function LocaleLayout({
   return (
     <html lang={typedLocale}>
       <head>
+        <BusinessStructuredData
+          value={businessStructuredData({
+            locale: typedLocale,
+            seo,
+            footer: footerData,
+            contact: contactPage?.info,
+            social: socialData,
+            description: homeCopy?.introduction,
+          })}
+        />
         {/* Capture UTM params from URL into sessionStorage before React hydrates */}
         <Script src="/scripts/capture-utm.js" strategy="beforeInteractive" />
         <link rel="preconnect" href="https://strapi.saint6.studio" />
@@ -172,16 +227,23 @@ export default async function LocaleLayout({
         className={`${publicSans.variable} ${jetbrainsMono.variable} ${sairaCondensed.variable} antialiased`}
         suppressHydrationWarning
       >
-        {process.env.VERCEL_ENV === "production" && <DeferredGTM gtmId={GTM_ID} />}
+        {process.env.VERCEL_ENV === "production" && (
+          <DeferredGTM gtmId={GTM_ID} />
+        )}
         <ErrorBoundary>
-          <TranslationProvider locale={typedLocale} contactContent={contactContent}>
+          <TranslationProvider
+            locale={typedLocale}
+            contactContent={contactContent}
+          >
             <main>{children}</main>
             <Footer
               contactLabel={footer?.contact_label || undefined}
               address={footer?.address || undefined}
               email={footer?.email || undefined}
               phone={footer?.phone || undefined}
-              socialLinks={socialLinks && socialLinks.length > 0 ? socialLinks : undefined}
+              socialLinks={
+                socialLinks && socialLinks.length > 0 ? socialLinks : undefined
+              }
             />
             <FloatingMessengerButton />
           </TranslationProvider>

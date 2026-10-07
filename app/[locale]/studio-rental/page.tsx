@@ -1,18 +1,20 @@
 import { BlankRoomsGrid } from "@/app/components/blank-rooms-grid/BlankRoomsGrid";
+import type { BookingRoomData } from "@/app/components/booking-modal/BookingModal";
 import { ConceptRoomsShowcase } from "@/app/components/concept-rooms-showcase/ConceptRoomsShowcase";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { EquipmentGrid } from "@/app/components/equipment-grid/EquipmentGrid";
 import { FacilitiesShowcase } from "@/app/components/facilities-showcase/FacilitiesShowcase";
 import { FAQAccordion } from "@/app/components/faq-accordion/FAQAccordion";
 import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard";
+import { StudioFloorplan } from "@/app/components/studio-floorplan/StudioFloorplan";
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
-import { StudioStats } from "@/app/components/studio-stats/StudioStats";
-import { StudioFloorplan } from "@/app/components/studio-floorplan/StudioFloorplan";
 import { StudioNavigation } from "@/app/components/studio-navigation/StudioNavigation";
-import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
-import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
-import type { BookingRoomData } from "@/app/components/booking-modal/BookingModal";
+import { StudioStats } from "@/app/components/studio-stats/StudioStats";
+import {
+  BusinessStructuredData,
+  serviceStructuredData,
+} from "@/app/lib/business-seo";
 import {
   FALLBACK_CONCEPT_ROOMS,
   FALLBACK_EQUIPMENT,
@@ -32,6 +34,8 @@ import {
   type StrapiFaqItem,
   type StrapiStudioRoom,
 } from "@/app/lib/strapi";
+import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
+import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./StudioRental.module.css";
@@ -367,6 +371,34 @@ export default async function StudioRentalPage({ params }: PageProps) {
 
   return (
     <div className={styles.studioRentalPage}>
+      <BusinessStructuredData
+        value={serviceStructuredData({
+          locale: locale as Locale,
+          path: "studio-rental",
+          name: heroHeading,
+          description: introDescription,
+          imageUrl: heroBackground,
+          currency: discovery.currency,
+          rentalOffers: [
+            ...[...studioRooms, ...conceptRooms].map((room) => ({
+              key: room.id,
+              name: room.title,
+              description: room.description,
+              pricePerHour: room.pricePerHour,
+              imageUrl: room.imageUrl,
+              anchor: "rooms" as const,
+            })),
+            {
+              key: "full-venue",
+              name: discovery.full_rental_title,
+              description: discovery.full_rental_description,
+              pricePerHour: fullRentalPrice,
+              imageUrl: fullRentalBg,
+              anchor: "full-studio",
+            },
+          ],
+        })}
+      />
       <StudioHeroSection
         heading={heroHeading}
         backgroundImage={heroBackground}
