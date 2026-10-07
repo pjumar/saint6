@@ -407,7 +407,10 @@ export default async function StudioRentalPage({ params }: PageProps) {
           />
         )}
 
-        <StudioFloorplan content={discovery.floorplan} />
+        <StudioFloorplan
+          content={discovery.floorplan}
+          locale={locale as Locale}
+        />
 
         <section
           className={`${styles.section} ${styles.workshopsSection}`}

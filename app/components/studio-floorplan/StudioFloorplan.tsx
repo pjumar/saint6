@@ -1,12 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
+import type { Locale } from "@/app/types";
 import styles from "./StudioFloorplan.module.css";
 
 interface StudioFloorplanProps {
   content: StudioDiscovery["floorplan"];
+  locale: Locale;
 }
 
-export function StudioFloorplan({ content }: StudioFloorplanProps) {
+export function StudioFloorplan({ content, locale }: StudioFloorplanProps) {
   return (
     <section
       id="floorplan"
@@ -45,6 +48,13 @@ export function StudioFloorplan({ content }: StudioFloorplanProps) {
             <p className={styles.label}>{content.access_label}</p>
             <h3 className={styles.accessHeading}>{content.access_heading}</h3>
             <p className={styles.description}>{content.access_description}</p>
+            <p className={`${styles.description} ${styles.service}`}>
+              {content.access_service_intro}{" "}
+              <Link href={`/${locale}/set-design`}>
+                {content.access_service_label}
+              </Link>
+              .
+            </p>
           </div>
           <Image
             src={content.access_image.url}

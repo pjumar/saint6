@@ -51,6 +51,14 @@
       "multiple": false,
       "required": true,
       "allowedTypes": ["images"]
+    },
+    "access_service_intro": {
+      "type": "string",
+      "required": true
+    },
+    "access_service_label": {
+      "type": "string",
+      "required": true
     }
   }
 }

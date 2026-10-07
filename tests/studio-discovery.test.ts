@@ -63,7 +63,7 @@ test("published CMS content uses its own credentials and populated localized med
     assert.equal(content.pages[0].seo_title, seed.vi.pages[0].seo_title);
     assert.equal(
       content.floorplan.access_image.url,
-      "https://staging.example.invalid/images/studio-rental/truck-access.webp",
+      "https://staging.example.invalid/images/studio-rental/truck-access-retouched.webp",
     );
   } finally {
     globalThis.fetch = fetch;

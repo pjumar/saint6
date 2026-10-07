@@ -63,8 +63,8 @@ async function run() {
     seed.en.floorplan.image_alt,
   );
   const accessImageId = await uploadImage(
-    "saint6-truck-access.webp",
-    "../../public/images/studio-rental/truck-access.webp",
+    "saint6-truck-access-retouched.webp",
+    "../../public/images/studio-rental/truck-access-retouched.webp",
     seed.en.floorplan.access_image_alt,
   );
   for (const locale of missing) {

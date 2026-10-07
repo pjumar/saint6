@@ -22,6 +22,8 @@ export interface StudioDiscovery {
     access_label: string;
     access_heading: string;
     access_description: string;
+    access_service_intro: string;
+    access_service_label: string;
     access_image: StrapiImage;
     access_image_alt: string;
   };

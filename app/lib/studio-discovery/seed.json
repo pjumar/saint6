@@ -86,13 +86,15 @@
       "enlarge_label": "View full-size",
       "access_label": "TRUCK ACCESS",
       "access_heading": "Bring the whole vision in.",
-      "access_description": "With truck access directly into the studio, even the bigger pieces can be part of the picture. Bring in your sets, props and equipment, and give your next production room to take shape. Tell us what you’re bringing, and we’ll help plan its arrival.",
+      "access_description": "With truck access directly into the studio, even the bigger pieces can be part of the picture. From the first load-in to the final frame, there’s room for your vision to take shape.",
+      "access_service_intro": "Shape the scene with our",
+      "access_service_label": "set design team",
       "access_image_alt": "A truck inside Saint 6 during a studio production, with sets, lighting and crew.",
       "access_image": {
         "id": 0,
-        "url": "/images/studio-rental/truck-access.webp",
-        "width": 1920,
-        "height": 1440
+        "url": "/images/studio-rental/truck-access-retouched.webp",
+        "width": 1448,
+        "height": 1086
       }
     },
     "room_summaries": [
@@ -226,13 +228,15 @@
       "enlarge_label": "Xem kích thước đầy đủ",
       "access_label": "LỐI VÀO CHO XE TẢI",
       "access_heading": "Đưa trọn ý tưởng vào studio.",
-      "access_description": "Xe tải có thể vào trực tiếp bên trong studio, để cả những chi tiết lớn cũng trở thành một phần của khung hình. Mang theo bối cảnh, đạo cụ và thiết bị, rồi để dự án tiếp theo dần thành hình. Hãy cho chúng tôi biết bạn sẽ mang gì đến—ê-kíp Saint 6 sẽ cùng bạn chuẩn bị.",
+      "access_description": "Xe tải có thể vào trực tiếp bên trong studio, để cả những chi tiết lớn cũng trở thành một phần của khung hình. Từ lúc chuẩn bị đến khung hình cuối cùng, ý tưởng của bạn luôn có không gian để thành hình.",
+      "access_service_intro": "Thành hình ý tưởng cùng",
+      "access_service_label": "đội ngũ thiết kế bối cảnh của Saint 6",
       "access_image_alt": "Xe tải bên trong Saint 6 trong một buổi sản xuất, cùng bối cảnh, thiết bị ánh sáng và ê-kíp.",
       "access_image": {
         "id": 0,
-        "url": "/images/studio-rental/truck-access.webp",
-        "width": 1920,
-        "height": 1440
+        "url": "/images/studio-rental/truck-access-retouched.webp",
+        "width": 1448,
+        "height": 1086
       }
     },
     "room_summaries": [

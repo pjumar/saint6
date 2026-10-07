@@ -14,7 +14,7 @@ The additive **Studio & Search Content** single type has independently published
 
 - **Pages:** route, SEO title, SEO description, optional hero heading and introduction. Nine existing core routes have unique titles and descriptions; new headings and introductions are supplied for Home, Studio Rental and Production. Existing Styling metadata stays on its current model.
 - **Navigation links:** labels and section targets, including the floorplan link.
-- **Floorplan:** media, alternative text, label, heading, description and enlargement button label. The truck-access feature has editable heading, description, label, photo and alternative text. The wider supplied HEIC photo is converted to an optimized WebP for the website.
+- **Floorplan:** media, alternative text, label, heading, description and enlargement button label. The truck-access feature has editable heading, description, label, photo, alternative text and inline Set Design link text. The service link follows the current language. The wider supplied HEIC photo is retouched and converted to an optimized WebP for the website; see [retouch notes](truck-photo-retouch.md).
 - **Room summaries:** an area and space type identify the booking option; the description is shown on room cards and in the booking dialog. Individual room inclusions can override the shared inclusion copy.
 - **Specification labels, statistics labels and currency:** localized display content. Measurements and rates continue to come from Studio Rental Page / Studio Room.
 - **Workshops:** heading, paragraphs and CTA label.
