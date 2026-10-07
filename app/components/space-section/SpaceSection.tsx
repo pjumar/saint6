@@ -7,6 +7,7 @@ import { AnimatedValue } from "@/app/components/animated-value/AnimatedValue";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import styles from "./SpaceSection.module.css";
+import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
 
 export interface SpaceStat {
   label: string;
@@ -25,6 +26,7 @@ export interface SpaceSectionProps {
   ctaLink?: string;
   stats: SpaceStat[];
   galleryImages: SpaceImage[];
+  labels?: StudioDiscovery["stats_labels"];
 }
 
 export function SpaceSection({
@@ -34,8 +36,18 @@ export function SpaceSection({
   ctaLink = "/studio-rental",
   stats,
   galleryImages,
+  labels,
 }: SpaceSectionProps) {
   const { locale } = useTranslation();
+  const statLabels = labels
+    ? [
+        labels.total_rooms,
+        labels.blank_rooms,
+        labels.concept_rooms,
+        labels.ceiling_height,
+        labels.total_space,
+      ]
+    : [];
   const contentRef = useScrollAnimation<HTMLDivElement>({ type: "fadeUp" });
   const galleryRef = useScrollAnimationChildren<HTMLDivElement>({
     type: "scale",
@@ -66,7 +78,9 @@ export function SpaceSection({
           <div className={styles.statsGrid}>
             {stats.slice(0, 3).map((stat, index) => (
               <div key={index} className={styles.statItem}>
-                <p className={styles.statLabel}>{stat.label}</p>
+                <p className={styles.statLabel}>
+                  {statLabels[index] || stat.label}
+                </p>
                 <p className={styles.statValue}>
                   <AnimatedValue value={stat.value} delay={index * 100} />
                 </p>
@@ -76,7 +90,9 @@ export function SpaceSection({
           <div className={styles.statsGridSecond}>
             {stats.slice(3, 5).map((stat, index) => (
               <div key={index} className={styles.statItem}>
-                <p className={styles.statLabel}>{stat.label}</p>
+                <p className={styles.statLabel}>
+                  {statLabels[index + 3] || stat.label}
+                </p>
                 <p className={styles.statValue}>
                   <AnimatedValue value={stat.value} delay={(index + 3) * 100} />
                 </p>

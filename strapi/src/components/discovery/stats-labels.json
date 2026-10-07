@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_discovery_stats_labels",
+  "info": {
+    "displayName": "Stats Labels"
+  },
+  "attributes": {
+    "total_rooms": {
+      "type": "string",
+      "required": true
+    },
+    "ceiling_height": {
+      "type": "string",
+      "required": true
+    },
+    "total_space": {
+      "type": "string",
+      "required": true
+    },
+    "blank_rooms": {
+      "type": "string",
+      "required": true
+    },
+    "concept_rooms": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

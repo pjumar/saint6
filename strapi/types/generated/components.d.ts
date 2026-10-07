@@ -96,6 +96,125 @@ export interface ContactInfo extends Struct.ComponentSchema {
   };
 }
 
+export interface DiscoveryFloorplan extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_floorplan';
+  info: {
+    displayName: 'Floorplan';
+  };
+  attributes: {
+    access_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    access_heading: Schema.Attribute.String & Schema.Attribute.Required;
+    access_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    access_image_alt: Schema.Attribute.String & Schema.Attribute.Required;
+    access_label: Schema.Attribute.String & Schema.Attribute.Required;
+    access_service_intro: Schema.Attribute.String & Schema.Attribute.Required;
+    access_service_label: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    enlarge_label: Schema.Attribute.String & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    image_alt: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DiscoveryNavigationLink extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_navigation_link';
+  info: {
+    displayName: 'Navigation Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    target: Schema.Attribute.Enumeration<
+      ['rooms', 'floorplan', 'workshops', 'contact-form']
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface DiscoveryPage extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_page';
+  info: {
+    displayName: 'Page';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    introduction: Schema.Attribute.Text;
+    path: Schema.Attribute.Enumeration<
+      [
+        'home',
+        'studio-rental',
+        'production',
+        'set-design',
+        'creative',
+        'event-planning',
+        'decor',
+        'about',
+        'contact',
+      ]
+    > &
+      Schema.Attribute.Required;
+    seo_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    seo_title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DiscoveryRoomSummary extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_room_summary';
+  info: {
+    displayName: 'Room Summary';
+  };
+  attributes: {
+    area_sqm: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    room_type: Schema.Attribute.Enumeration<['blank', 'concept']> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface DiscoverySpecLabels extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_spec_labels';
+  info: {
+    displayName: 'Spec Labels';
+  };
+  attributes: {
+    area: Schema.Attribute.String & Schema.Attribute.Required;
+    ceiling_height: Schema.Attribute.String & Schema.Attribute.Required;
+    dimensions: Schema.Attribute.String & Schema.Attribute.Required;
+    inclusions: Schema.Attribute.String & Schema.Attribute.Required;
+    width: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DiscoveryStatsLabels extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_stats_labels';
+  info: {
+    displayName: 'Stats Labels';
+  };
+  attributes: {
+    blank_rooms: Schema.Attribute.String & Schema.Attribute.Required;
+    ceiling_height: Schema.Attribute.String & Schema.Attribute.Required;
+    concept_rooms: Schema.Attribute.String & Schema.Attribute.Required;
+    total_rooms: Schema.Attribute.String & Schema.Attribute.Required;
+    total_space: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface DiscoveryWorkshops extends Struct.ComponentSchema {
+  collectionName: 'components_discovery_workshops';
+  info: {
+    displayName: 'Workshops';
+  };
+  attributes: {
+    brief: Schema.Attribute.Text & Schema.Attribute.Required;
+    cta_label: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    facilities: Schema.Attribute.Text & Schema.Attribute.Required;
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomepageCrewArea extends Struct.ComponentSchema {
   collectionName: 'components_homepage_crew_areas';
   info: {
@@ -379,6 +498,13 @@ declare module '@strapi/strapi' {
       'about.timeline-item': AboutTimelineItem;
       'about.value': AboutValue;
       'contact.info': ContactInfo;
+      'discovery.floorplan': DiscoveryFloorplan;
+      'discovery.navigation-link': DiscoveryNavigationLink;
+      'discovery.page': DiscoveryPage;
+      'discovery.room-summary': DiscoveryRoomSummary;
+      'discovery.spec-labels': DiscoverySpecLabels;
+      'discovery.stats-labels': DiscoveryStatsLabels;
+      'discovery.workshops': DiscoveryWorkshops;
       'homepage.crew-area': HomepageCrewArea;
       'homepage.space-section': HomepageSpaceSection;
       'portfolio.settings': PortfolioSettings;

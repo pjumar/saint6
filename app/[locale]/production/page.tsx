@@ -1,3 +1,4 @@
+import { getDiscoveryPage } from "@/app/lib/studio-discovery/content";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
 import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import { KeyProjectSection } from "@/app/components/key-project-section/KeyProjectSection";
@@ -87,6 +88,7 @@ export default async function ProductionPage({ params }: PageProps) {
   const { locale } = await params;
   const t = getTranslations(locale);
   const isDev = process.env.NODE_ENV === "development";
+  const pageCopy = await getDiscoveryPage(locale as Locale, "production");
 
   // Fetch CMS data at build time
   const strapiData = await getProductionPage(locale);
@@ -103,6 +105,7 @@ export default async function ProductionPage({ params }: PageProps) {
 
   // Hero
   const heroHeading =
+    pageCopy?.heading ||
     strapiData?.hero?.heading ||
     (useFallback
       ? FALLBACK_PRODUCTION_HERO.heading
@@ -123,6 +126,7 @@ export default async function ProductionPage({ params }: PageProps) {
   const introLabel =
     strapiData?.intro?.label || t.PRODUCTION?.INTRO?.LABEL || "Our Service";
   const introDescription =
+    pageCopy?.introduction ||
     strapiData?.intro?.description ||
     t.PRODUCTION?.INTRO?.DESCRIPTION ||
     "From concept to final delivery, we bring your campaign to life through precision planning, creative direction, and technical mastery.";
@@ -171,7 +175,8 @@ export default async function ProductionPage({ params }: PageProps) {
   const translatedWorkflow = strapiData?.workflow
     ? workflowSteps
     : workflowSteps.map((step, index) => {
-        const stepKey = `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
+        const stepKey =
+          `STEP_${index + 1}` as keyof typeof t.PRODUCTION.WORKFLOW;
         const translation = t.PRODUCTION?.WORKFLOW?.[stepKey];
         return {
           ...step,

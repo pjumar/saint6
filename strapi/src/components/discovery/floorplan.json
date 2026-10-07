@@ -1,0 +1,64 @@
+{
+  "collectionName": "components_discovery_floorplan",
+  "info": {
+    "displayName": "Floorplan"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image_alt": {
+      "type": "string",
+      "required": true
+    },
+    "enlarge_label": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "access_label": {
+      "type": "string",
+      "required": true
+    },
+    "access_heading": {
+      "type": "string",
+      "required": true
+    },
+    "access_image_alt": {
+      "type": "string",
+      "required": true
+    },
+    "access_description": {
+      "type": "text",
+      "required": true
+    },
+    "access_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "access_service_intro": {
+      "type": "string",
+      "required": true
+    },
+    "access_service_label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

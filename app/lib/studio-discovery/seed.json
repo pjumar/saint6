@@ -1,0 +1,286 @@
+{
+  "en": {
+    "pages": [
+      {
+        "path": "home",
+        "seo_title": "Commercial Photo & Video Studio in HCMC | Saint 6",
+        "seo_description": "Saint 6 in Ho Chi Minh City offers photo and video studio rental, commercial production, set design and styling across a 900 m² venue. Enquire about your shoot.",
+        "heading": "Commercial photo & video studio in Ho Chi Minh City",
+        "introduction": "Saint 6 is a photo and video studio and creative production partner at 6 Bế Văn Cấm, Tân Hưng, Ho Chi Minh City. Rent a blank or concept space, book the full 900 m² venue, or discuss commercial photography, film production, set design and styling around your brief."
+      },
+      {
+        "path": "studio-rental",
+        "seo_title": "Photo & Video Studio Rental in HCMC | Saint 6",
+        "seo_description": "Rent photo and video studios at Saint 6 in Ho Chi Minh City. Compare space sizes, ceiling heights and VND hourly rates, view the floorplan and enquire about dates.",
+        "heading": "Photo & video studio rental in Ho Chi Minh City",
+        "introduction": "Choose a blank space or seasonal concept room for your photo or video shoot at Saint 6, Ho Chi Minh City. Compare the booking options below, explore the floorplan, or book the entire 900 m² venue for exclusive use across multiple shooting zones."
+      },
+      {
+        "path": "production",
+        "seo_title": "Commercial Photo & Film Production in HCMC | Saint 6",
+        "seo_description": "Commercial photography and film production in Ho Chi Minh City. Saint 6 supports campaigns with creative direction, set design, styling and post-production.",
+        "heading": "Commercial photography & film production in Ho Chi Minh City",
+        "introduction": "Saint 6 supports commercial photography and film production for brands in Ho Chi Minh City. Discuss campaign and editorial production, creative direction, set design, styling, casting, location scouting and post-production around your brief."
+      },
+      {
+        "path": "set-design",
+        "seo_title": "Set Design in Ho Chi Minh City | Saint 6",
+        "seo_description": "Explore Saint 6 set design for commercial photography, film and brand experiences in Ho Chi Minh City. View selected work and discuss your project."
+      },
+      {
+        "path": "creative",
+        "seo_title": "Creative Direction in Ho Chi Minh City | Saint 6",
+        "seo_description": "Develop your campaign concept and visual direction with Saint 6 in Ho Chi Minh City. Explore creative services and selected work, and share your brief."
+      },
+      {
+        "path": "event-planning",
+        "seo_title": "Event Planning in Ho Chi Minh City | Saint 6",
+        "seo_description": "Saint 6 plans and produces brand events and private occasions in Ho Chi Minh City. Explore event work and discuss the design and production your occasion needs."
+      },
+      {
+        "path": "decor",
+        "seo_title": "Decor & Brand Spaces in Ho Chi Minh City | Saint 6",
+        "seo_description": "Explore Saint 6 décor and spatial design for stores, brands and events in Ho Chi Minh City. View selected projects and discuss your space."
+      },
+      {
+        "path": "about",
+        "seo_title": "About Saint 6 | Creative Studio in Ho Chi Minh City",
+        "seo_description": "Meet Saint 6, a creative studio in Ho Chi Minh City working across studio rental, set design, production, styling, events and brand spaces."
+      },
+      {
+        "path": "contact",
+        "seo_title": "Contact Saint 6 | Studio & Production Enquiries in HCMC",
+        "seo_description": "Contact Saint 6 at 6 Bế Văn Cấm, Tân Hưng, Ho Chi Minh City. Enquire about studio rental, commercial photo and film production, set design, styling and events."
+      }
+    ],
+    "navigation_label": "Explore the studio",
+    "navigation_links": [
+      {
+        "target": "rooms",
+        "label": "Explore the rooms"
+      },
+      {
+        "target": "floorplan",
+        "label": "View the floorplan"
+      },
+      {
+        "target": "workshops",
+        "label": "Workshops & brand events"
+      },
+      {
+        "target": "contact-form",
+        "label": "Enquire about availability"
+      }
+    ],
+    "floorplan": {
+      "label": "STUDIO FLOORPLAN",
+      "heading": "Space for your next idea.",
+      "description": "From intimate shoots to larger productions, our blank studios, concept rooms and shared spaces give your ideas room to grow. Choose the space you need, or bring the whole venue together for a production of your own.",
+      "image": {
+        "id": 0,
+        "url": "/images/studio-rental/floorplan.webp",
+        "width": 1440,
+        "height": 970
+      },
+      "image_alt": "Saint 6 floorplan showing the 250 m² and 360 m² rooms, concept spaces and preparation areas.",
+      "enlarge_label": "View full-size",
+      "access_label": "TRUCK ACCESS",
+      "access_heading": "Bring the whole vision in.",
+      "access_description": "With truck access directly into the studio, even the bigger pieces can be part of the picture. From the first load-in to the final frame, there’s room for your vision to take shape.",
+      "access_service_intro": "Shape the scene with our",
+      "access_service_label": "set design team",
+      "access_image_alt": "A truck inside Saint 6 during a studio production, with sets, lighting and crew.",
+      "access_image": {
+        "id": 0,
+        "url": "/images/studio-rental/truck-access-retouched.webp",
+        "width": 1448,
+        "height": 1086
+      }
+    },
+    "room_summaries": [
+      {
+        "area_sqm": 125,
+        "room_type": "blank",
+        "description": "A smaller blank-space booking option for portrait, beauty and editorial setups. Discuss the arrangement your shoot needs."
+      },
+      {
+        "area_sqm": 250,
+        "room_type": "blank",
+        "description": "A larger blank space to plan lookbooks, collection shoots and custom set builds."
+      },
+      {
+        "area_sqm": 360,
+        "room_type": "blank",
+        "description": "The largest listed blank room at Saint 6. Discuss the layout for a TVC, livestream, photoshoot or event."
+      }
+    ],
+    "room_inclusions": "Access to makeup and preparation facilities. Equipment and additional requirements are confirmed with your booking.",
+    "currency": "VND",
+    "spec_labels": {
+      "area": "Area",
+      "width": "Width",
+      "ceiling_height": "Ceiling height",
+      "dimensions": "Dimensions",
+      "inclusions": "Included"
+    },
+    "workshops": {
+      "label": "Workshops & brand events",
+      "heading": "A flexible setting for your next gathering.",
+      "description": "Bring your workshop, creative session or brand presentation to Saint 6 in Ho Chi Minh City. Choose a space or discuss a larger venue booking around your event.",
+      "facilities": "Explore blank and concept spaces, makeup facilities and the lounge. We will help you consider the layout, preparation space and equipment your event needs.",
+      "brief": "Share your date, guest count, seating plan and setup time. Our team will confirm suitable capacity, availability, inclusions and a tailored quote.",
+      "cta_label": "Discuss your workshop"
+    },
+    "full_rental_title": "The entire venue, exclusively yours.",
+    "full_rental_description": "Book the whole venue for exclusive use across multiple rooms and shooting zones, with makeup facilities and a crew lounge. Discuss privacy, your layout and the required inclusions before confirming.",
+    "stats_labels": {
+      "total_rooms": "Booking options",
+      "ceiling_height": "Blank-space ceiling height",
+      "total_space": "Total venue area",
+      "blank_rooms": "Blank-space options",
+      "concept_rooms": "Concept rooms"
+    }
+  },
+  "vi": {
+    "pages": [
+      {
+        "path": "home",
+        "seo_title": "Studio Chụp Ảnh & Quay Phim tại TP.HCM | Saint 6",
+        "seo_description": "Saint 6 tại TP.HCM cung cấp dịch vụ thuê studio, sản xuất hình ảnh và phim, thiết kế bối cảnh và styling trong không gian tổng diện tích 900 m².",
+        "heading": "Studio chụp ảnh & quay phim tại TP.HCM",
+        "introduction": "Saint 6 là studio chụp ảnh, quay phim và đối tác sản xuất sáng tạo tại 6 Bế Văn Cấm, Tân Hưng, TP.HCM. Bạn có thể thuê không gian trống hoặc phòng concept, thuê riêng toàn bộ địa điểm 900 m², hoặc trao đổi về sản xuất hình ảnh quảng cáo, phim, thiết kế bối cảnh và styling theo yêu cầu."
+      },
+      {
+        "path": "studio-rental",
+        "seo_title": "Thuê Studio Chụp Ảnh & Quay Phim tại TP.HCM | Saint 6",
+        "seo_description": "Thuê studio chụp ảnh và quay phim tại Saint 6, TP.HCM. Xem diện tích không gian, chiều cao trần, giá thuê theo giờ bằng VND và sơ đồ studio trước khi đặt lịch.",
+        "heading": "Thuê studio chụp ảnh & quay phim tại TP.HCM",
+        "introduction": "Chọn không gian trống hoặc phòng concept theo mùa cho buổi chụp ảnh và quay phim tại Saint 6, TP.HCM. So sánh các lựa chọn thuê bên dưới, xem sơ đồ studio hoặc thuê riêng toàn bộ địa điểm 900 m² với nhiều khu vực thực hiện đồng thời."
+      },
+      {
+        "path": "production",
+        "seo_title": "Sản Xuất Hình Ảnh & Phim Quảng Cáo tại TP.HCM | Saint 6",
+        "seo_description": "Sản xuất hình ảnh và phim quảng cáo tại TP.HCM cùng Saint 6: định hướng sáng tạo, thiết kế bối cảnh, styling và phối hợp hậu kỳ theo yêu cầu chiến dịch.",
+        "heading": "Sản xuất hình ảnh & phim quảng cáo tại TP.HCM",
+        "introduction": "Saint 6 đồng hành cùng thương hiệu trong sản xuất hình ảnh và phim quảng cáo tại TP.HCM. Trao đổi về chiến dịch, editorial, định hướng sáng tạo, thiết kế bối cảnh, styling, casting, khảo sát địa điểm và hậu kỳ theo yêu cầu dự án."
+      },
+      {
+        "path": "set-design",
+        "seo_title": "Thiết Kế Bối Cảnh tại TP.HCM | Saint 6",
+        "seo_description": "Khám phá dịch vụ thiết kế bối cảnh của Saint 6 tại TP.HCM cho chụp ảnh quảng cáo, quay phim và trải nghiệm thương hiệu. Xem dự án và trao đổi yêu cầu."
+      },
+      {
+        "path": "creative",
+        "seo_title": "Định Hướng Sáng Tạo tại TP.HCM | Saint 6",
+        "seo_description": "Phát triển concept chiến dịch và định hướng hình ảnh cùng Saint 6 tại TP.HCM. Khám phá dịch vụ sáng tạo, dự án tiêu biểu và trao đổi ý tưởng."
+      },
+      {
+        "path": "event-planning",
+        "seo_title": "Tổ Chức Sự Kiện tại TP.HCM | Saint 6",
+        "seo_description": "Saint 6 lên kế hoạch và sản xuất sự kiện thương hiệu cùng các dịp riêng tư tại TP.HCM. Khám phá dự án và trao đổi nhu cầu thiết kế, sản xuất."
+      },
+      {
+        "path": "decor",
+        "seo_title": "Trang Trí & Không Gian Thương Hiệu tại TP.HCM | Saint 6",
+        "seo_description": "Khám phá dịch vụ trang trí và thiết kế không gian của Saint 6 tại TP.HCM cho cửa hàng, thương hiệu và sự kiện. Xem dự án và trao đổi yêu cầu."
+      },
+      {
+        "path": "about",
+        "seo_title": "Về Saint 6 | Studio Sáng Tạo tại TP.HCM",
+        "seo_description": "Tìm hiểu Saint 6, studio sáng tạo tại TP.HCM hoạt động trong lĩnh vực thuê studio, thiết kế bối cảnh, sản xuất, styling, sự kiện và không gian thương hiệu."
+      },
+      {
+        "path": "contact",
+        "seo_title": "Liên Hệ Saint 6 | Thuê Studio & Sản Xuất tại TP.HCM",
+        "seo_description": "Liên hệ Saint 6 tại 6 Bế Văn Cấm, Tân Hưng, TP.HCM để trao đổi về thuê studio, sản xuất hình ảnh và phim quảng cáo, thiết kế bối cảnh, styling và sự kiện."
+      }
+    ],
+    "navigation_label": "Khám phá studio",
+    "navigation_links": [
+      {
+        "target": "rooms",
+        "label": "Khám phá các phòng"
+      },
+      {
+        "target": "floorplan",
+        "label": "Xem sơ đồ studio"
+      },
+      {
+        "target": "workshops",
+        "label": "Workshop & sự kiện thương hiệu"
+      },
+      {
+        "target": "contact-form",
+        "label": "Hỏi về lịch trống"
+      }
+    ],
+    "floorplan": {
+      "label": "SƠ ĐỒ STUDIO",
+      "heading": "Không gian cho ý tưởng tiếp theo.",
+      "description": "Từ những buổi chụp gọn nhẹ đến các dự án quy mô lớn, studio trống, phòng concept và các khu vực chung mang đến không gian cho ý tưởng của bạn. Chọn không gian phù hợp, hoặc sử dụng toàn bộ địa điểm cho một dự án mang dấu ấn riêng.",
+      "image": {
+        "id": 0,
+        "url": "/images/studio-rental/floorplan.webp",
+        "width": 1440,
+        "height": 970
+      },
+      "image_alt": "Sơ đồ Saint 6 thể hiện phòng 250 m², phòng 360 m², các phòng concept và khu vực chuẩn bị.",
+      "enlarge_label": "Xem kích thước đầy đủ",
+      "access_label": "LỐI VÀO CHO XE TẢI",
+      "access_heading": "Đưa trọn ý tưởng vào studio.",
+      "access_description": "Xe tải có thể vào trực tiếp bên trong studio, để cả những chi tiết lớn cũng trở thành một phần của khung hình. Từ lúc chuẩn bị đến khung hình cuối cùng, ý tưởng của bạn luôn có không gian để thành hình.",
+      "access_service_intro": "Thành hình ý tưởng cùng",
+      "access_service_label": "đội ngũ thiết kế bối cảnh của Saint 6",
+      "access_image_alt": "Xe tải bên trong Saint 6 trong một buổi sản xuất, cùng bối cảnh, thiết bị ánh sáng và ê-kíp.",
+      "access_image": {
+        "id": 0,
+        "url": "/images/studio-rental/truck-access-retouched.webp",
+        "width": 1448,
+        "height": 1086
+      }
+    },
+    "room_summaries": [
+      {
+        "area_sqm": 125,
+        "room_type": "blank",
+        "description": "Lựa chọn thuê không gian trống nhỏ hơn cho chụp chân dung, beauty và editorial. Trao đổi về bố trí phù hợp với buổi chụp."
+      },
+      {
+        "area_sqm": 250,
+        "room_type": "blank",
+        "description": "Không gian trống lớn hơn cho buổi chụp lookbook, bộ sưu tập và xây dựng bối cảnh theo yêu cầu."
+      },
+      {
+        "area_sqm": 360,
+        "room_type": "blank",
+        "description": "Phòng trống lớn nhất được niêm yết tại Saint 6. Trao đổi về bố trí cho TVC, livestream, chụp ảnh hoặc sự kiện."
+      }
+    ],
+    "room_inclusions": "Có quyền sử dụng khu vực trang điểm và chuẩn bị. Thiết bị và các yêu cầu bổ sung được xác nhận khi đặt lịch.",
+    "currency": "VND",
+    "spec_labels": {
+      "area": "Diện tích",
+      "width": "Chiều rộng",
+      "ceiling_height": "Chiều cao trần",
+      "dimensions": "Kích thước",
+      "inclusions": "Bao gồm"
+    },
+    "workshops": {
+      "label": "Workshop & sự kiện thương hiệu",
+      "heading": "Không gian linh hoạt cho buổi gặp gỡ của bạn.",
+      "description": "Tổ chức workshop, buổi sáng tạo hoặc giới thiệu thương hiệu tại Saint 6, TP.HCM. Chọn một không gian hoặc trao đổi về việc thuê nhiều khu vực cho sự kiện.",
+      "facilities": "Khám phá không gian trống, phòng concept, khu vực trang điểm và lounge. Chúng tôi sẽ cùng bạn xem xét bố trí, không gian chuẩn bị và thiết bị cần thiết.",
+      "brief": "Gửi ngày dự kiến, số khách, bố trí chỗ ngồi và thời gian chuẩn bị. Ekip sẽ xác nhận sức chứa phù hợp, lịch trống, hạng mục bao gồm và báo giá.",
+      "cta_label": "Trao đổi về workshop"
+    },
+    "full_rental_title": "Thuê riêng toàn bộ địa điểm.",
+    "full_rental_description": "Thuê riêng toàn bộ địa điểm với nhiều phòng và khu vực thực hiện đồng thời, khu trang điểm và lounge. Trao đổi về nhu cầu riêng tư, bố trí và các hạng mục bao gồm trước khi xác nhận.",
+    "stats_labels": {
+      "total_rooms": "Lựa chọn thuê",
+      "ceiling_height": "Trần không gian trống",
+      "total_space": "Tổng diện tích địa điểm",
+      "blank_rooms": "Lựa chọn không gian trống",
+      "concept_rooms": "Phòng concept"
+    }
+  }
+}

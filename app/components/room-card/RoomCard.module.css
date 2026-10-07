@@ -126,11 +126,41 @@
   letter-spacing: -0.02em; /* -0.32px = -2% tracking from Figma */
   color: var(--color-text-primary, #231d1d);
   margin: 0;
-  height: 5.6875rem; /* 91px fixed height from Figma to maintain alignment */
+  min-height: 5.6875rem;
 }
 
 .actions {
   margin-top: 1rem;
+}
+
+.specs {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+}
+.specs > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-text-primary);
+  padding-bottom: 0.5rem;
+}
+.specs dd {
+  margin: 0;
+  text-align: right;
+}
+.inclusions {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.inclusions span {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
 }
 
 /* Responsive adjustments */

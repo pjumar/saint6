@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_discovery_spec_labels",
+  "info": {
+    "displayName": "Spec Labels"
+  },
+  "attributes": {
+    "area": {
+      "type": "string",
+      "required": true
+    },
+    "width": {
+      "type": "string",
+      "required": true
+    },
+    "ceiling_height": {
+      "type": "string",
+      "required": true
+    },
+    "dimensions": {
+      "type": "string",
+      "required": true
+    },
+    "inclusions": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

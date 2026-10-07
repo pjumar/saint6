@@ -1,3 +1,4 @@
+import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
 import {
   CrewAreaSection,
   type CrewAreaSectionProps,
@@ -181,6 +182,8 @@ export default async function Home({ params }: PageProps) {
   const { locale } = await params;
   const t = getTranslations(locale);
   const isDev = process.env.NODE_ENV === "development";
+  const discovery = await getStudioDiscovery(locale as Locale);
+  const pageCopy = discovery.pages.find((page) => page.path === "home");
 
   // Fetch CMS data at build time
   const strapiData = await getHomepage(locale);
@@ -222,6 +225,7 @@ export default async function Home({ params }: PageProps) {
 
   // Get hero data from CMS or use translations/fallback
   const heroHeading =
+    pageCopy?.heading ||
     strapiData?.hero?.heading ||
     (useFallback ? FALLBACK_HERO.heading : t.HERO.HEADING);
   const heroBackgroundFromCms = strapiData?.hero?.background_image
@@ -244,6 +248,9 @@ export default async function Home({ params }: PageProps) {
         showScrollIndicator={true}
         showDecorativeLine={true}
       />
+      {pageCopy?.introduction && (
+        <p className={styles.discoveryIntro}>{pageCopy.introduction}</p>
+      )}
       <div className={styles.contentContainer}>
         <TrustedBySection
           logos={brandLogos.length > 0 ? brandLogos : undefined}
@@ -257,7 +264,13 @@ export default async function Home({ params }: PageProps) {
       {keyProjectsData.length > 0 && (
         <KeyProjectSection projects={keyProjectsData} />
       )}
-      {spaceData && <SpaceSection {...spaceData} ctaLink="/studio-rental" />}
+      {spaceData && (
+        <SpaceSection
+          {...spaceData}
+          labels={discovery.stats_labels}
+          ctaLink="/studio-rental"
+        />
+      )}
       <div className={styles.contentContainer}>
         {crewAreaData && <CrewAreaSection {...crewAreaData} />}
       </div>

@@ -7,10 +7,10 @@ interface UseCountUpOptions {
 
 export function useCountUp(
   targetValue: string,
-  options: UseCountUpOptions = {}
+  options: UseCountUpOptions = {},
 ) {
   const { duration = 1200, delay = 0 } = options;
-  const [displayValue, setDisplayValue] = useState("0");
+  const [displayValue, setDisplayValue] = useState(targetValue);
   const [hasAnimated, setHasAnimated] = useState(false);
   const elementRef = useRef<HTMLElement>(null);
 
@@ -67,6 +67,7 @@ export function useCountUp(
   }, [targetValue, duration, parseValue]);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const element = elementRef.current;
     if (!element || hasAnimated) return;
 
@@ -83,7 +84,7 @@ export function useCountUp(
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(element);

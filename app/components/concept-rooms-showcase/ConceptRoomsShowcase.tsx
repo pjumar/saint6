@@ -5,6 +5,7 @@ import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomC
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./ConceptRoomsShowcase.module.css";
+import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
 
 export interface GalleryImage {
   url: string;
@@ -20,6 +21,10 @@ export interface ConceptRoom {
   width: string;
   ceilingHeight: string;
   description: string;
+  dimensions?: string;
+  inclusions?: string;
+  currency?: string;
+  specLabels?: StudioDiscovery["spec_labels"];
   showEnterButton?: boolean;
   gallery?: GalleryImage[];
 }

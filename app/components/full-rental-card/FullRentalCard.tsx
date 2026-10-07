@@ -20,6 +20,9 @@ export interface FullRentalCardProps {
   backgroundImageUrl: string;
   allBookingRooms?: BookingRoomData[];
   bookingRoomIndex?: number;
+  title?: string;
+  description?: string;
+  currency?: string;
 }
 
 export function FullRentalCard({
@@ -27,6 +30,9 @@ export function FullRentalCard({
   backgroundImageUrl,
   allBookingRooms,
   bookingRoomIndex = 0,
+  title,
+  description,
+  currency,
 }: FullRentalCardProps) {
   const { t } = useTranslation();
   const introRef = useScrollAnimation<HTMLDivElement>({ type: "fadeLeft" });
@@ -76,16 +82,19 @@ export function FullRentalCard({
 
         {/* Right side - Rental card */}
         <div ref={cardRef} className={styles.contentCard}>
-          <h3 className={styles.title}>{t.STUDIO_RENTAL.FULL_RENTAL.TITLE}</h3>
+          <h3 className={styles.title}>
+            {title || t.STUDIO_RENTAL.FULL_RENTAL.TITLE}
+          </h3>
           <div className={styles.details}>
             <p className={styles.price}>
               {price}
+              {currency ? ` ${currency}` : ""}
               <span className={styles.perHour}>
                 {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
               </span>
             </p>
             <p className={styles.description}>
-              {t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}
+              {description || t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION}
             </p>
             <div className={styles.actions}>
               <CommonButton

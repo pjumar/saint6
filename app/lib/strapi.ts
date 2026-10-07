@@ -130,6 +130,8 @@ export interface StrapiStudioRoom {
   counter?: string;
   space?: string;
   width?: string;
+  dimensions?: string;
+  inclusions?: string;
   ceiling_height?: string;
   description?: string;
   image: StrapiImage;

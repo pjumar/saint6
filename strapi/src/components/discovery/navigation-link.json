@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_discovery_navigation_link",
+  "info": {
+    "displayName": "Navigation Link"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": ["rooms", "floorplan", "workshops", "contact-form"],
+      "required": true
+    }
+  }
+}
