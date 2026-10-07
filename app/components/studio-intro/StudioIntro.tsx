@@ -34,7 +34,12 @@ export function StudioIntro({
     if (ctaLink.startsWith("#")) {
       const element = document.querySelector(ctaLink);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "instant"
+            : "smooth",
+        });
       }
     } else {
       window.location.href = ctaLink;

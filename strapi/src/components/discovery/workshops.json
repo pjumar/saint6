@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_discovery_workshops",
+  "info": {
+    "displayName": "Workshops"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "facilities": {
+      "type": "text",
+      "required": true
+    },
+    "brief": {
+      "type": "text",
+      "required": true
+    },
+    "cta_label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

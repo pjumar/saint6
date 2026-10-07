@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_discovery_room_summary",
+  "info": {
+    "displayName": "Room Summary"
+  },
+  "attributes": {
+    "area_sqm": {
+      "type": "decimal",
+      "required": true
+    },
+    "room_type": {
+      "type": "enumeration",
+      "enum": ["blank", "concept"],
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

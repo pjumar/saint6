@@ -1861,6 +1861,126 @@ export interface ApiSocialLinkSocialLink extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiStudioDiscoveryStudioDiscovery
+  extends Struct.SingleTypeSchema {
+  collectionName: 'studio_discoveries';
+  info: {
+    description: 'Page search metadata and introductions, studio navigation, floorplan, room copy and workshop content. Publish each language separately.';
+    displayName: 'Studio & Search Content';
+    pluralName: 'studio-discoveries';
+    singularName: 'studio-discovery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    currency: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    floorplan: Schema.Attribute.Component<'discovery.floorplan', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    full_rental_description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    full_rental_title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::studio-discovery.studio-discovery'
+    >;
+    navigation_label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    navigation_links: Schema.Attribute.Component<
+      'discovery.navigation-link',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pages: Schema.Attribute.Component<'discovery.page', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    room_inclusions: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    room_summaries: Schema.Attribute.Component<'discovery.room-summary', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    spec_labels: Schema.Attribute.Component<'discovery.spec-labels', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    stats_labels: Schema.Attribute.Component<'discovery.stats-labels', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workshops: Schema.Attribute.Component<'discovery.workshops', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiStudioRentalPageStudioRentalPage
   extends Struct.SingleTypeSchema {
   collectionName: 'studio_rental_pages';
@@ -1975,6 +2095,12 @@ export interface ApiStudioRoomStudioRoom extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    dimensions: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     gallery: Schema.Attribute.Media<'images', true> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1986,6 +2112,12 @@ export interface ApiStudioRoomStudioRoom extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    inclusions: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -3008,6 +3140,7 @@ declare module '@strapi/strapi' {
       'api::set-design-page.set-design-page': ApiSetDesignPageSetDesignPage;
       'api::shared-contact.shared-contact': ApiSharedContactSharedContact;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
+      'api::studio-discovery.studio-discovery': ApiStudioDiscoveryStudioDiscovery;
       'api::studio-rental-page.studio-rental-page': ApiStudioRentalPageStudioRentalPage;
       'api::studio-room.studio-room': ApiStudioRoomStudioRoom;
       'api::styling-page.styling-page': ApiStylingPageStylingPage;

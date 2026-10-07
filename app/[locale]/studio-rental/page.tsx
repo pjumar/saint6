@@ -8,6 +8,10 @@ import { FullRentalCard } from "@/app/components/full-rental-card/FullRentalCard
 import { StudioHeroSection } from "@/app/components/studio-hero-section/StudioHeroSection";
 import { StudioIntro } from "@/app/components/studio-intro/StudioIntro";
 import { StudioStats } from "@/app/components/studio-stats/StudioStats";
+import { StudioFloorplan } from "@/app/components/studio-floorplan/StudioFloorplan";
+import { StudioNavigation } from "@/app/components/studio-navigation/StudioNavigation";
+import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
+import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
 import type { BookingRoomData } from "@/app/components/booking-modal/BookingModal";
 import {
   FALLBACK_CONCEPT_ROOMS,
@@ -68,6 +72,10 @@ interface RoomData {
   width: string;
   ceilingHeight: string;
   description: string;
+  dimensions?: string;
+  inclusions?: string;
+  currency?: string;
+  specLabels?: StudioDiscovery["spec_labels"];
   imageUrl: string;
   showEnterButton?: boolean;
   gallery?: GalleryImage[];
@@ -77,6 +85,7 @@ function transformRooms(
   rooms: StrapiStudioRoom[] | undefined,
   startIndex: number = 0,
   totalRooms: number = 6,
+  discovery?: StudioDiscovery,
 ): RoomData[] {
   if (!rooms || rooms.length === 0) return [];
 
@@ -89,6 +98,11 @@ function transformRooms(
       if (!imageUrl) return;
 
       const roomIndex = startIndex + index + 1;
+      const summary = discovery?.room_summaries.find(
+        (entry) =>
+          entry.room_type === room.type &&
+          entry.area_sqm === Number.parseFloat(room.space || ""),
+      );
       const counter = `${String(roomIndex).padStart(2, "0")}/${String(totalRooms).padStart(2, "0")}`;
 
       // Transform gallery images
@@ -111,9 +125,13 @@ function transformRooms(
         pricePerHour: room.price_per_hour,
         counter: room.counter || counter,
         space: room.space || "125m²",
-        width: room.width || "6m",
-        ceilingHeight: room.ceiling_height || "4.5m",
-        description: room.description || "",
+        width: room.width || "",
+        ceilingHeight: room.ceiling_height || "",
+        description: summary?.description || room.description || "",
+        dimensions: room.dimensions,
+        inclusions: room.inclusions || discovery?.room_inclusions,
+        currency: discovery?.currency,
+        specLabels: discovery?.spec_labels,
         imageUrl,
         showEnterButton: true,
         gallery,
@@ -185,7 +203,13 @@ export default async function StudioRentalPage({ params }: PageProps) {
   const isDev = process.env.NODE_ENV === "development";
 
   // Fetch CMS data at build time
-  const strapiData = await getStudioRentalPage(locale);
+  const [strapiData, discovery] = await Promise.all([
+    getStudioRentalPage(locale),
+    getStudioDiscovery(locale as Locale),
+  ]);
+  const pageCopy = discovery.pages.find(
+    (page) => page.path === "studio-rental",
+  );
 
   // Dev fallback - use hardcoded data when Strapi is unavailable during development
   const useFallback = !strapiData && isDev;
@@ -199,6 +223,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
 
   // Hero
   const heroHeading =
+    pageCopy?.heading ||
     strapiData?.hero?.heading ||
     (useFallback ? FALLBACK_STUDIO_HERO.heading : t.STUDIO_RENTAL.HERO.TAGLINE);
   const heroBackgroundFromCms = strapiData?.hero?.background_image
@@ -217,6 +242,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
     strapiData?.intro?.label ||
     (useFallback ? FALLBACK_STUDIO_INTRO.title : t.STUDIO_RENTAL.INTRO.TITLE);
   const introDescription =
+    pageCopy?.introduction ||
     strapiData?.intro?.description ||
     (useFallback
       ? FALLBACK_STUDIO_INTRO.description
@@ -248,7 +274,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
   const totalRooms =
     (strapiData?.rooms?.length || 0) + (strapiData?.concept_rooms?.length || 0);
   const studioRooms = strapiData?.rooms
-    ? transformRooms(strapiData.rooms, 0, totalRooms || 6)
+    ? transformRooms(strapiData.rooms, 0, totalRooms || 6, discovery)
     : useFallback
       ? FALLBACK_STUDIO_ROOMS
       : [];
@@ -258,6 +284,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
         strapiData.concept_rooms,
         strapiData?.rooms?.length || 0,
         totalRooms || 6,
+        discovery,
       )
     : useFallback
       ? FALLBACK_CONCEPT_ROOMS
@@ -315,15 +342,15 @@ export default async function StudioRentalPage({ params }: PageProps) {
     {
       title: t.STUDIO_RENTAL.FULL_RENTAL.ROOM_NAME,
       pricePerHour: fullRentalPrice,
-      description: t.STUDIO_RENTAL.FULL_RENTAL.DESCRIPTION,
-      space: "900m²",
+      description: discovery.full_rental_description,
+      space: statsData.totalSpace,
       width: "",
       ceilingHeight: "",
       imageUrl: fullRentalBg,
       gallery: [...studioRooms, ...conceptRooms].flatMap((r) =>
         r.gallery && r.gallery.length > 0
           ? r.gallery
-          : [{ url: r.imageUrl, alt: r.title }]
+          : [{ url: r.imageUrl, alt: r.title }],
       ),
     },
   ];
@@ -357,13 +384,12 @@ export default async function StudioRentalPage({ params }: PageProps) {
               ctaText={introCtaText}
               ctaLink={strapiData?.intro?.cta_link || "#contact-form"}
             />
-            <nav className={styles.serviceLinks} aria-label={t.STUDIO_RENTAL.OPTIONS.LABEL}>
-              <a href="#rooms">{t.STUDIO_RENTAL.OPTIONS.ROOMS}</a>
-              <a href="#workshops">{t.STUDIO_RENTAL.OPTIONS.WORKSHOPS}</a>
-              <a href="#contact-form">{t.STUDIO_RENTAL.OPTIONS.AVAILABILITY}</a>
-            </nav>
-            <StudioStats {...statsData} />
-            <div id="rooms" className={styles.anchorTarget}>
+            <StudioNavigation
+              label={discovery.navigation_label}
+              links={discovery.navigation_links}
+            />
+            <StudioStats {...statsData} labels={discovery.stats_labels} />
+            <div id="rooms" tabIndex={-1} className={styles.anchorTarget}>
               <BlankRoomsGrid
                 rooms={studioRooms}
                 allBookingRooms={allBookingRooms}
@@ -381,18 +407,20 @@ export default async function StudioRentalPage({ params }: PageProps) {
           />
         )}
 
-        <section className={styles.section} id="workshops">
+        <StudioFloorplan content={discovery.floorplan} />
+
+        <section className={styles.section} id="workshops" tabIndex={-1}>
           <div className={styles.sectionInner}>
             <StudioIntro
-              title={t.STUDIO_RENTAL.WORKSHOPS.LABEL}
-              description={t.STUDIO_RENTAL.WORKSHOPS.TITLE}
-              ctaText={t.STUDIO_RENTAL.WORKSHOPS.CTA}
+              title={discovery.workshops.label}
+              description={discovery.workshops.heading}
+              ctaText={discovery.workshops.cta_label}
               ctaLink="#contact-form"
             />
             <div className={styles.workshopDetails}>
-              <p>{t.STUDIO_RENTAL.WORKSHOPS.DESCRIPTION}</p>
-              <p>{t.STUDIO_RENTAL.WORKSHOPS.FACILITIES}</p>
-              <p>{t.STUDIO_RENTAL.WORKSHOPS.BRIEF}</p>
+              <p>{discovery.workshops.description}</p>
+              <p>{discovery.workshops.facilities}</p>
+              <p>{discovery.workshops.brief}</p>
             </div>
           </div>
         </section>
@@ -401,6 +429,9 @@ export default async function StudioRentalPage({ params }: PageProps) {
         <section className={styles.fullWidthSection} id="full-studio">
           <FullRentalCard
             price={fullRentalPrice}
+            title={discovery.full_rental_title}
+            description={discovery.full_rental_description}
+            currency={discovery.currency}
             backgroundImageUrl={fullRentalBg}
             allBookingRooms={allBookingRooms}
             bookingRoomIndex={allBookingRooms.length - 1}
@@ -442,7 +473,11 @@ export default async function StudioRentalPage({ params }: PageProps) {
         </section>
 
         {/* Contact Section */}
-        <div className={styles.contactSectionWrapper} id="contact-form">
+        <div
+          className={styles.contactSectionWrapper}
+          id="contact-form"
+          tabIndex={-1}
+        >
           <ContactSection backgroundImageUrl="/images/contact-section-bg.webp" />
         </div>
       </div>

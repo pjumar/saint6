@@ -12,6 +12,7 @@ import {
   type BookingRoomData,
 } from "@/app/components/booking-modal/BookingModal";
 import { CommonButton } from "@/app/components/common-button/CommonButton";
+import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
 import styles from "./RoomCard.module.css";
 
 export interface RoomCardProps {
@@ -23,6 +24,10 @@ export interface RoomCardProps {
   width: string;
   ceilingHeight: string;
   description: string;
+  dimensions?: string;
+  inclusions?: string;
+  currency?: string;
+  specLabels?: StudioDiscovery["spec_labels"];
   showEnterButton?: boolean;
   gallery?: GalleryImage[];
   allBookingRooms?: BookingRoomData[];
@@ -38,6 +43,10 @@ export function RoomCard({
   width,
   ceilingHeight,
   description,
+  dimensions,
+  inclusions,
+  currency,
+  specLabels,
   showEnterButton = false,
   gallery = [],
   allBookingRooms,
@@ -85,10 +94,44 @@ export function RoomCard({
             <h3 className={styles.title}>{title}</h3>
             <p className={styles.priceAmount}>
               {pricePerHour}
+              {currency ? ` ${currency}` : ""}
               {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
             </p>
             <p className={styles.description}>{description}</p>
           </div>
+
+          <dl className={styles.specs}>
+            <div>
+              <dt>{specLabels?.area || t.STUDIO_RENTAL.ROOMS.SPACE}</dt>
+              <dd>{space}</dd>
+            </div>
+            {dimensions && (
+              <div>
+                <dt>{specLabels?.dimensions}</dt>
+                <dd>{dimensions}</dd>
+              </div>
+            )}
+            {width && (
+              <div>
+                <dt>{specLabels?.width || t.STUDIO_RENTAL.ROOMS.WIDTH}</dt>
+                <dd>{width}</dd>
+              </div>
+            )}
+            {ceilingHeight && (
+              <div>
+                <dt>
+                  {specLabels?.ceiling_height ||
+                    t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
+                </dt>
+                <dd>{ceilingHeight}</dd>
+              </div>
+            )}
+          </dl>
+          {inclusions && (
+            <p className={styles.inclusions}>
+              <span>{specLabels?.inclusions}</span> {inclusions}
+            </p>
+          )}
 
           <div className={styles.actions}>
             <CommonButton

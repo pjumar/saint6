@@ -49,7 +49,10 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     remotePatterns: [
       ...(process.env.NODE_ENV === "development"
-        ? [{ protocol: "http" as const, hostname: "127.0.0.1", port: "1346" }]
+        ? [
+            { protocol: "http" as const, hostname: "127.0.0.1", port: "1346" },
+            { protocol: "http" as const, hostname: "127.0.0.1", port: "1347" },
+          ]
         : []),
       {
         protocol: "https",

@@ -46,13 +46,19 @@
   line-height: 1.65;
 }
 
-.workshopDetails p { margin: 0; }
+.workshopDetails p {
+  margin: 0;
+}
 
 @media (min-width: 48.0625rem) {
-  .workshopDetails { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .workshopDetails {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
 }
 
 .section {
+  scroll-margin-top: 2rem;
   width: 100%;
   padding: 8rem 1.5rem;
   border-radius: 1.25rem 1.25rem 0 0;
@@ -183,6 +189,7 @@
 
 /* Contact Section - Full Width */
 .contactSectionWrapper {
+  scroll-margin-top: 2rem;
   width: 100%;
   border-radius: 1.25rem 1.25rem 0 0;
   overflow: hidden;

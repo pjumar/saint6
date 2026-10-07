@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_discovery_floorplan",
+  "info": {
+    "displayName": "Floorplan"
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image_alt": {
+      "type": "string",
+      "required": true
+    },
+    "enlarge_label": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

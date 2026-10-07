@@ -10,6 +10,7 @@ import {
 } from "@/app/components/booking-modal/BookingModal";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import styles from "./ConceptRoomCard.module.css";
+import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
 
 export interface GalleryImage {
   url: string;
@@ -24,6 +25,10 @@ export interface ConceptRoomCardProps {
   width: string;
   ceilingHeight: string;
   description: string;
+  dimensions?: string;
+  inclusions?: string;
+  currency?: string;
+  specLabels?: StudioDiscovery["spec_labels"];
   showEnterButton?: boolean;
   gallery?: GalleryImage[];
   allBookingRooms?: BookingRoomData[];
@@ -38,6 +43,10 @@ export function ConceptRoomCard({
   width,
   ceilingHeight,
   description,
+  dimensions,
+  inclusions,
+  currency,
+  specLabels,
   showEnterButton = false,
   gallery = [],
   allBookingRooms,
@@ -85,6 +94,7 @@ export function ConceptRoomCard({
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.price}>
             {pricePerHour}
+            {currency ? ` ${currency}` : ""}
             {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
           </p>
         </div>
@@ -93,27 +103,41 @@ export function ConceptRoomCard({
         <div className={styles.specs}>
           <div className={styles.specItem}>
             <span className={styles.specLabel}>
-              {t.STUDIO_RENTAL.ROOMS.SPACE}
+              {specLabels?.area || t.STUDIO_RENTAL.ROOMS.SPACE}
             </span>
             <span className={styles.specValue}>{space}</span>
           </div>
+          {width && (
+            <div className={styles.specItem}>
+              <span className={styles.specLabel}>
+                {specLabels?.width || t.STUDIO_RENTAL.ROOMS.WIDTH}
+              </span>
+              <span className={styles.specValue}>{width}</span>
+            </div>
+          )}
           <div className={styles.specItem}>
             <span className={styles.specLabel}>
-              {t.STUDIO_RENTAL.ROOMS.WIDTH}
-            </span>
-            <span className={styles.specValue}>{width}</span>
-          </div>
-          <div className={styles.specItem}>
-            <span className={styles.specLabel}>
-              {t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
+              {specLabels?.ceiling_height ||
+                t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
             </span>
             <span className={styles.specValue}>{ceilingHeight}</span>
           </div>
+          {dimensions && (
+            <div className={styles.specItem}>
+              <span className={styles.specLabel}>{specLabels?.dimensions}</span>
+              <span className={styles.specValue}>{dimensions}</span>
+            </div>
+          )}
         </div>
 
         {/* Description and Actions */}
         <div className={styles.footer}>
           <p className={styles.description}>{description}</p>
+          {inclusions && (
+            <p className={styles.description}>
+              {specLabels?.inclusions}: {inclusions}
+            </p>
+          )}
           <div className={styles.actions}>
             <CommonButton
               variant="primary"

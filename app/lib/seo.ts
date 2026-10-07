@@ -6,8 +6,10 @@ import {
   type StrapiHero,
 } from "@/app/lib/strapi";
 import type { Locale } from "@/app/types";
+import { getDiscoveryPage } from "@/app/lib/studio-discovery/content";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.saint6.studio";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.saint6.studio";
 
 interface PageSeoInput {
   hero?: StrapiHero;
@@ -22,17 +24,23 @@ export async function buildPageMetadata({
   locale,
   path = "",
 }: PageSeoInput): Promise<Metadata> {
-  const seo = await getSeoMetadata(locale);
+  const [seo, page] = await Promise.all([
+    getSeoMetadata(locale),
+    getDiscoveryPage(locale, path),
+  ]);
   const lang = locale === "vi" ? "vi" : "en";
   const isVi = locale === "vi";
 
   const siteName = seo?.site_name || FALLBACK_SEO.site_name;
   const heroHeading = hero?.heading;
-  const brandedTitle = heroHeading
-    ? `${siteName} | ${heroHeading}`
-    : FALLBACK_SEO.title[lang];
+  const brandedTitle =
+    page?.seo_title ||
+    (heroHeading ? `${siteName} | ${heroHeading}` : FALLBACK_SEO.title[lang]);
   const desc =
-    description || seo?.description || FALLBACK_SEO.description[lang];
+    page?.seo_description ||
+    description ||
+    seo?.description ||
+    FALLBACK_SEO.description[lang];
   const heroImageUrl = hero?.background_image
     ? getStrapiImageUrl(hero.background_image)
     : null;
@@ -58,6 +66,7 @@ export async function buildPageMetadata({
     },
     openGraph: {
       type: "website",
+      url: `${SITE_URL}/${locale}${pagePath}`,
       locale: isVi ? "vi_VN" : "en_US",
       siteName,
       title: brandedTitle,

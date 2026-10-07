@@ -1,0 +1,142 @@
+{
+  "kind": "singleType",
+  "collectionName": "studio_discoveries",
+  "info": {
+    "singularName": "studio-discovery",
+    "pluralName": "studio-discoveries",
+    "displayName": "Studio & Search Content",
+    "description": "Page search metadata and introductions, studio navigation, floorplan, room copy and workshop content. Publish each language separately."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "pages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "discovery.page",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "navigation_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "discovery.navigation-link",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "floorplan": {
+      "type": "component",
+      "repeatable": false,
+      "component": "discovery.floorplan",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "room_summaries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "discovery.room-summary",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "spec_labels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "discovery.spec-labels",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "workshops": {
+      "type": "component",
+      "repeatable": false,
+      "component": "discovery.workshops",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "navigation_label": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "room_inclusions": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "currency": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "full_rental_title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "full_rental_description": {
+      "type": "text",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "stats_labels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "discovery.stats-labels",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

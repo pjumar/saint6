@@ -11,6 +11,13 @@ export interface StudioStatsProps {
   totalSpace: string;
   blankRooms: number;
   conceptRooms: number;
+  labels?: {
+    total_rooms: string;
+    ceiling_height: string;
+    total_space: string;
+    blank_rooms: string;
+    concept_rooms: string;
+  };
 }
 
 export function StudioStats({
@@ -19,16 +26,29 @@ export function StudioStats({
   totalSpace,
   blankRooms,
   conceptRooms,
+  labels,
 }: StudioStatsProps) {
   const { t } = useTranslation();
 
   const stats = [
-    { label: t.STUDIO_RENTAL.STATS.TOTAL_ROOMS, value: totalRooms.toString() },
-    { label: t.STUDIO_RENTAL.STATS.CEILING_HEIGHT, value: ceilingHeight },
-    { label: t.STUDIO_RENTAL.STATS.TOTAL_SPACE, value: totalSpace },
-    { label: t.STUDIO_RENTAL.STATS.BLANK_ROOMS, value: blankRooms.toString() },
     {
-      label: t.STUDIO_RENTAL.STATS.CONCEPT_ROOMS,
+      label: labels?.total_rooms || t.STUDIO_RENTAL.STATS.TOTAL_ROOMS,
+      value: totalRooms.toString(),
+    },
+    {
+      label: labels?.ceiling_height || t.STUDIO_RENTAL.STATS.CEILING_HEIGHT,
+      value: ceilingHeight,
+    },
+    {
+      label: labels?.total_space || t.STUDIO_RENTAL.STATS.TOTAL_SPACE,
+      value: totalSpace,
+    },
+    {
+      label: labels?.blank_rooms || t.STUDIO_RENTAL.STATS.BLANK_ROOMS,
+      value: blankRooms.toString(),
+    },
+    {
+      label: labels?.concept_rooms || t.STUDIO_RENTAL.STATS.CONCEPT_ROOMS,
       value: conceptRooms.toString(),
     },
   ];

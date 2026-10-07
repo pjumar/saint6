@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_discovery_page",
+  "info": {
+    "displayName": "Page"
+  },
+  "attributes": {
+    "path": {
+      "type": "enumeration",
+      "enum": [
+        "home",
+        "studio-rental",
+        "production",
+        "set-design",
+        "creative",
+        "event-planning",
+        "decor",
+        "about",
+        "contact"
+      ],
+      "required": true
+    },
+    "seo_title": {
+      "type": "string",
+      "required": true
+    },
+    "seo_description": {
+      "type": "text",
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "introduction": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
