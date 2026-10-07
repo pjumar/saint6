@@ -17,6 +17,13 @@ async function run() {
       headers: { ...headers, ...options.headers },
       signal: AbortSignal.timeout(30000),
     });
+    // An empty Strapi single type returns 404 until its first locale is saved.
+    if (
+      response.status === 404 &&
+      endpoint.startsWith("studio-discovery?") &&
+      (!options.method || options.method === "GET")
+    )
+      return { data: null };
     if (!response.ok)
       throw new Error(
         `CMS ${endpoint.split("?")[0]} failed (${response.status})`,
