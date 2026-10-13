@@ -212,7 +212,7 @@ export default async function CreativePage({ params }: PageProps) {
     t.CREATIVE?.PORTFOLIO?.STATEMENT ||
     "Elevated visuals that reflect your brand's ambition — a showcase of artistry and attention to detail.";
   const portfolioItems = strapiData?.portfolio_items
-    ? transformPortfolio(strapiData.portfolio_items)
+    ? transformPortfolio(strapiData.portfolio_items, "creative", locale)
     : useFallback
       ? FALLBACK_CREATIVE_PORTFOLIO
       : [];

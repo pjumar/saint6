@@ -11,7 +11,11 @@ import {
   FALLBACK_SET_DESIGN_WORKFLOW,
 } from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
-import { getSetDesignPage, getStrapiImageUrl, getStrapiThumbnailUrl } from "@/app/lib/strapi";
+import {
+  getSetDesignPage,
+  getStrapiImageUrl,
+  getStrapiThumbnailUrl,
+} from "@/app/lib/strapi";
 import {
   transformPortfolio,
   transformTestimonials,
@@ -108,7 +112,8 @@ export default async function SetDesignPage({ params }: PageProps) {
   const translatedWorkflow = strapiData?.workflow
     ? workflowSteps
     : workflowSteps.map((step, index) => {
-        const cardKey = `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
+        const cardKey =
+          `CARD_${index + 1}` as keyof typeof t.SET_DESIGN.SERVICES;
         const translation = t.SET_DESIGN?.SERVICES?.[cardKey];
         return {
           ...step,
@@ -127,7 +132,7 @@ export default async function SetDesignPage({ params }: PageProps) {
     t.SET_DESIGN?.PORTFOLIO?.STATEMENT ||
     "We shape physical spaces that reflect your creative intent — environments that become part of your story";
   const portfolioItems = strapiData?.portfolio_items
-    ? transformPortfolio(strapiData.portfolio_items)
+    ? transformPortfolio(strapiData.portfolio_items, "set-design", locale)
     : useFallback
       ? FALLBACK_SET_DESIGN_PORTFOLIO
       : [];

@@ -20,6 +20,8 @@ const help: Record<string, string> = {
     "Drag to reorder. Describe each image in the current language. A film poster is not repeated in the gallery.",
   video_url:
     "Optional HTTPS YouTube watch/share/Shorts/embed URL. The player loads only when a visitor presses Play.",
+  video_files:
+    "Optional uploaded project films. Add short web-ready MP4 clips in playback order; the player loads after a visitor presses Play.",
   source_url:
     "Optional internal source/provenance link. It is not shown to website visitors. Leave empty for new Saint 6 work.",
   featured:
@@ -52,8 +54,46 @@ export async function configureStylingEditor(strapi: Core.Strapi) {
     name: "saint6-editor",
     key: "styling-v1",
   });
-  if (await marker.get()) return;
   const service = strapi.plugin("content-manager").service("content-types");
+  if (await marker.get()) {
+    const videoMarker = strapi.store({
+      type: "plugin",
+      name: "saint6-editor",
+      key: "styling-video-files-v1",
+    });
+    if (await videoMarker.get()) return;
+    const model = strapi.contentType(
+      "api::styling-project.styling-project" as never,
+    );
+    const config = await service.findConfiguration(model);
+    const edit = [...config.layouts.edit];
+    if (
+      !edit.some((row) => row.some((field) => field.name === "video_files"))
+    ) {
+      const videoIndex = edit.findIndex((row) =>
+        row.some((field) => field.name === "video_url"),
+      );
+      edit.splice(videoIndex + 1, 0, [{ name: "video_files", size: 12 }]);
+    }
+    await service.updateConfiguration(model, {
+      ...config,
+      metadatas: {
+        ...config.metadatas,
+        video_files: {
+          ...config.metadatas.video_files,
+          edit: {
+            ...config.metadatas.video_files?.edit,
+            label: "Video files",
+            description: help.video_files,
+            visible: true,
+          },
+        },
+      },
+      layouts: { ...config.layouts, edit },
+    });
+    await videoMarker.set({ value: true });
+    return;
+  }
   const fields: Record<string, string[]> = {
     "styling-page": [
       "hero_heading",
@@ -97,6 +137,7 @@ export async function configureStylingEditor(strapi: Core.Strapi) {
       "cover_alt",
       "gallery",
       "video_url",
+      "video_files",
       "credits",
       "seo_title",
       "seo_description",

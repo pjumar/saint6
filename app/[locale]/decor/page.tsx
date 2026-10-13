@@ -9,7 +9,11 @@ import {
   FALLBACK_DECOR_WORKFLOW,
 } from "@/app/lib/fallback";
 import { buildPageMetadata } from "@/app/lib/seo";
-import { getDecorPage, getStrapiImageUrl, getStrapiThumbnailUrl } from "@/app/lib/strapi";
+import {
+  getDecorPage,
+  getStrapiImageUrl,
+  getStrapiThumbnailUrl,
+} from "@/app/lib/strapi";
 import { transformPortfolio, transformWorkflow } from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
@@ -104,7 +108,8 @@ export default async function DecorationPage({ params }: PageProps) {
   const translatedWorkflow = strapiData?.workflow
     ? workflowSteps
     : workflowSteps.map((step, index) => {
-        const cardKey = `CARD_${index + 1}` as keyof typeof t.DECORATION.SERVICES;
+        const cardKey =
+          `CARD_${index + 1}` as keyof typeof t.DECORATION.SERVICES;
         const translation = t.DECORATION?.SERVICES?.[cardKey];
         return {
           ...step,
@@ -123,7 +128,7 @@ export default async function DecorationPage({ params }: PageProps) {
     t.DECORATION?.PORTFOLIO?.QUOTE ||
     "Every project begins with a vision. We bring it to life — detail by detail.";
   const portfolioItems = strapiData?.portfolio_items
-    ? transformPortfolio(strapiData.portfolio_items)
+    ? transformPortfolio(strapiData.portfolio_items, "decor", locale)
     : useFallback
       ? FALLBACK_DECOR_PORTFOLIO
       : [];

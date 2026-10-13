@@ -65,6 +65,8 @@ export interface StylingProject {
   credits: { role: string; name: string }[];
   source_url?: string;
   video_url?: string | null;
+  local_videos?: string[];
+  video_files?: { url: string }[];
   sort_order: number;
   seo_title: string;
   seo_description: string;

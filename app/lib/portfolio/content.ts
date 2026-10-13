@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { hasProjectName } from "@/app/lib/portfolio/names";
 import {
   getCreativePage,
   getDecorPage,
@@ -36,6 +37,11 @@ export interface PortfolioProject {
   imageAlt: string;
   href: string;
   services: ServiceCategory[];
+  body?: string;
+  images?: { url: string; alt: string; width: number; height: number }[];
+  credits?: { role: string; name: string }[];
+  client?: string;
+  expertise?: string[];
 }
 
 function projectServices(expertise: string[] = []): ServiceCategory[] {
@@ -54,20 +60,40 @@ function projectServices(expertise: string[] = []): ServiceCategory[] {
 function keyProject(
   project: StrapiKeyProject,
   locale: StylingLocale,
-  source: "home" | "production",
 ): PortfolioProject | null {
   const image = getStrapiImageUrl(project.main_image);
-  if (!image) return null;
+  if (!image || !hasProjectName(project.title)) return null;
+  const id = `key-${project.slug || project.id}`;
   return {
-    id: `key-${project.slug || project.id}`,
+    id,
     title: project.title,
     category:
       project.client || (locale === "vi" ? "Dự án nổi bật" : "Key project"),
     summary: project.info_text || "",
     image,
     imageAlt: project.main_image.alternativeText || project.title,
-    href: `/${locale}${source === "home" ? "" : "/production"}#key-project-${project.slug || project.id}`,
+    href: `/${locale}/projects/${encodeURIComponent(id)}`,
     services: projectServices(project.expertise),
+    body: project.info_text || "",
+    images: [
+      project.main_image,
+      ...(project.gallery_images || []).map((item) => item.image),
+    ]
+      .map((item) => {
+        const url = getStrapiImageUrl(item);
+        return url
+          ? {
+              url,
+              alt: item.alternativeText || project.title,
+              width: item.width || 1200,
+              height: item.height || 800,
+            }
+          : null;
+      })
+      .filter((item): item is NonNullable<typeof item> => item !== null),
+    credits: project.team || [],
+    client: project.client,
+    expertise: project.expertise || [],
   };
 }
 
@@ -77,16 +103,32 @@ function portfolioItem(
   service: "set-design" | "decor" | "creative",
 ): PortfolioProject | null {
   const image = getStrapiImageUrl(item.image);
-  if (!image) return null;
+  if (!image || !hasProjectName(item.title)) return null;
+  const id = `${service}-${item.id}`;
   return {
-    id: `${service}-${item.id}`,
+    id,
     title: item.title,
     category: item.category || serviceCategories[service][locale],
-    summary: "",
+    summary: item.summary || "",
     image,
     imageAlt: item.image.alternativeText || item.title,
-    href: `/${locale}/${service}#portfolio-item-${item.id}`,
+    href: `/${locale}/projects/${id}`,
     services: [service],
+    body: item.body || "",
+    images: [item.image, ...(item.gallery || [])]
+      .map((entry) => {
+        const url = getStrapiImageUrl(entry);
+        return url
+          ? {
+              url,
+              alt: entry.alternativeText || item.title,
+              width: entry.width || 1200,
+              height: entry.height || 800,
+            }
+          : null;
+      })
+      .filter((entry): entry is NonNullable<typeof entry> => entry !== null),
+    credits: item.credits || [],
   };
 }
 
@@ -103,14 +145,11 @@ export const getPortfolioProjects = cache(async (locale: StylingLocale) => {
     ]);
   const projects: PortfolioProject[] = [];
   const seenKeys = new Set<string>();
-  for (const [source, entries] of [
-    ["home", home?.key_projects],
-    ["production", production?.key_projects],
-  ] as const) {
+  for (const entries of [home?.key_projects, production?.key_projects]) {
     for (const entry of entries || []) {
       const key = entry.slug || searchText(entry.title);
       if (seenKeys.has(key)) continue;
-      const project = keyProject(entry, locale, source);
+      const project = keyProject(entry, locale);
       if (project) {
         projects.push(project);
         seenKeys.add(key);
@@ -128,17 +167,36 @@ export const getPortfolioProjects = cache(async (locale: StylingLocale) => {
     }
   }
   for (const entry of events?.event_projects || []) {
+    if (!hasProjectName(entry.title)) continue;
     const image = getStrapiImageUrl(entry.images?.[0]);
     if (!image) continue;
     projects.push({
       id: `event-${entry.id}`,
       title: entry.title,
       category: entry.category,
-      summary: "",
+      summary: entry.summary || "",
       image,
       imageAlt: entry.images[0].alternativeText || entry.title,
-      href: `/${locale}/event-planning#gallery`,
+      href: `/${locale}/projects/event-${entry.id}`,
       services: ["event-planning"],
+      body: entry.body || "",
+      images: entry.images
+        .map((entryImage) => {
+          const url = getStrapiImageUrl(entryImage);
+          return url
+            ? {
+                url,
+                alt: entryImage.alternativeText || entry.title,
+                width: entryImage.width || 1200,
+                height: entryImage.height || 800,
+              }
+            : null;
+        })
+        .filter(
+          (entryImage): entryImage is NonNullable<typeof entryImage> =>
+            entryImage !== null,
+        ),
+      credits: entry.credits || [],
     });
   }
   for (const entry of styling) {

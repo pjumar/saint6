@@ -92,9 +92,10 @@ export default async function StylingProjectPage({ params }: Props) {
                 name: project.title,
                 description: project.summary,
                 url,
-                image: project.gallery.map(
-                  ({ image }) => new URL(image.url, stylingOrigin).href,
-                ),
+                image: [
+                  project.cover,
+                  ...project.gallery.map(({ image }) => image),
+                ].map((image) => new URL(image.url, stylingOrigin).href),
                 ...(stylist
                   ? { contributor: { "@type": "Organization", name: stylist } }
                   : {}),
@@ -172,6 +173,26 @@ export default async function StylingProjectPage({ params }: Props) {
             locale={locale}
             poster={videoPoster}
           />
+        )}
+        {!!project.local_videos?.length && (
+          <section
+            className={`${styles.container} ${styles.localVideos}`}
+            aria-label={vi ? "Video dự án" : "Project videos"}
+          >
+            {project.local_videos.map((source) => (
+              // biome-ignore lint/a11y/useMediaCaption: The supplied source films have no caption tracks.
+              <video
+                key={source}
+                controls
+                playsInline
+                preload="none"
+                poster={project.cover.url}
+                aria-label={project.title}
+              >
+                <source src={source} type="video/mp4" />
+              </video>
+            ))}
+          </section>
         )}
         {gallery.length > 0 && (
           <section

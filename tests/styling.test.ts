@@ -8,8 +8,34 @@ import {
   getStylingProject,
   getStylingProjectSummaries,
 } from "../app/lib/styling/content";
+import { driveStylingProjects } from "../app/lib/styling/drive-projects";
 import seed from "../app/lib/styling/seed.json";
 import { stylingMetadata } from "../app/lib/styling/seo";
+
+test("Drive projects have complete bilingual records and local media", () => {
+  const en = driveStylingProjects.en;
+  const vi = driveStylingProjects.vi;
+  assert.equal(en.length, 29);
+  assert.deepEqual(
+    en.map((project) => project.slug),
+    vi.map((project) => project.slug),
+  );
+  assert.equal(new Set(en.map((project) => project.slug)).size, en.length);
+  for (const project of [...en, ...vi]) {
+    assert.ok(
+      project.title && project.category && project.summary && project.body,
+    );
+    assert.ok(project.cover.width > 0 && project.cover.height > 0);
+    assert.ok(project.credits.length > 0);
+    for (const url of [
+      project.cover.url,
+      ...project.gallery.map(({ image }) => image.url),
+      ...(project.local_videos || []),
+    ]) {
+      assert.ok(existsSync(path.join(process.cwd(), "public", url)), url);
+    }
+  }
+});
 
 // Editorial/data contract: prevents missing images, broken locale switches and
 // accidental company-only styling credits when replacing the preview fixtures.
@@ -82,7 +108,7 @@ test("CMS mode reads published locale content and populated galleries", async ()
   try {
     const result = await getStylingContent("vi");
     assert.equal(result.page.intro_title, seed.pages.vi.intro_title);
-    assert.equal(result.projects.length, 228);
+    assert.equal(result.projects.length, 228 + driveStylingProjects.vi.length);
     assert.ok(
       result.projects
         .find((project) => project.slug === seed.projects.vi[0].slug)
@@ -181,7 +207,7 @@ test("CMS reads all pages rather than truncating a portfolio at 100 projects", a
   };
   try {
     const result = await getStylingContent("en");
-    assert.equal(result.projects.length, 228);
+    assert.equal(result.projects.length, 228 + driveStylingProjects.en.length);
     assert.deepEqual(requested, [1, 2, 3]);
     assert.ok(result.page.hero_panels?.[0].image.url.startsWith("https://"));
     assert.ok(result.page.clients?.[0].logo.url.startsWith("https://"));

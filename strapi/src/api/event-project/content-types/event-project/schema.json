@@ -38,6 +38,20 @@
         }
       }
     },
+    "summary": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "body": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "credits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "styling.credit",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
     "images": {
       "type": "media",
       "multiple": true,

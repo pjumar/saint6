@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./PortfolioCard.module.css";
 
@@ -8,6 +9,7 @@ export interface PortfolioCardProps {
   category: string;
   title: string;
   aspectRatio?: string;
+  href?: string;
 }
 
 export function PortfolioCard({
@@ -15,8 +17,9 @@ export function PortfolioCard({
   category,
   title,
   aspectRatio = "3/2",
+  href,
 }: PortfolioCardProps) {
-  return (
+  const card = (
     <div className={styles.portfolioCard}>
       <div
         className={styles.imageContainer}
@@ -42,5 +45,12 @@ export function PortfolioCard({
         <h3 className={styles.title}>{title}</h3>
       </div>
     </div>
+  );
+  return href ? (
+    <Link className={styles.cardLink} href={href} prefetch={false}>
+      {card}
+    </Link>
+  ) : (
+    card
   );
 }

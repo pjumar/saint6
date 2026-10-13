@@ -131,6 +131,17 @@
         }
       }
     },
+    "video_files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["videos"],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "sort_order": {
       "type": "integer",
       "default": 0,

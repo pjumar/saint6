@@ -2,6 +2,7 @@ import type { KeyProjectData } from "@/app/components/key-project-section/KeyPro
 import type { PortfolioItem } from "@/app/components/portfolio-section/PortfolioSection";
 import type { ServiceCard } from "@/app/components/service-cards-carousel/ServiceCardsCarousel";
 import type { TestimonialItem } from "@/app/components/testimonials-section/TestimonialsSection";
+import { hasProjectName } from "@/app/lib/portfolio/names";
 import {
   getStrapiImageUrl,
   type StrapiKeyProject,
@@ -42,6 +43,8 @@ export function transformWorkflow(
  */
 export function transformPortfolio(
   items: StrapiPortfolioItem[] | undefined,
+  service: "decor" | "set-design" | "creative",
+  locale: string,
 ): PortfolioItem[] {
   if (!items || items.length === 0) return [];
 
@@ -62,7 +65,7 @@ export function transformPortfolio(
 
   sorted.forEach((item) => {
     const imageUrl = getStrapiImageUrl(item.image);
-    if (!imageUrl) {
+    if (!imageUrl || !hasProjectName(item.title)) {
       return;
     }
     result.push({
@@ -70,6 +73,7 @@ export function transformPortfolio(
       imageUrl,
       category: item.category || "Campaign",
       title: item.title,
+      href: `/${locale}/projects/${service}-${item.id}`,
       aspectRatio: aspectRatioToCss(item.aspectRatio),
     });
   });

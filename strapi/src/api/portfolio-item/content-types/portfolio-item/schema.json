@@ -33,6 +33,26 @@
         }
       }
     },
+    "summary": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "body": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"],
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "credits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "styling.credit",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
     "image": {
       "type": "media",
       "multiple": false,

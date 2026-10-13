@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
@@ -44,7 +45,10 @@ interface KeyProjectSectionProps {
 const PLACEHOLDER_SRC = "/images/placeholder.svg";
 
 function ProjectItem({ project }: { project: KeyProjectData }) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const detailHref = project.slug
+    ? `/${locale}/projects/${encodeURIComponent(`key-${project.slug}`)}`
+    : undefined;
   const [mainImageError, setMainImageError] = useState(false);
   const [galleryErrors, setGalleryErrors] = useState<Set<string>>(new Set());
 
@@ -87,7 +91,15 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
         </div>
 
         <div className={styles.projectContent}>
-          <h2 className={styles.projectTitle}>{project.title}</h2>
+          <h2 className={styles.projectTitle}>
+            {detailHref ? (
+              <Link href={detailHref} prefetch={false}>
+                {project.title}
+              </Link>
+            ) : (
+              project.title
+            )}
+          </h2>
 
           <div className={styles.projectDetails}>
             <div className={styles.ekipSection}>
@@ -126,14 +138,32 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
 
       <div className={styles.contentGrid}>
         <div ref={mainImageRef} className={styles.mainImageContainer}>
-          <ProgressiveImage
-            src={getMainImageSrc()}
-            alt={project.mainImage.alt}
-            fill
-            sizes="(max-width: 768px) 100vw, 75vw"
-            className={styles.mainImage}
-            onError={handleMainImageError}
-          />
+          {detailHref ? (
+            <Link
+              href={detailHref}
+              className={styles.projectImageLink}
+              aria-label={project.title}
+              prefetch={false}
+            >
+              <ProgressiveImage
+                src={getMainImageSrc()}
+                alt={project.mainImage.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 75vw"
+                className={styles.mainImage}
+                onError={handleMainImageError}
+              />
+            </Link>
+          ) : (
+            <ProgressiveImage
+              src={getMainImageSrc()}
+              alt={project.mainImage.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 75vw"
+              className={styles.mainImage}
+              onError={handleMainImageError}
+            />
+          )}
         </div>
 
         <div className={styles.infoTextSection}>

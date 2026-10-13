@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import sharp from "sharp";
+import { driveStylingProjects } from "../app/lib/styling/drive-projects";
 
 process.env.NEXT_PUBLIC_STYLING_ENABLED = "true";
 delete process.env.STYLING_CONTENT_SOURCE;
@@ -10,8 +11,12 @@ test("cached social routes cover both locales and render complete PNGs", async (
     "../app/api/styling/social/[locale]/[image]/route"
   );
   const params = await route.generateStaticParams();
-  assert.equal(params.length, 458);
-  assert.equal(new Set(params.map((p) => `${p.locale}/${p.image}`)).size, 458);
+  const expected = 458 + driveStylingProjects.en.length * 2;
+  assert.equal(params.length, expected);
+  assert.equal(
+    new Set(params.map((p) => `${p.locale}/${p.image}`)).size,
+    expected,
+  );
   for (const item of [
     { locale: "en", image: "mv-tim-hanh-tinh-khac-vu-cat-tuong.png" },
     { locale: "vi", image: "_service.png" },

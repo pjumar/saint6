@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import styles from "./EventProjectGallery.module.css";
@@ -14,6 +15,7 @@ export interface EventProject {
   images: EventProjectImage[];
   title: string;
   category: string;
+  href?: string;
 }
 
 interface EventProjectGalleryProps {
@@ -28,7 +30,12 @@ function formatCounter(index: number): string {
 // Build a flat list of all images across all projects for preloading
 function flattenImages(projects: EventProject[]) {
   return projects.flatMap((p, pi) =>
-    p.images.map((img, ii) => ({ ...img, projectIndex: pi, imageIndex: ii, key: `${pi}-${ii}` }))
+    p.images.map((img, ii) => ({
+      ...img,
+      projectIndex: pi,
+      imageIndex: ii,
+      key: `${pi}-${ii}`,
+    })),
   );
 }
 
@@ -68,7 +75,9 @@ export function EventProjectGallery({
   useEffect(() => {
     const container = tabsContainerRef.current;
     if (!container) return;
-    const activeTab = container.children[activeProjectIndex] as HTMLElement | undefined;
+    const activeTab = container.children[activeProjectIndex] as
+      | HTMLElement
+      | undefined;
     if (activeTab) {
       const scrollTarget = activeTab.offsetLeft - container.offsetLeft;
       container.scrollTo({ left: scrollTarget, behavior: "smooth" });
@@ -87,7 +96,9 @@ export function EventProjectGallery({
 
       if (isLastImage) {
         const nextProjectIndex =
-          currentProjectIndex >= projects.length - 1 ? 0 : currentProjectIndex + 1;
+          currentProjectIndex >= projects.length - 1
+            ? 0
+            : currentProjectIndex + 1;
         setActiveProjectIndex(nextProjectIndex);
         setActiveImageIndex(0);
       } else {
@@ -127,7 +138,7 @@ export function EventProjectGallery({
       setActiveImageIndex((prev) => prev + 1);
     } else {
       setActiveProjectIndex((prev) =>
-        prev >= projects.length - 1 ? 0 : prev + 1
+        prev >= projects.length - 1 ? 0 : prev + 1,
       );
       setActiveImageIndex(0);
     }
@@ -140,6 +151,7 @@ export function EventProjectGallery({
   return (
     <section
       className={styles.gallerySection}
+      aria-label="Event project gallery"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -158,13 +170,25 @@ export function EventProjectGallery({
         ))}
       </div>
 
+      {activeProject?.href && (
+        <Link
+          className={styles.projectLink}
+          href={activeProject.href}
+          prefetch={false}
+        >
+          {activeProject.title} ↗
+        </Link>
+      )}
+
       {/* Navigation Arrows */}
       <button
+        type="button"
         className={`${styles.navButton} ${styles.navButtonLeft}`}
         onClick={handlePrevious}
         aria-label="Previous image"
       >
         <svg
+          aria-hidden="true"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -181,11 +205,13 @@ export function EventProjectGallery({
         </svg>
       </button>
       <button
+        type="button"
         className={`${styles.navButton} ${styles.navButtonRight}`}
         onClick={handleNext}
         aria-label="Next image"
       >
         <svg
+          aria-hidden="true"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -210,6 +236,7 @@ export function EventProjectGallery({
 
           return (
             <button
+              type="button"
               key={project.id}
               className={`${styles.tab} ${isActive ? styles.tabActive : ""}`}
               onClick={() => handleProjectClick(index)}

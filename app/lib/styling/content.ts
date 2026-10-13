@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { driveStylingProjects } from "./drive-projects";
 import { featuredStylingProjects } from "./featured-projects";
 import seed from "./seed.json";
 import type {
@@ -126,6 +127,7 @@ const summaryFields = [
 const fullPopulate = {
   "populate[cover]": "true",
   "populate[social_image]": "true",
+  "populate[video_files]": "true",
   "populate[gallery][populate][image]": "true",
   "populate[credits]": "true",
 };
@@ -150,6 +152,9 @@ function projectRecord(project: StylingProject, full: boolean): StylingProject {
       ...g,
       image: stylingMedia(g.image),
     })),
+    local_videos: (project.video_files || []).map(
+      (video) => new URL(video.url, cmsOrigin()).href,
+    ),
   });
 }
 const readProjects = cache(
@@ -196,10 +201,12 @@ const readProjects = cache(
 );
 function mergeFeatured(locale: StylingLocale, projects: StylingProject[]) {
   const slugs = new Set(projects.map((project) => project.slug));
+  const localProjects = [
+    ...featuredStylingProjects[locale],
+    ...driveStylingProjects[locale],
+  ];
   return [
-    ...featuredStylingProjects[locale].filter(
-      (project) => !slugs.has(project.slug),
-    ),
+    ...localProjects.filter((project) => !slugs.has(project.slug)),
     ...projects,
   ];
 }
@@ -211,9 +218,10 @@ export const getStylingProject = cache(
     slug: string,
   ): Promise<StylingProject | null> => {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return null;
-    const featured = featuredStylingProjects[locale].find(
-      (p) => p.slug === slug,
-    );
+    const featured = [
+      ...featuredStylingProjects[locale],
+      ...driveStylingProjects[locale],
+    ].find((p) => p.slug === slug);
     if (!cmsMode())
       return (
         featured || seed.projects[locale].find((p) => p.slug === slug) || null

@@ -18,6 +18,7 @@ import {
   FALLBACK_EVENT_SERVICES,
   FALLBACK_EVENT_WORKFLOW,
 } from "@/app/lib/fallback";
+import { hasProjectName } from "@/app/lib/portfolio/names";
 import { buildPageMetadata } from "@/app/lib/seo";
 import {
   getEventPlanningPage,
@@ -78,10 +79,12 @@ function transformServices(
 
 function transformEventProjects(
   projects: StrapiEventProject[] | undefined,
+  locale: string,
 ): EventProject[] {
   if (!projects || projects.length === 0) return [];
 
   return projects
+    .filter((project) => hasProjectName(project.title))
     .sort((a, b) => a.order - b.order)
     .map((project) => {
       // Transform Strapi images array to component format
@@ -102,6 +105,7 @@ function transformEventProjects(
         images,
         title: project.title,
         category: project.category,
+        href: `/${locale}/projects/event-${project.id}`,
       };
     })
     .filter((project) => project.images.length > 0);
@@ -221,9 +225,11 @@ export default async function EventPlanningPage({ params }: PageProps) {
 
   // Event Projects
   const eventProjects = strapiData?.event_projects
-    ? transformEventProjects(strapiData.event_projects)
+    ? transformEventProjects(strapiData.event_projects, locale)
     : useFallback
-      ? FALLBACK_EVENT_PROJECTS
+      ? FALLBACK_EVENT_PROJECTS.filter((project) =>
+          hasProjectName(project.title),
+        )
       : [];
 
   // Testimonials

@@ -117,6 +117,9 @@ export interface StrapiEventProject {
   title: string;
   slug: string;
   category: string;
+  summary?: string;
+  body?: string;
+  credits?: { role: string; name: string }[];
   images: StrapiImage[];
   order: number;
 }
@@ -159,6 +162,10 @@ export interface StrapiPortfolioItem {
   id: number;
   title: string;
   category?: string;
+  summary?: string;
+  body?: string;
+  gallery?: StrapiImage[];
+  credits?: { role: string; name: string }[];
   image: StrapiImage;
   aspectRatio?: string;
   page?: "creative" | "set-design" | "decor";
@@ -649,7 +656,7 @@ export async function getCreativePage(locale: string = "en") {
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
-    portfolio_items: { populate: { image: { populate: "*" } } },
+    portfolio_items: { populate: "*" },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -690,7 +697,7 @@ export async function getSetDesignPage(locale: string = "en") {
     intro: { populate: "*" },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
-    portfolio_items: { populate: { image: { populate: "*" } } },
+    portfolio_items: { populate: "*" },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -708,11 +715,7 @@ export async function getEventPlanningPage(locale: string = "en") {
     intro_2: { populate: "*" },
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
-    event_projects: {
-      populate: {
-        images: { populate: "*" },
-      },
-    },
+    event_projects: { populate: "*" },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -730,7 +733,7 @@ export async function getDecorPage(locale: string = "en") {
     intro_2: { populate: "*" },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
-    portfolio_items: { populate: { image: { populate: "*" } } },
+    portfolio_items: { populate: "*" },
   };
 
   return fetchStrapi<StrapiDecorPage>("decor-page", {
