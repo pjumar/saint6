@@ -1,4 +1,4 @@
-import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
+import { notFound } from "next/navigation";
 import {
   CrewAreaSection,
   type CrewAreaSectionProps,
@@ -35,6 +35,7 @@ import {
   type StrapiGalleryImage,
   type StrapiSpaceSection,
 } from "@/app/lib/strapi";
+import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
 import { transformKeyProjects } from "@/app/lib/transformers";
 import { getTranslations } from "@/app/lib/translations";
 import styles from "@/app/page.module.css";
@@ -50,6 +51,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (locale !== "en" && locale !== "vi") notFound();
   const data = await getHomepage(locale);
   return buildPageMetadata({
     hero: data?.hero,
@@ -180,6 +182,7 @@ export function generateStaticParams() {
 
 export default async function Home({ params }: PageProps) {
   const { locale } = await params;
+  if (locale !== "en" && locale !== "vi") notFound();
   const t = getTranslations(locale);
   const isDev = process.env.NODE_ENV === "development";
   const discovery = await getStudioDiscovery(locale as Locale);
@@ -262,7 +265,9 @@ export default async function Home({ params }: PageProps) {
         />
       </div>
       {keyProjectsData.length > 0 && (
-        <KeyProjectSection projects={keyProjectsData} />
+        <div id="key-project">
+          <KeyProjectSection projects={keyProjectsData} />
+        </div>
       )}
       {spaceData && (
         <SpaceSection

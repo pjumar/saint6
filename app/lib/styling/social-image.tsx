@@ -35,7 +35,10 @@ export async function renderStylingSocialImage(
     .toBuffer();
   // Only approved content supplies image URLs; the request cannot choose a fetch target.
   let bytes: Buffer;
-  if (photo.url.startsWith("/images/")) {
+  if (
+    photo.url.startsWith("/images/") ||
+    photo.url.startsWith("/media/drive-projects/")
+  ) {
     bytes = await readFile(path.join(process.cwd(), "public", photo.url));
   } else {
     const url = new URL(photo.url);
@@ -50,7 +53,7 @@ export async function renderStylingSocialImage(
     const response = await fetch(url, {
       redirect: "error",
       signal: AbortSignal.timeout(8000),
-      next: { revalidate: 300, tags: ["styling"] },
+      next: { revalidate: 3600, tags: ["styling"] },
     });
     if (!response.ok)
       throw new Error(`Social image fetch failed (${response.status})`);
@@ -156,7 +159,7 @@ export async function renderStylingSocialImage(
       width: 1200,
       height: 630,
       fonts: [{ name: "Saira", data: font, style: "normal", weight: 400 }],
-      headers: { "Cache-Control": "public, max-age=300, s-maxage=300" },
+      headers: { "Cache-Control": "public, max-age=3600, s-maxage=3600" },
     },
   );
 }

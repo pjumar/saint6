@@ -113,6 +113,7 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
           <Link
             key={item.label}
             href={item.href}
+            prefetch={false}
             className={`${styles.menuNavItem} ${pathname === item.href ? styles.menuNavItemActive : ""}`}
             onClick={onClose}
           >
@@ -124,13 +125,23 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
         <div className={styles.menuFooterLeft}>
           <Link
             href={`/${locale}/contact`}
+            prefetch={false}
             className={`caption ${pathname === `/${locale}/contact` ? styles.footerLinkActive : ""}`}
             onClick={onClose}
           >
             {t.NAVIGATION.CONTACT}
           </Link>
           <Link
+            href={`/${locale}/portfolio`}
+            prefetch={false}
+            className={`caption ${pathname === `/${locale}/portfolio` ? styles.footerLinkActive : ""}`}
+            onClick={onClose}
+          >
+            {t.NAVIGATION.PORTFOLIO}
+          </Link>
+          <Link
             href={`/${locale}/about`}
+            prefetch={false}
             className={`caption ${pathname === `/${locale}/about` ? styles.footerLinkActive : ""}`}
             onClick={onClose}
           >

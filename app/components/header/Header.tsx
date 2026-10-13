@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { LanguageSelector } from "@/app/components/language-selector/LanguageSelector";
@@ -24,7 +24,6 @@ export function Header({
 }: HeaderProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
-  const router = useRouter();
   const thickLineRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
   const animationsRef = useRef<Map<string, gsap.core.Timeline>>(new Map());
   const gsapRef = useRef<Awaited<ReturnType<typeof loadGsap>> | null>(null);
@@ -49,24 +48,6 @@ export function Header({
     ],
     [t, locale],
   );
-
-  // Prefetch all nav routes after page load for faster navigation
-  useEffect(() => {
-    const onLoad = () => {
-      navItems.forEach((item) => {
-        router.prefetch(item.href);
-      });
-      router.prefetch(`/${locale}/contact`);
-      router.prefetch(`/${locale}/about`);
-    };
-
-    if (document.readyState === "complete") {
-      onLoad();
-    } else {
-      window.addEventListener("load", onLoad);
-      return () => window.removeEventListener("load", onLoad);
-    }
-  }, [navItems, router, locale]);
 
   const handleMouseEnter = useCallback(
     (href: string) => {
@@ -138,7 +119,7 @@ export function Header({
 
   return (
     <header className={styles.header}>
-      <Link href={`/${locale}`} className={styles.logo}>
+      <Link href={`/${locale}`} className={styles.logo} prefetch={false}>
         <Image
           src="/assets/saint6-logo.svg"
           alt="Saint 6 Studio"
@@ -154,6 +135,7 @@ export function Header({
             <Link
               key={item.href}
               href={item.href}
+              prefetch={false}
               className={`${styles.desktopNavItem} ${pathname === item.href ? styles.desktopNavItemActive : ""}`}
               onMouseEnter={() => handleMouseEnter(item.href)}
               onMouseLeave={() => handleMouseLeave(item.href)}
@@ -179,10 +161,25 @@ export function Header({
             <SocialLinks />
           </div>
           <div className={styles.heroLinksRight}>
-            <Link href={`/${locale}/contact`} className="caption">
+            <Link
+              href={`/${locale}/contact`}
+              className="caption"
+              prefetch={false}
+            >
               {t.NAVIGATION.CONTACT}
             </Link>
-            <Link href={`/${locale}/about`} className="caption">
+            <Link
+              href={`/${locale}/portfolio`}
+              className="caption"
+              prefetch={false}
+            >
+              {t.NAVIGATION.PORTFOLIO}
+            </Link>
+            <Link
+              href={`/${locale}/about`}
+              className="caption"
+              prefetch={false}
+            >
               {t.NAVIGATION.ABOUT_US}
             </Link>
             <LanguageSelector />

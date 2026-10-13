@@ -58,16 +58,23 @@ export function PortfolioSection({
 
       {/* Portfolio Grid Section */}
       <section className={styles.gridSection}>
-        <div className={`${styles.gridContainer}${gridClassName ? ` ${gridClassName}` : ""}`}>
+        <div
+          className={`${styles.gridContainer}${gridClassName ? ` ${gridClassName}` : ""}`}
+        >
           {/* Top Row - Side by side on desktop, stacked on mobile */}
           {topRow.length > 0 && (
             <div className={styles.topRow} ref={topRowRef}>
               {topRow.map((item) => (
-                <div key={item.id} className={styles.topRowItem}>
+                <div
+                  key={item.id}
+                  className={styles.topRowItem}
+                  id={`portfolio-item-${item.id}`}
+                >
                   <PortfolioCard
                     imageUrl={item.imageUrl}
                     category={item.category}
                     title={item.title}
+                    href={item.href}
                     aspectRatio="3/2"
                   />
                 </div>
@@ -79,13 +86,15 @@ export function PortfolioSection({
           {masonryItems.length > 0 && (
             <div className={styles.masonryGrid} ref={masonryRef}>
               {masonryItems.map((item) => (
-                <PortfolioCard
-                  key={item.id}
-                  imageUrl={item.imageUrl}
-                  category={item.category}
-                  title={item.title}
-                  aspectRatio={item.aspectRatio || "3/2"}
-                />
+                <div key={item.id} id={`portfolio-item-${item.id}`}>
+                  <PortfolioCard
+                    imageUrl={item.imageUrl}
+                    category={item.category}
+                    title={item.title}
+                    href={item.href}
+                    aspectRatio={item.aspectRatio || "3/2"}
+                  />
+                </div>
               ))}
             </div>
           )}

@@ -1,14 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import {
-  useScrollAnimation,
-  useScrollAnimationChildren,
-} from "@/app/hooks";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./KeyProjectSection.module.css";
 
 export interface ProjectTeamMember {
@@ -24,6 +22,7 @@ export interface ProjectImage {
 }
 
 export interface KeyProjectData {
+  slug?: string;
   projectNumber: string;
   title: string;
   infoText: string;
@@ -46,7 +45,10 @@ interface KeyProjectSectionProps {
 const PLACEHOLDER_SRC = "/images/placeholder.svg";
 
 function ProjectItem({ project }: { project: KeyProjectData }) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const detailHref = project.slug
+    ? `/${locale}/projects/${encodeURIComponent(`key-${project.slug}`)}`
+    : undefined;
   const [mainImageError, setMainImageError] = useState(false);
   const [galleryErrors, setGalleryErrors] = useState<Set<string>>(new Set());
 
@@ -78,7 +80,10 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
   };
 
   return (
-    <div className={styles.projectItem}>
+    <div
+      className={styles.projectItem}
+      id={project.slug ? `key-project-${project.slug}` : undefined}
+    >
       <div ref={headerRef} className={styles.projectHeader}>
         <div className={styles.projectNumber}>
           <p className={styles.projectNoLabel}>{t.KEY_PROJECT.PROJECT_NO}</p>
@@ -86,7 +91,15 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
         </div>
 
         <div className={styles.projectContent}>
-          <h2 className={styles.projectTitle}>{project.title}</h2>
+          <h2 className={styles.projectTitle}>
+            {detailHref ? (
+              <Link href={detailHref} prefetch={false}>
+                {project.title}
+              </Link>
+            ) : (
+              project.title
+            )}
+          </h2>
 
           <div className={styles.projectDetails}>
             <div className={styles.ekipSection}>
@@ -125,14 +138,32 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
 
       <div className={styles.contentGrid}>
         <div ref={mainImageRef} className={styles.mainImageContainer}>
-          <ProgressiveImage
-            src={getMainImageSrc()}
-            alt={project.mainImage.alt}
-            fill
-            sizes="(max-width: 768px) 100vw, 75vw"
-            className={styles.mainImage}
-            onError={handleMainImageError}
-          />
+          {detailHref ? (
+            <Link
+              href={detailHref}
+              className={styles.projectImageLink}
+              aria-label={project.title}
+              prefetch={false}
+            >
+              <ProgressiveImage
+                src={getMainImageSrc()}
+                alt={project.mainImage.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 75vw"
+                className={styles.mainImage}
+                onError={handleMainImageError}
+              />
+            </Link>
+          ) : (
+            <ProgressiveImage
+              src={getMainImageSrc()}
+              alt={project.mainImage.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 75vw"
+              className={styles.mainImage}
+              onError={handleMainImageError}
+            />
+          )}
         </div>
 
         <div className={styles.infoTextSection}>
@@ -167,7 +198,10 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
         {project.galleryImages.length > 0 && (
           <div ref={galleryRef} className={styles.galleryGrid}>
             {project.galleryImages.slice(0, 3).map((image, index) => (
-              <div key={image.src} className={styles[`galleryImage${index + 1}`]}>
+              <div
+                key={image.src}
+                className={styles[`galleryImage${index + 1}`]}
+              >
                 <ProgressiveImage
                   src={getGalleryImageSrc(image)}
                   alt={image.alt}

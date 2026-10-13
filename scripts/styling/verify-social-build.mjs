@@ -16,7 +16,7 @@ assert.ok(
   "Build with Styling enabled before running this check",
 );
 for (const [url, entry] of images) {
-  assert.equal(entry.initialRevalidateSeconds, 300, url);
+  assert.equal(entry.initialRevalidateSeconds, 3600, url);
   const base = path.join(root, "server/app", url);
   const meta = JSON.parse(await readFile(`${base}.meta`, "utf8"));
   assert.equal(meta.status, 200, url);

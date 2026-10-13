@@ -6,7 +6,7 @@ import { renderStylingSocialImage } from "@/app/lib/styling/social-image";
 
 export const runtime = "nodejs";
 export const dynamic = "force-static";
-export const revalidate = 300;
+export const revalidate = 3600;
 
 // Existing projects are rendered before deployment, not during a crawler request.
 // New CMS projects can generate on their first request and are then cached too.

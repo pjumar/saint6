@@ -5,7 +5,7 @@ export const portfolioCategories = {
   celebrity: { en: "Celebrity", vi: "Nghệ sĩ" },
   editorial: { en: "Editorial", vi: "Tạp chí" },
   lookbook: { en: "Lookbooks", vi: "Lookbook" },
-  music: { en: "Music & film", vi: "Âm nhạc & phim" },
+  music: { en: "Music, film & TV", vi: "Âm nhạc, phim & truyền hình" },
   personal: { en: "Personal", vi: "Cá nhân" },
 } as const;
 export const portfolioPageSize = 18;

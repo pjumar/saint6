@@ -211,10 +211,25 @@ export function HeroSection({
               <SocialLinks />
             </div>
             <div className={styles.heroLinksRight}>
-              <Link href={`/${locale}/contact`} className="caption">
+              <Link
+                href={`/${locale}/contact`}
+                className="caption"
+                prefetch={false}
+              >
                 {t.NAVIGATION.CONTACT}
               </Link>
-              <Link href={`/${locale}/about`} className="caption">
+              <Link
+                href={`/${locale}/portfolio`}
+                className="caption"
+                prefetch={false}
+              >
+                {t.NAVIGATION.PORTFOLIO}
+              </Link>
+              <Link
+                href={`/${locale}/about`}
+                className="caption"
+                prefetch={false}
+              >
                 {t.NAVIGATION.ABOUT_US}
               </Link>
               <LanguageSelector />
