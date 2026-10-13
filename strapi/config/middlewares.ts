@@ -1,4 +1,4 @@
-import { MAX_UPLOAD_SIZE_MB, MAX_UPLOAD_SIZE_BYTES } from "../src/constants";
+import { MAX_MEDIA_UPLOAD_SIZE_BYTES, MAX_UPLOAD_SIZE_MB } from "../src/constants";
 
 export default [
   "strapi::logger",
@@ -44,7 +44,7 @@ export default [
       jsonLimit: `${MAX_UPLOAD_SIZE_MB}mb`,
       textLimit: `${MAX_UPLOAD_SIZE_MB}mb`,
       formidable: {
-        maxFileSize: MAX_UPLOAD_SIZE_BYTES,
+        maxFileSize: MAX_MEDIA_UPLOAD_SIZE_BYTES,
       },
     },
   },
