@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { featuredStylingProjects } from "./featured-projects";
 import seed from "./seed.json";
 import type {
   SharedContactContent,
@@ -53,7 +54,7 @@ async function read(
   const query = new URLSearchParams({ locale, status: "published", ...params });
   const response = await fetch(`${cmsOrigin()}/api/${endpoint}?${query}`, {
     headers: token ? { Authorization: `Bearer ${token}` } : {},
-    next: { revalidate: 300, tags: ["styling"] },
+    next: { revalidate: 3600, tags: ["styling"] },
   });
   if (!response.ok)
     throw new Error(`Styling CMS request failed (${response.status})`);
@@ -153,7 +154,7 @@ function projectRecord(project: StylingProject, full: boolean): StylingProject {
 }
 const readProjects = cache(
   async (locale: StylingLocale, full: boolean): Promise<StylingProject[]> => {
-    if (!cmsMode()) return seed.projects[locale];
+    if (!cmsMode()) return mergeFeatured(locale, seed.projects[locale]);
     const params: Record<string, string> = {
       ...(full
         ? fullPopulate
@@ -187,9 +188,21 @@ const readProjects = cache(
       throw new Error("Incomplete styling project pagination");
     if (new Set(projects.map((p) => p.slug)).size !== projects.length)
       throw new Error("Duplicate styling project URLs");
-    return projects.map((p) => projectRecord(p, full));
+    return mergeFeatured(
+      locale,
+      projects.map((p) => projectRecord(p, full)),
+    );
   },
 );
+function mergeFeatured(locale: StylingLocale, projects: StylingProject[]) {
+  const slugs = new Set(projects.map((project) => project.slug));
+  return [
+    ...featuredStylingProjects[locale].filter(
+      (project) => !slugs.has(project.slug),
+    ),
+    ...projects,
+  ];
+}
 export const getStylingProjectSummaries = (locale: StylingLocale) =>
   readProjects(locale, false);
 export const getStylingProject = cache(
@@ -198,8 +211,13 @@ export const getStylingProject = cache(
     slug: string,
   ): Promise<StylingProject | null> => {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return null;
+    const featured = featuredStylingProjects[locale].find(
+      (p) => p.slug === slug,
+    );
     if (!cmsMode())
-      return seed.projects[locale].find((p) => p.slug === slug) || null;
+      return (
+        featured || seed.projects[locale].find((p) => p.slug === slug) || null
+      );
     const result = await read(locale, "styling-projects", {
       ...fullPopulate,
       "filters[slug][$eq]": slug,
@@ -209,7 +227,9 @@ export const getStylingProject = cache(
       throw new Error("Incomplete styling project response");
     if (result.data.length > 1)
       throw new Error("Duplicate styling project URLs");
-    return result.data[0] ? projectRecord(result.data[0], true) : null;
+    return result.data[0]
+      ? projectRecord(result.data[0], true)
+      : featured || null;
   },
 );
 // Full export remains available for import verification. Pages use lightweight lists.

@@ -10,8 +10,8 @@ test("cached social routes cover both locales and render complete PNGs", async (
     "../app/api/styling/social/[locale]/[image]/route"
   );
   const params = await route.generateStaticParams();
-  assert.equal(params.length, 456);
-  assert.equal(new Set(params.map((p) => `${p.locale}/${p.image}`)).size, 456);
+  assert.equal(params.length, 458);
+  assert.equal(new Set(params.map((p) => `${p.locale}/${p.image}`)).size, 458);
   for (const item of [
     { locale: "en", image: "mv-tim-hanh-tinh-khac-vu-cat-tuong.png" },
     { locale: "vi", image: "_service.png" },

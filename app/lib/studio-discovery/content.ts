@@ -39,7 +39,7 @@ export const getStudioDiscovery = cache(
     });
     const response = await fetch(`${origin}/api/studio-discovery?${query}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
-      next: { revalidate: 300, tags: ["studio-discovery"] },
+      next: { revalidate: 3600, tags: ["studio-discovery"] },
     });
     if (!response.ok)
       throw new Error(

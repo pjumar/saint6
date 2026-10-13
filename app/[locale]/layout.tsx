@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Public_Sans, Saira_Condensed } from "next/font/google";
+import { notFound } from "next/navigation";
 import Script from "next/script";
 import { DeferredGTM } from "@/app/components/deferred-gtm/DeferredGTM";
 import "@/app/globals.css";
@@ -24,7 +25,6 @@ import {
   getSocialLinks,
   getStrapiImageUrl,
 } from "@/app/lib/strapi";
-import { getDiscoveryPage } from "@/app/lib/studio-discovery/content";
 import {
   getSharedContactContent,
   stylingEnabled,
@@ -58,6 +58,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  if (locale !== "en" && locale !== "vi") notFound();
   const typedLocale = locale as Locale;
   const isVi = typedLocale === "vi";
 
@@ -150,10 +151,11 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (locale !== "en" && locale !== "vi") notFound();
   const typedLocale = locale as Locale;
 
   const isDev = process.env.NODE_ENV === "development";
-  const [footerData, socialData, contactContent, seo, contactPage, homeCopy] =
+  const [footerData, socialData, contactContent, seo, contactPage] =
     await Promise.all([
       getFooter(typedLocale),
       getSocialLinks(typedLocale),
@@ -167,7 +169,6 @@ export default async function LocaleLayout({
         : undefined,
       getSeoMetadata(typedLocale),
       getContactPage(typedLocale),
-      getDiscoveryPage(typedLocale),
     ]);
   const useFallback = !footerData && !socialData && isDev;
 
@@ -208,7 +209,8 @@ export default async function LocaleLayout({
             footer: footerData,
             contact: contactPage?.info,
             social: socialData,
-            description: homeCopy?.introduction,
+            description:
+              seo?.description || FALLBACK_SEO.description[typedLocale],
           })}
         />
         {/* Capture UTM params from URL into sessionStorage before React hydrates */}

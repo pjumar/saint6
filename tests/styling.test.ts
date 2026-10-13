@@ -82,8 +82,12 @@ test("CMS mode reads published locale content and populated galleries", async ()
   try {
     const result = await getStylingContent("vi");
     assert.equal(result.page.intro_title, seed.pages.vi.intro_title);
-    assert.equal(result.projects.length, 227);
-    assert.ok(result.projects[0].cover.url.startsWith("https://"));
+    assert.equal(result.projects.length, 228);
+    assert.ok(
+      result.projects
+        .find((project) => project.slug === seed.projects.vi[0].slug)
+        ?.cover.url.startsWith("https://"),
+    );
     assert.ok(
       calls.every(
         (url) =>
@@ -177,7 +181,7 @@ test("CMS reads all pages rather than truncating a portfolio at 100 projects", a
   };
   try {
     const result = await getStylingContent("en");
-    assert.equal(result.projects.length, 227);
+    assert.equal(result.projects.length, 228);
     assert.deepEqual(requested, [1, 2, 3]);
     assert.ok(result.page.hero_panels?.[0].image.url.startsWith("https://"));
     assert.ok(result.page.clients?.[0].logo.url.startsWith("https://"));

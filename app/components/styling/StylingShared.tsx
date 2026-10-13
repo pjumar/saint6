@@ -28,6 +28,7 @@ export function ProjectCard({
     <Link
       className={styles.projectCard}
       href={`/${locale}/styling/${project.slug}`}
+      prefetch={false}
     >
       <div
         className={styles.cardImage}

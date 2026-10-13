@@ -5,10 +5,7 @@ import { useState } from "react";
 import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { SectionHeader } from "@/app/components/section-header/SectionHeader";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import {
-  useScrollAnimation,
-  useScrollAnimationChildren,
-} from "@/app/hooks";
+import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
 import styles from "./KeyProjectSection.module.css";
 
 export interface ProjectTeamMember {
@@ -24,6 +21,7 @@ export interface ProjectImage {
 }
 
 export interface KeyProjectData {
+  slug?: string;
   projectNumber: string;
   title: string;
   infoText: string;
@@ -78,7 +76,10 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
   };
 
   return (
-    <div className={styles.projectItem}>
+    <div
+      className={styles.projectItem}
+      id={project.slug ? `key-project-${project.slug}` : undefined}
+    >
       <div ref={headerRef} className={styles.projectHeader}>
         <div className={styles.projectNumber}>
           <p className={styles.projectNoLabel}>{t.KEY_PROJECT.PROJECT_NO}</p>
@@ -167,7 +168,10 @@ function ProjectItem({ project }: { project: KeyProjectData }) {
         {project.galleryImages.length > 0 && (
           <div ref={galleryRef} className={styles.galleryGrid}>
             {project.galleryImages.slice(0, 3).map((image, index) => (
-              <div key={image.src} className={styles[`galleryImage${index + 1}`]}>
+              <div
+                key={image.src}
+                className={styles[`galleryImage${index + 1}`]}
+              >
                 <ProgressiveImage
                   src={getGalleryImageSrc(image)}
                   alt={image.alt}

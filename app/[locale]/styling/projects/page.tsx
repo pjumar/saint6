@@ -84,7 +84,7 @@ export default async function StylingPortfolio(props: Props) {
       <div className={styles.page}>
         <div className={styles.archiveBar}>
           <div className={styles.container}>
-            <Link href={`/${locale}`} aria-label="Saint 6">
+            <Link href={`/${locale}`} aria-label="Saint 6" prefetch={false}>
               <Image
                 src="/assets/saint6-logo.svg"
                 alt="Saint 6"
@@ -93,12 +93,13 @@ export default async function StylingPortfolio(props: Props) {
                 style={{ width: 96, height: "auto" }}
               />
             </Link>
-            <Link href={`/${locale}/styling`}>
+            <Link href={`/${locale}/styling`} prefetch={false}>
               ← {vi ? "DỊCH VỤ STYLING" : "STYLING AT SAINT 6"}
             </Link>
             <Link
               href={portfolioHref(vi ? "en" : "vi", category, query, page)}
               hrefLang={vi ? "en" : "vi"}
+              prefetch={false}
             >
               {vi ? "EN" : "VI"}
             </Link>
@@ -118,6 +119,16 @@ export default async function StylingPortfolio(props: Props) {
               ? "Từ chiến dịch thương hiệu và lookbook đến nghệ sĩ, âm nhạc và những dấu ấn cá nhân. Khám phá các dự án qua từng góc nhìn."
               : "Brand campaigns, lookbooks, artists, music and personal expression. Explore the work, one perspective at a time."}
           </p>
+          <Link
+            href={`/${locale}/portfolio`}
+            className={styles.textLink}
+            prefetch={false}
+          >
+            {vi
+              ? "Khám phá tất cả dự án Saint 6"
+              : "Explore all Saint 6 projects"}{" "}
+            ↗
+          </Link>
         </section>
         <section
           className={styles.container}
@@ -134,6 +145,7 @@ export default async function StylingPortfolio(props: Props) {
             >
               <Link
                 href={portfolioHref(locale, "", query)}
+                prefetch={false}
                 aria-current={!category ? "page" : undefined}
               >
                 {vi ? "Tất cả" : "All work"} ({all.length})
@@ -142,6 +154,7 @@ export default async function StylingPortfolio(props: Props) {
                 <Link
                   key={key}
                   href={portfolioHref(locale, key, query)}
+                  prefetch={false}
                   aria-current={category === key ? "page" : undefined}
                 >
                   {label[locale]}
@@ -182,7 +195,7 @@ export default async function StylingPortfolio(props: Props) {
               <>
                 {" "}
                 · “{query}” ·{" "}
-                <Link href={portfolioHref(locale, category)}>
+                <Link href={portfolioHref(locale, category)} prefetch={false}>
                   {vi ? "Xóa tìm kiếm" : "Clear search"}
                 </Link>
               </>
@@ -212,7 +225,7 @@ export default async function StylingPortfolio(props: Props) {
             aria-label={vi ? "Phân trang dự án" : "Portfolio pagination"}
           >
             {page > 1 && (
-              <Link href={href(page - 1)} rel="prev">
+              <Link href={href(page - 1)} rel="prev" prefetch={false}>
                 ← {vi ? "Trước" : "Previous"}
               </Link>
             )}
@@ -223,6 +236,7 @@ export default async function StylingPortfolio(props: Props) {
                 )}
                 <Link
                   href={href(n)}
+                  prefetch={false}
                   aria-current={page === n ? "page" : undefined}
                   aria-label={`${vi ? "Trang" : "Page"} ${n}`}
                 >
@@ -231,7 +245,7 @@ export default async function StylingPortfolio(props: Props) {
               </span>
             ))}
             {page < totalPages && (
-              <Link href={href(page + 1)} rel="next">
+              <Link href={href(page + 1)} rel="next" prefetch={false}>
                 {vi ? "Tiếp" : "Next"} →
               </Link>
             )}

@@ -126,6 +126,7 @@ export function transformKeyProjects(
     const paddedIndex = String(index + 1).padStart(2, "0");
 
     return {
+      slug: project.slug || String(project.id),
       projectNumber: `${paddedIndex}/${paddedTotal}`,
       title: project.title,
       infoText: project.info_text || "",

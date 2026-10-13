@@ -20,7 +20,7 @@ import {
 import { StylingStructuredData, stylingMetadata } from "@/app/lib/styling/seo";
 
 type Props = { params: Promise<{ locale: string }> };
-export const revalidate = 300;
+export const revalidate = 3600;
 async function content(params: Props["params"]) {
   const { locale } = await params;
   if (!stylingEnabled || (locale !== "en" && locale !== "vi")) notFound();
