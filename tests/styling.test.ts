@@ -314,3 +314,35 @@ test("every project has distinct localized SEO titles; social overrides retain t
     ),
   );
 });
+
+test("published projects load while Strapi is adding the video media field", async () => {
+  const previous = process.env.STYLING_CONTENT_SOURCE;
+  const originalFetch = globalThis.fetch;
+  process.env.STYLING_CONTENT_SOURCE = "cms";
+  const project = driveStylingProjects.en.find(
+    (entry) => entry.local_videos?.length,
+  );
+  assert.ok(project);
+  const requests: URL[] = [];
+  globalThis.fetch = async (input) => {
+    const url = new URL(String(input));
+    requests.push(url);
+    if (url.searchParams.has("populate[video_files]"))
+      return Response.json(
+        { error: { name: "ValidationError" } },
+        { status: 400 },
+      );
+    return Response.json({ data: [{ ...project, video_files: undefined }] });
+  };
+  try {
+    const result = await getStylingProject("en", project.slug);
+    assert.deepEqual(result?.local_videos, project.local_videos);
+    assert.equal(requests.length, 2);
+    assert.equal(requests[0].searchParams.get("populate[video_files]"), "true");
+    assert.equal(requests[1].searchParams.has("populate[video_files]"), false);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (previous === undefined) delete process.env.STYLING_CONTENT_SOURCE;
+    else process.env.STYLING_CONTENT_SOURCE = previous;
+  }
+});
