@@ -20,6 +20,7 @@ test("cached social routes cover both locales and render complete PNGs", async (
   for (const item of [
     { locale: "en", image: "mv-tim-hanh-tinh-khac-vu-cat-tuong.png" },
     { locale: "vi", image: "_service.png" },
+    { locale: "vi", image: "muji-vietnam-designed-in-japan.png" },
   ]) {
     assert.ok(
       params.some((p) => p.locale === item.locale && p.image === item.image),

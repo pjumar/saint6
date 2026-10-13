@@ -35,7 +35,10 @@ export async function renderStylingSocialImage(
     .toBuffer();
   // Only approved content supplies image URLs; the request cannot choose a fetch target.
   let bytes: Buffer;
-  if (photo.url.startsWith("/images/")) {
+  if (
+    photo.url.startsWith("/images/") ||
+    photo.url.startsWith("/media/drive-projects/")
+  ) {
     bytes = await readFile(path.join(process.cwd(), "public", photo.url));
   } else {
     const url = new URL(photo.url);
