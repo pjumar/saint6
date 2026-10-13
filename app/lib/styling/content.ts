@@ -127,10 +127,31 @@ const summaryFields = [
 const fullPopulate = {
   "populate[cover]": "true",
   "populate[social_image]": "true",
-  "populate[video_files]": "true",
   "populate[gallery][populate][image]": "true",
   "populate[credits]": "true",
 };
+let videoFilesUnsupportedUntil = 0;
+async function readFullProject(
+  locale: StylingLocale,
+  params: Record<string, string>,
+) {
+  const base = { ...fullPopulate, ...params };
+  if (Date.now() < videoFilesUnsupportedUntil)
+    return read(locale, "styling-projects", base);
+  try {
+    return await read(locale, "styling-projects", {
+      ...base,
+      "populate[video_files]": "true",
+    });
+  } catch (error) {
+    if (!(error instanceof Error) || !error.message.includes("(400)"))
+      throw error;
+    // The website can deploy before Strapi Cloud finishes adding this field.
+    // Retry the old schema and probe again after its normal one-hour cache window.
+    videoFilesUnsupportedUntil = Date.now() + 3600_000;
+    return read(locale, "styling-projects", base);
+  }
+}
 function projectRecord(project: StylingProject, full: boolean): StylingProject {
   if (
     !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(project.slug) ||
@@ -173,18 +194,24 @@ const readProjects = cache(
       "sort[1]": "slug:asc",
       "pagination[pageSize]": "100",
     };
-    const first = await read(locale, "styling-projects", {
+    const firstParams = {
       ...params,
       "pagination[page]": "1",
-    });
+    };
+    const first = full
+      ? await readFullProject(locale, firstParams)
+      : await read(locale, "styling-projects", firstParams);
     if (!Array.isArray(first.data))
       throw new Error("Incomplete styling project pagination");
     const projects = [...first.data];
     for (let n = 2; n <= (first.meta?.pagination?.pageCount || 1); n++) {
-      const result = await read(locale, "styling-projects", {
+      const pageParams = {
         ...params,
         "pagination[page]": String(n),
-      });
+      };
+      const result = full
+        ? await readFullProject(locale, pageParams)
+        : await read(locale, "styling-projects", pageParams);
       if (!Array.isArray(result.data) || !result.data.length)
         throw new Error("Incomplete styling project pagination");
       projects.push(...result.data);
@@ -226,8 +253,7 @@ export const getStylingProject = cache(
       return (
         featured || seed.projects[locale].find((p) => p.slug === slug) || null
       );
-    const result = await read(locale, "styling-projects", {
-      ...fullPopulate,
+    const result = await readFullProject(locale, {
       "filters[slug][$eq]": slug,
       "pagination[pageSize]": "2",
     });
@@ -235,9 +261,11 @@ export const getStylingProject = cache(
       throw new Error("Incomplete styling project response");
     if (result.data.length > 1)
       throw new Error("Duplicate styling project URLs");
-    return result.data[0]
-      ? projectRecord(result.data[0], true)
-      : featured || null;
+    if (!result.data[0]) return featured || null;
+    const cmsProject = projectRecord(result.data[0], true);
+    return result.data[0].video_files === undefined && featured?.local_videos
+      ? { ...cmsProject, local_videos: featured.local_videos }
+      : cmsProject;
   },
 );
 // Full export remains available for import verification. Pages use lightweight lists.
