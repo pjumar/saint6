@@ -118,7 +118,7 @@ export default async function StylingPage({ params }: Props) {
               {page.clients.map((client) => (
                 <Link
                   key={client.name}
-                  href={`/${locale}/styling/projects?q=${encodeURIComponent(client.name)}#portfolio-results`}
+                  href={`/${locale}/portfolio?q=${encodeURIComponent(client.name)}#portfolio-results`}
                   aria-label={`${client.name} — ${vi ? "xem dự án" : "view projects"}`}
                 >
                   <svg
@@ -169,10 +169,7 @@ export default async function StylingPage({ params }: Props) {
                 ))}
             </section>
             <div className={styles.archiveCta}>
-              <Link
-                href={`/${locale}/styling/projects`}
-                className={styles.button}
-              >
+              <Link href={`/${locale}/portfolio`} className={styles.button}>
                 {vi ? "Khám phá tất cả dự án" : "Explore all projects"}{" "}
                 <span aria-hidden="true">↗</span>
               </Link>

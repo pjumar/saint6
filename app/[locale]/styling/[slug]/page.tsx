@@ -236,11 +236,8 @@ export default async function StylingProjectPage({ params }: Props) {
               <h2 id="more-styling">
                 {vi ? "Khám phá thêm" : "More perspectives"}
               </h2>
-              <Link
-                href={`/${locale}/styling/projects`}
-                className={styles.textLink}
-              >
-                {vi ? "Tất cả dự án" : "All styling projects"} ↗
+              <Link href={`/${locale}/portfolio`} className={styles.textLink}>
+                {vi ? "Tất cả dự án" : "All projects"} ↗
               </Link>
             </div>
             <div className={styles.projectGrid}>

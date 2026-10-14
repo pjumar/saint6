@@ -58,19 +58,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const styling = await Promise.all(
     (["en", "vi"] as const).map(async (locale) => {
       const projects = await getStylingProjectSummaries(locale);
-      return [
-        "",
-        "/projects",
-        ...projects.map((project) => `/${project.slug}`),
-      ].map((path) => ({
-        url: `${BASE_URL}/${locale}/styling${path}`,
-        alternates: {
-          languages: {
-            en: `${BASE_URL}/en/styling${path}`,
-            vi: `${BASE_URL}/vi/styling${path}`,
+      return ["", ...projects.map((project) => `/${project.slug}`)].map(
+        (path) => ({
+          url: `${BASE_URL}/${locale}/styling${path}`,
+          alternates: {
+            languages: {
+              en: `${BASE_URL}/en/styling${path}`,
+              vi: `${BASE_URL}/vi/styling${path}`,
+            },
           },
-        },
-      }));
+        }),
+      );
     }),
   );
   return [...existing, ...rooms, ...styling.flat()];
