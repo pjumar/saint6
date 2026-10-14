@@ -11,6 +11,25 @@ export const serviceCategories = {
 } as const;
 export type ServiceCategory = keyof typeof serviceCategories;
 
+export function portfolioSeoTitle(
+  locale: StylingLocale,
+  category: string,
+  page = 1,
+): string {
+  const service = Object.hasOwn(serviceCategories, category)
+    ? serviceCategories[category as ServiceCategory][locale]
+    : "";
+  const label =
+    locale === "vi"
+      ? service
+        ? `Dự án ${service}`
+        : "Dự án"
+      : service
+        ? `${service} Projects`
+        : "Portfolio";
+  return `${label}${page > 1 ? ` · ${locale === "vi" ? "Trang" : "Page"} ${page}` : ""} | Saint 6 Studio`;
+}
+
 export interface PortfolioListingProject {
   id: string;
   title: string;

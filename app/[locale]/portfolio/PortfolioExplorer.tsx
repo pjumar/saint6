@@ -13,6 +13,7 @@ import {
   type PortfolioListingProject,
   portfolioHref,
   portfolioResults,
+  portfolioSeoTitle,
   serviceCategories,
 } from "@/app/lib/portfolio/listing";
 import type { StylingLocale } from "@/app/lib/styling/types";
@@ -89,12 +90,8 @@ export function PortfolioExplorer({ locale, all, initialFilters }: Props) {
   }, []);
 
   useEffect(() => {
-    const title = vi ? "Portfolio dự án" : "Our portfolio";
-    const category = filters.category
-      ? ` · ${serviceCategories[filters.category as keyof typeof serviceCategories][locale]}`
-      : "";
-    document.title = `Saint 6 Studios | ${title}${category}`;
-  }, [filters.category, locale, vi]);
+    document.title = portfolioSeoTitle(locale, filters.category, page);
+  }, [filters.category, locale, page]);
 
   function navigate(next: Filters, scrollToResults = false) {
     const href = portfolioHref(locale, next.category, next.query, next.page);

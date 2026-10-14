@@ -21,6 +21,7 @@ interface HeroSectionProps {
   showDecorativeLine?: boolean;
   imageFit?: "cover" | "contain";
   backgroundContent?: ReactNode;
+  languageHref?: string;
 }
 
 export function HeroSection({
@@ -32,6 +33,7 @@ export function HeroSection({
   showDecorativeLine = false,
   imageFit = "cover",
   backgroundContent,
+  languageHref,
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -173,6 +175,7 @@ export function HeroSection({
           isMenuOpen={isMenuOpen}
           isClosing={isClosing}
           onMenuToggle={handleMenuToggle}
+          languageHref={languageHref}
         />
 
         <div ref={heroContentRef} className={styles.heroContentWrapper}>
@@ -232,13 +235,17 @@ export function HeroSection({
               >
                 {t.NAVIGATION.ABOUT_US}
               </Link>
-              <LanguageSelector />
+              <LanguageSelector languageHref={languageHref} />
             </div>
           </div>
         </div>
       </section>
       {(isMenuOpen || isClosing) && (
-        <MenuOverlay onClose={handleMenuToggle} isClosing={isClosing} />
+        <MenuOverlay
+          onClose={handleMenuToggle}
+          isClosing={isClosing}
+          languageHref={languageHref}
+        />
       )}
     </>
   );

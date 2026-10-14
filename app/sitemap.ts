@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
-import { getRentalRooms } from "@/app/lib/studio-rental/rooms";
 import {
-  getStylingProjectSummaries,
-  stylingIsPublic,
-} from "@/app/lib/styling/content";
+  getPortfolioProjects,
+  translatedProject,
+} from "@/app/lib/portfolio/content";
+import { getRentalRooms } from "@/app/lib/studio-rental/rooms";
+import { stylingIsPublic } from "@/app/lib/styling/content";
 
 const BASE_URL = "https://www.saint6.studio";
 
@@ -54,22 +55,64 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ),
     )
   ).flat();
-  if (!stylingIsPublic) return [...existing, ...rooms];
-  const styling = await Promise.all(
-    (["en", "vi"] as const).map(async (locale) => {
-      const projects = await getStylingProjectSummaries(locale);
-      return ["", ...projects.map((project) => `/${project.slug}`)].map(
-        (path) => ({
-          url: `${BASE_URL}/${locale}/styling${path}`,
-          alternates: {
-            languages: {
-              en: `${BASE_URL}/en/styling${path}`,
-              vi: `${BASE_URL}/vi/styling${path}`,
-            },
+  const [enProjects, viProjects] = await Promise.all([
+    getPortfolioProjects("en"),
+    getPortfolioProjects("vi"),
+  ]);
+  const projectPages: MetadataRoute.Sitemap = (
+    [
+      [enProjects, viProjects],
+      [viProjects, enProjects],
+    ] as const
+  ).flatMap(([projects, translated]) =>
+    projects
+      .filter((project) => !project.id.startsWith("styling-"))
+      .map((project) => {
+        const alternate = translatedProject(project, translated);
+        const language = project.href.startsWith("/en/") ? "en" : "vi";
+        return {
+          url: `${BASE_URL}${project.href}`,
+          ...(alternate
+            ? {
+                alternates: {
+                  languages: {
+                    [language]: `${BASE_URL}${project.href}`,
+                    [language === "en" ? "vi" : "en"]:
+                      `${BASE_URL}${alternate.href}`,
+                  },
+                },
+              }
+            : {}),
+          changeFrequency: "weekly" as const,
+          priority: 0.7,
+        };
+      }),
+  );
+  if (!stylingIsPublic) return [...existing, ...rooms, ...projectPages];
+  const styling: MetadataRoute.Sitemap = (
+    [
+      ["en", enProjects],
+      ["vi", viProjects],
+    ] as const
+  ).flatMap(([locale, projects]) =>
+    [
+      `/${locale}/styling`,
+      ...projects
+        .filter((project) => project.id.startsWith("styling-"))
+        .map((project) => project.href),
+    ].map((path) => {
+      const otherLocale = locale === "en" ? "vi" : "en";
+      const otherPath = `/${otherLocale}${path.slice(locale.length + 1)}`;
+      return {
+        url: `${BASE_URL}${path}`,
+        alternates: {
+          languages: {
+            [locale]: `${BASE_URL}${path}`,
+            [otherLocale]: `${BASE_URL}${otherPath}`,
           },
-        }),
-      );
+        },
+      };
     }),
   );
-  return [...existing, ...rooms, ...styling.flat()];
+  return [...existing, ...rooms, ...projectPages, ...styling];
 }

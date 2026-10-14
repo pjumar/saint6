@@ -14,12 +14,14 @@ interface MenuOverlayProps {
   isClosing: boolean;
   onClose: () => void;
   externalCloseButton?: boolean;
+  languageHref?: string;
 }
 
 export function MenuOverlay({
   isClosing,
   onClose,
   externalCloseButton = false,
+  languageHref,
 }: MenuOverlayProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
@@ -154,7 +156,7 @@ export function MenuOverlay({
           >
             {t.NAVIGATION.ABOUT_US}
           </Link>
-          <LanguageSelector variant="menu" />
+          <LanguageSelector variant="menu" languageHref={languageHref} />
         </div>
         <div className={styles.menuFooterRight}>
           <SocialLinks variant="menu" />

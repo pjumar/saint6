@@ -93,6 +93,7 @@ export interface StrapiBrandLogo {
 
 export interface StrapiKeyProject {
   id: number;
+  documentId: string;
   title: string;
   slug: string;
   project_number: string;
@@ -108,6 +109,8 @@ export interface StrapiKeyProject {
     role: string;
   };
   is_featured: boolean;
+  seo_title?: string;
+  seo_description?: string;
 }
 
 export interface StrapiEventProject {
@@ -121,10 +124,13 @@ export interface StrapiEventProject {
   credits?: { role: string; name: string }[];
   images: StrapiImage[];
   order: number;
+  seo_title?: string;
+  seo_description?: string;
 }
 
 export interface StrapiStudioRoom {
   id: number;
+  documentId: string;
   title: string;
   slug: string;
   type: "blank" | "concept";
@@ -140,6 +146,8 @@ export interface StrapiStudioRoom {
   hero_image?: StrapiImage;
   gallery?: StrapiImage[];
   order: number;
+  seo_title?: string;
+  seo_description?: string;
 }
 
 export interface StrapiEquipmentItem {
@@ -160,6 +168,7 @@ export interface StrapiFaqItem {
 
 export interface StrapiPortfolioItem {
   id: number;
+  documentId: string;
   title: string;
   category?: string;
   summary?: string;
@@ -172,6 +181,8 @@ export interface StrapiPortfolioItem {
   order?: number;
   createdAt?: string;
   updatedAt?: string;
+  seo_title?: string;
+  seo_description?: string;
 }
 
 export interface StrapiTestimonialItem {

@@ -6,6 +6,7 @@ import { HeroSection } from "@/app/components/hero-section/HeroSection";
 import {
   getPortfolioProjects,
   serviceCategories,
+  translatedProject,
 } from "@/app/lib/portfolio/content";
 import type { StylingLocale } from "@/app/lib/styling/types";
 import styles from "./ProjectDetail.module.css";
@@ -16,31 +17,74 @@ export const revalidate = 3600;
 async function content(params: Props["params"]) {
   const { locale, id } = await params;
   if (locale !== "en" && locale !== "vi") notFound();
-  const projects = await getPortfolioProjects(locale);
+  const otherLocale = locale === "en" ? "vi" : "en";
+  const [projects, otherProjects] = await Promise.all([
+    getPortfolioProjects(locale),
+    getPortfolioProjects(otherLocale),
+  ]);
   const project = projects.find(
     (entry) => entry.id === id && !entry.id.startsWith("styling-"),
   );
   if (!project) notFound();
-  return { locale: locale as StylingLocale, project, projects };
+  const alternate = translatedProject(project, otherProjects);
+  return { locale: locale as StylingLocale, project, projects, alternate };
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { locale, project } = await content(params);
+  const { locale, project, alternate } = await content(params);
+  const title = project.seoTitle?.trim() || `${project.title} | Saint 6 Studio`;
+  const summary = project.summary.trim().replace(/\s+/g, " ");
+  const shortSummary =
+    summary.length > 160
+      ? `${summary.slice(0, 159).replace(/\s+\S*$/, "")}…`
+      : summary;
+  const services = project.services
+    .map((service) => serviceCategories[service][locale])
+    .join(", ");
+  const description =
+    project.seoDescription?.trim() ||
+    shortSummary ||
+    (locale === "vi"
+      ? `Khám phá dự án ${project.title}${services ? ` thuộc mảng ${services}` : ""} của Saint 6 Studio.`
+      : `Explore ${project.title}${services ? ` — ${services}` : ""} by Saint 6 Studio.`);
+  const url = `https://www.saint6.studio${project.href}`;
   return {
-    title: `${project.title} | Saint 6 Studio`,
-    description:
-      project.summary ||
-      `${project.title} — ${project.services.map((service) => serviceCategories[service][locale]).join(", ")} by Saint 6 Studio.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/${locale}/projects/${encodeURIComponent(project.id)}`,
+      canonical: url,
+      ...(alternate
+        ? {
+            languages: {
+              [locale]: url,
+              [locale === "en" ? "vi" : "en"]:
+                `https://www.saint6.studio${alternate.href}`,
+            },
+          }
+        : {}),
     },
-    openGraph: { images: [project.image] },
+    openGraph: {
+      type: "website",
+      title,
+      description,
+      url,
+      locale: locale === "vi" ? "vi_VN" : "en_US",
+      siteName: "Saint 6 Studio",
+      images: [{ url: project.image, alt: project.imageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [project.image],
+    },
   };
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-  const { locale, project, projects } = await content(params);
+  const { locale, project, projects, alternate } = await content(params);
   const vi = locale === "vi";
+  const languageHref = alternate?.href || `/${vi ? "en" : "vi"}/portfolio`;
   const images = project.images?.length
     ? project.images
     : [{ url: project.image, alt: project.imageAlt, width: 1200, height: 800 }];
@@ -59,6 +103,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           heading={project.title}
           backgroundImage={project.image}
           backgroundAlt={project.imageAlt}
+          languageHref={languageHref}
           showScrollIndicator
         />
         <div className={styles.container}>
@@ -77,7 +122,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <section className={styles.intro}>
             <div>
               <p className={styles.label}>{project.category}</p>
-              <h1>{project.title}</h1>
+              <h2>{project.title}</h2>
               <div className={styles.services}>
                 {project.services.map((service) => (
                   <span key={service}>

@@ -26,22 +26,37 @@ async function content(params: Props["params"]) {
 
 export async function generateMetadata({ params }: Props) {
   const { locale, room } = await content(params);
-  const title = `${room.title} | ${locale === "vi" ? "Thuê studio" : "Studio rental"}`;
-  const description = `${room.title} · ${room.space}. ${room.description}`;
+  const title =
+    room.seoTitle?.trim() ||
+    `${room.title} | ${locale === "vi" ? "Thuê studio" : "Studio rental"} | Saint 6`;
+  const description =
+    room.seoDescription?.trim() ||
+    `${room.title} · ${room.space}. ${room.description}`;
+  const url = `https://www.saint6.studio/${locale}/studio-rental/rooms/${room.id}`;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
-      canonical: `/${locale}/studio-rental/rooms/${room.id}`,
+      canonical: url,
       languages: {
         en: `/en/studio-rental/rooms/${room.id}`,
         vi: `/vi/studio-rental/rooms/${room.id}`,
       },
     },
     openGraph: {
+      type: "website",
       title,
       description,
+      url,
+      locale: locale === "vi" ? "vi_VN" : "en_US",
+      siteName: "Saint 6 Studio",
       images: [{ url: room.heroImageUrl, alt: room.heroImageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [room.heroImageUrl],
     },
   };
 }

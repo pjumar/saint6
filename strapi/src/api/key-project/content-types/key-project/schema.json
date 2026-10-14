@@ -98,6 +98,14 @@
           "localized": false
         }
       }
+    },
+    "seo_title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "seo_description": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
     }
   }
 }
