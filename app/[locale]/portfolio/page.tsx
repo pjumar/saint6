@@ -35,7 +35,7 @@ async function pageState({ params, searchParams }: Props) {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { locale, category, query, page } = await pageState(props);
   const vi = locale === "vi";
-  const title = `${vi ? "Portfolio dự án" : "Our portfolio"}${category ? ` · ${serviceCategories[category as keyof typeof serviceCategories][locale]}` : ""}`;
+  const title = `${vi ? "Dự án Saint 6" : "Saint 6 Projects"}${category ? ` · ${serviceCategories[category as keyof typeof serviceCategories][locale]}` : ""}`;
   const description = vi
     ? "Khám phá các dự án của Saint 6 trong thiết kế bối cảnh, sản xuất, tổ chức sự kiện, trang trí, sáng tạo và styling."
     : "Explore Saint 6 projects across set design, production, event planning, decor, creative direction and styling.";
@@ -103,7 +103,6 @@ export default async function PortfolioPage(props: Props) {
               query,
               page,
             )}
-            theme="red"
           />
         </div>
         <header className={`${styles.container} ${styles.heading}`}>
@@ -111,7 +110,7 @@ export default async function PortfolioPage(props: Props) {
             SAINT 6 / {vi ? "DỰ ÁN" : "OUR PORTFOLIO"}
           </p>
           <h1>
-            {vi ? "Những câu chuyện đã thành hình." : "Ideas brought to life."}
+            {vi ? "Dấu ấn Saint 6 qua từng dự án." : "Our work, in every form."}
           </h1>
           <p>
             {vi

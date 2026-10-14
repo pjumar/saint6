@@ -31,7 +31,6 @@ export async function POST(request: Request) {
   for (const locale of ["en", "vi"]) {
     revalidatePath(`/${locale}/portfolio`);
     revalidatePath(`/${locale}/styling`);
-    revalidatePath(`/${locale}/styling/projects`);
     for (const slug of new Set(slugs))
       revalidatePath(`/${locale}/styling/${slug}`);
   }
