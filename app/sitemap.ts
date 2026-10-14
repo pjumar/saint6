@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getRentalRooms } from "@/app/lib/studio-rental/rooms";
 import {
   getStylingProjectSummaries,
   stylingIsPublic,
@@ -34,7 +35,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: route === "" ? 1 : 0.8,
     })),
   );
-  if (!stylingIsPublic) return existing;
+  const rooms = (
+    await Promise.all(
+      (["en", "vi"] as const).map(async (locale) =>
+        (
+          await getRentalRooms(locale)
+        ).map((room) => ({
+          url: `${BASE_URL}${room.href}`,
+          alternates: {
+            languages: {
+              en: `${BASE_URL}/en/studio-rental/rooms/${room.id}`,
+              vi: `${BASE_URL}/vi/studio-rental/rooms/${room.id}`,
+            },
+          },
+          changeFrequency: "weekly" as const,
+          priority: 0.7,
+        })),
+      ),
+    )
+  ).flat();
+  if (!stylingIsPublic) return [...existing, ...rooms];
   const styling = await Promise.all(
     (["en", "vi"] as const).map(async (locale) => {
       const projects = await getStylingProjectSummaries(locale);
@@ -53,5 +73,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
     }),
   );
-  return [...existing, ...styling.flat()];
+  return [...existing, ...rooms, ...styling.flat()];
 }

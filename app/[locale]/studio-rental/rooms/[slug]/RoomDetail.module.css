@@ -1,0 +1,260 @@
+.page {
+  background: #f6f4f2;
+  color: #231d1d;
+  padding: 0 0 7rem;
+}
+
+.siteNav {
+  width: min(100% - 3rem, 86rem);
+  margin: 0 auto;
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid #c7bfba;
+}
+
+.siteNav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.siteNav a:hover {
+  color: #860e00;
+}
+
+.wordmark {
+  white-space: nowrap;
+  font: 400 1.8rem / 1 var(--font-title);
+  letter-spacing: -0.05em;
+}
+
+.wordmark small {
+  font: 700 0.48rem / 1 var(--font-mono);
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}
+
+.siteLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font: 700 0.7rem / 1.4 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.container {
+  width: min(100% - 3rem, 86rem);
+  margin: 0 auto;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: center;
+  font: 500 0.75rem / 1.5 var(--font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.breadcrumbs a,
+.allRooms {
+  color: #860e00;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.allRooms:hover {
+  text-decoration: underline;
+}
+
+.header {
+  max-width: 64rem;
+  padding: clamp(3rem, 7vw, 6rem) 0 2.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font: 700 0.75rem / 1.5 var(--font-mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #860e00;
+}
+
+.header h1,
+.sectionHeading h2,
+.details h2 {
+  font-family: var(--font-title);
+  font-weight: 300;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.header h1 {
+  font-size: clamp(3.25rem, 9vw, 8rem);
+}
+
+.lead {
+  max-width: 48rem;
+  font: 400 clamp(1.1rem, 2vw, 1.5rem) / 1.55 var(--font-body);
+  margin: 2rem 0 0;
+}
+
+.heroImage {
+  background: #e9e4df;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20rem;
+}
+
+.heroImage img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.8fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  padding: clamp(4rem, 8vw, 8rem) 0;
+}
+
+.details h2,
+.sectionHeading h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.details p {
+  font: 400 1.1rem / 1.65 var(--font-body);
+  max-width: 42rem;
+}
+
+.details .price {
+  color: #860e00;
+  font-weight: 500;
+  margin: 2rem 0;
+}
+
+.specs {
+  margin: 0;
+  align-self: start;
+  border-top: 1px solid #c7bfba;
+}
+
+.specs > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #c7bfba;
+}
+
+.specs dt {
+  font: 700 0.72rem / 1.5 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.specs dd {
+  margin: 0;
+  font: 400 1rem / 1.55 var(--font-body);
+}
+
+.gallery,
+.related {
+  padding-top: clamp(2rem, 5vw, 5rem);
+}
+
+.sectionHeading {
+  margin-bottom: 2.5rem;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+
+.galleryGrid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 50rem;
+  object-fit: contain;
+  background: #e9e4df;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.relatedCard {
+  color: inherit;
+  font: 400 1.4rem / 1.3 var(--font-title);
+  text-decoration: none;
+}
+
+.relatedCard img {
+  display: block;
+  width: 100%;
+  height: 18rem;
+  object-fit: contain;
+  background: #e9e4df;
+  margin-bottom: 1rem;
+}
+
+.relatedCard:hover span {
+  color: #860e00;
+}
+
+.allRooms {
+  display: inline-block;
+  margin-top: 2rem;
+  font: 500 1rem / 1.5 var(--font-body);
+}
+
+@media (max-width: 760px) {
+  .siteNav {
+    width: min(100% - 2rem, 40rem);
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+  }
+
+  .siteLinks {
+    gap: 0.75rem 1rem;
+  }
+
+  .container {
+    width: min(100% - 2rem, 40rem);
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .relatedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .relatedGrid {
+    grid-template-columns: 1fr;
+  }
+}

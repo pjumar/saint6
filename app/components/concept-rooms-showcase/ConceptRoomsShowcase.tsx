@@ -4,8 +4,8 @@ import type { BookingRoomData } from "@/app/components/booking-modal/BookingModa
 import { ConceptRoomCard } from "@/app/components/concept-room-card/ConceptRoomCard";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 import { useScrollAnimation, useScrollAnimationChildren } from "@/app/hooks";
-import styles from "./ConceptRoomsShowcase.module.css";
 import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
+import styles from "./ConceptRoomsShowcase.module.css";
 
 export interface GalleryImage {
   url: string;
@@ -14,6 +14,7 @@ export interface GalleryImage {
 
 export interface ConceptRoom {
   id: string;
+  href?: string;
   imageUrl: string;
   title: string;
   pricePerHour: string;
