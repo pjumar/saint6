@@ -1,5 +1,8 @@
 import type { Core } from "@strapi/strapi";
-import { configureStylingEditor } from "./lib/styling-editor";
+import {
+  configureRecentProjectFields,
+  configureStylingEditor,
+} from "./lib/styling-editor";
 import { registerStylingValidation } from "./lib/styling-validation";
 
 export default {
@@ -22,6 +25,7 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     await configureStylingEditor(strapi);
+    await configureRecentProjectFields(strapi);
     // Add Vietnamese locale if it doesn't exist
     const localeService = strapi.plugin("i18n")?.service("locales");
 

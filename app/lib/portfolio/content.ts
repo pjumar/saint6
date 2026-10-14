@@ -16,6 +16,7 @@ import {
   stylingEnabled,
 } from "@/app/lib/styling/content";
 import { searchText } from "@/app/lib/styling/portfolio";
+import { projectThumbnail } from "@/app/lib/styling/project-thumbnails";
 import type { StylingLocale } from "@/app/lib/styling/types";
 import {
   type PortfolioListingProject,
@@ -190,13 +191,16 @@ export const getPortfolioProjects = cache(async (locale: StylingLocale) => {
     });
   }
   for (const entry of styling) {
+    const { image, fit, background } = projectThumbnail(entry);
     const item: PortfolioProject = {
       id: `styling-${entry.slug}`,
       title: entry.title,
       category: entry.category,
       summary: entry.summary,
-      image: entry.cover.url,
-      imageAlt: entry.cover.alternativeText,
+      image: image.url,
+      imageAlt: image.alternativeText,
+      imageFit: fit,
+      imageBackground: background,
       href: `/${locale}/styling/${entry.slug}`,
       services: ["styling"],
     };

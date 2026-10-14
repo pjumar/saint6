@@ -13,7 +13,9 @@ const help: Record<string, string> = {
   hero_panels:
     "Up to three photographs for the desktop collage, in left-to-right order.",
   cover:
-    "Portfolio thumbnail and main project artwork. Choose a sharp, representative photograph.",
+    "Main project artwork on the detail page. Choose a sharp, representative photograph.",
+  thumbnail:
+    "Optional image for portfolio cards. Leave empty to use the cover. Square artwork is shown in full with matching space above and below.",
   cover_alt:
     "Describe the cover image in the current language, without keyword stuffing.",
   gallery:
@@ -134,6 +136,7 @@ export async function configureStylingEditor(strapi: Core.Strapi) {
       "summary",
       "body",
       "cover",
+      "thumbnail",
       "cover_alt",
       "gallery",
       "video_url",
@@ -205,4 +208,97 @@ export async function configureStylingEditor(strapi: Core.Strapi) {
     });
   }
   await marker.set({ value: true });
+}
+
+// Add recently introduced fields to saved editor layouts without resetting
+// any subsequent layout changes made by editors in Strapi.
+export async function configureRecentProjectFields(strapi: Core.Strapi) {
+  const service = strapi.plugin("content-manager").service("content-types");
+  const additions: Record<
+    string,
+    { name: string; after: string; description: string }[]
+  > = {
+    "styling-project": [
+      { name: "thumbnail", after: "cover", description: help.thumbnail },
+    ],
+    "event-project": [
+      {
+        name: "summary",
+        after: "category",
+        description: "Short introduction shown on the portfolio card.",
+      },
+      {
+        name: "body",
+        after: "summary",
+        description: "Project detail paragraphs, separated by blank lines.",
+      },
+      {
+        name: "credits",
+        after: "body",
+        description: "People and roles shown on the project detail page.",
+      },
+    ],
+    "portfolio-item": [
+      {
+        name: "summary",
+        after: "category",
+        description: "Short introduction shown on the portfolio card.",
+      },
+      {
+        name: "body",
+        after: "summary",
+        description: "Project detail paragraphs, separated by blank lines.",
+      },
+      {
+        name: "gallery",
+        after: "image",
+        description: "Additional images shown on the project detail page.",
+      },
+      {
+        name: "credits",
+        after: "gallery",
+        description: "People and roles shown on the project detail page.",
+      },
+    ],
+    "studio-room": [
+      {
+        name: "hero_image",
+        after: "image",
+        description: "Wide image shown at the top of the room detail page.",
+      },
+    ],
+  };
+  for (const [name, fields] of Object.entries(additions)) {
+    const model = strapi.contentType(`api::${name}.${name}` as never);
+    const config = await service.findConfiguration(model);
+    const edit = config.layouts.edit.map((row) => [...row]);
+    const metadatas = { ...config.metadatas };
+    let changed = false;
+    for (const field of fields) {
+      if (edit.some((row) => row.some((item) => item.name === field.name)))
+        continue;
+      const afterIndex = edit.findIndex((row) =>
+        row.some((item) => item.name === field.after),
+      );
+      edit.splice(afterIndex < 0 ? edit.length : afterIndex + 1, 0, [
+        { name: field.name, size: 12 },
+      ]);
+      const existing = metadatas[field.name] || {};
+      metadatas[field.name] = {
+        ...existing,
+        edit: {
+          ...existing.edit,
+          description: field.description,
+          visible: true,
+        },
+      };
+      changed = true;
+    }
+    if (changed)
+      await service.updateConfiguration(model, {
+        ...config,
+        metadatas,
+        layouts: { ...config.layouts, edit },
+      });
+  }
 }

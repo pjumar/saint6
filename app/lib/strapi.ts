@@ -641,8 +641,12 @@ export async function getStudioRentalPage(locale: string = "en") {
     hero: { populate: "*" },
     intro: { populate: "*" },
     stats: { populate: "*" },
-    rooms: { populate: "*" },
-    concept_rooms: { populate: "*" },
+    rooms: {
+      populate: { image: true, gallery: true, hero_image: true },
+    },
+    concept_rooms: {
+      populate: { image: true, gallery: true, hero_image: true },
+    },
     full_rental: { populate: "*" },
     facilities: { populate: "*" },
     equipment: { populate: { image: { populate: "*" } } },
@@ -665,7 +669,9 @@ export async function getCreativePage(locale: string = "en") {
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
-    portfolio_items: { populate: "*" },
+    portfolio_items: {
+      populate: { image: true, gallery: true, credits: true },
+    },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -706,7 +712,9 @@ export async function getSetDesignPage(locale: string = "en") {
     intro: { populate: "*" },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
-    portfolio_items: { populate: "*" },
+    portfolio_items: {
+      populate: { image: true, gallery: true, credits: true },
+    },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -724,7 +732,7 @@ export async function getEventPlanningPage(locale: string = "en") {
     intro_2: { populate: "*" },
     services: { populate: { image: { populate: "*" } } },
     workflow: { populate: { image: { populate: "*" } } },
-    event_projects: { populate: "*" },
+    event_projects: { populate: { images: true, credits: true } },
     testimonials: { populate: { brand_logo: { populate: "*" } } },
   };
 
@@ -742,7 +750,9 @@ export async function getDecorPage(locale: string = "en") {
     intro_2: { populate: "*" },
     workflow: { populate: { image: { populate: "*" } } },
     portfolio_settings: { populate: "*" },
-    portfolio_items: { populate: "*" },
+    portfolio_items: {
+      populate: { image: true, gallery: true, credits: true },
+    },
   };
 
   return fetchStrapi<StrapiDecorPage>("decor-page", {
@@ -825,7 +835,7 @@ export async function getFeaturedProject(locale: string = "en") {
 
 export async function getStudioRooms(type?: "blank" | "concept") {
   const rooms = await fetchStrapi<StrapiStudioRoom[]>("studio-rooms", {
-    populate: ["image", "gallery"],
+    populate: ["image", "gallery", "hero_image"],
     revalidate: 3600,
   });
 
@@ -857,7 +867,7 @@ export async function getPortfolioItems(
   page?: "creative" | "set-design" | "decor",
 ) {
   const items = await fetchStrapi<StrapiPortfolioItem[]>("portfolio-items", {
-    populate: ["image"],
+    populate: ["image", "gallery", "credits"],
     revalidate: 3600,
   });
 

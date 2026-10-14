@@ -93,6 +93,18 @@
         }
       }
     },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "gallery": {
       "type": "component",
       "repeatable": true,
