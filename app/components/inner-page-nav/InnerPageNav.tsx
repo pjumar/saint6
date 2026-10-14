@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
+import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import type { Locale } from "@/app/types";
 import styles from "./InnerPageNav.module.css";
 
@@ -15,26 +17,20 @@ type Props = {
 export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
   const vi = locale === "vi";
   const serviceMenuRef = useRef<HTMLDetailsElement>(null);
-  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
   const desktopRoomsRef = useRef<HTMLDetailsElement>(null);
-  const mobileRoomsRef = useRef<HTMLDetailsElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const closeOnOutsideClick = (event: PointerEvent) => {
       if (!(event.target instanceof Node)) return;
-      for (const menu of [serviceMenuRef.current, mobileMenuRef.current]) {
-        if (menu && !menu.contains(event.target)) menu.open = false;
-      }
-      for (const menu of [desktopRoomsRef.current, mobileRoomsRef.current]) {
+      for (const menu of [serviceMenuRef.current, desktopRoomsRef.current]) {
         if (menu && !menu.contains(event.target)) menu.open = false;
       }
     };
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
       serviceMenuRef.current?.removeAttribute("open");
-      mobileMenuRef.current?.removeAttribute("open");
       desktopRoomsRef.current?.removeAttribute("open");
-      mobileRoomsRef.current?.removeAttribute("open");
     };
     document.addEventListener("pointerdown", closeOnOutsideClick);
     document.addEventListener("keydown", closeOnEscape);
@@ -72,11 +68,8 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
     { label: vi ? "Liên hệ" : "Contact", href: `/${locale}/contact` },
   ];
 
-  const roomSubmenu = (mobile: boolean) => (
-    <details
-      className={styles.roomSubmenu}
-      ref={mobile ? mobileRoomsRef : desktopRoomsRef}
-    >
+  const roomSubmenu = (
+    <details className={styles.roomSubmenu} ref={desktopRoomsRef}>
       <summary
         aria-label={
           vi ? "Thuê studio, mở danh sách phòng" : "Studio rental, show rooms"
@@ -118,7 +111,7 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
         </svg>
       </summary>
       <div className={styles.dropdownPanel}>
-        {roomSubmenu(false)}
+        {roomSubmenu}
         {services.map((service) => (
           <Link
             key={service.slug}
@@ -134,55 +127,27 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
   );
 
   return (
-    <nav
-      className={`${styles.nav} ${theme === "red" ? styles.red : styles.light}`}
-      aria-label={vi ? "Điều hướng chính" : "Main navigation"}
-    >
-      <Link
-        className={styles.logo}
-        href={`/${locale}`}
-        aria-label="Saint 6 Studios home"
-        prefetch={false}
+    <>
+      <nav
+        className={`${styles.nav} ${theme === "red" ? styles.red : styles.light}`}
+        aria-label={vi ? "Điều hướng chính" : "Main navigation"}
       >
-        <Image
-          src="/assets/saint6-logo.svg"
-          alt="Saint 6 Studios"
-          width={171}
-          height={36}
-          priority
-        />
-      </Link>
-      <div className={styles.desktopLinks}>
-        {serviceMenu}
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} prefetch={false}>
-            {link.label}
-          </Link>
-        ))}
-        <Link href={languageHref} hrefLang={vi ? "en" : "vi"} prefetch={false}>
-          {vi ? "EN" : "VI"}
+        <Link
+          className={styles.logo}
+          href={`/${locale}`}
+          aria-label="Saint 6 Studios home"
+          prefetch={false}
+        >
+          <Image
+            src="/assets/saint6-logo.svg"
+            alt="Saint 6 Studios"
+            width={171}
+            height={36}
+            priority
+          />
         </Link>
-      </div>
-      <details className={styles.mobileMenu} ref={mobileMenuRef}>
-        <summary>
-          {vi ? "Danh mục" : "Menu"}
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 10 10">
-            <path d="m1 3 4 4 4-4" />
-          </svg>
-        </summary>
-        <div className={styles.mobilePanel}>
-          <p>{vi ? "Dịch vụ" : "Services"}</p>
-          {roomSubmenu(true)}
-          {services.map((service) => (
-            <Link
-              key={service.slug}
-              href={`/${locale}/${service.slug}`}
-              aria-label={service.label}
-              prefetch={false}
-            >
-              {service.label}
-            </Link>
-          ))}
+        <div className={styles.desktopLinks}>
+          {serviceMenu}
           {links.map((link) => (
             <Link key={link.href} href={link.href} prefetch={false}>
               {link.label}
@@ -196,7 +161,21 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
             {vi ? "EN" : "VI"}
           </Link>
         </div>
-      </details>
-    </nav>
+        <div className={styles.mobileMenu}>
+          <HamburgerMenu
+            isOpen={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            ariaLabel={vi ? "Mở menu" : "Open menu"}
+            dark={theme === "light"}
+          />
+        </div>
+      </nav>
+      {mobileMenuOpen && (
+        <MenuOverlay
+          isClosing={false}
+          onClose={() => setMobileMenuOpen(false)}
+        />
+      )}
+    </>
   );
 }
