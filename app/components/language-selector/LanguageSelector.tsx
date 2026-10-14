@@ -63,7 +63,7 @@ export function LanguageSelector({
     variant === "menu" ? styles.menuCaretIcon : styles.caretIcon;
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
   };
 
   return (
