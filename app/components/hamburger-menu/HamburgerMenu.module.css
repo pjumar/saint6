@@ -40,6 +40,11 @@
   transform-origin: center;
 }
 
+.hamburgerMenuDark .hamburgerLineThin,
+.hamburgerMenuDark .hamburgerLineThick {
+  background: #231d1d;
+}
+
 .hamburgerLineThick {
   height: 0.25rem;
   background: var(--color-text-invert-100);

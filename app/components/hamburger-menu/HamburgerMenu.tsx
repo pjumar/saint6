@@ -8,18 +8,24 @@ interface HamburgerMenuProps {
   isOpen: boolean;
   onClick: () => void;
   ariaLabel?: string;
+  dark?: boolean;
 }
 
 export function HamburgerMenu({
   isOpen,
   onClick,
   ariaLabel = "Menu",
+  dark = false,
 }: HamburgerMenuProps) {
   return (
     <Button
       variant="ghost"
       size="icon"
-      className={cn(styles.hamburgerMenu, isOpen && styles.hamburgerMenuOpen)}
+      className={cn(
+        styles.hamburgerMenu,
+        isOpen && styles.hamburgerMenuOpen,
+        dark && styles.hamburgerMenuDark,
+      )}
       aria-label={ariaLabel}
       onClick={onClick}
     >
