@@ -161,6 +161,16 @@
     },
     "images": [
       {
+        "url": "/media/drive-projects/abbott-grow-gold-25-years-tvc-cover-2026.jpg",
+        "width": 686,
+        "height": 386
+      },
+      {
+        "url": "/media/drive-projects/abbott-grow-gold-25-years-tvc-gallery-2026.jpg",
+        "width": 738,
+        "height": 415
+      },
+      {
         "url": "/media/drive-projects/abbott-grow-gold-25-years-tvc-01.jpg",
         "width": 720,
         "height": 720
@@ -220,9 +230,19 @@
     },
     "images": [
       {
-        "url": "/media/drive-projects/clear-48h-toc-tien-tvc-01.jpg",
-        "width": 576,
-        "height": 1024
+        "url": "/media/drive-projects/clear-48h-toc-tien-tvc-cover-2026.jpg",
+        "width": 463,
+        "height": 663
+      },
+      {
+        "url": "/media/drive-projects/clear-48h-toc-tien-tvc-gallery-1-2026.jpg",
+        "width": 405,
+        "height": 720
+      },
+      {
+        "url": "/media/drive-projects/clear-48h-toc-tien-tvc-gallery-2-2026.jpg",
+        "width": 463,
+        "height": 663
       }
     ],
     "videos": [
@@ -363,6 +383,26 @@
       ]
     },
     "images": [
+      {
+        "url": "/media/drive-projects/lipice-sheer-color-q-lo-lem-cover-2026.jpg",
+        "width": 1365,
+        "height": 2048
+      },
+      {
+        "url": "/media/drive-projects/lipice-sheer-color-q-lo-lem-gallery-1-2026.jpg",
+        "width": 1365,
+        "height": 2048
+      },
+      {
+        "url": "/media/drive-projects/lipice-sheer-color-q-lo-lem-gallery-2-2026.jpg",
+        "width": 1327,
+        "height": 2048
+      },
+      {
+        "url": "/media/drive-projects/lipice-sheer-color-q-lo-lem-gallery-3-2026.jpg",
+        "width": 1200,
+        "height": 1200
+      },
       {
         "url": "/media/drive-projects/lipice-sheer-color-q-lo-lem-01.jpg",
         "width": 700,
@@ -1114,6 +1154,16 @@
         "url": "/media/drive-projects/sun-life-tron-ven-vi-nha-minh-01.jpg",
         "width": 1920,
         "height": 1920
+      },
+      {
+        "url": "/media/drive-projects/sun-life-tron-ven-vi-nha-minh-gallery-1-2026.jpg",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "url": "/media/drive-projects/sun-life-tron-ven-vi-nha-minh-gallery-2-2026.jpg",
+        "width": 1280,
+        "height": 720
       }
     ],
     "videos": [],
@@ -1236,6 +1286,11 @@
       ]
     },
     "images": [
+      {
+        "url": "/media/drive-projects/olivoila-dep-hon-moi-ngay-tvc-cover-2026.jpg",
+        "width": 1080,
+        "height": 1080
+      },
       {
         "url": "/media/drive-projects/olivoila-dep-hon-moi-ngay-tvc-01.jpg",
         "width": 1280,
@@ -1371,9 +1426,19 @@
     },
     "images": [
       {
+        "url": "/media/drive-projects/tefal-easy-rice-max-my-linh-cover-2026.webp",
+        "width": 1920,
+        "height": 1920
+      },
+      {
         "url": "/media/drive-projects/tefal-easy-rice-max-my-linh-01.jpg",
         "width": 2048,
         "height": 1152
+      },
+      {
+        "url": "/media/drive-projects/tefal-easy-rice-max-my-linh-gallery-2026.jpg",
+        "width": 1080,
+        "height": 1350
       }
     ],
     "videos": [],
