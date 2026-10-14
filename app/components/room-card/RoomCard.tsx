@@ -92,17 +92,24 @@ export function RoomCard({
               className={styles.roomImage}
             />
           )}
-          {showEnterButton && hasGallery && (
-            <button
-              type="button"
-              className={styles.enterButton}
-              onClick={() => setIsGalleryOpen(true)}
-            >
-              <span className={styles.enterButtonText}>
-                {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
-              </span>
-            </button>
-          )}
+          {showEnterButton &&
+            (href ? (
+              <Link href={href} prefetch={false} className={styles.enterButton}>
+                <span className={styles.enterButtonText}>
+                  {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
+                </span>
+              </Link>
+            ) : hasGallery ? (
+              <button
+                type="button"
+                className={styles.enterButton}
+                onClick={() => setIsGalleryOpen(true)}
+              >
+                <span className={styles.enterButtonText}>
+                  {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
+                </span>
+              </button>
+            ) : null)}
         </div>
 
         {/* Room Content */}
@@ -163,11 +170,6 @@ export function RoomCard({
           )}
 
           <div className={styles.actions}>
-            {href && (
-              <Link className={styles.detailLink} href={href} prefetch={false}>
-                {t.STUDIO_RENTAL.ROOMS.VIEW_DETAILS} ↗
-              </Link>
-            )}
             <CommonButton
               variant="primary"
               size="lg"
@@ -175,6 +177,11 @@ export function RoomCard({
             >
               {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
             </CommonButton>
+            {href && (
+              <Link className={styles.exploreButton} href={href} prefetch={false}>
+                {t.STUDIO_RENTAL.ROOMS.VIEW_DETAILS} ↗
+              </Link>
+            )}
           </div>
         </div>
       </div>

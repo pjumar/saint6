@@ -43,6 +43,7 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
+  text-decoration: none;
 }
 
 /* Show on hover for desktop */
@@ -79,6 +80,13 @@
   line-height: 1.5;
   letter-spacing: -0.02em; /* -2% tracking from Figma */
   text-align: center;
+}
+
+.enterButton:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 .contentBox {
@@ -187,14 +195,36 @@
   gap: 0.5rem; /* 8px from Figma */
 }
 
-.detailLink {
-  align-self: flex-start;
-  color: var(--color-primary, #880300);
+.exploreButton {
+  flex: 1;
+  min-width: 0;
+  height: 3.3125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--color-text-primary, #231d1d);
+  color: var(--color-text-primary, #231d1d);
   font-family: var(--font-body, "Public Sans", sans-serif);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.exploreButton:hover {
+  background: var(--color-text-primary, #231d1d);
+  color: #fff;
+}
+
+.exploreButton:focus-visible {
+  outline: 2px solid var(--color-primary, #880300);
+  outline-offset: 2px;
 }
 
 .actions button {
@@ -242,5 +272,10 @@
 
   .actions button {
     width: 100%;
+  }
+
+  .exploreButton {
+    width: 100%;
+    flex: none;
   }
 }

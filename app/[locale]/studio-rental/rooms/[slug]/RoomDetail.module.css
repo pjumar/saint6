@@ -25,15 +25,15 @@
 }
 
 .wordmark {
-  white-space: nowrap;
-  font: 400 1.8rem / 1 var(--font-title);
-  letter-spacing: -0.05em;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.wordmark small {
-  font: 700 0.48rem / 1 var(--font-mono);
-  letter-spacing: 0.08em;
-  vertical-align: middle;
+.wordmark img {
+  display: block;
+  width: 171px;
+  height: auto;
 }
 
 .siteLinks {
@@ -65,6 +65,14 @@
 .allRooms {
   color: #860e00;
   text-decoration: none;
+}
+
+.bookingSection {
+  width: min(100% - 3rem, 86rem);
+  margin: clamp(4rem, 8vw, 8rem) auto 0;
+  padding-top: clamp(2rem, 5vw, 5rem);
+  border-top: 1px solid #c7bfba;
+  scroll-margin-top: 1rem;
 }
 
 .breadcrumbs a:hover,
@@ -237,6 +245,10 @@
   }
 
   .container {
+    width: min(100% - 2rem, 40rem);
+  }
+
+  .bookingSection {
     width: min(100% - 2rem, 40rem);
   }
 

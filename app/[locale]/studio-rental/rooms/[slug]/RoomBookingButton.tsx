@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   BookingModal,
   type BookingRoomData,
@@ -8,21 +7,38 @@ import {
 import { CommonButton } from "@/app/components/common-button/CommonButton";
 import { useTranslation } from "@/app/contexts/TranslationContext";
 
-export function RoomBookingButton({ room }: { room: BookingRoomData }) {
+export function RoomBookingButton() {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
+
+  function scrollToBooking() {
+    const booking = document.getElementById("booking");
+    if (!booking) return;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    booking.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth" });
+  }
 
   return (
-    <>
-      <CommonButton variant="primary" size="lg" onClick={() => setIsOpen(true)}>
-        {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
-      </CommonButton>
-      <BookingModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        rooms={[room]}
-        initialRoomIndex={0}
-      />
-    </>
+    <CommonButton
+      variant="primary"
+      size="lg"
+      aria-controls="booking"
+      onClick={scrollToBooking}
+    >
+      {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
+    </CommonButton>
+  );
+}
+
+export function RoomBookingForm({ room }: { room: BookingRoomData }) {
+  return (
+    <BookingModal
+      isOpen
+      inline
+      onClose={() => {}}
+      rooms={[room]}
+      initialRoomIndex={0}
+    />
   );
 }

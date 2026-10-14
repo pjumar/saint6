@@ -39,9 +39,10 @@ export interface BookingModalProps {
   onClose: () => void;
   rooms: BookingRoomData[];
   initialRoomIndex?: number;
+  inline?: boolean;
 }
 
-type ModalState = "details" | "booking" | "success";
+type ModalState = "booking" | "success";
 
 // Generate 30-minute time slots: 00:00, 00:30, 01:00, ..., 23:30
 const ALL_TIME_SLOTS: string[] = [];
@@ -131,6 +132,7 @@ export function BookingModal({
   onClose,
   rooms,
   initialRoomIndex = 0,
+  inline = false,
 }: BookingModalProps) {
   const { t, locale } = useTranslation();
   const pending = useRef(false);
@@ -138,7 +140,7 @@ export function BookingModal({
   const [submitError, setSubmitError] = useState(false);
   const previewNotice = previewFormNotice(locale);
   const utmParams = useUtmParams();
-  const [modalState, setModalState] = useState<ModalState>("details");
+  const [modalState, setModalState] = useState<ModalState>("booking");
   const [selectedRoomIndex, setSelectedRoomIndex] = useState(initialRoomIndex);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -186,7 +188,7 @@ export function BookingModal({
 
   useEffect(() => {
     if (isOpen) {
-      setModalState("details");
+      setModalState("booking");
       setSelectedRoomIndex(initialRoomIndex);
       setCurrentImageIndex(0);
       setDateRange(undefined);
@@ -203,7 +205,7 @@ export function BookingModal({
       setShowErrors(false);
       setSubmitError(false);
     }
-  }, [isOpen, initialRoomIndex]);
+  }, [isOpen, initialRoomIndex, inline]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -221,7 +223,7 @@ export function BookingModal({
   );
 
   useEffect(() => {
-    if (isOpen && mounted) {
+    if (isOpen && mounted && !inline) {
       const restoreFocus = document.activeElement as HTMLElement | null;
       dialogRef.current?.querySelector<HTMLButtonElement>('button[aria-label="Close"]')?.focus();
       const scrollY = window.scrollY;
@@ -242,7 +244,7 @@ export function BookingModal({
         restoreFocus?.focus({ preventScroll: true });
       };
     }
-  }, [isOpen, handleKeyDown, mounted]);
+  }, [isOpen, handleKeyDown, mounted, inline]);
 
   // Close calendar on click outside
   useEffect(() => {
@@ -309,10 +311,11 @@ export function BookingModal({
 
   // Scroll active image thumbnail into view
   useEffect(() => {
+    if (inline) return;
     const container = imageThumbnailsRef.current;
     const thumb = container?.children[currentImageIndex] as HTMLElement | undefined;
     if (thumb) thumb.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
-  }, [currentImageIndex]);
+  }, [currentImageIndex, inline]);
 
   const scrollTabs = (direction: "left" | "right") => {
     const tabs = tabsRef.current;
@@ -546,13 +549,12 @@ export function BookingModal({
 
   const currentImage = images[currentImageIndex];
 
-  return createPortal(
-    <div className={styles.overlay} onClick={onClose}>
+  const content = (
       <div
-        className={styles.modal}
+        className={`${styles.modal} ${inline ? styles.inlineModal : ""}`}
         ref={dialogRef}
         role="dialog"
-        aria-modal="true"
+        aria-modal={!inline}
         aria-label={t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
         onClick={(e) => e.stopPropagation()}
       >
@@ -563,8 +565,8 @@ export function BookingModal({
           alt={currentImage.alt || room.title}
           fill
           className={styles.roomImage}
-          sizes="66vw"
-          priority
+          sizes={inline ? "(max-width: 768px) 100vw, 55vw" : "66vw"}
+          priority={!inline}
         />
 
         {images.length > 1 && (
@@ -636,7 +638,7 @@ export function BookingModal({
       </div>
 
       {/* Close button — modal level for correct mobile positioning */}
-      <button
+      {!inline && <button
         className={styles.closeButton}
         onClick={onClose}
         aria-label="Close"
@@ -655,126 +657,76 @@ export function BookingModal({
             strokeLinecap="round"
           />
         </svg>
-      </button>
+      </button>}
 
       {/* Content Panel */}
       <div className={styles.contentPanel}>
-
-        {/* ==================== */}
-        {/* STATE: DETAILS       */}
-        {/* ==================== */}
-        {modalState === "details" && (
-          <div className={styles.detailsContent}>
-            <div className={styles.tabsWrapper}>
-              {tabArrows.left && (
-                <button
-                  className={`${styles.tabArrow} ${styles.tabArrowLeft}`}
-                  onClick={() => scrollTabs("left")}
-                  aria-label="Scroll tabs left"
-                >
-                  &lt;
-                </button>
-              )}
-              <div className={styles.roomTabs} ref={tabsRef}>
-                {rooms.map((r, index) => (
-                  <button
-                    key={index}
-                    className={`${styles.roomTab} ${
-                      index === selectedRoomIndex ? styles.roomTabActive : ""
-                    }`}
-                    onClick={() => handleRoomTabClick(index)}
-                  >
-                    {r.title}
-                  </button>
-                ))}
-              </div>
-              {tabArrows.right && (
-                <button
-                  className={`${styles.tabArrow} ${styles.tabArrowRight}`}
-                  onClick={() => scrollTabs("right")}
-                  aria-label="Scroll tabs right"
-                >
-                  &gt;
-                </button>
-              )}
-            </div>
-
-            <div className={styles.roomInfo}>
-              <h2 className={styles.roomName}>{room.title}</h2>
-              <p className={styles.roomPrice}>
-                {room.pricePerHour}
-                {t.STUDIO_RENTAL.ROOMS.PER_HOUR}
-              </p>
-              <p className={styles.roomDescription}>{room.description}</p>
-            </div>
-
-            <div className={styles.specsGrid}>
-              {room.space && (
-                <div className={styles.specItem}>
-                  <span className={styles.specLabel}>
-                    {t.STUDIO_RENTAL.ROOMS.SPACE}
-                  </span>
-                  <span className={styles.specValue}>{room.space}</span>
-                </div>
-              )}
-              {room.width && (
-                <div className={styles.specItem}>
-                  <span className={styles.specLabel}>
-                    {t.STUDIO_RENTAL.ROOMS.WIDTH}
-                  </span>
-                  <span className={styles.specValue}>{room.width}</span>
-                </div>
-              )}
-              {room.ceilingHeight && (
-                <div className={styles.specItem}>
-                  <span className={styles.specLabel}>
-                    {t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}
-                  </span>
-                  <span className={styles.specValue}>{room.ceilingHeight}</span>
-                </div>
-              )}
-              {room.wallType && (
-                <div className={styles.specItem}>
-                  <span className={styles.specLabel}>
-                    {t.STUDIO_RENTAL.BOOKING.WALL_TYPE}
-                  </span>
-                  <span className={styles.specValue}>{room.wallType}</span>
-                </div>
-              )}
-            </div>
-
-            <div className={styles.detailsActions}>
-              <CommonButton
-                variant="primary"
-                size="md"
-                onClick={() => setModalState("booking")}
-              >
-                {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
-              </CommonButton>
-            </div>
-          </div>
-        )}
 
         {/* ==================== */}
         {/* STATE: BOOKING       */}
         {/* ==================== */}
         {modalState === "booking" && (
           <div className={styles.bookingContent}>
-            <button
-              className={styles.backLink}
-              onClick={() => setModalState("details")}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M15 18L9 12L15 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>{t.STUDIO_RENTAL.BOOKING.VIEW_OTHER_STUDIO}</span>
-            </button>
+            {!inline && (
+              <div className={styles.bookingSummary}>
+                {rooms.length > 1 && (
+                  <div className={styles.tabsWrapper}>
+                    {tabArrows.left && (
+                      <button
+                        type="button"
+                        className={`${styles.tabArrow} ${styles.tabArrowLeft}`}
+                        onClick={() => scrollTabs("left")}
+                        aria-label="Scroll tabs left"
+                      >
+                        &lt;
+                      </button>
+                    )}
+                    <div className={styles.roomTabs} ref={tabsRef}>
+                      {rooms.map((r, index) => (
+                        <button
+                          type="button"
+                          key={r.title}
+                          className={`${styles.roomTab} ${index === selectedRoomIndex ? styles.roomTabActive : ""}`}
+                          onClick={() => handleRoomTabClick(index)}
+                        >
+                          {r.title}
+                        </button>
+                      ))}
+                    </div>
+                    {tabArrows.right && (
+                      <button
+                        type="button"
+                        className={`${styles.tabArrow} ${styles.tabArrowRight}`}
+                        onClick={() => scrollTabs("right")}
+                        aria-label="Scroll tabs right"
+                      >
+                        &gt;
+                      </button>
+                    )}
+                  </div>
+                )}
+                <h2 className={styles.roomName}>{room.title}</h2>
+                <p className={styles.roomPrice}>
+                  {room.pricePerHour}{t.STUDIO_RENTAL.ROOMS.PER_HOUR}
+                </p>
+                <p className={styles.roomDescription}>{room.description}</p>
+                {(room.space || room.width || room.ceilingHeight) && (
+                  <dl className={styles.bookingSummarySpecs}>
+                    {room.space && (
+                      <div><dt>{t.STUDIO_RENTAL.ROOMS.SPACE}</dt><dd>{room.space}</dd></div>
+                    )}
+                    {room.width && (
+                      <div><dt>{t.STUDIO_RENTAL.ROOMS.WIDTH}</dt><dd>{room.width}</dd></div>
+                    )}
+                    {room.ceilingHeight && (
+                      <div><dt>{t.STUDIO_RENTAL.ROOMS.CEILING_HEIGHT}</dt><dd>{room.ceilingHeight}</dd></div>
+                    )}
+                  </dl>
+                )}
+              </div>
+            )}
+
+            {inline && <p className={styles.inlineRoomName}>{room.title}</p>}
 
             <h2 className={styles.bookingHeading}>
               {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
@@ -1088,15 +1040,18 @@ export function BookingModal({
                   {t.STUDIO_RENTAL.BOOKING.SUCCESS_MESSAGE}
                 </p>
               </div>
-              <CommonButton variant="primary" size="lg" onClick={onClose}>
+              {!inline && <CommonButton variant="primary" size="lg" onClick={onClose}>
                 {t.STUDIO_RENTAL.BOOKING.BACK_TO_STUDIOS}
-              </CommonButton>
+              </CommonButton>}
             </div>
           </div>
         )}
       </div>
       </div>
-    </div>,
-    document.body
+  );
+  if (inline) return content;
+  return createPortal(
+    <div className={styles.overlay} onClick={onClose}>{content}</div>,
+    document.body,
   );
 }
