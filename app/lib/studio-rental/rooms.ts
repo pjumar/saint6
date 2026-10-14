@@ -140,7 +140,10 @@ export const getRentalRooms = cache(
             space: room.space || "",
             width: room.width || "",
             ceilingHeight: room.ceiling_height || "",
-            description: summary?.description || room.description || "",
+            description:
+              room.type === "concept"
+                ? room.description || summary?.description || ""
+                : summary?.description || room.description || "",
             dimensions: room.dimensions,
             inclusions: room.inclusions || discovery.room_inclusions,
             currency: discovery.currency,

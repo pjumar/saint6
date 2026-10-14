@@ -489,9 +489,10 @@ async function fetchStrapi<T>(
     populate?: string | string[] | Record<string, unknown>;
     locale?: string;
     revalidate?: number | false;
+    tags?: string[];
   } = {},
 ): Promise<T | null> {
-  const { populate = "*", locale = "en", revalidate = 3600 } = options;
+  const { populate = "*", locale = "en", revalidate = 3600, tags } = options;
   const DEBUG = process.env.STRAPI_DEBUG === "true";
 
   const params = new URLSearchParams();
@@ -531,7 +532,7 @@ async function fetchStrapi<T>(
           Authorization: `Bearer ${STRAPI_API_TOKEN}`,
         }),
       },
-      next: { revalidate },
+      next: { revalidate, tags },
     });
 
     const duration = Date.now() - startTime;
@@ -668,6 +669,7 @@ export async function getStudioRentalPage(locale: string = "en") {
     locale,
     populate: populateQuery,
     revalidate: 3600,
+    tags: ["studio-rental"],
   });
 }
 
