@@ -38,11 +38,7 @@
   background: var(--color-text-invert-100);
   position: relative;
   transform-origin: center;
-}
-
-.hamburgerMenuDark .hamburgerLineThin,
-.hamburgerMenuDark .hamburgerLineThick {
-  background: #231d1d;
+  transition: background-color 0.3s ease;
 }
 
 .hamburgerLineThick {
@@ -53,10 +49,16 @@
   transform: translateY(-50%);
   transform-origin: center;
   transition:
+    background-color 0.3s ease,
     width 0.3s ease,
     left 0.3s ease,
     right 0.3s ease,
     transform 0.3s ease;
+}
+
+.hamburgerMenuDark .hamburgerLineThin,
+.hamburgerMenuDark .hamburgerLineThick {
+  background: #231d1d;
 }
 
 .hamburgerLinePair:first-child .hamburgerLineThick {
@@ -97,6 +99,7 @@
   right: auto;
   transform: translate(-50%, -50%);
   transition:
+    background-color 0.3s ease,
     width 0.3s ease,
     left 0.3s ease,
     right 0.3s ease,
@@ -109,6 +112,7 @@
   right: auto;
   transform: translate(-50%, -50%);
   transition:
+    background-color 0.3s ease,
     width 0.3s ease,
     left 0.3s ease,
     right 0.3s ease,
@@ -123,6 +127,7 @@
   .hamburgerLinePair:first-child
   .hamburgerLineThick {
   transition:
+    background-color 0.3s ease,
     width 0.3s ease,
     left 0.3s ease,
     right 0.3s ease,
@@ -133,6 +138,7 @@
   .hamburgerLinePair:last-child
   .hamburgerLineThick {
   transition:
+    background-color 0.3s ease,
     width 0.3s ease,
     left 0.3s ease,
     right 0.3s ease,

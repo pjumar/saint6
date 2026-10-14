@@ -13,9 +13,14 @@ import styles from "./MenuOverlay.module.css";
 interface MenuOverlayProps {
   isClosing: boolean;
   onClose: () => void;
+  externalCloseButton?: boolean;
 }
 
-export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
+export function MenuOverlay({
+  isClosing,
+  onClose,
+  externalCloseButton = false,
+}: MenuOverlayProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -102,11 +107,13 @@ export function MenuOverlay({ isClosing, onClose }: MenuOverlayProps) {
             height={36}
           />
         </div>
-        <HamburgerMenu
-          isOpen={!isClosing}
-          onClick={onClose}
-          ariaLabel="Close menu"
-        />
+        {!externalCloseButton && (
+          <HamburgerMenu
+            isOpen={!isClosing}
+            onClick={onClose}
+            ariaLabel="Close menu"
+          />
+        )}
       </div>
       <nav className={styles.menuNav}>
         {menuItems.map((item) => (
