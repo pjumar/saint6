@@ -18,6 +18,8 @@ export interface PortfolioListingProject {
   summary: string;
   image: string;
   imageAlt: string;
+  imageFit?: "contain";
+  imageBackground?: string;
   href: string;
   services: ServiceCategory[];
 }

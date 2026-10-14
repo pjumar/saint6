@@ -70,6 +70,8 @@ export default async function PortfolioPage(props: Props) {
       summary,
       image,
       imageAlt,
+      imageFit,
+      imageBackground,
       href,
       services,
     }) => ({
@@ -79,6 +81,8 @@ export default async function PortfolioPage(props: Props) {
       summary,
       image,
       imageAlt,
+      imageFit,
+      imageBackground,
       href,
       services,
     }),

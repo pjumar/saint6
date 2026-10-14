@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { projectThumbnail } from "@/app/lib/styling/project-thumbnails";
 import type { StylingLocale, StylingProject } from "@/app/lib/styling/types";
 import styles from "./Styling.module.css";
 
@@ -26,6 +27,7 @@ export function ProjectCard({
   priority?: boolean;
   uniformImage?: boolean;
 }) {
+  const { image, fit, background, ratio } = projectThumbnail(project);
   return (
     <Link
       className={styles.projectCard}
@@ -36,19 +38,21 @@ export function ProjectCard({
         className={`${styles.cardImage} ${uniformImage ? styles.uniformCardImage : ""}`}
         style={
           uniformImage
-            ? undefined
+            ? { background }
             : ({
-                aspectRatio: `${project.cover.width} / ${project.cover.height}`,
-                "--card-ratio": project.cover.width / project.cover.height,
+                aspectRatio: fit ? "4 / 5" : `${image.width} / ${image.height}`,
+                "--card-ratio": ratio,
+                background,
               } as CSSProperties)
         }
       >
         <Image
-          src={project.cover.url}
-          alt={project.cover.alternativeText}
+          src={image.url}
+          alt={image.alternativeText}
           fill
           sizes={imageSizes}
           priority={priority}
+          style={fit ? { objectFit: fit } : undefined}
         />
       </div>
       <div className={styles.cardInfo}>

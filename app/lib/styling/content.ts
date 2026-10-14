@@ -57,8 +57,14 @@ async function read(
     headers: token ? { Authorization: `Bearer ${token}` } : {},
     next: { revalidate: 3600, tags: ["styling"] },
   });
-  if (!response.ok)
-    throw new Error(`Styling CMS request failed (${response.status})`);
+  if (!response.ok) {
+    const body =
+      response.status === 400 ? await response.json().catch(() => null) : null;
+    const error = new Error(`Styling CMS request failed (${response.status})`);
+    if (typeof body?.error?.details?.key === "string")
+      Object.assign(error, { invalidKey: body.error.details.key });
+    throw error;
+  }
   return response.json();
 }
 function social<T extends { social_image?: StylingImage | null }>(data: T): T {
@@ -131,6 +137,12 @@ const fullPopulate = {
   "populate[credits]": "true",
 };
 let videoFilesUnsupportedUntil = 0;
+let thumbnailUnsupportedUntil = 0;
+function invalidKey(error: unknown, key: string) {
+  return (
+    error instanceof Error && "invalidKey" in error && error.invalidKey === key
+  );
+}
 async function readFullProject(
   locale: StylingLocale,
   params: Record<string, string>,
@@ -144,12 +156,30 @@ async function readFullProject(
       "populate[video_files]": "true",
     });
   } catch (error) {
-    if (!(error instanceof Error) || !error.message.includes("(400)"))
-      throw error;
+    if (!invalidKey(error, "video_files")) throw error;
     // The website can deploy before Strapi Cloud finishes adding this field.
     // Retry the old schema and probe again after its normal one-hour cache window.
     videoFilesUnsupportedUntil = Date.now() + 3600_000;
     return read(locale, "styling-projects", base);
+  }
+}
+async function readProjectPage(
+  locale: StylingLocale,
+  full: boolean,
+  params: Record<string, string>,
+) {
+  const request = (query: Record<string, string>) =>
+    full
+      ? readFullProject(locale, query)
+      : read(locale, "styling-projects", query);
+  if (Date.now() < thumbnailUnsupportedUntil) return request(params);
+  try {
+    return await request({ ...params, "populate[thumbnail]": "true" });
+  } catch (error) {
+    if (!invalidKey(error, "thumbnail")) throw error;
+    // Allow the website and Strapi schema to deploy independently.
+    thumbnailUnsupportedUntil = Date.now() + 3600_000;
+    return request(params);
   }
 }
 function projectRecord(project: StylingProject, full: boolean): StylingProject {
@@ -169,6 +199,12 @@ function projectRecord(project: StylingProject, full: boolean): StylingProject {
       ...stylingMedia(project.cover),
       alternativeText: project.cover_alt || project.cover.alternativeText,
     },
+    thumbnail: project.thumbnail
+      ? {
+          ...stylingMedia(project.thumbnail),
+          alternativeText: project.thumbnail.alternativeText || project.title,
+        }
+      : null,
     gallery: (project.gallery || []).map((g) => ({
       ...g,
       image: stylingMedia(g.image),
@@ -198,9 +234,7 @@ const readProjects = cache(
       ...params,
       "pagination[page]": "1",
     };
-    const first = full
-      ? await readFullProject(locale, firstParams)
-      : await read(locale, "styling-projects", firstParams);
+    const first = await readProjectPage(locale, full, firstParams);
     if (!Array.isArray(first.data))
       throw new Error("Incomplete styling project pagination");
     const projects = [...first.data];
@@ -209,9 +243,7 @@ const readProjects = cache(
         ...params,
         "pagination[page]": String(n),
       };
-      const result = full
-        ? await readFullProject(locale, pageParams)
-        : await read(locale, "styling-projects", pageParams);
+      const result = await readProjectPage(locale, full, pageParams);
       if (!Array.isArray(result.data) || !result.data.length)
         throw new Error("Incomplete styling project pagination");
       projects.push(...result.data);
@@ -253,7 +285,7 @@ export const getStylingProject = cache(
       return (
         featured || seed.projects[locale].find((p) => p.slug === slug) || null
       );
-    const result = await readFullProject(locale, {
+    const result = await readProjectPage(locale, true, {
       "filters[slug][$eq]": slug,
       "pagination[pageSize]": "2",
     });

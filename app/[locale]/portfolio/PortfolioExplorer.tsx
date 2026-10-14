@@ -229,13 +229,21 @@ export function PortfolioExplorer({ locale, all, initialFilters }: Props) {
               key={project.id}
               prefetch={false}
             >
-              <div className={styles.image}>
+              <div
+                className={styles.image}
+                style={{ background: project.imageBackground }}
+              >
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
                   sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                   priority={index === 0}
+                  style={
+                    project.imageFit
+                      ? { objectFit: project.imageFit }
+                      : undefined
+                  }
                 />
               </div>
               <div className={styles.cardInfo}>

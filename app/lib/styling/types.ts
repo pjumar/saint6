@@ -60,6 +60,7 @@ export interface StylingProject {
   summary: string;
   body: string;
   cover: StylingImage;
+  thumbnail?: StylingImage | null;
   cover_alt?: string;
   gallery: { image: StylingImage; alt: string }[];
   credits: { role: string; name: string }[];
