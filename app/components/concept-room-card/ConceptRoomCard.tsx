@@ -1,16 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
-import { CommonButton } from "@/app/components/common-button/CommonButton";
-import { GalleryModal } from "@/app/components/gallery-modal/GalleryModal";
 import {
   BookingModal,
   type BookingRoomData,
 } from "@/app/components/booking-modal/BookingModal";
+import { CommonButton } from "@/app/components/common-button/CommonButton";
+import { GalleryModal } from "@/app/components/gallery-modal/GalleryModal";
+import { ProgressiveImage } from "@/app/components/progressive-image/ProgressiveImage";
 import { useTranslation } from "@/app/contexts/TranslationContext";
-import styles from "./ConceptRoomCard.module.css";
 import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
+import styles from "./ConceptRoomCard.module.css";
 
 export interface GalleryImage {
   url: string;
@@ -18,6 +19,7 @@ export interface GalleryImage {
 }
 
 export interface ConceptRoomCardProps {
+  href?: string;
   imageUrl: string;
   title: string;
   pricePerHour: string;
@@ -36,6 +38,7 @@ export interface ConceptRoomCardProps {
 }
 
 export function ConceptRoomCard({
+  href,
   imageUrl,
   title,
   pricePerHour,
@@ -66,14 +69,32 @@ export function ConceptRoomCard({
     <div className={styles.conceptCard}>
       {/* Arch-shaped Image Container */}
       <div className={styles.imageContainer}>
-        <ProgressiveImage
-          src={imageUrl}
-          alt={title}
-          width={449}
-          height={449}
-          sizes="(max-width: 768px) 100vw, 449px"
-          className={styles.roomImage}
-        />
+        {href ? (
+          <Link
+            href={href}
+            prefetch={false}
+            className={styles.imageLink}
+            aria-label={`${t.STUDIO_RENTAL.ROOMS.VIEW_DETAILS}: ${title}`}
+          >
+            <ProgressiveImage
+              src={imageUrl}
+              alt={title}
+              width={449}
+              height={449}
+              sizes="(max-width: 768px) 100vw, 449px"
+              className={styles.roomImage}
+            />
+          </Link>
+        ) : (
+          <ProgressiveImage
+            src={imageUrl}
+            alt={title}
+            width={449}
+            height={449}
+            sizes="(max-width: 768px) 100vw, 449px"
+            className={styles.roomImage}
+          />
+        )}
         {showEnterButton && gallery.length > 0 && (
           <button
             type="button"
@@ -91,7 +112,15 @@ export function ConceptRoomCard({
       <div className={styles.contentBox}>
         {/* Title and Price Header */}
         <div className={styles.header}>
-          <h3 className={styles.title}>{title}</h3>
+          <h3 className={styles.title}>
+            {href ? (
+              <Link href={href} prefetch={false}>
+                {title}
+              </Link>
+            ) : (
+              title
+            )}
+          </h3>
           <p className={styles.price}>
             {pricePerHour}
             {currency ? ` ${currency}` : ""}
@@ -154,6 +183,11 @@ export function ConceptRoomCard({
               {t.STUDIO_RENTAL.ROOMS.GALLERY}
             </CommonButton>
           </div>
+          {href && (
+            <Link className={styles.detailLink} href={href} prefetch={false}>
+              {t.STUDIO_RENTAL.ROOMS.VIEW_DETAILS} ↗
+            </Link>
+          )}
         </div>
       </div>
 

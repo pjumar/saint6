@@ -32,10 +32,9 @@ import {
   getStudioRentalPage,
   type StrapiEquipmentItem,
   type StrapiFaqItem,
-  type StrapiStudioRoom,
 } from "@/app/lib/strapi";
 import { getStudioDiscovery } from "@/app/lib/studio-discovery/content";
-import type { StudioDiscovery } from "@/app/lib/studio-discovery/types";
+import { getRentalRooms } from "@/app/lib/studio-rental/rooms";
 import { getTranslations } from "@/app/lib/translations";
 import type { Locale } from "@/app/types";
 import styles from "./StudioRental.module.css";
@@ -61,89 +60,6 @@ export async function generateMetadata({
 // ============================================================================
 // Transformer Functions - Convert Strapi data to component props
 // ============================================================================
-
-interface GalleryImage {
-  url: string;
-  alt?: string;
-}
-
-interface RoomData {
-  id: string;
-  title: string;
-  pricePerHour: string;
-  counter: string;
-  space: string;
-  width: string;
-  ceilingHeight: string;
-  description: string;
-  dimensions?: string;
-  inclusions?: string;
-  currency?: string;
-  specLabels?: StudioDiscovery["spec_labels"];
-  imageUrl: string;
-  showEnterButton?: boolean;
-  gallery?: GalleryImage[];
-}
-
-function transformRooms(
-  rooms: StrapiStudioRoom[] | undefined,
-  startIndex: number = 0,
-  totalRooms: number = 6,
-  discovery?: StudioDiscovery,
-): RoomData[] {
-  if (!rooms || rooms.length === 0) return [];
-
-  const result: RoomData[] = [];
-
-  rooms
-    .sort((a, b) => a.order - b.order)
-    .forEach((room, index) => {
-      const imageUrl = getStrapiImageUrl(room.image);
-      if (!imageUrl) return;
-
-      const roomIndex = startIndex + index + 1;
-      const summary = discovery?.room_summaries.find(
-        (entry) =>
-          entry.room_type === room.type &&
-          entry.area_sqm === Number.parseFloat(room.space || ""),
-      );
-      const counter = `${String(roomIndex).padStart(2, "0")}/${String(totalRooms).padStart(2, "0")}`;
-
-      // Transform gallery images
-      const gallery: GalleryImage[] = [];
-      if (room.gallery && room.gallery.length > 0) {
-        for (const img of room.gallery) {
-          const galleryUrl = getStrapiImageUrl(img);
-          if (galleryUrl) {
-            gallery.push({
-              url: galleryUrl,
-              alt: img.alternativeText || room.title,
-            });
-          }
-        }
-      }
-
-      result.push({
-        id: room.slug || String(room.id),
-        title: room.title,
-        pricePerHour: room.price_per_hour,
-        counter: room.counter || counter,
-        space: room.space || "125m²",
-        width: room.width || "",
-        ceilingHeight: room.ceiling_height || "",
-        description: summary?.description || room.description || "",
-        dimensions: room.dimensions,
-        inclusions: room.inclusions || discovery?.room_inclusions,
-        currency: discovery?.currency,
-        specLabels: discovery?.spec_labels,
-        imageUrl,
-        showEnterButton: true,
-        gallery,
-      });
-    });
-
-  return result;
-}
 
 interface EquipmentData {
   id: string;
@@ -207,9 +123,10 @@ export default async function StudioRentalPage({ params }: PageProps) {
   const isDev = process.env.NODE_ENV === "development";
 
   // Fetch CMS data at build time
-  const [strapiData, discovery] = await Promise.all([
+  const [strapiData, discovery, cmsRooms] = await Promise.all([
     getStudioRentalPage(locale),
     getStudioDiscovery(locale as Locale),
+    getRentalRooms(locale as Locale),
   ]);
   const pageCopy = discovery.pages.find(
     (page) => page.path === "studio-rental",
@@ -275,21 +192,14 @@ export default async function StudioRentalPage({ params }: PageProps) {
         };
 
   // Rooms
-  const totalRooms =
-    (strapiData?.rooms?.length || 0) + (strapiData?.concept_rooms?.length || 0);
   const studioRooms = strapiData?.rooms
-    ? transformRooms(strapiData.rooms, 0, totalRooms || 6, discovery)
+    ? cmsRooms.filter((room) => room.type === "blank")
     : useFallback
       ? FALLBACK_STUDIO_ROOMS
       : [];
 
   const conceptRooms = strapiData?.concept_rooms
-    ? transformRooms(
-        strapiData.concept_rooms,
-        strapiData?.rooms?.length || 0,
-        totalRooms || 6,
-        discovery,
-      )
+    ? cmsRooms.filter((room) => room.type === "concept")
     : useFallback
       ? FALLBACK_CONCEPT_ROOMS
       : [];
@@ -387,6 +297,7 @@ export default async function StudioRentalPage({ params }: PageProps) {
               pricePerHour: room.pricePerHour,
               imageUrl: room.imageUrl,
               anchor: "rooms" as const,
+              href: `/${locale}/studio-rental/rooms/${room.id}`,
             })),
             {
               key: "full-venue",

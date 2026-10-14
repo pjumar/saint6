@@ -87,6 +87,7 @@ export interface RentalOffer {
   pricePerHour: string;
   imageUrl?: string;
   anchor: "rooms" | "full-studio";
+  href?: string;
 }
 
 // Published rates are whole VND amounts. Never turn arbitrary copy into a price.
@@ -126,7 +127,9 @@ export function serviceStructuredData({
               "@type": "Offer",
               "@id": `${url}#offer-${encodeURIComponent(offer.key)}`,
               name: offer.name,
-              url: `${url}#${offer.anchor}`,
+              url: offer.href
+                ? new URL(offer.href, businessOrigin).href
+                : `${url}#${offer.anchor}`,
               seller: { "@id": businessId },
               priceSpecification: {
                 "@type": "UnitPriceSpecification",
