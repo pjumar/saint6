@@ -9,6 +9,8 @@ export interface RentalRoom {
   href: string;
   type: "blank" | "concept";
   title: string;
+  seoTitle?: string;
+  seoDescription?: string;
   pricePerHour: string;
   counter: string;
   space: string;
@@ -129,6 +131,8 @@ export const getRentalRooms = cache(
             href: `/${locale}/studio-rental/rooms/${encodeURIComponent(slug)}`,
             type: room.type,
             title: room.title,
+            seoTitle: room.seo_title,
+            seoDescription: room.seo_description,
             pricePerHour: room.price_per_hour,
             counter:
               room.counter ||

@@ -10,11 +10,13 @@ import styles from "./LanguageSelector.module.css";
 interface LanguageSelectorProps {
   variant?: "default" | "menu";
   className?: string;
+  languageHref?: string;
 }
 
 export function LanguageSelector({
   variant = "default",
   className,
+  languageHref,
 }: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLFieldSetElement>(null);
@@ -22,6 +24,10 @@ export function LanguageSelector({
   const dropdownId = useId();
   const { locale, language } = useTranslation();
   const pathname = usePathname();
+  const pathFor = (target: "en" | "vi") =>
+    target !== locale && languageHref
+      ? languageHref
+      : switchLocale(pathname || `/${locale}`, target);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -103,14 +109,14 @@ export function LanguageSelector({
           className={`${styles.languageDropdown} ${variant === "menu" ? styles.languageDropdownUp : ""}`}
         >
           <Link
-            href={switchLocale(pathname || `/${locale}`, "en")}
+            href={pathFor("en")}
             className={styles.languageOption}
             onClick={() => handleLanguageSelect("en")}
           >
             EN
           </Link>
           <Link
-            href={switchLocale(pathname || `/${locale}`, "vi")}
+            href={pathFor("vi")}
             className={styles.languageOption}
             onClick={() => handleLanguageSelect("vi")}
           >

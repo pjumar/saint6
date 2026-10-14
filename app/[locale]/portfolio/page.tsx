@@ -8,6 +8,7 @@ import {
   portfolioResults,
   serviceCategories,
 } from "@/app/lib/portfolio/content";
+import { portfolioSeoTitle } from "@/app/lib/portfolio/listing";
 import type { StylingLocale } from "@/app/lib/styling/types";
 import styles from "./Portfolio.module.css";
 import { PortfolioExplorer } from "./PortfolioExplorer";
@@ -33,15 +34,36 @@ async function pageState({ params, searchParams }: Props) {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const { locale, category, query, page } = await pageState(props);
+  const {
+    locale,
+    category,
+    query,
+    page: requestedPage,
+  } = await pageState(props);
+  const projects = await getPortfolioProjects(locale);
+  const { projects: results, page } = portfolioResults(
+    projects,
+    category,
+    query,
+    String(requestedPage),
+  );
   const vi = locale === "vi";
-  const title = `${vi ? "Dự án Saint 6" : "Saint 6 Projects"}${category ? ` · ${serviceCategories[category as keyof typeof serviceCategories][locale]}` : ""}`;
-  const description = vi
-    ? "Khám phá các dự án của Saint 6 trong thiết kế bối cảnh, sản xuất, tổ chức sự kiện, trang trí, sáng tạo và styling."
-    : "Explore Saint 6 projects across set design, production, event planning, decor, creative direction and styling.";
+  const service = category
+    ? serviceCategories[category as keyof typeof serviceCategories][locale]
+    : "";
+  const title = portfolioSeoTitle(locale, category, page);
+  const description = service
+    ? vi
+      ? `Khám phá các dự án ${service.toLowerCase()} của Saint 6 tại TP.HCM, từ ý tưởng đến hình ảnh và không gian hoàn thiện.`
+      : `Explore Saint 6 ${service.toLowerCase()} projects in Ho Chi Minh City, from creative direction to finished imagery and spaces.`
+    : vi
+      ? "Khám phá các dự án của Saint 6 trong thiết kế bối cảnh, sản xuất, tổ chức sự kiện, trang trí, sáng tạo và styling."
+      : "Explore Saint 6 projects across set design, production, event planning, decor, creative direction and styling.";
   const canonical = `https://www.saint6.studio${portfolioHref(locale, category, "", page)}`;
+  const image = results[0]?.image || "/og-image.jpg";
+  const imageUrl = new URL(image, "https://www.saint6.studio").href;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical,
@@ -51,7 +73,21 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       },
     },
     robots: query ? { index: false, follow: true } : undefined,
-    openGraph: { title, description, url: canonical, type: "website" },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "website",
+      locale: vi ? "vi_VN" : "en_US",
+      siteName: "Saint 6 Studio",
+      images: [{ url: imageUrl, alt: results[0]?.imageAlt || title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
   };
 }
 

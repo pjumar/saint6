@@ -28,11 +28,26 @@ export type { PortfolioListingProject, ServiceCategory } from "./listing";
 export { portfolioHref, portfolioResults, serviceCategories } from "./listing";
 
 export interface PortfolioProject extends PortfolioListingProject {
+  translationKey?: string;
+  seoTitle?: string;
+  seoDescription?: string;
   body?: string;
   images?: { url: string; alt: string; width: number; height: number }[];
   credits?: { role: string; name: string }[];
   client?: string;
   expertise?: string[];
+}
+
+export function translatedProject(
+  project: PortfolioProject,
+  candidates: PortfolioProject[],
+): PortfolioProject | null {
+  if (!project.translationKey) return null;
+  return (
+    candidates.find(
+      (candidate) => candidate.translationKey === project.translationKey,
+    ) || null
+  );
 }
 
 function projectServices(expertise: string[] = []): ServiceCategory[] {
@@ -57,6 +72,11 @@ function keyProject(
   const id = `key-${project.slug || project.id}`;
   return {
     id,
+    translationKey: project.documentId
+      ? `key:${project.documentId}`
+      : undefined,
+    seoTitle: project.seo_title,
+    seoDescription: project.seo_description,
     title: project.title,
     category:
       project.client || (locale === "vi" ? "Dự án nổi bật" : "Key project"),
@@ -98,6 +118,11 @@ function portfolioItem(
   const id = `${service}-${item.id}`;
   return {
     id,
+    translationKey: item.documentId
+      ? `portfolio:${item.documentId}`
+      : undefined,
+    seoTitle: item.seo_title,
+    seoDescription: item.seo_description,
     title: item.title,
     category: item.category || serviceCategories[service][locale],
     summary: item.summary || "",
@@ -163,6 +188,11 @@ export const getPortfolioProjects = cache(async (locale: StylingLocale) => {
     if (!image) continue;
     projects.push({
       id: `event-${entry.id}`,
+      translationKey: entry.documentId
+        ? `event:${entry.documentId}`
+        : undefined,
+      seoTitle: entry.seo_title,
+      seoDescription: entry.seo_description,
       title: entry.title,
       category: entry.category,
       summary: entry.summary || "",

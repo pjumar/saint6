@@ -15,12 +15,14 @@ interface HeaderProps {
   isMenuOpen: boolean;
   isClosing?: boolean;
   onMenuToggle: () => void;
+  languageHref?: string;
 }
 
 export function Header({
   isMenuOpen,
   isClosing: _isClosing = false,
   onMenuToggle,
+  languageHref,
 }: HeaderProps) {
   const { t, locale } = useTranslation();
   const pathname = usePathname();
@@ -182,7 +184,7 @@ export function Header({
             >
               {t.NAVIGATION.ABOUT_US}
             </Link>
-            <LanguageSelector />
+            <LanguageSelector languageHref={languageHref} />
           </div>
         </div>
       </div>
