@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { HamburgerMenu } from "@/app/components/hamburger-menu/HamburgerMenu";
 import { MenuOverlay } from "@/app/components/menu-overlay/MenuOverlay";
 import type { Locale } from "@/app/types";
@@ -18,7 +18,25 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
   const vi = locale === "vi";
   const serviceMenuRef = useRef<HTMLDetailsElement>(null);
   const desktopRoomsRef = useRef<HTMLDetailsElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuClosing, setMobileMenuClosing] = useState(false);
+
+  const closeMobileMenu = useCallback(() => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setMobileMenuClosing(true);
+    closeTimerRef.current = setTimeout(() => {
+      setMobileMenuOpen(false);
+      setMobileMenuClosing(false);
+      closeTimerRef.current = null;
+    }, 350);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const closeOnOutsideClick = (event: PointerEvent) => {
@@ -129,7 +147,7 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
   return (
     <>
       <nav
-        className={`${styles.nav} ${theme === "red" ? styles.red : styles.light}`}
+        className={`${styles.nav} ${theme === "red" ? styles.red : styles.light} ${mobileMenuOpen ? styles.menuOpen : ""}`}
         aria-label={vi ? "Điều hướng chính" : "Main navigation"}
       >
         <Link
@@ -163,17 +181,29 @@ export function InnerPageNav({ locale, languageHref, theme = "light" }: Props) {
         </div>
         <div className={styles.mobileMenu}>
           <HamburgerMenu
-            isOpen={mobileMenuOpen}
-            onClick={() => setMobileMenuOpen((open) => !open)}
-            ariaLabel={vi ? "Mở menu" : "Open menu"}
-            dark={theme === "light"}
+            isOpen={mobileMenuOpen && !mobileMenuClosing}
+            onClick={() => {
+              if (mobileMenuOpen) closeMobileMenu();
+              else setMobileMenuOpen(true);
+            }}
+            ariaLabel={
+              mobileMenuOpen
+                ? vi
+                  ? "Đóng menu"
+                  : "Close menu"
+                : vi
+                  ? "Mở menu"
+                  : "Open menu"
+            }
+            dark={theme === "light" && !mobileMenuOpen}
           />
         </div>
       </nav>
       {mobileMenuOpen && (
         <MenuOverlay
-          isClosing={false}
-          onClose={() => setMobileMenuOpen(false)}
+          isClosing={mobileMenuClosing}
+          onClose={closeMobileMenu}
+          externalCloseButton
         />
       )}
     </>
