@@ -22,16 +22,9 @@ import { youtubeVideoId } from "@/app/lib/styling/video";
 type Props = { params: Promise<{ locale: string; slug: string }> };
 export const revalidate = 3600;
 export async function generateStaticParams() {
-  if (!stylingEnabled) return [];
-  const entries = await Promise.all(
-    (["en", "vi"] as const).map(async (locale) =>
-      (await getStylingProjectSummaries(locale)).map(({ slug }) => ({
-        locale,
-        slug,
-      })),
-    ),
-  );
-  return entries.flat();
+  // Generate and cache project pages when visited instead of querying every
+  // project during each preview and production build.
+  return [];
 }
 async function content(params: Props["params"]) {
   const { locale, slug } = await params;
