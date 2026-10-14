@@ -18,11 +18,13 @@ export function ProjectCard({
   locale,
   imageSizes = "(max-width: 600px) 100vw, 50vw",
   priority = false,
+  uniformImage = false,
 }: {
   project: StylingProject;
   locale: StylingLocale;
   imageSizes?: string;
   priority?: boolean;
+  uniformImage?: boolean;
 }) {
   return (
     <Link
@@ -31,12 +33,14 @@ export function ProjectCard({
       prefetch={false}
     >
       <div
-        className={styles.cardImage}
+        className={`${styles.cardImage} ${uniformImage ? styles.uniformCardImage : ""}`}
         style={
-          {
-            aspectRatio: `${project.cover.width} / ${project.cover.height}`,
-            "--card-ratio": project.cover.width / project.cover.height,
-          } as CSSProperties
+          uniformImage
+            ? undefined
+            : ({
+                aspectRatio: `${project.cover.width} / ${project.cover.height}`,
+                "--card-ratio": project.cover.width / project.cover.height,
+              } as CSSProperties)
         }
       >
         <Image

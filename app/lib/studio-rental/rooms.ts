@@ -23,6 +23,10 @@ export interface RentalRoom {
   imageAlt: string;
   imageWidth: number;
   imageHeight: number;
+  heroImageUrl: string;
+  heroImageAlt: string;
+  heroImageWidth: number;
+  heroImageHeight: number;
   showEnterButton: true;
   gallery: { url: string; alt: string; width: number; height: number }[];
 }
@@ -62,6 +66,50 @@ export const getRentalRooms = cache(
         const gallerySource = room.gallery?.length
           ? room.gallery
           : source?.gallery || [];
+        // Existing gallery choices remain useful until editors set hero_image in Strapi.
+        const roomKey = `${room.type}:${room.order}`;
+        const localHero: Record<
+          string,
+          { url: string; width: number; height: number }
+        > = {
+          "blank:1": {
+            url: "/images/room-heroes/blank-125.webp",
+            width: 2048,
+            height: 1537,
+          },
+          "blank:3": {
+            url: "/images/room-heroes/blank-360.webp",
+            width: 2560,
+            height: 1920,
+          },
+        };
+        const preferredHeroName: Record<string, string> = {
+          "blank:2": "IMG_2087_",
+          "concept:4": "R1_2_",
+          "concept:5": "R2_2_",
+          "concept:6": "R3_2_",
+        };
+        const preferred = preferredHeroName[roomKey];
+        const hero = room.hero_image?.url
+          ? room.hero_image
+          : source?.hero_image?.url
+            ? source.hero_image
+            : gallerySource.find(
+                (image) => preferred && image.url.includes(preferred),
+              ) ||
+              gallerySource.find(
+                (image) => (image.width || 0) / (image.height || 1) >= 1.2,
+              ) ||
+              cover;
+        const fallbackHero = localHero[roomKey];
+        const cmsHero = room.hero_image?.url
+          ? room.hero_image
+          : source?.hero_image;
+        const heroImageUrl =
+          getStrapiImageUrl(cmsHero) ||
+          fallbackHero?.url ||
+          getStrapiImageUrl(hero) ||
+          imageUrl;
         const gallery = gallerySource.flatMap((image) => {
           const url = getStrapiImageUrl(image);
           return url
@@ -97,6 +145,12 @@ export const getRentalRooms = cache(
             imageAlt: cover?.alternativeText || room.title,
             imageWidth: cover?.width || 1200,
             imageHeight: cover?.height || 800,
+            heroImageUrl,
+            heroImageAlt: cmsHero?.alternativeText || room.title,
+            heroImageWidth:
+              cmsHero?.width || fallbackHero?.width || hero?.width || 1200,
+            heroImageHeight:
+              cmsHero?.height || fallbackHero?.height || hero?.height || 800,
             showEnterButton: true as const,
             gallery,
           },

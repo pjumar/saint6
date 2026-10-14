@@ -189,7 +189,7 @@ export default async function StylingProjectPage({ params }: Props) {
         )}
         {gallery.length > 0 && (
           <section
-            className={`${styles.container} ${styles.gallery}`}
+            className={`${styles.container} ${styles.gallery} ${gallery.length === 1 ? styles.singleGallery : ""}`}
             aria-label={vi ? "Hình ảnh dự án" : "Project gallery"}
           >
             {gallery.map(({ image, alt }) => (
@@ -245,7 +245,12 @@ export default async function StylingProjectPage({ params }: Props) {
             </div>
             <div className={styles.projectGrid}>
               {related.map((item) => (
-                <ProjectCard key={item.slug} project={item} locale={locale} />
+                <ProjectCard
+                  key={item.slug}
+                  project={item}
+                  locale={locale}
+                  uniformImage
+                />
               ))}
             </div>
           </section>

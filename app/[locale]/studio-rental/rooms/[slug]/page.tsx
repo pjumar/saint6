@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { InnerPageNav } from "@/app/components/inner-page-nav/InnerPageNav";
 import { getRentalRooms } from "@/app/lib/studio-rental/rooms";
 import type { Locale } from "@/app/types";
 import { RoomBookingButton, RoomBookingForm } from "./RoomBookingButton";
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props) {
     openGraph: {
       title,
       description,
-      images: [{ url: room.imageUrl, alt: room.imageAlt }],
+      images: [{ url: room.heroImageUrl, alt: room.heroImageAlt }],
     },
   };
 }
@@ -65,40 +66,10 @@ export default async function RoomDetailPage({ params }: Props) {
 
   return (
     <main className={styles.page}>
-      <nav
-        className={styles.siteNav}
-        aria-label={vi ? "Điều hướng chính" : "Main navigation"}
-      >
-        <Link
-          className={styles.wordmark}
-          href={`/${locale}`}
-          aria-label="Saint 6 Studios home"
-          prefetch={false}
-        >
-          <Image
-            src="/assets/saint6-logo.svg"
-            alt="Saint 6 Studios"
-            width={171}
-            height={36}
-            priority
-          />
-        </Link>
-        <div className={styles.siteLinks}>
-          <Link href={`/${locale}/studio-rental`}>
-            {vi ? "Thuê studio" : "Studio rental"}
-          </Link>
-          <Link href={`/${locale}/portfolio`}>
-            {vi ? "Dự án" : "Portfolio"}
-          </Link>
-          <Link href={`/${locale}/contact`}>{vi ? "Liên hệ" : "Contact"}</Link>
-          <Link
-            href={`/${vi ? "en" : "vi"}/studio-rental/rooms/${room.id}`}
-            lang={vi ? "en" : "vi"}
-          >
-            {vi ? "EN" : "VI"}
-          </Link>
-        </div>
-      </nav>
+      <InnerPageNav
+        locale={locale}
+        languageHref={`/${vi ? "en" : "vi"}/studio-rental/rooms/${room.id}`}
+      />
       <div className={styles.container}>
         <nav
           className={styles.breadcrumbs}
@@ -131,12 +102,13 @@ export default async function RoomDetailPage({ params }: Props) {
 
         <div className={styles.heroImage}>
           <Image
-            src={room.imageUrl}
-            alt={room.imageAlt}
-            width={room.imageWidth}
-            height={room.imageHeight}
+            src={room.heroImageUrl}
+            alt={room.heroImageAlt}
+            width={room.heroImageWidth}
+            height={room.heroImageHeight}
             sizes="(max-width: 900px) 100vw, 75vw"
             priority
+            unoptimized={room.heroImageUrl.startsWith("https://")}
           />
         </div>
 

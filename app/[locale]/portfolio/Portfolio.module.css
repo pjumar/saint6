@@ -13,17 +13,6 @@
 .topBar {
   background: #880f00;
   color: #fff;
-  padding: 1.25rem 0;
-}
-.topBar > .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.topBar a {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
 }
 .heading {
   padding-top: 4rem;
