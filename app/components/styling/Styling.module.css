@@ -274,10 +274,11 @@
   font-size: 0.875rem;
 }
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 1.5rem;
+  columns: 2;
+  column-gap: 1.5rem;
+}
+.singleGallery {
+  columns: 1;
 }
 .localVideos {
   display: grid;
@@ -291,7 +292,8 @@
   background: #191515;
 }
 .gallery figure {
-  margin: 0;
+  break-inside: avoid;
+  margin: 0 0 1.5rem;
 }
 .gallery img {
   width: 100%;
@@ -300,7 +302,6 @@
   border-radius: 0.25rem;
 }
 .gallery figure:only-child {
-  grid-column: 1 / -1;
   max-width: 64rem;
   width: 100%;
   margin: auto;
@@ -366,10 +367,12 @@
   }
   .serviceGrid,
   .processGrid,
-  .projectGrid,
-  .gallery {
+  .projectGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  .gallery {
+    columns: 1;
   }
   .serviceGrid {
     margin-top: 1.5rem;
@@ -566,6 +569,24 @@
   background: transparent;
 }
 .projectGrid .cardImage img {
+  object-fit: contain;
+}
+.related .projectGrid {
+  align-items: stretch;
+}
+.related .projectCard {
+  display: flex;
+  flex-direction: column;
+}
+.related .cardInfo {
+  flex: 1;
+}
+.projectGrid .uniformCardImage {
+  aspect-ratio: 4 / 3;
+  max-width: none;
+  background: #e8e4e2;
+}
+.projectGrid .uniformCardImage img {
   object-fit: contain;
 }
 .gallery img {

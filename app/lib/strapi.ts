@@ -9,8 +9,7 @@
 // - Set revalidate: false for pure static generation (no automatic updates)
 
 const STRAPI_URL =
-  process.env.NEXT_PUBLIC_STRAPI_URL ||
-  "https://strapi.saint6.studio";
+  process.env.NEXT_PUBLIC_STRAPI_URL || "https://strapi.saint6.studio";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 interface StrapiResponse<T> {
@@ -138,6 +137,7 @@ export interface StrapiStudioRoom {
   ceiling_height?: string;
   description?: string;
   image: StrapiImage;
+  hero_image?: StrapiImage;
   gallery?: StrapiImage[];
   order: number;
 }
@@ -459,7 +459,9 @@ function buildPopulateParams(
       // Array of values
       value.forEach((item, index) => {
         const encodedIndex = encodeURIComponent(`[${index}]`);
-        params.push(`${newPrefix}${encodedIndex}=${encodeURIComponent(String(item))}`);
+        params.push(
+          `${newPrefix}${encodedIndex}=${encodeURIComponent(String(item))}`,
+        );
       });
     } else {
       // Simple value
@@ -486,7 +488,9 @@ async function fetchStrapi<T>(
   if (typeof populate === "string") {
     params.append("populate", populate);
   } else if (Array.isArray(populate)) {
-    populate.forEach((field) => params.append("populate", field));
+    populate.forEach((field) => {
+      params.append("populate", field);
+    });
   }
 
   params.append("locale", locale);
@@ -534,7 +538,10 @@ async function fetchStrapi<T>(
 
     if (DEBUG) {
       console.log(`[Strapi] SUCCESS: ${endpoint} (${duration}ms)`);
-      console.log(`[Strapi] Data keys:`, json.data ? Object.keys(json.data) : "null");
+      console.log(
+        `[Strapi] Data keys:`,
+        json.data ? Object.keys(json.data) : "null",
+      );
     }
 
     return json.data;
@@ -547,7 +554,9 @@ async function fetchStrapi<T>(
 
 const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL;
 
-export function getStrapiImageUrl(image: StrapiImage | undefined): string | null {
+export function getStrapiImageUrl(
+  image: StrapiImage | undefined,
+): string | null {
   if (!image?.url) return null;
 
   let url = image.url;
@@ -632,8 +641,8 @@ export async function getStudioRentalPage(locale: string = "en") {
     hero: { populate: "*" },
     intro: { populate: "*" },
     stats: { populate: "*" },
-    rooms: { populate: { image: { populate: "*" }, gallery: { populate: "*" } } },
-    concept_rooms: { populate: { image: { populate: "*" }, gallery: { populate: "*" } } },
+    rooms: { populate: "*" },
+    concept_rooms: { populate: "*" },
     full_rental: { populate: "*" },
     facilities: { populate: "*" },
     equipment: { populate: { image: { populate: "*" } } },

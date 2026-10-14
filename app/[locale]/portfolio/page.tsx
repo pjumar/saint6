@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactSection } from "@/app/components/contact-section/ContactSection";
+import { InnerPageNav } from "@/app/components/inner-page-nav/InnerPageNav";
 import {
   getPortfolioProjects,
   portfolioHref,
@@ -96,35 +95,16 @@ export default async function PortfolioPage(props: Props) {
     <>
       <main className={styles.page}>
         <div className={styles.topBar}>
-          <div className={styles.container}>
-            <Link
-              href={`/${locale}`}
-              aria-label="Saint 6 homepage"
-              prefetch={false}
-            >
-              <Image
-                src="/assets/saint6-logo.svg"
-                alt="Saint 6"
-                width={96}
-                height={48}
-                style={{ width: 96, height: "auto" }}
-              />
-            </Link>
-            <Link
-              href={`/${locale}`}
-              className={styles.backLink}
-              prefetch={false}
-            >
-              ← {vi ? "TRANG CHỦ" : "SAINT 6"}
-            </Link>
-            <Link
-              href={portfolioHref(vi ? "en" : "vi", category, query, page)}
-              hrefLang={vi ? "en" : "vi"}
-              prefetch={false}
-            >
-              {vi ? "EN" : "VI"}
-            </Link>
-          </div>
+          <InnerPageNav
+            locale={locale}
+            languageHref={portfolioHref(
+              vi ? "en" : "vi",
+              category,
+              query,
+              page,
+            )}
+            theme="red"
+          />
         </div>
         <header className={`${styles.container} ${styles.heading}`}>
           <p className={styles.eyebrow}>
