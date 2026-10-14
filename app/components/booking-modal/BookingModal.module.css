@@ -352,6 +352,53 @@
   padding-top: 0.5rem;
 }
 
+.bookingSummary {
+  padding-right: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.bookingSummary .tabsWrapper {
+  margin: 0 0 1rem;
+}
+
+.bookingSummary .roomName {
+  font-size: 1.75rem;
+}
+
+.bookingSummary .roomDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.bookingSummarySpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0.85rem 0 0;
+}
+
+.bookingSummarySpecs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.bookingSummarySpecs dt {
+  color: rgba(8, 7, 7, 0.65);
+  font: 700 0.6rem / 1.2 var(--font-mono, monospace);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bookingSummarySpecs dd {
+  margin: 0;
+  font: 400 1.125rem / 1.3 var(--font-title);
+}
+
 /* Back link */
 .backLink {
   display: inline-flex;
@@ -830,14 +877,18 @@
 
   .imagePanel {
     width: 100%;
-    height: 35svh;
+    height: 24svh;
     flex-shrink: 0;
   }
 
   .contentPanel {
-    padding: 1.5rem;
+    padding: 1.25rem 1rem 2rem;
     flex: 1;
     overflow-y: visible;
+  }
+
+  .bookingSummary {
+    padding-right: 0;
   }
 
   .detailsContent {
@@ -902,5 +953,55 @@
   .imageThumbnail {
     width: 36px;
     height: 36px;
+  }
+}
+
+.inlineModal {
+  max-width: none;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  animation: none;
+}
+
+.inlineModal .imagePanel {
+  width: 55%;
+  min-height: 40rem;
+  height: auto;
+}
+
+.inlineModal .contentPanel {
+  padding: clamp(2rem, 4vw, 4rem);
+  overflow: visible;
+}
+
+.inlineModal .bookingContent {
+  padding-top: 0;
+}
+
+.inlineRoomName {
+  margin: 0 0 0.5rem;
+  color: var(--color-primary, #880300);
+  font: 700 0.75rem / 1.5 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .inlineModal {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .inlineModal .imagePanel {
+    width: 100%;
+    height: 20rem;
+    min-height: 20rem;
+  }
+
+  .inlineModal .contentPanel {
+    padding: 2rem 1rem;
   }
 }

@@ -95,17 +95,24 @@ export function ConceptRoomCard({
             className={styles.roomImage}
           />
         )}
-        {showEnterButton && gallery.length > 0 && (
-          <button
-            type="button"
-            className={styles.enterButton}
-            onClick={handleEnterRoom}
-          >
-            <span className={styles.enterButtonText}>
-              {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
-            </span>
-          </button>
-        )}
+        {showEnterButton &&
+          (href ? (
+            <Link href={href} prefetch={false} className={styles.enterButton}>
+              <span className={styles.enterButtonText}>
+                {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
+              </span>
+            </Link>
+          ) : gallery.length > 0 ? (
+            <button
+              type="button"
+              className={styles.enterButton}
+              onClick={handleEnterRoom}
+            >
+              <span className={styles.enterButtonText}>
+                {t.STUDIO_RENTAL.ROOMS.ENTER_ROOM}
+              </span>
+            </button>
+          ) : null)}
       </div>
 
       {/* Content Box */}
@@ -175,19 +182,16 @@ export function ConceptRoomCard({
             >
               {t.STUDIO_RENTAL.ROOMS.MAKE_BOOKING}
             </CommonButton>
-            <CommonButton
-              variant="outline"
-              size="lg"
-              onClick={gallery.length > 0 ? handleEnterRoom : undefined}
-            >
-              {t.STUDIO_RENTAL.ROOMS.GALLERY}
-            </CommonButton>
+            {href && (
+              <Link
+                className={styles.exploreButton}
+                href={href}
+                prefetch={false}
+              >
+                {t.STUDIO_RENTAL.ROOMS.VIEW_DETAILS} ↗
+              </Link>
+            )}
           </div>
-          {href && (
-            <Link className={styles.detailLink} href={href} prefetch={false}>
-              {t.STUDIO_RENTAL.ROOMS.VIEW_DETAILS} ↗
-            </Link>
-          )}
         </div>
       </div>
 
