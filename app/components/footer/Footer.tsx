@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { OpenAIAdsPreferencesButton } from "@/app/components/openai-ads-consent/OpenAIAdsConsent";
 import { SpiralDecoration } from "@/app/components/spiral-decoration";
 import { SOCIAL_LINKS } from "@/app/constants/social-links";
 import { useTranslation } from "@/app/contexts/TranslationContext";
@@ -98,6 +99,7 @@ export function Footer({
             </p>
           </div>
           <div className={styles.privacyLinks}>
+            <OpenAIAdsPreferencesButton />
             <a
               href={`/website-privacy.html${locale === "vi" ? "#vietnamese" : ""}`}
             >

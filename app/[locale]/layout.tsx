@@ -7,6 +7,7 @@ import "@/app/globals.css";
 import { ErrorBoundary } from "@/app/components/error-boundary";
 import { FloatingMessengerButton } from "@/app/components/floating-messenger-button";
 import { Footer } from "@/app/components/footer/Footer";
+import { OpenAIAdsConsent } from "@/app/components/openai-ads-consent/OpenAIAdsConsent";
 import { TranslationProvider } from "@/app/contexts/TranslationContext";
 import {
   BusinessStructuredData,
@@ -248,6 +249,7 @@ export default async function LocaleLayout({
               }
             />
             <FloatingMessengerButton />
+            <OpenAIAdsConsent />
           </TranslationProvider>
         </ErrorBoundary>
       </body>
