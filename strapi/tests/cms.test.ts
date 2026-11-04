@@ -4,7 +4,10 @@ import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import test from "node:test";
+import middlewares from "../config/middlewares";
+import plugins from "../config/plugins";
 import configureVite from "../src/admin/vite.config";
+import { MAX_MEDIA_UPLOAD_SIZE_BYTES } from "../src/constants";
 import extendUpload from "../src/extensions/upload/strapi-server";
 import uploadSizeLimit from "../src/middlewares/upload-size-limit";
 
@@ -107,6 +110,17 @@ test("large WebPs decode safely and retain originals; invalid WebPs are rejected
 });
 
 test("upload limits return JSON on both endpoints and exclude multipart overhead", async () => {
+  const body = middlewares.find(
+    (entry) => typeof entry === "object" && entry.name === "strapi::body",
+  ) as { config: { formidable: { maxFileSize: number } } };
+  assert.equal(body.config.formidable.maxFileSize, MAX_MEDIA_UPLOAD_SIZE_BYTES);
+  const pluginSettings = plugins({
+    env: (_key: string, value: string) => value,
+  });
+  assert.equal(
+    pluginSettings.upload.config.sizeLimit,
+    MAX_MEDIA_UPLOAD_SIZE_BYTES,
+  );
   const middleware = uploadSizeLimit({}, {} as never);
   for (const path of ["/upload", "/api/upload"]) {
     const ctx = {
