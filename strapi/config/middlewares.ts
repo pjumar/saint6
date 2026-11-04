@@ -1,4 +1,7 @@
-import { MAX_MEDIA_UPLOAD_SIZE_BYTES, MAX_UPLOAD_SIZE_MB } from "../src/constants";
+// Strapi Cloud copies this file into original/config before compiling it.
+// Keep its limits self-contained so relative imports survive that relocation.
+const MAX_UPLOAD_SIZE_MB = 5;
+const MAX_MEDIA_UPLOAD_SIZE_BYTES = 10 * 1024 * 1024;
 
 export default [
   "strapi::logger",
