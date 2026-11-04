@@ -1,4 +1,11 @@
+import { MAX_MEDIA_UPLOAD_SIZE_BYTES } from "../src/constants";
+
 export default ({ env }) => ({
+  upload: {
+    config: {
+      sizeLimit: MAX_MEDIA_UPLOAD_SIZE_BYTES,
+    },
+  },
   email: {
     config: {
       settings: {
