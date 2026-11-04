@@ -4,11 +4,11 @@ import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import test from "node:test";
-import configureVite from "../strapi/src/admin/vite.config";
-import extendUpload from "../strapi/src/extensions/upload/strapi-server";
-import uploadSizeLimit from "../strapi/src/middlewares/upload-size-limit";
+import configureVite from "../src/admin/vite.config";
+import extendUpload from "../src/extensions/upload/strapi-server";
+import uploadSizeLimit from "../src/middlewares/upload-size-limit";
 
-const requireStrapi = createRequire(resolve("strapi/package.json"));
+const requireStrapi = createRequire(resolve(__dirname, "../package.json"));
 const sharp = createRequire(
   requireStrapi.resolve("@strapi/upload/package.json"),
 )("sharp");
