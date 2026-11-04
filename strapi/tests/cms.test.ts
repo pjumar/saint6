@@ -1,0 +1,181 @@
+import assert from "node:assert/strict";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { createRequire } from "node:module";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import test from "node:test";
+import { pathToFileURL } from "node:url";
+import middlewares from "../config/middlewares";
+import plugins from "../config/plugins";
+import configureVite from "../src/admin/vite.config";
+import { MAX_MEDIA_UPLOAD_SIZE_BYTES } from "../src/constants";
+import extendUpload from "../src/extensions/upload/strapi-server";
+import uploadSizeLimit from "../src/middlewares/upload-size-limit";
+
+const requireStrapi = createRequire(resolve(__dirname, "../package.json"));
+const sharp = createRequire(
+  requireStrapi.resolve("@strapi/upload/package.json"),
+)("sharp");
+
+test("JSON editor extensions share one CodeMirror runtime", async () => {
+  const config = configureVite({
+    optimizeDeps: { exclude: ["@uiw/react-codemirror", "unrelated-plugin"] },
+  });
+  assert.ok(!config.optimizeDeps.exclude.includes("@uiw/react-codemirror"));
+  assert.ok(config.optimizeDeps.exclude.includes("unrelated-plugin"));
+  const folder = await mkdtemp(join(tmpdir(), "saint6-editor-test-"));
+  const { build } = createRequire(
+    requireStrapi.resolve("@strapi/admin/package.json"),
+  )("vite");
+  try {
+    const entry = join(folder, "editor.js");
+    await writeFile(
+      entry,
+      `
+      import { EditorState } from '@codemirror/state';
+      import { json } from '@codemirror/lang-json';
+      export const doc = EditorState.create({
+        doc: '["Production"]', extensions: [json()]
+      }).doc.toString();
+    `,
+    );
+    // Exercise Vite resolution, including transitive import/require conditions.
+    const result = await build(
+      configureVite({
+        root: folder,
+        configFile: false,
+        logLevel: "silent",
+        build: { lib: { entry, formats: ["es"] }, write: false, minify: false },
+      }),
+    );
+    const builds = Array.isArray(result) ? result : [result];
+    const output = builds
+      .flatMap((build) => build.output)
+      .find((chunk) => chunk.type === "chunk");
+    const bundle = join(folder, "editor.mjs");
+    await writeFile(bundle, output.code);
+    assert.equal(
+      (await import(pathToFileURL(bundle).href)).doc,
+      '["Production"]',
+    );
+  } finally {
+    await rm(folder, { recursive: true, force: true });
+  }
+});
+
+test("large WebPs decode safely and retain originals; invalid WebPs are rejected", async () => {
+  const folder = await mkdtemp(join(tmpdir(), "saint6-webp-test-"));
+  const originalGlobal = globalThis.strapi;
+  let fallbackValidation = 0;
+  let fallbackOptimization = 0;
+  const services = {
+    isImage: async () => false,
+    isFaultyImage: async () => {
+      fallbackValidation++;
+      return false;
+    },
+    optimize: async (file: object) => {
+      fallbackOptimization++;
+      return { ...file, optimized: true };
+    },
+  };
+  Object.assign(globalThis, {
+    strapi: {
+      plugin: () => ({
+        service: () => ({
+          getSettings: async () => ({ autoOrientation: true }),
+        }),
+      }),
+    },
+  });
+  try {
+    const images = extendUpload({
+      services: { "image-manipulation": services },
+    }).services["image-manipulation"];
+    const filepath = join(folder, "large.webp");
+    await sharp({
+      create: { width: 4000, height: 6000, channels: 3, background: "#666" },
+    })
+      .webp()
+      .toFile(filepath);
+    const file = { filepath, mime: "image/webp" };
+    assert.equal(await images.isImage(file), true);
+    assert.equal(await images.isFaultyImage(file), false);
+    assert.equal(await images.optimize(file), file);
+    assert.equal(fallbackValidation, 0);
+    assert.equal(fallbackOptimization, 0);
+
+    const bytes = await readFile(filepath);
+    for (const [name, content] of [
+      ["corrupt", Buffer.from("RIFFbrokenWEBP")],
+      ["truncated", bytes.subarray(0, 50)],
+    ] as const) {
+      const badPath = join(folder, `${name}.webp`);
+      await writeFile(badPath, content);
+      const badFile = { ...file, filepath: badPath };
+      assert.equal(await images.isImage(badFile), true);
+      assert.equal(await images.isFaultyImage(badFile), true);
+    }
+
+    const oriented = join(folder, "oriented.webp");
+    await sharp({
+      create: { width: 24, height: 12, channels: 3, background: "red" },
+    })
+      .withMetadata({ orientation: 6 })
+      .webp()
+      .toFile(oriented);
+    assert.equal(
+      (await images.optimize({ ...file, filepath: oriented })).optimized,
+      true,
+    );
+    await images.isFaultyImage({ ...file, mime: "image/jpeg" });
+    await images.optimize({ ...file, mime: "image/jpeg" });
+    assert.equal(fallbackValidation, 1);
+    assert.equal(fallbackOptimization, 2);
+  } finally {
+    Object.assign(globalThis, { strapi: originalGlobal });
+    await rm(folder, { recursive: true, force: true });
+  }
+});
+
+test("upload limits return JSON on both endpoints and exclude multipart overhead", async () => {
+  const body = middlewares.find(
+    (entry) => typeof entry === "object" && entry.name === "strapi::body",
+  ) as { config: { formidable: { maxFileSize: number } } };
+  assert.equal(body.config.formidable.maxFileSize, MAX_MEDIA_UPLOAD_SIZE_BYTES);
+  const pluginSettings = plugins({
+    env: (_key: string, value: string) => value,
+  });
+  assert.equal(
+    pluginSettings.upload.config.sizeLimit,
+    MAX_MEDIA_UPLOAD_SIZE_BYTES,
+  );
+  const middleware = uploadSizeLimit({}, {} as never);
+  for (const path of ["/upload", "/api/upload"]) {
+    const ctx = {
+      path,
+      method: "POST",
+      request: {
+        headers: { "content-length": String(10 * 1024 * 1024 + 500) },
+      },
+      status: 200,
+      body: undefined as unknown,
+    };
+    let called = false;
+    await middleware(ctx as never, async () => {
+      called = true;
+    });
+    assert.ok(called, "multipart headers must not count as file bytes");
+    await middleware(ctx as never, async () => {
+      throw Object.assign(new Error("maxFileSize exceeded"), { httpCode: 413 });
+    });
+    assert.equal(ctx.status, 413);
+    assert.match(JSON.stringify(ctx.body), /10MB/);
+    await assert.rejects(
+      middleware(ctx as never, async () => {
+        throw new Error("storage unavailable");
+      }),
+      /storage unavailable/,
+    );
+  }
+});
