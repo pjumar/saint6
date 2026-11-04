@@ -4,6 +4,7 @@ import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import test from "node:test";
+import { pathToFileURL } from "node:url";
 import middlewares from "../config/middlewares";
 import plugins from "../config/plugins";
 import configureVite from "../src/admin/vite.config";
@@ -16,22 +17,50 @@ const sharp = createRequire(
   requireStrapi.resolve("@strapi/upload/package.json"),
 )("sharp");
 
-test("JSON editor extensions share one CodeMirror runtime", () => {
+test("JSON editor extensions share one CodeMirror runtime", async () => {
   const config = configureVite({
     optimizeDeps: { exclude: ["@uiw/react-codemirror", "unrelated-plugin"] },
   });
   assert.ok(!config.optimizeDeps.exclude.includes("@uiw/react-codemirror"));
   assert.ok(config.optimizeDeps.exclude.includes("unrelated-plugin"));
-  const modulePath = (name: string) =>
-    config.resolve.alias.find((alias: { find: string }) => alias.find === name)
-      .replacement;
-  const { EditorState } = requireStrapi(modulePath("@codemirror/state"));
-  const { json } = requireStrapi(modulePath("@codemirror/lang-json"));
-  const state = EditorState.create({
-    doc: '["Production"]',
-    extensions: [json()],
-  });
-  assert.equal(state.doc.toString(), '["Production"]');
+  const folder = await mkdtemp(join(tmpdir(), "saint6-editor-test-"));
+  const { build } = createRequire(
+    requireStrapi.resolve("@strapi/admin/package.json"),
+  )("vite");
+  try {
+    const entry = join(folder, "editor.js");
+    await writeFile(
+      entry,
+      `
+      import { EditorState } from '@codemirror/state';
+      import { json } from '@codemirror/lang-json';
+      export const doc = EditorState.create({
+        doc: '["Production"]', extensions: [json()]
+      }).doc.toString();
+    `,
+    );
+    // Exercise Vite resolution, including transitive import/require conditions.
+    const result = await build(
+      configureVite({
+        root: folder,
+        configFile: false,
+        logLevel: "silent",
+        build: { lib: { entry, formats: ["es"] }, write: false, minify: false },
+      }),
+    );
+    const builds = Array.isArray(result) ? result : [result];
+    const output = builds
+      .flatMap((build) => build.output)
+      .find((chunk) => chunk.type === "chunk");
+    const bundle = join(folder, "editor.mjs");
+    await writeFile(bundle, output.code);
+    assert.equal(
+      (await import(pathToFileURL(bundle).href)).doc,
+      '["Production"]',
+    );
+  } finally {
+    await rm(folder, { recursive: true, force: true });
+  }
 });
 
 test("large WebPs decode safely and retain originals; invalid WebPs are rejected", async () => {

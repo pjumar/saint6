@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { mergeConfig, type UserConfig } from "vite";
@@ -28,7 +28,10 @@ const aliases = singletons.map((name) => {
     if (parent === directory) throw new Error(`Cannot resolve ${name}`);
     directory = parent;
   }
-  return { find: name, replacement: directory };
+  // Pin the ESM entry, not just its directory: import/require conditions can
+  // otherwise include both builds of the same version in a fresh npm install.
+  const pkg = JSON.parse(readFileSync(join(directory, "package.json"), "utf8"));
+  return { find: name, replacement: join(directory, pkg.module) };
 });
 
 export default (config: UserConfig) => {
