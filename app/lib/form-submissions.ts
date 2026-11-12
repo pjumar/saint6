@@ -10,7 +10,25 @@ export const formSubmissionsEnabled =
 export function submissionData<
   T extends { name: string; trafficSource: string },
 >(data: T): T {
-  if (isProductionSite) return data;
+  if (isProductionSite) {
+    // Save the original ad reference with the enquiry so a later confirmed
+    // booking can be matched. Storage restrictions must never block a form.
+    try {
+      const stored = JSON.parse(
+        window.sessionStorage.getItem("saint6_utm_params") || "{}",
+      );
+      const adAttribution: Record<string, string> = {};
+      for (const key of ["gclid", "gbraid", "wbraid", "gad_campaignid"]) {
+        const value = stored?.[key];
+        if (typeof value === "string" && /^[A-Za-z0-9_-]{1,512}$/.test(value)) {
+          adAttribution[key] = value;
+        }
+      }
+      return { ...data, adAttribution };
+    } catch {
+      return data;
+    }
+  }
   if (!formSubmissionsEnabled)
     throw new Error("Preview form sending is disabled");
   return {

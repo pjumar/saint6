@@ -529,6 +529,7 @@ export interface ApiBookingSubmissionBookingSubmission
     draftAndPublish: false;
   };
   attributes: {
+    adAttribution: Schema.Attribute.JSON & Schema.Attribute.Private;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -654,6 +655,7 @@ export interface ApiContactSubmissionContactSubmission
     draftAndPublish: false;
   };
   attributes: {
+    adAttribution: Schema.Attribute.JSON & Schema.Attribute.Private;
     company: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

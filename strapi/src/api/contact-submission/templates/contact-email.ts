@@ -4,6 +4,7 @@
 
 export interface ContactEmailData {
   name: string;
+  enquiryReference?: string;
   email: string;
   company?: string;
   message: string;
@@ -19,10 +20,11 @@ export interface ContactEmailData {
  */
 export function getTextTemplate(data: ContactEmailData): string {
   const sourceParts = [data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ");
-  const source = sourceParts || "organic";
+  const source = sourceParts || data.trafficSource || "organic";
   return `
 New business inquiry:
 
+Enquiry reference: ${data.enquiryReference || "—"}
 Name: ${data.name}
 Email: ${data.email}
 Company: ${data.company || "Not provided"}
@@ -74,7 +76,7 @@ export function getHtmlTemplate(data: ContactEmailData): string {
       <div style="padding: 40px 32px;">
         <!-- Intro -->
         <p style="margin: 0 0 32px 0; color: #666666; font-size: 14px; line-height: 1.6;">
-          You've received a new inquiry from the Saint 6 Studios website.
+          You've received a new inquiry from the Saint 6 Studios website.<br>Enquiry reference: <strong>${escapeHtml(data.enquiryReference || "—")}</strong>
         </p>
 
         <!-- Details -->
@@ -99,7 +101,7 @@ export function getHtmlTemplate(data: ContactEmailData): string {
         <div style="margin-bottom: 32px;">
           <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Traffic Source</div>
-            <div style="color: #231d1d; font-size: 16px;">${escapeHtml([data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml([data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || data.trafficSource || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
           </div>
         </div>
 
