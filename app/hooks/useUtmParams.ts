@@ -47,7 +47,11 @@ export function useUtmParams(): UtmParams {
  * so future visits get fresh attribution.
  */
 export function clearUtmParams(): void {
-  sessionStorage.removeItem(STORAGE_KEY);
+  try {
+    sessionStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // Attribution cleanup must never turn a saved enquiry into an error state.
+  }
 }
 
 /**

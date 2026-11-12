@@ -9,6 +9,7 @@ export interface BookingEmailData {
   timeFrom: string;
   timeTo: string;
   name: string;
+  enquiryReference?: string;
   email: string;
   phone: string;
   estimatedBudget?: number;
@@ -32,9 +33,10 @@ function escapeHtml(text: string): string {
  * Generate plain text email content
  */
 export function getTextTemplate(data: BookingEmailData): string {
-  const source = [data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || "organic";
+  const source = [data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || data.trafficSource || "organic";
   return `New Studio Booking Request
 
+Enquiry reference: ${data.enquiryReference || "—"}
 Studio: ${data.roomTitle}
 Date: ${data.dateFrom || "—"} — ${data.dateTo || "—"}
 Time: ${data.timeFrom || "—"} — ${data.timeTo || "—"}
@@ -68,7 +70,7 @@ export function getHtmlTemplate(data: BookingEmailData): string {
       </div>
       <div style="padding: 40px 32px;">
         <p style="margin: 0 0 32px 0; color: #666666; font-size: 14px; line-height: 1.6;">
-          A new booking request has been submitted from the Saint 6 Studios website.
+          A new booking request has been submitted from the Saint 6 Studios website.<br>Enquiry reference: <strong>${escapeHtml(data.enquiryReference || "—")}</strong>
         </p>
         <div style="margin-bottom: 32px;">
           <div style="border-bottom: 1px solid #e8e8e8; padding: 16px 0;">
@@ -103,7 +105,7 @@ export function getHtmlTemplate(data: BookingEmailData): string {
           </div>
           <div style="padding: 16px 0;">
             <div style="color: #999999; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Traffic Source</div>
-            <div style="color: #231d1d; font-size: 16px;">${escapeHtml([data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
+            <div style="color: #231d1d; font-size: 16px;">${escapeHtml([data.utmSource, data.utmMedium, data.utmCampaign].filter(Boolean).join(" / ") || data.trafficSource || "organic")}${data.landingPage ? ` — ${escapeHtml(data.landingPage)}` : ""}</div>
           </div>
         </div>
         <div style="margin-top: 32px; text-align: center;">

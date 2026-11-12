@@ -1,5 +1,6 @@
 import { factories } from "@strapi/strapi";
 import { Resend } from "resend";
+import { normalizeAdAttribution } from "../../../utils/enquiry-attribution";
 import {
   getTextTemplate,
   getHtmlTemplate,
@@ -24,10 +25,36 @@ export default factories.createCoreController(
         return ctx.badRequest("Invalid email format");
       }
 
+      // Save the submission to database
+      const entry = await strapi.entityService.create(
+        "api::booking-submission.booking-submission",
+        {
+          data: {
+            roomTitle,
+            dateFrom: dateFrom || null,
+            dateTo: dateTo || null,
+            timeFrom: timeFrom || null,
+            timeTo: timeTo || null,
+            name,
+            email,
+            phone,
+            estimatedBudget: estimatedBudget != null ? estimatedBudget : null,
+            emailSent: false,
+            adAttribution: normalizeAdAttribution((ctx.request.body.data || ctx.request.body).adAttribution),
+            trafficSource: trafficSource || "organic",
+            utmSource: utmSource || null,
+            utmMedium: utmMedium || null,
+            utmCampaign: utmCampaign || null,
+            landingPage: landingPage || null,
+          },
+        }
+      );
+
+      const enquiryReference = `booking-${entry.id}`;
       let emailSent = false;
 
       try {
-        const emailData = { roomTitle, dateFrom, dateTo, timeFrom, timeTo, name, email, phone, estimatedBudget, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
+        const emailData = { enquiryReference, roomTitle, dateFrom, dateTo, timeFrom, timeTo, name, email, phone, estimatedBudget, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
         const toEmail =
           process.env.BOOKING_EMAIL || process.env.CONTACT_EMAIL || "Saint6studios@gmail.com";
         const resendApiKey = process.env.RESEND_API_KEY;
@@ -46,7 +73,7 @@ export default factories.createCoreController(
         const { error } = await resend.emails.send({
           from: fromEmail,
           to: toEmail,
-          subject: getSubject(roomTitle, name),
+          subject: `[${enquiryReference}] ${getSubject(roomTitle, name)}`,
           text: getTextTemplate(emailData),
           html: getHtmlTemplate(emailData),
         });
@@ -61,31 +88,19 @@ export default factories.createCoreController(
         strapi.log.error("Failed to send booking email:", err);
       }
 
-      // Save the submission to database
-      const entry = await strapi.entityService.create(
-        "api::booking-submission.booking-submission",
-        {
-          data: {
-            roomTitle,
-            dateFrom: dateFrom || null,
-            dateTo: dateTo || null,
-            timeFrom: timeFrom || null,
-            timeTo: timeTo || null,
-            name,
-            email,
-            phone,
-            estimatedBudget: estimatedBudget != null ? estimatedBudget : null,
-            emailSent,
-            trafficSource: trafficSource || "organic",
-            utmSource: utmSource || null,
-            utmMedium: utmMedium || null,
-            utmCampaign: utmCampaign || null,
-            landingPage: landingPage || null,
-          },
+      if (emailSent) {
+        try {
+          await strapi.entityService.update(
+            "api::booking-submission.booking-submission", entry.id,
+            { data: { emailSent: true } },
+          );
+        } catch (error) {
+          // The enquiry is already saved. Avoid a false failure and duplicate retry.
+          strapi.log.error("Failed to update enquiry notification status:", error);
         }
-      );
+      }
 
-      return { data: { id: entry.id, emailSent }, meta: {} };
+      return { data: { id: entry.id, enquiryReference, emailSent }, meta: {} };
     },
   })
 );

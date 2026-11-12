@@ -16,8 +16,9 @@
     ];
 
     const search = new URLSearchParams(location.search);
-    let stored = sessionStorage.getItem(STORAGE_KEY);
-    const captured = stored ? JSON.parse(stored) : {};
+    // A newly tagged arrival is one acquisition touch. Never combine an old
+    // Google click ID with a new Facebook/referral campaign.
+    const captured = {};
     let found = false;
 
     for (let i = 0; i < PARAMS.length; i++) {
@@ -29,18 +30,8 @@
     }
 
     if (found) {
-      if (!captured._landing) captured._landing = location.pathname;
+      captured._landing = location.pathname;
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(captured));
-    }
-
-    // Always log when params are present
-    stored = sessionStorage.getItem(STORAGE_KEY);
-    if (found || stored) {
-      console.group("[UTM Tracking]");
-      console.log("URL:", location.href);
-      if (found) console.log("Captured now:", captured);
-      if (stored) console.log("Stored in session:", JSON.parse(stored));
-      console.groupEnd();
     }
   } catch {
     // Silently fail

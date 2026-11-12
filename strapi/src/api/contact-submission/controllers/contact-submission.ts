@@ -1,5 +1,6 @@
 import { factories } from "@strapi/strapi";
 import { Resend } from "resend";
+import { normalizeAdAttribution } from "../../../utils/enquiry-attribution";
 import {
   getTextTemplate,
   getHtmlTemplate,
@@ -23,11 +24,32 @@ export default factories.createCoreController(
         return ctx.badRequest("Invalid email format");
       }
 
+      // Save the submission to database
+      const entry = await strapi.entityService.create(
+        "api::contact-submission.contact-submission",
+        {
+          data: {
+            name,
+            email,
+            company: company || null,
+            message,
+            emailSent: false,
+            adAttribution: normalizeAdAttribution((ctx.request.body.data || ctx.request.body).adAttribution),
+            trafficSource: trafficSource || "organic",
+            utmSource: utmSource || null,
+            utmMedium: utmMedium || null,
+            utmCampaign: utmCampaign || null,
+            landingPage: landingPage || null,
+          },
+        }
+      );
+
+      const enquiryReference = `contact-${entry.id}`;
       let emailSent = false;
 
       try {
         // Prepare email data
-        const emailData = { name, email, company, message, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
+        const emailData = { enquiryReference, name, email, company, message, trafficSource, utmSource, utmMedium, utmCampaign, landingPage };
         const toEmail = process.env.CONTACT_EMAIL || "p@ccly.dev";
         const resendApiKey = process.env.RESEND_API_KEY;
 
@@ -45,7 +67,7 @@ export default factories.createCoreController(
         const { error } = await resend.emails.send({
           from: fromEmail,
           to: toEmail,
-          subject: getSubject(name),
+          subject: `[${enquiryReference}] ${getSubject(name)}`,
           text: getTextTemplate(emailData),
           html: getHtmlTemplate(emailData),
         });
@@ -60,26 +82,19 @@ export default factories.createCoreController(
         strapi.log.error("Failed to send contact email:", err);
       }
 
-      // Save the submission to database
-      const entry = await strapi.entityService.create(
-        "api::contact-submission.contact-submission",
-        {
-          data: {
-            name,
-            email,
-            company: company || null,
-            message,
-            emailSent,
-            trafficSource: trafficSource || "organic",
-            utmSource: utmSource || null,
-            utmMedium: utmMedium || null,
-            utmCampaign: utmCampaign || null,
-            landingPage: landingPage || null,
-          },
+      if (emailSent) {
+        try {
+          await strapi.entityService.update(
+            "api::contact-submission.contact-submission", entry.id,
+            { data: { emailSent: true } },
+          );
+        } catch (error) {
+          // The enquiry is already saved. Avoid a false failure and duplicate retry.
+          strapi.log.error("Failed to update enquiry notification status:", error);
         }
-      );
+      }
 
-      return { data: { id: entry.id, emailSent }, meta: {} };
+      return { data: { id: entry.id, enquiryReference, emailSent }, meta: {} };
     },
   })
 );
