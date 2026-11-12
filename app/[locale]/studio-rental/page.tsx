@@ -315,6 +315,8 @@ export default async function StudioRentalPage({ params }: PageProps) {
         backgroundImage={heroBackground}
         backgroundAlt={heroBackgroundAlt}
         placeholderImage={heroPlaceholder}
+        rooms={allBookingRooms.slice(0, -1)}
+        blankRoomSizes={studioRooms.map((room) => room.space).join(" · ")}
       />
 
       <div className={styles.contentContainer}>

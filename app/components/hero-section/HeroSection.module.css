@@ -225,6 +225,49 @@
   opacity: 0.8;
 }
 
+.mobileHeading,
+.mobileOffer {
+  display: none;
+}
+
+@media (max-width: 48rem) {
+  .withMobileOffer {
+    height: auto;
+    min-height: 0;
+    padding: 7rem 1.5rem 5.5rem;
+  }
+
+  .withMobileOffer .heroOverlay {
+    background: color-mix(in srgb, var(--color-text-tertiary) 72%, transparent);
+  }
+
+  .withMobileOffer .heroContentWrapper,
+  .withMobileOffer .heroContent {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .withMobileOffer .heroHeading {
+    text-align: left;
+  }
+
+  .withMobileOffer .defaultHeading,
+  .withMobileOffer .scrollIndicator,
+  .withMobileOffer .heroMiddleSection {
+    display: none;
+  }
+
+  .mobileHeading,
+  .mobileOffer {
+    display: block;
+  }
+}
+
 @media (min-width: 48.0625rem) {
   .heroOverlay {
     background:

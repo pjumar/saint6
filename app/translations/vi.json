@@ -47,7 +47,14 @@
   },
   "STUDIO_RENTAL": {
     "HERO": {
-      "TAGLINE": "Sân chơi sáng tạo của bạn"
+      "TAGLINE": "Sân chơi sáng tạo của bạn",
+      "MOBILE_HEADING": "Thuê studio tại TP.HCM",
+      "FROM": "Từ",
+      "HOURLY_CURRENCY": "đ/giờ",
+      "CONCEPT_ROOMS": "Phòng concept theo mùa",
+      "MINIMUM_RENTAL": "Thời gian thuê tối thiểu 2 giờ.",
+      "ROOM_LABEL": "Chọn phòng bạn muốn thuê",
+      "CHECK_AVAILABILITY": "Kiểm tra lịch trống"
     },
     "META": {
       "TITLE": "Saint 6 Studios | Thuê Studio",

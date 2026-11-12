@@ -47,7 +47,14 @@
   },
   "STUDIO_RENTAL": {
     "HERO": {
-      "TAGLINE": "Your creative playground"
+      "TAGLINE": "Your creative playground",
+      "MOBILE_HEADING": "Studio rental in Ho Chi Minh City",
+      "FROM": "From",
+      "HOURLY_CURRENCY": " VND/hour",
+      "CONCEPT_ROOMS": "Seasonal concept rooms",
+      "MINIMUM_RENTAL": "Minimum rental of 2 hours.",
+      "ROOM_LABEL": "Choose your studio room",
+      "CHECK_AVAILABILITY": "Check availability"
     },
     "META": {
       "TITLE": "Saint 6 Studios | Studio Rental",

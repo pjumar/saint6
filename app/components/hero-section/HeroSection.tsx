@@ -22,6 +22,7 @@ interface HeroSectionProps {
   imageFit?: "cover" | "contain";
   backgroundContent?: ReactNode;
   languageHref?: string;
+  mobileOffer?: { heading: string; content: ReactNode };
 }
 
 export function HeroSection({
@@ -34,6 +35,7 @@ export function HeroSection({
   imageFit = "cover",
   backgroundContent,
   languageHref,
+  mobileOffer,
 }: HeroSectionProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -155,7 +157,9 @@ export function HeroSection({
 
   return (
     <>
-      <section className={styles.hero}>
+      <section
+        className={`${styles.hero} ${mobileOffer ? styles.withMobileOffer : ""}`}
+      >
         <div className={styles.heroBackground}>
           {backgroundContent || (
             <ProgressiveImage
@@ -195,8 +199,20 @@ export function HeroSection({
             <h1
               className={`heading-mobile heading-desktop ${styles.heroHeading}`}
             >
-              {heading}
+              {mobileOffer ? (
+                <>
+                  <span className={styles.defaultHeading}>{heading}</span>
+                  <span className={styles.mobileHeading}>
+                    {mobileOffer.heading}
+                  </span>
+                </>
+              ) : (
+                heading
+              )}
             </h1>
+            {mobileOffer && (
+              <div className={styles.mobileOffer}>{mobileOffer.content}</div>
+            )}
           </div>
         </div>
 
