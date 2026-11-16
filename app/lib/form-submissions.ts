@@ -1,4 +1,4 @@
-import { trackRentalEnquiry } from "@/app/lib/openai-ads";
+import { trackEnquiry } from "@/app/lib/openai-ads";
 
 // Vercel injects this at build time. Preview visits never enter the live ad funnel.
 export const isProductionSite =
@@ -50,12 +50,14 @@ export function trackFormConversion(
   if (event.transaction_id) tracked.add(event.transaction_id);
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(event);
-  const isRentalEnquiry =
+  const isEnquiry =
     event.event === "booking_form_submit" ||
     (event.event === "contact_form_submit" &&
-      /^\/(en|vi)\/studio-rental(?:\/|$)/.test(window.location.pathname));
-  if (isRentalEnquiry && event.transaction_id) {
-    trackRentalEnquiry(event.transaction_id);
+      /^\/(en|vi)\/(?:studio-rental|set-design|contact)(?:\/|$)/.test(
+        window.location.pathname,
+      ));
+  if (isEnquiry && event.transaction_id) {
+    trackEnquiry(event.transaction_id);
   }
 }
 

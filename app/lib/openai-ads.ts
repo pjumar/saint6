@@ -222,8 +222,8 @@ function seenEventIds(id: string): Set<string> {
   return ids;
 }
 
-/** Measure only a saved rental enquiry, using its stable non-personal ID. */
-export function trackRentalEnquiry(eventId: string): void {
+/** Measure only a saved enquiry, using its stable non-personal ID. */
+export function trackEnquiry(eventId: string): void {
   try {
     if (
       !isOpenAIAdsEnabled() ||

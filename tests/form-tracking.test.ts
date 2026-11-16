@@ -48,7 +48,7 @@ test("production preserves visitor data and deduplicates successful submission I
   );
 });
 
-function runRentalMeasurement(pathname: string): unknown[][] {
+function runEnquiryMeasurement(pathname: string): unknown[][] {
   const script = `
     const calls=[];
     const stored=new Map();
@@ -84,35 +84,54 @@ function runRentalMeasurement(pathname: string): unknown[][] {
   return JSON.parse(result.stdout) as unknown[][];
 }
 
-test("saved rental contacts and booking enquiries send minimal distinct leads once", () => {
+test("saved rental, set design and general contact enquiries send minimal distinct leads once", () => {
   for (const path of [
     "/en/studio-rental",
     "/vi/studio-rental/rooms/concept-room-1",
+    "/en/set-design",
+    "/vi/set-design/",
+    "/en/contact",
+    "/vi/contact/",
   ]) {
-    assert.deepEqual(runRentalMeasurement(path), [
+    assert.deepEqual(
+      runEnquiryMeasurement(path),
       [
-        "measure",
-        "lead_created",
-        { type: "customer_action" },
-        { event_id: "contact-101", opt_out: true },
+        [
+          "measure",
+          "lead_created",
+          { type: "customer_action" },
+          { event_id: "contact-101", opt_out: true },
+        ],
+        [
+          "measure",
+          "lead_created",
+          { type: "customer_action" },
+          { event_id: "booking-101", opt_out: true },
+        ],
       ],
-      [
-        "measure",
-        "lead_created",
-        { type: "customer_action" },
-        { event_id: "booking-101", opt_out: true },
-      ],
-    ]);
+      path,
+    );
   }
 });
 
-test("generic service contacts are not classified as rental enquiry conversions", () => {
-  assert.deepEqual(runRentalMeasurement("/en/production"), [
-    [
-      "measure",
-      "lead_created",
-      { type: "customer_action" },
-      { event_id: "booking-101", opt_out: true },
-    ],
-  ]);
+test("other service contacts and similarly named routes remain outside the enquiry scope", () => {
+  for (const path of [
+    "/en/production",
+    "/en/set-designers",
+    "/vi/contact-us",
+    "/en/studio-rentals",
+  ]) {
+    assert.deepEqual(
+      runEnquiryMeasurement(path),
+      [
+        [
+          "measure",
+          "lead_created",
+          { type: "customer_action" },
+          { event_id: "booking-101", opt_out: true },
+        ],
+      ],
+      path,
+    );
+  }
 });

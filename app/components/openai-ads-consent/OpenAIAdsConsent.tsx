@@ -98,8 +98,8 @@ export function OpenAIAdsConsent() {
         </h2>
         <p id="ad-measurement-description">
           {locale === "vi"
-            ? "Cho phép OpenAI dùng cookie và mã nhận diện, có thể bao gồm thông tin liên hệ đã băm, để đo lường yêu cầu thuê studio từ quảng cáo? Bạn vẫn có thể gửi yêu cầu nếu từ chối."
-            : "Allow OpenAI to use cookies and identifiers, which may include hashed contact details, to measure studio enquiries from ads? You can still enquire if you decline."}
+            ? "Cho phép OpenAI dùng cookie và mã nhận diện, có thể bao gồm thông tin liên hệ đã băm, để đo lường các yêu cầu liên hệ từ quảng cáo? Bạn vẫn có thể gửi yêu cầu nếu từ chối."
+            : "Allow OpenAI to use cookies and identifiers, which may include hashed contact details, to measure enquiries from ads? You can still enquire if you decline."}
         </p>
         <a
           href={`/website-privacy.html${locale === "vi" ? "#vietnamese" : "#openai"}`}

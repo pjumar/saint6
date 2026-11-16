@@ -1,11 +1,11 @@
-# OpenAI rental enquiry measurement
+# OpenAI enquiry measurement
 
-The public Saint 6 website uses the OpenAI Measurement Pixel to report completed rental enquiries. The standard event is `lead_created`, with data `{ type: "customer_action" }`. It carries the saved Strapi submission identifier as `event_id` and `opt_out: true`; it has no monetary value, form contents or manually supplied customer identifiers.
+The public Saint 6 website uses the OpenAI Measurement Pixel to report completed studio rental, Set Design and general Contact enquiries. The standard event is `lead_created`, with data `{ type: "customer_action" }`. It carries the saved Strapi submission identifier as `event_id` and `opt_out: true`; it has no monetary value, form contents or manually supplied customer identifiers.
 
 ## What counts
 
 - A booking enquiry counts only after the existing Strapi booking endpoint responds successfully with a saved ID. It remains an enquiry, not a confirmed or paid booking.
-- A contact enquiry counts only when submitted on an English or Vietnamese studio-rental page, including room detail pages, and the successful response contains a saved ID.
+- A contact enquiry counts when submitted on an English or Vietnamese studio-rental page (including room detail pages), Set Design page or general Contact page, and the successful response contains a saved ID. Other service-page forms remain outside this scope.
 - Form openings, outbound Messenger/Zalo clicks, validation errors, failed requests and responses without an ID are not OpenAI lead conversions.
 - The stable `booking-<id>` / `contact-<id>` identifiers prevent collisions between Strapi collections. The browser deduplicates identifiers per Pixel and tab session, with an in-memory fallback when session storage is unavailable.
 
@@ -23,7 +23,7 @@ The account UI describes automatic advanced matching but currently exposes no sw
 
 ## Ads Manager configuration
 
-The intended source is **Saint 6 website**, with **Completed rental enquiries** selecting standard `lead_created` events from that source. It is attached to **Saint 6 Studio Rental — October 2026** for reporting. Adding measurement does not change the campaign's clicks objective, CPC billing, Maximize Clicks bidding, daily budget, location or end date.
+The intended source is **Saint 6 website**, with **Completed rental enquiries** selecting standard `lead_created` events from that source. Despite its existing display name, this goal now also includes the permitted Set Design and general Contact enquiries. It is attached to **Saint 6 Studio Rental — October 2026** for reporting. No Ads Manager settings are changed by this website fix; the campaign objective, billing, bids, budget, location and schedule remain as configured.
 
 ## Verification
 
@@ -35,6 +35,6 @@ node_modules/.bin/tsc --noEmit
 node_modules/.bin/biome check app/lib/openai-ads.ts app/components/openai-ads-consent tests/openai-ads.test.ts
 ```
 
-Use mocked SDK calls for automated success, failure, consent and deduplication tests. Preview forms stay disabled by default. Do not send synthetic production leads or test enquiry emails to verify this integration. On production, inspect the notice and SDK loading after opt-in without submitting a form. Then confirm the first genuine, consented rental enquiry in the source's recent event diagnostics; recent events are a bounded sample, not attributed campaign totals. Ads must pass review and get eligible traffic before attributed lead results can be evaluated.
+Use mocked SDK calls for automated success, failure, consent and deduplication tests. Preview forms stay disabled by default. Do not send synthetic production leads or test enquiry emails to verify this integration. On production, inspect the notice and SDK loading after opt-in without submitting a form. Then confirm the first genuine, consented enquiry in the source's recent event diagnostics; recent events are a bounded sample, not attributed campaign totals. Ads must pass review and get eligible traffic before attributed lead results can be evaluated.
 
 Official references: [Measurement Pixel](https://developers.openai.com/ads/measurement-pixel), [Supported Events](https://developers.openai.com/ads/supported-events), [Conversion Tracking](https://developers.openai.com/ads/conversion-tracking).
