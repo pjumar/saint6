@@ -91,7 +91,7 @@ function run(
 test("server rendering never initializes or records an enquiry", () => {
   const result = run(
     `api.initializeOpenAIAds(); api.setOpenAIAdsConsent(true);
-     api.trackRentalEnquiry('booking-1'); output();`,
+     api.trackEnquiry('booking-1'); output();`,
     { browser: false },
   );
   assert.equal(result.enabled, false);
@@ -112,7 +112,7 @@ test("preview, development, untrusted hosts, and missing pixels cannot load the 
   for (const options of cases) {
     const result = run(
       `api.setOpenAIAdsConsent(true); api.initializeOpenAIAds();
-       api.trackRentalEnquiry('booking-1'); output();`,
+       api.trackEnquiry('booking-1'); output();`,
       options,
     );
     assert.equal(result.enabled, false, JSON.stringify(options));
@@ -123,9 +123,9 @@ test("preview, development, untrusted hosts, and missing pixels cannot load the 
 
 test("no choice or denial loads nothing and blocked enquiries are never replayed on opt-in", () => {
   const result = run(`
-    api.initializeOpenAIAds(); api.trackRentalEnquiry('booking-before-choice');
+    api.initializeOpenAIAds(); api.trackEnquiry('booking-before-choice');
     const beforeChoice = {hasSDK:!!window.oaiq, scripts:scripts.length};
-    api.setOpenAIAdsConsent(false); api.trackRentalEnquiry('booking-denied');
+    api.setOpenAIAdsConsent(false); api.trackEnquiry('booking-denied');
     const afterDenial = {hasSDK:!!window.oaiq, scripts:scripts.length};
     api.setOpenAIAdsConsent(true); output({beforeChoice,afterDenial});
   `);
@@ -145,7 +145,7 @@ test("no choice or denial loads nothing and blocked enquiries are never replayed
 test("opt-in initializes once and sends only the documented event with stable ID deduplication", () => {
   const result = run(`
     api.setOpenAIAdsConsent(true); api.initializeOpenAIAds(); api.initializeOpenAIAds();
-    for (const id of ['booking-1','booking-1','contact-1']) api.trackRentalEnquiry(id);
+    for (const id of ['booking-1','booking-1','contact-1']) api.trackEnquiry(id);
     output();
   `);
   assert.equal(result.consent, "granted");
@@ -179,7 +179,7 @@ test("malformed and missing IDs are discarded without capturing PII or form fiel
   const result = run(`
     api.setOpenAIAdsConsent(true);
     for (const id of [undefined,null,{},'', ' ', 'name@example.com',
-      'https://example.com', 'booking id', 'x'.repeat(129)]) api.trackRentalEnquiry(id);
+      'https://example.com', 'booking id', 'x'.repeat(129)]) api.trackEnquiry(id);
     output();
   `);
   assert.deepEqual(result.commands, [
@@ -192,7 +192,7 @@ test("malformed and missing IDs are discarded without capturing PII or form fiel
 test("Global Privacy Control overrides saved and newly requested opt-in", () => {
   const result = run(
     `api.initializeOpenAIAds(); api.setOpenAIAdsConsent(true);
-     api.trackRentalEnquiry('booking-1'); output();`,
+     api.trackEnquiry('booking-1'); output();`,
     { privacyControl: true, consent: "granted" },
   );
   assert.equal(result.consent, "denied");
@@ -218,7 +218,7 @@ test("a newly enabled Global Privacy Control revokes an already loaded SDK", () 
   const result = run(`
     api.setOpenAIAdsConsent(true); finishLoading();
     window.navigator.globalPrivacyControl = true;
-    api.trackRentalEnquiry('booking-1'); output();
+    api.trackEnquiry('booking-1'); output();
   `);
   assert.equal(result.consent, "denied");
   assert.deepEqual(result.commands, [
@@ -231,9 +231,9 @@ test("a newly enabled Global Privacy Control revokes an already loaded SDK", () 
 
 test("revocation discards pending events before a delayed SDK download can process them", () => {
   const result = run(`
-    api.setOpenAIAdsConsent(true); api.trackRentalEnquiry('booking-before-revoke');
+    api.setOpenAIAdsConsent(true); api.trackEnquiry('booking-before-revoke');
     api.setOpenAIAdsConsent(false); const revokedCommands = [...window.oaiq.q];
-    api.trackRentalEnquiry('booking-denied'); finishLoading();
+    api.trackEnquiry('booking-denied'); finishLoading();
     api.setOpenAIAdsConsent(true); output({revokedCommands});
   `);
   assert.deepEqual(result.revokedCommands, [["consent", false]]);
@@ -247,9 +247,9 @@ test("revocation discards pending events before a delayed SDK download can proce
 
 test("loaded SDK receives consent false and later opt-in does not reinitialize or replay", () => {
   const result = run(`
-    api.setOpenAIAdsConsent(true); finishLoading(); api.trackRentalEnquiry('booking-1');
-    api.setOpenAIAdsConsent(false); api.trackRentalEnquiry('booking-denied');
-    api.setOpenAIAdsConsent(true); api.trackRentalEnquiry('booking-1'); output();
+    api.setOpenAIAdsConsent(true); finishLoading(); api.trackEnquiry('booking-1');
+    api.setOpenAIAdsConsent(false); api.trackEnquiry('booking-denied');
+    api.setOpenAIAdsConsent(true); api.trackEnquiry('booking-1'); output();
   `);
   assert.deepEqual(result.commands, [
     ["consent", false],
@@ -269,7 +269,7 @@ test("loaded SDK receives consent false and later opt-in does not reinitialize o
 test("storage denial preserves consent and deduplication in session memory", () => {
   const result = run(
     `api.setOpenAIAdsConsent(true);
-     api.trackRentalEnquiry('booking-1'); api.trackRentalEnquiry('booking-1'); output();`,
+     api.trackEnquiry('booking-1'); api.trackEnquiry('booking-1'); output();`,
     { blockedStorage: true },
   );
   assert.equal(result.consent, "granted");
@@ -282,13 +282,13 @@ test("storage denial preserves consent and deduplication in session memory", () 
 
 test("saved consent and session deduplication survive a page reload and stay pixel-scoped", () => {
   const result = run(`
-    api.setOpenAIAdsConsent(true); api.trackRentalEnquiry('booking-1');
+    api.setOpenAIAdsConsent(true); api.trackEnquiry('booking-1');
     window.oaiq = undefined; scripts.length = 0;
     delete require.cache[require.resolve(modulePath)]; api = require(modulePath);
-    api.initializeOpenAIAds(); api.trackRentalEnquiry('booking-1');
+    api.initializeOpenAIAds(); api.trackEnquiry('booking-1');
     const afterReload = [...window.oaiq.q];
     process.env.NEXT_PUBLIC_OPENAI_ADS_PIXEL_ID = 'pixel-test-2';
-    api.trackRentalEnquiry('booking-1'); output({afterReload});
+    api.trackEnquiry('booking-1'); output({afterReload});
   `);
   assert.deepEqual(result.afterReload, [
     ["consent", false],
@@ -304,14 +304,14 @@ test("saved consent and session deduplication survive a page reload and stay pix
 
 test("ad blocking, script insertion failures, and throwing SDK functions never break submission", () => {
   const blocked = run(`
-    api.setOpenAIAdsConsent(true); api.trackRentalEnquiry('booking-before-error');
+    api.setOpenAIAdsConsent(true); api.trackEnquiry('booking-before-error');
     scripts[0].onerror();
-    api.trackRentalEnquiry('booking-1'); api.initializeOpenAIAds(); output();
+    api.trackEnquiry('booking-1'); api.initializeOpenAIAds(); output();
   `);
   assert.deepEqual(blocked.commands, []);
   assert.equal((blocked.scripts as unknown[]).length, 1);
   const failedInsertion = run(
-    `api.setOpenAIAdsConsent(true); api.trackRentalEnquiry('booking-1');
+    `api.setOpenAIAdsConsent(true); api.trackEnquiry('booking-1');
      api.setOpenAIAdsConsent(false); output();`,
     { blockedScript: true },
   );
@@ -319,8 +319,8 @@ test("ad blocking, script insertion failures, and throwing SDK functions never b
   const throwingSDK = run(`
     api.setOpenAIAdsConsent(true); finishLoading();
     window.oaiq = (...command) => {calls.push(command); throw new Error('SDK unavailable');};
-    api.trackRentalEnquiry('booking-1'); api.setOpenAIAdsConsent(false);
-    api.trackRentalEnquiry('booking-after-revoke'); output();
+    api.trackEnquiry('booking-1'); api.setOpenAIAdsConsent(false);
+    api.trackEnquiry('booking-after-revoke'); output();
   `);
   assert.equal(throwingSDK.consent, "denied");
   const commands = throwingSDK.commands as unknown[][];
